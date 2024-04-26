@@ -12,9 +12,9 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-primary: "Montserrat", sans-serif;
-  --font-secondary: "Poppins", sans-serif;
+  --font-default: "Dosis Regular";
+  --font-primary: "Dosis Regular";
+  --font-secondary: "Dosis Medium";
 }
 
 /* Colors */
@@ -75,15 +75,34 @@ section {
   padding-bottom: 60px;
 }
 
-.section-header h2 {
+.section-header h2{
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
 }
+.section-header h5{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
 
 .section-header h2:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--color-primary);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.section-header h5:after {
   content: "";
   position: absolute;
   display: block;
@@ -480,7 +499,7 @@ section {
 /*--------------------------------------------------------------
 # Mobile Navigation
 --------------------------------------------------------------*/
-@media (max-width: 1279px) {
+@media (max-width: 500px) {
   .navbar {
     position: fixed;
     top: 0;
@@ -490,6 +509,7 @@ section {
     bottom: 0;
     transition: 0.3s;
     z-index: 9997;
+    background: rgba(0, 131, 116, 0.9);
   }
 
   .navbar ul {
@@ -501,6 +521,16 @@ section {
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
+  }
+
+  /* Otras reglas de estilo aquí... */
+
+  #navbar-toggle-checkbox {
+    display: none; /* Ocultar el checkbox por defecto */
+  }
+
+  #navbar-toggle-checkbox:checked + .navbar-collapse {
+    right: 0; /* Mostrar la barra de navegación cuando el checkbox está marcado */
   }
 
   .navbar a,
@@ -684,7 +714,9 @@ section {
   left: -15%;
   background: rgba(198, 16, 0, 0);
 }
-
+.about p{
+  font-size: 18px;
+}
 .about .play-btn:after {
   content: "";
   position: absolute;
@@ -1894,14 +1926,14 @@ section {
 .hero .btn-get-started {
   font-family: var(--font-primary);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 17px;
   letter-spacing: 1px;
   display: inline-block;
   padding: 14px 40px;
   border-radius: 50px;
   transition: 0.3s;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  color: black;
+  background: rgba(255, 255, 255);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
@@ -1937,7 +1969,8 @@ section {
 
   .hero .btn-get-started,
   .hero .btn-watch-video {
-    font-size: 14px;
+    font-size: 16px;
+    color: black;
   }
 }
 
@@ -2555,7 +2588,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  font-size: 14px;
+  font-size: 18px;
   background-color: var(--color-primary);
   padding: 50px 0;
   color: white;
@@ -2580,7 +2613,7 @@ section {
 }
 
 .footer .footer-info p {
-  font-size: 14px;
+  font-size: 18px;
   font-family: var(--font-primary);
 }
 
@@ -2604,7 +2637,7 @@ section {
 }
 
 .footer h4 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   position: relative;
   padding-bottom: 12px;
@@ -2623,7 +2656,7 @@ section {
 .footer .footer-links ul i {
   padding-right: 2px;
   color: rgba(0, 131, 116, 0.8);
-  font-size: 12px;
+  font-size: 18px;
   line-height: 0;
 }
 
@@ -2659,9 +2692,13 @@ section {
 .footer .credits {
   padding-top: 4px;
   text-align: center;
-  font-size: 13px;
+  font-size: 18px;
 }
 
 .footer .credits a {
   color: #fff;
 }
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }

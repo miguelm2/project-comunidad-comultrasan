@@ -10,15 +10,13 @@
    <meta content="" name="keywords">
 
    <!-- Favicons -->
-   <link href="assets/img/favicon.png" rel="icon">
+   <link href="assets/image/favicon_0.ico" rel="icon">
    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
    <!-- Google Fonts -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
 
    <!-- Vendor CSS Files -->
    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,14 +27,6 @@
 
    <!-- Template Main CSS File -->
    <link href="assets/css/main.css" rel="stylesheet">
-
-   <!-- =======================================================
-  * Template Name: Impact
-  * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
-  * Updated: Apr 4 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -49,23 +39,19 @@
    <section id="hero" class="hero">
       <div class="container position-relative">
          <div class="row gy-5" data-aos="fade-in">
-            <div
-               class="col-lg-7 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
+            <div class="col-lg-7 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
                <h2>Bienvenido a la Comunidad <br>Familia <span>Comultrasan</span></h2>
-               <p>Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum
-                  quaerat.</p>
+               <p class="text-white" style="font-size: 20px;">
+                  Estamos emocionados de
+                  tenerte aquí, donde encontrarás un espacio dedicado a compartir conocimientos, consejos y experiencias sobre todo lo
+                  relacionado con el mundo financiero.
+               </p>
                <div class="d-flex justify-content-center justify-content-lg-start">
-                  <a href="#about" class="btn-get-started">Empezemos</a>
-                  <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ"
-                     class="glightbox btn-watch-video d-flex align-items-center">
-                     <i class="bi bi-play-circle"></i>
-                     <span>Ver video</span>
-                  </a>
+                  <a href="#about" class="btn-get-started"><i class="bi bi-house-add-fill"></i> ¡Empezemos!</a>
                </div>
             </div>
             <div class="col-lg-5 order-1 order-lg-2">
-               <img src="assets/img/imagen_banner.webp" class="img-fluid" alt="" data-aos="zoom-out"
-                  data-aos-delay="100">
+               <img src="assets/img/imagen_banner.webp" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="100">
             </div>
          </div>
       </div>
@@ -83,14 +69,14 @@
 
                <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="200">
                   <div class="icon-box">
-                     <div class="icon"><i class="bi bi-gem"></i></div>
+                     <div class="icon"><i class="bi bi-star-fill"></i></div>
                      <h4 class="title"><a href="" class="stretched-link">Puntos</a></h4>
                   </div>
                </div><!--End Icon Box -->
 
                <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="300">
                   <div class="icon-box">
-                     <div class="icon"><i class="bi bi-geo-alt"></i></div>
+                     <div class="icon"><i class="bi bi-person-arms-up"></i></div>
                      <h4 class="title"><a href="" class="stretched-link">Comunidad</a></h4>
                   </div>
                </div><!--End Icon Box -->
@@ -107,33 +93,34 @@
    <main id="main">
 
       <!-- ======= About Us Section ======= -->
-      <section id="about" class="about">
+      <section id="beneficios" class="about">
          <div class="container" data-aos="fade-up">
 
             <div class="section-header">
                <h2>Beneficios</h2>
-               <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id
-                  nobis omnis tiledo stran delop</p>
+               <p>
+                  ¡Descubre los increíbles beneficios de formar parte de nuestra comunidad financiera! Aquí no solo encontrarás asesoramiento
+                  experto y recursos útiles, sino también una red de personas comprometidas como tú, dispuestas a compartir sus conocimientos
+                  y experiencias.
+               </p>
             </div>
 
             <div class="row gy-4">
                <div class="col-lg-6">
-                  <h3>Voluptatem dignissimos provident quasi corporis</h3>
+                  <h3>Conoce más de nuestros beneficios</h3>
                   <img src="assets/img/beneficios_comunidad.png" class="img-fluid rounded-4 mb-4" alt="">
-                  <p>Ut fugiat ut sunt quia veniam. Voluptate perferendis perspiciatis quod nisi et. Placeat debitis
-                     quia recusandae odit et consequatur voluptatem. Dignissimos pariatur consectetur fugiat voluptas
-                     ea.</p>
-                  <p>Temporibus nihil enim deserunt sed ea. Provident sit expedita aut cupiditate nihil vitae quo
-                     officia vel. Blanditiis eligendi possimus et in cum. Quidem eos ut sint rem veniam qui. Ut ut
-                     repellendus nobis tempore doloribus debitis explicabo similique sit. Accusantium sed ut omnis
-                     beatae neque deleniti repellendus.</p>
+                  <p></p>
+                  <p>
+                     ¡Descubre los increíbles beneficios de formar parte de nuestra comunidad financiera! Aquí no solo encontrarás asesoramiento
+                     experto y recursos útiles, sino también una red de personas comprometidas como tú, dispuestas a compartir sus conocimientos
+                     y experiencias.
+                  </p>
                </div>
                <div class="col-lg-6">
                   <div class="content ps-0 ps-lg-5">
                      <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua.
+                        ¡Bienvenido a nuestra comunidad financiera, donde los beneficios abundan para aquellos que deciden unirse a nosotros!
+                        Aquí encontrarás un mundo de oportunidades financieras que van más allá de lo convencional.
                      </p>
                      <ul>
                         <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo
@@ -145,10 +132,8 @@
                            dolore eu fugiat nulla pariatur.</li>
                      </ul>
                      <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident
+                        Únete a nosotros y descubre cómo cada día te acercamos más a tus metas financieras. ¡Te esperamos para comenzar
+                        este emocionante viaje juntos!
                      </p>
 
                      <div class="position-relative mt-4">
@@ -165,7 +150,7 @@
 
 
       <!-- ======= Stats Counter Section ======= -->
-      <section id="stats-counter" class="stats-counter">
+      <section id="comunidad" class="stats-counter">
          <div class="container" data-aos="fade-up">
 
             <div class="row gy-4 align-items-center">
@@ -182,26 +167,22 @@
                      </div>
                   </div>
                   <div class="stats-item d-flex align-items-center">
-                     <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                        class="purecounter"></span>
+                     <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
                      <h3><strong>Clientes Felices</strong></h3>
                   </div><!-- End Stats Item -->
 
                   <div class="stats-item d-flex align-items-center">
-                     <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                        class="purecounter"></span>
+                     <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
                      <h3><strong>Lideres Registrados</strong></h3>
                   </div><!-- End Stats Item -->
 
                   <div class="stats-item d-flex align-items-center">
-                     <span data-purecounter-start="0" data-purecounter-end="453" data-purecounter-duration="1"
-                        class="purecounter"></span>
+                     <span data-purecounter-start="0" data-purecounter-end="453" data-purecounter-duration="1" class="purecounter"></span>
                      <h3><strong>Puntos Recibidos</strong></h3>
                   </div><!-- End Stats Item -->
 
                   <div class="stats-item d-flex align-items-center">
-                     <span data-purecounter-start="0" data-purecounter-end="653" data-purecounter-duration="1"
-                        class="purecounter"></span>
+                     <span data-purecounter-start="0" data-purecounter-end="653" data-purecounter-duration="1" class="purecounter"></span>
                      <h3><strong>Grupos Formados</strong></h3>
                   </div><!-- End Stats Item -->
 
@@ -216,22 +197,24 @@
       <section id="call-to-action" class="call-to-action">
          <div class="container text-center" data-aos="zoom-out">
             <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-            <h3>Video Promocional</h3>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-               laborum.</p>
+            <h3>¡Conoce más de nosotros!</h3>
+            <p> 
+               Conoce más de nosotros y de nuestra comunidad en la cual queremos ofrecerte beneficios entre otras cosas...
+            </p>
             <a class="cta-btn" href="#">Ver Video</a>
          </div>
       </section><!-- End Call To Action Section -->
 
       <!-- ======= Our Services Section ======= -->
-      <section id="services" class="services sections-bg">
+      <section id="puntos" class="services sections-bg">
          <div class="container" data-aos="fade-up">
 
             <div class="section-header">
                <h2>Como Obtener Puntos</h2>
-               <p>Aperiam dolorum et et wuia molestias qui eveniet numquam nihil porro incidunt dolores placeat sunt id
-                  nobis omnis tiledo stran delop</p>
+               <p>
+                  En Comultrasan, valoramos tu compromiso con nosotros. Por eso, hemos creado un sistema de puntos que te recompensa
+                  por tu participación activa en nuestra comunidad. ¡Es fácil acumular puntos y desbloquear fantásticos beneficios!
+               </p>
             </div>
 
             <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
@@ -295,15 +278,12 @@
                      <div class="testimonial-wrap">
                         <div class="testimonial-item">
                            <div class="d-flex align-items-center">
-                              <img src="assets/img/testimonials/testimonials-1.jpg"
-                                 class="testimonial-img flex-shrink-0" alt="">
+                              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img flex-shrink-0" alt="">
                               <div>
                                  <h3>Saul Goodman</h3>
                                  <h4>Ceo &amp; Founder</h4>
                                  <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                       class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                       class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                  </div>
                               </div>
                            </div>
@@ -322,15 +302,12 @@
                      <div class="testimonial-wrap">
                         <div class="testimonial-item">
                            <div class="d-flex align-items-center">
-                              <img src="assets/img/testimonials/testimonials-2.jpg"
-                                 class="testimonial-img flex-shrink-0" alt="">
+                              <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img flex-shrink-0" alt="">
                               <div>
                                  <h3>Sara Wilsson</h3>
                                  <h4>Designer</h4>
                                  <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                       class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                       class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                  </div>
                               </div>
                            </div>
@@ -349,15 +326,12 @@
                      <div class="testimonial-wrap">
                         <div class="testimonial-item">
                            <div class="d-flex align-items-center">
-                              <img src="assets/img/testimonials/testimonials-3.jpg"
-                                 class="testimonial-img flex-shrink-0" alt="">
+                              <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img flex-shrink-0" alt="">
                               <div>
                                  <h3>Jena Karlis</h3>
                                  <h4>Store Owner</h4>
                                  <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                       class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                                       class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                                  </div>
                               </div>
                            </div>
@@ -392,10 +366,11 @@
 
                <div class="col-lg-4">
                   <div class="content px-xl-5">
-                     <h3>Preguntas Frecuentes <strong>Questions</strong></h3>
-                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                     <h3>Preguntas Frecuentes</h3>
+                     <p style="color:black;">
+                        En Comultrasan, entendemos que cada paso en tu camino financiero puede venir acompañado de preguntas
+                        y dudas. Por eso, hemos reunido esta sección para ofrecerte respuestas claras y concisas a las consultas más comunes
+                        que nuestros clientes suelen tener.
                      </p>
                   </div>
                </div>
@@ -406,8 +381,7 @@
 
                      <div class="accordion-item">
                         <h3 class="accordion-header">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#faq-content-1">
+                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                               <span class="num">1.</span>
                               Pregunta Frecuenta Numero 1
                            </button>
@@ -423,8 +397,7 @@
 
                      <div class="accordion-item">
                         <h3 class="accordion-header">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#faq-content-2">
+                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                               <span class="num">2.</span>
                               Pregunta Frecuenta Numero 2
                            </button>
@@ -441,8 +414,7 @@
 
                      <div class="accordion-item">
                         <h3 class="accordion-header">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#faq-content-3">
+                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                               <span class="num">3.</span>
                               Pregunta Frecuenta Numero 3
                            </button>
@@ -459,8 +431,7 @@
 
                      <div class="accordion-item">
                         <h3 class="accordion-header">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#faq-content-4">
+                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
                               <span class="num">4.</span>
                               Pregunta Frecuenta Numero 4
                            </button>
@@ -477,8 +448,7 @@
 
                      <div class="accordion-item">
                         <h3 class="accordion-header">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                              data-bs-target="#faq-content-5">
+                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
                               <span class="num">5.</span>
                               Pregunta Frecuenta Numero 5
                            </button>
@@ -507,8 +477,7 @@
       <!-- End Footer -->
 
    </main><!-- End #main -->
-   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
-         class="bi bi-arrow-up-short"></i></a>
+   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
    <div id="preloader"></div>
 
