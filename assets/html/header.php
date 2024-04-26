@@ -3,7 +3,7 @@
         <a href="index" class="logo d-flex align-items-center">
             <img src="/assets/image/logo_principal.png" alt="Logo" style="max-width: 300px;">
         </a>
-        <nav id="navbar" class="navbar ">
+        <nav id="navbar" class="navbar">
             <ul>
                 <li>
                     <a class="text-white" style="font-size: 18px;" href="index">
@@ -43,6 +43,8 @@
                 </li>
             </ul>
         </nav><!-- .navbar -->
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
     </div>
 </header><!-- End Header -->
 <!-- End Header -->

@@ -499,7 +499,7 @@ section {
 /*--------------------------------------------------------------
 # Mobile Navigation
 --------------------------------------------------------------*/
-@media (max-width: 500px) {
+@media (max-width: 1279px) {
   .navbar {
     position: fixed;
     top: 0;
@@ -509,7 +509,6 @@ section {
     bottom: 0;
     transition: 0.3s;
     z-index: 9997;
-    background: rgba(0, 131, 116, 0.9);
   }
 
   .navbar ul {
@@ -521,16 +520,6 @@ section {
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
-  }
-
-  /* Otras reglas de estilo aquí... */
-
-  #navbar-toggle-checkbox {
-    display: none; /* Ocultar el checkbox por defecto */
-  }
-
-  #navbar-toggle-checkbox:checked + .navbar-collapse {
-    right: 0; /* Mostrar la barra de navegación cuando el checkbox está marcado */
   }
 
   .navbar a,
