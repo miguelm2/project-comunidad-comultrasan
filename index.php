@@ -47,7 +47,7 @@
                   relacionado con el mundo financiero.
                </p>
                <div class="d-flex justify-content-center justify-content-lg-start">
-                  <a href="#about" class="btn-get-started"><i class="bi bi-house-add-fill"></i> ¡Empezemos!</a>
+                  <a href="#comunidad" class="btn-get-started"><i class="bi bi-house-add-fill"></i> ¡Empezemos!</a>
                </div>
             </div>
             <div class="col-lg-5 order-1 order-lg-2">
@@ -63,21 +63,21 @@
                <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="100">
                   <div class="icon-box">
                      <div class="icon"><i class="bi bi-easel"></i></div>
-                     <h4 class="title"><a href="" class="stretched-link">Beneficios</a></h4>
+                     <h4 class="title"><a href="#beneficios" class="stretched-link">Beneficios</a></h4>
                   </div>
                </div><!--End Icon Box -->
 
                <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="200">
                   <div class="icon-box">
                      <div class="icon"><i class="bi bi-star-fill"></i></div>
-                     <h4 class="title"><a href="" class="stretched-link">Puntos</a></h4>
+                     <h4 class="title"><a href="#puntos" class="stretched-link">Puntos</a></h4>
                   </div>
                </div><!--End Icon Box -->
 
                <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="300">
                   <div class="icon-box">
                      <div class="icon"><i class="bi bi-person-arms-up"></i></div>
-                     <h4 class="title"><a href="" class="stretched-link">Comunidad</a></h4>
+                     <h4 class="title"><a href="#comunidad" class="stretched-link">Comunidad</a></h4>
                   </div>
                </div><!--End Icon Box -->
 
@@ -198,7 +198,7 @@
          <div class="container text-center" data-aos="zoom-out">
             <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
             <h3>¡Conoce más de nosotros!</h3>
-            <p> 
+            <p>
                Conoce más de nosotros y de nuestra comunidad en la cual queremos ofrecerte beneficios entre otras cosas...
             </p>
             <a class="cta-btn" href="#">Ver Video</a>
@@ -222,36 +222,35 @@
                <div class="col-lg-4 col-md-6">
                   <div class="service-item  position-relative">
                      <div class="icon">
-                        <i class="bi bi-activity"></i>
+                        <i class="bi bi-1-circle"></i>
                      </div>
-                     <h3>Nesciunt Mete</h3>
-                     <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure
-                        perferendis tempore et consequatur.</p>
-                     <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                     <h3>Paso N° 1</h3>
+                     <p>Colocar paso 1 de como ganar puntos</p>
+                     <a href="#" class="readmore stretched-link">Leer más <i class="bi bi-arrow-right"></i></a>
                   </div>
                </div><!-- End Service Item -->
 
                <div class="col-lg-4 col-md-6">
                   <div class="service-item position-relative">
                      <div class="icon">
-                        <i class="bi bi-broadcast"></i>
+                        <i class="bi bi-2-circle"></i>
                      </div>
-                     <h3>Eosle Commodi</h3>
-                     <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic
-                        non ut nesciunt dolorem.</p>
-                     <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                     <h3>Paso N°2</h3>
+                     <p>Colcar paso 2 de como ganar puntos</p>
+                     <a href="#" class="readmore stretched-link">Leer más<i class="bi bi-arrow-right"></i></a>
                   </div>
                </div><!-- End Service Item -->
 
                <div class="col-lg-4 col-md-6">
                   <div class="service-item position-relative">
                      <div class="icon">
-                        <i class="bi bi-easel"></i>
+                        <i class="bi bi-3-circle"></i>
                      </div>
-                     <h3>Ledo Markt</h3>
-                     <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas
-                        adipisci eos earum corrupti.</p>
-                     <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                     <h3>Paso N°3</h3>
+                     <p>
+                        Colocar paso 3 como ganar puntos
+                     </p>
+                     <a href="#" class="readmore stretched-link">Leer más <i class="bi bi-arrow-right"></i></a>
                   </div>
                </div><!-- End Service Item -->
 
@@ -267,8 +266,11 @@
 
             <div class="section-header">
                <h2>Testimonios</h2>
-               <p>Voluptatem quibusdam ut ullam perferendis repellat non ut consequuntur est eveniet deleniti
-                  fignissimos eos quam</p>
+               <p>
+                  Descubre el poder de la comunidad financiera: un espacio donde los sueños se convierten en realidad
+                  y los objetivos financieros se alcanzan con confianza. Únete a nosotros y experimenta el respaldo,
+                  la orientación y las oportunidades que solo una comunidad comprometida puede ofrecer.
+               </p>
             </div>
 
             <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
@@ -289,9 +291,8 @@
                            </div>
                            <p>
                               <i class="bi bi-quote quote-icon-left"></i>
-                              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
-                              Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at
-                              semper.
+                              Como miembro de esta comunidad financiera, he experimentado un nivel excepcional de apoyo y 
+                              asesoramiento. ¡No podría estar más satisfecho con el servicio que brindan!
                               <i class="bi bi-quote quote-icon-right"></i>
                            </p>
                         </div>
@@ -313,9 +314,8 @@
                            </div>
                            <p>
                               <i class="bi bi-quote quote-icon-left"></i>
-                              Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum
-                              eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim
-                              culpa.
+                              Como parte de esta comunidad financiera, he recibido un apoyo y orientación excepcionales. ¡No puedo estar más 
+                              satisfecho con el servicio que ofrecen!
                               <i class="bi bi-quote quote-icon-right"></i>
                            </p>
                         </div>
@@ -337,8 +337,9 @@
                            </div>
                            <p>
                               <i class="bi bi-quote quote-icon-left"></i>
-                              Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam
-                              duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                              Ser parte de esta comunidad financiera ha sido una experiencia transformadora. El apoyo y la 
+                              orientación que he recibido han sido fundamentales para alcanzar mis metas financieras de 
+                              forma segura y eficiente.
                               <i class="bi bi-quote quote-icon-right"></i>
                            </p>
                         </div>
