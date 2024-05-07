@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Page.php'; ?>
 <!doctype html>
 <html lang="en">
 
@@ -71,7 +72,8 @@
                                 </div>
                                 <div class="form-group">
                                     <br>
-                                    <button type="submit" class="form-control btn btn-success rounded submit px-3"><i class="bi bi-box-arrow-in-right"></i> Ingresar</button>
+                                    <button type="submit" class="form-control btn btn-success rounded submit px-3" name="ingresar">
+                                        <i class="bi bi-box-arrow-in-right"></i> Ingresar</button>
                                 </div>
                                 <div class="form-group d-md-flex">
                                     <div class="text-center">
