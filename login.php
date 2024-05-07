@@ -1,4 +1,3 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Page.php'; ?>
 <!doctype html>
 <html lang="en">
 
