@@ -6,7 +6,7 @@
                     ©
                     <script>
                         document.write(new Date().getFullYear())
-                    </script> Desarrolado por Kondory tecnología SAS
+                    </script> Desarrollado por Kondory Tecnología S.A.S.
                 </div>
             </div>
         </div>
