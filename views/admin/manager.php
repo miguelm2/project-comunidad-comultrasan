@@ -100,14 +100,14 @@
                         <td>
                            <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
-                                 <h6 class="mb-0 text-sm">Usuario 1</h6>
+                                 <h6 class="mb-0 text-sm">Gestor 1</h6>
                               </div>
                            </div>
                         </td>
                         <td>
                            <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
-                                 <h6 class="mb-0 text-sm">usuario1@mail.com</h6>
+                                 <h6 class="mb-0 text-sm">gestor1@mail.com</h6>
                               </div>
                            </div>
                         </td>
@@ -129,7 +129,7 @@
                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="#" onclick="confirmDelete(event)">
                               <i class="material-icons text-sm me-2">delete</i>Eliminar
                            </a>
-                           <a class="btn btn-link text-dark px-3 mb-0" href="editUser">
+                           <a class="btn btn-link text-dark px-3 mb-0" href="editManager">
                               <i class="material-icons text-sm me-2">edit</i>Editar
                            </a>
                         </td>
@@ -145,14 +145,14 @@
                         <td>
                            <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
-                                 <h6 class="mb-0 text-sm">Usuario 2</h6>
+                                 <h6 class="mb-0 text-sm">Gestor 2</h6>
                               </div>
                            </div>
                         </td>
                         <td>
                            <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
-                                 <h6 class="mb-0 text-sm">usuario2@mail.com</h6>
+                                 <h6 class="mb-0 text-sm">gestor2@mail.com</h6>
                               </div>
                            </div>
                         </td>
@@ -174,7 +174,7 @@
                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="#" onclick="confirmDelete(event)">
                               <i class="material-icons text-sm me-2">delete</i>Eliminar
                            </a>
-                           <a class="btn btn-link text-dark px-3 mb-0" href="editUser">
+                           <a class="btn btn-link text-dark px-3 mb-0" href="editManager">
                               <i class="material-icons text-sm me-2">edit</i>Editar
                            </a>
                         </td>
@@ -190,14 +190,14 @@
                         <td>
                            <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
-                                 <h6 class="mb-0 text-sm">Usuario 3</h6>
+                                 <h6 class="mb-0 text-sm">Gestor 3</h6>
                               </div>
                            </div>
                         </td>
                         <td>
                            <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
-                                 <h6 class="mb-0 text-sm">usuario3@mail.com</h6>
+                                 <h6 class="mb-0 text-sm">gestor3@mail.com</h6>
                               </div>
                            </div>
                         </td>
@@ -219,7 +219,7 @@
                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="#" onclick="confirmDelete(event)">
                               <i class="material-icons text-sm me-2">delete</i>Eliminar
                            </a>
-                           <a class="btn btn-link text-dark px-3 mb-0" href="editUser">
+                           <a class="btn btn-link text-dark px-3 mb-0" href="editManager">
                               <i class="material-icons text-sm me-2">edit</i>Editar
                            </a>
                         </td>

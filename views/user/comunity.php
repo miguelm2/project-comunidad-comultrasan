@@ -42,32 +42,51 @@
       </nav>
       <div class="card">
          <div class="card-head">
-            <div class="col-10 m-4">
-               <h4>
-                  Nombre de la Comunidad
-               </h4>
-            </div>
-         </div>
-         <div class="card-body">
-            <div>
+            <div class="card-body">
+               <h4>Mi comunidad</h4>
                <h5>Información de la comunidad</h5>
-               <div>
-                  <p style="color: black;">Nombre del lider: Lider de la comunidad</p>
-                  <p style="color: black;">Cantidad de personas que integran la comunidad: #</p>
+               <div class="row">
+                  <div class="col-6">
+                     <h6>Nombre: </h6>
+                     <p>Nombre de la comunidad</p>
+                  </div>
+                  <div class="col-6">
+                     <h6>Lider de la comunidad</h6>
+                     <p>Nombre del lider</p>
+                  </div>
+                  <div class="col-6">
+                     <h6>Personas que integran la comunidad:</h6>
+                     <p>N de personas que la integran</p>
+                  </div>
+                  <div class="col-6">
+                     <h6>Grupo: </h6>
+                     <p>Nombre del grupo</p>
+                  </div>
                </div>
                <h5>Mis datos</h5>
-               <div>
-                  <p style="color:black;">Nombre: Nombre del usuario</p>
-                  <p style="color:black;">Correo: correousuario@mail.com</p>
-                  <p style="color:black;">Celular: 1234567890</p>
-                  <p style="color:black;">Fecha de registro a esta comunidad: 2020/08/08</p>
+               <div class="row">
+                  <div class="col-6">
+                     <h6>Nombre: </h6>
+                     <p>Nombre Usuario</p>
+                  </div>
+                  <div class="col-6">
+                     <h6>Correo: </h6>
+                     <p>usuario@mail.com</p>
+                  </div>
+                  <div class="col-6">
+                     <h6>Celular: </h6>
+                     <p>1234567890</p>
+                  </div>
+                  <div class="col-6">
+                     <h6>Direccion: </h6>
+                     <p>Direccion del usuario</p>
+                  </div>
                </div>
             </div>
          </div>
-      </div>
-      <!-- Start footer -->
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/views/assets/html/footer_admin.php'; ?>
-      <!-- End fooeter -->
+         <!-- Start footer -->
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/views/assets/html/footer_admin.php'; ?>
+         <!-- End fooeter -->
    </main>
    <div class="fixed-plugin">
       <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">

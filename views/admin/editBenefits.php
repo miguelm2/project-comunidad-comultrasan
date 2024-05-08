@@ -23,7 +23,7 @@
 
 <body class="g-sidenav-show  bg-gray-200">
    <!-- Start Slider -->
-   <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/views/assets/html/slider_gestor.php'; ?>
+   <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/views/assets/html/slider_admin.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
       <!-- Navbar -->
@@ -31,8 +31,9 @@
          <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                  <li class="breadcrumb-item "><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                  <li class="breadcrumb-item  text-dark active" aria-current="page">Beneficios</li>
+                  <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+                  <li class="breadcrumb-item text-sm"><a class="opcaity-5 text-dark" href="benefits">Beneficios</a></li>
+                  <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Nuevo Beneficio</li>
                </ol>
             </nav>
             <!-- Start header -->
@@ -41,102 +42,75 @@
          </div>
       </nav>
       <div class="card">
-         <div class="row mt-2 mp-2">
-            <div class="col-8 m-4">
-               <div class="card-head">
-                  <h3>Beneficios</h3>
-               </div>
+         <div class="card-head">
+            <div class="m-4">
+               <h4>
+                  Editar Beneficio
+               </h4>
             </div>
          </div>
          <div class="card-body">
-            <div class="table-responsive">
-               <table class="table align-items-center mb-0">
-                  <thead class="text-center">
-                     <tr>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
-                           Beneficio</th>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Descripción</th>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Fecha</th>
-                     </tr>
-                  </thead>
-                  <tfoot class="text-center">
-                     <tr>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
-                           Beneficio</th>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Descripción</th>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Fecha</th>
-                     </tr>
-                  </tfoot>
-                  <tbody class="text-center">
-                     <tr>
-                        <td>
-                           <div class="px-2 py-1">
-                              <div>
-                                 <h6 class="mb-0 ">Beneficio 1</h6>
-                              </div>
+            <div>
+               <form action="" method="post" class="row g-3">
+                  <div class="row">
+                     <div class="mb-3">
+                        <div class="ms-md-auto pe-md-3 d-flex col-12">
+                           <div class="input-group input-group-outline">
+                              <label class="form-label">Nombre del Beneficio</label>
+                              <input type="text" class="form-control">
                            </div>
-                        </td>
-                        <td>
-                           <div class="px-2 py-1">
-                              <div>
-                                 <h6 class="mb-0 ">Descripción del Beneficio 1</h6>
-                              </div>
+                        </div>
+                     </div>
+                     <div class="mb-3">
+                        <div class="ms-md-auto pe-md-3 d-flex col-12">
+                           <div class="input-group input-group-outline">
+                              <label class="form-label">Descripción</label>
+                              <textarea class="form-control" rows="5"></textarea>
                            </div>
-                        </td>
-                        <td>
-                           <div>
-                              <h6>2024/08/08</h6>
+                        </div>
+                     </div>
+                     <div class="mb-3">
+                        <div class="ms-md-auto pe-md-3 d-flex col-12">
+                           <div class="input-group input-group-outline">
+                              <label class="form-label">Condiciones</label>
+                              <textarea class="form-control" rows="5"></textarea>
                            </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <div class=" px-2 py-1">
-                              <div>
-                                 <h6 class="mb-0 ">Beneficio 2</h6>
-                              </div>
+                        </div>
+                     </div>
+                     <div class="mb-3">
+                        <label for="">Requisitos</label>
+                        <div class="row">
+                           <div class="form-check col-4">
+                              <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1">
+                              <label class="custom-control-label" for="customCheck1">Requisito 1</label>
                            </div>
-                        </td>
-                        <td>
-                           <div class=" px-2 py-1">
-                              <div>
-                                 <h6 class="mb-0 ">Descripción del Beneficio 2</h6>
-                              </div>
+                           <div class="form-check col-4">
+                              <input class="form-check-input" type="checkbox" value="" id="fcustomCheck2">
+                              <label class="custom-control-label" for="customCheck2">Requisito 2</label>
                            </div>
-                        </td>
-                        <td>
-                           <div>
-                              <h6>2024/08/08</h6>
+                           <div class="form-check col-4">
+                              <input class="form-check-input" type="checkbox" value="" id="fcustomCheck3">
+                              <label class="custom-control-label" for="customCheck3">Requisito 3</label>
                            </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           <div class=" px-2 py-1">
-                              <div>
-                                 <h6 class="mb-0 ">Beneficio 3</h6>
-                              </div>
+                           <div class="form-check col-4">
+                              <input class="form-check-input" type="checkbox" value="" id="fcustomCheck4">
+                              <label class="custom-control-label" for="customCheck1">Requisito 4</label>
                            </div>
-                        </td>
-                        <td>
-                           <div class="px-2 py-1">
-                              <div class="">
-                                 <h6 class="mb-0 ">Descripción del Beneficio 3</h6>
-                              </div>
+                           <div class="form-check col-4">
+                              <input class="form-check-input" type="checkbox" value="" id="fcustomCheck5">
+                              <label class="custom-control-label" for="customCheck2">Requisito 5</label>
                            </div>
-                        </td>
-                        <td>
-                           <div>
-                              <h6>2024/08/08</h6>
+                           <div class="form-check col-4">
+                              <input class="form-check-input" type="checkbox" value="" id="fcustomCheck6">
+                              <label class="custom-control-label" for="customCheck3">Requisito 6</label>
                            </div>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <button type="submit" class="col-12 btn btn-success">Editar Beneficio</button>
+                     </div>
+                  </div>
+               </form>
             </div>
          </div>
       </div>
@@ -180,14 +154,14 @@
             <!-- Sidenav Type -->
             <div class="mt-3">
                <h6 class="mb-0">Sidenav Type</h6>
-               <p class="">Choose between 2 different sidenav types.</p>
+               <p class="text-sm">Choose between 2 different sidenav types.</p>
             </div>
             <div class="d-flex">
                <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
                <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
                <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
             </div>
-            <p class=" d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+            <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
             <!-- Navbar Fixed -->
             <div class="mt-3 d-flex">
                <h6 class="mb-0">Navbar Fixed</h6>

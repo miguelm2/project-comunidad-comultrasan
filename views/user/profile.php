@@ -49,51 +49,57 @@
             </div>
          </div>
          <div class="card-body">
-            <div>
-               <form action="" method="post" class="row g-3">
-                  <div class="row">
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Nombre</label>
-                           <input type="text" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Cédula</label>
-                           <input type="number" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Dirección</label>
-                           <input type="text" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Correo</label>
-                           <input type="email" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3 col-6">
-                           <label class="form-label">Celular</label>
-                           <input type="tel" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Contraseña</label>
-                           <input type="password" class="form-control" required>
-                        </div>
-                     </div>
+            <div class="row">
+               <div class="col-md-3 text-center mx-auto mb-4">
+                  <img src="../assets/img/team-2.jpg" alt="" class="img-fluid">
+               </div>
+               <div class="col-md-9">
+                  <form action="" method="post" class="row g-3">
                      <div class="row">
-                        <button type="submit" class="col-6 btn btn-success">Actualizar Mis Datos</button>
-                        <button type="submit" class="col-6 btn btn-info">Cambiar imagen</button>
+                        <div class="col-6">
+                           <div class="input-group input-group-outline my-3">
+                              <label class="form-label">Nombre</label>
+                              <input type="text" class="form-control" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="input-group input-group-outline my-3">
+                              <label class="form-label">Cédula</label>
+                              <input type="number" class="form-control" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="input-group input-group-outline my-3">
+                              <label class="form-label">Dirección</label>
+                              <input type="text" class="form-control" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="input-group input-group-outline my-3">
+                              <label class="form-label">Correo</label>
+                              <input type="email" class="form-control" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="input-group input-group-outline my-3 col-6">
+                              <label class="form-label">Celular</label>
+                              <input type="tel" class="form-control" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="input-group input-group-outline my-3">
+                              <label class="form-label">Contraseña</label>
+                              <input type="password" class="form-control" required>
+                           </div>
+                        </div>
+
                      </div>
-                  </div>
-               </form>
+                  </form>
+               </div>
+               <div class="row">
+                  <button type="submit" class="col-6 btn btn-success">Actualizar Mis Datos</button>
+                  <button type="submit" class="col-6 btn btn-info">Cambiar imagen</button>
+               </div>
             </div>
          </div>
       </div>

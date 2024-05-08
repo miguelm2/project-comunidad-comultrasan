@@ -51,8 +51,8 @@
                         <i class="material-icons opacity-10">star</i>
                      </div>
                      <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">Puntos</p>
-                        <h4 class="mb-0">250</h4>
+                        <p class="text-sm mb-0 text-capitalize">Mis Puntos</p>
+                        <h4 class="mb-0">10</h4>
                      </div>
                   </div>
                </div>
@@ -64,8 +64,8 @@
                         <i class="material-icons opacity-10">people</i>
                      </div>
                      <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">Comunidades</p>
-                        <h4 class="mb-0">20</h4>
+                        <p class="text-sm mb-0 text-capitalize">Mi comunidad</p>
+                        <h4 class="mb-0">Comunidad 1</h4>
                      </div>
                   </div>
                </div>
@@ -74,205 +74,81 @@
                <div class="card">
                   <div class="card-header p-3 pt-2">
                      <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">person</i>
+                        <i class="material-icons opacity-10">groups</i>
                      </div>
                      <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">Nuevas personas</p>
-                        <h4 class="mb-0">15</h4>
+                        <p class="text-sm mb-0 text-capitalize">Mi grupo</p>
+                        <h4 class="mb-0">Grupo 2</h4>
                      </div>
                   </div>
                </div>
             </div>
          </div>
          <div class="row mt-4">
-            <div class="col-lg-4 col-md-6 mt-4 mb-4">
+            <div class="col-lg-6 col-md-6 mt-4 mb-4">
                <div class="card z-index-2 ">
-                  <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                     <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                        <div class="chart">
-                           <canvas id="chart-bars" class="chart-canvas" height="170"></canvas>
-                        </div>
-                     </div>
-                  </div>
                   <div class="card-body">
-                     <h6 class="mb-0">Visitas</h6>
-                     <p class="text-sm">Visitas a la Web</p>
+                     <h5>Mis datos</h5>
+                     <h6>Nombre: </h6>
+                     <p>Nombre Usuario</p>
+                     <h6>Correo: </h6>
+                     <p>usuario@mail.com</p>
+                     <h6>Celular: </h6>
+                     <p>1234567890</p>
+                     <h6>Direccion: </h6>
+                     <p>Direccion del usuario</p>
                   </div>
                </div>
             </div>
-            <div class="col-lg-4 col-md-6 mt-4 mb-4">
-               <div class="card z-index-2  ">
-                  <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                     <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
-                        <div class="chart">
-                           <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="card-body">
-                     <h6 class="mb-0 ">Puntos</h6>
-                     <p class="text-sm ">Puntos entregados por mes</p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-lg-4 mt-4 mb-3">
-               <div class="card z-index-2 ">
-                  <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                     <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
-                        <div class="chart">
-                           <canvas id="chart-line-tasks" class="chart-canvas" height="170"></canvas>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="card-body">
-                     <h6 class="mb-0 ">Beneficios</h6>
-                     <p class="text-sm ">Beneficios que han sido obtenidos por mes</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="row mb-4">
-            <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
+            <div class="col-lg-6 col-md-6 mt-4 mb-4">
                <div class="card">
-                  <div class="card-header pb-0">
-                     <div class="row">
-                        <div class="col-lg-6 col-7">
-                           <h6>Comunidades</h6>
-                           <p class="text-sm mb-0">
-                              <i class="fa fa-check text-info" aria-hidden="true"></i>
-                              <span class="font-weight-bold ms-1">30 comunidades</span> este mes
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="card-body px-0 pb-2">
-                     <div class="table-responsive">
-                        <table class="table align-items-center mb-0">
-                           <thead>
-                              <tr>
-                                 <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
-                                    Comunidad</th>
-                                 <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                                    Miebros</th>
-                                 <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
-                                    Puntos</th>
-                                 <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
-                                    Beneficios</th>
-                              </tr>
-                           </thead>
-                           <tfoot>
-                              <tr>
-                                 <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
-                                    Comunidad</th>
-                                 <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                                    Miebros</th>
-                                 <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
-                                    Puntos</th>
-                                 <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
-                                    Beneficios</th>
-                              </tr>
-                           </tfoot>
-                           <tbody>
-                              <tr>
-                                 <td>
-                                    <div class="d-flex px-2 py-1">
-                                       <div>
-                                          <img src="../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd">
-                                       </div>
-                                       <div class="d-flex flex-column justify-content-center">
-                                          <h6 class="mb-0 text-sm">Comunidad 1</h6>
-                                       </div>
-                                    </div>
-                                 </td>
-                                 <td>
-                                    <div class="avatar-group mt-2">
-                                       <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                                          <img src="../assets/img/team-1.jpg" alt="team1">
-                                       </a>
-                                       <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                                          <img src="../assets/img/team-2.jpg" alt="team2">
-                                       </a>
-                                       <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
-                                          <img src="../assets/img/team-3.jpg" alt="team3">
-                                       </a>
-                                       <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                                          <img src="../assets/img/team-4.jpg" alt="team4">
-                                       </a>
-                                    </div>
-                                 </td>
-                                 <td class="align-middle text-center">
-                                    <span class="text-xs font-weight-bold"> 10 </span>
-                                 </td>
-                                 <td class="align-middle text-center">
-                                    <span class="text-xs font-weight-bold"> 10 </span>
-                                 </td>
-                              </tr>
-                              <tr>
-                                 <td>
-                                    <div class="d-flex px-2 py-1">
-                                       <div>
-                                          <img src="../assets/img/small-logos/logo-atlassian.svg" class="avatar avatar-sm me-3" alt="atlassian">
-                                       </div>
-                                       <div class="d-flex flex-column justify-content-center">
-                                          <h6 class="mb-0 text-sm">Comunidad 2</h6>
-                                       </div>
-                                    </div>
-                                 </td>
-                                 <td>
-                                    <div class="avatar-group mt-2">
-                                       <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                                          <img src="../assets/img/team-2.jpg" alt="team5">
-                                       </a>
-                                       <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                                          <img src="../assets/img/team-4.jpg" alt="team6">
-                                       </a>
-                                    </div>
-                                 </td>
-                                 <td class="align-middle text-center">
-                                    <span class="text-xs font-weight-bold"> 16 </span>
-                                 </td>
-                                 <td class="align-middle text-center">
-                                    <span class="text-xs font-weight-bold"> 10 </span>
-                                 </td>
-                              </tr>
-                              <tr>
-                                 <td>
-                                    <div class="d-flex px-2 py-1">
-                                       <div>
-                                          <img src="../assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm me-3" alt="team7">
-                                       </div>
-                                       <div class="d-flex flex-column justify-content-center">
-                                          <h6 class="mb-0 text-sm">Comunidad 3</h6>
-                                       </div>
-                                    </div>
-                                 </td>
-                                 <td>
-                                    <div class="avatar-group mt-2">
-                                       <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                                          <img src="../assets/img/team-3.jpg" alt="team8">
-                                       </a>
-                                       <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                                          <img src="../assets/img/team-1.jpg" alt="team9">
-                                       </a>
-                                    </div>
-                                 </td>
-                                 <td class="align-middle text-center ">
-                                    <span class="text-xs font-weight-bold">20</span>
-                                 </td>
-                                 <td class="align-middle text-center">
-                                    <span class="text-xs font-weight-bold"> 10 </span>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </div>
+                  <div class="card-body">
+                     <h5>Mi comunidad</h5>
+                     <h6>Nombre: </h6>
+                     <p>Nombre de la comunidad</p>
+                     <h6>Lider: </h6>
+                     <p>Nombre del lider</p>
+                     <h6>Cantidad de usuarios en la comunidad: </h6>
+                     <p>N de usuarios</p>
+                     <h6>Fecha de creación</h6>
+                     <p>fecha de creación</p>
                   </div>
                </div>
             </div>
-            <!-- Start footer -->
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/views/assets/html/footer_admin.php'; ?>
-            <!-- End fooeter -->
+            <div class="col-lg-6 col-md-6 mt-4 mb-4">
+               <div class="card">
+                  <div class="card-body">
+                     <h5>Mi grupo</h5>
+                     <h6>Nombre: </h6>
+                     <p>Nombre del grupo</p>
+                     <h6>Lider: </h6>
+                     <p>Nombre del lider</p>
+                     <h6>Personas en el grupo</h6>
+                     <p>N de personas</p>
+                     <h6>Fecha de ingreso</h6>
+                     <p>Fecha de ingreso al grupo</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6 mt-4 mb-4">
+               <div class="card">
+                  <div class="card-body">
+                     <h5>Mis beneficios</h5>
+                     <h6>Benefios obtenidos</h6>
+                     <p>Beneficios del usuario</p>
+                     <h6>Fecha de obtención</h6>
+                     <p>fecha en que se obtuvieron</p>
+                     <h5>Puntos</h5>
+                     <h6>Mis puntos: </h6>
+                     <p>Puntos obtenidos</p>
+                  </div>
+               </div>
+            </div>
          </div>
+         <!-- Start footer -->
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/views/assets/html/footer_admin.php'; ?>
+         <!-- End fooeter -->
+      </div>
    </main>
    <div class="fixed-plugin">
       <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
@@ -335,263 +211,6 @@
          </div>
       </div>
    </div>
-   <script>
-      var ctx = document.getElementById("chart-bars").getContext("2d");
-
-      new Chart(ctx, {
-         type: "bar",
-         data: {
-            labels: ["L", "Ma", "Mi", "J", "V", "S", "D"],
-            datasets: [{
-               label: "Sales",
-               tension: 0.4,
-               borderWidth: 0,
-               borderRadius: 4,
-               borderSkipped: false,
-               backgroundColor: "rgba(255, 255, 255, .8)",
-               data: [50, 20, 10, 22, 50, 10, 40],
-               maxBarThickness: 6
-            }, ],
-         },
-         options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-               legend: {
-                  display: false,
-               }
-            },
-            interaction: {
-               intersect: false,
-               mode: 'index',
-            },
-            scales: {
-               y: {
-                  grid: {
-                     drawBorder: false,
-                     display: true,
-                     drawOnChartArea: true,
-                     drawTicks: false,
-                     borderDash: [5, 5],
-                     color: 'rgba(255, 255, 255, .2)'
-                  },
-                  ticks: {
-                     suggestedMin: 0,
-                     suggestedMax: 500,
-                     beginAtZero: true,
-                     padding: 10,
-                     font: {
-                        size: 14,
-                        weight: 300,
-                        family: "Roboto",
-                        style: 'normal',
-                        lineHeight: 2
-                     },
-                     color: "#fff"
-                  },
-               },
-               x: {
-                  grid: {
-                     drawBorder: false,
-                     display: true,
-                     drawOnChartArea: true,
-                     drawTicks: false,
-                     borderDash: [5, 5],
-                     color: 'rgba(255, 255, 255, .2)'
-                  },
-                  ticks: {
-                     display: true,
-                     color: '#f8f9fa',
-                     padding: 10,
-                     font: {
-                        size: 14,
-                        weight: 300,
-                        family: "Roboto",
-                        style: 'normal',
-                        lineHeight: 2
-                     },
-                  }
-               },
-            },
-         },
-      });
-
-
-      var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-      new Chart(ctx2, {
-         type: "line",
-         data: {
-            labels: ["Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
-            datasets: [{
-               label: "Mobile apps",
-               tension: 0,
-               borderWidth: 0,
-               pointRadius: 5,
-               pointBackgroundColor: "rgba(255, 255, 255, .8)",
-               pointBorderColor: "transparent",
-               borderColor: "rgba(255, 255, 255, .8)",
-               borderColor: "rgba(255, 255, 255, .8)",
-               borderWidth: 4,
-               backgroundColor: "transparent",
-               fill: true,
-               data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
-               maxBarThickness: 6
-
-            }],
-         },
-         options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-               legend: {
-                  display: false,
-               }
-            },
-            interaction: {
-               intersect: false,
-               mode: 'index',
-            },
-            scales: {
-               y: {
-                  grid: {
-                     drawBorder: false,
-                     display: true,
-                     drawOnChartArea: true,
-                     drawTicks: false,
-                     borderDash: [5, 5],
-                     color: 'rgba(255, 255, 255, .2)'
-                  },
-                  ticks: {
-                     display: true,
-                     color: '#f8f9fa',
-                     padding: 10,
-                     font: {
-                        size: 14,
-                        weight: 300,
-                        family: "Roboto",
-                        style: 'normal',
-                        lineHeight: 2
-                     },
-                  }
-               },
-               x: {
-                  grid: {
-                     drawBorder: false,
-                     display: false,
-                     drawOnChartArea: false,
-                     drawTicks: false,
-                     borderDash: [5, 5]
-                  },
-                  ticks: {
-                     display: true,
-                     color: '#f8f9fa',
-                     padding: 10,
-                     font: {
-                        size: 14,
-                        weight: 300,
-                        family: "Roboto",
-                        style: 'normal',
-                        lineHeight: 2
-                     },
-                  }
-               },
-            },
-         },
-      });
-
-      var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
-
-      new Chart(ctx3, {
-         type: "line",
-         data: {
-            labels: ["Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
-            datasets: [{
-               label: "Mobile apps",
-               tension: 0,
-               borderWidth: 0,
-               pointRadius: 5,
-               pointBackgroundColor: "rgba(255, 255, 255, .8)",
-               pointBorderColor: "transparent",
-               borderColor: "rgba(255, 255, 255, .8)",
-               borderWidth: 4,
-               backgroundColor: "transparent",
-               fill: true,
-               data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-               maxBarThickness: 6
-
-            }],
-         },
-         options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-               legend: {
-                  display: false,
-               }
-            },
-            interaction: {
-               intersect: false,
-               mode: 'index',
-            },
-            scales: {
-               y: {
-                  grid: {
-                     drawBorder: false,
-                     display: true,
-                     drawOnChartArea: true,
-                     drawTicks: false,
-                     borderDash: [5, 5],
-                     color: 'rgba(255, 255, 255, .2)'
-                  },
-                  ticks: {
-                     display: true,
-                     padding: 10,
-                     color: '#f8f9fa',
-                     font: {
-                        size: 14,
-                        weight: 300,
-                        family: "Roboto",
-                        style: 'normal',
-                        lineHeight: 2
-                     },
-                  }
-               },
-               x: {
-                  grid: {
-                     drawBorder: false,
-                     display: false,
-                     drawOnChartArea: false,
-                     drawTicks: false,
-                     borderDash: [5, 5]
-                  },
-                  ticks: {
-                     display: true,
-                     color: '#f8f9fa',
-                     padding: 10,
-                     font: {
-                        size: 14,
-                        weight: 300,
-                        family: "Roboto",
-                        style: 'normal',
-                        lineHeight: 2
-                     },
-                  }
-               },
-            },
-         },
-      });
-   </script>
-   <script>
-      var win = navigator.platform.indexOf('Win') > -1;
-      if (win && document.querySelector('#sidenav-scrollbar')) {
-         var options = {
-            damping: '0.5'
-         }
-         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-      }
-   </script>
-   <!--   Core JS Files   -->
    <script src="../assets/js/core/popper.min.js"></script>
    <script src="../assets/js/core/bootstrap.min.js"></script>
    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>

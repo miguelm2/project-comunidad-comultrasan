@@ -52,7 +52,7 @@
          <div class="card-body">
             <div>
                <div class="row">
-                  <div class="col-md-3 text-center d-flex mx-auto">
+                  <div class="col-md-3 text-center mx-auto mb-3">
                      <img src="../assets/img/team-1.jpg" class="img-fluid"></img>
                   </div>
                   <div class="col-md-9">

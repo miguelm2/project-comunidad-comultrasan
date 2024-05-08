@@ -31,8 +31,9 @@
          <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                  <li class="breadcrumb-item "><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                  <li class="breadcrumb-item  text-dark active" aria-current="page">Beneficios</li>
+                  <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+                  <li class="breadcrumb-item text-sm"><a class="opcaity-5 text-dark" href="comunity">Grupos</a></li>
+                  <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Ver Grupo</li>
                </ol>
             </nav>
             <!-- Start header -->
@@ -41,99 +42,101 @@
          </div>
       </nav>
       <div class="card">
-         <div class="row mt-2 mp-2">
-            <div class="col-8 m-4">
-               <div class="card-head">
-                  <h3>Beneficios</h3>
+         <div class="card-head">
+            <div class="col-10 m-4">
+               <h4>
+                  Ver Grupo
+               </h4>
+            </div>
+         </div>
+         <div class="card-body">
+            <div>
+               <div class="row">
+                  <div class="col-md-3 text-center d-flex mx-auto mb-4">
+                     <img src="../assets/img/bg-smart-home-2.jpg" alt="" class="img-fluid">
+                  </div>
+                  <div class="col-md-9">
+                     <form action="" method="post" class="row g-3">
+                        <div class="row">
+                           <div class="mb-3">
+                              <div class="ms-md-auto pe-md-3 d-flex col-12">
+                                 <div class="input-group input-group-outline">
+                                    <label class="form-label">Nombre del grupo</label>
+                                    <input type="text" class="form-control" disabled>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="mb-3">
+                              <div class="ms-md-auto pe-md-3 d-flex col-12">
+                                 <div class="input-group input-group-outline">
+                                    <label class="form-label">Lider</label>
+                                    <input type="text" class="form-control" disabled>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="mb-3">
+                              <div class="ms-md-auto pe-md-3 d-flex col-12">
+                                 <div class="input-group input-group-outline">
+                                    <label class="form-label">Fecha de registro</label>
+                                    <input type="text" class="form-control" disabled>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="card mt-4">
+         <div class="card-head">
+            <div class="row">
+               <div class="col-8 m-4">
+                  <h4>
+                     Usuarios en el grupo
+                  </h4>
+               </div>
+               <div class="col-3 m-2">
+                  <button class="btn btn-success">Agregar Usuario</button>
                </div>
             </div>
          </div>
          <div class="card-body">
-            <div class="table-responsive">
-               <table class="table align-items-center mb-0">
+            <div>
+               <table class="table">
                   <thead class="text-center">
                      <tr>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
-                           Beneficio</th>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Descripción</th>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Fecha</th>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Celular</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
-                     <tr>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
-                           Beneficio</th>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Descripción</th>
-                        <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Fecha</th>
-                     </tr>
+                     <th>ID</th>
+                     <th>Nombre</th>
+                     <th>Correo</th>
+                     <th>Celular</th>
                   </tfoot>
                   <tbody class="text-center">
                      <tr>
-                        <td>
-                           <div class="px-2 py-1">
-                              <div>
-                                 <h6 class="mb-0 ">Beneficio 1</h6>
-                              </div>
-                           </div>
-                        </td>
-                        <td>
-                           <div class="px-2 py-1">
-                              <div>
-                                 <h6 class="mb-0 ">Descripción del Beneficio 1</h6>
-                              </div>
-                           </div>
-                        </td>
-                        <td>
-                           <div>
-                              <h6>2024/08/08</h6>
-                           </div>
-                        </td>
+                        <td>1</td>
+                        <td>Juan</td>
+                        <td>juan@example.com</td>
+                        <td>1234567890</td>
                      </tr>
                      <tr>
-                        <td>
-                           <div class=" px-2 py-1">
-                              <div>
-                                 <h6 class="mb-0 ">Beneficio 2</h6>
-                              </div>
-                           </div>
-                        </td>
-                        <td>
-                           <div class=" px-2 py-1">
-                              <div>
-                                 <h6 class="mb-0 ">Descripción del Beneficio 2</h6>
-                              </div>
-                           </div>
-                        </td>
-                        <td>
-                           <div>
-                              <h6>2024/08/08</h6>
-                           </div>
-                        </td>
+                        <td>2</td>
+                        <td>María</td>
+                        <td>maria@example.com</td>
+                        <td>9876543210</td>
                      </tr>
                      <tr>
-                        <td>
-                           <div class=" px-2 py-1">
-                              <div>
-                                 <h6 class="mb-0 ">Beneficio 3</h6>
-                              </div>
-                           </div>
-                        </td>
-                        <td>
-                           <div class="px-2 py-1">
-                              <div class="">
-                                 <h6 class="mb-0 ">Descripción del Beneficio 3</h6>
-                              </div>
-                           </div>
-                        </td>
-                        <td>
-                           <div>
-                              <h6>2024/08/08</h6>
-                           </div>
-                        </td>
+                        <td>3</td>
+                        <td>Carlos</td>
+                        <td>carlos@example.com</td>
+                        <td>5555555555</td>
                      </tr>
                   </tbody>
                </table>
@@ -180,14 +183,14 @@
             <!-- Sidenav Type -->
             <div class="mt-3">
                <h6 class="mb-0">Sidenav Type</h6>
-               <p class="">Choose between 2 different sidenav types.</p>
+               <p class="text-sm">Choose between 2 different sidenav types.</p>
             </div>
             <div class="d-flex">
                <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
                <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
                <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
             </div>
-            <p class=" d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+            <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
             <!-- Navbar Fixed -->
             <div class="mt-3 d-flex">
                <h6 class="mb-0">Navbar Fixed</h6>
@@ -204,6 +207,7 @@
             </div>
          </div>
       </div>
+
    </div>
    <!--   Core JS Files   -->
    <script src="../assets/js/core/popper.min.js"></script>
@@ -211,6 +215,9 @@
    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
    <script src="../assets/js/plugins/chartjs.min.js"></script>
+
+   <!-- Github buttons -->
+   <script async defer src="https://buttons.github.io/buttons.js"></script>
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
 </body>

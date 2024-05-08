@@ -45,13 +45,16 @@
          <div class="card-head">
             <div class="col-10 m-4">
                <h4>
-                  Nueva Comunidad
+                  Comunidad
                </h4>
             </div>
          </div>
          <div class="card-body">
-            <div>
-               <div class="row">
+            <div class="row">
+               <div class="col-md-3 text-center d-flex mx-auto mb-4">
+                  <img src="../assets/img/bg-smart-home-1.jpg" alt="" class="img-fluid">
+               </div>
+               <div class="col-md-9">
                   <div class="mb-3">
                      <div class="ms-md-auto pe-md-3 d-flex col-12">
                         <div class="input-group input-group-outline">
@@ -82,34 +85,51 @@
             <div class="row">
                <div class="col-8 m-4">
                   <h4>
-                     Usuarios en la comunidad
+                     Grupos en la comunidad
                   </h4>
                </div>
                <div class="col-3 m-2">
-                  <button class="btn btn-success">Agregar Usuario</button>
+                  <button class="btn btn-success">Agregar Grupo</button>
                </div>
             </div>
          </div>
          <div class="card-body">
             <div>
-               <table class="table">
+            <table class="table">
                   <thead class="text-center">
                      <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Correo</th>
-                        <th>Celular</th>
+                        <th>Grupo</th>
+                        <th>Líder</th>
+                        <th>Cantidad de usuarios</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
-                     <th>ID</th>
-                     <th>Nombre</th>
-                     <th>Correo</th>
-                     <th>Celular</th>
+                     <tr>
+                        <th>ID</th>
+                        <th>Grupo</th>
+                        <th>Líder</th>
+                        <th>Cantidad de usuarios</th>
+                     </tr>
                   </tfoot>
                   <tbody class="text-center">
                      <tr>
-                        <td>No hay datos</td>
+                        <td>1</td>
+                        <td>Grupo A</td>
+                        <td>Líder 1</td>
+                        <td>23</td>
+                     </tr>
+                     <tr>
+                        <td>2</td>
+                        <td>Grupo B</td>
+                        <td>Líder 2</td>
+                        <td>17</td>
+                     </tr>
+                     <tr>
+                        <td>3</td>
+                        <td>Grupo C</td>
+                        <td>Líder 3</td>
+                        <td>35</td>
                      </tr>
                   </tbody>
                </table>
@@ -183,16 +203,13 @@
 
    </div>
    <!--   Core JS Files   -->
-   <script src="assets/js/core/popper.min.js"></script>
-   <script src="assets/js/core/bootstrap.min.js"></script>
-   <script src="assets/js/plugins/perfect-scrollbar.min.js"></script>
-   <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
-   <script src="assets/js/plugins/chartjs.min.js"></script>
-
-   <!-- Github buttons -->
-   <script async defer src="https://buttons.github.io/buttons.js"></script>
+   <script src="../assets/js/core/popper.min.js"></script>
+   <script src="../assets/js/core/bootstrap.min.js"></script>
+   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+   <script src="../assets/js/plugins/chartjs.min.js"></script>
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-   <script src="assets/js/material-dashboard.min.js?v=3.1.0"></script>
+   <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
 </body>
 
 </html>
