@@ -29,7 +29,7 @@
 
 </head>
 
-<body style="">
+<body>
     <!-- Start Header -->
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
     <!-- End Header -->
@@ -73,19 +73,24 @@
                                     <br>
                                     <button type="submit" class="form-control btn btn-success rounded submit px-3" name="ingresar">
                                         <i class="bi bi-box-arrow-in-right"></i> Ingresar</button>
+                                    <div class="row m-4">
+                                        <a href="/views/admin/" class="btn btn-primary mb-2">Ingresar como administrador</a>
+                                        <a href="/views/gestor/" class="btn btn-secondary mb-2">Ingresar como gestor</a>
+                                        <a href="/views/user/" class="btn btn-info mb-2">Ingresar como usuario</a>
+                                    </div>
                                 </div>
                                 <div class="form-group d-md-flex">
                                     <div class="text-center">
                                         <br>
                                         <p class="text-center">
-                                            <a href="#" style="color:black;">Olvide mi contraseña</a> |
+                                            <a href="forget_pass" style="color:black;">Olvide mi contraseña</a> |
                                             <a href="index" style="color:black;">Volver a inicio</a>
                                         </p>
                                         <p class="text-center">¿No perteneces a la comunidad? <a data-toggle="tab" href="singup">Unete</a></p>
                                     </div>
                                 </div>
                             </form>
-                            
+
                         </div>
                     </div>
                 </div>

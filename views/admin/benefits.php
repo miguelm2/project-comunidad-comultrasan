@@ -96,7 +96,7 @@
                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="#" onclick="confirmDelete(event)">
                               <i class="material-icons text-sm me-2">delete</i>Eliminar
                            </a>
-                           <a class="btn btn-link text-dark px-3 mb-0" href="editComunity">
+                           <a class="btn btn-link text-dark px-3 mb-0" href="editBenefits">
                               <i class="material-icons text-sm me-2">edit</i>Editar
                            </a>
                         </td>
@@ -120,7 +120,7 @@
                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="#" onclick="confirmDelete(event)">
                               <i class="material-icons text-sm me-2">delete</i>Eliminar
                            </a>
-                           <a class="btn btn-link text-dark px-3 mb-0" href="editComunity">
+                           <a class="btn btn-link text-dark px-3 mb-0" href="editBenefits">
                               <i class="material-icons text-sm me-2">edit</i>Editar
                            </a>
                         </td>
@@ -144,7 +144,7 @@
                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="#" onclick="confirmDelete(event)">
                               <i class="material-icons text-sm me-2">delete</i>Eliminar
                            </a>
-                           <a class="btn btn-link text-dark px-3 mb-0" href="editComunity">
+                           <a class="btn btn-link text-dark px-3 mb-0" href="editBenefits">
                               <i class="material-icons text-sm me-2">edit</i>Editar
                            </a>
                         </td>
@@ -248,7 +248,7 @@
    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
    <script src="../assets/js/plugins/chartjs.min.js"></script>
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-   <script src="assets/js/material-dashboard.min.js?v=3.1.0"></script>
+   <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
 </body>
 
 </html>

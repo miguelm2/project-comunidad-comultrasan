@@ -56,7 +56,7 @@
                      <div class="mb-3">
                         <div class="ms-md-auto pe-md-3 d-flex col-12">
                            <div class="input-group input-group-outline">
-                              <input type="text" class="form-control" value="Comunidad" disabled>
+                              <input type="text" class="form-control" value="Grupo" disabled>
                            </div>
                         </div>
                      </div>

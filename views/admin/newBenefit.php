@@ -36,6 +36,9 @@
                         <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Nuevo Beneficio</li>
                     </ol>
                 </nav>
+                <!-- Start header -->
+                <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/views/assets/html/header_admin.php'; ?>
+                <!-- End header -->
             </div>
         </nav>
         <div class="card">

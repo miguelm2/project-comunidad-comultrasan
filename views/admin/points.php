@@ -42,10 +42,13 @@
       </nav>
       <div class="card">
          <div class="row mt-2 mp-2">
-            <div class="col-10 m-4">
+            <div class="col-8 m-4">
                <div class="card-head">
                   <h3>Puntos</h3>
                </div>
+            </div>
+            <div class="col-3 m-2">
+               <a href="newPoints" class="btn btn-success">Agregar Puntos</a>
             </div>
          </div>
          <div class="card-body">
@@ -54,7 +57,7 @@
                   <thead class="text-center">
                      <tr>
                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7">
-                           Comunidad
+                           Grupos
                         </th>
                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7">
                            Puntos
@@ -67,7 +70,7 @@
                   <tfoot class="text-center">
                      <tr>
                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7">
-                           Comunidad
+                           Grupos
                         </th>
                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7">
                            Puntos
@@ -82,7 +85,7 @@
                         <td>
                            <div class="d-flex align-items-center">
                               <img src="assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd">
-                              <h6 class="mb-0 text-sm">Comunidad 1</h6>
+                              <h6 class="mb-0 text-sm">Grupo 1</h6>
                            </div>
                         </td>
                         <td class="align-middle text-center">
@@ -101,7 +104,7 @@
                         <td>
                            <div class="d-flex align-items-center">
                               <img src="assets/img/small-logos/logo-atlassian.svg" class="avatar avatar-sm me-3" alt="atlassian">
-                              <h6 class="mb-0 text-sm">Comunidad 2</h6>
+                              <h6 class="mb-0 text-sm">Grupo 2</h6>
                            </div>
                         </td>
                         <td class="align-middle text-center">
@@ -120,7 +123,7 @@
                         <td>
                            <div class="d-flex align-items-center">
                               <img src="assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm me-3" alt="team7">
-                              <h6 class="mb-0 text-sm">Comunidad 3</h6>
+                              <h6 class="mb-0 text-sm">Grupo 3</h6>
                            </div>
                         </td>
                         <td class="align-middle text-center">

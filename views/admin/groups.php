@@ -32,7 +32,7 @@
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                  <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Comunidad</li>
+                  <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Grupos</li>
                </ol>
             </nav>
             <!-- Start header -->
@@ -44,12 +44,12 @@
          <div class="row">
             <div class="col-8 m-4">
                <div class="card-head">
-                  <h3>Comunidades</h3>
+                  <h3>Grupos</h3>
                </div>
             </div>
             <div class="col-3 m-2">
                <div class="card-head text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                  <a type="button" class="btn btn-success" href="newComunity">Agregar Comunidad</a>
+                  <a type="button" class="btn btn-success" href="newGroup">Agregar Grupo</a>
                </div>
             </div>
          </div>
@@ -59,9 +59,9 @@
                   <thead class="text-center">
                      <tr>
                         <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
-                           Comunidad</th>
+                           Grupo</th>
                         <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Grupos</th>
+                           Miebros</th>
                         <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
                            Puntos</th>
                         <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
@@ -73,9 +73,9 @@
                   <tfoot class="text-center">
                      <tr>
                         <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
-                           Comunidad</th>
+                           Grupo</th>
                         <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Grupos</th>
+                           Miebros</th>
                         <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
                            Puntos</th>
                         <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
@@ -92,7 +92,7 @@
                                  <img src="assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd">
                               </div>
                               <div class="d-flex flex-column justify-content-center">
-                                 <h6 class="mb-0 text-sm">Comunidad 1</h6>
+                                 <h6 class="mb-0 text-sm">Grupo 1</h6>
                               </div>
                            </div>
                         </td>
@@ -122,7 +122,7 @@
                            <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="#" onclick="confirmDelete(event)">
                               <i class="material-icons text-sm me-2">delete</i>Eliminar
                            </a>
-                           <a class="btn btn-link text-dark px-3 mb-0" href="editComunity">
+                           <a class="btn btn-link text-dark px-3 mb-0" href="editGroup">
                               <i class="material-icons text-sm me-2">edit</i>Editar
                            </a>
                         </td>
@@ -134,7 +134,7 @@
                                  <img src="assets/img/small-logos/logo-atlassian.svg" class="avatar avatar-sm me-3" alt="atlassian">
                               </div>
                               <div class="d-flex flex-column justify-content-center">
-                                 <h6 class="mb-0 text-sm">Comunidad 2</h6>
+                                 <h6 class="mb-0 text-sm">Grupo 2</h6>
                               </div>
                            </div>
                         </td>
@@ -155,8 +155,10 @@
                            <span class="text-xs font-weight-bold">2</span>
                         </td>
                         <td>
-                           <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i>Eliminar</a>
-                           <a class="btn btn-link text-dark px-3 mb-0" href="editComunity"><i class="material-icons text-sm me-2">edit</i>Editar</a>
+                           <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;">
+                              <i class="material-icons text-sm me-2">delete</i>Eliminar</a>
+                           <a class="btn btn-link text-dark px-3 mb-0" href="editGroup">
+                              <i class="material-icons text-sm me-2">edit</i>Editar</a>
                         </td>
                      </tr>
                      <tr>
@@ -166,7 +168,7 @@
                                  <img src="assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm me-3" alt="team7">
                               </div>
                               <div class="d-flex flex-column justify-content-center">
-                                 <h6 class="mb-0 text-sm">Comunidad 3</h6>
+                                 <h6 class="mb-0 text-sm">Grupo 3</h6>
                               </div>
                            </div>
                         </td>

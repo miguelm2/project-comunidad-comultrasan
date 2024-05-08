@@ -56,7 +56,7 @@
                         <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
                            Comunidad</th>
                         <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Miebros</th>
+                           Grupos</th>
                         <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
                            Puntos</th>
                         <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
@@ -70,7 +70,7 @@
                         <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
                            Comunidad</th>
                         <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                           Miebros</th>
+                           Grupos</th>
                         <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
                            Puntos</th>
                         <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">

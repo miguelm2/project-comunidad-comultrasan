@@ -50,74 +50,81 @@
          </div>
          <div class="card-body">
             <div>
-               <form action="" method="post" class="row g-3">
-                  <div class="row">
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Nombre</label>
-                           <input type="text" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">NIT</label>
-                           <input type="number" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Dirección</label>
-                           <input type="text" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Correo</label>
-                           <input type="email" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3 col-6">
-                           <label class="form-label">Celular</label>
-                           <input type="tel" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Contraseña</label>
-                           <input type="password" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Ciudad</label>
-                           <input type="text" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Departamento</label>
-                           <input type="text" class="form-control" required>
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Facebook</label>
-                           <input type="url" class="form-control">
-                        </div>
-                     </div>
-                     <div class="col-6">
-                        <div class="input-group input-group-outline my-3">
-                           <label class="form-label">Instagram</label>
-                           <input type="url" class="form-control">
-                        </div>
-                     </div>
-                     <div class="row">
-                        <button type="submit" class="col-6 btn btn-success">Editar Usuario</button>
-                        <button type="submit" class="col-6 btn btn-info">Cambiar imagen</button>
-                     </div>
+               <div class="row">
+                  <div class="col-md-4 text-center mx-auto mb-3">
+                     <img src="../assets/img/team-5.jpg" alt="" class="img-fluid">
                   </div>
-               </form>
+                  <div class="col-md-8">
+                     <form action="" method="post" class="row g-3">
+                        <div class="row">
+                           <div class="col-6">
+                              <div class="input-group input-group-outline my-3">
+                                 <label class="form-label">Nombre</label>
+                                 <input type="text" class="form-control" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group input-group-outline my-3">
+                                 <label class="form-label">NIT</label>
+                                 <input type="number" class="form-control" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group input-group-outline my-3">
+                                 <label class="form-label">Dirección</label>
+                                 <input type="text" class="form-control" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group input-group-outline my-3">
+                                 <label class="form-label">Correo</label>
+                                 <input type="email" class="form-control" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group input-group-outline my-3 col-6">
+                                 <label class="form-label">Celular</label>
+                                 <input type="tel" class="form-control" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group input-group-outline my-3">
+                                 <label class="form-label">Contraseña</label>
+                                 <input type="password" class="form-control" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group input-group-outline my-3">
+                                 <label class="form-label">Ciudad</label>
+                                 <input type="text" class="form-control" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group input-group-outline my-3">
+                                 <label class="form-label">Departamento</label>
+                                 <input type="text" class="form-control" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group input-group-outline my-3">
+                                 <label class="form-label">Facebook</label>
+                                 <input type="url" class="form-control">
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group input-group-outline my-3">
+                                 <label class="form-label">Instagram</label>
+                                 <input type="url" class="form-control">
+                              </div>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+               <div class="row">
+                  <button type="submit" class="col-6 btn btn-success">Editar Perfil</button>
+                  <button type="submit" class="col-6 btn btn-info">Cambiar imagen</button>
+               </div>
             </div>
          </div>
       </div>
