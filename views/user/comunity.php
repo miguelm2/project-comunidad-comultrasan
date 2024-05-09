@@ -47,38 +47,38 @@
                <h5>Información de la comunidad</h5>
                <div class="row">
                   <div class="col-6">
-                     <h6>Nombre: </h6>
+                     <h6><i class="material-icons">diversity_3</i> Nombre: </h6>
                      <p>Nombre de la comunidad</p>
                   </div>
                   <div class="col-6">
-                     <h6>Lider de la comunidad</h6>
+                     <h6><i class="material-icons">supervisor_account</i> Lider de la comunidad</h6>
                      <p>Nombre del lider</p>
                   </div>
                   <div class="col-6">
-                     <h6>Personas que integran la comunidad:</h6>
+                     <h6><i class="material-icons">group_add</i> Personas que integran la comunidad:</h6>
                      <p>N de personas que la integran</p>
                   </div>
                   <div class="col-6">
-                     <h6>Grupo: </h6>
+                     <h6><i class="material-icons">diversity_2</i> Grupo: </h6>
                      <p>Nombre del grupo</p>
                   </div>
                </div>
                <h5>Mis datos</h5>
                <div class="row">
                   <div class="col-6">
-                     <h6>Nombre: </h6>
+                     <h6><i class="material-icons">account_box</i> Nombre: </h6>
                      <p>Nombre Usuario</p>
                   </div>
                   <div class="col-6">
-                     <h6>Correo: </h6>
+                     <h6><i class="material-icons">email</i> Correo: </h6>
                      <p>usuario@mail.com</p>
                   </div>
                   <div class="col-6">
-                     <h6>Celular: </h6>
+                     <h6><i class="material-icons">phone</i> Celular: </h6>
                      <p>1234567890</p>
                   </div>
                   <div class="col-6">
-                     <h6>Direccion: </h6>
+                     <h6> <i class="material-icons">pin_drop</i> Direccion: </h6>
                      <p>Direccion del usuario</p>
                   </div>
                </div>

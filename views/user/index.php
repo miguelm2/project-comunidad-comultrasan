@@ -48,7 +48,7 @@
                <div class="card">
                   <div class="card-header p-3 pt-2">
                      <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">star</i>
+                        <i class="material-icons opacity-10">stars</i>
                      </div>
                      <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Mis Puntos</p>
@@ -61,7 +61,7 @@
                <div class="card">
                   <div class="card-header p-3 pt-2">
                      <div class="icon icon-lg icon-shape bg-gradient-info shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">people</i>
+                        <i class="material-icons opacity-10">diversity_1</i>
                      </div>
                      <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Mi comunidad</p>
@@ -89,13 +89,13 @@
                <div class="card z-index-2 ">
                   <div class="card-body">
                      <h5>Mis datos</h5>
-                     <h6>Nombre: </h6>
+                     <h6><i class="material-icons">account_box</i> Nombre: </h6>
                      <p>Nombre Usuario</p>
-                     <h6>Correo: </h6>
+                     <h6><i class="material-icons">email</i> Correo: </h6>
                      <p>usuario@mail.com</p>
-                     <h6>Celular: </h6>
+                     <h6><i class="material-icons">phone</i> Celular: </h6>
                      <p>1234567890</p>
-                     <h6>Direccion: </h6>
+                     <h6><i class="material-icons">pin_drop</i> Direccion: </h6>
                      <p>Direccion del usuario</p>
                   </div>
                </div>
@@ -104,13 +104,13 @@
                <div class="card">
                   <div class="card-body">
                      <h5>Mi comunidad</h5>
-                     <h6>Nombre: </h6>
+                     <h6><i class="material-icons">diversity_3</i> Nombre: </h6>
                      <p>Nombre de la comunidad</p>
-                     <h6>Lider: </h6>
+                     <h6><i class="material-icons">supervisor_account</i> Lider: </h6>
                      <p>Nombre del lider</p>
-                     <h6>Cantidad de usuarios en la comunidad: </h6>
+                     <h6><i class="material-icons">group_add</i> Cantidad de usuarios en la comunidad: </h6>
                      <p>N de usuarios</p>
-                     <h6>Fecha de creación</h6>
+                     <h6><i class="material-icons">calendar_month</i> Fecha de creación</h6>
                      <p>fecha de creación</p>
                   </div>
                </div>
@@ -119,13 +119,13 @@
                <div class="card">
                   <div class="card-body">
                      <h5>Mi grupo</h5>
-                     <h6>Nombre: </h6>
+                     <h6><i class="material-icons">diversity_2</i> Nombre: </h6>
                      <p>Nombre del grupo</p>
-                     <h6>Lider: </h6>
+                     <h6><i class="material-icons">supervisor_account</i> Lider: </h6>
                      <p>Nombre del lider</p>
-                     <h6>Personas en el grupo</h6>
+                     <h6><i class="material-icons">group_add</i> Personas en el grupo</h6>
                      <p>N de personas</p>
-                     <h6>Fecha de ingreso</h6>
+                     <h6><i class="material-icons">today</i> Fecha de ingreso</h6>
                      <p>Fecha de ingreso al grupo</p>
                   </div>
                </div>
@@ -134,12 +134,12 @@
                <div class="card">
                   <div class="card-body">
                      <h5>Mis beneficios</h5>
-                     <h6>Benefios obtenidos</h6>
+                     <h6><i class="material-icons">checklist</i> Benefios obtenidos</h6>
                      <p>Beneficios del usuario</p>
-                     <h6>Fecha de obtención</h6>
+                     <h6><i class="material-icons">today</i> Fecha de obtención</h6>
                      <p>fecha en que se obtuvieron</p>
                      <h5>Puntos</h5>
-                     <h6>Mis puntos: </h6>
+                     <h6><i class="material-icons">control_point_duplicate</i> Mis puntos: </h6>
                      <p>Puntos obtenidos</p>
                   </div>
                </div>

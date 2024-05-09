@@ -48,7 +48,7 @@
                <div class="card">
                   <div class="card-header p-3 pt-2">
                      <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">star</i>
+                        <i class="material-icons opacity-10">stars</i>
                      </div>
                      <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Puntos</p>
@@ -61,7 +61,7 @@
                <div class="card">
                   <div class="card-header p-3 pt-2">
                      <div class="icon icon-lg icon-shape bg-gradient-info shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">people</i>
+                        <i class="material-icons opacity-10">diversity_3</i>
                      </div>
                      <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Comunidades</p>
@@ -74,7 +74,7 @@
                <div class="card">
                   <div class="card-header p-3 pt-2">
                      <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">person</i>
+                        <i class="material-icons opacity-10">person_add</i>
                      </div>
                      <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Nuevas personas</p>
@@ -95,7 +95,7 @@
                      </div>
                   </div>
                   <div class="card-body">
-                     <h6 class="mb-0 ">Puntos</h6>
+                     <h6 class="mb-0 "><i class="material-icons">stars</i> Puntos</h6>
                      <p class="text-sm ">Puntos entregados por mes</p>
                   </div>
                </div>
@@ -110,7 +110,7 @@
                      </div>
                   </div>
                   <div class="card-body">
-                     <h6 class="mb-0 ">Beneficios</h6>
+                     <h6 class="mb-0 "><i class="material-icons">paid</i> Beneficios</h6>
                      <p class="text-sm ">Beneficios que han sido obtenidos por mes</p>
                   </div>
                </div>
