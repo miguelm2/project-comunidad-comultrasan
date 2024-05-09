@@ -48,7 +48,7 @@
                <div class="card">
                   <div class="card-header p-3 pt-2">
                      <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">star</i>
+                        <i class="material-icons opacity-10">stars</i>
                      </div>
                      <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Mis Puntos</p>
@@ -60,8 +60,8 @@
             <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
                <div class="card">
                   <div class="card-header p-3 pt-2">
-                     <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                        <i class="material-icons opacity-10">people</i>
+                     <div class="icon icon-lg icon-shape bg-gradient-info shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                        <i class="material-icons opacity-10">diversity_1</i>
                      </div>
                      <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Mi comunidad</p>
@@ -89,13 +89,13 @@
                <div class="card z-index-2 ">
                   <div class="card-body">
                      <h5>Mis datos</h5>
-                     <h6>Nombre: </h6>
+                     <h6><i class="material-icons">account_box</i> Nombre: </h6>
                      <p>Nombre Usuario</p>
-                     <h6>Correo: </h6>
+                     <h6><i class="material-icons">email</i> Correo: </h6>
                      <p>usuario@mail.com</p>
-                     <h6>Celular: </h6>
+                     <h6><i class="material-icons">phone</i> Celular: </h6>
                      <p>1234567890</p>
-                     <h6>Direccion: </h6>
+                     <h6><i class="material-icons">pin_drop</i> Direccion: </h6>
                      <p>Direccion del usuario</p>
                   </div>
                </div>
@@ -104,13 +104,13 @@
                <div class="card">
                   <div class="card-body">
                      <h5>Mi comunidad</h5>
-                     <h6>Nombre: </h6>
+                     <h6><i class="material-icons">diversity_3</i> Nombre: </h6>
                      <p>Nombre de la comunidad</p>
-                     <h6>Lider: </h6>
+                     <h6><i class="material-icons">supervisor_account</i> Lider: </h6>
                      <p>Nombre del lider</p>
-                     <h6>Cantidad de usuarios en la comunidad: </h6>
+                     <h6><i class="material-icons">group_add</i> Cantidad de usuarios en la comunidad: </h6>
                      <p>N de usuarios</p>
-                     <h6>Fecha de creación</h6>
+                     <h6><i class="material-icons">calendar_month</i> Fecha de creación</h6>
                      <p>fecha de creación</p>
                   </div>
                </div>
@@ -119,13 +119,13 @@
                <div class="card">
                   <div class="card-body">
                      <h5>Mi grupo</h5>
-                     <h6>Nombre: </h6>
+                     <h6><i class="material-icons">diversity_2</i> Nombre: </h6>
                      <p>Nombre del grupo</p>
-                     <h6>Lider: </h6>
+                     <h6><i class="material-icons">supervisor_account</i> Lider: </h6>
                      <p>Nombre del lider</p>
-                     <h6>Personas en el grupo</h6>
+                     <h6><i class="material-icons">group_add</i> Personas en el grupo</h6>
                      <p>N de personas</p>
-                     <h6>Fecha de ingreso</h6>
+                     <h6><i class="material-icons">today</i> Fecha de ingreso</h6>
                      <p>Fecha de ingreso al grupo</p>
                   </div>
                </div>
@@ -134,12 +134,12 @@
                <div class="card">
                   <div class="card-body">
                      <h5>Mis beneficios</h5>
-                     <h6>Benefios obtenidos</h6>
+                     <h6><i class="material-icons">checklist</i> Benefios obtenidos</h6>
                      <p>Beneficios del usuario</p>
-                     <h6>Fecha de obtención</h6>
+                     <h6><i class="material-icons">today</i> Fecha de obtención</h6>
                      <p>fecha en que se obtuvieron</p>
                      <h5>Puntos</h5>
-                     <h6>Mis puntos: </h6>
+                     <h6><i class="material-icons">control_point_duplicate</i> Mis puntos: </h6>
                      <p>Puntos obtenidos</p>
                   </div>
                </div>
@@ -147,67 +147,6 @@
          </div>
       </div>
    </main>
-   <div class="fixed-plugin">
-      <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-         <i class="material-icons py-2">settings</i>
-      </a>
-      <div class="card shadow-lg">
-         <div class="card-header pb-0 pt-3">
-            <div class="float-start">
-               <h5 class="mt-3 mb-0">Material UI Configurator</h5>
-               <p>See our dashboard options.</p>
-            </div>
-            <div class="float-end mt-4">
-               <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-                  <i class="material-icons">clear</i>
-               </button>
-            </div>
-            <!-- End Toggle Button -->
-         </div>
-         <hr class="horizontal dark my-1">
-         <div class="card-body pt-sm-3 pt-0">
-            <!-- Sidebar Backgrounds -->
-            <div>
-               <h6 class="mb-0">Sidebar Colors</h6>
-            </div>
-            <a href="javascript:void(0)" class="switch-trigger background-color">
-               <div class="badge-colors my-2 text-start">
-                  <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-                  <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-                  <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-                  <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-                  <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-                  <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
-               </div>
-            </a>
-            <!-- Sidenav Type -->
-            <div class="mt-3">
-               <h6 class="mb-0">Sidenav Type</h6>
-               <p class="text-sm">Choose between 2 different sidenav types.</p>
-            </div>
-            <div class="d-flex">
-               <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
-               <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
-               <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
-            </div>
-            <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-            <!-- Navbar Fixed -->
-            <div class="mt-3 d-flex">
-               <h6 class="mb-0">Navbar Fixed</h6>
-               <div class="form-check form-switch ps-0 ms-auto my-auto">
-                  <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-               </div>
-            </div>
-            <hr class="horizontal dark my-3">
-            <div class="mt-2 d-flex">
-               <h6 class="mb-0">Light / Dark</h6>
-               <div class="form-check form-switch ps-0 ms-auto my-auto">
-                  <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
    <script src="../assets/js/core/popper.min.js"></script>
    <script src="../assets/js/core/bootstrap.min.js"></script>
    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
