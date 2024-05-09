@@ -114,9 +114,6 @@
                 </div>
             </div>
         </div>
-        <!-- Start footer -->
-        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/views/assets/html/footer_admin.php'; ?>
-        <!-- End fooeter -->
     </main>
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">

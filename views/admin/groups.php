@@ -198,31 +198,6 @@
             </div>
          </div>
       </div>
-      <!-- Modal Eliminar Registro-->
-      <!-- ======= Basic Modal ======= -->
-      <form method="post">
-         <div class="modal fade" id="eliminar" tabindex="-1">
-            <div class="modal-dialog">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Eliminar Registro</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <label class="form-label">¿Esta seguro que desea eliminar el registro?</label>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Cerrar</button>
-                     <button type="submit" name="deleteEmployee" class="btn btn-danger"><i class="bi bi-trash-fill"></i> Eliminar Registro</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!-- End Basic Modal-->
-      <!-- Start footer -->
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/views/assets/html/footer_admin.php'; ?>
-      <!-- End fooeter -->
    </main>
    <div class="fixed-plugin">
       <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
