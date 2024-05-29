@@ -18,12 +18,6 @@
                     </a>
                 </li>
                 <li>
-                    <a class="text-secondary" style="font-size: 18px;" href="index#beneficios">
-                        <i class="bi bi-gift pe-1"></i>
-                        Beneficios
-                    </a>
-                </li>
-                <li>
                     <a class="text-secondary" style="font-size: 18px;" href="index#puntos">
                         <i class="bi bi-coin pe-1"></i>
                         Recompensas
