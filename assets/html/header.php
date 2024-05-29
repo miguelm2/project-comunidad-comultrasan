@@ -1,7 +1,7 @@
 <header id="header" class="header d-flex align-items-center bg-light">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between bg-light">
         <a href="index" class="logo d-flex align-items-center">
-            <h4 class="text-black inicio">Comunidad Familia Comultrasan</h4>
+            <h4 class="text-black inicio"><strong>Comunidad Familia Comultrasan</strong></h4>
         </a>
         <nav id="navbar" class="navbar">
             <ul>
@@ -12,15 +12,15 @@
                     </a>
                 </li>
                 <li>
-                    <a class="text-secondary" style="font-size: 18px;" href="index#beneficios">
-                        <i class="bi bi-gift pe-1"></i>
-                        Beneficios
-                    </a>
-                </li>
-                <li>
                     <a class="text-secondary" style="font-size: 18px;" href="comunidad#comunidad">
                         <i class="bi bi-people-fill pe-1"></i>
                         Comunidad
+                    </a>
+                </li>
+                <li>
+                    <a class="text-secondary" style="font-size: 18px;" href="index#beneficios">
+                        <i class="bi bi-gift pe-1"></i>
+                        Beneficios
                     </a>
                 </li>
                 <li>

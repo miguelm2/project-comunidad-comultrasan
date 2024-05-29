@@ -48,9 +48,9 @@
                      ¡Aprovéchalos!
                   </i>
                </h3>
-               <div class="d-flex justify-content-center justify-content-lg-center">
-                  <p>¿Aún no formas parte?</p>
-                  <a href="#comunidad" class="btn-get-started">¡Únete!</a>
+               <div class="text-center">
+                  <p class="text-black m-2">¿Aún no formas parte?</p>
+                  <a href="singup" class="btn-get-started">¡Únete!</a>
                </div>
             </div>
             <div class="col-lg-5 order-1 order-lg-2">
@@ -115,73 +115,14 @@
 
    <main id="main">
 
-      <!-- ======= About Us Section ======= -->
-      <section id="beneficios" class="about">
-         <div class="container" data-aos="fade-up">
-
-            <div class="section-header">
-               <h2>Beneficios</h2>
-               <p>
-                  ¡Descubre los increíbles beneficios de formar parte de nuestra comunidad financiera! Aquí no solo encontrarás asesoramiento
-                  experto y recursos útiles, sino también una red de personas comprometidas como tú, dispuestas a compartir sus conocimientos
-                  y experiencias.
-               </p>
-            </div>
-
-            <div class="row gy-4">
-               <div class="col-lg-6">
-                  <h3>Conoce más de nuestros beneficios</h3>
-                  <img src="assets/img/beneficios_comunidad.png" class="img-fluid rounded-4 mb-4" alt="">
-                  <p></p>
-                  <p>
-                     ¡Descubre los increíbles beneficios de formar parte de nuestra comunidad financiera! Aquí no solo encontrarás asesoramiento
-                     experto y recursos útiles, sino también una red de personas comprometidas como tú, dispuestas a compartir sus conocimientos
-                     y experiencias.
-                  </p>
-               </div>
-               <div class="col-lg-6">
-                  <div class="content ps-0 ps-lg-5">
-                     <p class="fst-italic">
-                        ¡Bienvenido a nuestra comunidad financiera, donde los beneficios abundan para aquellos que deciden unirse a nosotros!
-                        Aquí encontrarás un mundo de oportunidades financieras que van más allá de lo convencional.
-                     </p>
-                     <ul>
-                        <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                           consequat.</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate
-                           velit.</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                           consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro
-                           dolore eu fugiat nulla pariatur.</li>
-                     </ul>
-                     <p>
-                        Únete a nosotros y descubre cómo cada día te acercamos más a tus metas financieras. ¡Te esperamos para comenzar
-                        este emocionante viaje juntos!
-                     </p>
-
-                     <div class="position-relative mt-4">
-                        <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
-                        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-
-         </div>
-      </section><!-- End About Us Section -->
-
-
       <!-- ======= Stats Counter Section ======= -->
       <div class="bg-secondary">
          <section id="comunidad" class="stats-counter">
             <div class="container" data-aos="fade-up">
-
                <div class="row gy-2 align-items-center">
-
                   <div class="col-lg-4">
                      <img src="assets/image/familia.png" alt="" class="img-fluid rounded-4">
                   </div>
-
                   <div class="col-lg-8 text-center">
                      <div class="row">
                         <div class="section-header pb-0">
@@ -337,6 +278,58 @@
          </section>
       </div>
       <!-- End Stats Counter Section -->
+
+      <!-- ======= About Us Section ======= -->
+      <section id="beneficios" class="about">
+         <div class="container" data-aos="fade-up">
+            <div class="section-header">
+               <h2>Beneficios</h2>
+               <p>
+                  ¡Descubre los increíbles beneficios de formar parte de nuestra comunidad financiera! Aquí no solo encontrarás asesoramiento
+                  experto y recursos útiles, sino también una red de personas comprometidas como tú, dispuestas a compartir sus conocimientos
+                  y experiencias.
+               </p>
+            </div>
+            <div class="row gy-4">
+               <div class="col-lg-6">
+                  <h3>Conoce más de nuestros beneficios</h3>
+                  <img src="assets/img/beneficios_comunidad.png" class="img-fluid rounded-4 mb-4" alt="">
+                  <p></p>
+                  <p>
+                     ¡Descubre los increíbles beneficios de formar parte de nuestra comunidad financiera! Aquí no solo encontrarás asesoramiento
+                     experto y recursos útiles, sino también una red de personas comprometidas como tú, dispuestas a compartir sus conocimientos
+                     y experiencias.
+                  </p>
+               </div>
+               <div class="col-lg-6">
+                  <div class="content ps-0 ps-lg-5">
+                     <p class="fst-italic">
+                        ¡Bienvenido a nuestra comunidad financiera, donde los beneficios abundan para aquellos que deciden unirse a nosotros!
+                        Aquí encontrarás un mundo de oportunidades financieras que van más allá de lo convencional.
+                     </p>
+                     <ul>
+                        <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo
+                           consequat.</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate
+                           velit.</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo
+                           consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro
+                           dolore eu fugiat nulla pariatur.</li>
+                     </ul>
+                     <p>
+                        Únete a nosotros y descubre cómo cada día te acercamos más a tus metas financieras. ¡Te esperamos para comenzar
+                        este emocionante viaje juntos!
+                     </p>
+                     <div class="position-relative mt-4">
+                        <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
+                        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- End About Us Section -->
 
       <!-- ======= Call To Action Section ======= -->
       <section id="call-to-action" class="call-to-action">
