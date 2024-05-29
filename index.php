@@ -279,337 +279,100 @@
       </div>
       <!-- End Stats Counter Section -->
 
-      <!-- ======= About Us Section ======= -->
-      <section id="beneficios" class="about">
-         <div class="container" data-aos="fade-up">
-            <div class="section-header">
-               <h2>Beneficios</h2>
-               <p>
-                  ¡Descubre los increíbles beneficios de formar parte de nuestra comunidad financiera! Aquí no solo encontrarás asesoramiento
-                  experto y recursos útiles, sino también una red de personas comprometidas como tú, dispuestas a compartir sus conocimientos
-                  y experiencias.
-               </p>
-            </div>
-            <div class="row gy-4">
-               <div class="col-lg-6">
-                  <h3>Conoce más de nuestros beneficios</h3>
-                  <img src="assets/img/beneficios_comunidad.png" class="img-fluid rounded-4 mb-4" alt="">
-                  <p></p>
-                  <p>
-                     ¡Descubre los increíbles beneficios de formar parte de nuestra comunidad financiera! Aquí no solo encontrarás asesoramiento
-                     experto y recursos útiles, sino también una red de personas comprometidas como tú, dispuestas a compartir sus conocimientos
-                     y experiencias.
-                  </p>
-               </div>
-               <div class="col-lg-6">
-                  <div class="content ps-0 ps-lg-5">
-                     <p class="fst-italic">
-                        ¡Bienvenido a nuestra comunidad financiera, donde los beneficios abundan para aquellos que deciden unirse a nosotros!
-                        Aquí encontrarás un mundo de oportunidades financieras que van más allá de lo convencional.
-                     </p>
-                     <ul>
-                        <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                           consequat.</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Duis aute irure dolor in reprehenderit in voluptate
-                           velit.</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                           consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro
-                           dolore eu fugiat nulla pariatur.</li>
-                     </ul>
-                     <p>
-                        Únete a nosotros y descubre cómo cada día te acercamos más a tus metas financieras. ¡Te esperamos para comenzar
-                        este emocionante viaje juntos!
-                     </p>
-                     <div class="position-relative mt-4">
-                        <img src="assets/img/about-2.jpg" class="img-fluid rounded-4" alt="">
-                        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- End About Us Section -->
-
-      <!-- ======= Call To Action Section ======= -->
-      <section id="call-to-action" class="call-to-action">
-         <div class="container text-center" data-aos="zoom-out">
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
-            <h3>¡Conoce más de nosotros!</h3>
-            <p>
-               Conoce más de nosotros y de nuestra comunidad en la cual queremos ofrecerte beneficios entre otras cosas...
-            </p>
-            <a class="cta-btn" href="#">Ver Video</a>
-         </div>
-      </section><!-- End Call To Action Section -->
-
       <!-- ======= Our Services Section ======= -->
       <section id="puntos" class="services sections-bg">
          <div class="container" data-aos="fade-up">
 
-            <div class="section-header">
-               <h2>Como Obtener Puntos</h2>
-               <p>
-                  En Comultrasan, valoramos tu compromiso con nosotros. Por eso, hemos creado un sistema de puntos que te recompensa
-                  por tu participación activa en nuestra comunidad. ¡Es fácil acumular puntos y desbloquear fantásticos beneficios!
-               </p>
+            <div class="section-header mt-1">
+               <h2>Sistema de recompensas</h2>
+               <h4 class="text-primary text-start">
+                  ¿Por qué puedes sumar corazones en tu programa de recompensas?
+               </h4>
             </div>
-
-            <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
-
-               <div class="col-lg-4 col-md-6">
-                  <div class="service-item  position-relative">
-                     <div class="icon">
-                        <i class="bi bi-1-circle"></i>
-                     </div>
-                     <h3>Paso N° 1</h3>
-                     <p>Colocar paso 1 de como ganar puntos</p>
-                     <a href="#" class="readmore stretched-link">Leer más <i class="bi bi-arrow-right"></i></a>
+            <div class="row gy-2 m-0" data-aos="fade-up" data-aos-delay="100">
+               <div class="col-md-6">
+                  <table class="table table-striped table-hover">
+                     <thead>
+                        <tr>
+                           <th>Concepto</th>
+                           <th># Puntos</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Participación en grupos de interés</td>
+                           <td>480</td>
+                        </tr>
+                        <tr>
+                           <td>Terminación cuotas crédito en tiempo pactado</td>
+                           <td>350</td>
+                        </tr>
+                        <tr>
+                           <td>Crédito desembolsado</td>
+                           <td>245</td>
+                        </tr>
+                        <tr>
+                           <td>Constituir la comunidad</td>
+                           <td>150</td>
+                        </tr>
+                        <tr>
+                           <td>Terminación P.A.P en el tiempo pactado</td>
+                           <td>150</td>
+                        </tr>
+                        <tr>
+                           <td>Apertura P.A.P con un propósito </td>
+                           <td>80</td>
+                        </tr>
+                        <tr>
+                           <td>Constituir aportes (para nuevos asociados)</td>
+                           <td>80</td>
+                        </tr>
+                        <tr>
+                           <td>Diligenciar formato de gustos e intereses</td>
+                           <td>35</td>
+                        </tr>
+                        <tr>
+                           <td>Triada de educación financiera</td>
+                           <td>35</td>
+                        </tr>
+                        <tr>
+                           <td>Pago oportuno de cuota P.A.P</td>
+                           <td>15</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <div class="col-md-6">
+                  <div>
+                     <h4 class="text-primary mt-2">¿Qué puedes recibir en tu programa de recompensas?</h4>
+                     <ul>
+                        <li>Carnet Comunidad Familia Comultrasan</li>
+                        <li>Ciclo ruta familiar</li>
+                        <li>Pases VIP concierto anual</li>
+                        <li>Entradas a ferias reconocidas</li>
+                        <li>Acceso a cursos virtuales: Crehana, Hotmart, Coursera</li>
+                        <li>Participación en eventos de Networking</li>
+                     </ul>
                   </div>
-               </div><!-- End Service Item -->
-
-               <div class="col-lg-4 col-md-6">
-                  <div class="service-item position-relative">
-                     <div class="icon">
-                        <i class="bi bi-2-circle"></i>
-                     </div>
-                     <h3>Paso N°2</h3>
-                     <p>Colcar paso 2 de como ganar puntos</p>
-                     <a href="#" class="readmore stretched-link">Leer más<i class="bi bi-arrow-right"></i></a>
+                  <div>
+                     <h4 class="text-primary mt-2">
+                        Y si tu grupo familiar está en el top 10 del ranking de
+                        comunidades, podrán disfrutar de alguno de los siguientes
+                        beneficios:
+                     </h4>
+                     <ul>
+                        <li>Ciclo ruta familiar</li>
+                        <li>Pases VIP concierto anual</li>
+                        <li>Pases Cine para todo tu grupo familiar</li>
+                        <li>Bono para asado</li>
+                        <li>Entradas a ferias reconocidas</li>
+                        <li>Viaje fin de año</li>
+                     </ul>
                   </div>
-               </div><!-- End Service Item -->
-
-               <div class="col-lg-4 col-md-6">
-                  <div class="service-item position-relative">
-                     <div class="icon">
-                        <i class="bi bi-3-circle"></i>
-                     </div>
-                     <h3>Paso N°3</h3>
-                     <p>
-                        Colocar paso 3 como ganar puntos
-                     </p>
-                     <a href="#" class="readmore stretched-link">Leer más <i class="bi bi-arrow-right"></i></a>
-                  </div>
-               </div><!-- End Service Item -->
-
-
+               </div>
             </div>
-
          </div>
       </section><!-- End Our Services Section -->
-
-      <!-- ======= Testimonials Section ======= -->
-      <section id="testimonials" class="testimonials">
-         <div class="container" data-aos="fade-up">
-
-            <div class="section-header">
-               <h2>Testimonios</h2>
-               <p>
-                  Descubre el poder de la comunidad financiera: un espacio donde los sueños se convierten en realidad
-                  y los objetivos financieros se alcanzan con confianza. Únete a nosotros y experimenta el respaldo,
-                  la orientación y las oportunidades que solo una comunidad comprometida puede ofrecer.
-               </p>
-            </div>
-
-            <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
-               <div class="swiper-wrapper">
-
-                  <div class="swiper-slide">
-                     <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                           <div class="d-flex align-items-center">
-                              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img flex-shrink-0" alt="">
-                              <div>
-                                 <h3>Saul Goodman</h3>
-                                 <h4>Ceo &amp; Founder</h4>
-                                 <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                 </div>
-                              </div>
-                           </div>
-                           <p>
-                              <i class="bi bi-quote quote-icon-left"></i>
-                              Como miembro de esta comunidad financiera, he experimentado un nivel excepcional de apoyo y
-                              asesoramiento. ¡No podría estar más satisfecho con el servicio que brindan!
-                              <i class="bi bi-quote quote-icon-right"></i>
-                           </p>
-                        </div>
-                     </div>
-                  </div><!-- End testimonial item -->
-
-                  <div class="swiper-slide">
-                     <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                           <div class="d-flex align-items-center">
-                              <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img flex-shrink-0" alt="">
-                              <div>
-                                 <h3>Sara Wilsson</h3>
-                                 <h4>Designer</h4>
-                                 <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                 </div>
-                              </div>
-                           </div>
-                           <p>
-                              <i class="bi bi-quote quote-icon-left"></i>
-                              Como parte de esta comunidad financiera, he recibido un apoyo y orientación excepcionales. ¡No puedo estar más
-                              satisfecho con el servicio que ofrecen!
-                              <i class="bi bi-quote quote-icon-right"></i>
-                           </p>
-                        </div>
-                     </div>
-                  </div><!-- End testimonial item -->
-
-                  <div class="swiper-slide">
-                     <div class="testimonial-wrap">
-                        <div class="testimonial-item">
-                           <div class="d-flex align-items-center">
-                              <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img flex-shrink-0" alt="">
-                              <div>
-                                 <h3>Jena Karlis</h3>
-                                 <h4>Store Owner</h4>
-                                 <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                 </div>
-                              </div>
-                           </div>
-                           <p>
-                              <i class="bi bi-quote quote-icon-left"></i>
-                              Ser parte de esta comunidad financiera ha sido una experiencia transformadora. El apoyo y la
-                              orientación que he recibido han sido fundamentales para alcanzar mis metas financieras de
-                              forma segura y eficiente.
-                              <i class="bi bi-quote quote-icon-right"></i>
-                           </p>
-                        </div>
-                     </div>
-                  </div><!-- End testimonial item -->
-               </div>
-               <div class="swiper-pagination"></div>
-            </div>
-
-         </div>
-      </section><!-- End Testimonials Section -->
-
-      <!-- ======= Portfolio Section ======= -->
-
-
-      <!-- ======= Our Team Section ======= -->
-
-
-
-      <!-- ======= Frequently Asked Questions Section ======= -->
-      <section id="faq" class="faq">
-         <div class="container" data-aos="fade-up">
-
-            <div class="row gy-4">
-
-               <div class="col-lg-4">
-                  <div class="content px-xl-5">
-                     <h3>Preguntas Frecuentes</h3>
-                     <p style="color:black;">
-                        En Comultrasan, entendemos que cada paso en tu camino financiero puede venir acompañado de preguntas
-                        y dudas. Por eso, hemos reunido esta sección para ofrecerte respuestas claras y concisas a las consultas más comunes
-                        que nuestros clientes suelen tener.
-                     </p>
-                  </div>
-               </div>
-
-               <div class="col-lg-8">
-
-                  <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
-
-                     <div class="accordion-item">
-                        <h3 class="accordion-header">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
-                              <span class="num">1.</span>
-                              Pregunta Frecuenta Numero 1
-                           </button>
-                        </h3>
-                        <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                           <div class="accordion-body">
-                              Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non
-                              curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus
-                              non.
-                           </div>
-                        </div>
-                     </div><!-- # Faq item-->
-
-                     <div class="accordion-item">
-                        <h3 class="accordion-header">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
-                              <span class="num">2.</span>
-                              Pregunta Frecuenta Numero 2
-                           </button>
-                        </h3>
-                        <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                           <div class="accordion-body">
-                              Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit
-                              laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec
-                              pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus
-                              turpis massa tincidunt dui.
-                           </div>
-                        </div>
-                     </div><!-- # Faq item-->
-
-                     <div class="accordion-item">
-                        <h3 class="accordion-header">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
-                              <span class="num">3.</span>
-                              Pregunta Frecuenta Numero 3
-                           </button>
-                        </h3>
-                        <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                           <div class="accordion-body">
-                              Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                              pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum
-                              tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
-                              molestie at elementum eu facilisis sed odio morbi quis
-                           </div>
-                        </div>
-                     </div><!-- # Faq item-->
-
-                     <div class="accordion-item">
-                        <h3 class="accordion-header">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
-                              <span class="num">4.</span>
-                              Pregunta Frecuenta Numero 4
-                           </button>
-                        </h3>
-                        <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                           <div class="accordion-body">
-                              Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit
-                              laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec
-                              pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus
-                              turpis massa tincidunt dui.
-                           </div>
-                        </div>
-                     </div><!-- # Faq item-->
-
-                     <div class="accordion-item">
-                        <h3 class="accordion-header">
-                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
-                              <span class="num">5.</span>
-                              Pregunta Frecuenta Numero 5
-                           </button>
-                        </h3>
-                        <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                           <div class="accordion-body">
-                              Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
-                              ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit
-                              adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                           </div>
-                        </div>
-                     </div><!-- # Faq item-->
-
-                  </div>
-
-               </div>
-            </div>
-
-         </div>
-      </section><!-- End Frequently Asked Questions Section -->
-
-
 
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/footer.php'; ?>
