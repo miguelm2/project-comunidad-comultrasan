@@ -33,7 +33,7 @@
     <!-- Start Header -->
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
     <!-- End Header -->
-    <section class="ftco-section">
+    <section class="ftco-section" id="unete">
         <div class="container">
             <div class="text-center section-header pb-4">
                 <h2>¡Unete a nuestra comunidad!</h2>

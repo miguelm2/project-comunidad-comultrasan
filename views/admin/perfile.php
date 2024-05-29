@@ -49,16 +49,16 @@
                      <img src="../assets/img/team-5.jpg" alt="" class="img-fluid">
                   </div>
                   <div class="col-md-8">
-                     <form action="" method="post" class="row g-3">
+                     <form action="" method="post">
                         <div class="row">
                            <div class="col-6">
-                              <div class="input-group input-group-outline my-3">
+                              <div class="input-group input-group-outline">
                                  <label class="form-label">Nombre</label>
                                  <input type="text" class="form-control" required>
                               </div>
                            </div>
                            <div class="col-6">
-                              <div class="input-group input-group-outline my-3">
+                              <div class="input-group input-group-outline">
                                  <label class="form-label">NIT</label>
                                  <input type="number" class="form-control" required>
                               </div>

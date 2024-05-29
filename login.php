@@ -33,64 +33,85 @@
     <!-- Start Header -->
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
     <!-- End Header -->
-    <section class="ftco-section">
+    <section class="ftco-section" id="login">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-12 col-lg-6 mx-auto">
-
+                <div class="col-md-5">
+                    <img src="assets/image/login.webp" class="img-fluid">
+                    <p class="mt-3">
+                        La Comunidad Familia Comultrasan representa el reconocimiento de
+                        Financiera Comultrasan para honrar la lealtad y el compromiso de sus
+                        asociados y sus familias. <br>
+                        A través de un programa integral, ofrece beneficios y experiencias
+                        inolvidables que buscan mejorar la calidad de vida y fortalecer los lazos
+                        comunitarios, promoviendo el desarrollo social y el bienestar
+                        económico.
+                    </p>
+                </div>
+                <div class="col-md-7 col-lg-6">
                     <div class="wrap d-md-flex ">
-                        <div class="img">
-                            <img src="assets/image/login.jpg" alt="" style="max-height: 500px;">
-                        </div>
-                        <div class="login-wrap p-4 p-md-5">
-                            <div class="d-flex">
-                                <div class="w-100">
-                                    <a href="index" class="logo d-flex align-items-center">
-                                        <img src="/assets/image/logo_principal.png" alt="Logo" style="max-width: 300px;">
-                                    </a>
-                                    <br><br>
-                                </div>
-                                <div class="w-100">
-                                    <p class="social-media d-flex justify-content-end">
-                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-                                    </p>
-                                </div>
-                            </div>
+                        <div class="login-wrap p-1 p-md-2 bg-secondary rounded-3">
                             <form action="#" class="signin-form">
                                 <div class="text-center section-header pb-1">
-                                    <h5>Ingresa a nuestra comunidad</h5>
+                                    <h5>Ingresa aquí</h5>
                                 </div>
-                                <div class="form-group mb-4">
-                                    <label class="label" for="name"> <i class="bi bi-person-workspace"></i> Usuario</label>
-                                    <input type="text" class="form-control" placeholder="Usuario" required>
-                                </div>
-                                <div class="form-group mb-4">
-                                    <label class="label" for="password"> <i class="bi bi-pass"></i> Contraseña</label>
-                                    <input type="password" class="form-control" placeholder="Contraseña" required>
-                                </div>
-                                <div class="form-group">
-                                    <br>
-                                    <button type="submit" class="form-control btn btn-success rounded submit px-3" name="ingresar">
-                                        <i class="bi bi-box-arrow-in-right"></i> Ingresar</button>
-                                    <div class="row m-4">
-                                        <a href="/views/admin/" class="btn btn-primary mb-2">Ingresar como administrador</a>
-                                        <a href="/views/gestor/" class="btn btn-secondary mb-2">Ingresar como gestor</a>
-                                        <a href="/views/user/" class="btn btn-info mb-2">Ingresar como usuario</a>
+                                <div class="row p-1">
+                                    <div class="col-4">
+                                        <div class="form-group mb-4">
+                                            <label class="label" for="name"> <i class="bi bi-person-workspace"></i> Usuario</label>
+                                            <input type="text" class="form-control" placeholder="Usuario" required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group d-md-flex">
-                                    <div class="text-center">
-                                        <br>
-                                        <p class="text-center">
-                                            <a href="forget_pass" style="color:black;">Olvide mi contraseña</a> |
-                                            <a href="index" style="color:black;">Volver a inicio</a>
-                                        </p>
-                                        <p class="text-center">¿No perteneces a la comunidad? <a data-toggle="tab" href="singup">Unete</a></p>
+                                    <div class="col-4">
+                                        <div class="form-group mb-4">
+                                            <label class="label" for="password"> <i class="bi bi-pass"></i> Contraseña</label>
+                                            <input type="password" class="form-control" placeholder="Contraseña" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="from-control">
+                                            <label for="ingresar"></label>
+                                            <button type="submit" class="form-control btn btn-success rounded submit px-3" name="ingresar">
+                                                <i class="bi bi-box-arrow-in-right"></i> Ingresar</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <p>
+                                                <a href="forget_pass" style="color:black;">¿Haz olvidado tu contraseña?</a> |
+                                                <a href="singup">Registrarse</a>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
-
+                        </div>
+                    </div>
+                    <div style="border: 2px solid #006567; padding: 10px;" class="rounded-5 mt-4 m-5 p-3 bg-secondary">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                <div class="icon-box" data-aos="fade-up" data-aos-delay="10">
+                                    <div style="font-size: 45px; color: #006567;">
+                                        <i class="bi bi-currency-exchange"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7 rounded-5 text-center" style="border: 2px solid #006567;">
+                                <h4 style="color: #58A228;">
+                                    <strong>
+                                        <a href="index#beneficios">Conoce aquí tus beneficios</a>
+                                    </strong>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <br>
+                        <div class="row m-4">
+                            <a href="/views/admin/" class="btn btn-primary mb-2">Ingresar como administrador</a>
+                            <a href="/views/gestor/" class="btn btn-secondary mb-2">Ingresar como gestor</a>
+                            <a href="/views/user/" class="btn btn-info mb-2">Ingresar como usuario</a>
                         </div>
                     </div>
                 </div>
