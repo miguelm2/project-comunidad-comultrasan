@@ -63,42 +63,42 @@
          <div class="container position-relative">
             <div class="row gy-4 mt-5">
                <h3 class="text-center">¿Qué ventajas tiene pertenecer a la comunidad?</h3>
-               <div class="col-2 col-md-2" data-aos="fade-up" data-aos-delay="100">
+               <div class="col-md-2 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                   <div class="icon-box">
                      <div class="icon"><i class="bi bi-music-note-beamed"></i></div>
                      <h6 class="title text-black"><a href="#beneficios" class="stretched-link">Momentos para compartir</a></h6>
                      <p class="text-black">¡Disfruta con quienes son importantes para ti!</p>
                   </div>
                </div><!--End Icon Box -->
-               <div class="col-2 col-md-2" data-aos="fade-up" data-aos-delay="100">
+               <div class="col-md-2 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                   <div class="icon-box">
                      <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
                      <h6 class="title text-black"><a href="#beneficios" class="stretched-link">Aprende y crece</a></h6>
                      <p class="text-black">Espacios de capacitación y fortalecimiento para ti y tu negocio</p>
                   </div>
                </div><!--End Icon Box -->
-               <div class="col-2 col-md-2" data-aos="fade-up" data-aos-delay="100">
+               <div class="col-md-2 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                   <div class="icon-box">
                      <div class="icon"><i class="bi bi-cash-coin"></i></div>
                      <h6 class="title text-black"><a href="#beneficios" class="stretched-link">Descuentos exclusivos</a></h6>
                      <p class="text-black">¡Aprovecha todos los descuentos que hemos conseguido para ti y tu familia!</p>
                   </div>
                </div><!--End Icon Box -->
-               <div class="col-2 col-md-2" data-aos="fade-up" data-aos-delay="100">
+               <div class="col-md-2 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                   <div class="icon-box">
                      <div class="icon"><i class="bi bi-piggy-bank-fill"></i></div>
                      <h6 class="title text-black"><a href="#beneficios" class="stretched-link">Beneficios financieros</a></h6>
                      <p class="text-black">Obtén beneficios en costos y facilidades para la constitución de tus productos</p>
                   </div>
                </div><!--End Icon Box -->
-               <div class="col-2 col-md-2" data-aos="fade-up" data-aos-delay="200">
+               <div class="col-md-2 col-sm-4" data-aos="fade-up" data-aos-delay="200">
                   <div class="icon-box">
                      <div class="icon"><i class="bi bi-person-check-fill"></i></div>
                      <h6 class="title"><a href="#puntos" class="stretched-link">Sistema de recompensas</a></h6>
                      <p class="text-black">Es el programa diseñado para premiar tu pertenencia a la comunidad.</p>
                   </div>
                </div><!--End Icon Box -->
-               <div class="col-2 col-md-2" data-aos="fade-up" data-aos-delay="300">
+               <div class="col-md-2 col-sm-4" data-aos="fade-up" data-aos-delay="300">
                   <div class="icon-box">
                      <div class="icon"><i class="bi bi-people-fill"></i></div>
                      <h6 class="title"><a href="#comunidad" class="stretched-link">Grupos de interés</a></h6>
@@ -136,7 +136,7 @@
                         <div class="row gy-1 mt-2">
                            <div class="col-12">
                               <div class="row">
-                                 <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                                 <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                                     <div class="card mouse">
                                        <div class="m-2">
                                           <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -151,7 +151,7 @@
                                        <p class="text-black p-2">Noticias, historias, conversaciones para apasionados por el fútbol.</p>
                                     </div>
                                  </div><!--End Icon Box -->
-                                 <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                                 <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                                     <div class="card mouse">
                                        <div class="m-2">
                                           <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -166,7 +166,7 @@
                                        <p class="text-black p-1">Comparte momentos especiales y conoce los beneficios que tenemos para nuestras macotas.</p>
                                     </div>
                                  </div><!--End Icon Box -->
-                                 <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                                 <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                                     <div class="card mouse">
                                        <div class="m-2">
                                           <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -181,7 +181,7 @@
                                        <p class="text-black p-1">Para nuestros miembros de la edad dorada: bienestar y aprovechar el tiempo libre.</p>
                                     </div>
                                  </div><!--End Icon Box -->
-                                 <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                                 <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                                     <div class="card mouse">
                                        <div class="m-2">
                                           <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -200,7 +200,7 @@
                            </div>
                            <div class="col-12 mp-2">
                               <div class="row">
-                                 <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                                 <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                                     <div class="card mouse">
                                        <div class="m-2">
                                           <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -217,7 +217,7 @@
                                        </p>
                                     </div>
                                  </div><!--End Icon Box -->
-                                 <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                                 <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                                     <div class="card mouse">
                                        <div class="m-2">
                                           <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -234,7 +234,7 @@
                                        </p>
                                     </div>
                                  </div><!--End Icon Box -->
-                                 <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                                 <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                                     <div class="card mouse">
                                        <div class="m-2">
                                           <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -251,7 +251,7 @@
                                        </p>
                                     </div>
                                  </div><!--End Icon Box -->
-                                 <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                                 <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                                     <div class="card mouse">
                                        <div class="m-2">
                                           <span class="material-symbols-outlined" style="font-size: 50px;">

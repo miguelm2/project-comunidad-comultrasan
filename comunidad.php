@@ -42,11 +42,11 @@
 
          <div class="row gy-2 align-items-center">
 
-            <div class="col-lg-4">
+            <div class="col-md-4 col-sm-4 text-center">
                <img src="assets/image/familia.png" alt="" class="img-fluid rounded-4">
             </div>
 
-            <div class="col-lg-8 text-center">
+            <div class="col-md-8 col-sm-8 text-center">
                <div class="row">
                   <div class="section-header pb-0">
                      <h2>Comunidad Comultrasan</h2>
@@ -59,7 +59,7 @@
                   <div class="row gy-1 mt-2">
                      <div class="col-12">
                         <div class="row">
-                           <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -74,7 +74,7 @@
                                  <p class="text-black p-2">Noticias, historias, conversaciones para apasionados por el fútbol.</p>
                               </div>
                            </div><!--End Icon Box -->
-                           <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -89,7 +89,7 @@
                                  <p class="text-black p-1">Comparte momentos especiales y conoce los beneficios que tenemos para nuestras macotas.</p>
                               </div>
                            </div><!--End Icon Box -->
-                           <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -104,7 +104,7 @@
                                  <p class="text-black p-1">Para nuestros miembros de la edad dorada: bienestar y aprovechar el tiempo libre.</p>
                               </div>
                            </div><!--End Icon Box -->
-                           <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -123,7 +123,7 @@
                      </div>
                      <div class="col-12 mp-2">
                         <div class="row">
-                           <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -140,7 +140,7 @@
                                  </p>
                               </div>
                            </div><!--End Icon Box -->
-                           <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -157,7 +157,7 @@
                                  </p>
                               </div>
                            </div><!--End Icon Box -->
-                           <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -174,7 +174,7 @@
                                  </p>
                               </div>
                            </div><!--End Icon Box -->
-                           <div class="col-3 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -220,11 +220,11 @@
                         que se están preparando para esta etapa, compartiendo tu
                         tiempo en actividades gratificantes como:
                         <ul class="list-unstyled list-group-item">
-                           <li><i class="bi bi-check "></i>Viajes y pasadías</li>
-                           <li><i class="bi bi-check "></i>Club de lectura</li>
-                           <li><i class="bi bi-check "></i>Cursos cortos</li>
-                           <li><i class="bi bi-check "></i>Artes y manualidades</li>
-                           <li><i class="bi bi-check "></i>Club Pioneros (Convenios con centros especializados para adultos mayores).</li>
+                           <li><i class="bi bi-check"></i>Viajes y pasadías</li>
+                           <li><i class="bi bi-check"></i>Club de lectura</li>
+                           <li><i class="bi bi-check"></i>Cursos cortos</li>
+                           <li><i class="bi bi-check"></i>Artes y manualidades</li>
+                           <li><i class="bi bi-check"></i>Club Pioneros (Convenios con centros especializados para adultos mayores).</li>
                         </ul>
                      </h4>
                   </div>

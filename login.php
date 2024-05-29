@@ -89,20 +89,17 @@
                     </div>
                     <div style="border: 2px solid #006567; padding: 10px;" class="rounded-5 mt-4 m-5 p-3 bg-secondary">
                         <div class="row">
-                            <div class="col-md-1"></div>
-                            <div class="col-md-2">
+                            <div class="col-2">
                                 <div class="icon-box" data-aos="fade-up" data-aos-delay="10">
                                     <div style="font-size: 45px; color: #006567;">
                                         <i class="bi bi-currency-exchange"></i>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-7 rounded-5 text-center" style="border: 2px solid #006567;">
-                                <h4 style="color: #58A228;">
-                                    <strong>
-                                        <a href="index#beneficios">Conoce aquí tus beneficios</a>
-                                    </strong>
-                                </h4>
+                            <div class="col-8 rounded-5 text-center" style="border: 2px solid #006567;">
+                                <strong>
+                                    <a href="index#beneficios" style="color: #58A228; font-size:25px;">Conoce aquí tus beneficios</a>
+                                </strong>
                             </div>
                         </div>
                     </div>
