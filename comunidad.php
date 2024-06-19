@@ -35,208 +35,178 @@
    <!-- Start Header -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
    <!-- End Header -->
-
-   <!-- ======= Stats Counter Section ======= -->
-   <section id="comunidad">
-      <div class="container" data-aos="fade-up">
-
-         <div class="row gy-2 align-items-center">
-
-            <div class="col-md-4 col-sm-4 text-center">
-               <img src="assets/image/familia.png" alt="" class="img-fluid rounded-4">
-            </div>
-
-            <div class="col-md-8 col-sm-8 text-center">
-               <div class="row">
-                  <div class="section-header pb-0">
-                     <h2>Comunidad Comultrasan</h2>
-                  </div>
-               </div>
-               <div>
-                  <h5>Comparte tus gustos e intereses con integrantes de otras comunidades</h5>
-               </div>
-               <div class="container position-relative">
-                  <div class="row gy-1 mt-2">
-                     <div class="col-12">
-                        <div class="row">
-                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       sports_soccer
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Balón y pasión
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-2">Noticias, historias, conversaciones para apasionados por el fútbol.</p>
-                              </div>
-                           </div><!--End Icon Box -->
-                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       pets
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Patitas traviesas
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-1">Comparte momentos especiales y conoce los beneficios que tenemos para nuestras macotas.</p>
-                              </div>
-                           </div><!--End Icon Box -->
-                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       group
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Pioneros
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-1">Para nuestros miembros de la edad dorada: bienestar y aprovechar el tiempo libre.</p>
-                              </div>
-                           </div><!--End Icon Box -->
-                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       diversity_3
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Clasificados
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-1">Espacio para solicitar y encontrar servicios y productos necesarios para tu negocio.</p>
-                              </div>
-                           </div><!--End Icon Box -->
+   <!-- ======= Our Services Section ======= -->
+   <section class="bg-primary">
+      <div class=" mt-2 m-3">
+         <h2 class="text-start text-white m-3">Tu historia es nuestro propósito</h2>
+         <p class="text-start text-white m-3">Testimonios reales de éxito y progreso de nuestros clientes</p>
+         <div id="testimoniosCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <div class="row">
+                     <div class="col-md-4">
+                        <div class="card flex-row">
+                           <img src="assets/image/imagen-1.jpg" class="card-img-bottom img-fluid p-2 rounded-4" alt="Testimonio 1">
+                           <div class="card-body">
+                              <h5 class="card-title">Seguro de hogar</h5>
+                              <p class="card-text">Gracias al seguro pude reconstruir mi hogar y nos recuperamos de un incendio.</p>
+                              <p class="text-muted">Myriam Fonseca - Tendera</p>
+                              <a href="#" class="btn btn-primary">¡Me interesa!</a>
+                           </div>
                         </div>
                      </div>
-                     <div class="col-12 mp-2">
-                        <div class="row">
-                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       partner_exchange
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Tejo y bolo criollo
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-2">
-                                    Aquí encuentras personas emprendedoras, alegres, positivas y que aman hacer amigos.
-                                 </p>
-                              </div>
-                           </div><!--End Icon Box -->
-                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       person_raised_hand
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Jovenes en movimiento
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-1">
-                                    Aquí encuentras amigos en busca de un propósito mayor y disfrutar su juventud.
-                                 </p>
-                              </div>
-                           </div><!--End Icon Box -->
-                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       baby_changing_station
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       La aventura de ser papás
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-1">
-                                    Aquí podrás encontrar y compartir sobre salud y nutrición, desarrollo infantil y consejos de padres
-                                 </p>
-                              </div>
-                           </div><!--End Icon Box -->
-                           <div class="col-md-3 col-sm-4" data-aos="fade-up" data-aos-delay="100">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       directions_bike
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Pedales y piñones
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-1">
-                                    Noticias, historias, conversaciones para apasionados por el ciclismo e invitaciones a rodar.
-                                 </p>
-                              </div>
-                           </div><!--End Icon Box -->
+                     <div class="col-md-4">
+                        <div class="card flex-row">
+                           <img src="assets/image/imagen-2.jpg" class="card-img-bottom img-fluid p-2 rounded-4" alt="Testimonio 2">
+                           <div class="card-body">
+                              <h5 class="card-title">Préstamo en línea</h5>
+                              <p class="card-text">He adquirido 2 préstamos, la fórmula es invertir siempre en un negocio que produzca dinero.</p>
+                              <p class="text-muted">Miguel Bolívar - Barbero</p>
+                              <a href="#" class="btn btn-success">¡Iniciar desembolso!</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="card flex-row">
+                           <img src="assets/image/imagen-3.jpg" class="card-img-bottom img-fluid p-2 rounded-4" alt="Testimonio 3">
+                           <div class="card-body">
+                              <h5 class="card-title">Crédito de negocio</h5>
+                              <p class="card-text">Gracias a Crezcamos pude adquirir maquinaria nueva y hemos aumentado la producción mensual de zapatos.</p>
+                              <p class="text-muted">Erika Patiño - Emprendedora</p>
+                              <a href="#" class="btn btn-primary">¡Iniciar desembolso!</a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="carousel-item">
+                  <div class="row">
+                     <div class="col-md-4">
+                        <div class="card flex-row">
+                           <img src="assets/image/imagen-1.jpg" class="card-img-bottom img-fluid p-2 rounded-4" alt="Testimonio 4">
+                           <div class="card-body">
+                              <h5 class="card-title">Seguro de hogar</h5>
+                              <p class="card-text">Gracias al seguro pude reconstruir mi hogar y nos recuperamos de un incendio.</p>
+                              <p class="text-muted">Myriam Fonseca - Tendera</p>
+                              <a href="#" class="btn btn-primary">¡Me interesa!</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="card flex-row">
+                           <img src="assets/image/imagen-2.jpg" class="card-img-bottom img-fluid p-2 rounded-4" alt="Testimonio 5">
+                           <div class="card-body">
+                              <h5 class="card-title">Préstamo en línea</h5>
+                              <p class="card-text">He adquirido 2 préstamos, la fórmula es invertir siempre en un negocio que produzca dinero.</p>
+                              <p class="text-muted">Miguel Bolívar - Barbero</p>
+                              <a href="#" class="btn btn-success">¡Iniciar desembolso!</a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="card flex-row">
+                           <img src="assets/image/imagen-3.jpg" class="card-img-bottom img-fluid p-2 rounded-4" alt="Testimonio 6">
+                           <div class="card-body">
+                              <h5 class="card-title">Crédito de negocio</h5>
+                              <p class="card-text">Gracias a Crezcamos pude adquirir maquinaria nueva y hemos aumentado la producción mensual de zapatos.</p>
+                              <p class="text-muted">Erika Patiño - Emprendedora</p>
+                              <a href="#" class="btn btn-primary">¡Iniciar desembolso!</a>
+                           </div>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimoniosCarousel" data-bs-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimoniosCarousel" data-bs-slide="next">
+               <span class="carousel-control-next-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Next</span>
+            </button>
          </div>
       </div>
    </section>
-   <!-- End Stats Counter Section -->
-   <div class="bg-secondary">
-      <section>
-         <div class="container">
-            <div class="row gy-2 align-items-center">
-               <div class="col-md-8">
-                  <div>
-                     <h2 class="text-primary">Pioneros</h2>
-                     <h4>
-                        En este grupo de interés podrás compartir experiencias y temas de
-                        bienestar y aprovechamiento del tiempo libre con personas de tu
-                        misma edad.
-                     </h4>
-                  </div>
-                  <div>
-                     <h2 class="text-primary">Aprovechamiento del tiempo libre</h2>
-                     <h4>
-                        Fomenta buenas conexiones sociales con personas en retiro o
-                        que se están preparando para esta etapa, compartiendo tu
-                        tiempo en actividades gratificantes como:
-                        <ul class="list-unstyled list-group-item">
-                           <li><i class="bi bi-check"></i>Viajes y pasadías</li>
-                           <li><i class="bi bi-check"></i>Club de lectura</li>
-                           <li><i class="bi bi-check"></i>Cursos cortos</li>
-                           <li><i class="bi bi-check"></i>Artes y manualidades</li>
-                           <li><i class="bi bi-check"></i>Club Pioneros (Convenios con centros especializados para adultos mayores).</li>
-                        </ul>
-                     </h4>
+   <section class="services sections-bg bg-light">
+      <div class="container mt-2 p-2">
+         <h2 class="text-center">Novedades de nuestras comunidad</h2>
+         <div id="novedadesCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <div class="row">
+                     <div class="col-md-4">
+                        <div class="card">
+                           <img src="assets/image/imagen1.jpg" class="card-img-top" alt="Celebración día de la familia">
+                           <div class="card-body">
+                              <h5 class="card-title">Celebración día de la familia</h5>
+                              <p class="card-text">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="card">
+                           <img src="assets/image/imagen2.jpg" class="card-img-top" alt="Beneficios para tus mascotas">
+                           <div class="card-body">
+                              <h5 class="card-title">Beneficios para tus mascotas</h5>
+                              <p class="card-text">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="card">
+                           <img src="assets/image/imagen3.jpg" class="card-img-top" alt="Apoyos educativos">
+                           <div class="card-body">
+                              <h5 class="card-title">Apoyos educativos</h5>
+                              <p class="card-text">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                           </div>
+                        </div>
+                     </div>
                   </div>
                </div>
-               <div class="col-md-4">
-                  <img src="assets/image/ejercicio.png" alt="Pioneros" class="img-fluid">
+               <div class="carousel-item">
+                  <div class="row">
+                     <div class="col-md-4">
+                        <div class="card">
+                           <img src="assets/image/imagen1.jpg" class="card-img-top" alt="Celebración día de la familia">
+                           <div class="card-body">
+                              <h5 class="card-title">Celebración día de la familia</h5>
+                              <p class="card-text">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="card">
+                           <img src="assets/image/imagen2.jpg" class="card-img-top" alt="Beneficios para tus mascotas">
+                           <div class="card-body">
+                              <h5 class="card-title">Beneficios para tus mascotas</h5>
+                              <p class="card-text">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="card">
+                           <img src="assets/image/imagen3.jpg" class="card-img-top" alt="Apoyos educativos">
+                           <div class="card-body">
+                              <h5 class="card-title">Apoyos educativos</h5>
+                              <p class="card-text">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#novedadesCarousel" data-bs-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#novedadesCarousel" data-bs-slide="next">
+               <span class="carousel-control-next-icon" aria-hidden="true"></span>
+               <span class="visually-hidden">Next</span>
+            </button>
          </div>
-      </section>
-   </div>
-
+      </div>
+   </section><!-- End Our Services Section -->
    <!-- Start Footer -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/footer.php'; ?>
    <!-- End Footer -->
