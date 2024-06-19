@@ -1,40 +1,28 @@
+<div class="header-top" style="display: block; unicode-bidi: isolate;">
+</div>
 <header id="header" class="header d-flex align-items-center bg-light">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between bg-light">
         <a href="index" class="logo d-flex align-items-center">
-            <h4 class="text-black inicio"><strong>Comunidad Familia Comultrasan</strong></h4>
+            <img src="assets/image/logo_principal.png" alt="Logo_financiera">
         </a>
         <nav id="navbar" class="navbar">
             <ul>
                 <li>
-                    <a class="text-secondary" style="font-size: 18px;" href="index#index">
-                        <i class="bi bi-house-door-fill pe-1" width="32" height="32"></i>
+                    <a class="text-black" style="font-size: 18px;" href="index#index">
                         Inicio
                     </a>
                 </li>
                 <li>
-                    <a class="text-secondary" style="font-size: 18px;" href="comunidad#comunidad">
-                        <i class="bi bi-people-fill pe-1"></i>
+                    <a class="text-black" style="font-size: 18px;" href="comunidad#comunidad">
                         Comunidad
                     </a>
                 </li>
                 <li>
-                    <a class="text-secondary" style="font-size: 18px;" href="index#puntos">
-                        <i class="bi bi-coin pe-1"></i>
-                        Recompensas
+                    <a class="text-black" style="font-size: 18px;" href="index#puntos">
+                        Beneficios y Recompensas
                     </a>
                 </li>
-                <li>
-                    <a class="text-secondary" style="font-size: 18px;" href="singup#unete">
-                        <i class="bi bi-person-fill-add pe-1"></i>
-                        Únete
-                    </a>
-                </li>
-                <li>
-                    <a class="text-secondary" style="font-size: 18px;" href="login#login">
-                        <i class="bi bi-person-fill-lock pe-1"></i>
-                        Ingresar
-                    </a>
-                </li>
+                <a href="login#login" class="btn btn-outline-success text-primary btn1 p-2 m-3">Ingresar</a>
             </ul>
         </nav><!-- .navbar -->
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
