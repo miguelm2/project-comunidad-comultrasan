@@ -96,7 +96,7 @@ section {
   display: block;
   width: 50px;
   height: 3px;
-  background: #58A227;
+  background: #58a227;
   left: 0;
   right: 0;
   bottom: 0;
@@ -1932,7 +1932,7 @@ section {
   border-radius: 10px;
   transition: 0.3s;
   color: black;
-  background: #58A227;
+  background: #58a227;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
@@ -2678,7 +2678,7 @@ section {
   color: #fff;
 }
 .inicio {
-  background: #58A227;
+  background: #58a227;
   padding: 6px;
   border-radius: 8px;
 }
@@ -2699,4 +2699,50 @@ section {
 }
 .btn-color:hover {
   background-color: rgba(0, 143, 54, 0.7);
+}
+
+.header-top {
+  display: block;
+  background-color: #96bd0d;
+  border-bottom-right-radius: 80px;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.img-fluid {
+  width: 80%;
+  border-radius: 8px;
+}
+.text-overlay {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 20px;
+}
+.btn1 {
+  color: #000;
+  font-weight: bold;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+  color: #96bd0d;
+}
+.btn-custom {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.card-img-bottom{
+  width: 40%;
+  height: 60%;
 }
