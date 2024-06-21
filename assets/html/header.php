@@ -1,9 +1,7 @@
-<div class="header-top" style="display: block; unicode-bidi: isolate;">
-</div>
 <header id="header" class="header d-flex align-items-center bg-light">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between bg-light">
         <a href="index" class="logo d-flex align-items-center">
-            <img src="assets/image/logo_principal.png" alt="Logo_financiera">
+            <img src="assets/image/logo_principal.png" alt="Logo_financiera" class="img-fluid">
         </a>
         <nav id="navbar" class="navbar">
             <ul>
@@ -22,7 +20,7 @@
                         Beneficios y Recompensas
                     </a>
                 </li>
-                <a href="login#login" class="btn btn-outline-success text-primary btn1 p-2 m-3">Ingresar</a>
+                <a href="login#login" class="btn btn-outline-success text-primary btn1 p-1 m-3">Ingresar</a>
             </ul>
         </nav><!-- .navbar -->
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>

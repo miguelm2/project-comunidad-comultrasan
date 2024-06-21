@@ -2712,17 +2712,14 @@ section {
   text-align: center;
   color: white;
 }
-.img-fluid {
-  width: 80%;
-  border-radius: 8px;
-}
 .text-overlay {
   position: absolute;
   top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 98%;
   padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
 }
 .btn1 {
   color: #000;
@@ -2745,4 +2742,16 @@ section {
 .card-img-bottom{
   width: 40%;
   height: 60%;
+}
+.rounded-img {
+  border-radius: 1rem !important;
+}
+.bg-color-page {
+  --bs-bg-opacity: 1;
+  --bs-primary-rgb: 119, 217, 212;
+  --bs-secondary-rgb: 22, 200, 176;
+  background-color: rgba(
+    var(--bs-primary-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
 }
