@@ -35,7 +35,7 @@
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
    <!-- End Header -->
    <div id="emprendedores" data-aos="fade-up" data-aos-delay="100">
-      <section>
+      <section class="p-2">
          <div class="container">
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb">
@@ -47,6 +47,23 @@
             <div class="row gy-2 align-items-center">
                <div class="col-md-4">
                   <img src="assets/image/emprendedor.jpg" alt="Pioneros" class="img-fluid">
+                  <div class="card mt-3">
+                     <div class="card-header">
+                        <img src="assets/image/profile.png" alt="Profile Image" class="img-fluid img-foro">
+                        <div class="name">Jorge</div>
+                     </div>
+                     <div class="card-body">
+                        Jóvenes con propósito ha sido esencial en esta etapa de vida de mi hijo, le ha permitido vivir experiencias enriquecedoras que lo hacen feliz y que le ayudan a generar relaciones fuertes y significativas.
+                     </div>
+                     <div class="card-footer">
+                        <div class="likes">
+                           <span>&#10084; 60</span>
+                        </div>
+                        <div class="time">
+                           Último hace 1 horas
+                        </div>
+                     </div>
+                  </div>
                </div>
                <div class="col-md-8">
                   <div>
