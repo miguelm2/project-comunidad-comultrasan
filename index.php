@@ -43,11 +43,11 @@
          <div class="text-overlay">
             <h4>¡Bienvenido a la Comunidad Familia Financiera Comultrasan!</h4>
             <div class="row justify-content-center">
-               <div class="col-2">
+               <div class="col-md-2">
                   <a href="singup" class="btn btn-success btn1">Únete</a>
                </div>
-               <div class="col-3">
-                  <a href="" class="btn btn-success btn1">Referir a un amigo</a>
+               <div class="col-md-3">
+                  <a href="" class="btn btn-success btn1">Referir amigo</a>
                </div>
             </div>
          </div>
@@ -62,7 +62,7 @@
             <div class="container" data-aos="fade-up">
                <div class="row gy-2 align-items-center">
                   <div class="col-lg-3">
-                     <img src="assets/image/joven.png" alt="" class="img-fluid rounded-4">
+                     <img src="assets/image/joven.png" alt="" class="img-fluid rounded-4 img-young">
                   </div>
                   <div class="col-lg-9">
                      <div class="text-center">

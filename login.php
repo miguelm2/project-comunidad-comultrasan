@@ -33,8 +33,14 @@
     <!-- Start Header -->
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
     <!-- End Header -->
-    <section class="ftco-section" id="login">
+    <section class="ftco-section">
         <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index#index">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Ingresar</li>
+                </ol>
+            </nav>
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <img src="assets/image/login.webp" class="img-fluid">
@@ -52,10 +58,10 @@
                     <div class="wrap d-md-flex ">
                         <div class="login-wrap p-1 p-md-2 bg-secondary rounded-3">
                             <form action="#" class="signin-form">
-                                <div class="text-center section-header pb-1">
+                                <div class="text-center section-header pb-1 text-black">
                                     <h5>Ingresa aquí</h5>
                                 </div>
-                                <div class="row p-1">
+                                <div class="row p-1 text-black">
                                     <div class="col-4">
                                         <div class="form-group mb-4">
                                             <label class="label" for="name"> <i class="bi bi-person-workspace"></i> Usuario</label>

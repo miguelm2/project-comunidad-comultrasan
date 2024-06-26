@@ -2712,15 +2712,18 @@ section {
   text-align: center;
   color: white;
 }
+
 .text-overlay {
   position: absolute;
-  top: 85%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 98%;
-  padding: 20px;
+  padding: 29px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  border-radius: 4px;
 }
+
 .btn1 {
   color: #000;
   font-weight: bold;
@@ -2754,4 +2757,17 @@ section {
     var(--bs-primary-rgb),
     var(--bs-bg-opacity)
   ) !important;
+}
+@media (max-width: 700px) {
+  .img-young{
+    max-width: 50%;
+  }
+  .text-overlay {
+    position: absolute;
+    top: 30%;
+    width: 95%;
+    padding: 29px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    border-radius: 4px;
+  }
 }
