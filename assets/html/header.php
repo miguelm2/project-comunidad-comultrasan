@@ -20,7 +20,7 @@
                         Beneficios y Recompensas
                     </a>
                 </li>
-                <a href="login#login" class="btn btn-outline-success text-primary btn1 p-1 m-3">Ingresar</a>
+                <a href="login" class="btn btn-outline-success text-primary btn1 p-1 m-3">Ingresar</a>
             </ul>
         </nav><!-- .navbar -->
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
