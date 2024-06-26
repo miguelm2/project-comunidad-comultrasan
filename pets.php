@@ -34,8 +34,8 @@
    <!-- Start Header -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
    <!-- End Header -->
-   <div class="bg-secondary" id="mascotas" data-aos="fade-up" data-aos-delay="100">
-      <section>
+   <div  data-aos="fade-up" data-aos-delay="100">
+      <section class="p-2">
          <div class="container">
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb">
@@ -45,7 +45,7 @@
                </ol>
             </nav>
             <div class="row gy-2 align-items-center">
-               <div class="col-md-9">
+               <div class="col-md-8">
                   <div>
                      <h2 class="text-primary">Patitas Traviesas</h2>
                      <h5 class="text-black">
@@ -69,8 +69,25 @@
                      </h5>
                   </div>
                </div>
-               <div class="col-md-3">
+               <div class="col-md-4">
                   <img src="assets/image/mascotas.jpg" alt="Pioneros" class="img-fluid">
+                  <div class="card mt-3">
+                     <div class="card-header">
+                        <img src="assets/image/profile.png" alt="Profile Image" class="img-fluid img-foro">
+                        <div class="name">Jorge</div>
+                     </div>
+                     <div class="card-body">
+                        Jóvenes con propósito ha sido esencial en esta etapa de vida de mi hijo, le ha permitido vivir experiencias enriquecedoras que lo hacen feliz y que le ayudan a generar relaciones fuertes y significativas.
+                     </div>
+                     <div class="card-footer">
+                        <div class="likes">
+                           <span>&#10084; 60</span>
+                        </div>
+                        <div class="time">
+                           Último hace 1 horas
+                        </div>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>

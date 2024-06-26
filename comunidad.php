@@ -38,20 +38,19 @@
    <!-- ======= Our Services Section ======= -->
 
    <!-- ======= Stats Counter Section ======= -->
-   <section id="comunidad">
+   <section id="comunidad" class="p-2">
       <div class="container" data-aos="fade-up">
-
-      <nav aria-label="breadcrumb">
-               <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index#index">Inicio</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Comunidad</a></li>
-               </ol>
-            </nav>
+         <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a href="index#index">Inicio</a></li>
+               <li class="breadcrumb-item active" aria-current="page">Comunidad</a></li>
+            </ol>
+         </nav>
          <div class="row gy-2 align-items-center">
-            <div class="col-md-8 col-sm-8 text-center">
+            <div class="col-md-12 col-sm-12 text-center">
                <div class="row">
                   <div class="section-header pb-0">
-                     <h2 class="text-black">Comunidad Comultrasan</h2>
+                     <h2 class="text-pri">Comunidad Comultrasan</h2>
                   </div>
                </div>
                <div>
@@ -110,7 +109,7 @@
                            </a><!--End Icon Box -->
                         </div>
                      </div>
-                     <div class="col-12 mp-2">
+                     <div class="col-12 mt-4 mp-2">
                         <div class="row justify-content-center">
                            <a class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-delay="100" href="youngs">
                               <div class="card mouse">
@@ -150,9 +149,6 @@
                      </div>
                   </div>
                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 text-center">
-               <img src="assets/image/familia.png" alt="" class="img-fluid rounded-4">
             </div>
          </div>
       </div>

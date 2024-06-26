@@ -1,9 +1,9 @@
-<header id="header" class="header d-flex align-items-center bg-light">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between bg-light">
+<header id="header" class="header d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
         <a href="index" class="logo d-flex align-items-center">
             <img src="assets/image/logo_principal.png" alt="Logo_financiera" class="img-fluid">
         </a>
-        <nav id="navbar" class="navbar">
+        <nav id="navbar" class="navbar" >
             <ul>
                 <li>
                     <a class="text-black" style="font-size: 18px;" href="index#index">
