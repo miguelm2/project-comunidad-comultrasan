@@ -45,6 +45,25 @@
                </ol>
             </nav>
             <div class="row gy-2 align-items-center">
+               <div class="col-md-8">
+                  <div class="text-start">
+                     <h2 class="text-pri">Emprendedores Unidos</h2>
+                     <h5 class="text-black">
+                        En nuestra comunidad, te ofrecemos un conjunto de soluciones a la medida para el desarrollo y mejora de tus habilidades empresariales que te permitan impulsar la competitividad y productividad de tu negocio, asegurando un crecimiento sostenible, exitoso y facilitando:
+                     </h5>
+                  </div>
+                  <div  class="text-start">
+                     <h5 class="text-black">
+                        <ul class="list-unstyled list-group-item text-start">
+                           <li><i class="bi bi-check"></i>La conexión e interacción entre los miembros de la comunidad.</li>
+                           <li><i class="bi bi-check"></i>El relacionamiento y comercialización de productos participando en eventos de negocios y ferias comerciales.</li>
+                           <li><i class="bi bi-check"></i>Conocer los aprendizajes y experiencias de empresarios exitosos.</li>
+                           <li><i class="bi bi-check"></i>Participar en asesorías grupales, dirigidas por expertos donde podrás resolver inquietudes sobre un tema específico.</li>
+                           <li><i class="bi bi-check"></i>Participar en talleres individuales con expertos a partir un diagnóstico empresarial.</li>
+                        </ul>
+                     </h5>
+                  </div>
+               </div>
                <div class="col-md-4">
                   <img src="assets/image/emprendedor.jpg" alt="Pioneros" class="img-fluid">
                   <div class="card mt-3">
@@ -65,26 +84,6 @@
                      </div>
                   </div>
                </div>
-               <div class="col-md-8">
-                  <div>
-                     <h2 class="text-primary">Emprendedores Unidos</h2>
-                     <h5 class="text-black">
-                        En nuestra comunidad, te ofrecemos un conjunto de soluciones a la medida para el desarrollo y mejora de tus habilidades empresariales que te permitan impulsar la competitividad y productividad de tu negocio, asegurando un crecimiento sostenible, exitoso y facilitando:
-                     </h5>
-                  </div>
-                  <div>
-                     <h5 class="text-black">
-                        <ul class="list-unstyled list-group-item text-start">
-                           <li><i class="bi bi-check"></i>La conexión e interacción entre los miembros de la comunidad.</li>
-                           <li><i class="bi bi-check"></i>El relacionamiento y comercialización de productos participando en eventos de negocios y ferias comerciales.</li>
-                           <li><i class="bi bi-check"></i>Conocer los aprendizajes y experiencias de empresarios exitosos.</li>
-                           <li><i class="bi bi-check"></i>Participar en asesorías grupales, dirigidas por expertos donde podrás resolver inquietudes sobre un tema específico.</li>
-                           <li><i class="bi bi-check"></i>Participar en talleres individuales con expertos a partir un diagnóstico empresarial.</li>
-                        </ul>
-                     </h5>
-                  </div>
-               </div>
-
             </div>
          </div>
       </section>
