@@ -47,6 +47,32 @@
                </ol>
             </nav>
             <div class="row gy-2 align-items-center">
+               <div class="col-md-8">
+                  <div class="text-start">
+                     <h2 class="text-pri">Apasionados por el fútbol</h2>
+                     <h5 class="text-black">
+                        Este es el punto de encuentro para aquellos que siguen un partido con fervor y
+                        también para los que aman sudar la camiseta. Es el espacio ideal para vivir la
+                        emoción del deporte en compañía de aquellos que vibran con cada gol. <br>
+                     </h5>
+                  </div>
+                  <div class="text-start">
+                     <h5 class="text-black">
+                        Si el fútbol corre por tus venas, este es tu lugar. Aquí compartimos la pasión
+                        por la cancha, los equipos, los jugadores y las historias detrás de cada partido.
+                        Únete y forma parte de nuestra familia futbolera en donde podrás:
+                        <ul class="list-unstyled list-group-item text-start">
+                           <li><i class="bi bi-check"></i>Participación en campeonatos.</li>
+                           <li><i class="bi bi-check"></i>Pollas futboleras.</li>
+                           <li><i class="bi bi-check"></i>Encuentros para ver el partido de tu equipo favorito junto a los hinchas más fieles</li>
+                           <li><i class="bi bi-check"></i>Planificación de asistencias grupales a partidos, para que vives la experiencia con los que son</li>
+                           <li><i class="bi bi-check"></i>Descuentos en almacenes deportivos</li>
+                           <li><i class="bi bi-check"></i>Entradas a partidos de fútbol profesional</li>
+                           <li><i class="bi bi-check"></i>Encuentros con futbolistas destacados</li>
+                        </ul>
+                     </h5>
+                  </div>
+               </div>
                <div class="col-md-4">
                   <img src="assets/image/celebracion.jpg" alt="Pioneros" class="img-fluid">
                   <div class="card mt-3">
@@ -65,32 +91,6 @@
                            Último hace 1 horas
                         </div>
                      </div>
-                  </div>
-               </div>
-               <div class="col-md-8">
-                  <div>
-                     <h2 class="text-primary">Apasionados por el fútbol</h2>
-                     <h5 class="text-black">
-                        Este es el punto de encuentro para aquellos que siguen un partido con fervor y
-                        también para los que aman sudar la camiseta. Es el espacio ideal para vivir la
-                        emoción del deporte en compañía de aquellos que vibran con cada gol. <br>
-                     </h5>
-                  </div>
-                  <div>
-                     <h5 class="text-black">
-                        Si el fútbol corre por tus venas, este es tu lugar. Aquí compartimos la pasión
-                        por la cancha, los equipos, los jugadores y las historias detrás de cada partido.
-                        Únete y forma parte de nuestra familia futbolera en donde podrás:
-                        <ul class="list-unstyled list-group-item text-start">
-                           <li><i class="bi bi-check"></i>Participación en campeonatos.</li>
-                           <li><i class="bi bi-check"></i>Pollas futboleras.</li>
-                           <li><i class="bi bi-check"></i>Encuentros para ver el partido de tu equipo favorito junto a los hinchas más fieles</li>
-                           <li><i class="bi bi-check"></i>Planificación de asistencias grupales a partidos, para que vives la experiencia con los que son</li>
-                           <li><i class="bi bi-check"></i>Descuentos en almacenes deportivos</li>
-                           <li><i class="bi bi-check"></i>Entradas a partidos de fútbol profesional</li>
-                           <li><i class="bi bi-check"></i>Encuentros con futbolistas destacados</li>
-                        </ul>
-                     </h5>
                   </div>
                </div>
             </div>

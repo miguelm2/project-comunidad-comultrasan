@@ -60,7 +60,7 @@
                   <div class="row gy-1 mt-2">
                      <div class="col-12">
                         <div class="row">
-                           <a class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-delay="100" href="football">
+                           <a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="football">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -75,7 +75,7 @@
                                  <p class="text-black p-2">Noticias, historias, conversaciones para apasionados por el fútbol.</p>
                               </div>
                            </a><!--End Icon Box -->
-                           <a class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-delay="100" href="pets">
+                           <a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="pets">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -90,7 +90,7 @@
                                  <p class="text-black p-1">Comparte momentos especiales y conoce los beneficios que tenemos para nuestras macotas.</p>
                               </div>
                            </a><!--End Icon Box -->
-                           <a class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-delay="100" href="golden_years">
+                           <a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="golden_years">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -109,9 +109,9 @@
                            </a><!--End Icon Box -->
                         </div>
                      </div>
-                     <div class="col-12 mt-4 mp-2">
+                     <div class="col-12">
                         <div class="row justify-content-center">
-                           <a class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-delay="100" href="youngs">
+                           <a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="youngs">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">
@@ -128,7 +128,7 @@
                                  </p>
                               </div>
                            </a><!--End Icon Box -->
-                           <a class="col-md-4 col-sm-4" data-aos="fade-up" data-aos-delay="100" href="entrepreneurs">
+                           <a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="entrepreneurs">
                               <div class="card mouse">
                                  <div class="m-2">
                                     <span class="material-symbols-outlined" style="font-size: 50px;">

@@ -45,7 +45,32 @@
                </ol>
             </nav>
             <div class="row gy-2 align-items-center">
-               <div class="col-md-3">
+               <div class="col-md-8">
+                  <div class="text-start">
+                     <h2 class="text-pri">Años dorados</h2>
+                     <h5 class="text-black">
+                        En este grupo de interés podrás compartir experiencias y temas de
+                        bienestar y aprovechamiento del tiempo libre con personas de tu
+                        misma edad.
+                     </h5>
+                  </div>
+                  <div class="text-start">
+                     <h2 class="text-pri">Aprovechamiento del tiempo libre</h2>
+                     <h5 class="text-black">
+                        Fomenta buenas conexiones sociales con personas en retiro o
+                        que se están preparando para esta etapa, compartiendo tu
+                        tiempo en actividades gratificantes como:
+                        <ul class="list-unstyled list-group-item text-start">
+                           <li><i class="bi bi-check"></i>Viajes y pasadías</li>
+                           <li><i class="bi bi-check"></i>Club de lectura</li>
+                           <li><i class="bi bi-check"></i>Cursos cortos</li>
+                           <li><i class="bi bi-check"></i>Artes y manualidades</li>
+                           <li><i class="bi bi-check"></i>Club Pioneros (Convenios con centros especializados para adultos mayores).</li>
+                        </ul>
+                     </h5>
+                  </div>
+               </div>
+               <div class="col-md-4">
                   <img src="assets/image/ejercicio.png" alt="Pioneros" class="img-fluid">
                   <div class="card mt-3">
                      <div class="card-header">
@@ -63,31 +88,6 @@
                            Último hace 1 horas
                         </div>
                      </div>
-                  </div>
-               </div>
-               <div class="col-md-9">
-                  <div>
-                     <h2 class="text-primary">Años dorados</h2>
-                     <h5 class="text-black">
-                        En este grupo de interés podrás compartir experiencias y temas de
-                        bienestar y aprovechamiento del tiempo libre con personas de tu
-                        misma edad.
-                     </h5>
-                  </div>
-                  <div>
-                     <h2 class="text-primary">Aprovechamiento del tiempo libre</h2>
-                     <h5 class="text-black">
-                        Fomenta buenas conexiones sociales con personas en retiro o
-                        que se están preparando para esta etapa, compartiendo tu
-                        tiempo en actividades gratificantes como:
-                        <ul class="list-unstyled list-group-item text-start">
-                           <li><i class="bi bi-check"></i>Viajes y pasadías</li>
-                           <li><i class="bi bi-check"></i>Club de lectura</li>
-                           <li><i class="bi bi-check"></i>Cursos cortos</li>
-                           <li><i class="bi bi-check"></i>Artes y manualidades</li>
-                           <li><i class="bi bi-check"></i>Club Pioneros (Convenios con centros especializados para adultos mayores).</li>
-                        </ul>
-                     </h5>
                   </div>
                </div>
             </div>

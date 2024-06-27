@@ -35,7 +35,7 @@
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
    <!-- End Header -->
 
-   <div class="bg-secondary" id="jovenes" data-aos="fade-up" data-aos-delay="100">
+   <div data-aos="fade-up" data-aos-delay="100">
       <section class="p-2">
          <div class="container">
             <nav aria-label="breadcrumb">
@@ -47,14 +47,14 @@
             </nav>
             <div class="row gy-2 align-items-center">
                <div class="col-md-8">
-                  <div>
-                     <h2 class="text-primary">Jóvenes con propósito</h2>
+                  <div class="text-start">
+                     <h2 class="text-pri">Jóvenes con propósito</h2>
                      <h5 class="text-black">
                         Aquí encontrarás un lugar en el que conectar, compartir experiencias y crecer tanto personal como
                         colectivamente junto a personas que como tú, desean disfrutar su juventud mientras encuentran un propósito mayor.
                      </h5>
                   </div>
-                  <div>
+                  <div class="text-start">
                      <h5 class="text-black">
                         Comparte con tus amigos y potencializa tu crecimiento personal disfrutando de:
                         <ul class="list-unstyled list-group-item text-start">
