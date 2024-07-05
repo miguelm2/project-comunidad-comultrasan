@@ -16,7 +16,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="text-black" style="font-size: 18px;" href="index#puntos">
+                    <a class="text-black" style="font-size: 18px;" href="benefits">
                         Beneficios y Recompensas
                     </a>
                 </li>

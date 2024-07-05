@@ -30,11 +30,11 @@
 
 </head>
 
-<body>
+<body style="background-image: url(/assets/image/login.jpg);background-position: center;background-repeat: no-repeat; background-size: cover;">
     <!-- Start Header -->
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
     <!-- End Header -->
-    <section class="ftco-section">
+    <section class="ftco-section p-2">
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -43,79 +43,48 @@
                 </ol>
             </nav>
             <div class="row justify-content-center">
-                <div class="col-md-5">
-                    <img src="/../../../assets/image/login.webp" class="img-fluid">
-                    <p class="mt-3 text-black text-start">
-                        La Comunidad Familia Comultrasan representa el reconocimiento de
-                        Financiera Comultrasan para honrar la lealtad y el compromiso de sus
-                        asociados y sus familias. <br>
-                        A través de un programa integral, ofrece beneficios y experiencias
-                        inolvidables que buscan mejorar la calidad de vida y fortalecer los lazos
-                        comunitarios, promoviendo el desarrollo social y el bienestar
-                        económico.
-                    </p>
-                </div>
-                <div class="col-md-7 col-lg-6">
+
+                <div class="col-md-7 col-lg-6 p-2">
                     <div class="wrap d-md-flex ">
-                        <div class="login-wrap p-1 p-md-2 bg-secondary rounded-3">
+                        <div class="login-wrap p-2 p-md-2 bg-secondary rounded-3">
                             <form method="post" class="signin-form">
                                 <div class="text-center section-header pb-1 text-black">
-                                    <h5>Ingresa aquí</h5>
+                                    <h5>Comunidad Familia Comultrasan</h5>
                                 </div>
                                 <div class="row p-1 text-black">
-                                    <div class="col-4">
-                                        <div class="form-group mb-4">
-                                            <label class="label" for="cedula"> <i class="bi bi-person-workspace"></i> Usuario</label>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <label class="label" for="cedula">Usuario</label>
                                             <input type="text" class="form-control" placeholder="Usuario" name="cedula" required>
                                         </div>
                                     </div>
-                                    <div class="col-4">
-                                        <div class="form-group mb-4">
-                                            <label class="label" for="password"> <i class="bi bi-pass"></i> Contraseña</label>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <label class="label" for="password">Contraseña</label>
                                             <input type="password" class="form-control" placeholder="Contraseña" name="pass" required>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-md-12">
                                         <div class="from-control">
                                             <label for="ingresar"></label>
                                             <button type="submit" class="form-control btn btn-success rounded submit px-3" name="ingresar">
                                                 <i class="bi bi-box-arrow-in-right"></i> Ingresar</button>
                                         </div>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-md-12">
                                         <div class="form-group">
-                                            <p>
-                                                <a href="forget_pass" style="color:black;">¿Haz olvidado tu contraseña?</a> |
-                                                <a href="singup">Registrarse</a>
-                                            </p>
+                                            <div class="row mt-2">
+                                                <div class="col-md-6 d-grid mt-2">
+                                                    <a href="/singup" class="btn btn-secondary">Registrarse</a>
+                                                </div>
+                                                <div class="col-md-6 d-grid mt-2">
+                                                    <a href="forget_pass" class="btn btn-secondary">¿Haz olvidado tu contraseña?</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                    <div style="border: 2px solid #006567; padding: 10px;" class="rounded-5 mt-4 m-5 p-3 bg-secondary">
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="icon-box" data-aos="fade-up" data-aos-delay="10">
-                                    <div style="font-size: 45px; color: #006567;">
-                                        <i class="bi bi-currency-exchange"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-8 rounded-5 text-center" style="border: 2px solid #006567;">
-                                <strong>
-                                    <a href="index#beneficios" style="color: #58A228; font-size:25px;">Conoce aquí tus beneficios</a>
-                                </strong>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <br>
-                        <div class="row m-4">
-                            <a href="/views/admin/" class="btn btn-primary mb-2">Ingresar como administrador</a>
-                            <a href="/views/gestor/" class="btn btn-secondary mb-2">Ingresar como gestor</a>
-                            <a href="/views/user/" class="btn btn-info mb-2">Ingresar como usuario</a>
                         </div>
                     </div>
                 </div>

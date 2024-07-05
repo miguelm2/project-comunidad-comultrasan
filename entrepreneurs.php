@@ -52,7 +52,7 @@
                         En nuestra comunidad, te ofrecemos un conjunto de soluciones a la medida para el desarrollo y mejora de tus habilidades empresariales que te permitan impulsar la competitividad y productividad de tu negocio, asegurando un crecimiento sostenible, exitoso y facilitando:
                      </h5>
                   </div>
-                  <div  class="text-start">
+                  <div class="text-start">
                      <h5 class="text-black">
                         <ul class="list-unstyled list-group-item text-start">
                            <li><i class="bi bi-check"></i>La conexión e interacción entre los miembros de la comunidad.</li>
@@ -68,8 +68,14 @@
                   <img src="assets/image/emprendedor.jpg" alt="Pioneros" class="img-fluid">
                   <div class="card mt-3">
                      <div class="card-header">
-                        <img src="assets/image/profile.png" alt="Profile Image" class="img-fluid img-foro">
-                        <div class="name">Jorge</div>
+                        <div class="row">
+                           <div class="col-md-2">
+                              <img src="assets/image/profile.png" alt="Profile Image" class="img-fluid img-foro">
+                           </div>
+                           <div class="col-md-10">
+                              <div class="name">Jorge</div>
+                           </div>
+                        </div>
                      </div>
                      <div class="card-body">
                         Jóvenes con propósito ha sido esencial en esta etapa de vida de mi hijo, le ha permitido vivir experiencias enriquecedoras que lo hacen feliz y que le ayudan a generar relaciones fuertes y significativas.
