@@ -39,7 +39,7 @@
 
    <!-- ======= Stats Counter Section ======= -->
    <section id="comunidad" class="p-2">
-      <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up mb-3">
          <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index#index">Inicio</a></li>
