@@ -33,69 +33,100 @@
     <!-- Start Header -->
     <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
     <!-- End Header -->
-    <section class="ftco-section" id="unete">
+    <section class="ftco-section p-3" id="unete">
         <div class="container">
-            <div class="text-center section-header pb-4">
-                <h2>¡Unete a nuestra comunidad!</h2>
-                <p style="color: black;">
-                    Unete a nuestra comunidad, en la cual podras encontras muchos Beneficios. <br>
-                    Rellena este formulario y alguien se pondrá en contacto contigo para que pertenescas a
-                    la comunidad de Comultrasan
-                </p>
+            <div class="text-center section-header pb-1">
+                <h2 class="text-black">¡Únete!</h2>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12 col-lg-8 mx-auto">
-                    <div class="wrap d-md-flex">
-                        <div class="img order-sm-2">
-                            <img src="assets/image/unete.webp" alt="" style="max-height: 600px;">
+            <div class="row">
+                <div class="col-md-4 col-lg-4">
+                    <img src="assets/image/unete.webp" alt="" class="img-fluid">
+                    <div class="container bg-primary pb-4">
+                        <div>
+                            <br>
+                            <h5>
+                                ¡Únete a Nuestra Comunidad!
+                            </h5>
+                            <br>
+                            <h5>
+                                Aquí encontrarás un mundo de oportunidades para crecer, aprender y disfrutar. <br>
+                            </h5>
                         </div>
-                        <div class="login-wrap p-4 p-md-5">
-                            <div class="d-flex">
-                                <div class="w-100">
-                                    <a href="index" class="logo d-flex align-items-center">
-                                        <img src="/assets/image/logo_principal.png" alt="Logo" style="max-width: 300px;">
-                                    </a>
-                                    <br><br>
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-8">
+                    <div class="login-wrap">
+                        <form action="#" class="signin-form">
+                            <div class="row text-start">
+
+                                <div class="col-md-6 mt-2">
+                                    <div class="form-group">
+                                        <label class="label text-black" for="name">Tipo de Documento</label>
+                                        <select name="tipo_documento" id="tipo_documento" class="form-select">
+                                            <option value="1">Cédula de Ciudadanía</option>
+                                            <option value="2">Tarjeta de identidad</option>
+                                            <option value="3">Cédula de extranjería</option>
+                                            <option value="4">Pasaporte</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="w-100">
-                                    <p class="social-media d-flex justify-content-end">
-                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-                                        <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="">
-                                <form action="#" class="signin-form">
-                                    <div class="form-group mb-4">
-                                        <label class="label" for="name"> <i class="bi bi-person-bounding-box"></i> Nombre</label>
+
+                                <div class="col-md-6 mt-2">
+                                    <div class="form-group">
+                                        <label class="label text-black" for="name">Nro de documento</label>
                                         <input type="text" class="form-control" placeholder="Nombre" required>
                                     </div>
-                                    <div class="form-group mb-4">
-                                        <label class="label" for="mail"> <i class="bi bi-envelope-at"></i> Correo</label>
-                                        <input type="email" class="form-control" placeholder="Correo" required>
+                                </div>
+
+                                <div class="col-md-6 mt-2">
+                                    <div class="form-group">
+                                        <label class="label text-black" for="name">Nombre y Apellidos</label>
+                                        <input type="text" class="form-control" placeholder="Nombre" required>
                                     </div>
-                                    <div class="form-group mb-4">
-                                        <label class="label" for="cellphone"> <i class="bi bi-telephone"></i> Celular</label>
+                                </div>
+                                <div class="col-md-6 mt-2">
+                                    <div class="form-group">
+                                        <label class="label text-black" for="cellphone">Celular</label>
                                         <input type="number" class="form-control" placeholder="Celular" required>
                                     </div>
-                                    <div class="form-group mb-3">
-                                        <label class="label" for="city"> <i class="bi bi-geo-alt"></i> Ciudad</label>
-                                        <input type="text" class="form-control" placeholder="Ciudad" required>
-                                    </div>
-                                    <div class="form-group d-md-flex">
-                                        <div class="text-center">
-                                            <br>
-                                            <a href="index" style="color:black; font-size: 17px;">Volver a inicio <i class="bi bi-arrow-return-left"></i></a>
-                                        </div>
-                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-2">
                                     <div class="form-group">
-                                        <br>
-                                        <button type="submit" class="form-control btn btn-success rounded submit px-3"> <i class="bi bi-send"></i> Enviar</button>
+                                        <label class="label text-black" for="mail">Correo</label>
+                                        <input type="email" class="form-control" placeholder="Correo" required>
                                     </div>
-                                    
-                                </form>
+                                </div>
+                                <div class="col-md-6 mt-2">
+                                    <div class="form-group">
+                                        <label class="label text-black" for="city">Fecha de nacimiento</label>
+                                        <input type="date" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mt-2">
+                                    <div class="form-check">
+                                        <label for="tratamiento" class="text-black">
+                                            <input type="checkbox" name="tratamiento" id="tratamineto">
+                                            Autorización para el tratamiento de datos personales, conmsulta y reporte
+                                            de información crediticia
+                                        </label>
+
+
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <br>
+                                <button type="submit" class="form-control btn btn-success rounded submit px-3"> <i class="bi bi-send"></i> Enviar</button>
+                            </div>
+                            <div class="form-group mt-2">
+                                <br>
+                                <p class="text-black">
+                                    La información que estás suministrando en este formulario es para uso exclusivo de Financiera
+                                    Comultrasan. Ten presente que no debes de compartir con otras personas el código de verificación
+                                    en tu proceso de autoinscripción.
+                                </p>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

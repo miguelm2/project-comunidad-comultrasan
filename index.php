@@ -94,7 +94,7 @@
                <div class="carousel-inner">
                   <div class="carousel-item active">
                      <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-2">
                            <div class="card">
                               <img src="assets/image/imagen1.jpg" class="card-img-top img-fluid" alt="Celebración día de la familia">
                               <div class="card-body">
@@ -103,7 +103,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-2">
                            <div class="card">
                               <img src="assets/image/imagen2.jpg" class="card-img-top  img-fluid" alt="Beneficios para tus mascotas">
                               <div class="card-body">
@@ -112,7 +112,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-2">
                            <div class="card">
                               <img src="assets/image/imagen3.jpg" class="card-img-top img-fluid" alt="Apoyos educativos">
                               <div class="card-body">
@@ -125,7 +125,7 @@
                   </div>
                   <div class="carousel-item">
                      <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-2">
                            <div class="card">
                               <img src="assets/image/imagen1.jpg" class="card-img-top img-fluid" alt="Celebración día de la familia">
                               <div class="card-body">
@@ -134,7 +134,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-2">
                            <div class="card">
                               <img src="assets/image/imagen2.jpg" class="card-img-top" alt="Beneficios para tus mascotas">
                               <div class="card-body">
@@ -143,7 +143,7 @@
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-2">
                            <div class="card">
                               <img src="assets/image/imagen3.jpg" class="card-img-top" alt="Apoyos educativos">
                               <div class="card-body">
