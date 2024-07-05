@@ -47,7 +47,7 @@
                   <a href="singup" class="btn btn-verde btn1 rounded-5">Únete</a>
                </div>
                <div class="col-md-3 mt-2">
-                  <a href="" class="btn btn-verde btn1 rounded-5">Referir amigo</a>
+                  <a href="refer" class="btn btn-verde btn1 rounded-5">Referir amigo</a>
                </div>
             </div>
          </div>
