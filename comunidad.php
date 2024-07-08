@@ -54,7 +54,9 @@
                   </div>
                </div>
                <div>
-                  <h5 class="text-black">Comparte tus gustos e intereses con integrantes de otras comunidades</h5>
+                  <h5 class="text-black fst-italic">
+                     Comparte tus gustos e intereses con integrantes de otras comunidades
+                  </h5>
                </div>
                <div class="container position-relative">
                   <div class="row gy-1 mt-2">
