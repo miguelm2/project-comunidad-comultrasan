@@ -7,8 +7,9 @@ class Administrador extends System
     {
         $validarAdmin = self::validateAdministrator($cedula, $correo, null);
         $validarUser = Usuario::validateUser($cedula, $correo, null);
+        $valideManager = Gestor::validateManager($cedula, $correo, null);
 
-        if (!$validarAdmin && !$validarUser) {
+        if (!$validarAdmin && !$validarUser && !$valideManager) {
             $dbh             = parent::Conexion();
             $stmt = $dbh->prepare("INSERT INTO Administrador (nombre, correo, telefono, cedula, pass, estado, tipo, fecha_registro) 
                                 VALUES (:nombre, :correo, :telefono, :cedula, :pass, :estado, :tipo, :fecha_registro)");
@@ -30,8 +31,9 @@ class Administrador extends System
     {
         $validarAdmin = self::validateAdministrator($cedula, $correo, $id_administrador);
         $validarUser = Usuario::validateUser($cedula, $correo, null);
+        $valideManager = Gestor::validateManager($cedula, $correo, null);
 
-        if (!$validarAdmin && !$validarUser) {
+        if (!$validarAdmin && !$validarUser && !$valideManager) {
             $dbh             = parent::Conexion();
             $stmt = $dbh->prepare("UPDATE Administrador SET nombre = :nombre, correo = :correo, telefono = :telefono, cedula = :cedula, estado = :estado WHERE id_administrador = :id_administrador ");
             $stmt->bindParam(':id_administrador', $id_administrador);
@@ -105,8 +107,9 @@ class Administrador extends System
     {
         $validarAdmin = self::validateAdministrator($cedula, $correo, $id_administrador);
         $validarUser = Usuario::validateUser($cedula, $correo, null);
+        $valideManager = Gestor::validateManager($cedula, $correo, null);
 
-        if (!$validarAdmin && !$validarUser) {
+        if (!$validarAdmin && !$validarUser && !$valideManager) {
             $dbh             = parent::Conexion();
             $stmt = $dbh->prepare("UPDATE Administrador SET nombre = :nombre, correo = :correo, telefono = :telefono, cedula = :cedula WHERE id_administrador = :id_administrador ");
             $stmt->bindParam(':id_administrador', $id_administrador);

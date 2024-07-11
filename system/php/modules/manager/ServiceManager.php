@@ -1,9 +1,9 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 
-class ServiceUser extends System
+class ServiceManager extends System
 {
-    public static function newUser($nombre, $correo, $telefono, $cedula, $pass)
+    public static function newManager($nombre, $correo, $telefono, $cedula, $pass)
     {
         try {
             $nombre = parent::limpiarString($nombre);
@@ -18,10 +18,10 @@ class ServiceUser extends System
 
             $imagen = self::newImagen();
 
-            $result = Usuario::newUser($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $fecha_registro);
+            $result = Gestor::newManager($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $fecha_registro);
             if ($result) {
-                $lastUser = Usuario::lastUsuario();
-                header('Location:user?user=' . $lastUser->getId_usuario() . '&new');
+                $lastManager = Gestor::lastManager();
+                header('Location:manager?manager=' . $lastManager->getId_gestor() . '&new');
             } else {
                 return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
             }
@@ -32,20 +32,20 @@ class ServiceUser extends System
     private static function newImagen()
     {
         try {
-            if (isset($_FILES['imageUser']) && $_FILES['imageUser']['error'] === UPLOAD_ERR_OK) {
-                $source     = $_FILES['imageUser']['tmp_name'];
-                $filename   = $_FILES['imageUser']['name'];
-                $fileSize   = $_FILES['imageUser']['size'];
+            if (isset($_FILES['imageManager']) && $_FILES['imageManager']['error'] === UPLOAD_ERR_OK) {
+                $source     = $_FILES['imageManager']['tmp_name'];
+                $filename   = $_FILES['imageManager']['name'];
+                $fileSize   = $_FILES['imageManager']['size'];
                 $imagen     = '';
 
                 if ($fileSize > 100 && $filename != '') {
-                    $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_USER;
+                    $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_MANAGER;
 
                     if (!file_exists($dirImagen)) mkdir($dirImagen, 0777, true);
 
                     $dir         = opendir($dirImagen);
                     $trozo1      = explode(".", $filename);
-                    $imagen      = 'usuario_' . date('Y-m-d') . '_' . rand() . '.' . end($trozo1);
+                    $imagen      = 'gestor_' . date('Y-m-d') . '_' . rand() . '.' . end($trozo1);
                     $target_path = $dirImagen . $imagen;
                     move_uploaded_file($source, $target_path);
                     closedir($dir);
@@ -66,17 +66,17 @@ class ServiceUser extends System
             $correo = parent::limpiarString($correo);
             $telefono = parent::limpiarString($telefono);
             $cedula = parent::limpiarString($cedula);
-            $id_usuario = $_SESSION['id'];
+            $id_gestor = $_SESSION['id'];
 
-            if (Usuario::setUserProfile($id_usuario, $nombre, $correo, $telefono, $cedula)) {
-                $usuario = Usuario::getUserById($id_usuario);
-                $_SESSION['id']     =   $usuario->getId_usuario();
-                $_SESSION['nombre'] =   $usuario->getNombre();
-                $_SESSION['correo'] =   $usuario->getCorreo();
-                $_SESSION['cedula'] =   $usuario->getCedula();
-                $_SESSION['telefono'] = $usuario->getTelefono();
-                $_SESSION['tipo']   =   $usuario->getTipo();
-                $_SESSION['fecha_registro'] = $usuario->getFecha_registro();
+            if (Gestor::setManagerProfile($id_gestor, $nombre, $correo, $telefono, $cedula)) {
+                $gestorDTO = Gestor::getManagerById($id_gestor);
+                $_SESSION['id']     =   $gestorDTO->getId_gestor();
+                $_SESSION['nombre'] =   $gestorDTO->getNombre();
+                $_SESSION['correo'] =   $gestorDTO->getCorreo();
+                $_SESSION['cedula'] =   $gestorDTO->getCedula();
+                $_SESSION['telefono'] = $gestorDTO->getTelefono();
+                $_SESSION['tipo']   =   $gestorDTO->getTipo();
+                $_SESSION['fecha_registro'] = $gestorDTO->getFecha_registro();
                 return  '<script>swal("' . Constants::$INFORMATION_NEW . '", "", "success");</script>';
             } else {
                 return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
@@ -94,12 +94,12 @@ class ServiceUser extends System
 
             $cedula = $_SESSION['cedula'];
             $pass_hash = parent::hash($pass);
-            $result = Usuario::getUser($cedula, $pass_hash);
+            $result = Gestor::getManager($cedula, $pass_hash);
 
             if ($result) {
-                $id_usuario = $_SESSION['id'];
+                $id_gestor = $_SESSION['id'];
                 $pass_hash = parent::hash($newPass);
-                $result = Usuario::setUserPass($id_usuario, $pass_hash);
+                $result = Gestor::setManagerPass($id_gestor, $pass_hash);
                 if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
             } else {
                 return  '<script>swal("' . Constants::$CURRENT_PASS . '", "", "error");</script>';
@@ -108,7 +108,7 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setUser($id_usuario, $nombre, $correo, $telefono, $cedula, $estado)
+    public static function setManager($id_usuario, $nombre, $correo, $telefono, $cedula, $estado)
     {
         try {
             $id_usuario = parent::limpiarString($id_usuario);
@@ -118,10 +118,10 @@ class ServiceUser extends System
             $cedula = parent::limpiarString($cedula);
             $estado = parent::limpiarString($estado);
 
-            $result = Usuario::setUser($id_usuario, $nombre, $correo, $telefono, $cedula, $estado);
+            $result = Gestor::setManager($id_usuario, $nombre, $correo, $telefono, $cedula, $estado);
 
             if ($result) {
-                return  '<script>swal("' . Constants::$USER_UPDATE . '", "", "success");</script>';
+                return  '<script>swal("' . Constants::$MANAGER_UPDATE . '", "", "success");</script>';
             } else {
                 return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
             }
@@ -129,21 +129,21 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setImageUsar($id_usuario, $correo, $cedula)
+    public static function setImageManager($id_gestor, $correo, $cedula)
     {
         try {
-            $id_usuario  = parent::limpiarString($id_usuario);
-            $userDTO     = self::getUsuario($id_usuario);
+            $id_gestor  = parent::limpiarString($id_gestor);
+            $gestorDTO     = self::getManager($id_gestor);
 
-            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_USER . $userDTO->getImagen();
+            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_MANAGER . $gestorDTO->getImagen();
 
-            if (file_exists($dirImagen) && !empty($userDTO->getImagen()) && $userDTO->getImagen() != "default.png") {
+            if (file_exists($dirImagen) && !empty($gestorDTO->getImagen()) && $gestorDTO->getImagen() != "default.png") {
                 unlink($dirImagen);
             }
 
             $imagen = self::newImagen();
 
-            $result = Usuario::setImageUser($id_usuario, $correo, $cedula, $imagen);
+            $result = Gestor::setImageManager($id_gestor, $correo, $cedula, $imagen);
             if ($result) {
                 return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
             }
@@ -151,50 +151,50 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setPassUser($id_usuario, $pass, $confirmPass)
+    public static function setPassManager($id_gestor, $pass, $confirmPass)
     {
         try {
-            $id_usuario = parent::limpiarString($id_usuario);
+            $id_gestor = parent::limpiarString($id_gestor);
             $pass = parent::limpiarString($pass);
             $confirmPass = parent::limpiarString($confirmPass);
 
             $pass_hash = parent::hash($pass);
-            $result = Usuario::setUserPass($id_usuario, $pass_hash);
+            $result = Gestor::setManagerPass($id_gestor, $pass_hash);
             if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
 
-    public static function deleteUser($id_usuario)
+    public static function deleteManager($id_gestor)
     {
         try {
-            $id_usuario = parent::limpiarString($id_usuario);
+            $id_gestor = parent::limpiarString($id_gestor);
 
-            $result = Usuario::deleteUser($id_usuario);
-            if ($result) header('Location:users?delete');
+            $result = Gestor::deleteManager($id_gestor);
+            if ($result) header('Location:managers?delete');
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
 
-    public static function getUsuario($id_usuario)
+    public static function getManager($id_usuario)
     {
         try {
             $id_usuario = parent::limpiarString($id_usuario);
 
-            $result = Usuario::getUserById($id_usuario);
+            $result = Gestor::getManagerById($id_usuario);
             return $result;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
 
-    public static function getTablaUsuarios()
+    public static function getTableManager()
     {
         try {
             $tableHtml = "";
-            $modelResponse = Usuario::listUser();
+            $modelResponse = Gestor::listManager();
 
             foreach ($modelResponse as $valor) {
                 $tableHtml .= '<tr>';
@@ -203,7 +203,7 @@ class ServiceUser extends System
                 $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
                 $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
                 $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
-                $tableHtml .= '<td>' . Elements::crearBotonVer("user", $valor->getId_usuario()) . '</td>';
+                $tableHtml .= '<td>' . Elements::crearBotonVer("manager", $valor->getId_gestor()) . '</td>';
                 $tableHtml .= '</tr>';
             }
             return $tableHtml;

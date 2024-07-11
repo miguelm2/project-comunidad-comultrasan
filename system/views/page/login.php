@@ -55,13 +55,13 @@
                                     <div class="col-md-12">
                                         <div class="form-group mb-3">
                                             <label class="label" for="cedula">Usuario</label>
-                                            <input type="text" class="form-control" placeholder="Usuario" name="cedula" required>
+                                            <input type="text" class="form-control" placeholder="Usuario" name="cedula" id="cedula" required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group mb-3">
                                             <label class="label" for="password">Contraseña</label>
-                                            <input type="password" class="form-control" placeholder="Contraseña" name="pass" required>
+                                            <input type="password" class="form-control" placeholder="Contraseña" name="pass" id="pass" required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -103,10 +103,13 @@
     <script src="/../../../assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="/../../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="/../../../assets/vendor/php-email-form/validate.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Template Main JS File -->
     <script src="/../../../assets/js/main.js"></script>
-
+    <script src="/system/js/login/login.js"></script>
+    <?= $response ?>
+    <div id="res"></div>
 </body>
 
 </html>

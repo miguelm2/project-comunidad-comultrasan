@@ -1,6 +1,7 @@
 <?php
 
-class Constants{
+class Constants
+{
 
     //Configuracion web
     static $HASH_TYPE  = "sha512";
@@ -47,12 +48,12 @@ class Constants{
     static $CURRENT_PASS        = "La contraseña actual es incorrecta";
     static $USER_NEW            = "Usuario creado exitosamente";
     static $USER_UPDATE         = "Usuario actualizado exitosamente";
+    static $MANAGER_UPDATE      = "Gestor actualizado exitosamente";
     static $REGISTER_NEW        = "Registro creado exitosamente";
     static $REGISTER_UPDATE     = "Registro actualizado correctamente";
+    static $REGISTER_UPDATE_NOT = "Registro no se ha actualizado";
     static $MESSAGE_NEW         = "Mensaje enviado exitosamente, pronto nos pondremos en contacto contigo";
     static $EMAIL_NEW           = "Correo enviado exitosamente";
     static $MESSAGE_NEW_BLOG    = "Artículo creado exitosamente";
-
+    static $REGISTER_DELETE_NOT     = "No se ha eliminado el registro";
 }
- 
-?>

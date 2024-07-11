@@ -170,7 +170,6 @@ abstract  class System
             $administrador  = Administrador::getAdministrador($user, $pass_hash);
             $usuario        = Usuario::getUser($user, $pass_hash);
 
-
             if ($administrador != null) {
                 session_start();
                 $_SESSION['id']     =   $administrador->getId_administrador();

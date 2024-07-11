@@ -3,15 +3,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/model/UsuarioDTO.php';
 
 class Usuario extends System
 {
-    public static function newUser($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $fecha_registro)
+    public static function newUser($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $fecha_registro)
     {
         $validarUser = self::validateUser($cedula, $correo, null);
         $validarAdmin = Administrador::validateAdministrator($cedula, $correo, null);
+        $valideManager = Gestor::validateManager($cedula, $correo, null);
 
-        if (!$validarAdmin && !$validarUser) {
+        if (!$validarAdmin && !$validarUser && !$valideManager) {
             $dbh             = parent::Conexion();
-            $stmt = $dbh->prepare("INSERT INTO Usuario (nombre, correo, telefono, cedula, pass, estado, tipo, fecha_registro) 
-                                VALUES (:nombre, :correo, :telefono, :cedula, :pass, :estado, :tipo, :fecha_registro)");
+            $stmt = $dbh->prepare("INSERT INTO Usuario (nombre, correo, telefono, cedula, pass, estado, tipo, imagen, fecha_registro) 
+                                VALUES (:nombre, :correo, :telefono, :cedula, :pass, :estado, :tipo, :imagen, :fecha_registro)");
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':correo', $correo);
             $stmt->bindParam(':telefono', $telefono);
@@ -19,19 +20,20 @@ class Usuario extends System
             $stmt->bindParam(':pass', $pass_hash);
             $stmt->bindParam(':estado', $estado);
             $stmt->bindParam(':tipo', $tipo);
+            $stmt->bindParam(':imagen', $imagen);
             $stmt->bindParam(':fecha_registro', $fecha_registro);
             return  $stmt->execute();
         } else {
             return false;
         }
     }
-
     public static function setUser($id_usuario, $nombre, $correo, $telefono, $cedula, $estado)
     {
         $validarUser = self::validateUser($cedula, $correo, $id_usuario);
         $validarAdmin = Administrador::validateAdministrator($cedula, $correo, null);
+        $valideManager = Gestor::validateManager($cedula, $correo, null);
 
-        if (!$validarAdmin && !$validarUser) {
+        if (!$validarAdmin && !$validarUser && !$valideManager) {
             $dbh             = parent::Conexion();
             $stmt = $dbh->prepare("UPDATE Usuario SET nombre = :nombre, correo = :correo, telefono = :telefono, cedula = :cedula, estado = :estado WHERE id_usuario = :id_usuario ");
             $stmt->bindParam(':id_usuario', $id_usuario);
@@ -45,9 +47,22 @@ class Usuario extends System
             return false;
         }
     }
+    public static function setImageUser($id_usuario, $correo, $cedula, $imagen)
+    {
+        $validarUser = self::validateUser($cedula, $correo, $id_usuario);
+        $validarAdmin = Administrador::validateAdministrator($cedula, $correo, null);
+        $valideManager = Gestor::validateManager($cedula, $correo, null);
 
-
-
+        if (!$validarAdmin && !$validarUser && !$valideManager) {
+            $dbh             = parent::Conexion();
+            $stmt = $dbh->prepare("UPDATE Usuario SET imagen = :imagen WHERE id_usuario = :id_usuario ");
+            $stmt->bindParam(':id_usuario', $id_usuario);
+            $stmt->bindParam(':imagen', $imagen);
+            return  $stmt->execute();
+        } else {
+            return false;
+        }
+    }
     public static function getUser($cedula, $pass_hash)
     {
         $dbh             = parent::Conexion();
@@ -58,8 +73,6 @@ class Usuario extends System
         $stmt->execute();
         return  $stmt->fetch();
     }
-
-
     public static function listUser()
     {
         $dbh             = parent::Conexion();
@@ -68,8 +81,6 @@ class Usuario extends System
         $stmt->execute();
         return  $stmt->fetchAll();
     }
-
-
     public static function getUserByCedula($cedula)
     {
         $dbh             = parent::Conexion();
@@ -104,8 +115,9 @@ class Usuario extends System
     {
         $validarUser = self::validateUser($cedula, $correo, $id_usuario);
         $validarAdmin = Administrador::validateAdministrator($cedula, $correo, null);
+        $valideManager = Gestor::validateManager($cedula, $correo, null);
 
-        if (!$validarAdmin && !$validarUser) {
+        if (!$validarAdmin && !$validarUser && !$valideManager) {
             $dbh             = parent::Conexion();
             $stmt = $dbh->prepare("UPDATE Usuario SET nombre = :nombre, correo = :correo, telefono = :telefono, cedula = :cedula WHERE id_usuario = :id_usuario ");
             $stmt->bindParam(':id_usuario', $id_usuario);
@@ -118,7 +130,6 @@ class Usuario extends System
             return false;
         }
     }
-
     public static function deleteUser($id_usuario)
     {
         $dbh             = parent::Conexion();
@@ -126,7 +137,6 @@ class Usuario extends System
         $stmt->bindParam(':id_usuario', $id_usuario);
         return  $stmt->execute();
     }
-
     public static function validateUser($cedula, $correo, $id_usuario)
     {
         $dbh  = parent::Conexion();
@@ -150,15 +160,17 @@ class Usuario extends System
         }
     }
 
-    public static function lastUsuario(){
+    public static function lastUsuario()
+    {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("SELECT * FROM Usuario ORDER BY id_usuario DESC LIMIT 1");
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'UsuarioDTO');
         $stmt->execute();
         return  $stmt->fetch();
     }
-    
-    public static function countUsuarios(){
+
+    public static function countUsuarios()
+    {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("SELECT count(*) as total FROM Usuario");
         $stmt->execute();

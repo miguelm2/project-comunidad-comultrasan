@@ -1,8 +1,8 @@
 <?php
 
-class UsuarioDTO
+class GestorDTO
 {
-    protected $id_usuario;
+    protected $id_gestor;
     protected $nombre;
     protected $correo;
     protected $telefono;
@@ -15,24 +15,6 @@ class UsuarioDTO
 
     public function __construct()
     {
-    }
-
-    /**
-     * Get the value of id_usuario
-     */
-    public function getIdUsuario()
-    {
-        return $this->id_usuario;
-    }
-
-    /**
-     * Set the value of id_usuario
-     */
-    public function setIdUsuario($id_usuario)
-    {
-        $this->id_usuario = $id_usuario;
-
-        return $this;
     }
 
     /**
@@ -157,24 +139,6 @@ class UsuarioDTO
     public function setTipo($tipo)
     {
         $this->tipo = $tipo;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of imagen
-     */
-    public function getImagen()
-    {
-        return $this->imagen;
-    }
-
-    /**
-     * Set the value of imagen
-     */
-    public function setImagen($imagen)
-    {
-        $this->imagen = $imagen;
 
         return $this;
     }
