@@ -4,10 +4,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Informacion.php';
 
 class ServicePage extends System
 {
-
-
-
-
     static function Login($cedula, $pass)
     {
         $cedula = parent::limpiarString($cedula);
@@ -55,11 +51,11 @@ class ServicePage extends System
 
             if ($mismaVisita == 0) {
                 NumeroVistas::insertNuevaVista($ip, $session_id, $fecha_registro);
-            }else{
-                $fecha_registro = NumeroVistas::getFechaVistas($ip, $session_id,$fecha_registro);
-                
+            } else {
+                $fecha_registro = NumeroVistas::getFechaVistas($ip, $session_id, $fecha_registro);
+
                 $fecha_actual = date('Y-m-d H:i:s');
-                $nueva_fecha = strtotime($fecha_registro.'+ 1 hour');
+                $nueva_fecha = strtotime($fecha_registro . '+ 1 hour');
                 $nueva_fecha = date('Y-m-d H:i:s', $nueva_fecha);
 
                 $fecha_nuevo_registro = date('Y-m-d H:i:s');
@@ -73,8 +69,9 @@ class ServicePage extends System
         }
     }
 
-    
-    public static function sendEmail($destino, $asunto, $mensaje){
+
+    public static function sendEmail($destino, $asunto, $mensaje)
+    {
         try {
             $destino = parent::limpiarString($destino);
             $asunto = parent::limpiarString($asunto);
@@ -83,7 +80,6 @@ class ServicePage extends System
             if (parent::enviarCorreos($destino, $asunto, $mensaje)) {
                 return  '<script>swal("' . Constants::$EMAIL_NEW . '", "", "success");</script>';
             }
-
         } catch (\Throwable $th) {
             throw $th;
         }

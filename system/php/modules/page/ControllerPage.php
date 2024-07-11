@@ -9,6 +9,10 @@ if(isset($_POST['ingresar'])){
     $response = ServicePage::Login($_POST['cedula'], $_POST['pass']);
 }
 
+if(isset($_POST['login'])){
+    $response = ServicePage::Login($_POST['cedula'], $_POST['pass']);
+}
+
 if(isset($_POST['recovery'])){
     $response = ServicePage::Recovery($_POST['cedula']);
 }

@@ -141,4 +141,26 @@ class Elements
         }
         return $numu;
     }
+    public static function crearMensajeAlerta($mensaje, $tipo_alerta)
+    {
+        return '<script>swal("' . $mensaje . '", "", "' . $tipo_alerta . '");</script>';
+    }
+
+    public static function getQuestion($pregunta, $respuesta, $contador)
+    {
+        return '<div class="accordion-item">
+                    <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-' . $contador . '">
+                        <span class="num">' . $contador . '.</span>
+                        ' . $pregunta . '
+                    </button>
+                    </h3>
+                    <div id="faq-content-' . $contador . '" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body text-start">
+                        ' . $respuesta . '
+                    </div>
+                    </div>
+                </div>
+                ';
+    }
 }

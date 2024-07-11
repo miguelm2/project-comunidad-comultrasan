@@ -1,4 +1,3 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Admin.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -529,8 +528,7 @@
   </script>
 
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/material-dashboard.min.js?v=3.1.0"></script>
-  <?= $response?>
+  <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
 </body>
 
 </html>
