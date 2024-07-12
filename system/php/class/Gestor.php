@@ -50,20 +50,13 @@ class Gestor extends System
             return false;
         }
     }
-    public static function setImageManager($id_gestor, $correo, $cedula, $imagen)
+    public static function setImageManager($id_gestor, $imagen)
     {
-        $validarUser = Usuario::validateUser($cedula, $correo, null);
-        $validarAdmin = Administrador::validateAdministrator($cedula, $correo, null);
-        $valideManager = self::validateManager($cedula, $correo, $id_gestor);
-        if (!$validarAdmin && !$validarUser && !$valideManager) {
-            $dbh             = parent::Conexion();
-            $stmt = $dbh->prepare("UPDATE Gestor SET imagen = :imagen WHERE id_gestor = :id_gestor ");
-            $stmt->bindParam(':id_gestor', $id_gestor);
-            $stmt->bindParam(':imagen', $imagen);
-            return  $stmt->execute();
-        } else {
-            return false;
-        }
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("UPDATE Gestor SET imagen = :imagen WHERE id_gestor = :id_gestor ");
+        $stmt->bindParam(':id_gestor', $id_gestor);
+        $stmt->bindParam(':imagen', $imagen);
+        return  $stmt->execute();
     }
     public static function getManager($cedula, $pass_hash)
     {
@@ -167,7 +160,7 @@ class Gestor extends System
     public static function lastManager()
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM Gestor ORDER BY id_gestor DESC LIMIT 1");
+        $stmt = $dbh->prepare("SELECT TOP 1 * FROM Gestor ORDER BY id_gestor DESC");
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'GestorDTO');
         $stmt->execute();
         return  $stmt->fetch();

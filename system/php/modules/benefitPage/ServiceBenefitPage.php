@@ -124,13 +124,17 @@ class ServiceBenefitPage extends System
             $tableHtml = "";
             $modelResponse = BeneficioPagina::listBenefitPage();
 
-            foreach ($modelResponse as $valor) {
-                $tableHtml .= '<tr>';
-                $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
-                $tableHtml .= '<td>' . $valor->getSubtitulo() . '</td>';
-                $tableHtml .= '<td>' . $valor->getContenido() . '</td>';
-                $tableHtml .= '<td>' . Elements::crearBotonVer("benefitPage", $valor->getId_beneficios_pagina()) . '</td>';
-                $tableHtml .= '</tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_beneficios_pagina() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("benefitPage", $valor->getId_beneficios_pagina()) . '</td>';
+                    $tableHtml .= '</tr>';
+                }
+            }else {
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
             }
             return $tableHtml;
         } catch (\Exception $e) {

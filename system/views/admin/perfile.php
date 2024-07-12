@@ -32,100 +32,141 @@
             </ol>
          </nav>
       </div><!-- End Page Title -->
-      <div class="row p-0">
+      <div class="row m-0">
          <div class="card">
-            <div class="card-header">
+            <div class="card-head mt-4">
                <div class="row">
-                  <div class="col-10">
-                     <h5 class="text-success">
+                  <div class="col-md-10">
+                     <h4 class="text-success">
                         Editar Perfil
-                     </h5>
+                     </h4>
                   </div>
                </div>
             </div>
-            <div class="card-body mt-4">
+            <div class="dark horizontal my-0 border-1"></div>
+            <div class="card-body">
                <div class="row">
-                  <div class="col-md-4 text-center mx-auto mb-3">
-                     <img src="/system/img/perfil/perfil.png" alt="" class="img-fluid">
-                  </div>
-                  <div class="col-md-8">
-                     <form method="post">
-                        <div class="row">
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Nombre</label>
-                                 <input type="text" class="form-control" name="nombre" value="<?= $information->getNombre() ?>" required>
+
+                  <form method="post">
+                     <div class="row">
+                        <div class="col-md-4 text-center mx-auto mb-3">
+                           <img src="<?= Path::$DIR_IMG_PERFIL . $information->getImagen() ?>" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-md-8">
+                           <div class="row">
+                              <div class="col-6">
+                                 <div class="form-group">
+                                    <label class="form-label">Nombre</label>
+                                    <input type="text" class="form-control border p-1" name="nombre" value="<?= $information->getNombre() ?>" required>
+                                 </div>
                               </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">NIT</label>
-                                 <input type="text" class="form-control" name="nit" value="<?= $information->getNit() ?>" required>
+                              <div class="col-6">
+                                 <div class="form-group">
+                                    <label class="form-label">NIT</label>
+                                    <input type="text" class="form-control border p-1" name="nit" value="<?= $information->getNit() ?>" required>
+                                 </div>
                               </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Dirección</label>
-                                 <input type="text" class="form-control" name="direccion" value="<?= $information->getDireccion() ?>" required>
+                              <div class="col-6">
+                                 <div class="form-group">
+                                    <label class="form-label">Dirección</label>
+                                    <input type="text" class="form-control border p-1" name="direccion" value="<?= $information->getDireccion() ?>" required>
+                                 </div>
                               </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Correo</label>
-                                 <input type="email" class="form-control" name="correo" value="<?= $information->getCorreo() ?>" required>
+                              <div class="col-6">
+                                 <div class="form-group">
+                                    <label class="form-label">Correo</label>
+                                    <input type="email" class="form-control border p-1" name="correo" value="<?= $information->getCorreo() ?>" required>
+                                 </div>
                               </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Celular</label>
-                                 <input type="tel" class="form-control" name="whatsapp" value="<?= $information->getWp() ?>" required>
+                              <div class="col-6">
+                                 <div class="form-group">
+                                    <label class="form-label">Celular</label>
+                                    <input type="tel" class="form-control border p-1" name="whatsapp" value="<?= $information->getWp() ?>" required>
+                                 </div>
                               </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Color</label>
-                                 <input type="color" class="form-control" name="color" value="<?= $information->getColor1() ?>">
-                              </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Ciudad</label>
-                                 <input type="text" class="form-control" name="ciudad" value="<?= $information->getCiudad() ?>" required>
-                              </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Departamento</label>
-                                 <input type="text" class="form-control" name="departamento" value="<?= $information->getDepartamento() ?>" required>
-                              </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Facebook</label>
-                                 <input type="url" class="form-control" name="facebook" value="<?= $information->getFb() ?>">
-                              </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Instagram</label>
-                                 <input type="url" class="form-control" name="instagram" value="<?= $information->getInstagram() ?>">
+                              <div class="col-6">
+                                 <div class="form-group">
+                                    <label class="form-label">Color</label>
+                                    <input type="color" class="form-control border p-1" name="color" value="<?= $information->getColor1() ?>">
+                                 </div>
                               </div>
                            </div>
                         </div>
-                        <div class="row mt-4">
-                           <div class="col-md-6 d-grid">
-                              <button type="submit" class="btn btn-success" name="setInformation"><i class="bi bi-pencil-square"></i> Editar Perfil</button>
-                           </div>
-                           <div class="col-md-6 d-grid">
-                              <button type="submit" class="btn btn-info"><i class="bi bi-image"></i> Cambiar imagen</button>
+                        <div class="col-md-12 mt-1">
+                           <div class="row">
+                              <div class="col-6">
+                                 <div class="form-group">
+                                    <label class="form-label">Ciudad</label>
+                                    <input type="text" class="form-control border p-1" name="ciudad" value="<?= $information->getCiudad() ?>" required>
+                                 </div>
+                              </div>
+                              <div class="col-6">
+                                 <div class="form-group">
+                                    <label class="form-label">Departamento</label>
+                                    <input type="text" class="form-control border p-1" name="departamento" value="<?= $information->getDepartamento() ?>" required>
+                                 </div>
+                              </div>
+                              <div class="col-6">
+                                 <div class="form-group">
+                                    <label class="form-label">Facebook</label>
+                                    <input type="url" class="form-control border p-1" name="facebook" value="<?= $information->getFb() ?>">
+                                 </div>
+                              </div>
+                              <div class="col-6">
+                                 <div class="form-group">
+                                    <label class="form-label">Instagram</label>
+                                    <input type="url" class="form-control border p-1" name="instagram" value="<?= $information->getInstagram() ?>">
+                                 </div>
+                              </div>
                            </div>
                         </div>
-                     </form>
-                  </div>
+                     </div>
+                     <div class="dark horizontal my-0 border-1 mt-4"></div>
+                     <div class="row mt-4">
+                        <div class="col-md-6 d-grid">
+                           <button type="submit" class="btn btn-success" name="setInformation"><i class="material-icons me-2">edit</i> Editar Perfil</button>
+                        </div>
+                        <div class="col-md-6 d-grid">
+                           <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">
+                              <i class="material-icons me-2">image</i> Cambiar Imagen</button>
+                        </div>
+                     </div>
+                  </form>
+
                </div>
             </div>
          </div>
       </div>
+      <!-- ======= Basic Modal ======= -->
+      <form method="post" enctype="multipart/form-data">
+         <div class="modal fade" id="setImage" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Cambiar Imagen</h5>
+                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="form-group">
+                        <label class="form-label" for="logo">Imagen</label>
+                        <input type="file" class="form-control border p-1" name="logo" accept="image/*" required>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="setLogoInformacion" class="btn btn-info">
+                        <i class="material-icons me-2">image</i> Cambiar Imagen
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
+      <!-- Start Footer -->
+      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
+      <!-- End Footer -->
    </main>
    <!--   Core JS Files   -->
    <script src="/system/assets/js/core/popper.min.js"></script>
@@ -135,6 +176,7 @@
    <script src="/system/assets/js/plugins/chartjs.min.js"></script>
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
+   <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <?= $response ?>
 </body>
 

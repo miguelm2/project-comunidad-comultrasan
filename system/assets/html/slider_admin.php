@@ -18,6 +18,18 @@
             </a>
          </li>
          <li class="nav-item">
+            <div class="dropdown">
+               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
+                  <span class="text-white"><i class="material-icons me-2">settings</i>Página</span>
+               </a>
+               <ul class="dropdown-menu  px-2 py-3 w-auto" aria-labelledby="navbarDropdownMenuLink2">
+                  <li class="dropdown-item"><a href="questions"> Preguntas frecuentes</a></li>
+                  <li class="dropdown-item"><a href="benefitsPage"> Beneficios Pagina</a></li>
+                  <li class="dropdown-item"><a href="typeComunities"> Tipos de comunidad</a></li>
+               </ul>
+            </div>
+         </li>
+         <li class="nav-item">
             <a class="nav-link text-black " href="comunity">
                <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">people</i>
@@ -58,7 +70,7 @@
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="manager">
+            <a class="nav-link text-black " href="managers">
                <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">people</i>
                </div>
@@ -75,5 +87,5 @@
          </li>
       </ul>
    </div>
-   </div>
+
 </aside>

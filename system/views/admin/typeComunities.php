@@ -20,13 +20,15 @@
    <!-- CSS Files -->
    <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+   <link href="../../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+   <link href="../../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
    <!-- Start Slider -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_admin.php'; ?>
    <!-- End Slider -->
-   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+   <main class="main-content position-relative max-height-vh-100 h-100 border-radius ">
       <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
          <div class="container-fluid py-1 px-3">
@@ -39,7 +41,7 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item active">Preguntas Frecuentes</li>
+               <li class="breadcrumb-item active">Tipos de comunidades</li>
             </ol>
          </nav>
       </div>
@@ -47,46 +49,50 @@
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Preguntas Frecuentes</h4>
+                  <h4 class="text-success">Tipos de comunidades</h4>
                </div>
             </div>
-            <div class="col-md-3 m-2">
+            <div class="col-md-3 m-2 mt-3">
                <div class="card-head text-right">
                   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newQuestion">
-                  <i class="material-icons me-2">add</i> Agregar Pregunta
+                     <i class="material-icons me-2">add</i> Agregar Tipo Comunidad
                   </button>
                </div>
             </div>
          </div>
-         <div class="card-body m-0">
+         <div class="card-body">
             <div class="table-responsive">
-               <table class="table table-hover table-bordered align-items-center mb-0">
+               <table class="table table-hover table-bordered align-items-center mb-0" id="">
                   <thead class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">
                            ID</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Pregunta</th>
+                           Título</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Fecha Registro</th>
+                           Icono</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Subtítulo</th>
                         <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
                      <tr>
-                        <th class="text-uppercase  font-weight-bolder ">
-                           ID</th>
-                        <th class="text-uppercase  font-weight-bolder">
-                           Pregunta</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Fecha Registro</th>
-                        <th class="text-uppercase   font-weight-bolder">
+                           ID</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Título</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Icono</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Subtítulo</th>
+                        <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
                   </tfoot>
                   <tbody class="text-center">
-                     <?= $tableQuestion ?>
+                     <?= $tableTypeComnuties ?>
                   </tbody>
                </table>
             </div>
@@ -98,24 +104,36 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Nueva Pregunta Frecuente</h5>
+                     <h5 class="modal-title">Nuevo Tipo Comunidad</h5>
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                      <div class="row g-3">
-                        <div class="col-md-12 form-group">
-                           <label for="excelIncome">Pregunta</label>
-                           <input type="text" class="form-control border p-1" name="pregunta" required>
+                        <div class="col-md-6 form-group">
+                           <label for="titulo">Título</label>
+                           <input type="text" class="form-control border p-1" name="titulo" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                           <label for="icono">Icono</label>
+                           <input type="text" class="form-control border p-1" name="icono" required>
                         </div>
                         <div class="col-md-12 form-group">
-                           <label for="excelIncome">Respuesta</label>
-                           <textarea name="respuesta" id="respuesta" class="form-control border p-1" rows="4"></textarea>
+                           <label for="subtitulo">Subtítulo</label>
+                           <input type="text" class="form-control border p-1" name="subtitulo" required>
+                        </div>
+                        <div class="col-md-12 form-group">
+                           <label for="imageTypeComunity">Imagen</label>
+                           <input type="file" class="form-control border p-1" name="imageTypeComunity" accept="image/*" required>
+                        </div>
+                        <div class="col-md-12 form-group">
+                           <label for="contenido">Contenido</label>
+                           <textarea name="contenido" id="contenido" class="form-control border p-1" rows="5" placeholder="Escribe el contenido aqui" required></textarea>
                         </div>
                      </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newQuestion" class="btn btn-success"><i class="material-icons me-2">add</i> Nueva Pregunta</button>
+                     <button type="submit" name="newTypeComunity" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo tipo comunidad</button>
                   </div>
                </div>
             </div>
@@ -135,6 +153,11 @@
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <script src="../../assets/vendor/simple-datatables/simple-datatables.js"></script>
+   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
+   <script src="../../assets/vendor/datatables/jquery.dataTables.min.js"></script>
+   <script src="../../assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+   <script src="/system/js/demo/datatables-demo.js"></script>
    <?= $response ?>
 </body>
 

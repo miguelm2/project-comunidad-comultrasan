@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Gestor.php';
 
 class ServiceManager extends System
 {
@@ -129,7 +130,7 @@ class ServiceManager extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setImageManager($id_gestor, $correo, $cedula)
+    public static function setImageManager($id_gestor)
     {
         try {
             $id_gestor  = parent::limpiarString($id_gestor);
@@ -143,7 +144,7 @@ class ServiceManager extends System
 
             $imagen = self::newImagen();
 
-            $result = Gestor::setImageManager($id_gestor, $correo, $cedula, $imagen);
+            $result = Gestor::setImageManager($id_gestor, $imagen);
             if ($result) {
                 return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
             }
@@ -196,15 +197,19 @@ class ServiceManager extends System
             $tableHtml = "";
             $modelResponse = Gestor::listManager();
 
-            foreach ($modelResponse as $valor) {
-                $tableHtml .= '<tr>';
-                $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
-                $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
-                $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
-                $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
-                $tableHtml .= '<td>' . Elements::crearBotonVer("manager", $valor->getId_gestor()) . '</td>';
-                $tableHtml .= '</tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("manager", $valor->getId_gestor()) . '</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
+                return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
             }
             return $tableHtml;
         } catch (\Exception $e) {

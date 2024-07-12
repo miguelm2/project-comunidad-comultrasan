@@ -17,7 +17,7 @@ class TipoComunidadDTO
     /**
      * Get the value of id_tipo_comunidad
      */
-    public function getIdTipoComunidad()
+    public function getId_tipo_comunidad()
     {
         return $this->id_tipo_comunidad;
     }
@@ -25,7 +25,7 @@ class TipoComunidadDTO
     /**
      * Set the value of id_tipo_comunidad
      */
-    public function setIdTipoComunidad($id_tipo_comunidad)
+    public function setId_tipo_comunidad($id_tipo_comunidad)
     {
         $this->id_tipo_comunidad = $id_tipo_comunidad;
 
@@ -125,7 +125,7 @@ class TipoComunidadDTO
     /**
      * Get the value of fecha_registro
      */
-    public function getFechaRegistro()
+    public function getFecha_registro()
     {
         return $this->fecha_registro;
     }
@@ -133,7 +133,7 @@ class TipoComunidadDTO
     /**
      * Set the value of fecha_registro
      */
-    public function setFechaRegistro($fecha_registro)
+    public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
 

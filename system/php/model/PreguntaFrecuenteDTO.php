@@ -14,7 +14,7 @@ class PreguntaFrecuenteDTO
     /**
      * Get the value of id_pregunta
      */
-    public function getIdPregunta()
+    public function getId_pregunta()
     {
         return $this->id_pregunta;
     }
@@ -22,7 +22,7 @@ class PreguntaFrecuenteDTO
     /**
      * Set the value of id_pregunta
      */
-    public function setIdPregunta($id_pregunta)
+    public function setId_pregunta($id_pregunta)
     {
         $this->id_pregunta = $id_pregunta;
 
@@ -68,7 +68,7 @@ class PreguntaFrecuenteDTO
     /**
      * Get the value of fecha_registro
      */
-    public function getFechaRegistro()
+    public function getFecha_registro()
     {
         return $this->fecha_registro;
     }
@@ -76,7 +76,7 @@ class PreguntaFrecuenteDTO
     /**
      * Set the value of fecha_registro
      */
-    public function setFechaRegistro($fecha_registro)
+    public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
 

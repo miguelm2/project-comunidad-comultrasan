@@ -17,7 +17,7 @@ class BeneficioPaginaDTO
     /**
      * Get the value of id_beneficios_pagina
      */
-    public function getIdBeneficiosPagina()
+    public function getId_beneficios_pagina()
     {
         return $this->id_beneficios_pagina;
     }
@@ -25,7 +25,7 @@ class BeneficioPaginaDTO
     /**
      * Set the value of id_beneficios_pagina
      */
-    public function setIdBeneficiosPagina($id_beneficios_pagina)
+    public function setId_beneficios_pagina($id_beneficios_pagina)
     {
         $this->id_beneficios_pagina = $id_beneficios_pagina;
 
@@ -125,7 +125,7 @@ class BeneficioPaginaDTO
     /**
      * Get the value of fecha_registro
      */
-    public function getFechaRegistro()
+    public function getFecha_registro()
     {
         return $this->fecha_registro;
     }
@@ -133,7 +133,7 @@ class BeneficioPaginaDTO
     /**
      * Set the value of fecha_registro
      */
-    public function setFechaRegistro($fecha_registro)
+    public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
 
