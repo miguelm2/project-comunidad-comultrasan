@@ -52,12 +52,12 @@ class ServiceTypeComunity extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setTypeBenefit($id_tipo_comunidad, $titulo, $icono,  $subtitulo, $contenido)
+    public static function setTypeComunity($id_tipo_comunidad, $titulo, $icono,  $subtitulo, $contenido)
     {
         try {
             $id_tipo_comunidad      = parent::limpiarString($id_tipo_comunidad);
             $titulo                 = parent::limpiarString($titulo);
-            $icono                 = parent::limpiarString($icono);
+            $icono                  = parent::limpiarString($icono);
             $subtitulo              = parent::limpiarString($subtitulo);
             $contenido              = parent::limpiarString($contenido);
 
@@ -72,7 +72,7 @@ class ServiceTypeComunity extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setImageBenefitPage($id_tipo_comunidad)
+    public static function setImageTypeComunityPage($id_tipo_comunidad)
     {
         try {
             $id_tipo_comunidad  = parent::limpiarString($id_tipo_comunidad);
@@ -122,13 +122,18 @@ class ServiceTypeComunity extends System
             $tableHtml = "";
             $modelResponse = TipoComunidad::listTypeComunity();
 
-            foreach ($modelResponse as $valor) {
-                $tableHtml .= '<tr>';
-                $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
-                $tableHtml .= '<td>' . $valor->getSubtitulo() . '</td>';
-                $tableHtml .= '<td>' . $valor->getContenido() . '</td>';
-                $tableHtml .= '<td>' . Elements::crearBotonVer("typeComunity", $valor->getId_tipo_comunidad()) . '</td>';
-                $tableHtml .= '</tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_tipo_comunidad() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getIcono() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getSubtitulo() . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("typeComunity", $valor->getId_tipo_comunidad()) . '</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
             }
             return $tableHtml;
         } catch (\Exception $e) {

@@ -39,7 +39,7 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item active">Preguntas Frecuentes</li>
+               <li class="breadcrumb-item active">Gestores</li>
             </ol>
          </nav>
       </div>
@@ -47,46 +47,54 @@
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Preguntas Frecuentes</h4>
+                  <h4 class="text-success">Gestores</h4>
                </div>
             </div>
-            <div class="col-md-3 m-2">
+            <div class="col-md-3 mt-3">
                <div class="card-head text-right">
-                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newQuestion">
-                  <i class="material-icons me-2">add</i> Agregar Pregunta
+                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newManager">
+                     <i class="material-icons me-2">add</i> Agregar Gestor
                   </button>
                </div>
             </div>
          </div>
          <div class="card-body m-0">
             <div class="table-responsive">
-               <table class="table table-hover table-bordered align-items-center mb-0">
+               <table class="table table-bordered table-hover align-items-center mb-0">
                   <thead class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">
                            ID</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Pregunta</th>
+                           Nombre</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Fecha Registro</th>
+                           Correo</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Estado</th>
                         <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
                      <tr>
-                        <th class="text-uppercase  font-weight-bolder ">
-                           ID</th>
-                        <th class="text-uppercase  font-weight-bolder">
-                           Pregunta</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Fecha Registro</th>
-                        <th class="text-uppercase   font-weight-bolder">
+                           ID</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Nombre</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Correo</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Estado</th>
+                        <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
                   </tfoot>
                   <tbody class="text-center">
-                     <?= $tableQuestion ?>
+                     <?= $tableManagers ?>
                   </tbody>
                </table>
             </div>
@@ -94,28 +102,64 @@
       </div>
       <!-- ======= Basic Modal ======= -->
       <form id="uploadForm" method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="newQuestion" tabindex="-1">
+         <div class="modal fade" id="newManager" tabindex="-1">
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Nueva Pregunta Frecuente</h5>
+                     <h5 class="modal-title">Nuevo Gestor</h5>
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                      <div class="row g-3">
-                        <div class="col-md-12 form-group">
-                           <label for="excelIncome">Pregunta</label>
-                           <input type="text" class="form-control border p-1" name="pregunta" required>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Nombre</label>
+                              <input type="text" class="form-control border p-1" name="nombre" required>
+                           </div>
                         </div>
-                        <div class="col-md-12 form-group">
-                           <label for="excelIncome">Respuesta</label>
-                           <textarea name="respuesta" id="respuesta" class="form-control border p-1" rows="4"></textarea>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Dirección</label>
+                              <input type="text" class="form-control border p-1" name="direccion" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Cédula</label>
+                              <input type="number" class="form-control border p-1" name="cedula" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Celular</label>
+                              <input type="tel" class="form-control border p-1" name="telefono" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Correo</label>
+                              <input type="email" class="form-control border p-1" name="correo" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Contraseña</label>
+                              <input type="password" class="form-control border p-1" name="pass" required>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="mb-3">
+                              <div class="form-group">
+                                 <label>Imagen</label>
+                                 <input type="file" class="form-control border p-1" name="imageManager" accept="image/*" required>
+                              </div>
+                           </div>
                         </div>
                      </div>
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newQuestion" class="btn btn-success"><i class="material-icons me-2">add</i> Nueva Pregunta</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Cerrar</button>
+                     <button type="submit" name="newManager" class="btn btn-success"><i class="bi bi-plus-square"></i> Nuevo Gestor</button>
                   </div>
                </div>
             </div>
@@ -132,10 +176,8 @@
    <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>
    <script src="/system/assets/js/plugins/smooth-scrollbar.min.js"></script>
    <script src="/system/assets/js/plugins/chartjs.min.js"></script>
-   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+   <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
-   <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
-   <?= $response ?>
 </body>
 
 </html>

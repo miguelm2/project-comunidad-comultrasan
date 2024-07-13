@@ -51,14 +51,14 @@
             <div class="col-md-12 col-sm-12 text-center">
                <div class="row">
                   <div class="section-header pb-0">
-                     <h2 class="text-pri">Beneficios y Recompenzas</h2>
+                     <h2 class="text-pri">Beneficios y Recompensas</h2>
                   </div>
                </div>
                <div>
                   <h5 class="text-black fst-italic">Descubre los beneficios exclusivos que tenemos para ti</h5>
                </div>
                <div class="container mt-5">
-                  <div class="row">
+                  <div class="row text-start">
                      <!-- Descuentos -->
                      <div class="col-md-6 mt-3">
                         <div class="card position-relative">
@@ -97,12 +97,8 @@
                      </div>
                   </div>
                </div>
-               <div class="container">
-                  <hr style="border: 1px solid black;">
-                  <h5 class="text-black fst-italic mt-2">Descubre los beneficios exclusivos que tenemos para ti</h5>
-               </div>
                <div class="container mt-5">
-                  <div class="row">
+                  <div class="row text-start">
                      <!-- Higiene Oral -->
                      <div class="col-md-6 mt-3">
                         <div class="card">
@@ -141,13 +137,8 @@
                      </div>
                   </div>
                </div>
-
-               <div class="container">
-                  <hr style="border: 1px solid black;">
-                  <h5 class="text-black fst-italic mt-2">Descubre los beneficios exclusivos que tenemos para ti</h5>
-               </div>
                <div class="container mt-5 d-flex flex-wrap justify-content-center">
-                  <div class="row">
+                  <div class="row text-start">
                      <!-- Mascota Fest -->
                      <div class="col-md-4 mt-3">
                         <div class="card">

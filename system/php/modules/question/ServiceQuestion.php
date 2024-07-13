@@ -53,7 +53,7 @@ class ServiceQuestion extends System
             $result = PreguntaFrecuente::deleteQuestion($id_pregunta);
             if ($result) {
                 $_SESSION['alert'] = 1;
-                header('Location:question?delete');
+                header('Location:questions?delete');
             } else {
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_DELETE_NOT, "error");
             }
@@ -67,14 +67,17 @@ class ServiceQuestion extends System
             $tableHtml = '';
             $modelResponse = PreguntaFrecuente::listQuestion();
 
-            foreach ($modelResponse as $valor) {
-                $tableHtml .= '<tr>';
-                $tableHtml .= '<td>' . $valor->getId_pregunta() . '</td>';
-                $tableHtml .= '<td>' . $valor->getPregunta() . '</td>';
-                $tableHtml .= '<td>' . $valor->getRespuesta() . '</td>';
-                $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                $tableHtml .= '<td align="center">' . Elements::crearBotonVer("editQuestionAnswer", $valor->getId_pregunta()) . '</td>';
-                $tableHtml .= '</tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_pregunta() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getPregunta() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    $tableHtml .= '<td align="center">' . Elements::crearBotonVer("question", $valor->getId_pregunta()) . '</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
+                return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
             }
             return $tableHtml;
         } catch (\Exception $e) {

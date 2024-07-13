@@ -20,6 +20,20 @@ class GestorDTO
     /**
      * Get the value of nombre
      */
+    public function getId_gestor()
+    {
+        return $this->id_gestor;
+    }
+
+    /**
+     * Set the value of nombre
+     */
+    public function setId_gestor($id_gestor)
+    {
+        $this->id_gestor = $id_gestor;
+
+        return $this;
+    }
     public function getNombre()
     {
         return $this->nombre;
@@ -112,6 +126,8 @@ class GestorDTO
      */
     public function getEstado()
     {
+        if ($this->estado == 1) return explode(";", $this->estado . ';Activo');
+        if ($this->estado == 0) return explode(";", $this->estado . ';Inactivo');
         return $this->estado;
     }
 
@@ -142,11 +158,28 @@ class GestorDTO
 
         return $this;
     }
+    /**
+     * Get the value of imagen
+     */
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+
+    /**
+     * Set the value of imagen
+     */
+    public function setImagen($imagen)
+    {
+        $this->imagen = $imagen;
+
+        return $this;
+    }
 
     /**
      * Get the value of fecha_registro
      */
-    public function getFechaRegistro()
+    public function getFecha_registro()
     {
         return $this->fecha_registro;
     }
@@ -154,7 +187,7 @@ class GestorDTO
     /**
      * Set the value of fecha_registro
      */
-    public function setFechaRegistro($fecha_registro)
+    public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
 

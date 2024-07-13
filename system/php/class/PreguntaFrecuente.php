@@ -18,7 +18,7 @@ class PreguntaFrecuente extends System
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE PreguntaFrecuente 
                             SET pregunta = :pregunta, respuesta = :respuesta
-                            WHERE id_pregunta = :id_pregunta_respuesta");
+                            WHERE id_pregunta = :id_pregunta");
         $stmt->bindParam(':id_pregunta', $id_pregunta);
         $stmt->bindParam(':pregunta', $pregunta);
         $stmt->bindParam(':respuesta', $respuesta);

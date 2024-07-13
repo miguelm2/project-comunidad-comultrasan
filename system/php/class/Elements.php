@@ -3,7 +3,9 @@ class Elements
 {
     public static function crearBotonVer($link, $valor)
     {
-        return '<a href="' . $link . '?' . $link . '=' . $valor . '" class="btn btn-info rounded-circle btn-sm"><i class="bi bi-info-circle"></i></a>';
+        return '<a class="btn btn-link text-info px-3 mb-0" href="' . $link . '?' . $link . '=' . $valor . '">
+                    <i class="material-icons text-sm me-2">edit</i>Editar
+                </a>';
     }
 
     public static function crearBotonEliminar($link, $link2, $valor)

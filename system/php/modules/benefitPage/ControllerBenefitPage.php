@@ -13,6 +13,10 @@ if (isset($_POST['setImageBenefit'])) {
     $response = ServiceBenefitPage::setImageBenefitPage($_GET['benefitPage']);
 }
 
+if(isset($_POST['deleteBenefitPage'])){
+    ServiceBenefitPage::deleteBenefitPage($_GET['benefitPage']);
+}
+
 if(isset($_GET['benefitPage'])){
     $benefitPage = ServiceBenefitPage::getBenefitPage($_GET['benefitPage']); 
 }

@@ -107,7 +107,7 @@ CREATE TABLE PreguntaFrecuente (
   fecha_registro DATETIME NOT NULL
 );
 
-CREATE TABLE BeneficiosPagina (
+CREATE TABLE BeneficioPagina (
   id_beneficios_pagina INT IDENTITY(1, 1) PRIMARY KEY,
   titulo VARCHAR(255) NOT NULL,
   subtitulo VARCHAR(255) NOT NULL,
