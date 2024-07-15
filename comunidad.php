@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Page.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,92 +62,8 @@
                <div class="container position-relative">
                   <div class="row gy-1 mt-2">
                      <div class="col-12">
-                        <div class="row">
-                           <a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="football">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       sports_soccer
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Balón y pasión
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-2">Noticias, historias, conversaciones para apasionados por el fútbol.</p>
-                              </div>
-                           </a><!--End Icon Box -->
-                           <a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="pets">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       pets
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Patitas traviesas
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-1">Comparte momentos especiales y conoce los beneficios que tenemos para nuestras macotas.</p>
-                              </div>
-                           </a><!--End Icon Box -->
-                           <a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="golden_years">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       face_4
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Años Dorados
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-1">
-                                    Espacio para la generación de oro. Encontrarás información de bienestar y aprovechamiento del tiempo libre.
-                                 </p>
-                              </div>
-                           </a><!--End Icon Box -->
-                        </div>
-                     </div>
-                     <div class="col-12">
                         <div class="row justify-content-center">
-                           <a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="youngs">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       person_raised_hand
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Jóvenes con propósito
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-1">
-                                    Aquí encuentras amigos en busca de un propósito mayor y disfrutar su juventud.
-                                 </p>
-                              </div>
-                           </a><!--End Icon Box -->
-                           <a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="entrepreneurs">
-                              <div class="card mouse">
-                                 <div class="m-2">
-                                    <span class="material-symbols-outlined" style="font-size: 50px;">
-                                       hail
-                                    </span>
-                                 </div>
-                                 <h6 class="title text-black">
-                                    <strong>
-                                       Emprendedores Unidos
-                                    </strong>
-                                 </h6>
-                                 <p class="text-black p-1">
-                                    Encuentra aquí colaboración, aprendizaje y herramientas para el fortalecimiento de tu negocio.
-                                 </p>
-                              </div>
-                           </a><!--End Icon Box -->
+                           <?= $typeComunityIndex ?>
                         </div>
                      </div>
                   </div>

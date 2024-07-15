@@ -134,6 +134,9 @@
          </div>
       </form>
       <!--Final Basic Modal-->
+      <!-- Start Footer -->
+      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
+      <!-- End Footer -->
    </main>
    <!--   Core JS Files   -->
    <script src="/system/assets/js/core/popper.min.js"></script>
