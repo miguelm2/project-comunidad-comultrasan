@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Page.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,23 +42,20 @@
                <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="index#index">Inicio</a></li>
                   <li class="breadcrumb-item"><a href="benefits">Beneficios</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Descuentos</li>
+                  <li class="breadcrumb-item active" aria-current="page"><?= $benefitsPage->getTitulo() ?></li>
                </ol>
             </nav>
             <div class="row gy-2 align-items-center">
                <div class="col-md-12">
                   <div class="text-start">
-                     <h2 class="text-pri">Descuentos</h2>
+                     <h2 class="text-pri"><?= $benefitsPage->getTitulo() ?></h2>
                      <h5 class="text-black">
-                        Disfruta de experiencias únicas en tus establecimientos favoritos con precios exclusivos que podrás
-                        obtener contando con el carnet que te hace miembro de esta comunidad y pagando con nuestra tarjeta
-                        débito o crédito de Financiera Comultrasan. Selecciona de acuerdo con tu preferencia y descubre las
-                        ofertas que tenemos para ti:
+                        <?= $benefitsPage->getContenido() ?>
                      </h5>
                   </div>
                </div>
                <div class="col-md-3">
-                  <img src="assets/image/descuentos.png" alt="Pioneros" class="img-fluid">
+                  <img src="<?= Path::$DIR_IMAGE_BENE_PAGE . $benefitsPage->getImagen() ?>" alt="<?= $benefitsPage->getTitulo() ?>" class="img-fluid">
                </div>
                <div class="col-md-9">
                   <div class="text-start">
@@ -65,11 +63,7 @@
                   </div>
                   <div class="text-black text-start">
                      <h5>
-                        Consulta los términos y condiciones de nuestros
-                        convenios de descuento en
-                        <a href="https://www.financieracomultrasan.com.co/es/personas/productos-y-servicios/convenios-yalianzas/convenios-de-descuento">
-                           https://www.financieracomultrasan.com.co/es/personas/productos-y-servicios/convenios-yalianzas/convenios-de-descuento
-                        </a>
+                        <?= $benefitsPage->getRequisitos() ?>
                      </h5>
                   </div>
                </div>

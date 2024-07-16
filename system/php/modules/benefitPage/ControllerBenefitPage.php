@@ -13,14 +13,19 @@ if (isset($_POST['setImageBenefit'])) {
     $response = ServiceBenefitPage::setImageBenefitPage($_GET['benefitPage']);
 }
 
-if(isset($_POST['deleteBenefitPage'])){
+if (isset($_POST['deleteBenefitPage'])) {
     ServiceBenefitPage::deleteBenefitPage($_GET['benefitPage']);
 }
 
-if(isset($_GET['benefitPage'])){
-    $benefitPage = ServiceBenefitPage::getBenefitPage($_GET['benefitPage']); 
+if (isset($_GET['benefitPage'])) {
+    $benefitPage = ServiceBenefitPage::getBenefitPage($_GET['benefitPage']);
 }
 
-if(isset($_GET)){
-    $tableBenfitPage = ServiceBenefitPage::getTableBenefitPage();
+if(isset($_GET['benefit_page'])){
+    $benefitsPage = ServiceBenefitPage::getBenefitPage($_GET['benefit_page']);
+}
+
+if (isset($_GET)) {
+    $tableBenfitPage  = ServiceBenefitPage::getTableBenefitPage();
+    $benefitPageIndex = ServiceBenefitPage::getCardBenefitsPage();
 }

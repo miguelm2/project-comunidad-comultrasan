@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Page.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,56 +32,54 @@
 </head>
 
 <body>
+
    <!-- Start Header -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
    <!-- End Header -->
-   <div id="emprendedores" data-aos="fade-up" data-aos-delay="100">
+
+   <div id="futbol" data-aos="fade-up" data-aos-delay="100">
       <section class="p-2">
          <div class="container">
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="index#index">Inicio</a></li>
-                  <li class="breadcrumb-item"><a href="benefits">Beneficios</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Kit Escolar</li>
+                  <li class="breadcrumb-item"><a href="comunidad">Comunidad</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><?= $typeComunnity->getTitulo() ?></li>
                </ol>
             </nav>
             <div class="row gy-2 align-items-center">
-               <div class="col-md-12">
+               <div class="col-md-8">
                   <div class="text-start">
-                     <h2 class="text-pri">Kit Escolar</h2>
+                     <h2 class="text-pri"><?= $typeComunnity->getTitulo() ?></h2>
                      <h5 class="text-black">
-                        Con los Kits escolares se busca demostrar nuestro cariño a los asociados más pequeños de Financiera
-                        Comultrasan, ofreciéndoles un Kit de útiles adaptados a la necesidad de su etapa lectiva.
+                        <?= $typeComunnity->getContenido() ?> <br>
                      </h5>
                   </div>
                </div>
                <div class="col-md-4">
-                  <img src="assets/image/kit_escolar.png" alt="Pioneros" class="img-fluid">
-               </div>
-               <div class="col-md-8">
-                  <div class="text-start">
-                     <h2 class="text-pri">Requisitos</h2>
-                  </div>
-                  <div class="text-black text-start">
-                     <h5>
-                        <ul>
-                           <li>
-                              Valor de aportes mayor o igual a $50.000 o su equivalente en &#10084;.
-                           </li>
-                           <li>
-                              Edad de 5 a 13 años.
-                           </li>
-                           <li>
-                              Debe tener un producto activo.
-                           </li>
-                           <li>
-                              Cero días de mora en cualquier producto de captación.
-                           </li>
-                           <li>
-                              Datos actualizados al momento de la inscripción.
-                           </li>
-                        </ul>
-                     </h5>
+                  <img src="assets/image/celebracion.jpg" alt="Pioneros" class="img-fluid">
+                  <div class="card mt-3">
+                     <div class="card-header">
+                        <div class="row">
+                           <div class="col-md-2">
+                              <img src="assets/image/profile.png" alt="Profile Image" class="img-fluid img-foro">
+                           </div>
+                           <div class="col-md-10">
+                              <div class="name">Jorge</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card-body">
+                        Jóvenes con propósito ha sido esencial en esta etapa de vida de mi hijo, le ha permitido vivir experiencias enriquecedoras que lo hacen feliz y que le ayudan a generar relaciones fuertes y significativas.
+                     </div>
+                     <div class="card-footer">
+                        <div class="likes">
+                           <span>&#10084; 60</span>
+                        </div>
+                        <div class="time">
+                           Último hace 1 horas
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>

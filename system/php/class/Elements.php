@@ -165,4 +165,37 @@ class Elements
                 </div>
                 ';
     }
+    public static function getCardTypeComunity($id, $icono, $titulo, $subtitulo)
+    {
+        return '<a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="comunnity?comunnity=' . $id . '">
+                    <div class="card mouse">
+                        <div class="m-2">
+                            <span class="material-symbols-outlined" style="font-size: 50px;">
+                                ' . $icono . '
+                            </span>
+                        </div>
+                        <h6 class="title text-black">
+                            <strong>
+                                ' . $titulo . '
+                            </strong>
+                        </h6>
+                        <p class="text-black p-2">
+                            ' . $subtitulo . '
+                        </p>
+                    </div>
+                </a>';
+    }
+    public static function getCardBenefit($id, $imagen, $titulo, $subtitulo)
+    {
+        return '<div class="col-md-6 mt-3">
+                    <div class="card position-relative">
+                        <img src="' . Path::$DIR_IMAGE_BENE_PAGE . $imagen . '" alt="' . $imagen . '">
+                        <h5 class="card-title">' . $titulo . '</h5>
+                        <p class="card-text">
+                            ' . $subtitulo . '
+                        </p>
+                        <a href="benefitPage?benefit_page=' . $id . '" class="btn btn-ver-mas">Ver más</a>
+                    </div>
+                </div>';
+    }
 }

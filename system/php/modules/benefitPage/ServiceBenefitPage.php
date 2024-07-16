@@ -133,10 +133,33 @@ class ServiceBenefitPage extends System
                     $tableHtml .= '<td>' . Elements::crearBotonVer("benefitPage", $valor->getId_beneficios_pagina()) . '</td>';
                     $tableHtml .= '</tr>';
                 }
-            }else {
+            } else {
                 return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
             }
             return $tableHtml;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getCardBenefitsPage()
+    {
+        try {
+            $html = "";
+            $modelResponse = BeneficioPagina::listBenefitPage();
+
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $html .= Elements::getCardBenefit(
+                        $valor->getId_beneficios_pagina(),
+                        $valor->getImagen(),
+                        $valor->getTitulo(),
+                        $valor->getSubtitulo()
+                    );
+                }
+            } else {
+                return '<div>No hay registros para mostrar</div>';
+            }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
