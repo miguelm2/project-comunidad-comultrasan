@@ -40,15 +40,15 @@
    <!-- ======= Hero Section ======= -->
    <section id="index" class="hero bg-light">
       <div class="container">
-         <img src="assets/image/slider_family.jpg" class="img-fluid rounded-4" alt="" data-aos="zoom-out" data-aos-delay="100">
+         <img src="assets/image/slider_family.jpg" class="img-fluid rounded-4" alt="Inicio" >
          <div class="text-overlay">
             <h4><strong>¡Bienvenido a la Comunidad Financiera Comultrasan!</strong></h4>
             <div class="row justify-content-center">
                <div class="col-md-2 mt-2">
-                  <a href="singup" class="btn btn-verde btn1 rounded-5">Únete</a>
+                  <a href="singup" class="btn btn-verde btn1 rounded-3">Únete</a>
                </div>
                <div class="col-md-3 mt-2">
-                  <a href="refer" class="btn btn-verde btn1 rounded-5">Referir amigo</a>
+                  <a href="refer" class="btn btn-verde btn1 rounded-3">Referir amigo</a>
                </div>
             </div>
          </div>

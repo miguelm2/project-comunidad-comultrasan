@@ -53,11 +53,10 @@
   --bs-btn-disabled-border-color: #96BE16;
 }
 .card-title {
-  background-color: #008080;
-  color: #fff;
+  color: #008080;
   padding: 5px 10px;
   display: inline-block;
-  border-radius: 5px;
+  border-radius: 1rem !important;
 }
 .position-relative {
   position: relative;
