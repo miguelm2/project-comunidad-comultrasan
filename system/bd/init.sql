@@ -7,6 +7,7 @@ CREATE TABLE Administrador (
   pass VARCHAR(255) NOT NULL,
   estado INT NOT NULL,
   tipo INT NOT NULL,
+  imagen VARCHAR(255) NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
 
@@ -19,6 +20,7 @@ INSERT INTO
     pass,
     estado,
     tipo,
+    imagen,
     fecha_registro
   )
 VALUES
@@ -30,6 +32,7 @@ VALUES
     'd023f10d2e59f09e18a4abe350483498eb896f6ed422d897fe18a686c264136f51909074da618bcff103e5bca6ce6982ab53382791287ca52cf80e82f200f706',
     1,
     0,
+    'default.png',
     '2022-07-26 19:01:56'
   );
 
@@ -114,5 +117,40 @@ CREATE TABLE BeneficioPagina (
   contenido TEXT NOT NULL,
   requisitos TEXT NOT NULL,
   imagen VARCHAR(255) NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE Descuento (
+  id_descuento INT IDENTITY(1, 1) PRIMARY KEY,
+  descuento VARCHAR(255) NOT NULL,
+  vigencia VARCHAR(255) NOT NULL,
+  acceso TEXT NOT NULL,
+  imagen VARCHAR(255) NOT NULL,
+  logo VARCHAR(255) NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE Punto (
+  id_punto INT IDENTITY(1, 1) PRIMARY KEY,
+  puntos INT NOT NULL,
+  id_usuario INT NOT NULL,
+  id_administrador INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE Beneficio (
+  id_beneficio INT IDENTITY(1, 1) PRIMARY KEY,
+  titulo VARCHAR(255) NOT NULL,
+  descripcion TEXT NOT NULL,
+  puntos INT NOT NULL,
+  imagen VARCHAR(255) NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE Recompenza (
+  id_recompenza INT IDENTITY(1, 1) PRIMARY KEY,
+  actividad VARCHAR(255) NOT NULL,
+  costo VARCHAR(255) NOT NULL,
+  puntos INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );

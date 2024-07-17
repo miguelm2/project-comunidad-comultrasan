@@ -47,21 +47,13 @@ class Usuario extends System
             return false;
         }
     }
-    public static function setImageUser($id_usuario, $correo, $cedula, $imagen)
+    public static function setImageUser($id_usuario, $imagen)
     {
-        $validarUser = self::validateUser($cedula, $correo, $id_usuario);
-        $validarAdmin = Administrador::validateAdministrator($cedula, $correo, null);
-        $valideManager = Gestor::validateManager($cedula, $correo, null);
-
-        if (!$validarAdmin && !$validarUser && !$valideManager) {
-            $dbh             = parent::Conexion();
-            $stmt = $dbh->prepare("UPDATE Usuario SET imagen = :imagen WHERE id_usuario = :id_usuario ");
-            $stmt->bindParam(':id_usuario', $id_usuario);
-            $stmt->bindParam(':imagen', $imagen);
-            return  $stmt->execute();
-        } else {
-            return false;
-        }
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("UPDATE Usuario SET imagen = :imagen WHERE id_usuario = :id_usuario ");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->bindParam(':imagen', $imagen);
+        return  $stmt->execute();
     }
     public static function getUser($cedula, $pass_hash)
     {
@@ -163,7 +155,7 @@ class Usuario extends System
     public static function lastUsuario()
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM Usuario ORDER BY id_usuario DESC LIMIT 1");
+        $stmt = $dbh->prepare("SELECT TOP 1 * FROM Usuario ORDER BY id_usuario DESC");
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'UsuarioDTO');
         $stmt->execute();
         return  $stmt->fetch();

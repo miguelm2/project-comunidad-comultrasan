@@ -9,6 +9,10 @@ class Path
     static $DIR_IMAGE_MANAGER    = '/system/img/manager/';
     static $DIR_IMAGE_BENE_PAGE  = '/system/img/beneficio_pagina/';
     static $DIR_IMAGE_TYPE_COM  = '/system/img/tipo_comunidad/';
+    static $DIR_IMAGE_ADMIN     = '/system/img/administrador/';
+    static $DIR_IMAGE_BENEFIT   = '/system/img/benefit/';
+    static $DIR_IMAGE_DIS       = '/system/img/discount/image/';
+    static $DIR_IMAGE_DIS_LOGO  = '/system/img/discount/logo/';
 
 }
 ?>

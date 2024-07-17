@@ -26,3 +26,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/manager/Controller
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/question/ControllerQuestion.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/ControllerTypeComunity.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefit/ControllerBenefit.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/point/ControllerPoint.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/reward/ControllerReward.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/discount/ControllerDiscount.php';

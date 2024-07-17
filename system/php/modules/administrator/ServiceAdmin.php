@@ -52,9 +52,6 @@ class ServiceAdmin extends System
             throw new Exception($e->getMessage());
         }
     }
-
-
-
     public static function newAdministrator($nombre, $correo, $telefono, $cedula, $pass)
     {
         try {
@@ -68,7 +65,9 @@ class ServiceAdmin extends System
             $tipo       = 5;
             $fecha_registro = date('Y-m-d H:i:s');
 
-            $result = Administrador::newAdministrator($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $fecha_registro);
+            $imagen = self::newImagen();
+
+            $result = Administrador::newAdministrator($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $fecha_registro);
             if ($result) {
                 $lastAdmin = Administrador::lastAdministrator();
                 header('Location:administrator?administrator=' . $lastAdmin->getId_administrador() . '&new');
@@ -96,6 +95,55 @@ class ServiceAdmin extends System
                 return  '<script>swal("' . Constants::$ADMIN_UPDATE . '", "", "success");</script>';
             } else {
                 return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function setImageAdministrator($id_administrador)
+    {
+        try {
+            $id_administrador = parent::limpiarString($id_administrador);
+            $administradorDTO = self::getAdministrator($id_administrador);
+
+            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_ADMIN . $administradorDTO->getImagen();
+
+            if (file_exists($dirImagen) && !empty($administradorDTO->getImagen()) && $administradorDTO->getImagen() != "default.png") {
+                unlink($dirImagen);
+            }
+
+            $imagen = self::newImagen();
+
+            $result = Administrador::setImageAdministrator($id_administrador, $imagen);
+            if ($result) {
+                return  '<script>swal("' . Constants::$IMAGE_UPDATE . '", "", "success");</script>';
+            } else {
+                return  '<script>swal("' . Constants::$IMAGE_UPDATE . '", "", "error");</script>';
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function setImageProfile()
+    {
+        try {
+            $id_administrador = $_SESSION['id'];
+            $administradorDTO = self::getAdministrator($id_administrador);
+
+            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_ADMIN . $administradorDTO->getImagen();
+
+            if (file_exists($dirImagen) && !empty($administradorDTO->getImagen()) && $administradorDTO->getImagen() != "default.png") {
+                unlink($dirImagen);
+            }
+
+            $imagen = self::newImagen();
+
+            $result = Administrador::setImageAdministrator($id_administrador, $imagen);
+            $_SESSION['imagen'] = $imagen;
+            if ($result) {
+                return  '<script>swal("' . Constants::$IMAGE_UPDATE . '", "", "success");</script>';
+            } else {
+                return  '<script>swal("' . Constants::$IMAGE_UPDATE . '", "", "error");</script>';
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -148,17 +196,52 @@ class ServiceAdmin extends System
             $adminId = $_SESSION["id"];
             $modelResponse = Administrador::listAdministrador($adminId);
 
-            foreach ($modelResponse as $valor) {
-                $tableHtml .= '<tr>';
-                $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
-                $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
-                $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
-                $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
-                $tableHtml .= '<td>' . Elements::crearBotonVer("administrator", $valor->getId_administrador()) . '</td>';
-                $tableHtml .= '</tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("administrator", $valor->getId_administrador()) . '</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
+                $tableHtml = '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
             }
+
             return $tableHtml;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    private static function newImagen()
+    {
+        try {
+            if (isset($_FILES['imageAdmin']) && $_FILES['imageAdmin']['error'] === UPLOAD_ERR_OK) {
+                $source     = $_FILES['imageAdmin']['tmp_name'];
+                $filename   = $_FILES['imageAdmin']['name'];
+                $fileSize   = $_FILES['imageAdmin']['size'];
+                $imagen     = '';
+
+                if ($fileSize > 100 && $filename != '') {
+                    $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_ADMIN;
+
+                    if (!file_exists($dirImagen)) mkdir($dirImagen, 0777, true);
+
+                    $dir         = opendir($dirImagen);
+                    $trozo1      = explode(".", $filename);
+                    $imagen      = 'administrador_' . date('Y-m-d') . '_' . rand() . '.' . end($trozo1);
+                    $target_path = $dirImagen . $imagen;
+                    move_uploaded_file($source, $target_path);
+                    closedir($dir);
+                }
+
+                return $imagen;
+            } else {
+                return "default.png";
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

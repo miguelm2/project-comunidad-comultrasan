@@ -1,6 +1,5 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/model/GestorDTO.php';
-
 class Gestor extends System
 {
     public static function newManager($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $fecha_registro)

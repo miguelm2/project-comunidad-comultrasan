@@ -13,6 +13,6 @@ if (isset($_POST['getReportInformation'])) {
     $response = ServiceInformation::getReportInformation();
 }
 
-if (basename($_SERVER['PHP_SELF']) == 'perfile.php') {
+if (basename($_SERVER['PHP_SELF']) == 'information.php') {
     $information = ServiceInformation::getInformation();
 }

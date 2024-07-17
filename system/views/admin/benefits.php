@@ -39,7 +39,7 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item active">Usuarios</li>
+               <li class="breadcrumb-item active">Beneficios</li>
             </ol>
          </nav>
       </div>
@@ -47,13 +47,13 @@
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Usuarios</h4>
+                  <h4 class="text-success">Beneficios</h4>
                </div>
             </div>
-            <div class="col-md-3 mt-3">
+            <div class="col-md-3 m-2 mt-3">
                <div class="card-head text-right">
-                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUser">
-                     <i class="material-icons me-2">add</i> Agregar Usuario
+                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newBenefit">
+                     <i class="material-icons me-2">add</i> Agregar Beneficio
                   </button>
                </div>
             </div>
@@ -64,15 +64,13 @@
                   <thead class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
+                           ID</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
+                           Título</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
+                           Puntos</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Cédula</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
+                           Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
@@ -80,21 +78,19 @@
                   <tfoot class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
+                           ID</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
+                           Título</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
+                           Puntos</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Cédula</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
+                           Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
                   </tfoot>
                   <tbody class="text-center">
-                     <?= $tableUsuarios ?>
+                     <?= $tableBenefits ?>
                   </tbody>
                </table>
             </div>
@@ -102,58 +98,40 @@
       </div>
       <!-- ======= Basic Modal ======= -->
       <form id="uploadForm" method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="newUser" tabindex="-1">
+         <div class="modal fade" id="newBenefit" tabindex="-1">
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Nuevo Usuario</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     <h5 class="modal-title">Nuevo Beneficio</h5>
+                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                      <div class="row g-3">
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Nombre</label>
-                              <input type="text" class="form-control border p-1" name="nombre" required>
-                           </div>
+                        <div class="col-md-12 form-group">
+                           <label for="titulo">Título</label>
+                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" required>
                         </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Correo</label>
-                              <input type="email" class="form-control border p-1" name="correo" required>
-                           </div>
+                        <div class="col-md-12 form-group">
+                           <label for="subtitulo">Subtítulo</label>
+                           <input type="text" class="form-control border p-1" name="subtitulo" placeholder="Subtitulo" required>
                         </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Celular</label>
-                              <input type="tel" class="form-control border p-1" name="telefono" required>
-                           </div>
+                        <div class="col-md-12 form-group">
+                           <label for="imageBenefitPage">Imagen</label>
+                           <input type="file" class="form-control border p-1" name="imageBenefitPage" accept="image/*" required>
                         </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Cédula</label>
-                              <input type="number" class="form-control border p-1" name="cedula" required>
-                           </div>
+                        <div class="col-md-12 form-group">
+                           <label for="contenido">Contenido</label>
+                           <textarea name="contenido" id="contenido" class="form-control border p-1" rows="5" placeholder="Escribe el contenido aqui" required></textarea>
                         </div>
-                        <div class="col-12">
-                           <div class="form-group">
-                              <label class="form-label">Contraseña</label>
-                              <input type="password" class="form-control border p-1" name="pass" required>
-                           </div>
-                        </div>
-                        <div class="col-12">
-                           <div class="mb-3">
-                              <div class="form-group">
-                                 <label>Imagen</label>
-                                 <input type="file" class="form-control border p-1" name="imageAdmin" accept="image/*">
-                              </div>
-                           </div>
+                        <div class="col-md-12 form-group">
+                           <label for="contenido">Requisitos</label>
+                           <textarea name="requisitos" id="requisitos" class="form-control border p-1" rows="5" placeholder="Escribe el contenido aqui" required></textarea>
                         </div>
                      </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newUser" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Usuario</button>
+                     <button type="submit" name="newBenefitPage" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo tipo comunidad</button>
                   </div>
                </div>
             </div>
@@ -173,7 +151,6 @@
    <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
-   <script src="/system/js/valideImage.js"></script>
    <?= $response ?>
 </body>
 

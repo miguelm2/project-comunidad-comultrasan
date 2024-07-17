@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Page.php'; ?>
 <!doctype html>
 <html lang="en">
 
@@ -67,8 +68,7 @@
                            </div>
                            <div class="col-md-11 mt-0 p-0 d-flex justify-content-end">
                               <div class="from-control">
-                                 <label for="ingresar"></label>
-                                 <button type="submit" class="form-control btn btn-success rounded submit p-2 m-3" name="ingresar">
+                                 <button type="submit" class="form-control btn btn-verde btn1 rounded p-2 m-3" name="login">
                                     <i class="bi bi-box-arrow-in-right"></i> Ingresar</button>
                               </div>
                            </div>
@@ -107,5 +107,8 @@
 
    <!-- Template Main JS File -->
    <script src="/../../../assets/js/main.js"></script>
+   <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <script src="/assets/js/main.js"></script>
+   <?= $response?>
 
 </body>

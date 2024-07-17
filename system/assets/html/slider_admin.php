@@ -78,14 +78,57 @@
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="perfile">
+            <a class="nav-link text-black " href="administrators">
+               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">people</i>
+               </div>
+               <span class="nav-link-text ms-1">Administradores</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link text-black " href="information">
+               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">manage_accounts</i>
+               </div>
+               <span class="nav-link-text ms-1">Información</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link text-black " href="profile">
                <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">manage_accounts</i>
                </div>
                <span class="nav-link-text ms-1">Perfil</span>
             </a>
          </li>
+         <li class="nav-item">
+            <a class="nav-link text-black " data-bs-toggle="modal" data-bs-target="#basicModal" role="button">
+               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">logout</i>
+               </div>
+               <span class="nav-link-text ms-1">Salir</span>
+            </a>
+         </li>
       </ul>
    </div>
-
+   <!-- ======= Basic Modal ======= -->
+   <form method="POST">
+      <div class="modal fade" id="basicModal" tabindex="-1">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title">Salir del sistema</h5>
+                  <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  ¿Esta seguro que desea salir del sistema?
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons opacity-10">close</i> Cerrar</button>
+                  <button type="submiT" name="logout" class="btn btn-danger"><i class="material-icons opacity-10">logout</i> Salir del sistema</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </form>
 </aside>
