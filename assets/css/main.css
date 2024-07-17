@@ -20,7 +20,7 @@
 /* Colors */
 :root {
   --color-default: #222222;
-  --color-primary: #96BE16;
+  --color-primary: #96be16;
   --color-secondary: #f85a40;
 }
 
@@ -96,7 +96,7 @@ section {
   display: block;
   width: 50px;
   height: 3px;
-  background: #96BE16;
+  background: #96be16;
   left: 0;
   right: 0;
   bottom: 0;
@@ -260,7 +260,7 @@ section {
 # Header
 --------------------------------------------------------------*/
 .topbar {
-  background: #96BE16;
+  background: #96be16;
   height: 40px;
   font-size: 14px;
   transition: all 0.5s;
@@ -476,7 +476,6 @@ section {
     left: 100%;
     visibility: visible;
   }
-  
 }
 
 @media (min-width: 1280px) and (max-width: 1600px) {
@@ -2722,7 +2721,7 @@ section {
   width: 98%;
   padding: 29px;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-  border-radius: 4px;
+  border-radius: 1rem !important;
 }
 
 .btn1 {
@@ -2743,7 +2742,7 @@ section {
   padding: 10px 20px;
 }
 
-.card-img-bottom{
+.card-img-bottom {
   width: 40%;
   height: 60%;
 }
@@ -2760,7 +2759,7 @@ section {
   ) !important;
 }
 @media (max-width: 700px) {
-  .img-young{
+  .img-young {
     max-width: 50%;
   }
   .text-overlay {
@@ -2772,7 +2771,7 @@ section {
     border-radius: 4px;
   }
 }
-@media(min-width: 1400px){
+@media (min-width: 1400px) {
   .text-overlay {
     top: 88%;
     width: 98%;
@@ -2781,27 +2780,27 @@ section {
     border-radius: 4px;
   }
 }
-.text-pri{
-  color:#006567;
+.text-pri {
+  color: #006567;
 }
 .btn-verde {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #96BE16;
-  --bs-btn-border-color: #96BE16;
+  --bs-btn-bg: #96be16;
+  --bs-btn-border-color: #96be16;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #96BE16;
-  --bs-btn-hover-border-color: #96BE16;
+  --bs-btn-hover-bg: #96be16;
+  --bs-btn-hover-border-color: #96be16;
   --bs-btn-focus-shadow-rgb: 60, 153, 110;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #96BE16;
-  --bs-btn-active-border-color: #96BE16;
+  --bs-btn-active-bg: #96be16;
+  --bs-btn-active-border-color: #96be16;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #96BE16;
-  --bs-btn-disabled-border-color: #96BE16;
+  --bs-btn-disabled-bg: #96be16;
+  --bs-btn-disabled-border-color: #96be16;
 }
-.carousel-control-prev-icon{
-  color:#000 !important;
+.carousel-control-prev-icon {
+  color: #000 !important;
 }
 
 .likes {
@@ -2820,4 +2819,11 @@ section {
   background-color: #008080;
   border-radius: 5px;
   padding: 5px 10px;
+}
+p {
+  font-size: 18px;
+}
+
+.btn-outline-dark:hover{
+  color: #fff !important;
 }

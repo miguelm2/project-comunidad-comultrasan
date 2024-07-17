@@ -2883,8 +2883,8 @@ textarea.form-control.is-invalid {
 }
 .btn {
   --bs-btn-padding-x: 2rem;
-  --bs-btn-padding-y: 1rem;
-  --bs-btn-font-family: ;
+  --bs-btn-padding-y: 12px;
+  --bs-btn-font-family: 12px;
   --bs-btn-font-size: 1rem;
   --bs-btn-font-weight: 400;
   --bs-btn-line-height: 1.5;

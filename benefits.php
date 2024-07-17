@@ -56,7 +56,7 @@
                   </div>
                </div>
                <div>
-                  <h5 class="text-black fst-italic">Descubre los beneficios exclusivos que tenemos para ti</h5>
+                  <h5 class="text-black">Descubre los beneficios exclusivos que tenemos para ti</h5>
                </div>
                <div class="container mt-5">
                   <div class="row text-start">

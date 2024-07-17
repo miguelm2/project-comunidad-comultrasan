@@ -29,7 +29,7 @@
 
 </head>
 
-<body style="background-image: url(/assets/image/login.jpg);background-position: center;background-repeat: no-repeat; background-size: cover;">
+<body>
    <!-- Start Header -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
    <!-- End Header -->
@@ -42,8 +42,10 @@
             </ol>
          </nav>
          <div class="row justify-content-center">
-
-            <div class="col-md-7 col-lg-6 p-2">
+            <div class="col-md-7 col-lg-7 p-2">
+               <img src="/assets/image/login.jpg" alt="Login" class="img-fluid">
+            </div>
+            <div class="col-md-5 col-lg-5 p-2">
                <div class="wrap d-md-flex ">
                   <div class="login-wrap p-2 p-md-2 bg-secondary rounded-3">
                      <form method="post" class="signin-form">
@@ -58,25 +60,25 @@
                               </div>
                            </div>
                            <div class="col-md-12">
-                              <div class="form-group mb-3">
+                              <div class="form-group">
                                  <label class="label" for="password">Contraseña</label>
                                  <input type="password" class="form-control" placeholder="Contraseña" name="pass" required>
                               </div>
                            </div>
-                           <div class="col-md-12">
+                           <div class="col-md-11 mt-0 p-0 d-flex justify-content-end">
                               <div class="from-control">
                                  <label for="ingresar"></label>
-                                 <button type="submit" class="form-control btn btn-success rounded submit px-3" name="ingresar">
+                                 <button type="submit" class="form-control btn btn-success rounded submit p-2 m-3" name="ingresar">
                                     <i class="bi bi-box-arrow-in-right"></i> Ingresar</button>
                               </div>
                            </div>
                            <div class="col-md-12">
                               <div class="form-group">
                                  <div class="row mt-2">
-                                    <div class="col-md-6 d-grid mt-2">
+                                    <div class="col-md-5 p-2">
                                        <a href="/singup" class="btn btn-secondary">Registrarse</a>
                                     </div>
-                                    <div class="col-md-6 d-grid mt-2">
+                                    <div class="col-md-7 p-2">
                                        <a href="forget_pass" class="btn btn-secondary">¿Haz olvidado tu contraseña?</a>
                                     </div>
                                  </div>

@@ -51,11 +51,11 @@
             <div class="col-md-12 col-sm-12 text-center">
                <div class="row">
                   <div class="section-header pb-0">
-                     <h2 class="text-pri">Comunidad Comultrasan</h2>
+                     <h2 class="text-pri">Comunidad Financiera Comultrasan</h2>
                   </div>
                </div>
                <div>
-                  <h5 class="text-black fst-italic">
+                  <h5 class="text-black">
                      Comparte tus gustos e intereses con integrantes de otras comunidades
                   </h5>
                </div>

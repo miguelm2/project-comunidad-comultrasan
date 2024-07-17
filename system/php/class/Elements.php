@@ -170,15 +170,15 @@ class Elements
         return '<a class="col-md-4 col-sm-4 mt-4" data-aos="fade-up" data-aos-delay="100" href="comunnity?comunnity=' . $id . '">
                     <div class="card mouse">
                         <div class="m-2">
-                            <span class="material-symbols-outlined" style="font-size: 50px;">
+                            <span class="material-symbols-outlined" style="font-size: 70px;">
                                 ' . $icono . '
                             </span>
                         </div>
-                        <h6 class="title text-black">
+                        <h5 class="title text-black">
                             <strong>
                                 ' . $titulo . '
                             </strong>
-                        </h6>
+                        </h5>
                         <p class="text-black p-2">
                             ' . $subtitulo . '
                         </p>
