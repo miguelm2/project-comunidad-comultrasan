@@ -6,6 +6,7 @@ class ServicePage extends System
 {
     static function Login($cedula, $pass)
     {
+        
         $cedula = parent::limpiarString($cedula);
         $pass = parent::limpiarString($pass);
         $pass_hash = parent::hash($pass);

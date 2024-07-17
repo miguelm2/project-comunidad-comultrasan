@@ -1,9 +1,9 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/model/AdministradorDTO.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Gestor.php';
 class Administrador extends System
 {
-
-    public static function newAdministrator($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $fecha_registro)
+    public static function newAdministrator($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $fecha_registro)
     {
         $validarAdmin = self::validateAdministrator($cedula, $correo, null);
         $validarUser = Usuario::validateUser($cedula, $correo, null);
@@ -11,8 +11,8 @@ class Administrador extends System
 
         if (!$validarAdmin && !$validarUser && !$valideManager) {
             $dbh             = parent::Conexion();
-            $stmt = $dbh->prepare("INSERT INTO Administrador (nombre, correo, telefono, cedula, pass, estado, tipo, fecha_registro) 
-                                VALUES (:nombre, :correo, :telefono, :cedula, :pass, :estado, :tipo, :fecha_registro)");
+            $stmt = $dbh->prepare("INSERT INTO Administrador (nombre, correo, telefono, cedula, pass, estado, tipo, imagen, fecha_registro) 
+                                VALUES (:nombre, :correo, :telefono, :cedula, :pass, :estado, :tipo, :imagen, :fecha_registro)");
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':correo', $correo);
             $stmt->bindParam(':telefono', $telefono);
@@ -20,6 +20,7 @@ class Administrador extends System
             $stmt->bindParam(':pass', $pass_hash);
             $stmt->bindParam(':estado', $estado);
             $stmt->bindParam(':tipo', $tipo);
+            $stmt->bindParam(':imagen', $imagen);
             $stmt->bindParam(':fecha_registro', $fecha_registro);
             return  $stmt->execute();
         } else {
@@ -35,7 +36,10 @@ class Administrador extends System
 
         if (!$validarAdmin && !$validarUser && !$valideManager) {
             $dbh             = parent::Conexion();
-            $stmt = $dbh->prepare("UPDATE Administrador SET nombre = :nombre, correo = :correo, telefono = :telefono, cedula = :cedula, estado = :estado WHERE id_administrador = :id_administrador ");
+            $stmt = $dbh->prepare("UPDATE Administrador 
+                                    SET nombre = :nombre, correo = :correo, telefono = :telefono, 
+                                        cedula = :cedula, estado = :estado 
+                                    WHERE id_administrador = :id_administrador ");
             $stmt->bindParam(':id_administrador', $id_administrador);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':correo', $correo);
@@ -47,9 +51,16 @@ class Administrador extends System
             return false;
         }
     }
-
-
-
+    public static function setImageAdministrator($id_administrador, $imagen)
+    {
+            $dbh             = parent::Conexion();
+            $stmt = $dbh->prepare("UPDATE Administrador 
+                                    SET imagen = :imagen 
+                                    WHERE id_administrador = :id_administrador ");
+            $stmt->bindParam(':id_administrador', $id_administrador);
+            $stmt->bindParam(':imagen', $imagen);
+            return  $stmt->execute();
+    }
     public static function getAdministrador($cedula, $pass_hash)
     {
         $dbh             = parent::Conexion();
@@ -60,8 +71,6 @@ class Administrador extends System
         $stmt->execute();
         return  $stmt->fetch();
     }
-
-
     public static function listAdministrador($id_administrador)
     {
         $dbh             = parent::Conexion();
@@ -153,15 +162,17 @@ class Administrador extends System
         }
     }
 
-    public static function lastAdministrator(){
+    public static function lastAdministrator()
+    {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM Administrador ORDER BY id_administrador DESC LIMIT 1");
+        $stmt = $dbh->prepare("SELECT TOP 1 * FROM Administrador ORDER BY id_administrador DESC");
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'AdministradorDTO');
         $stmt->execute();
         return  $stmt->fetch();
     }
 
-    public static function countAdministrators(){
+    public static function countAdministrators()
+    {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("SELECT count(*) as contador FROM Administrador");
         $stmt->execute();

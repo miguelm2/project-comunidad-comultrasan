@@ -41,13 +41,15 @@
 
    <!-- ======= Stats Counter Section ======= -->
    <section id="comunidad" class="p-2">
-      <div class="container" data-aos="fade-up">
-         <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a href="index#index">Inicio</a></li>
-               <li class="breadcrumb-item active" aria-current="page">Beneficios</a></li>
-            </ol>
-         </nav>
+      <div class="container-fluid" data-aos="fade-up">
+         <div class="container">
+            <nav aria-label="breadcrumb">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index#index">Inicio</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Beneficios</a></li>
+               </ol>
+            </nav>
+         </div>
          <div class="row gy-2 align-items-center">
             <div class="col-md-12 col-sm-12 text-center">
                <div class="row">
@@ -58,13 +60,82 @@
                <div>
                   <h5 class="text-black">Descubre los beneficios exclusivos que tenemos para ti</h5>
                </div>
-               <div class="container mt-5">
+               <div class="mt-5">
                   <div class="row text-start">
-                     <?= $benefitPageIndex ?>
+                     <div class="col-md-9">
+                        <div class="row">
+                           <?= $benefitPageIndex ?>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="container my-5">
+                           <div class="row justify-content-center">
+                              <div class="card-container">
+                                 <div class="card-flip">
+                                    <div class="card card-front">
+                                       <div class="img-card-container">
+                                          <img src="/assets/image/hamburguesa.png" class="card-img-top img-fluid img-card" alt="Burger">
+                                          <img src="/assets/image/logo_burguer.png" class="card-img__logo" alt="Burger">
+                                       </div>
+                                       <div class="card-body text-center">
+                                          <h6>20% de descuento, los miércoles en Mercagán.</h6>
+                                          <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
+                                       </div>
+                                    </div>
+                                    <div class="card card-back text-start">
+                                       <div class="card-body">
+                                          <h6 class="card-title">Miércoles Mercagán</h6>
+                                          <p style="font-size: 12px;">
+                                             20% de descuento los miércoles en Mercagán.<br>
+                                             Vigencia de la Promoción: Todos los miércoles desde el 4 de septiembre hasta el 30 de octubre de 2024.
+                                          </p>
+                                          <h6 class="card-title">¿Cómo puedo acceder al beneficio?</h6>
+                                          <p style="font-size: 12px;">
+                                             Haz tu pedido en Mercagán, presenta tu carnet y paga con tu Tarjeta de Crédito o Débito Financiera Comultrasan.
+                                          </p>
+                                          <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- Segunda Tarjeta -->
+                              <div class="card-container">
+                                 <div class="card-flip">
+                                    <div class="card card-front">
+                                       <div class="img-card-container">
+                                          <img src="/assets/image/hamburguesa.png" class="card-img-top img-fluid img-card" alt="Burger">
+                                          <img src="/assets/image/logo_burguer.png" class="card-img__logo" alt="Burger">
+                                       </div>
+                                       <div class="card-body text-center">
+                                          <h6>20% de descuento, los miércoles en Mercagán.</h6>
+                                          <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
+                                       </div>
+                                    </div>
+                                    <div class="card card-back text-start">
+                                       <div class="card-body">
+                                          <h6 class="card-title">Miércoles Mercagán</h6>
+                                          <p style="font-size: 12px;">
+                                             20% de descuento los miércoles en Mercagán.<br>
+                                             Vigencia de la Promoción: Todos los miércoles desde el 4 de septiembre hasta el 30 de octubre de 2024.
+                                          </p>
+                                          <h6 class="card-title">¿Cómo puedo acceder al beneficio?</h6>
+                                          <p style="font-size: 12px;">
+                                             Haz tu pedido en Mercagán, presenta tu carnet y paga con tu Tarjeta de Crédito o Débito Financiera Comultrasan.
+                                          </p>
+                                          <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <!-- Fin de la segunda tarjeta -->
+                           </div>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
+      </div>
    </section>
    <!-- Start Footer -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/footer.php'; ?>

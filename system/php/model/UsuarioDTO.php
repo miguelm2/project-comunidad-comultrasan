@@ -20,7 +20,7 @@ class UsuarioDTO
     /**
      * Get the value of id_usuario
      */
-    public function getIdUsuario()
+    public function getId_usuario()
     {
         return $this->id_usuario;
     }
@@ -28,7 +28,7 @@ class UsuarioDTO
     /**
      * Set the value of id_usuario
      */
-    public function setIdUsuario($id_usuario)
+    public function setId_usuario($id_usuario)
     {
         $this->id_usuario = $id_usuario;
 
@@ -130,6 +130,8 @@ class UsuarioDTO
      */
     public function getEstado()
     {
+        if ($this->estado == 1) return explode(";", $this->estado . ';Activo');
+        if ($this->estado == 0) return explode(";", $this->estado . ';Inactivo');
         return $this->estado;
     }
 

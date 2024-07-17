@@ -23,7 +23,7 @@ class ServiceUser extends System
                 $lastUser = Usuario::lastUsuario();
                 header('Location:user?user=' . $lastUser->getId_usuario() . '&new');
             } else {
-                return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
+                return "default.png";
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -53,7 +53,7 @@ class ServiceUser extends System
 
                 return $imagen;
             } else {
-                throw new Exception("No se ha enviado ninguna imagen o ha ocurrido un error en la carga del archivo.");
+                return "default.png";
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -129,7 +129,7 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setImageUsar($id_usuario, $correo, $cedula)
+    public static function setImageUser($id_usuario)
     {
         try {
             $id_usuario  = parent::limpiarString($id_usuario);
@@ -143,7 +143,7 @@ class ServiceUser extends System
 
             $imagen = self::newImagen();
 
-            $result = Usuario::setImageUser($id_usuario, $correo, $cedula, $imagen);
+            $result = Usuario::setImageUser($id_usuario, $imagen);
             if ($result) {
                 return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
             }
@@ -196,15 +196,19 @@ class ServiceUser extends System
             $tableHtml = "";
             $modelResponse = Usuario::listUser();
 
-            foreach ($modelResponse as $valor) {
-                $tableHtml .= '<tr>';
-                $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
-                $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
-                $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
-                $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
-                $tableHtml .= '<td>' . Elements::crearBotonVer("user", $valor->getId_usuario()) . '</td>';
-                $tableHtml .= '</tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("user", $valor->getId_usuario()) . '</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
+                $tableHtml = '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
             }
             return $tableHtml;
         } catch (\Exception $e) {

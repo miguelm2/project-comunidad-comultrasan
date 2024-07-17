@@ -50,85 +50,56 @@
                   <form method="post">
                      <div class="row">
                         <div class="col-md-4 text-center mx-auto mb-3">
-                           <img src="<?= Path::$DIR_IMG_PERFIL . $information->getImagen() ?>" alt="" class="img-fluid">
+                           <img src="<?= Path::$DIR_IMAGE_ADMIN . $_SESSION['imagen'] ?>" alt="" class="img-fluid">
                         </div>
                         <div class="col-md-8">
                            <div class="row">
-                              <div class="col-6">
+                              <div class="col-12">
                                  <div class="form-group">
                                     <label class="form-label">Nombre</label>
-                                    <input type="text" class="form-control border p-1" name="nombre" value="<?= $information->getNombre() ?>" required>
+                                    <input type="text" class="form-control border p-1" name="nombre" value="<?= $_SESSION['nombre'] ?>" required>
                                  </div>
                               </div>
-                              <div class="col-6">
-                                 <div class="form-group">
-                                    <label class="form-label">NIT</label>
-                                    <input type="text" class="form-control border p-1" name="nit" value="<?= $information->getNit() ?>" required>
-                                 </div>
-                              </div>
-                              <div class="col-6">
-                                 <div class="form-group">
-                                    <label class="form-label">Dirección</label>
-                                    <input type="text" class="form-control border p-1" name="direccion" value="<?= $information->getDireccion() ?>" required>
-                                 </div>
-                              </div>
-                              <div class="col-6">
+                              <div class="col-12">
                                  <div class="form-group">
                                     <label class="form-label">Correo</label>
-                                    <input type="email" class="form-control border p-1" name="correo" value="<?= $information->getCorreo() ?>" required>
+                                    <input type="email" class="form-control border p-1" name="correo" value="<?= $_SESSION['correo'] ?>" required>
                                  </div>
                               </div>
-                              <div class="col-6">
+                              <div class="col-12">
                                  <div class="form-group">
                                     <label class="form-label">Celular</label>
-                                    <input type="tel" class="form-control border p-1" name="whatsapp" value="<?= $information->getWp() ?>" required>
+                                    <input type="tel" class="form-control border p-1" name="telefono" value="<?= $_SESSION['telefono'] ?>" required>
                                  </div>
                               </div>
-                              <div class="col-6">
+                              <div class="col-md-6">
                                  <div class="form-group">
-                                    <label class="form-label">Color</label>
-                                    <input type="color" class="form-control border p-1" name="color" value="<?= $information->getColor1() ?>">
+                                    <label for="" class="form-label">Cedula</label><br>
+                                    <input type="text" class="form-control border p-1" name="cedula" value="<?= $_SESSION['cedula'] ?>">
                                  </div>
                               </div>
-                           </div>
-                        </div>
-                        <div class="col-md-12 mt-1">
-                           <div class="row">
-                              <div class="col-6">
+                              <div class="col-md-6">
                                  <div class="form-group">
-                                    <label class="form-label">Ciudad</label>
-                                    <input type="text" class="form-control border p-1" name="ciudad" value="<?= $information->getCiudad() ?>" required>
+                                    <label for="" class="form-label">Tipo</label><br>
+                                    <input type="text" class="form-control border p-1" value="<?= $_SESSION['tipo'] ?>" disabled>
                                  </div>
                               </div>
-                              <div class="col-6">
-                                 <div class="form-group">
-                                    <label class="form-label">Departamento</label>
-                                    <input type="text" class="form-control border p-1" name="departamento" value="<?= $information->getDepartamento() ?>" required>
-                                 </div>
-                              </div>
-                              <div class="col-6">
-                                 <div class="form-group">
-                                    <label class="form-label">Facebook</label>
-                                    <input type="url" class="form-control border p-1" name="facebook" value="<?= $information->getFb() ?>">
-                                 </div>
-                              </div>
-                              <div class="col-6">
-                                 <div class="form-group">
-                                    <label class="form-label">Instagram</label>
-                                    <input type="url" class="form-control border p-1" name="instagram" value="<?= $information->getInstagram() ?>">
-                                 </div>
-                              </div>
+
                            </div>
                         </div>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="row mt-4">
-                        <div class="col-md-6 d-grid">
-                           <button type="submit" class="btn btn-success" name="setInformation"><i class="material-icons me-2">edit</i> Editar Perfil</button>
+                        <div class="col-md-4 d-grid">
+                           <button type="submit" class="btn btn-success" name="setProfile"><i class="material-icons me-2">edit</i> Editar Perfil</button>
                         </div>
-                        <div class="col-md-6 d-grid">
+                        <div class="col-md-4 d-grid">
                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">
                               <i class="material-icons me-2">image</i> Cambiar Imagen</button>
+                        </div>
+                        <div class="col-md-4 d-grid">
+                           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiarPass">
+                              <i class="material-icons me-2">lock</i> Cambiar Contraseña</button>
                         </div>
                      </div>
                   </form>
@@ -148,14 +119,14 @@
                   </div>
                   <div class="modal-body">
                      <div class="form-group">
-                        <label class="form-label" for="logo">Imagen</label>
-                        <input type="file" class="form-control border p-1" name="logo" accept="image/*" required>
+                        <label class="form-label" for="imageAdmin">Imagen</label>
+                        <input type="file" class="form-control border p-1" name="imageAdmin" accept="image/*" required>
                      </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         <i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="setLogoInformacion" class="btn btn-info">
+                     <button type="submit" name="setImageProfile" class="btn btn-info">
                         <i class="material-icons me-2">image</i> Cambiar Imagen
                      </button>
                   </div>
@@ -164,11 +135,57 @@
          </div>
       </form>
       <!-- End Basic Modal-->
+
+      <!-- Modal Cambiar Contraseña-->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post" onsubmit="return validatePassword()">
+         <div class="modal fade" id="cambiarPass" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Cambiar Contraseña</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="row g-3">
+                        <div class="col-md-12 form-group">
+                           <label for="pass">Contraseña Actual</label>
+                           <input type="password" id="pass" name="pass" class="form-control border p-1" maxlength="30" required>
+                        </div>
+                        <div class="col-md-12 form-group">
+                           <label for="newPass">Nueva contraseña</label>
+                           <input type="password" id="newPass" name="newPass" class="form-control border p-1" maxlength="30" required>
+                        </div>
+                        <div class="col-md-12 form-group">
+                           <label for="confirmPass">Confirmar contraseña</label>
+                           <input type="password" id="confirmPass" name="confirmPass" class="form-control border p-1" maxlength="30" required>
+                        </div>
+                     </div>
+                     <div class="col-md-8 col-lg-9">
+                        <div class="form-check">
+                           <input class="form-check-input" type="checkbox" value="" id="viewPassPerfil">
+                           <label class="form-check-label" for="flexCheckDefault">
+                              Mostrar contraseña
+                           </label>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="setPassProfile" class="btn btn-info"><i class="material-icons me-2">lock</i> Actualizar Contraseña</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
+
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
    </main>
    <!--   Core JS Files   -->
+   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/assets/js/core/popper.min.js"></script>
    <script src="/system/assets/js/core/bootstrap.min.js"></script>
    <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -177,6 +194,8 @@
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <script src="/system/js/viewPassword.js"></script>
+   <script src="/system/js/functions.js"></script>
    <?= $response ?>
 </body>
 

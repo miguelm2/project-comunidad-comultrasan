@@ -188,7 +188,7 @@ class Elements
     public static function getCardBenefit($id, $imagen, $titulo, $subtitulo)
     {
         return '<div class="col-md-6 mt-3">
-                    <div class="card position-relative">
+                    <div class="card card1 position-relative">
                         <img src="' . Path::$DIR_IMAGE_BENE_PAGE . $imagen . '" alt="' . $imagen . '">
                         <h5 class="card-title">' . $titulo . '</h5>
                         <p class="card-text">

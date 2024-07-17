@@ -172,14 +172,15 @@ abstract  class System
 
             if ($administrador != null) {
                 session_start();
-                $_SESSION['id']     =   $administrador->getId_administrador();
-                $_SESSION['nombre'] =   $administrador->getNombre();
-                $_SESSION['correo'] =   $administrador->getCorreo();
-                $_SESSION['cedula'] =   $administrador->getCedula();
-                $_SESSION['telefono'] = $administrador->getTelefono();
-                $_SESSION['tipo']   =   $administrador->getTipo();
-                $_SESSION['fecha_registro'] = $administrador->getFecha_registro();
-                $_SESSION['usuario'] = "Adminsitrador";
+                $_SESSION['id']             =   $administrador->getId_administrador();
+                $_SESSION['nombre']         =   $administrador->getNombre();
+                $_SESSION['correo']         =   $administrador->getCorreo();
+                $_SESSION['cedula']         =   $administrador->getCedula();
+                $_SESSION['telefono']       =   $administrador->getTelefono();
+                $_SESSION['imagen']         =   $administrador->getImagen();
+                $_SESSION['tipo']           =   $administrador->getTipo();
+                $_SESSION['fecha_registro'] =   $administrador->getFecha_registro();
+                $_SESSION['usuario']        =   "Adminsitrador";
 
                 header("Location:/system/views/admin/index");
             }

@@ -3,183 +3,177 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>Aplicacion Web - Kondory Tecnologia</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="../../assets/img/favicon.png" rel="icon">
-    <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.gstatic.com" rel="preconnect">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../../assets/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="../../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../../assets/vendor/simple-datatables/style.css" rel="stylesheet">
-    <link href="../../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="../../assets/css/style.css" rel="stylesheet">
-
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+   <link rel="icon" type="image/png" href="/assets/image/favicon_0.ico">
+   <title>Comunidad Comultrasan</title>
+   <!--     Fonts and icons     -->
+   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+   <!-- Nucleo Icons -->
+   <link href="/system/assets/css/nucleo-icons.css" rel="stylesheet" />
+   <link href="/system/assets/css/nucleo-svg.css" rel="stylesheet" />
+   <!-- Font Awesome Icons -->
+   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+   <!-- Material Icons -->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+   <!-- CSS Files -->
+   <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
-<body>
-
-    <!-- ======= Header ======= -->
-    <?php include '../../assets/html/header.php'; ?>
-    <!-- End Header -->
-
-    <!-- ======= Sidebar ======= -->
-    <?php include '../../assets/html/sidebar-admin.php'; ?>
-    <!-- End Sidebar-->
-
-    <main id="main" class="main">
-
-
-        <section class="section dashboard">
-
-            <div class="row">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-md-9">
-                                <h5 class="text-primary">Administradores</h5>
-                            </div>
-                            <div class="col-md-3 text-right d-grid">
-                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newAdministrator"><i class="bi bi-person-plus"></i> Nuevo Administrador</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body" style="padding-top: 5px;">
-
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Correo</th>
-                                        <th>Teléfono</th>
-                                        <th>Cédula</th>
-                                        <th>Estado</th>
-                                        <th width="10px">Ver</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Nombre</th>
-                                        <th>Correo</th>
-                                        <th>Teléfono</th>
-                                        <th>Cédula</th>
-                                        <th>Estado</th>
-                                        <th width="10px">Ver</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <?= $tablaAdministradores; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
+<body class="g-sidenav-show  bg-gray-200">
+   <!-- Start Slider -->
+   <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_admin.php'; ?>
+   <!-- End Slider -->
+   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+      <!-- Navbar -->
+      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+         <div class="container-fluid py-1 px-3">
+            <!-- Start header -->
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+            <!-- End header -->
+         </div>
+      </nav>
+      <div class="pagetitle p-1 mt-2 mp-0">
+         <nav>
+            <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+               <li class="breadcrumb-item active">Administrador</li>
+            </ol>
+         </nav>
+      </div>
+      <div class="card">
+         <div class="row m-0">
+            <div class="col-md-8 m-4">
+               <div class="card-head">
+                  <h4 class="text-success">Administrador</h4>
+               </div>
             </div>
-
-        </section>
-
-
-
-        <!-- Modal -->
-        <!-- ======= Basic Modal ======= -->
-        <form method="POST">
-            <div class="modal fade" id="newAdministrator" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Nuevo Administrador</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row g-3">
-                                <div class="col-md-12 form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" name="nombre" class="form-control" maxlength="150" required>
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <label for="nombre">Correo</label>
-                                    <input type="email" name="correo" class="form-control" maxlength="255" required>
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <label for="telefono">Telefono</label>
-                                    <input type="number" name="telefono" class="form-control" maxlength="15" required>
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <label for="nombre">Cedula</label>
-                                    <input type="text" name="cedula" class="form-control" maxlength="20" required>
-                                </div>
-                                <div class="col-md-12 form-group">
-                                    <label for="nombre">Contraseña</label>
-                                    <div class="input-group">
-                                        <input type="password" name="pass" id="pass" class="form-control" maxlength="30" required>
-                                        <button class="btn btn-primary" type="button" id="verPass"><i class="bi bi-eye" id="icon_pass"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" name="newAdministrator" class="btn btn-success"><i class="bi bi-plus-square"></i> Nuevo Administrador</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-3 mt-3">
+               <div class="card-head text-right">
+                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newAdmin">
+                     <i class="material-icons me-2">add</i> Agregar Administrador
+                  </button>
+               </div>
             </div>
-        </form>
-        <!-- End Basic Modal-->
-
-
-
-
-
-
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-    <?php include_once '../../assets/html/footer.html'; ?>
-    <!-- End Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    <script src="../../assets/vendor/jquery/jquery.min.js"></script>
-
-    <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../../assets/vendor/chart.js/chart.umd.js"></script>
-    <script src="../../assets/vendor/echarts/echarts.min.js"></script>
-    <script src="../../assets/vendor/quill/quill.min.js"></script>
-    <script src="../../assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="../../assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="../../assets/vendor/php-email-form/validate.js"></script>
-    <script src="../../assets/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../../assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="../../js/demo/datatables-demo.js"></script>
-
-    <script src="../../js/viewPassword.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="../../assets/js/main.js"></script>
-  <script src="../../assets/vendor/swal/sweetalert.min.js"></script>
-    <?= $response ?>
+         </div>
+         <div class="card-body m-0">
+            <div class="table-responsive">
+               <table class="table table-bordered table-hover align-items-center mb-0">
+                  <thead class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">
+                           Nombre</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Correo</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Cédula</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Estado</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Opciones</th>
+                     </tr>
+                  </thead>
+                  <tfoot class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">
+                           Nombre</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Correo</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Cédula</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Estado</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Opciones</th>
+                     </tr>
+                  </tfoot>
+                  <tbody class="text-center">
+                     <?= $tableAdministradores ?>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      <!-- ======= Basic Modal ======= -->
+      <form id="uploadForm" method="post" enctype="multipart/form-data">
+         <div class="modal fade" id="newAdmin" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Nuevo Administrador</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="row g-3">
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Nombre</label>
+                              <input type="text" class="form-control border p-1" name="nombre" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Correo</label>
+                              <input type="email" class="form-control border p-1" name="correo" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Celular</label>
+                              <input type="tel" class="form-control border p-1" name="telefono" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Cédula</label>
+                              <input type="number" class="form-control border p-1" name="cedula" required>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="form-group">
+                              <label class="form-label">Contraseña</label>
+                              <input type="password" class="form-control border p-1" name="pass" required>
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="mb-3">
+                              <div class="form-group">
+                                 <label>Imagen</label>
+                                 <input type="file" class="form-control border p-1" name="imageAdmin" accept="image/*">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="newAdministrator" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Administrador</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!--Final Basic Modal-->
+      <!-- Start Footer -->
+      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
+      <!-- End Footer -->
+   </main>
+   <!--   Core JS Files   -->
+   <script src="/system/assets/js/core/popper.min.js"></script>
+   <script src="/system/assets/js/core/bootstrap.min.js"></script>
+   <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>
+   <script src="/system/assets/js/plugins/smooth-scrollbar.min.js"></script>
+   <script src="/system/assets/js/plugins/chartjs.min.js"></script>
+   <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+   <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
+   <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <?= $response ?>
 </body>
 
 </html>
