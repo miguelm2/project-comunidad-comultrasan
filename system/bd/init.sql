@@ -122,6 +122,7 @@ CREATE TABLE BeneficioPagina (
 
 CREATE TABLE Descuento (
   id_descuento INT IDENTITY(1, 1) PRIMARY KEY,
+  titulo VARCHAR(255) NOT NULL,
   descuento VARCHAR(255) NOT NULL,
   vigencia VARCHAR(255) NOT NULL,
   acceso TEXT NOT NULL,
@@ -147,10 +148,36 @@ CREATE TABLE Beneficio (
   fecha_registro DATETIME NOT NULL
 );
 
-CREATE TABLE Recompenza (
+CREATE TABLE Recompensa (
   id_recompenza INT IDENTITY(1, 1) PRIMARY KEY,
   actividad VARCHAR(255) NOT NULL,
-  costo VARCHAR(255) NOT NULL,
   puntos INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE Encuesta (
+  id_encuesta INT IDENTITY(1, 1) PRIMARY KEY,
+  nombre VARCHAR(255) NOT NULL,
+  descripcion TEXT NOT NULL,
+  estado INT NOT NULL,
+  puntos INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE PreguntaEncuesta (
+  id_pregunta INT IDENTITY(1, 1) PRIMARY KEY,
+  id_encuesta INT NOT NULL,
+  pregunta VARCHAR(255) NOT NULL,
+  estado INT NOT NULL,
+  imagen VARCHAR(255) NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE RespuestaPregunta (
+  id_respuesta INT IDENTITY(1, 1) PRIMARY KEY,
+  id_encuesta INT NOT NULL,
+  id_pregunta INT NOT NULL,
+  respuesta VARCHAR(255) NOT NULL,
+  veracidad INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );

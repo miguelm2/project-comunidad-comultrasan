@@ -8,7 +8,7 @@
                         © <script>
                             document.write(new Date().getFullYear())
                         </script>,
-                        <a href="" class="font-weight-bold" target="_blank">Comunidad Financiera Comultrasan</a>.
+                        <a class="font-weight-bold">Comunidad Financiera Comultrasan</a>.
                     </div>
                 </div>
             </div>

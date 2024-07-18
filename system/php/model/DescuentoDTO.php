@@ -3,6 +3,7 @@
 class DescuentoDTO
 {
     protected $id_descuento;
+    protected $titulo;
     protected $descuento;
     protected $vigencia;
     protected $acceso;
@@ -138,6 +139,26 @@ class DescuentoDTO
     public function setLogo($logo)
     {
         $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of titulo
+     */ 
+    public function getTitulo()
+    {
+        return $this->titulo;
+    }
+
+    /**
+     * Set the value of titulo
+     *
+     * @return  self
+     */ 
+    public function setTitulo($titulo)
+    {
+        $this->titulo = $titulo;
 
         return $this;
     }

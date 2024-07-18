@@ -1,9 +1,9 @@
-<?php 
-session_start(); 
+<?php
+session_start();
 $response = null;
 date_default_timezone_set('America/Bogota'); // CDT
 
-include_once $_SERVER['DOCUMENT_ROOT'].'/system/php/modules/page/ControllerPage.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/page/ControllerPage.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/question/ControllerQuestion.php';
 
@@ -11,4 +11,4 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/Contr
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefitPage/ControllerBenefitPage.php';
 
-?>
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/discount/ControllerDiscount.php';

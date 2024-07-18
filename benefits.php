@@ -70,64 +70,7 @@
                      <div class="col-md-3">
                         <div class="container my-5">
                            <div class="row justify-content-center">
-                              <div class="card-container">
-                                 <div class="card-flip">
-                                    <div class="card card-front">
-                                       <div class="img-card-container">
-                                          <img src="/assets/image/hamburguesa.png" class="card-img-top img-fluid img-card" alt="Burger">
-                                          <img src="/assets/image/logo_burguer.png" class="card-img__logo" alt="Burger">
-                                       </div>
-                                       <div class="card-body text-center">
-                                          <h6>20% de descuento, los miércoles en Mercagán.</h6>
-                                          <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
-                                       </div>
-                                    </div>
-                                    <div class="card card-back text-start">
-                                       <div class="card-body">
-                                          <h6 class="card-title">Miércoles Mercagán</h6>
-                                          <p style="font-size: 12px;">
-                                             20% de descuento los miércoles en Mercagán.<br>
-                                             Vigencia de la Promoción: Todos los miércoles desde el 4 de septiembre hasta el 30 de octubre de 2024.
-                                          </p>
-                                          <h6 class="card-title">¿Cómo puedo acceder al beneficio?</h6>
-                                          <p style="font-size: 12px;">
-                                             Haz tu pedido en Mercagán, presenta tu carnet y paga con tu Tarjeta de Crédito o Débito Financiera Comultrasan.
-                                          </p>
-                                          <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <!-- Segunda Tarjeta -->
-                              <div class="card-container">
-                                 <div class="card-flip">
-                                    <div class="card card-front">
-                                       <div class="img-card-container">
-                                          <img src="/assets/image/hamburguesa.png" class="card-img-top img-fluid img-card" alt="Burger">
-                                          <img src="/assets/image/logo_burguer.png" class="card-img__logo" alt="Burger">
-                                       </div>
-                                       <div class="card-body text-center">
-                                          <h6>20% de descuento, los miércoles en Mercagán.</h6>
-                                          <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
-                                       </div>
-                                    </div>
-                                    <div class="card card-back text-start">
-                                       <div class="card-body">
-                                          <h6 class="card-title">Miércoles Mercagán</h6>
-                                          <p style="font-size: 12px;">
-                                             20% de descuento los miércoles en Mercagán.<br>
-                                             Vigencia de la Promoción: Todos los miércoles desde el 4 de septiembre hasta el 30 de octubre de 2024.
-                                          </p>
-                                          <h6 class="card-title">¿Cómo puedo acceder al beneficio?</h6>
-                                          <p style="font-size: 12px;">
-                                             Haz tu pedido en Mercagán, presenta tu carnet y paga con tu Tarjeta de Crédito o Débito Financiera Comultrasan.
-                                          </p>
-                                          <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                              <!-- Fin de la segunda tarjeta -->
+                              <?= $cardDiscount ?>
                            </div>
                         </div>
                      </div>

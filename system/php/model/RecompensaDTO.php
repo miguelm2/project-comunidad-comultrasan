@@ -1,10 +1,9 @@
 <?php
 
-class RecompenzaDTO
+class RecompensaDTO
 {
-    protected $id_recompenza;
+    protected $id_recompensa;
     protected $actividad;
-    protected $costo;
     protected $puntos;
     protected $fecha_registro;
 
@@ -15,17 +14,17 @@ class RecompenzaDTO
     /**
      * Get the value of id_recompenza
      */
-    public function getId_recompenza()
+    public function getId_recompensa()
     {
-        return $this->id_recompenza;
+        return $this->id_recompensa;
     }
 
     /**
      * Set the value of id_recompenza
      */
-    public function setId_recompenza($id_recompenza)
+    public function setId_recompensa($id_recompensa)
     {
-        $this->id_recompenza = $id_recompenza;
+        $this->id_recompensa = $id_recompensa;
 
         return $this;
     }
@@ -44,24 +43,6 @@ class RecompenzaDTO
     public function setActividad($actividad)
     {
         $this->actividad = $actividad;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of costo
-     */
-    public function getCosto()
-    {
-        return $this->costo;
-    }
-
-    /**
-     * Set the value of costo
-     */
-    public function setCosto($costo)
-    {
-        $this->costo = $costo;
 
         return $this;
     }

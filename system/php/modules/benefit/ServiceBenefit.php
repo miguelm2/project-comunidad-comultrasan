@@ -126,9 +126,9 @@ class ServiceBenefit extends System
                     $tableHtml .= '<tr>';
                     $tableHtml .= '<td>' . $valor->getId_beneficio() . '</td>';
                     $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getDescripcion() . '</td>';
                     $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("Benefit", $valor->getId_beneficio()) . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("benefit", $valor->getId_beneficio()) . '</td>';
                     $tableHtml .= '</tr>';
                 }
             } else {

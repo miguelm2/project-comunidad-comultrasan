@@ -9,7 +9,7 @@ if (isset($_POST['setBenefitPage'])) {
     $response = ServiceBenefitPage::setBenefitPage($_GET['benefitPage'], $_POST['titulo'], $_POST['subtitulo'], $_POST['contenido'], $_POST['requisitos']);
 }
 
-if (isset($_POST['setImageBenefit'])) {
+if (isset($_POST['setImageBenefitPage'])) {
     $response = ServiceBenefitPage::setImageBenefitPage($_GET['benefitPage']);
 }
 

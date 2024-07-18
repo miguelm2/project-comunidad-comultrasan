@@ -1,18 +1,17 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Recompenza.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Recompensa.php';
 
 class ServiceReward extends System
 {
-    public static function newReward($actividad, $costo, $puntos)
+    public static function newReward($actividad, $puntos)
     {
         try {
             $actividad         = parent::limpiarString($actividad);
-            $costo    = parent::limpiarString($costo);
             $puntos         = parent::limpiarString($puntos);
             $fecha_registro = date('Y-m-d H:i:s');
 
-            $result = Recompenza::newReward($actividad, $costo, $puntos, $fecha_registro);
+            $result = Recompensa::newReward($actividad, $puntos, $fecha_registro);
 
             if ($result) {
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
@@ -21,15 +20,14 @@ class ServiceReward extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setReward($id_recompenza, $actividad, $costo,  $puntos)
+    public static function setReward($id_recompensa, $actividad, $puntos)
     {
         try {
-            $id_recompenza  = parent::limpiarString($id_recompenza);
+            $id_recompensa  = parent::limpiarString($id_recompensa);
             $actividad      = parent::limpiarString($actividad);
-            $costo          = parent::limpiarString($costo);
             $puntos         = parent::limpiarString($puntos);
 
-            $result = Recompenza::setReward($id_recompenza, $actividad, $costo, $puntos);
+            $result = Recompensa::setReward($id_recompensa, $actividad, $puntos);
 
             if ($result) {
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
@@ -40,23 +38,23 @@ class ServiceReward extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function getReward($id_recompenza)
+    public static function getReward($id_recompensa)
     {
         try {
-            $id_recompenza = parent::limpiarString($id_recompenza);
+            $id_recompensa = parent::limpiarString($id_recompensa);
 
-            $result = Recompenza::getReward($id_recompenza);
+            $result = Recompensa::getReward($id_recompensa);
             return $result;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
-    public static function deleteReward($id_recompenza)
+    public static function deleteReward($id_recompensa)
     {
         try {
-            $id_recompenzas_pagina = parent::limpiarString($id_recompenza);
+            $id_recompensa = parent::limpiarString($id_recompensa);
 
-            $result = Recompenza::deleteReward($id_recompenzas_pagina);
+            $result = Recompensa::deleteReward($id_recompensa);
             if ($result) header('Location:Rewards?delete');
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -66,16 +64,15 @@ class ServiceReward extends System
     {
         try {
             $tableHtml = "";
-            $modelResponse = Recompenza::listReward();
+            $modelResponse = Recompensa::listReward();
 
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
                     $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getId_recompenza() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getid_recompensa() . '</td>';
                     $tableHtml .= '<td>' . $valor->getActividad() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getCosto() . '</td>';
                     $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("reward", $valor->getId_recompenza()) . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("reward", $valor->getid_recompensa()) . '</td>';
                     $tableHtml .= '</tr>';
                 }
             } else {
