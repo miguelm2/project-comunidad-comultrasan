@@ -21,15 +21,13 @@ class ServicePoint extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setPoint($id_punto, $titulo, $descripcion,  $puntos)
+    public static function setPoint($id_punto,  $puntos)
     {
         try {
             $id_punto      = parent::limpiarString($id_punto);
-            $titulo            = parent::limpiarString($titulo);
-            $descripcion       = parent::limpiarString($descripcion);
             $puntos            = parent::limpiarString($puntos);
 
-            $result = Punto::setPoint($id_punto, $titulo, $descripcion, $puntos);
+            $result = Punto::setPoint($id_punto, $puntos);
 
             if ($result) {
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
@@ -71,11 +69,11 @@ class ServicePoint extends System
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
                     $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getid_punto() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getId_punto() . '</td>';
                     $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
                     $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
                     $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("Point", $valor->getid_punto()) . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("point", $valor->getId_punto()) . '</td>';
                     $tableHtml .= '</tr>';
                 }
             } else {

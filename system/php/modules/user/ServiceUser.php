@@ -215,4 +215,18 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function getOptionUser()
+    {
+        try {
+            $html = "";
+            $modelResponse = Usuario::listUser();
+
+            foreach ($modelResponse as $value) {
+                $html .= '<option value="' . $value->getId_usuario() . '">' . $value->getNombre() . '</option>';
+            }
+            return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }

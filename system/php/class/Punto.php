@@ -14,16 +14,14 @@ class Punto extends System
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
-    public static function setPoint($id_punto, $puntos, $id_usuario, $id_administrador)
+    public static function setPoint($id_punto, $puntos)
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE Punto 
-                            SET puntos = :puntos, id_usuario = :id_usuario, id_administrador = :id_administrador
+                            SET puntos = :puntos
                             WHERE id_punto = :id_punto");
         $stmt->bindParam(':id_punto', $id_punto);
         $stmt->bindParam(':puntos', $puntos);
-        $stmt->bindParam(':id_usuario', $id_usuario);
-        $stmt->bindParam(':id_administrador', $id_administrador);
         return  $stmt->execute();
     }
     public static function getPoint($id_punto){
@@ -39,7 +37,7 @@ class Punto extends System
             $puntoDTO->setId_punto($result['id_punto']);
             $puntoDTO->setPuntos($result['puntos']);
             $puntoDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
-            $puntoDTO->setAdministradorDTO(Administrador::getAdministradorById($result['id_admistrador']));
+            $puntoDTO->setAdministradorDTO(Administrador::getAdministradorById($result['id_administrador']));
             $puntoDTO->setFecha_registro($result['fecha_registro']);
 
             return $puntoDTO;
@@ -50,7 +48,6 @@ class Punto extends System
     {
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("SELECT * FROM Punto");
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'PuntoDTO');
         $stmt->execute();
         $modelResponse = $stmt->fetchAll();
 
@@ -62,7 +59,7 @@ class Punto extends System
             $puntoDTO->setId_punto($result['id_punto']);
             $puntoDTO->setPuntos($result['puntos']);
             $puntoDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
-            $puntoDTO->setAdministradorDTO(Administrador::getAdministradorById($result['id_admistrador']));
+            $puntoDTO->setAdministradorDTO(Administrador::getAdministradorById($result['id_administrador']));
             $puntoDTO->setFecha_registro($result['fecha_registro']);
             $listResponse[$con] = $puntoDTO;
             $con++;

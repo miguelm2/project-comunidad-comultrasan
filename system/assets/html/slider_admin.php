@@ -26,6 +26,19 @@
                   <li class="dropdown-item"><a href="questions"> Preguntas frecuentes</a></li>
                   <li class="dropdown-item"><a href="benefitsPage"> Beneficios Pagina</a></li>
                   <li class="dropdown-item"><a href="typeComunities"> Tipos de comunidad</a></li>
+                  <li class="dropdown-item"><a href="discounts"> Descuentos</a></li>
+               </ul>
+            </div>
+         </li>
+         <li class="nav-item">
+            <div class="dropdown">
+               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink1">
+                  <span class="text-white"><i class="material-icons me-2">settings</i>Configuración</span>
+               </a>
+               <ul class="dropdown-menu  px-2 py-3 w-auto" aria-labelledby="navbarDropdownMenuLink1">
+                  <li class="dropdown-item"><a href="information"> Información</a></li>
+                  <li class="dropdown-item"><a href="profile"> Perfil</a></li>
+                  <li class="dropdown-item"><a href="administrators"> Administradores</a></li>
                </ul>
             </div>
          </li>
@@ -40,9 +53,9 @@
          <li class="nav-item">
             <a class="nav-link text-black " href="points">
                <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="material-icons opacity-10">star</i>
+                  <i class="material-icons opacity-10">favorite</i>
                </div>
-               <span class="nav-link-text ms-1">Puntos</span>
+               <span class="nav-link-text ms-1">Corazones</span>
             </a>
          </li>
          <li class="nav-item">
@@ -51,6 +64,14 @@
                   <i class="material-icons opacity-10">paid</i>
                </div>
                <span class="nav-link-text ms-1">Beneficios</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link text-black " href="rewards">
+               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">emoji_events</i>
+               </div>
+               <span class="nav-link-text ms-1">Recompensas</span>
             </a>
          </li>
          <li class="nav-item">
@@ -75,30 +96,6 @@
                   <i class="material-icons opacity-10">people</i>
                </div>
                <span class="nav-link-text ms-1">Gestores</span>
-            </a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link text-black " href="administrators">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="material-icons opacity-10">people</i>
-               </div>
-               <span class="nav-link-text ms-1">Administradores</span>
-            </a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link text-black " href="information">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="material-icons opacity-10">manage_accounts</i>
-               </div>
-               <span class="nav-link-text ms-1">Información</span>
-            </a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link text-black " href="profile">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="material-icons opacity-10">manage_accounts</i>
-               </div>
-               <span class="nav-link-text ms-1">Perfil</span>
             </a>
          </li>
          <li class="nav-item">

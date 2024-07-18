@@ -36,5 +36,6 @@ if (isset($_POST['deleteUser'])) {
 }
 
 if (isset($_GET)) {
-    $tableUsuarios = ServiceUser::getTablaUsuarios();
+    $tableUsuarios  = ServiceUser::getTablaUsuarios();
+    $optionUser     = ServiceUser::getOptionUser();
 }

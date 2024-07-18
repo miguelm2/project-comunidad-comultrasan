@@ -30,8 +30,8 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item"><a href="administrator">Administradores</a></li>
-               <li class="breadcrumb-item active">Editar Administrador</li>
+               <li class="breadcrumb-item"><a href="users">Usuarios</a></li>
+               <li class="breadcrumb-item active">Editar Usuario</li>
             </ol>
          </nav>
       </div><!-- End Page Title -->
@@ -41,12 +41,12 @@
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success p-1">
-                        Editar Administrador
+                        Editar Usuario
                      </h5>
                   </div>
                   <div class="col-md-2">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="administrators">
+                        <a type="button" class="btn btn-secondary" href="users">
                            <i class="material-icons me-2">keyboard_return</i>atrás
                         </a>
                      </div>
@@ -111,7 +111,7 @@
                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage"><i class="material-icons me-2">image</i> Cambiar Imagen</button>
                      </div>
                      <div class="col-md-3 d-grid">
-                        <button type="submit" class="btn btn-success" name="setUser"><i class="material-icons me-2">edit</i> Editar Administrador</button>
+                        <button type="submit" class="btn btn-success" name="setUser"><i class="material-icons me-2">edit</i> Editar Usuario</button>
                      </div>
                   </div>
                </form>

@@ -2,11 +2,11 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/discount/ServiceDiscount.php';
 
 if (isset($_POST['newDiscount'])) {
-    $response = ServiceDiscount::newDiscount($_POST['descuento'], $_POST['vigencia'], $_POST['acceso']);
+    $response = ServiceDiscount::newDiscount($_POST['titulo'], $_POST['descuento'], $_POST['vigencia'], $_POST['acceso']);
 }
 
 if (isset($_POST['setDiscount'])) {
-    $response = ServiceDiscount::setDiscount($_GET['discount'], $_POST['descuento'], $_POST['vigencia'], $_POST['acceso']);
+    $response = ServiceDiscount::setDiscount($_GET['discount'], $_POST['titulo'], $_POST['descuento'], $_POST['vigencia'], $_POST['acceso']);
 }
 
 if (isset($_POST['setImageDiscount'])) {
@@ -27,4 +27,5 @@ if (isset($_GET['discount'])) {
 
 if (isset($_GET)) {
     $tableDiscount = ServiceDiscount::getTableDiscount();
+    $cardDiscount = ServiceDiscount::getCardDiscount();
 }

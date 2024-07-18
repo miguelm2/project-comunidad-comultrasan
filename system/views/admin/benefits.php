@@ -112,26 +112,22 @@
                            <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" required>
                         </div>
                         <div class="col-md-12 form-group">
-                           <label for="subtitulo">Subtítulo</label>
-                           <input type="text" class="form-control border p-1" name="subtitulo" placeholder="Subtitulo" required>
+                           <label for="puntos">Puntos</label>
+                           <input type="number" class="form-control border p-1" name="puntos" placeholder="Cantidad de puntos" required>
                         </div>
                         <div class="col-md-12 form-group">
-                           <label for="imageBenefitPage">Imagen</label>
-                           <input type="file" class="form-control border p-1" name="imageBenefitPage" accept="image/*" required>
+                           <label for="imageBenefit">Imagen</label>
+                           <input type="file" class="form-control border p-1" name="imageBenefit" accept="image/*" required>
                         </div>
                         <div class="col-md-12 form-group">
-                           <label for="contenido">Contenido</label>
-                           <textarea name="contenido" id="contenido" class="form-control border p-1" rows="5" placeholder="Escribe el contenido aqui" required></textarea>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="contenido">Requisitos</label>
-                           <textarea name="requisitos" id="requisitos" class="form-control border p-1" rows="5" placeholder="Escribe el contenido aqui" required></textarea>
+                           <label for="descripcion">Descripción</label>
+                           <textarea name="descripcion" id="descripcion" class="form-control border p-1" rows="5" placeholder="Escribe una descripción aqui" required></textarea>
                         </div>
                      </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newBenefitPage" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo tipo comunidad</button>
+                     <button type="submit" name="newBenefit" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Beneficio</button>
                   </div>
                </div>
             </div>

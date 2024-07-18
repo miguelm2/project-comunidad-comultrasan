@@ -198,4 +198,33 @@ class Elements
                     </div>
                 </div>';
     }
+    public static function getCardDiscount($imagen, $logo, $descuento, $titulo, $vigencia, $acceso){
+        return '<div class="card-container">
+                    <div class="card-flip">
+                        <div class="card card-front">
+                            <div class="img-card-container">
+                                <img src="'. Path::$DIR_IMAGE_DIS . $imagen .'" class="card-img-top img-fluid img-card" alt="Burger">
+                                <img src="'. Path::$DIR_IMAGE_DIS_LOGO . $logo .'" class="card-img__logo" alt="Burger">
+                            </div>
+                            <div class="card-body text-center">
+                                <h6>'. $descuento .'</h6>
+                                <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
+                            </div>
+                        </div>
+                        <div class="card card-back text-start">
+                            <div class="card-body">
+                                <h6 class="card-title">'. $titulo .'</h6>
+                                <p style="font-size: 12px;">
+                                    '. $vigencia .'
+                                </p>
+                                <h6 class="card-title">¿Cómo puedo acceder al beneficio?</h6>
+                                <p style="font-size: 12px;">
+                                    '. $acceso .'
+                                </p>
+                                <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+    }
 }

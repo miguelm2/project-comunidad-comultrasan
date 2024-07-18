@@ -30,8 +30,8 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item"><a href="benefitsPage">Beneficios Página</a></li>
-               <li class="breadcrumb-item active">Editar Beneficio Página</li>
+               <li class="breadcrumb-item"><a href="rewards">Recompensas</a></li>
+               <li class="breadcrumb-item active">Editar Recompensa</li>
             </ol>
          </nav>
       </div><!-- End Page Title -->
@@ -41,12 +41,12 @@
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success">
-                        Editar Beneficio Página
+                        Editar Recompensa
                      </h5>
                   </div>
                   <div class="col-md-2 mt-0">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="benefitsPage">
+                        <a type="button" class="btn btn-secondary" href="rewards">
                            <i class="material-icons me-2">keyboard_return</i>atrás</a>
                      </div>
                   </div>
@@ -56,43 +56,32 @@
             <div class="card-body mt-0">
                <form method="post">
                   <div class="row">
-                     <div class="col-md-4">
-                        <img src="<?= Path::$DIR_IMAGE_BENE_PAGE . $benefitPage->getImagen() ?>" alt="Imagen" class="img-fluid">
-                     </div>
-                     <div class="col-md-8">
-                        <div class="col-12">
-                           <div class="form-group">
-                              <label class="form-label" for="titulo">Título</label>
-                              <input type="text" class="form-control border p-1" name="titulo" value="<?= $benefitPage->getTitulo() ?>" required>
-                           </div>
-                        </div>
-                        <div class="col-12">
-                           <div class="form-group">
-                              <label class="form-label" for="subtitulo">Subtítulo</label>
-                              <input type="text" class="form-control border p-1" name="subtitulo" value="<?= $benefitPage->getSubtitulo() ?>" required>
-                           </div>
+                     <div class="col-12">
+                        <div class="form-group">
+                           <label class="form-label" for="actividad">Actividad</label>
+                           <input type="text" class="form-control border p-1" name="actividad" value="<?= $reward->getActividad() ?>" required>
                         </div>
                      </div>
-                     <div class="col-md-12 mt-3">
-                        <label for="contenido">Contenido</label>
-                        <textarea name="contenido" id="contenido" class="form-control border p-1" rows="5" required><?= $benefitPage->getContenido() ?></textarea>
+                     <div class="col-12">
+                        <div class="form-group">
+                           <label class="form-label" for="costo">Costo</label>
+                           <input type="text" class="form-control border p-1" name="costo" value="<?= $reward->getCosto() ?>" required>
+                        </div>
                      </div>
-                     <div class="col-md-12 mt-3">
-                        <label for="requisitos">Requisitos</label>
-                        <textarea name="requisitos" id="requisitos" class="form-control border p-1" rows="5" required><?= $benefitPage->getRequisitos() ?></textarea>
+                     <div class="col-12">
+                        <div class="form-group">
+                           <label class="form-label" for="puntos">Puntos</label>
+                           <input type="number" class="form-control border p-1" name="puntos" value="<?= $reward->getPuntos() ?>" required>
+                        </div>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
-                     <div class="col-md-4 d-grid mt-4">
+                     <div class="col-md-6 d-grid mt-4">
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">
                            <i class="material-icons me-2">delete</i> Eliminar Registro</button>
                      </div>
-                     <div class="col-md-4 d-grid mt-4">
-                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">
-                           <i class="material-icons me-2">image</i> Cambiar Imagen</button>
-                     </div>
-                     <div class="col-md-4 d-grid mt-4">
-                        <button type="submit" class="btn btn-success" name="setBenefitPage">
-                           <i class="material-icons me-2">edit</i> Editar Beneficio Página
+                     <div class="col-md-6 d-grid mt-4">
+                        <button type="submit" class="btn btn-success" name="setReward">
+                           <i class="material-icons me-2">edit</i> Editar Recompensa
                         </button>
                      </div>
                   </div>
@@ -107,7 +96,7 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Eliminar el Beneficio Página</h5>
+                     <h5 class="modal-title">Eliminar Recompensa</h5>
                      <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -115,31 +104,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="deleteBenefitPage" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Beneficio Página</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!-- End Basic Modal-->
-      <!-- ======= Basic Modal ======= -->
-      <form method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="setImage" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Cambiar Imagen</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <div class="form-group">
-                        <label class="form-label" for="imageBenefitPage">Imagen</label>
-                        <input type="file" class="form-control border p-1" name="imageBenefitPage" accept="image/*" required>
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="setImageBenefitPage" class="btn btn-info"><i class="material-icons me-2">image</i> Cambiar Imagen</button>
+                     <button type="submit" name="deleteReward" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Recompensa</button>
                   </div>
                </div>
             </div>

@@ -39,40 +39,36 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item active">Gestores</li>
+               <li class="breadcrumb-item active">Descuentos</li>
             </ol>
          </nav>
       </div>
-      <div class="card">
+      <div class="card container">
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Gestores</h4>
+                  <h4 class="text-success">Descuentos</h4>
                </div>
             </div>
-            <div class="col-md-3 mt-3">
+            <div class="col-md-3 m-2 mt-3">
                <div class="card-head text-right">
-                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newManager">
-                     <i class="material-icons me-2">add</i> Agregar Gestor
+                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newBenefit">
+                     <i class="material-icons me-2">add</i> Agregar Descuento
                   </button>
                </div>
             </div>
          </div>
          <div class="card-body m-0">
             <div class="table-responsive">
-               <table class="table table-bordered table-hover align-items-center mb-0">
+               <table class="table table-bordered table-hover">
                   <thead class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">
                            ID</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
+                           Descuento</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
+                           Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
@@ -82,19 +78,15 @@
                         <th class="text-uppercase font-weight-bolder">
                            ID</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
+                           Descuento</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
+                           Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
                   </tfoot>
                   <tbody class="text-center">
-                     <?= $tableManagers ?>
+                     <?= $tableDiscount ?>
                   </tbody>
                </table>
             </div>
@@ -102,64 +94,44 @@
       </div>
       <!-- ======= Basic Modal ======= -->
       <form id="uploadForm" method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="newManager" tabindex="-1">
+         <div class="modal fade" id="newBenefit" tabindex="-1">
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Nuevo Gestor</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     <h5 class="modal-title">Nuevo Descuento</h5>
+                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                      <div class="row g-3">
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Nombre</label>
-                              <input type="text" class="form-control border p-1" name="nombre" required>
-                           </div>
+                        <div class="col-md-12 form-group">
+                           <label for="titulo">Título</label>
+                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" required>
                         </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Dirección</label>
-                              <input type="text" class="form-control border p-1" name="direccion" required>
-                           </div>
+                        <div class="col-md-12 form-group">
+                           <label for="descuento">Descuento</label>
+                           <input type="text" class="form-control border p-1" name="descuento" placeholder="Descuento" required>
                         </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Cédula</label>
-                              <input type="number" class="form-control border p-1" name="cedula" required>
-                           </div>
+                        <div class="col-md-12 form-group">
+                           <label for="vigencia">Vigencia</label>
+                           <input type="text" class="form-control border p-1" name="vigencia" placeholder="Vigencia" required>
                         </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Celular</label>
-                              <input type="tel" class="form-control border p-1" name="telefono" required>
-                           </div>
+                        <div class="col-md-6 form-group">
+                           <label for="imageDiscount">Imagen</label>
+                           <input type="file" class="form-control border p-1" name="imageDiscount" accept="image/*" required>
                         </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Correo</label>
-                              <input type="email" class="form-control border p-1" name="correo" required>
-                           </div>
+                        <div class="col-md-6 form-group">
+                           <label for="logoDiscount">Logo</label>
+                           <input type="file" class="form-control border p-1" name="logoDiscount" accept="image/*" required>
                         </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Contraseña</label>
-                              <input type="password" class="form-control border p-1" name="pass" required>
-                           </div>
-                        </div>
-                        <div class="col-12">
-                           <div class="mb-3">
-                              <div class="form-group">
-                                 <label>Imagen</label>
-                                 <input type="file" class="form-control border p-1" name="imageManager" accept="image/*" required>
-                              </div>
-                           </div>
+                        <div class="col-md-12 form-group">
+                           <label for="acceso">Acceso</label>
+                           <textarea name="acceso" id="acceso" class="form-control border p-1" rows="5" placeholder="Escribe una descripción aqui" required></textarea>
                         </div>
                      </div>
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons opacity-10">close</i> Cerrar</button>
-                     <button type="submit" name="newManager" class="btn btn-success"><i class="material-icons opacity-10">add</i> Nuevo Gestor</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="newDiscount" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Descuento</button>
                   </div>
                </div>
             </div>
@@ -178,6 +150,8 @@
    <script src="/system/assets/js/plugins/chartjs.min.js"></script>
    <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
+   <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <?= $response ?>
 </body>
 
 </html>

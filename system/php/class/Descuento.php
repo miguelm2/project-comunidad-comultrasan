@@ -3,29 +3,31 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/model/DescuentoDTO.php';
 
 class Descuento extends System
 {
-    public static function newDiscount($descuento, $vigencia, $accesso, $imagen, $logo, $fecha_registro)
+    public static function newDiscount($descuento, $titulo, $vigencia, $acceso, $imagen, $logo, $fecha_registro)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("INSERT INTO Descuento (descuento, vigencia, accesso, imagen, logo, fecha_registro) 
-                                VALUES (:descuento, :vigencia, :accesso, :imagen, :logo, :fecha_registro)");
+        $stmt = $dbh->prepare("INSERT INTO Descuento (titulo, descuento, vigencia, acceso, imagen, logo, fecha_registro) 
+                                VALUES (:titulo, :descuento, :vigencia, :acceso, :imagen, :logo, :fecha_registro)");
+        $stmt->bindParam(':titulo', $titulo);
         $stmt->bindParam(':descuento', $descuento);
         $stmt->bindParam(':vigencia', $vigencia);
-        $stmt->bindParam(':accesso', $accesso);
+        $stmt->bindParam(':acceso', $acceso);
         $stmt->bindParam(':imagen', $imagen);
         $stmt->bindParam(':logo', $logo);
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
-    public static function setDiscount($id_descuento, $descuento, $vigencia, $accesso)
+    public static function setDiscount($id_descuento, $titulo, $descuento, $vigencia, $acceso)
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE Descuento 
-                            SET descuento = :descuento, vigencia = :vigencia, accesso = :accesso 
+                            SET titulo = :titulo, descuento = :descuento, vigencia = :vigencia, acceso = :acceso 
                             WHERE id_descuento = :id_descuento");
         $stmt->bindParam(':id_descuento', $id_descuento);
+        $stmt->bindParam(':titulo', $titulo);
         $stmt->bindParam(':descuento', $descuento);
         $stmt->bindParam(':vigencia', $vigencia);
-        $stmt->bindParam(':accesso', $accesso);
+        $stmt->bindParam(':acceso', $acceso);
         return  $stmt->execute();
     }
     public static function setImageDiscount($id_descuento, $imagen)
