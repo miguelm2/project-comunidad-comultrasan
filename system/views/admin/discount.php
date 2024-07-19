@@ -30,8 +30,8 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item"><a href="rewards">Recompenzas</a></li>
-               <li class="breadcrumb-item active">Editar Recompenza</li>
+               <li class="breadcrumb-item"><a href="discounts">Descuentos</a></li>
+               <li class="breadcrumb-item active">Editar Descuento</li>
             </ol>
          </nav>
       </div><!-- End Page Title -->

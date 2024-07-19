@@ -7,7 +7,7 @@ class RespuestaPregunta extends System
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("INSERT INTO RespuestaPregunta (id_encuesta, id_pregunta, respuesta, veracidad, fecha_registro) 
-                                VALUES (:id_encuesta, :id_pregunta, :respuesta, :veracidad :fecha_registro)");
+                                VALUES (:id_encuesta, :id_pregunta, :respuesta, :veracidad, :fecha_registro)");
         $stmt->bindParam(':id_encuesta', $id_encuesta);
         $stmt->bindParam(':id_pregunta', $id_pregunta);
         $stmt->bindParam(':respuesta', $respuesta);
@@ -37,8 +37,8 @@ class RespuestaPregunta extends System
             $RespuestaPreguntaDTO = new RespuestaPreguntaDTO();
 
             $RespuestaPreguntaDTO->setId_respuesta($result['id_respuesta']);
-            $RespuestaPreguntaDTO->setEncuestaDTO($result['id_encuesta']);
-            $RespuestaPreguntaDTO->setPreguntaDTO($result['id_pregunta']);
+            $RespuestaPreguntaDTO->setEncuestaDTO(Encuesta::getSurvey($result['id_encuesta']));
+            $RespuestaPreguntaDTO->setPreguntaDTO(PreguntaEncuesta::getSurveyQuestion($result['id_pregunta']));
             $RespuestaPreguntaDTO->setRespuesta($result['respuesta']);
             $RespuestaPreguntaDTO->setVeracidad($result['veracidad']);
             $RespuestaPreguntaDTO->setFecha_registro($result['fecha_registro']);
@@ -55,7 +55,7 @@ class RespuestaPregunta extends System
         $modelResponse = $stmt->fetchAll();
         $list = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $RespuestaPreguntaDTO = new RespuestaPreguntaDTO();
 
             $RespuestaPreguntaDTO->setid_respuesta($result['id_respuesta']);
@@ -79,7 +79,7 @@ class RespuestaPregunta extends System
         $modelResponse = $stmt->fetchAll();
         $list = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $RespuestaPreguntaDTO = new RespuestaPreguntaDTO();
 
             $RespuestaPreguntaDTO->setid_respuesta($result['id_respuesta']);
@@ -100,5 +100,20 @@ class RespuestaPregunta extends System
         $stmt = $dbh->prepare("DELETE FROM RespuestaPregunta WHERE id_respuesta = :id_respuesta");
         $stmt->bindParam(':id_respuesta', $id_respuesta);
         return  $stmt->execute();
+    }
+    public static function validateOnlyAnswerCorrect($id_pregunta)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * 
+                                FROM RespuestaPregunta 
+                                WHERE id_pregunta = :id_pregunta 
+                                AND veracidad = 1");
+        $stmt->bindParam(':id_pregunta', $id_pregunta);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if ($result) {
+            return true;
+        }
+        return false;
     }
 }

@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/Reward/ServiceReward.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/reward/ServiceReward.php';
 
 if (isset($_POST['newReward'])) {
     $response = ServiceReward::newReward($_POST['actividad'], $_POST['puntos']);

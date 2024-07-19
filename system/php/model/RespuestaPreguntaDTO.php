@@ -10,7 +10,7 @@ class RespuestaPreguntaDTO
 
     /**
      * Get the value of id_respuesta
-     */ 
+     */
     public function getId_respuesta()
     {
         return $this->id_respuesta;
@@ -20,7 +20,7 @@ class RespuestaPreguntaDTO
      * Set the value of id_respuesta
      *
      * @return  self
-     */ 
+     */
     public function setId_respuesta($id_respuesta)
     {
         $this->id_respuesta = $id_respuesta;
@@ -30,7 +30,7 @@ class RespuestaPreguntaDTO
 
     /**
      * Get the value of encuestaDTO
-     */ 
+     */
     public function getEncuestaDTO()
     {
         return $this->encuestaDTO;
@@ -40,7 +40,7 @@ class RespuestaPreguntaDTO
      * Set the value of encuestaDTO
      *
      * @return  self
-     */ 
+     */
     public function setEncuestaDTO($encuestaDTO)
     {
         $this->encuestaDTO = $encuestaDTO;
@@ -50,7 +50,7 @@ class RespuestaPreguntaDTO
 
     /**
      * Get the value of preguntaDTO
-     */ 
+     */
     public function getPreguntaDTO()
     {
         return $this->preguntaDTO;
@@ -60,7 +60,7 @@ class RespuestaPreguntaDTO
      * Set the value of preguntaDTO
      *
      * @return  self
-     */ 
+     */
     public function setPreguntaDTO($preguntaDTO)
     {
         $this->preguntaDTO = $preguntaDTO;
@@ -70,7 +70,7 @@ class RespuestaPreguntaDTO
 
     /**
      * Get the value of respuesta
-     */ 
+     */
     public function getRespuesta()
     {
         return $this->respuesta;
@@ -80,7 +80,7 @@ class RespuestaPreguntaDTO
      * Set the value of respuesta
      *
      * @return  self
-     */ 
+     */
     public function setRespuesta($respuesta)
     {
         $this->respuesta = $respuesta;
@@ -90,9 +90,11 @@ class RespuestaPreguntaDTO
 
     /**
      * Get the value of veracidad
-     */ 
+     */
     public function getVeracidad()
     {
+        if ($this->veracidad == 1) return explode(";", $this->veracidad . ';Verdadero');
+        if ($this->veracidad == 0) return explode(";", $this->veracidad . ';Falso');
         return $this->veracidad;
     }
 
@@ -100,7 +102,7 @@ class RespuestaPreguntaDTO
      * Set the value of veracidad
      *
      * @return  self
-     */ 
+     */
     public function setVeracidad($veracidad)
     {
         $this->veracidad = $veracidad;
@@ -110,7 +112,7 @@ class RespuestaPreguntaDTO
 
     /**
      * Get the value of fecha_registro
-     */ 
+     */
     public function getFecha_registro()
     {
         return $this->fecha_registro;
@@ -120,7 +122,7 @@ class RespuestaPreguntaDTO
      * Set the value of fecha_registro
      *
      * @return  self
-     */ 
+     */
     public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;

@@ -66,7 +66,7 @@ class ServiceSurveyQuestion extends System
 
             $imagen = self::newImagen();
 
-            $result = Descuento::setImageDiscount($id_pregunta, $imagen);
+            $result = PreguntaEncuesta::setImageSurveyQuestion($id_pregunta, $imagen);
             if ($result) {
                 return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
             }
@@ -104,10 +104,11 @@ class ServiceSurveyQuestion extends System
     {
         try {
             $id_pregunta = parent::limpiarString($id_pregunta);
+            $preguntaDTO = PreguntaEncuesta::getSurveyQuestion($id_pregunta);
             $result = PreguntaEncuesta::deleteSurveyQuestion($id_pregunta);
             if ($result) {
                 $_SESSION['alert'] = 1;
-                header('Location:surveyQuestions?delete');
+                header('Location:survey?survey=' . $preguntaDTO->getEncuestaDTO()->getId_encuesta() . '&delete');
             } else {
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_DELETE_NOT, "error");
             }
@@ -126,8 +127,9 @@ class ServiceSurveyQuestion extends System
                     $tableHtml .= '<tr>';
                     $tableHtml .= '<td>' . $valor->getId_pregunta() . '</td>';
                     $tableHtml .= '<td>' . $valor->getPregunta() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
                     $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                    $tableHtml .= '<td align="center">' . Elements::crearBotonVer("surveyQuestion", $valor->getId_pregunta()) . '</td>';
+                    $tableHtml .= '<td align="center">' . Elements::crearBotonVerTwoLink("surveyQuestion", $valor->getId_pregunta(), "survey", $valor->getEncuestaDTO()->getId_encuesta()) . '</td>';
                     $tableHtml .= '</tr>';
                 }
             } else {
