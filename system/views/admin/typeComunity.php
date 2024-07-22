@@ -47,7 +47,7 @@
                   <div class="col-md-2 mt-0">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
                         <a type="button" class="btn btn-secondary" href="typeComunities">
-                        <i class="material-icons me-2">keyboard_return</i>atrás</a>
+                           <i class="material-icons me-2">keyboard_return</i>atrás</a>
                      </div>
                   </div>
                </div>
@@ -81,16 +81,16 @@
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="contendio">Contenido</label>
-                        <textarea name="contenido" id="contenido" class="form-control border p-1" rows="5" required><?= $typeComunity->getContenido() ?></textarea>
+                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" required><?= html_entity_decode($typeComunity->getContenido()) ?></textarea>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-4 d-grid mt-4">
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">
-                        <i class="material-icons me-2">delete</i> Eliminar Registro</button>
+                           <i class="material-icons me-2">delete</i> Eliminar Registro</button>
                      </div>
                      <div class="col-md-4 d-grid mt-4">
                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">
-                        <i class="material-icons me-2">image</i> Cambiar Imagen</button>
+                           <i class="material-icons me-2">image</i> Cambiar Imagen</button>
                      </div>
                      <div class="col-md-4 d-grid mt-4">
                         <button type="submit" class="btn btn-success" name="setTypeComunity">
@@ -161,6 +161,24 @@
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <!-- Ck Editor -->
+   <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/ckeditor.js"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-size-feature"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html"></script>
+   <script src=" https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html"></script>
+
+
+   <!-- Uncomment to load the Spanish translation -->
+   <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/translations/es.js"></script>
+   <script src="/system/js/CkEditor/confCkeditor.js"></script>
    <?= $response ?>
 </body>
 

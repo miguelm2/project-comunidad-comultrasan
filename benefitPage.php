@@ -50,7 +50,7 @@
                   <div class="text-start">
                      <h2 class="text-pri"><?= $benefitsPage->getTitulo() ?></h2>
                      <h5 class="text-black">
-                        <?= $benefitsPage->getContenido() ?>
+                        <?= html_entity_decode($benefitsPage->getContenido()) ?>
                      </h5>
                   </div>
                </div>
@@ -63,7 +63,7 @@
                   </div>
                   <div class="text-black text-start">
                      <h5>
-                        <?= $benefitsPage->getRequisitos() ?>
+                        <?= html_entity_decode($benefitsPage->getRequisitos()) ?>
                      </h5>
                   </div>
                </div>

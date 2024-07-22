@@ -21,6 +21,10 @@ if (isset($_POST['setImageManager'])) {
     $response = ServiceManager::setImageManager($_GET['manager']);
 }
 
+if (isset($_POST['setImgeManagerProfile'])) {
+    $response = ServiceManager::setImageManagerProfile();
+}
+
 if (isset($_POST['setPassManager'])) {
     $response = ServiceManager::setPassManager($_GET['manager'], $_POST['newPass'], $_POST['confirmPass']);
 }

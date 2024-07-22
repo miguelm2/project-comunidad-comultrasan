@@ -73,7 +73,9 @@ class ServicePoint extends System
                     $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
                     $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
                     $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("point", $valor->getId_punto()) . '</td>';
+                    if ($_SESSION['id'] == 0 || $_SESSION['id'] == 5) {
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("point", $valor->getId_punto()) . '</td>';
+                    }
                     $tableHtml .= '</tr>';
                 }
             } else {

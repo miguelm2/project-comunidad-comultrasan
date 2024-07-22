@@ -151,6 +151,29 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function setImageUserProfile()
+    {
+        try {
+            $id_usuario  = $_SESSION['id'];
+            $userDTO     = self::getUsuario($id_usuario);
+
+            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_USER . $userDTO->getImagen();
+
+            if (file_exists($dirImagen) && !empty($userDTO->getImagen()) && $userDTO->getImagen() != "default.png") {
+                unlink($dirImagen);
+            }
+
+            $imagen = self::newImagen();
+
+            $result = Usuario::setImageUser($id_usuario, $imagen);
+            if ($result) {
+                $_SESSION['imagen'] = $imagen;
+                return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
     public static function setPassUser($id_usuario, $pass, $confirmPass)
     {
         try {

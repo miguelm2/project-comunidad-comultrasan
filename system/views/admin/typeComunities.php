@@ -47,16 +47,15 @@
       </div>
       <div class="card">
          <div class="row m-0">
-            <div class="col-md-8 m-4">
+            <div class="col-md-9 m-4">
                <div class="card-head">
                   <h4 class="text-success">Tipos de comunidades</h4>
                </div>
             </div>
-            <div class="col-md-3 m-2 mt-3">
+            <div class="col-md-2 m-2 mt-3">
                <div class="card-head text-right">
-                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newQuestion">
-                     <i class="material-icons me-2">add</i> Agregar Tipo Comunidad
-                  </button>
+                  <a class="btn btn-success" href="newTypeComunity">
+                     <i class="material-icons me-2">add</i>Agregar Tipo</a>
                </div>
             </div>
          </div>
@@ -72,7 +71,7 @@
                         <th class="text-uppercase font-weight-bolder">
                            Icono</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Subtítulo</th>
+                           Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
@@ -86,11 +85,11 @@
                         <th class="text-uppercase font-weight-bolder">
                            Icono</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Subtítulo</th>
+                           Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
-                  </tfoot>
+                 oot>
                   <tbody class="text-center">
                      <?= $tableTypeComnuties ?>
                   </tbody>

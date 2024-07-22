@@ -128,7 +128,7 @@ class ServiceTypeComunity extends System
                     $tableHtml .= '<td>' . $valor->getId_tipo_comunidad() . '</td>';
                     $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
                     $tableHtml .= '<td>' . $valor->getIcono() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getSubtitulo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
                     $tableHtml .= '<td>' . Elements::crearBotonVer("typeComunity", $valor->getId_tipo_comunidad()) . '</td>';
                     $tableHtml .= '</tr>';
                 }

@@ -75,11 +75,11 @@
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="contenido">Contenido</label>
-                        <textarea name="contenido" id="contenido" class="form-control border p-1" rows="5" required><?= $benefitPage->getContenido() ?></textarea>
+                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" required><?= html_entity_decode($benefitPage->getContenido()) ?></textarea>
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="requisitos">Requisitos</label>
-                        <textarea name="requisitos" id="requisitos" class="form-control border p-1" rows="5" required><?= $benefitPage->getRequisitos() ?></textarea>
+                        <textarea name="requisitos" id="texto_1" class="form-control border p-1" rows="5" required><?= html_entity_decode($benefitPage->getRequisitos()) ?></textarea>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-4 d-grid mt-4">
@@ -159,6 +159,25 @@
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <!-- Ck Editor -->
+   <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/ckeditor.js"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-size-feature"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration"></script>
+   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html"></script>
+   <script src=" https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html"></script>
+
+
+   <!-- Uncomment to load the Spanish translation -->
+   <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/translations/es.js"></script>
+   <script src="/system/js/CkEditor/confCkeditor_1.js"></script>
+   <script src="/system/js/CkEditor/confCkeditor.js"></script>
    <?= $response ?>
 </body>
 

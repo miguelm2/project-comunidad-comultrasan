@@ -85,7 +85,7 @@ class Elements
         return $fechaLetras[2] . ' de ' . self::mes($fechaLetras[1]) . ' de ' . $fechaLetras[0];
     }
 
-    private static function mes($numero)
+    public static function mes($numero)
     {
         switch ($numero) {
             case 12: {

@@ -14,7 +14,7 @@ class ServiceManager extends System
             $pass = parent::limpiarString($pass);
             $pass_hash = parent::hash($pass);
             $estado = 1;
-            $tipo = 1;
+            $tipo = 2;
             $fecha_registro = date('Y-m-d H:i:s');
 
             $imagen = self::newImagen();
@@ -146,6 +146,29 @@ class ServiceManager extends System
 
             $result = Gestor::setImageManager($id_gestor, $imagen);
             if ($result) {
+                return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function setImageManagerProfile()
+    {
+        try {
+            $id_gestor  = $_SESSION['id'];
+            $gestorDTO     = self::getManager($id_gestor);
+
+            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_MANAGER . $gestorDTO->getImagen();
+
+            if (file_exists($dirImagen) && !empty($gestorDTO->getImagen()) && $gestorDTO->getImagen() != "default.png") {
+                unlink($dirImagen);
+            }
+
+            $imagen = self::newImagen();
+
+            $result = Gestor::setImageManager($id_gestor, $imagen);
+            if ($result) {
+                $_SESSION['imagen'] = $imagen;
                 return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
             }
         } catch (\Exception $e) {

@@ -23,8 +23,13 @@ if (isset($_POST['setUser'])) {
 if (isset($_POST['setPassUser'])) {
     $response = ServiceUser::setPassUser($_GET['user'], $_POST['newPass'], $_POST['confirmPass']);
 }
+
 if (isset($_POST['setImageUser'])) {
     $response = ServiceUser::setImageUser($_GET['user']);
+}
+
+if (isset($_POST['setImageUserProfile'])) {
+    $response = ServiceUser::setImageUserProfile();
 }
 
 if (isset($_GET['user'])) {
