@@ -163,12 +163,24 @@ abstract  class System
             throw $th;
         }
     }
+    public static function validarManager()
+    {
+        try {
+            if ($_SESSION['tipo'] != 2) {
+                self::logout();
+                exit();
+            }
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 
     public static function login($user, $pass_hash)
     {
         try {
             $administrador  = Administrador::getAdministrador($user, $pass_hash);
             $usuario        = Usuario::getUser($user, $pass_hash);
+            $manager        = Gestor::getManager($user, $pass_hash);
 
             if ($administrador != null) {
                 session_start();
@@ -180,22 +192,37 @@ abstract  class System
                 $_SESSION['imagen']         =   $administrador->getImagen();
                 $_SESSION['tipo']           =   $administrador->getTipo();
                 $_SESSION['fecha_registro'] =   $administrador->getFecha_registro();
-                $_SESSION['usuario']        =   "Adminsitrador";
+                $_SESSION['usuario']        =   "Administrador";
 
                 header("Location:/system/views/admin/index");
             }
             if ($usuario != null) {
                 session_start();
-                $_SESSION['id']     =   $usuario->getId_usuario();
-                $_SESSION['nombre'] =   $usuario->getNombre();
-                $_SESSION['correo'] =   $usuario->getCorreo();
-                $_SESSION['cedula'] =   $usuario->getCedula();
-                $_SESSION['telefono'] = $usuario->getTelefono();
-                $_SESSION['tipo']   =   $usuario->getTipo();
-                $_SESSION['fecha_registro'] = $usuario->getFecha_registro();
-                $_SESSION['usuario'] = "Usuario";
+                $_SESSION['id']             =   $usuario->getId_usuario();
+                $_SESSION['nombre']         =   $usuario->getNombre();
+                $_SESSION['correo']         =   $usuario->getCorreo();
+                $_SESSION['cedula']         =   $usuario->getCedula();
+                $_SESSION['telefono']       =   $usuario->getTelefono();
+                $_SESSION['imagen']         =   $usuario->getImagen();
+                $_SESSION['tipo']           =   $usuario->getTipo();
+                $_SESSION['fecha_registro'] =   $usuario->getFecha_registro();
+                $_SESSION['usuario']        = "Usuario";
 
                 header("Location:/system/views/user/index");
+            }
+            if($manager != null) {
+                session_start();
+                $_SESSION['id']             =   $manager->getId_gestor();
+                $_SESSION['nombre']         =   $manager->getNombre();
+                $_SESSION['correo']         =   $manager->getCorreo();
+                $_SESSION['cedula']         =   $manager->getCedula();
+                $_SESSION['telefono']       =   $manager->getTelefono();
+                $_SESSION['imagen']         =   $manager->getImagen();
+                $_SESSION['tipo']           =   $manager->getTipo();
+                $_SESSION['fecha_registro'] =   $manager->getFecha_registro();
+                $_SESSION['usuario']        =   "Gestor";
+
+                header("Location:/system/views/manager/index");
             }
             return false;
         } catch (\Throwable $th) {

@@ -40,6 +40,17 @@ class NumeroVistas extends system
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
-
+    public static function getCountVisitasByFecha($fecha_inicio, $fecha_fin)
+    {
+        $dbh = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT COUNT(*) AS contador 
+                                FROM Visitas 
+                                WHERE fecha_registro BETWEEN :fecha_inicio AND :fecha_fin");
+        $stmt->bindParam(':fecha_inicio', $fecha_inicio);
+        $stmt->bindParam(':fecha_fin', $fecha_fin);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result['contador'];
+    }
 }
 ?>

@@ -184,7 +184,7 @@ class UsuarioDTO
     /**
      * Get the value of fecha_registro
      */
-    public function getFechaRegistro()
+    public function getFecha_registro()
     {
         return $this->fecha_registro;
     }
@@ -192,7 +192,7 @@ class UsuarioDTO
     /**
      * Set the value of fecha_registro
      */
-    public function setFechaRegistro($fecha_registro)
+    public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
 

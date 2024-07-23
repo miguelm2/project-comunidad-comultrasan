@@ -58,4 +58,16 @@ class Beneficio extends System
         $stmt->bindParam(':id_beneficio', $id_beneficio);
         return  $stmt->execute();
     }
+    public static function getCountBenefitByDate($fecha_inicio, $fecha_fin)
+    {
+        $dbh = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT COUNT(*) AS contador 
+                                FROM Beneficio 
+                                WHERE fecha_registro BETWEEN :fecha_inicio AND :fecha_fin");
+        $stmt->bindParam(':fecha_inicio', $fecha_inicio);
+        $stmt->bindParam(':fecha_fin', $fecha_fin);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result['contador'];
+    }
 }

@@ -52,9 +52,8 @@
             </div>
             <div class="col-md-3 m-2 mt-3">
                <div class="card-head text-right">
-                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newBenefit">
-                     <i class="material-icons me-2">add</i> Agregar Beneficio
-                  </button>
+                  <a class="btn btn-success" href="newBenefitPage">
+                     <i class="material-icons me-2">add</i>Agregar Beneficio</a>
                </div>
             </div>
          </div>
