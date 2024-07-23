@@ -1,14 +1,13 @@
-<div class="container-fluid py-4">
+<div class="ms-1 m-1">
     <footer class="footer py-4">
-        <div class="container-fluid">
+        <div class="text-bg-success card text-white p-2 shadow-success">
             <div class="row align-items-center justify-content-lg-center">
-                <div class="col-lg-6 mb-lg-0 mb-4">
-                    <div class="copyright text-center text-sm text-muted text-lg-start">
+                <div class="col-lg-7 mb-lg-0 mb-4">
+                    <div class="copyright text-center">
                     &copy; Copyright Derechos Reservados;
                         © <script>
                             document.write(new Date().getFullYear())
-                        </script>,
-                        <a class="font-weight-bold">Comunidad Financiera Comultrasan</a>.
+                        </script> - Comunidad Financiera Comultrasan.
                     </div>
                 </div>
             </div>

@@ -104,38 +104,8 @@
               </div>
             </div>
             <div class="card-body">
-              <h6 class="mb-0 "><i class="material-icons">stars</i> Puntos</h6>
-              <p class="text-sm ">Puntos entregados por mes</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 mt-4 mb-3">
-          <div class="card z-index-2 ">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-              <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
-                <div class="chart">
-                  <canvas id="chart-line-tasks" class="chart-canvas" height="220"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <h6 class="mb-0 "><i class="material-icons">paid</i> Beneficios</h6>
-              <p class="text-sm ">Beneficios que han sido obtenidos por mes</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 mt-4 mb-4">
-          <div class="card z-index-2 ">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-              <div class="bg-gradient-primary shadow-success border-radius-lg py-3 pe-1">
-                <div class="chart">
-                  <canvas id="chart-discount" class="chart-canvas" height="220"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <h6 class="mb-0 "><i class="material-icons">stars</i> Descuentos</h6>
-              <p class="text-sm ">Descuentos por mes</p>
+              <h6 class="mb-0 "><i class="material-icons">favorite</i> Corazones</h6>
+              <p class="text-sm ">Corazones entregados por mes</p>
             </div>
           </div>
         </div>
@@ -275,6 +245,38 @@
                   </tbody>
                 </table>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 mt-4 mb-3">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <canvas id="chart-line-tasks" class="chart-canvas" height="220"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 "><i class="material-icons">paid</i> Beneficios</h6>
+              <p class="text-sm ">Beneficios que han sido obtenidos por mes</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mt-4 mb-4">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-primary shadow-success border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <canvas id="chart-discount" class="chart-canvas" height="220"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 "><i class="material-icons">stars</i> Descuentos</h6>
+              <p class="text-sm ">Descuentos por mes</p>
             </div>
           </div>
         </div>

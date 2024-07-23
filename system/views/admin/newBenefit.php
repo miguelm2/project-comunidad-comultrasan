@@ -30,8 +30,8 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item"><a href="benefitsPage">Beneficios Página</a></li>
-               <li class="breadcrumb-item active">Nuevo Beneficio Página</li>
+               <li class="breadcrumb-item"><a href="benefits">Beneficios</a></li>
+               <li class="breadcrumb-item active">Nuevo Beneficio</li>
             </ol>
          </nav>
       </div><!-- End Page Title -->
@@ -41,12 +41,12 @@
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success">
-                        Nuevo Beneficio Página
+                        Nuevo Beneficio
                      </h5>
                   </div>
                   <div class="col-md-2 mt-0">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="benefitsPage">
+                        <a type="button" class="btn btn-secondary" href="benefits">
                            <i class="material-icons me-2">keyboard_return</i>atrás</a>
                      </div>
                   </div>
@@ -64,26 +64,22 @@
                      </div>
                      <div class="col-12">
                         <div class="form-group">
-                           <label class="form-label" for="subtitulo">Subtítulo</label>
-                           <input type="text" class="form-control border p-1" name="subtitulo"  required>
+                           <label class="form-label" for="puntos">Corazones</label>
+                           <input type="number" class="form-control border p-1" name="puntos"  required>
                         </div>
                      </div>
                      <div class="col-md-12 form-group">
-                        <label for="imageBenefitPage">Imagen</label>
-                        <input type="file" class="form-control border p-1" name="imageBenefitPage" accept="image/*" required>
+                        <label for="imageBenefit">Imagen</label>
+                        <input type="file" class="form-control border p-1" name="imageBenefit" accept="image/*" required>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="contenido">Contenido</label>
-                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" required></textarea>
-                     </div>
-                     <div class="col-md-12 mt-3">
-                        <label for="requisitos">Requisitos</label>
-                        <textarea name="requisitos" id="texto_1" class="form-control border p-1" rows="5" required></textarea>
+                        <label for="descripcion">Descripción</label>
+                        <textarea name="descripcion" id="descripcion" class="form-control border p-1" rows="5" required></textarea>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-12 d-grid mt-4">
-                        <button type="submit" class="btn btn-success" name="newBenefitPage">
-                           <i class="material-icons me-2">add</i> Nuevo Beneficio Página
+                        <button type="submit" class="btn btn-success" name="newBenefit">
+                           <i class="material-icons me-2">add</i> Nuevo Beneficio
                         </button>
                      </div>
                   </div>
@@ -104,20 +100,6 @@
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
-   <!-- Ck Editor -->
-   <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/ckeditor.js"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-size-feature"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html"></script>
-   <script src=" https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html"></script>
-
 
    <!-- Uncomment to load the Spanish translation -->
    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/translations/es.js"></script>

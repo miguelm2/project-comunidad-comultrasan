@@ -32,10 +32,8 @@
          <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                  <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
                   <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Inicio</li>
                </ol>
-               <h6 class="font-weight-bolder mb-0">Inicio</h6>
             </nav>
             <!-- Start header -->
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
@@ -90,12 +88,19 @@
                <div class="card z-index-2 ">
                   <div class="card-body">
                      <h5>Mis datos</h5>
-                     <h6><i class="material-icons">account_box</i> Nombre: </h6>
-                     <p><?= $_SESSION['nombre'] ?></p>
-                     <h6><i class="material-icons">email</i> Correo: </h6>
-                     <p><?= $_SESSION['correo'] ?></p>
-                     <h6><i class="material-icons">phone</i> Celular: </h6>
-                     <p><?= $_SESSION['telefono'] ?></p>
+                     <div class="row">
+                        <div class="col-md-6">
+                           <img src="<?= Path::$DIR_IMAGE_USER . $_SESSION['imagen'] ?>" alt="Imagen_usuario" class="img-fluid rounded-3">
+                        </div>
+                        <div class="col-md-6">
+                           <h6><i class="material-icons">account_box</i> Nombre: </h6>
+                           <p><?= $_SESSION['nombre'] ?></p>
+                           <h6><i class="material-icons">email</i> Correo: </h6>
+                           <p><?= $_SESSION['correo'] ?></p>
+                           <h6><i class="material-icons">phone</i> Celular: </h6>
+                           <p><?= $_SESSION['telefono'] ?></p>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
@@ -109,15 +114,13 @@
                      <p>Nombre del lider</p>
                      <h6><i class="material-icons">group_add</i> Cantidad de usuarios en la comunidad: </h6>
                      <p>N de usuarios</p>
-                     <h6><i class="material-icons">calendar_month</i> Fecha de creación</h6>
-                     <p>fecha de creación</p>
                   </div>
                </div>
             </div>
             <div class="col-lg-6 col-md-6 mt-4 mb-4">
                <div class="card">
                   <div class="card-body">
-                     <h5>Mi grupo</h5>
+                     <h5>Mi grupo de interés</h5>
                      <h6><i class="material-icons">diversity_2</i> Nombre: </h6>
                      <p>Nombre del grupo</p>
                      <h6><i class="material-icons">supervisor_account</i> Lider: </h6>

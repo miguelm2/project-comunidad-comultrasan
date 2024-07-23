@@ -52,9 +52,8 @@
             </div>
             <div class="col-md-3 m-2 mt-3">
                <div class="card-head text-right">
-                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newBenefit">
-                     <i class="material-icons me-2">add</i> Agregar Descuento
-                  </button>
+                  <a class="btn btn-success" href="newDiscount">
+                     <i class="material-icons me-2">add</i>Agregar Beneficio</a>
                </div>
             </div>
          </div>
@@ -92,52 +91,6 @@
             </div>
          </div>
       </div>
-      <!-- ======= Basic Modal ======= -->
-      <form id="uploadForm" method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="newBenefit" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Nuevo Descuento</h5>
-                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <div class="row g-3">
-                        <div class="col-md-12 form-group">
-                           <label for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="descuento">Descuento</label>
-                           <input type="text" class="form-control border p-1" name="descuento" placeholder="Descuento" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="vigencia">Vigencia</label>
-                           <input type="text" class="form-control border p-1" name="vigencia" placeholder="Vigencia" required>
-                        </div>
-                        <div class="col-md-6 form-group">
-                           <label for="imageDiscount">Imagen</label>
-                           <input type="file" class="form-control border p-1" name="imageDiscount" accept="image/*" required>
-                        </div>
-                        <div class="col-md-6 form-group">
-                           <label for="logoDiscount">Logo</label>
-                           <input type="file" class="form-control border p-1" name="logoDiscount" accept="image/*" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="acceso">Acceso</label>
-                           <textarea name="acceso" id="acceso" class="form-control border p-1" rows="5" placeholder="Escribe una descripción aqui" required></textarea>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newDiscount" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Descuento</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!--Final Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->

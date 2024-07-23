@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Admin.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Manager.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +24,7 @@
 
 <body class="g-sidenav-show  bg-gray-200">
    <!-- Start Slider -->
-   <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_admin.php'; ?>
+   <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_gestor.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
       <!-- Navbar -->
@@ -39,7 +39,7 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item active">Gestores</li>
+               <li class="breadcrumb-item active">Corazones</li>
             </ol>
          </nav>
       </div>
@@ -47,13 +47,7 @@
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Gestores</h4>
-               </div>
-            </div>
-            <div class="col-md-3 m-2 mt-3">
-               <div class="card-head text-right">
-                  <a class="btn btn-success" href="newManager">
-                     <i class="material-icons me-2">add</i>Agregar Gestor</a>
+                  <h4 class="text-success">Corazones</h4>
                </div>
             </div>
          </div>
@@ -65,15 +59,11 @@
                         <th class="text-uppercase font-weight-bolder">
                            ID</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
+                           Usuario</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
+                           Administrador</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
+                           Corazones</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
@@ -81,19 +71,15 @@
                         <th class="text-uppercase font-weight-bolder">
                            ID</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
+                           Usuario</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
+                           Administrador</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
+                           Corazones</th>
                      </tr>
                   </tfoot>
                   <tbody class="text-center">
-                     <?= $tableManagers ?>
+                     <?= $tablePoints ?>
                   </tbody>
                </table>
             </div>
@@ -111,6 +97,8 @@
    <script src="/system/assets/js/plugins/chartjs.min.js"></script>
    <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
+   <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <?= $response ?>
 </body>
 
 </html>

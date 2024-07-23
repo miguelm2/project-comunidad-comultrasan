@@ -52,9 +52,8 @@
             </div>
             <div class="col-md-3 m-2 mt-3">
                <div class="card-head text-right">
-                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newBenefit">
-                     <i class="material-icons me-2">add</i> Agregar Beneficio
-                  </button>
+                  <a class="btn btn-success" href="newBenefit">
+                     <i class="material-icons me-2">add</i>Agregar Beneficio</a>
                </div>
             </div>
          </div>
@@ -96,44 +95,6 @@
             </div>
          </div>
       </div>
-      <!-- ======= Basic Modal ======= -->
-      <form id="uploadForm" method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="newBenefit" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Nuevo Beneficio</h5>
-                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <div class="row g-3">
-                        <div class="col-md-12 form-group">
-                           <label for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="puntos">Puntos</label>
-                           <input type="number" class="form-control border p-1" name="puntos" placeholder="Cantidad de puntos" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="imageBenefit">Imagen</label>
-                           <input type="file" class="form-control border p-1" name="imageBenefit" accept="image/*" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="descripcion">Descripción</label>
-                           <textarea name="descripcion" id="descripcion" class="form-control border p-1" rows="5" placeholder="Escribe una descripción aqui" required></textarea>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newBenefit" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Beneficio</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!--Final Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
