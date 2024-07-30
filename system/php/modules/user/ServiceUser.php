@@ -1,9 +1,12 @@
 <?php
+
+use PhpOffice\PhpSpreadsheet\Writer\Ods\Content;
+
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 
 class ServiceUser extends System
 {
-    public static function newUser($nombre, $correo, $telefono, $cedula, $pass)
+    public static function newUser($nombre, $correo, $telefono, $cedula, $pass, $tipo_documento, $fecha_nacimiento)
     {
         try {
             $nombre = parent::limpiarString($nombre);
@@ -12,18 +15,19 @@ class ServiceUser extends System
             $cedula = parent::limpiarString($cedula);
             $pass = parent::limpiarString($pass);
             $pass_hash = parent::hash($pass);
+            $tipo_documento = parent::limpiarString($tipo_documento);
+            $fecha_nacimiento = parent::limpiarString($fecha_nacimiento);
             $estado = 1;
             $tipo = 1;
             $fecha_registro = date('Y-m-d H:i:s');
 
             $imagen = self::newImagen();
 
-            $result = Usuario::newUser($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $fecha_registro);
+            $result = Usuario::newUser($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen,$tipo_documento, $fecha_nacimiento, $fecha_registro);
             if ($result) {
-                $lastUser = Usuario::lastUsuario();
-                header('Location:user?user=' . $lastUser->getId_usuario() . '&new');
-            } else {
-                return "default.png";
+                return Elements::crearMensajeAlerta(Constants::$USER_NEW, "success");
+            }else{
+                return Elements::crearMensajeAlerta(Constants::$ADMIN_REPEAT, "error");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -59,24 +63,27 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setProfile($nombre, $correo, $telefono, $cedula)
+    public static function setProfile($nombre, $correo, $telefono, $cedula, $tipo_documento, $fecha_nacimiento)
     {
         try {
             $nombre = parent::limpiarString($nombre);
             $correo = parent::limpiarString($correo);
             $telefono = parent::limpiarString($telefono);
             $cedula = parent::limpiarString($cedula);
+            $tipo_documento = parent::limpiarString($tipo_documento);
+            $fecha_nacimiento = parent::limpiarString($fecha_nacimiento);
             $id_usuario = $_SESSION['id'];
 
-            if (Usuario::setUserProfile($id_usuario, $nombre, $correo, $telefono, $cedula)) {
+            if (Usuario::setUserProfile($id_usuario, $nombre, $correo, $telefono, $cedula, $tipo_documento, $fecha_nacimiento)) {
                 $usuario = Usuario::getUserById($id_usuario);
-                $_SESSION['id']     =   $usuario->getId_usuario();
-                $_SESSION['nombre'] =   $usuario->getNombre();
-                $_SESSION['correo'] =   $usuario->getCorreo();
-                $_SESSION['cedula'] =   $usuario->getCedula();
-                $_SESSION['telefono'] = $usuario->getTelefono();
-                $_SESSION['tipo']   =   $usuario->getTipo();
-                $_SESSION['fecha_registro'] = $usuario->getFecha_registro();
+                $_SESSION['id']                 =   $usuario->getId_usuario();
+                $_SESSION['nombre']             =   $usuario->getNombre();
+                $_SESSION['correo']             =   $usuario->getCorreo();
+                $_SESSION['cedula']             =   $usuario->getCedula();
+                $_SESSION['telefono']           =   $usuario->getTelefono();
+                $_SESSION['tipo']               =   $usuario->getTipo();
+                $_SESSION['fecha_nacimiento']   =   $usuario->getFecha_nacimiento();
+                $_SESSION['fecha_registro']     =   $usuario->getFecha_registro();
                 return  '<script>swal("' . Constants::$INFORMATION_NEW . '", "", "success");</script>';
             } else {
                 return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
@@ -108,7 +115,7 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setUser($id_usuario, $nombre, $correo, $telefono, $cedula, $estado)
+    public static function setUser($id_usuario, $nombre, $correo, $telefono, $cedula, $estado, $tipo_documento, $fecha_nacimiento)
     {
         try {
             $id_usuario = parent::limpiarString($id_usuario);
@@ -117,8 +124,10 @@ class ServiceUser extends System
             $telefono = parent::limpiarString($telefono);
             $cedula = parent::limpiarString($cedula);
             $estado = parent::limpiarString($estado);
+            $tipo_documento = parent::limpiarString($tipo_documento);
+            $fecha_nacimiento = parent::limpiarString($fecha_nacimiento);
 
-            $result = Usuario::setUser($id_usuario, $nombre, $correo, $telefono, $cedula, $estado);
+            $result = Usuario::setUser($id_usuario, $nombre, $correo, $telefono, $cedula, $estado, $tipo_documento, $fecha_nacimiento);
 
             if ($result) {
                 return  '<script>swal("' . Constants::$USER_UPDATE . '", "", "success");</script>';

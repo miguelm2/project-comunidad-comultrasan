@@ -34,3 +34,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/point/ControllerPo
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/reward/ControllerReward.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/discount/ControllerDiscount.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/survey/ControllerSurvey.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/surveyQuestion/ControllerSurveyQuestion.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/answerQuestion/ControllerAnswerQuestion.php';

@@ -198,15 +198,16 @@ abstract  class System
             }
             if ($usuario != null) {
                 session_start();
-                $_SESSION['id']             =   $usuario->getId_usuario();
-                $_SESSION['nombre']         =   $usuario->getNombre();
-                $_SESSION['correo']         =   $usuario->getCorreo();
-                $_SESSION['cedula']         =   $usuario->getCedula();
-                $_SESSION['telefono']       =   $usuario->getTelefono();
-                $_SESSION['imagen']         =   $usuario->getImagen();
-                $_SESSION['tipo']           =   $usuario->getTipo();
-                $_SESSION['fecha_registro'] =   $usuario->getFecha_registro();
-                $_SESSION['usuario']        = "Usuario";
+                $_SESSION['id']                 =   $usuario->getId_usuario();
+                $_SESSION['nombre']             =   $usuario->getNombre();
+                $_SESSION['correo']             =   $usuario->getCorreo();
+                $_SESSION['cedula']             =   $usuario->getCedula();
+                $_SESSION['telefono']           =   $usuario->getTelefono();
+                $_SESSION['imagen']             =   $usuario->getImagen();
+                $_SESSION['tipo']               =   $usuario->getTipo();
+                $_SESSION['fecha_nacimiento']   =   $usuario->getFecha_nacimiento();
+                $_SESSION['fecha_registro']     =   $usuario->getFecha_registro();
+                $_SESSION['usuario']            = "Usuario";
 
                 header("Location:/system/views/user/index");
             }

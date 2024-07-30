@@ -57,7 +57,7 @@
                   </div>
                </div>
                <div class="col-md-4">
-                  <img src="assets/image/celebracion.jpg" alt="Pioneros" class="img-fluid">
+                  <img src="<?= Path::$DIR_IMAGE_TYPE_COM . $typeComunnity->getImagen() ?>" alt="Pioneros" class="img-fluid">
                   <div class="card mt-3">
                      <div class="card-header">
                         <div class="row">

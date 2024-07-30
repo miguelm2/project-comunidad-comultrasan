@@ -93,6 +93,8 @@ class RespuestaPreguntaDTO
      */ 
     public function getVeracidad()
     {
+        if ($this->veracidad == 1) return explode(";", $this->veracidad . ';Verdadero');
+        if ($this->veracidad == 0) return explode(";", $this->veracidad . ';Falso');
         return $this->veracidad;
     }
 

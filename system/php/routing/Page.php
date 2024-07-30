@@ -12,3 +12,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/Contr
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefitPage/ControllerBenefitPage.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/discount/ControllerDiscount.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/user/ControllerUser.php';

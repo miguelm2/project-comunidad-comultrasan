@@ -12,76 +12,24 @@ class ServiceSurvey extends System
             $estado         = parent::limpiarString(1);
             $puntos         = parent::limpiarString($puntos);
             $fecha_registro = date('Y-m-d H:i:s');
-            $imagen = self::newImagen();
 
-            $result = Encuesta::newSurvey($nombre, $descripcion, $estado,  $puntos,$fecha_registro);
+            $result = Encuesta::newSurvey($nombre, $descripcion, $estado,  $puntos, $fecha_registro);
 
             if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                $encuestaDTO = Encuesta::getLastSurvey();
+                header('Location:survey?survey=' . $encuestaDTO->getId_encuesta() . '&new');
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
-    private static function newImagen()
-    {
-        try {
-            if (isset($_FILES['imageSurvey']) && $_FILES['imageSurvey']['error'] === UPLOAD_ERR_OK) {
-                $source     = $_FILES['imageSurvey']['tmp_name'];
-                $filename   = $_FILES['imageSurvey']['name'];
-                $fileSize   = $_FILES['imageSurvey']['size'];
-                $imagen     = '';
-
-                if ($fileSize > 100 && $filename != '') {
-                    $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_SURVEY_QUE;
-
-                    if (!file_exists($dirImagen)) mkdir($dirImagen, 0777, true);
-
-                    $dir         = opendir($dirImagen);
-                    $trozo1      = explode(".", $filename);
-                    $imagen      = 'encuesta_' . date('Y-m-d') . '_' . rand() . '.' . end($trozo1);
-                    $target_path = $dirImagen . $imagen;
-                    move_uploaded_file($source, $target_path);
-                    closedir($dir);
-                }
-
-                return $imagen;
-            } else {
-                throw new Exception("No se ha enviado ninguna imagen o ha ocurrido un error en la carga del archivo.");
-            }
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
-    public static function setImageSurvey($id_)
-    {
-        try {
-            $id_            = parent::limpiarString($id_);
-            $EncuestaDTO    = self::getSurvey($id_);
-
-            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_SURVEY . $EncuestaDTO->getImagen();
-
-            if (file_exists($dirImagen) && !empty($EncuestaDTO->getImagen()) && $EncuestaDTO->getImagen() != "default.png") {
-                unlink($dirImagen);
-            }
-
-            $imagen = self::newImagen();
-
-            $result = Descuento::setImageDiscount($id_, $imagen);
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
-            }
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
-    public static function setSurvey($id_encuesta, $descripcion, $nombre, $estado,$puntos)
+    public static function setSurvey($id_encuesta, $descripcion, $nombre, $estado, $puntos)
     {
         try {
             $id_encuesta  = parent::limpiarString($id_encuesta);
             $estado       = parent::limpiarString($estado);
 
-            $result = Encuesta::setSurvey($id_encuesta,$descripcion,$nombre, $estado, $puntos);
+            $result = Encuesta::setSurvey($id_encuesta, $descripcion, $nombre, $estado, $puntos);
 
             if ($result) {
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
@@ -90,21 +38,21 @@ class ServiceSurvey extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function getSurvey($id_)
+    public static function getSurvey($id_encuesta)
     {
         try {
-            $id_ = parent::limpiarString($id_);
-            $EncuestaDTO = Encuesta::getSurvey($id_);
+            $id_encuesta = parent::limpiarString($id_encuesta);
+            $EncuestaDTO = Encuesta::getSurvey($id_encuesta);
             return $EncuestaDTO;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
-    public static function deleteSurvey($id_)
+    public static function deleteSurvey($id_encuesta)
     {
         try {
-            $id_ = parent::limpiarString($id_);
-            $result = Encuesta::deleteSurvey($id_);
+            $id_encuesta = parent::limpiarString($id_encuesta);
+            $result = Encuesta::deleteSurvey($id_encuesta);
             if ($result) {
                 $_SESSION['alert'] = 1;
                 header('Location:surveys?delete');
@@ -124,16 +72,34 @@ class ServiceSurvey extends System
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
                     $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getId_() . '</td>';
-                    $tableHtml .= '<td>' . $valor->get() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                    $tableHtml .= '<td align="center">' . Elements::crearBotonVer("survey", $valor->getId_()) . '</td>';
+                    $tableHtml .= '<td>' . $valor->getId_encuesta() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
+                    $tableHtml .= '<td align="center">' . Elements::crearBotonVer("survey", $valor->getId_encuesta()) . '</td>';
                     $tableHtml .= '</tr>';
                 }
             } else {
-                return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
             }
             return $tableHtml;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getSurveyUser()
+    {
+        try {
+            $html = ''; 
+            $modelResponse = Encuesta::listSurvey();
+
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $btnRealizar =  Elements::crearBotonRealizar("survey", $valor->getId_encuesta());
+                    $html .= Elements::getCardSurveyUser($valor->getNombre(), $valor->getPuntos(), $valor->getEstado()[1], $btnRealizar);
+                }
+            }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

@@ -7,7 +7,7 @@ class PreguntaEncuesta extends System
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("INSERT INTO PreguntaEncuesta (id_encuesta, pregunta, estado, imagen, fecha_registro) 
-                                VALUES (:id_encuesta, :pregunta, :estado, :imagen :fecha_registro)");
+                                VALUES (:id_encuesta, :pregunta, :estado, :imagen, :fecha_registro)");
         $stmt->bindParam(':id_encuesta', $id_encuesta);
         $stmt->bindParam(':pregunta', $pregunta);
         $stmt->bindParam(':estado', $estado);
@@ -24,7 +24,6 @@ class PreguntaEncuesta extends System
         $stmt->bindParam(':id_pregunta', $id_pregunta);
         $stmt->bindParam(':pregunta', $pregunta);
         $stmt->bindParam(':estado', $estado);
-        $stmt->bindParam(':imagen', $imagen);
         return  $stmt->execute();
     }
     public static function getSurveyQuestion($id_pregunta)
@@ -61,6 +60,32 @@ class PreguntaEncuesta extends System
 
             $preguntaEncuestaDTO->setId_pregunta($result['id_pregunta']);
             $preguntaEncuestaDTO->setEncuestaDTO($result['id_encuesta']);
+            $preguntaEncuestaDTO->setEncuestaDTO(Encuesta::getSurvey($result['id_encuesta']));
+            $preguntaEncuestaDTO->setPregunta($result['pregunta']);
+            $preguntaEncuestaDTO->setEstado($result['estado']);
+            $preguntaEncuestaDTO->setImagen($result['imagen']);
+            $preguntaEncuestaDTO->setFecha_registro($result['fecha_registro']);
+
+            $list[$con] = $preguntaEncuestaDTO;
+            $con++;
+        }
+        return $list;
+    }
+    public static function listSurveyQuestionBySurvey($id_encuesta)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM PreguntaEncuesta WHERE id_encuesta = :id_encuesta");
+        $stmt->bindParam(':id_encuesta', $id_encuesta);
+        $stmt->execute();
+        $modelResponse = $stmt->fetchAll();
+        $list = array();
+        $con = 0;
+        foreach($modelResponse as $result){
+            $preguntaEncuestaDTO = new PreguntaEncuestaDTO();
+
+            $preguntaEncuestaDTO->setId_pregunta($result['id_pregunta']);
+            $preguntaEncuestaDTO->setEncuestaDTO($result['id_encuesta']);
+            $preguntaEncuestaDTO->setEncuestaDTO(Encuesta::getSurvey($result['id_encuesta']));
             $preguntaEncuestaDTO->setPregunta($result['pregunta']);
             $preguntaEncuestaDTO->setEstado($result['estado']);
             $preguntaEncuestaDTO->setImagen($result['imagen']);
@@ -76,6 +101,14 @@ class PreguntaEncuesta extends System
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("DELETE FROM PreguntaEncuesta WHERE id_pregunta = :id_pregunta");
         $stmt->bindParam(':id_pregunta', $id_pregunta);
+        return  $stmt->execute();
+    }
+    public static function setImageSurveyQuestion($id_pregunta, $imagen)
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("UPDATE PreguntaEncuesta SET imagen = :imagen WHERE id_pregunta = :id_pregunta ");
+        $stmt->bindParam(':id_pregunta', $id_pregunta);
+        $stmt->bindParam(':imagen', $imagen);
         return  $stmt->execute();
     }
 }

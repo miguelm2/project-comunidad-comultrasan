@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Admin.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/User.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,15 +23,15 @@
 
 <body class="g-sidenav-show  bg-gray-200">
    <!-- Start Slider -->
-   <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_admin.php'; ?>
+   <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_user.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
       <div class="pagetitle p-1 mt-2 mp-0">
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item"><a href="rewards">Recompensas</a></li>
-               <li class="breadcrumb-item active">Editar Recompensa</li>
+               <li class="breadcrumb-item"><a href="surveys">Encuestas</a></li>
+               <li class="breadcrumb-item active">Encuesta</li>
             </ol>
          </nav>
       </div><!-- End Page Title -->
@@ -41,12 +41,12 @@
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success">
-                        Editar Recompensa
+                        Realizar Encuesta
                      </h5>
                   </div>
                   <div class="col-md-2 mt-0">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="rewards">
+                        <a type="button" class="btn btn-secondary" href="surveys">
                            <i class="material-icons me-2">keyboard_return</i>atrás</a>
                      </div>
                   </div>
@@ -56,60 +56,34 @@
             <div class="card-body mt-0">
                <form method="post">
                   <div class="row">
-                     <div class="col-12">
-                        <div class="form-group">
-                           <label class="form-label" for="actividad">Actividad</label>
-                           <input type="text" class="form-control border p-1" name="actividad" value="<?= $reward->getActividad() ?>" required>
+                     <div class="col-md-12">
+                        <div class="card border-3">
+                           <div class="card-header mp-0">
+                              <h5 class="text-success"><?= $survey->getNombre() ?></h5>
+                           </div>
+                           <div class="card-body">
+                              <h6 class="card-text text-success">Descripción de la encuesta</h6>
+                              <p class="card-text text-black">
+                                 <?= $survey->getDescripcion() ?>
+                              </p>
+                              <h6 class="text-success">Cantidad de puntos a recibir: <?= $survey->getPuntos() ?></h6>
+                              <div class="text-end">
+                                 <a href="startSurvey?survey=<?= $_GET['survey'] ?>" class="btn btn-success">Empezar Encuesta</a>
+                              </div>
+                           </div>
                         </div>
-                     </div>
-                     <div class="col-12">
-                        <div class="form-group">
-                           <label class="form-label" for="puntos">Puntos</label>
-                           <input type="number" class="form-control border p-1" name="puntos" value="<?= $reward->getPuntos() ?>" required>
-                        </div>
-                     </div>
-                     <div class="dark horizontal my-0 border-1 mt-4"></div>
-                     <div class="col-md-6 d-grid mt-4">
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">
-                           <i class="material-icons me-2">delete</i> Eliminar Registro</button>
-                     </div>
-                     <div class="col-md-6 d-grid mt-4">
-                        <button type="submit" class="btn btn-success" name="setReward">
-                           <i class="material-icons me-2">edit</i> Editar Recompensa
-                        </button>
                      </div>
                   </div>
                </form>
             </div>
          </div>
       </div>
-      <!-- Modal Eliminar Registro-->
-      <!-- ======= Basic Modal ======= -->
-      <form method="post">
-         <div class="modal fade" id="eliminar" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Eliminar Recompensa</h5>
-                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <label class="form-label">¿Esta seguro que desea eliminar el registro?</label>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="deleteReward" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Recompensa</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!-- End Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
    </main>
    <!--   Core JS Files   -->
+   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/assets/js/core/popper.min.js"></script>
    <script src="/system/assets/js/core/bootstrap.min.js"></script>
    <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -118,6 +92,7 @@
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <script src="/system/js/selectRepeat.js"></script>
    <?= $response ?>
 </body>
 
