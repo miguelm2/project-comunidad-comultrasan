@@ -7,6 +7,18 @@ class Elements
                     <i class="material-icons text-sm me-2">edit</i>Editar
                 </a>';
     }
+    public static function crearBotonRealizar($link, $valor)
+    {
+        return '<a class="btn btn-link text-info px-3 mb-0" href="' . $link . '?' . $link . '=' . $valor . '" style="font-size: 16px;">
+                    <i class="material-icons text-sm me-2">play_circle</i>Realizar
+                </a>';
+    }
+    public static function crearBotonVerTwoLink($link, $valor, $link2, $valor2)
+    {
+        return '<a class="btn btn-link text-info px-3 mb-0" href="' . $link . '?' . $link . '=' . $valor . '&' . $link2 . '=' . $valor2 . '">
+                    <i class="material-icons text-sm me-2">edit</i>Editar
+                </a>';
+    }
 
     public static function crearBotonEliminar($link, $link2, $valor)
     {
@@ -198,33 +210,64 @@ class Elements
                     </div>
                 </div>';
     }
-    public static function getCardDiscount($imagen, $logo, $descuento, $titulo, $vigencia, $acceso){
+    public static function getCardDiscount($imagen, $logo, $descuento, $titulo, $vigencia, $acceso)
+    {
         return '<div class="card-container">
                     <div class="card-flip">
                         <div class="card card-front">
                             <div class="img-card-container">
-                                <img src="'. Path::$DIR_IMAGE_DIS . $imagen .'" class="card-img-top img-fluid img-card" alt="Burger">
-                                <img src="'. Path::$DIR_IMAGE_DIS_LOGO . $logo .'" class="card-img__logo" alt="Burger">
+                                <img src="' . Path::$DIR_IMAGE_DIS . $imagen . '" class="card-img-top img-fluid img-card" alt="Burger">
+                                <img src="' . Path::$DIR_IMAGE_DIS_LOGO . $logo . '" class="card-img__logo" alt="Burger">
                             </div>
                             <div class="card-body text-center">
-                                <h6>'. $descuento .'</h6>
+                                <h6>' . $descuento . '</h6>
                                 <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
                             </div>
                         </div>
                         <div class="card card-back text-start">
                             <div class="card-body">
-                                <h6 class="card-title">'. $titulo .'</h6>
+                                <h6 class="card-title">' . $titulo . '</h6>
                                 <p style="font-size: 12px;">
-                                    '. $vigencia .'
+                                    ' . $vigencia . '
                                 </p>
                                 <h6 class="card-title">¿Cómo puedo acceder al beneficio?</h6>
                                 <p style="font-size: 12px;">
-                                    '. $acceso .'
+                                    ' . $acceso . '
                                 </p>
                                 <button class="btn btn-verde btn1 mt-3">¡Lo quiero! <i class="bi bi-plus-circle"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>';
+    }
+    public static function getCardSurveyUser($titulo, $puntos, $estado, $btnRealizar)
+    {
+        return '
+        <div class="col-md-6 mt-3">
+            <div class="card border-2">
+                <div class="card-header mp-0">
+                    <h5 class="card-text text-success">' . $titulo . '</h5>
+                </div>
+                <div class="card-body mt-0">
+                    <p class="card-text text-black">
+                        Cantidad de puntos: <strong>' . $puntos . '</strong><br>
+                        Estado: ' . $estado . '
+                    </p>
+                    ' . $btnRealizar . '
+                </div>
+            </div>
+        </div>
+        ';
+    }
+    public static function getCardQuestion($con, $pregunta, $respuestas){
+        return '
+        <div class="card-head ms-3 mt-3">
+            <h5 class="text-success">Pregunta N°.'. $con .'</h5>
+        </div>
+        <div class="card-body mt-0">
+            <h6 class="card-text text-success">'. $pregunta .'</h6>
+            '. $respuestas .'
+        </div>
+        ';
     }
 }

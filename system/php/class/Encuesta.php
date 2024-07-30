@@ -7,7 +7,7 @@ class Encuesta extends System
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("INSERT INTO Encuesta (nombre, descripcion,estado, puntos, fecha_registro) 
-                                VALUES (:nombre, :descripcion, :estado, :puntos :fecha_registro)");
+                                VALUES (:nombre, :descripcion, :estado, :puntos, :fecha_registro)");
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':descripcion', $descripcion);
         $stmt->bindParam(':estado', $estado);
@@ -51,5 +51,13 @@ class Encuesta extends System
         $stmt = $dbh->prepare("DELETE FROM Encuesta WHERE id_encuesta = :id_encuesta");
         $stmt->bindParam(':id_encuesta', $id_encuesta);
         return  $stmt->execute();
+    }
+    public static function getLastSurvey()
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * FROM Encuesta ORDER BY id_encuesta DESC");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'EncuestaDTO');
+        $stmt->execute();
+        return  $stmt->fetch();
     }
 }

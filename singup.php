@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Page.php'; ?>
 <!doctype html>
 <html lang="en">
 
@@ -56,12 +57,12 @@
             </div>
             <div class="col-md-8 col-lg-8">
                <div class="login-wrap">
-                  <form action="#" class="signin-form">
+                  <form method="post" class="signin-form">
                      <div class="row text-start">
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="name">Tipo de Documento</label>
+                              <label class="label text-black" for="tipo_documento">Tipo de Documento</label>
                               <select name="tipo_documento" id="tipo_documento" class="form-select">
                                  <option value="1">Cédula de Ciudadanía</option>
                                  <option value="2">Tarjeta de identidad</option>
@@ -73,33 +74,45 @@
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="name">Nro de documento</label>
-                              <input type="text" class="form-control" placeholder="Nro de documento" required>
+                              <label class="label text-black" for="cedula">Nro de documento</label>
+                              <input type="text" class="form-control" name="cedula" placeholder="Nro de documento" required>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="name">Nombre y Apellidos</label>
-                              <input type="text" class="form-control" placeholder="Nombres completos" required>
+                              <label class="label text-black" for="nombre">Nombre y Apellidos</label>
+                              <input type="text" class="form-control" name="nombre" placeholder="Nombres completos" required>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="cellphone">Celular</label>
-                              <input type="number" class="form-control" placeholder="Celular" required>
+                              <label class="label text-black" for="telefono">Celular</label>
+                              <input type="number" class="form-control" name="telefono" placeholder="Celular" required>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="mail">Correo</label>
-                              <input type="email" class="form-control" placeholder="Correo" required>
+                              <label class="label text-black" for="correo">Correo</label>
+                              <input type="email" class="form-control" name="correo" placeholder="Correo" required>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="city">Fecha de nacimiento</label>
-                              <input type="date" class="form-control" required>
+                              <label class="label text-black" for="fecha_nacimiento">Fecha de nacimiento</label>
+                              <input type="date" class="form-control" name="fecha_nacimiento" required>
+                           </div>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                           <div class="form-group">
+                              <label class="label text-black" for="pass">Contraseña</label>
+                              <input type="password" class="form-control" name="pass" placeholder="Contraseña" required>
+                           </div>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                           <div class="form-group">
+                              <label class="label text-black" for="imageUser">Imagen</label>
+                              <input type="file" accept="image/*" name="imageUser" class="form-control">
                            </div>
                         </div>
                         <div class="col-md-12 mt-2">
@@ -114,7 +127,7 @@
                      </div>
                      <div class="form-group">
                         <br>
-                        <button type="submit" class="btn btn-verde btn1 rounded"> <i class="bi bi-send"></i> Enviar</button>
+                        <button type="submit" name="newUser" class="btn btn-verde btn1 rounded"> <i class="bi bi-send"></i> Enviar</button>
                      </div>
                      <div class="form-group mt-2">
                         <br>
@@ -145,7 +158,10 @@
 
    <!-- Template Main JS File -->
    <script src="assets/js/main.js"></script>
-
+   <script src="system/assets/vendor/jquery/jquery.min.js"></script>
+   <script src="system/assets/vendor/swal/sweetalert.min.js"></script>
+   <script src="system/js/valideImage.js"></script>
+   <?= $response ?>
 </body>
 
 </html>

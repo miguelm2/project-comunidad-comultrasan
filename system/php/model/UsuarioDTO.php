@@ -11,6 +11,8 @@ class UsuarioDTO
     protected $estado;
     protected $tipo;
     protected $imagen;
+    protected $tipo_documento;
+    protected $fecha_nacimiento;
     protected $fecha_registro;
 
     public function __construct()
@@ -195,6 +197,46 @@ class UsuarioDTO
     public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of tipo_documento
+     */ 
+    public function getTipo_documento()
+    {
+        return $this->tipo_documento;
+    }
+
+    /**
+     * Set the value of tipo_documento
+     *
+     * @return  self
+     */ 
+    public function setTipo_documento($tipo_documento)
+    {
+        $this->tipo_documento = $tipo_documento;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of fecha_nacimiento
+     */ 
+    public function getFecha_nacimiento()
+    {
+        return $this->fecha_nacimiento;
+    }
+
+    /**
+     * Set the value of fecha_nacimiento
+     *
+     * @return  self
+     */ 
+    public function setFecha_nacimiento($fecha_nacimiento)
+    {
+        $this->fecha_nacimiento = $fecha_nacimiento;
 
         return $this;
     }

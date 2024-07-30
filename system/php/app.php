@@ -56,4 +56,5 @@ class Constants
     static $EMAIL_NEW           = "Correo enviado exitosamente";
     static $MESSAGE_NEW_BLOG    = "Artículo creado exitosamente";
     static $REGISTER_DELETE_NOT     = "No se ha eliminado el registro";
+    static $ANSWER_REPEAT       = "La pregunta ya tiene una respuesta correcta";
 }

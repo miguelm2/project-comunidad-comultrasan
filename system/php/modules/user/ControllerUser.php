@@ -5,7 +5,7 @@ use PhpOffice\PhpSpreadsheet\Calculation\Web\Service;
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/user/ServiceUser.php';
 
 if (isset($_POST['setProfileUser'])) {
-    $response = ServiceUser::setProfile($_POST['nombre'], $_POST['correo'], $_POST['telefono'], $_POST['cedula']);
+    $response = ServiceUser::setProfile($_POST['nombre'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['tipo_documento'], $_POST['fecha_nacimiento']);
 }
 
 if (isset($_POST['setPassProfileUser'])) {
@@ -13,11 +13,11 @@ if (isset($_POST['setPassProfileUser'])) {
 }
 
 if (isset($_POST['newUser'])) {
-    $response = ServiceUser::newUser($_POST['nombre'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['pass']);
+    $response = ServiceUser::newUser($_POST['nombre'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['pass'], $_POST['tipo_documento'], $_POST['fecha_nacimiento']);
 }
 
 if (isset($_POST['setUser'])) {
-    $response = ServiceUser::setUser($_GET['user'], $_POST['nombre'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['estado']);
+    $response = ServiceUser::setUser($_GET['user'], $_POST['nombre'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['estado'], $_POST['tipo_documento'], $_POST['fecha_nacimiento']);
 }
 
 if (isset($_POST['setPassUser'])) {

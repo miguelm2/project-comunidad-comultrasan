@@ -72,6 +72,23 @@
                                     <input type="tel" class="form-control border p-1" name="telefono" value="<?= $_SESSION['telefono'] ?>" required>
                                  </div>
                               </div>
+                              <div class="col-md-6 mt-2">
+                                 <div class="form-group">
+                                    <label class="label text-black" for="tipo_documento">Tipo de Documento</label>
+                                    <select name="tipo_documento" id="tipo_documento" class="form-select  border p-1">
+                                       <option value="1">Cédula de Ciudadanía</option>
+                                       <option value="2">Tarjeta de identidad</option>
+                                       <option value="3">Cédula de extranjería</option>
+                                       <option value="4">Pasaporte</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="col-md-6 mt-2">
+                                 <div class="form-group">
+                                    <label class="label text-black" for="fecha_nacimiento">Fecha de nacimiento</label>
+                                    <input type="date" class="form-control border p-1" name="fecha_nacimiento" required value="<?= $_SESSION['fecha_nacimiento'] ?>">
+                                 </div>
+                              </div>
                               <div class="col-md-6">
                                  <div class="form-group">
                                     <label for="" class="form-label">Cedula</label><br>

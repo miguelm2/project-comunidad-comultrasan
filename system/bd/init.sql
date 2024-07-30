@@ -49,6 +49,12 @@ CREATE TABLE Usuario (
   fecha_registro DATETIME NOT NULL
 );
 
+ALTER TABLE
+  Usuario
+ADD
+  fecha_nacimiento DATE NULL,
+  tipo_documento INT NULL;
+
 CREATE TABLE Gestor (
   id_gestor INT IDENTITY(1, 1) PRIMARY KEY,
   nombre VARCHAR(255) NOT NULL,
@@ -179,5 +185,24 @@ CREATE TABLE RespuestaPregunta (
   id_pregunta INT NOT NULL,
   respuesta VARCHAR(255) NOT NULL,
   veracidad INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE RespuestaUsuario (
+  id_respuesta_usuario INT IDENTITY(1, 1) PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  id_encuesta INT NOT NULL,
+  id_pregunta INT NOT NULL,
+  id_respuesta INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE CalendarioEvento (
+  id_evento INT IDENTITY(1, 1) PRIMARY KEY,
+  titulo VARCHAR(255) NOT NULL,
+  fecha DATE NOT NULL,
+  lugar VARCHAR(255) NOT NULL,
+  hora TIME NOT NULL,
+  imagen VARCHAR(255) NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
