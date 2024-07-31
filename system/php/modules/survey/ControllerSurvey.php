@@ -23,4 +23,5 @@ if (isset($_GET['survey'])) {
 if (isset($_GET)) {
     $tableSurvey = ServiceSurvey::getTableSurvey();
     $tableSurveyUser = ServiceSurvey::getSurveyUser();
+    $progress = ServiceSurvey::getProgress();
 }

@@ -39,7 +39,7 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item active">Descuentos</li>
+               <li class="breadcrumb-item active">Calendario Eventos</li>
             </ol>
          </nav>
       </div>
@@ -47,13 +47,13 @@
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Descuentos</h4>
+                  <h4 class="text-success">Calendario Eventos</h4>
                </div>
             </div>
             <div class="col-md-3 m-2 mt-3">
                <div class="card-head text-right">
-                  <a class="btn btn-success" href="newDiscount">
-                     <i class="material-icons me-2">add</i>Agregar Descuento</a>
+                  <a class="btn btn-success" href="newEventCalendar">
+                     <i class="material-icons me-2">add</i>Agregar Evento</a>
                </div>
             </div>
          </div>
@@ -65,7 +65,9 @@
                         <th class="text-uppercase font-weight-bolder">
                            ID</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Descuento</th>
+                           Título</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Fecha</th>
                         <th class="text-uppercase font-weight-bolder">
                            Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">
@@ -77,7 +79,9 @@
                         <th class="text-uppercase font-weight-bolder">
                            ID</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Descuento</th>
+                           Título</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Fecha</th>
                         <th class="text-uppercase font-weight-bolder">
                            Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">
@@ -85,7 +89,7 @@
                      </tr>
                   </tfoot>
                   <tbody class="text-center">
-                     <?= $tableDiscount ?>
+                     <?= $tableEventCalendar ?>
                   </tbody>
                </table>
             </div>

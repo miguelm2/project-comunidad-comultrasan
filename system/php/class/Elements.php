@@ -159,6 +159,24 @@ class Elements
     {
         return '<script>swal("' . $mensaje . '", "", "' . $tipo_alerta . '");</script>';
     }
+    public static function crearMensajeAlerta2($puntos)
+    {
+        return '<script>
+            Swal.fire({
+            title: "FELICIDADES!! Haz ganado '. $puntos . ' corazones",
+            width: 600,
+            padding: "3em",
+            color: "#716add",
+            background: "#fff url(https://sweetalert2.github.io/#downloadimages/trees.png)",
+            backdrop: `
+                rgba(0,0,123,0.4)
+                url("https://www.icegif.com/wp-content/uploads/2023/07/icegif-129.gif")
+                center top
+                no-repeat
+            `
+            });
+            </script>';
+    }
 
     public static function getQuestion($pregunta, $respuesta, $contador)
     {
@@ -246,9 +264,9 @@ class Elements
         <div class="col-md-6 mt-3">
             <div class="card border-2">
                 <div class="card-header mp-0">
-                    <h5 class="card-text text-success">' . $titulo . '</h5>
+                    <h5 class="card-text text-success"><i class="material-icons me-2">library_books</i>' . $titulo . '</h5>
                 </div>
-                <div class="card-body mt-0">
+                <div class="card-body mt-0 pt-0">
                     <p class="card-text text-black">
                         Cantidad de puntos: <strong>' . $puntos . '</strong><br>
                         Estado: ' . $estado . '
@@ -259,14 +277,36 @@ class Elements
         </div>
         ';
     }
-    public static function getCardQuestion($con, $pregunta, $respuestas){
+    public static function getCardQuestion($con, $imagen, $pregunta, $respuestas)
+    {
         return '
         <div class="card-head ms-3 mt-3">
-            <h5 class="text-success">Pregunta N°.'. $con .'</h5>
+            <h4 class="text-success">Pregunta N°.' . $con . '</h4>
+            <img src="' . Path::$DIR_IMAGE_SURVEY_QUE . $imagen . '" alt="Pregunta" class="img-fluid ms-4" style="max-width:300px">
         </div>
         <div class="card-body mt-0">
-            <h6 class="card-text text-success">'. $pregunta .'</h6>
-            '. $respuestas .'
+            <h5 class="card-text text-success">' . $pregunta . '</h5>
+            ' . $respuestas . '
+        </div>
+        <div class="dark horizontal my-0 border-1 mt-4"></div>
+        ';
+    }
+    public static function getCardCalendarEvent($imagen, $titulo, $fecha, $lugar)
+    {
+        return '
+        <div class="col-md-4">
+            <div class="card border-2 p-2 h-100">
+                <div class="card-head">
+                    <img src="' . Path::$DIR_IMAGE_EVENT_CALE . $imagen . '" alt="" class="img-fluid">
+                    <p class="card-text text-pri text-uppercase fw-bold">' . $titulo . '</p>
+                </div>
+                <div class="card-footer">
+                    <p class="card-text text-start">
+                        FECHA: ' . $fecha . ' <br>
+                        LUGAR: ' . $lugar . '<br>
+                    </p>
+                </div>
+            </div>
         </div>
         ';
     }

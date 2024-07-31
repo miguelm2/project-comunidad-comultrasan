@@ -140,4 +140,14 @@ class ServiceSurveyQuestion extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function getSurveyQuestionBySurvey($id_encuesta)
+    {
+        try {
+            $id_encuesta = parent::limpiarString($id_encuesta);
+            $preguntaEncuestaDTO = PreguntaEncuesta::listSurveyQuestionBySurvey($id_encuesta);
+            return $preguntaEncuestaDTO;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }

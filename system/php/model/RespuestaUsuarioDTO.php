@@ -1,5 +1,5 @@
 <?php
-class RepuestaUsuarioDTO
+class RespuestaUsuarioDTO
 {
     protected $id_respuesta_usuario;
     protected $usuarioDTO;

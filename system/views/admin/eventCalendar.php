@@ -30,8 +30,8 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item"><a href="discounts">Descuentos</a></li>
-               <li class="breadcrumb-item active">Editar Descuento</li>
+               <li class="breadcrumb-item"><a href="rewards">Calendario Eventos</a></li>
+               <li class="breadcrumb-item active">Editar Evento</li>
             </ol>
          </nav>
       </div><!-- End Page Title -->
@@ -41,12 +41,12 @@
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success">
-                        Editar Descuento
+                        Editar Evento
                      </h5>
                   </div>
                   <div class="col-md-2 mt-0">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="discounts">
+                        <a type="button" class="btn btn-secondary" href="eventsCalendar">
                            <i class="material-icons me-2">keyboard_return</i>atrás</a>
                      </div>
                   </div>
@@ -58,52 +58,48 @@
                   <div class="row">
                      <div class="col-md-12">
                         <div class="row">
-                           <div class="col-md-6">
-                              <img src="<?= Path::$DIR_IMAGE_DIS . $discount->getImagen() ?>" alt="Imagen" class="img-fluid" style="max-height: 280px;">
+                           <div class="col-md-5">
+                              <img src="<?= Path::$DIR_IMAGE_EVENT_CALE . $eventCalendar->getImagen() ?>" alt="Imagen" class="img-fluid" style="max-height: 280px;">
                            </div>
-                           <div class="col-md-6">
-                              <img src="<?= Path::$DIR_IMAGE_DIS_LOGO . $discount->getLogo() ?>" alt="Logo" class="img-fluid" style="max-height: 280px;">
+                           <div class="col-md-7">
+                              <div class="row">
+                                 <div class="col-md-12">
+                                    <label for="titulo">Título</label>
+                                    <input type="text" class="form-control border p-1" name="titulo" value="<?= $eventCalendar->getTitulo() ?>" required>
+                                 </div>
+                                 <div class="col-12 ">
+                                    <div class="form-group">
+                                       <label class="form-label" for="lugar">Lugar</label>
+                                       <input type="text" class="form-control border p-1" name="lugar" value="<?= $eventCalendar->getLugar() ?>" required>
+                                    </div>
+                                 </div>
+                                 <div class="col-6">
+                                    <div class="form-group">
+                                       <label class="form-label" for="fecha">Fecha</label>
+                                       <input type="date" class="form-control border p-1" name="fecha" value="<?= $eventCalendar->getFecha() ?>" required>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    <label for="hora">Hora</label>
+                                    <input type="time" class="form-control border p-1" name="hora" value="<?= $eventCalendar->getHora() ?>" required>
+                                 </div>
+                              </div>
                            </div>
                         </div>
                      </div>
-                     <div class="col-md-12">
-                        <div class="col-md-12 form-group">
-                           <label for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" value="<?= $discount->getTitulo() ?>" required>
-                        </div>
-                        <div class="col-12 mt-3">
-                           <div class="form-group">
-                              <label class="form-label" for="descuento">Descuento</label>
-                              <input type="text" class="form-control border p-1" name="descuento" value="<?= $discount->getDescuento() ?>" required>
-                           </div>
-                        </div>
-                        <div class="col-12">
-                           <div class="form-group">
-                              <label class="form-label" for="vigencia">Vigencia</label>
-                              <input type="text" class="form-control border p-1" name="vigencia" value="<?= $discount->getVigencia() ?>" required>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-12 mt-3">
-                        <label for="acceso">Acceso</label>
-                        <textarea name="acceso" id="acceso" class="form-control border p-1" rows="5" required><?= $discount->getAcceso() ?></textarea>
-                     </div>
+
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
-                     <div class="col-md-3 d-grid mt-4">
+                     <div class="col-md-4 d-grid mt-4">
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">
                            <i class="material-icons me-2">delete</i> Eliminar Registro</button>
                      </div>
-                     <div class="col-md-3 d-grid mt-4">
+                     <div class="col-md-4 d-grid mt-4">
                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">
                            <i class="material-icons me-2">image</i> Cambiar Imagen</button>
                      </div>
-                     <div class="col-md-3 d-grid mt-4">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#setLogo">
-                           <i class="material-icons me-2">image</i> Cambiar Logo</button>
-                     </div>
-                     <div class="col-md-3 d-grid mt-4">
-                        <button type="submit" class="btn btn-success" name="setDiscount">
-                           <i class="material-icons me-2">edit</i> Editar Descuento
+                     <div class="col-md-4 d-grid mt-4">
+                        <button type="submit" class="btn btn-success" name="setEventCalendar">
+                           <i class="material-icons me-2">edit</i> Editar Evento
                         </button>
                      </div>
                   </div>
@@ -118,7 +114,7 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Eliminar Descuento</h5>
+                     <h5 class="modal-title">Eliminar Evento</h5>
                      <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -126,7 +122,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="deleteDiscount" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Descuento</button>
+                     <button type="submit" name="deleteEventCalendar" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Evento</button>
                   </div>
                </div>
             </div>
@@ -144,37 +140,13 @@
                   </div>
                   <div class="modal-body">
                      <div class="form-group">
-                        <label class="form-label" for="imageDiscount">Imagen</label>
-                        <input type="file" class="form-control border p-1" name="imageDiscount" accept="image/*" required>
+                        <label class="form-label" for="imageEventCalendar">Imagen</label>
+                        <input type="file" class="form-control border p-1" name="imageEventCalendar" accept="image/*" required>
                      </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="setImageDiscount" class="btn btn-info"><i class="material-icons me-2">image</i> Cambiar Imagen</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!-- End Basic Modal-->
-      <!-- ======= Basic Modal ======= -->
-      <form method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="setLogo" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Cambiar Logo</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <div class="form-group">
-                        <label class="form-label" for="logoDiscount">Logo</label>
-                        <input type="file" class="form-control border p-1" name="logoDiscount" accept="image/*" required>
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="setLogoDiscount" class="btn btn-info"><i class="material-icons me-2">image</i> Cambiar Logo</button>
+                     <button type="submit" name="setImageEventCalendar" class="btn btn-info"><i class="material-icons me-2">image</i> Cambiar Imagen</button>
                   </div>
                </div>
             </div>

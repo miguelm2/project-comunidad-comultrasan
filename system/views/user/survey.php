@@ -59,14 +59,14 @@
                      <div class="col-md-12">
                         <div class="card border-3">
                            <div class="card-header mp-0">
-                              <h5 class="text-success"><?= $survey->getNombre() ?></h5>
+                              <h5 class="text-success"><i class="material-icons me-2">library_books</i><?= $survey->getNombre() ?></h5>
                            </div>
-                           <div class="card-body">
+                           <div class="card-body pt-0">
                               <h6 class="card-text text-success">Descripción de la encuesta</h6>
                               <p class="card-text text-black">
                                  <?= $survey->getDescripcion() ?>
                               </p>
-                              <h6 class="text-success">Cantidad de puntos a recibir: <?= $survey->getPuntos() ?></h6>
+                              <h6 class="text-success">Cantidad de corazones a recibir: <?= $survey->getPuntos() ?></h6>
                               <div class="text-end">
                                  <a href="startSurvey?survey=<?= $_GET['survey'] ?>" class="btn btn-success">Empezar Encuesta</a>
                               </div>

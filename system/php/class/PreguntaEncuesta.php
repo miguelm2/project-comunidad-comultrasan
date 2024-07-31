@@ -111,4 +111,29 @@ class PreguntaEncuesta extends System
         $stmt->bindParam(':imagen', $imagen);
         return  $stmt->execute();
     }
+    public static function listSurveyQuestionBySurveyByEstate($id_encuesta)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM PreguntaEncuesta WHERE id_encuesta = :id_encuesta AND estado = 1");
+        $stmt->bindParam(':id_encuesta', $id_encuesta);
+        $stmt->execute();
+        $modelResponse = $stmt->fetchAll();
+        $list = array();
+        $con = 0;
+        foreach($modelResponse as $result){
+            $preguntaEncuestaDTO = new PreguntaEncuestaDTO();
+
+            $preguntaEncuestaDTO->setId_pregunta($result['id_pregunta']);
+            $preguntaEncuestaDTO->setEncuestaDTO($result['id_encuesta']);
+            $preguntaEncuestaDTO->setEncuestaDTO(Encuesta::getSurvey($result['id_encuesta']));
+            $preguntaEncuestaDTO->setPregunta($result['pregunta']);
+            $preguntaEncuestaDTO->setEstado($result['estado']);
+            $preguntaEncuestaDTO->setImagen($result['imagen']);
+            $preguntaEncuestaDTO->setFecha_registro($result['fecha_registro']);
+
+            $list[$con] = $preguntaEncuestaDTO;
+            $con++;
+        }
+        return $list;
+    }
 }

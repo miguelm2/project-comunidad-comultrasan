@@ -202,7 +202,7 @@ CREATE TABLE CalendarioEvento (
   titulo VARCHAR(255) NOT NULL,
   fecha DATE NOT NULL,
   lugar VARCHAR(255) NOT NULL,
-  hora TIME NOT NULL,
+  hora TIME(0) NOT NULL,
   imagen VARCHAR(255) NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
