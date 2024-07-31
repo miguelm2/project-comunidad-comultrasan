@@ -27,6 +27,7 @@
                   <li class="dropdown-item"><a href="benefitsPage"> Beneficios Pagina</a></li>
                   <li class="dropdown-item"><a href="typeComunities"> Tipos de comunidad</a></li>
                   <li class="dropdown-item"><a href="discounts"> Descuentos</a></li>
+                  <li class="dropdown-item"><a href="eventsCalendar"> Calendario Eventos</a></li>
                </ul>
             </div>
          </li>

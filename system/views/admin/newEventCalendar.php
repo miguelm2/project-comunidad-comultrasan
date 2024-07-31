@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/User.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Admin.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,22 +19,19 @@
    <!-- CSS Files -->
    <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
-   <link href="
-https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
-" rel="stylesheet">
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
    <!-- Start Slider -->
-   <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_user.php'; ?>
+   <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_admin.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
       <div class="pagetitle p-1 mt-2 mp-0">
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item"><a href="surveys">Encuestas</a></li>
-               <li class="breadcrumb-item active">Encuesta</li>
+               <li class="breadcrumb-item"><a href="eventsCalendar">Calendario Eventos</a></li>
+               <li class="breadcrumb-item active">Nuevo Evento</li>
             </ol>
          </nav>
       </div><!-- End Page Title -->
@@ -44,12 +41,12 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success">
-                        Realizar Encuesta
+                        Nuevo Evento
                      </h5>
                   </div>
                   <div class="col-md-2 mt-0">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="surveys">
+                        <a type="button" class="btn btn-secondary" href="eventsCalendar">
                            <i class="material-icons me-2">keyboard_return</i>atrás</a>
                      </div>
                   </div>
@@ -57,20 +54,37 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
             </div>
             <div class="dark horizontal my-0 border-1"></div>
             <div class="card-body mt-0">
-               <form method="post">
+               <form method="post" enctype="multipart/form-data">
                   <div class="row">
-                     <form method="post">
-                        <div class="col-md-12">
-                           <div class="card border-3">
-                              <?= $cardQuestionUser ?>
-                           </div>
+                     <div class="col-12">
+                        <div class="form-group">
+                           <label class="form-label" for="titulo">Título</label>
+                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" required>
                         </div>
-                        <div class="col-md-12 mt-3 text-center justify-content-center">
-                           <button type="submit" class="btn btn-success btn-lg" name="sendAnswerSurvey">
-                              <i class="material-icons me-2">send</i>Enviar Respuestas
-                           </button>
-                        </div>
-                     </form>
+                     </div>
+                     <div class="col-md-12 form-group">
+                        <label for="lugar">Lugar</label>
+                        <input type="text" class="form-control border p-1" name="lugar" placeholder="Lugar" required>
+                     </div>
+                     <div class="col-md-6 form-group">
+                        <label for="fecha">Fecha</label>
+                        <input type="date" class="form-control border p-1" name="fecha" required>
+                     </div>
+                     <div class="col-md-6 form-group">
+                        <label for="hora">Hora</label>
+                        <input type="time" class="form-control border p-1" name="hora" required>
+                     </div>
+                     <div class="col-md-12 form-group">
+                        <label for="imageEventCalendar">Imagen</label>
+                        <input type="file" class="form-control border p-1" name="imageEventCalendar" accept="image/*" required>
+                     </div>
+                     
+                     <div class="dark horizontal my-0 border-1 mt-4"></div>
+                     <div class="col-md-12 d-grid mt-4">
+                        <button type="submit" class="btn btn-success" name="newEventCalendar">
+                           <i class="material-icons me-2">add</i> Nuevo Evento
+                        </button>
+                     </div>
                   </div>
                </form>
             </div>
@@ -81,7 +95,6 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
       <!-- End Footer -->
    </main>
    <!--   Core JS Files   -->
-   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/assets/js/core/popper.min.js"></script>
    <script src="/system/assets/js/core/bootstrap.min.js"></script>
    <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -90,8 +103,11 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
-   <script src="/system/js/selectRepeat.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+   <!-- Uncomment to load the Spanish translation -->
+   <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/translations/es.js"></script>
+   <script src="/system/js/CkEditor/confCkeditor_1.js"></script>
+   <script src="/system/js/CkEditor/confCkeditor.js"></script>
    <?= $response ?>
 </body>
 

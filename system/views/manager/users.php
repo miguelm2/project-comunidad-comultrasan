@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Admin.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Manager.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,35 +39,33 @@
          <nav>
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item active">Descuentos</li>
+               <li class="breadcrumb-item active">Asociados</li>
             </ol>
          </nav>
       </div>
-      <div class="card container">
+      <div class="card">
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Descuentos</h4>
-               </div>
-            </div>
-            <div class="col-md-3 m-2 mt-3">
-               <div class="card-head text-right">
-                  <a class="btn btn-success" href="newDiscount">
-                     <i class="material-icons me-2">add</i>Agregar Descuento</a>
+                  <h4 class="text-success">Asociados</h4>
                </div>
             </div>
          </div>
          <div class="card-body m-0">
             <div class="table-responsive">
-               <table class="table table-bordered table-hover">
+               <table class="table table-bordered table-hover align-items-center mb-0">
                   <thead class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">
-                           ID</th>
+                           Nombre</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Descuento</th>
+                           Correo</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Fecha Registro</th>
+                           Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Cédula</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Estado</th>
                         <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
@@ -75,17 +73,21 @@
                   <tfoot class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">
-                           ID</th>
+                           Nombre</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Descuento</th>
+                           Correo</th>
                         <th class="text-uppercase font-weight-bolder">
-                           Fecha Registro</th>
+                           Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Cédula</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Estado</th>
                         <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
                   </tfoot>
                   <tbody class="text-center">
-                     <?= $tableDiscount ?>
+                     <?= $tableUsuarios ?>
                   </tbody>
                </table>
             </div>
@@ -104,6 +106,7 @@
    <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <script src="/system/js/valideImage.js"></script>
    <?= $response ?>
 </body>
 

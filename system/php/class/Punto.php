@@ -82,7 +82,7 @@ class Punto extends System
             $puntoDTO->setId_punto($result['id_punto']);
             $puntoDTO->setPuntos($result['puntos']);
             $puntoDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
-            $puntoDTO->setAdministradorDTO(Administrador::getAdministradorById($result['id_admistrador']));
+            $puntoDTO->setAdministradorDTO(Administrador::getAdministradorById($result['id_administrador']));
             $puntoDTO->setFecha_registro($result['fecha_registro']);
             $listResponse[$con] = $puntoDTO;
             $con++;

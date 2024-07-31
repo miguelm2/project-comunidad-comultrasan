@@ -117,6 +117,42 @@
                </form>
             </div>
          </div>
+         <div class="card mt-3">
+            <div class="card-head mt-4">
+               <div class="row">
+                  <div class="col-md-10">
+                     <h5 class="text-success p-1">
+                        Puntos
+                     </h5>
+                  </div>
+               </div>
+            </div>
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped">
+                     <thead>
+                        <tr>
+                           <td class="text-uppercase font-weight-bolder">ID</td>
+                           <td class="text-uppercase font-weight-bolder">Administrador</td>
+                           <td class="text-uppercase font-weight-bolder">Corazones</td>
+                           <td class="text-uppercase font-weight-bolder">Fecha Registro</td>
+                        </tr>
+                     </thead>
+                     <tfoot>
+                        <tr>
+                           <td class="text-uppercase font-weight-bolder">Id</td>
+                           <td class="text-uppercase font-weight-bolder">Administrador</td>
+                           <td class="text-uppercase font-weight-bolder">Corazones</td>
+                           <td class="text-uppercase font-weight-bolder">Fecha Registro</td>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?= $tablePointsUser ?>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
       </div>
       <!-- Modal Eliminar Registro-->
       <!-- ======= Basic Modal ======= -->

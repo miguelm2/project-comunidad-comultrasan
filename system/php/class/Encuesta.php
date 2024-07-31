@@ -60,4 +60,33 @@ class Encuesta extends System
         $stmt->execute();
         return  $stmt->fetch();
     }
+    public static function listSurveyByEstate()
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM Encuesta WHERE estado = 1");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'EncuestaDTO');
+        $stmt->execute();
+        return  $stmt->fetchAll();
+    }
+    public static function countSurvey()
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT COUNT(*) AS contador FROM Encuesta WHERE estado = 1");
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result['contador'];
+    }
+    public static function countSurveyByUser($id_usuario)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT COUNT(DISTINCT enc.id_encuesta) as contador
+                                FROM Encuesta enc, RespuestaUsuario pru
+                                WHERE estado = 1 
+                                AND pru.id_usuario = :id_usuario
+                                AND enc.id_encuesta = pru.id_encuesta");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        $result =  $stmt->fetch();
+        return $result['contador'];
+    }
 }

@@ -54,7 +54,7 @@
             </div>
             <div class="dark horizontal my-0 border-1"></div>
             <div class="card-body mt-0">
-               <form method="post">
+               <form method="post" enctype="multipart/form-data">
                   <div class="row">
                      <div class="col-12">
                         <div class="form-group">

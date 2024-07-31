@@ -190,7 +190,18 @@
             </div>
          </div>
       </section><!-- End Frequently Asked Questions Section -->
-
+      <section class="services sections-bg bg-light">
+         <div class="container">
+            <div class="row">
+               <div class="section-header pb-0">
+                  <h2 class="text-pri">Eventos del mes</h2>
+               </div>
+               <div class="row">
+                  <?= $cardEventCalendar ?>
+               </div>
+            </div>
+         </div>
+      </section>
       <section class="services">
          <div class="container">
             <div class="row justify-content-center">

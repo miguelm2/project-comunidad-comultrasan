@@ -52,7 +52,12 @@
             </div>
          </div>
          <div class="card-body">
-            <div class="row">
+            <div class="progress">
+               <div class="progress-bar progress-bar-striped progress-bar-animated bg-success p-2" 
+                  role="progressbar" aria-valuenow="<?= $progress ?>" aria-valuemin="0" 
+                  aria-valuemax="100" style="width: <?= $progress ?>%"><?= $progress ?>%</div>
+            </div>
+            <div class="row mt-3">
                <?= $tableSurveyUser ?>
 
             </div>

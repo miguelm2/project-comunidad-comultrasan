@@ -90,8 +90,8 @@ class ServiceSurvey extends System
     public static function getSurveyUser()
     {
         try {
-            $html = ''; 
-            $modelResponse = Encuesta::listSurvey();
+            $html = '';
+            $modelResponse = Encuesta::listSurveyByEstate();
 
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
@@ -100,6 +100,18 @@ class ServiceSurvey extends System
                 }
             }
             return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getProgress()
+    {
+        try {
+            $html = '';
+            $total_encuesta = Encuesta::countSurvey();
+            $id_usuario = $_SESSION['id'];
+            $encuesta_usuario = Encuesta::countSurveyByUser($id_usuario);
+            return ($encuesta_usuario / $total_encuesta) * 100;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

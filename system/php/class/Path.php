@@ -15,6 +15,7 @@ class Path
     static $DIR_IMAGE_DIS_LOGO   = '/system/img/discount/logo/';
     static $DIR_IMAGE_SURVEY     = '/system/img/survey/';
     static $DIR_IMAGE_SURVEY_QUE = '/system/img/surveyQuestion/';
+    static $DIR_IMAGE_EVENT_CALE = '/system/img/eventCalendar/';
 
 }
 ?>

@@ -98,7 +98,7 @@ class ServiceAnswerQuestion extends System
     {
         try {
             $id_encuesta = parent::limpiarString($id_encuesta);
-            $preguntaDTO = PreguntaEncuesta::listSurveyQuestionBySurvey($id_encuesta);
+            $preguntaDTO = PreguntaEncuesta::listSurveyQuestionBySurveyByEstate($id_encuesta);
             $cardHtml = '';
             $con = 0;
             foreach ($preguntaDTO as $value) {
@@ -106,12 +106,12 @@ class ServiceAnswerQuestion extends System
                 $respuestaDTO = RespuestaPregunta::listAnswerQuestionByQuestion($value->getId_pregunta());
                 foreach ($respuestaDTO as $valor) {
                     $html .= '<div class="form-check">
-                                <input type="radio" name="id_respuesta-' . $value->getId_pregunta() . '" value="' . $valor->getId_respuesta() . ' class="form-check-input">
-                                <label for="id_respuesta-' . $value->getId_pregunta() . '" class="form-check-label">' . $valor->getRespuesta() . '</label>
+                                <input type="radio" name="' . $value->getId_pregunta() . '" value="' . $valor->getId_respuesta() . '" class="form-check-input">
+                                <label for="' . $value->getId_pregunta() . '" class="form-check-label" style="color:black; font-size:16px;">' . $valor->getRespuesta() . '</label>
                             </div>';
                 }
                 $con++;
-                $cardHtml .= Elements::getCardQuestion($con, $value->getPregunta(), $html);
+                $cardHtml .= Elements::getCardQuestion($con, $value->getImagen(), $value->getPregunta(), $html);
             }
             return $cardHtml;
         } catch (\Exception $e) {
