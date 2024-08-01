@@ -85,7 +85,7 @@
          </div>
          <div class="row mt-4">
             <div class="col-lg-6 col-md-6 mt-4 mb-4">
-               <div class="card z-index-2 ">
+               <div class="card z-index-2 h-100">
                   <div class="card-body">
                      <h5>Mis datos</h5>
                      <div class="row">
@@ -105,7 +105,7 @@
                </div>
             </div>
             <div class="col-lg-6 col-md-6 mt-4 mb-4">
-               <div class="card">
+               <div class="card h-100">
                   <div class="card-body">
                      <h5>Mi comunidad</h5>
                      <h6><i class="material-icons">diversity_3</i> Nombre: </h6>
@@ -117,8 +117,8 @@
                   </div>
                </div>
             </div>
-            <div class="col-lg-6 col-md-6 mt-4 mb-4">
-               <div class="card">
+            <div class="col-lg-6 col-md-6 mt-3 mb-4">
+               <div class="card h-100">
                   <div class="card-body">
                      <h5>Mi grupo de interés</h5>
                      <h6><i class="material-icons">diversity_2</i> Nombre: </h6>
@@ -132,8 +132,8 @@
                   </div>
                </div>
             </div>
-            <div class="col-lg-6 col-md-6 mt-4 mb-4">
-               <div class="card">
+            <div class="col-lg-6 col-md-6 mt-3 mb-4">
+               <div class="card h-100">
                   <div class="card-body">
                      <h5>Mis beneficios</h5>
                      <h6><i class="material-icons">checklist</i> Benefios obtenidos</h6>

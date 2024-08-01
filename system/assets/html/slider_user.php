@@ -18,7 +18,7 @@
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="comunity">
+            <a class="nav-link text-black " href="community">
                <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">people</i>
                </div>

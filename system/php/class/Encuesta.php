@@ -60,11 +60,37 @@ class Encuesta extends System
         $stmt->execute();
         return  $stmt->fetch();
     }
-    public static function listSurveyByEstate()
+    public static function listSurveyByEstateAndNotResolved($id_usuario)
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM Encuesta WHERE estado = 1");
+        $stmt = $dbh->prepare("SELECT enc.*
+                                FROM comultrasan_bd.dbo.Encuesta enc
+                                WHERE enc.estado = 1
+                                AND NOT EXISTS (
+                                    SELECT 1 
+                                    FROM comultrasan_bd.dbo.RespuestaUsuario ru
+                                    WHERE ru.id_usuario = :id_usuario 
+                                    AND enc.id_encuesta = ru.id_encuesta
+                                )");
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'EncuestaDTO');
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        return  $stmt->fetchAll();
+    }
+    public static function listSurveyByEstateAndResolved($id_usuario)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT enc.*
+                                FROM comultrasan_bd.dbo.Encuesta enc
+                                WHERE enc.estado = 1
+                                AND EXISTS (
+                                    SELECT 1 
+                                    FROM comultrasan_bd.dbo.RespuestaUsuario ru
+                                    WHERE ru.id_usuario = :id_usuario
+                                    AND enc.id_encuesta = ru.id_encuesta
+                                )");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'EncuestaDTO');
+        $stmt->bindParam(':id_usuario', $id_usuario);
         $stmt->execute();
         return  $stmt->fetchAll();
     }

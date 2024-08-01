@@ -6,7 +6,6 @@ class PreguntaEncuestaDTO
     protected $encuestaDTO;
     protected $pregunta;
     protected $estado;
-    protected $imagen;
     protected $fecha_registro;
 
 
@@ -88,26 +87,6 @@ class PreguntaEncuestaDTO
     public function setEstado($estado)
     {
         $this->estado = $estado;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of imagen
-     */
-    public function getImagen()
-    {
-        return $this->imagen;
-    }
-
-    /**
-     * Set the value of imagen
-     *
-     * @return  self
-     */
-    public function setImagen($imagen)
-    {
-        $this->imagen = $imagen;
 
         return $this;
     }

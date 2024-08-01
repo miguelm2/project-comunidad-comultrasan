@@ -82,6 +82,7 @@ CREATE TABLE Foro (
   id_foro INT IDENTITY(1, 1) PRIMARY KEY,
   id_tipo_comunidad INT NOT NULL,
   id_usuario INT NOT NULL,
+  contenido TEXT NOT NULL,
   megusta INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
@@ -142,6 +143,7 @@ CREATE TABLE Punto (
   puntos INT NOT NULL,
   id_usuario INT NOT NULL,
   id_administrador INT NOT NULL,
+  descripcion VARCHAR(255) NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
 
@@ -175,7 +177,6 @@ CREATE TABLE PreguntaEncuesta (
   id_encuesta INT NOT NULL,
   pregunta VARCHAR(255) NOT NULL,
   estado INT NOT NULL,
-  imagen VARCHAR(255) NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
 
@@ -204,5 +205,11 @@ CREATE TABLE CalendarioEvento (
   lugar VARCHAR(255) NOT NULL,
   hora TIME(0) NOT NULL,
   imagen VARCHAR(255) NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE Comunidad (
+  id_comunidad INT IDENTITY(1, 1) PRIMARY KEY,
+  id_usuario INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );

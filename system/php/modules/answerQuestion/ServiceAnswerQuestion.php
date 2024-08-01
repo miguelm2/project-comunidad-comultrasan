@@ -81,7 +81,7 @@ class ServiceAnswerQuestion extends System
                 foreach ($modelResponse as $valor) {
                     $tableHtml .= '<tr>';
                     $tableHtml .= '<td>' . $valor->getid_respuesta() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getRespuesta() . '</td>';
+                    $tableHtml .= '<td class="text-wrap">' . $valor->getRespuesta() . '</td>';
                     $tableHtml .= '<td>' . $valor->getVeracidad()[1] . '</td>';
                     $tableHtml .= '<td align="center">' . Elements::crearBotonVer("answerQuestion", $valor->getid_respuesta()) . '</td>';
                     $tableHtml .= '</tr>';
@@ -105,13 +105,13 @@ class ServiceAnswerQuestion extends System
                 $html = '';
                 $respuestaDTO = RespuestaPregunta::listAnswerQuestionByQuestion($value->getId_pregunta());
                 foreach ($respuestaDTO as $valor) {
-                    $html .= '<div class="form-check">
-                                <input type="radio" name="' . $value->getId_pregunta() . '" value="' . $valor->getId_respuesta() . '" class="form-check-input">
-                                <label for="' . $value->getId_pregunta() . '" class="form-check-label" style="color:black; font-size:16px;">' . $valor->getRespuesta() . '</label>
+                    $html .= '<div class="form-check row">
+                                <input type="radio" name="' . $value->getId_pregunta() . '" value="' . $valor->getId_respuesta() . '" class="form-check-input col-1">
+                                <label for="' . $value->getId_pregunta() . '" class="form-check-label col-11" style="color:black; font-size:16px;">' . $valor->getRespuesta() . '</label>
                             </div>';
                 }
                 $con++;
-                $cardHtml .= Elements::getCardQuestion($con, $value->getImagen(), $value->getPregunta(), $html);
+                $cardHtml .= Elements::getCardQuestion($con, $value->getPregunta(), $html);
             }
             return $cardHtml;
         } catch (\Exception $e) {

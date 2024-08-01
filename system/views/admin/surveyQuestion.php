@@ -56,39 +56,28 @@
             <div class="card-body mt-0">
                <form method="post">
                   <div class="row">
-                     <div class="col-md-4">
-                        <img src="<?= Path::$DIR_IMAGE_SURVEY_QUE . $surveyQuestion->getImagen() ?>" alt="Imagen" class="img-fluid">
+                     <div class="col-md-12">
+                        <div class="form-group">
+                           <label class="form-label" for="pregunta">Pregunta</label>
+                           <input type="text" class="form-control border p-1" name="pregunta" value="<?= $surveyQuestion->getPregunta() ?>" required>
+                        </div>
                      </div>
-                     <div class="col-md-8">
-                        <div class="row">
-                           <div class="col-md-12">
-                              <div class="form-group">
-                                 <label class="form-label" for="pregunta">Pregunta</label>
-                                 <input type="text" class="form-control border p-1" name="pregunta" value="<?= $surveyQuestion->getPregunta() ?>" required>
-                              </div>
-                           </div>
-                           <div class="col-md-12">
-                              <div class="form-group">
-                                 <label class="form-label" for="puntos">Estado</label>
-                                 <select name="estado" id="estado" class="form-select border p-1">
-                                    <option value="<?= $surveyQuestion->getEstado()[0] ?>"><?= $surveyQuestion->getEstado()[1] ?></option>
-                                    <option value="0">Inactivo</option>
-                                    <option value="1">Activo</option>
-                                 </select>
-                              </div>
-                           </div>
+                     <div class="col-md-12">
+                        <div class="form-group">
+                           <label class="form-label" for="puntos">Estado</label>
+                           <select name="estado" id="estado" class="form-select border p-1">
+                              <option value="<?= $surveyQuestion->getEstado()[0] ?>"><?= $surveyQuestion->getEstado()[1] ?></option>
+                              <option value="0">Inactivo</option>
+                              <option value="1">Activo</option>
+                           </select>
                         </div>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
-                     <div class="col-md-4 d-grid mt-4">
+                     <div class="col-md-6 d-grid mt-4">
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">
                            <i class="material-icons me-2">delete</i> Eliminar Registro</button>
                      </div>
-                     <div class="col-md-4 d-grid mt-4">
-                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">
-                           <i class="material-icons me-2">image</i> Cambiar Imagen</button>
-                     </div>
-                     <div class="col-md-4 d-grid mt-4">
+                     <div class="col-md-6 d-grid mt-4">
                         <button type="submit" class="btn btn-success" name="setSurveyQuestion">
                            <i class="material-icons me-2">edit</i> Editar Pregunta
                         </button>
@@ -202,33 +191,6 @@
          </div>
       </form>
       <!--Final Basic Modal-->
-      <!-- ======= Basic Modal ======= -->
-      <form method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="setImage" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Cambiar Imagen</h5>
-                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <div class="form-group">
-                        <label class="form-label" for="imageSurveyQuestion">Imagen</label>
-                        <input type="file" class="form-control border p-1" name="imageSurveyQuestion" accept="image/*" required>
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="setImageSurveyQuestion" class="btn btn-info">
-                        <i class="material-icons me-2">image</i> Cambiar Imagen
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!-- End Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
