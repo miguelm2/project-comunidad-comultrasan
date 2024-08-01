@@ -6,6 +6,7 @@ class PuntoDTO
     protected $puntos;
     protected $usuarioDTO;
     protected $administradorDTO;
+    protected $descripcion;
     protected $fecha_registro;
 
     public function __construct()
@@ -104,6 +105,26 @@ class PuntoDTO
     public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of descripcion
+     */ 
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set the value of descripcion
+     *
+     * @return  self
+     */ 
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
 
         return $this;
     }

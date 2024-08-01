@@ -91,14 +91,22 @@ class ServiceSurvey extends System
     {
         try {
             $html = '';
-            $modelResponse = Encuesta::listSurveyByEstate();
+            $id_usuario = $_SESSION['id'];
+            $modelResponse = Encuesta::listSurveyByEstateAndNotResolved($id_usuario);
 
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
                     $btnRealizar =  Elements::crearBotonRealizar("survey", $valor->getId_encuesta());
-                    $html .= Elements::getCardSurveyUser($valor->getNombre(), $valor->getPuntos(), $valor->getEstado()[1], $btnRealizar);
+                    $html .= Elements::getCardSurveyUserNotResolved($valor->getNombre(), $valor->getPuntos(), $valor->getEstado()[1], $btnRealizar);
                 }
             }
+            $response = Encuesta::listSurveyByEstateAndResolved($id_usuario);
+            if ($response) {
+                foreach ($response as $value) {
+                    $html .= Elements::getCardSurveyUserResolved($value->getNombre(), $value->getPuntos(), $value->getEstado()[1]);
+                }
+            }
+
             return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

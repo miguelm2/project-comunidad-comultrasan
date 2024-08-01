@@ -164,14 +164,14 @@ class Elements
         return '<script>
             Swal.fire({
             title: "FELICIDADES!! Haz ganado '. $puntos . ' corazones",
-            width: 600,
+            width: 500,
             padding: "3em",
             color: "#716add",
             background: "#fff url(https://sweetalert2.github.io/#downloadimages/trees.png)",
             backdrop: `
                 rgba(0,0,123,0.4)
                 url("https://www.icegif.com/wp-content/uploads/2023/07/icegif-129.gif")
-                center top
+                right top
                 no-repeat
             `
             });
@@ -258,7 +258,7 @@ class Elements
                     </div>
                 </div>';
     }
-    public static function getCardSurveyUser($titulo, $puntos, $estado, $btnRealizar)
+    public static function getCardSurveyUserNotResolved($titulo, $puntos, $estado, $btnRealizar)
     {
         return '
         <div class="col-md-6 mt-3">
@@ -277,12 +277,32 @@ class Elements
         </div>
         ';
     }
-    public static function getCardQuestion($con, $imagen, $pregunta, $respuestas)
+    public static function getCardSurveyUserResolved($titulo, $puntos, $estado)
+    {
+        return '
+        <div class="col-md-6 mt-3">
+            <div class="card border-2">
+                <div class="card-header mp-0">
+                    <h5 class="card-text text-success"><i class="material-icons me-2">library_books</i>' . $titulo . '</h5>
+                </div>
+                <div class="card-body mt-0 pt-0">
+                    <p class="card-text text-black">
+                        Cantidad de puntos: <strong>' . $puntos . '</strong><br>
+                        Estado: ' . $estado . '
+                    </p>
+                    <button class="btn btn-link text-info px-3 mb-0" style="font-size: 16px;" disabled>
+                        <i class="material-icons text-sm me-2">play_circle</i>REALIZADO
+                    </button>
+                </div>
+            </div>
+        </div>
+        ';
+    }
+    public static function getCardQuestion($con, $pregunta, $respuestas)
     {
         return '
         <div class="card-head ms-3 mt-3">
             <h4 class="text-success">Pregunta N°.' . $con . '</h4>
-            <img src="' . Path::$DIR_IMAGE_SURVEY_QUE . $imagen . '" alt="Pregunta" class="img-fluid ms-4" style="max-width:300px">
         </div>
         <div class="card-body mt-0">
             <h5 class="card-text text-success">' . $pregunta . '</h5>

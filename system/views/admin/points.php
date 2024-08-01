@@ -63,30 +63,22 @@
                <table class="table table-bordered table-hover align-items-center mb-0">
                   <thead class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           ID</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Usuario</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Administrador</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Corazones</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Usuario</th>
+                        <th class="text-uppercase font-weight-bolder">Administrador</th>
+                        <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        <th class="text-uppercase font-weight-bolder">Descripción</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           ID</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Usuario</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Administrador</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Corazones</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Usuario</th>
+                        <th class="text-uppercase font-weight-bolder">Administrador</th>
+                        <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        <th class="text-uppercase font-weight-bolder">Descripción</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </tfoot>
                   <tbody class="text-center">
@@ -117,6 +109,10 @@
                               <option value="">Seleccione un usuario</option>
                               <?= $optionUser ?>
                            </select>
+                        </div>
+                        <div class="col-md-12 form-group">
+                           <label for="descripcion">Descripción</label>
+                           <textarea name="descripcion" id="descripcion" class="form-control border p-1" rows="4" required></textarea>
                         </div>
                      </div>
                   </div>

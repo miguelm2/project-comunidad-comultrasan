@@ -55,10 +55,10 @@
             <div class="dark horizontal my-0 border-1"></div>
             <div class="card-body">
                <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                      <img src="<?= Path::$DIR_IMAGE_USER . $user->getImagen() ?>" alt="Imagen" class="img-fluid">
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-9">
                      <div class="row">
                         <div class="col-6">
                            <h6>Nombre:</h6>

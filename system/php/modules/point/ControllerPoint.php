@@ -2,7 +2,7 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/point/ServicePoint.php';
 
 if (isset($_POST['newPoint'])) {
-    $response = ServicePoint::newPoint($_POST['puntos'], $_POST['usuario'], $_SESSION['id']);
+    $response = ServicePoint::newPoint($_POST['puntos'], $_POST['usuario'], $_SESSION['id'], $_POST['descripcion']);
 }
 
 if (isset($_POST['setPoint'])) {

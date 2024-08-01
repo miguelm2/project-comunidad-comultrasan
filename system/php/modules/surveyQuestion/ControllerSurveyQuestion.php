@@ -9,10 +9,6 @@ if (isset($_POST['setSurveyQuestion'])) {
     $response = ServiceSurveyQuestion::setSurveyQuestion($_GET['surveyQuestion'], $_POST['pregunta'], $_POST['estado']);
 }
 
-if (isset($_POST['setImageSurveyQuestion'])) {
-    $response = ServiceSurveyQuestion::setImageSurveyQuestion($_GET['surveyQuestion']);
-}
-
 if (isset($_GET['surveyQuestion'])) {
     $surveyQuestion = ServiceSurveyQuestion::getSurveyQuestion($_GET['surveyQuestion']);
 }

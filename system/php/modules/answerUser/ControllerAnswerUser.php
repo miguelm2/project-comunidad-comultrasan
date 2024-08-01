@@ -9,5 +9,5 @@ if (isset($_POST['sendAnswerSurvey'])) {
         $response = ServiceAnswerUser::newAnswerUser($_GET['survey'], $valor->getId_pregunta(), $_POST[$id_pregunta]);
     }
     $encuestaDTO = ServiceSurvey::getSurvey($_GET['survey']);
-    ServicePoint::newPoint($encuestaDTO->getPuntos(), $_SESSION['id'], 1);
+    ServicePoint::newPoint($encuestaDTO->getPuntos(), $_SESSION['id'], 1, "Resolvió la encuesta: ".$encuestaDTO->getNombre());
 }

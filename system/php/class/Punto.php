@@ -3,41 +3,45 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/model/PuntoDTO.php';
 
 class Punto extends System
 {
-    public static function newPoint($puntos, $id_usuario, $id_administrador, $fecha_registro)
+    public static function newPoint($puntos, $id_usuario, $id_administrador, $descripcion, $fecha_registro)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("INSERT INTO Punto (puntos, id_usuario, id_administrador, fecha_registro) 
-                                VALUES (:puntos, :id_usuario, :id_administrador, :fecha_registro)");
+        $stmt = $dbh->prepare("INSERT INTO Punto (puntos, id_usuario, id_administrador, descripcion, fecha_registro) 
+                                VALUES (:puntos, :id_usuario, :id_administrador, :descripcion, :fecha_registro)");
         $stmt->bindParam(':puntos', $puntos);
         $stmt->bindParam(':id_usuario', $id_usuario);
         $stmt->bindParam(':id_administrador', $id_administrador);
+        $stmt->bindParam(':descripcion', $descripcion);
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
-    public static function setPoint($id_punto, $puntos)
+    public static function setPoint($id_punto, $puntos, $descipcion)
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE Punto 
-                            SET puntos = :puntos
+                            SET puntos = :puntos, descripcion = :descripcion
                             WHERE id_punto = :id_punto");
         $stmt->bindParam(':id_punto', $id_punto);
         $stmt->bindParam(':puntos', $puntos);
+        $stmt->bindParam(':descripcion', $descripcion);
         return  $stmt->execute();
     }
-    public static function getPoint($id_punto){
+    public static function getPoint($id_punto)
+    {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("SELECT * FROM Punto WHERE id_punto = :id_punto");
         $stmt->bindParam(':id_punto', $id_punto);
         $stmt->execute();
         $result = $stmt->fetch();
 
-        if($result){
+        if ($result) {
             $puntoDTO = new PuntoDTO();
 
             $puntoDTO->setId_punto($result['id_punto']);
             $puntoDTO->setPuntos($result['puntos']);
             $puntoDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
             $puntoDTO->setAdministradorDTO(Administrador::getAdministradorById($result['id_administrador']));
+            $puntoDTO->setDescripcion($result['descripcion']);
             $puntoDTO->setFecha_registro($result['fecha_registro']);
 
             return $puntoDTO;
@@ -53,13 +57,14 @@ class Punto extends System
 
         $listResponse = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $puntoDTO = new PuntoDTO();
 
             $puntoDTO->setId_punto($result['id_punto']);
             $puntoDTO->setPuntos($result['puntos']);
             $puntoDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
             $puntoDTO->setAdministradorDTO(Administrador::getAdministradorById($result['id_administrador']));
+            $puntoDTO->setDescripcion($result['descripcion']);
             $puntoDTO->setFecha_registro($result['fecha_registro']);
             $listResponse[$con] = $puntoDTO;
             $con++;
@@ -76,13 +81,14 @@ class Punto extends System
 
         $listResponse = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $puntoDTO = new PuntoDTO();
 
             $puntoDTO->setId_punto($result['id_punto']);
             $puntoDTO->setPuntos($result['puntos']);
             $puntoDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
             $puntoDTO->setAdministradorDTO(Administrador::getAdministradorById($result['id_administrador']));
+            $puntoDTO->setDescripcion($result['descripcion']);
             $puntoDTO->setFecha_registro($result['fecha_registro']);
             $listResponse[$con] = $puntoDTO;
             $con++;
@@ -107,5 +113,16 @@ class Punto extends System
         $stmt->execute();
         $result = $stmt->fetch();
         return $result['contador'];
+    }
+    public static function getSumPointsByUser($id_usuario)
+    {
+        $dbh = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT SUM(puntos) AS total 
+                                FROM Punto
+                                WHERE id_usuario = :id_usuario");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result['total'];
     }
 }

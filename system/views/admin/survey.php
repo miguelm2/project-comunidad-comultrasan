@@ -115,38 +115,36 @@
                   </div>
                </div>
             </div>
-            <div class="card-body">
-               <div class="table-responsive">
-                  <table class="table table-bordered table-hover align-items-center mb-0">
-                     <thead class="text-center">
-                        <tr>
-                           <th class="text-uppercase font-weight-bolder">
-                              ID</th>
-                           <th class="text-uppercase font-weight-bolder">
-                              Pregunta</th>
-                           <th class="text-uppercase font-weight-bolder">
-                              Estado</th>
-                           <th class="text-uppercase font-weight-bolder">
-                              Opciones</th>
-                        </tr>
-                     </thead>
-                     <tfoot class="text-center">
-                        <tr>
-                           <th class="text-uppercase font-weight-bolder">
-                              ID</th>
-                           <th class="text-uppercase font-weight-bolder">
-                              Pregunta</th>
-                           <th class="text-uppercase font-weight-bolder">
-                              Estado</th>
-                           <th class="text-uppercase font-weight-bolder">
-                              Opciones</th>
-                        </tr>
-                     </tfoot>
-                     <tbody class="text-center">
-                        <?= $tableSurveyQuestion ?>
-                     </tbody>
-                  </table>
-               </div>
+            <div class="table-responsive">
+               <table class="table table-bordered table-hover align-items-center mb-0">
+                  <thead class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">
+                           ID</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Pregunta</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Estado</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Opciones</th>
+                     </tr>
+                  </thead>
+                  <tfoot class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">
+                           ID</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Pregunta</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Estado</th>
+                        <th class="text-uppercase font-weight-bolder">
+                           Opciones</th>
+                     </tr>
+                  </tfoot>
+                  <tbody>
+                     <?= $tableSurveyQuestion ?>
+                  </tbody>
+               </table>
             </div>
          </div>
       </div>
