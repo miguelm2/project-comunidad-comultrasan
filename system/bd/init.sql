@@ -87,7 +87,7 @@ CREATE TABLE Foro (
   fecha_registro DATETIME NOT NULL
 );
 
-CREATE TABLE Informacion (
+CREATE TABLE Perfil (
   id_perfil INT IDENTITY(1, 1) PRIMARY KEY,
   nombre VARCHAR(255) NOT NULL,
   direccion VARCHAR(255) NOT NULL,

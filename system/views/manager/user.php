@@ -107,7 +107,7 @@
                            <td class="text-uppercase font-weight-bolder">ID</td>
                            <td class="text-uppercase font-weight-bolder">Administrador</td>
                            <td class="text-uppercase font-weight-bolder">Corazones</td>
-                           <td class="text-uppercase font-weight-bolder">Fecha Registro</td>
+                           <td class="text-uppercase font-weight-bolder">Descripción</td>
                         </tr>
                      </thead>
                      <tfoot>
@@ -115,11 +115,45 @@
                            <td class="text-uppercase font-weight-bolder">Id</td>
                            <td class="text-uppercase font-weight-bolder">Administrador</td>
                            <td class="text-uppercase font-weight-bolder">Corazones</td>
-                           <td class="text-uppercase font-weight-bolder">Fecha Registro</td>
+                           <td class="text-uppercase font-weight-bolder">Descripción</td>
                         </tr>
                      </tfoot>
                      <tbody>
                         <?= $tablePointsUser ?>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+         <div class="card mt-3">
+            <div class="card-head mt-4">
+               <div class="row">
+                  <div class="col-md-10">
+                     <h5 class="text-success p-1">
+                        Beneficios
+                     </h5>
+                  </div>
+               </div>
+            </div>
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table class="table table-hover table-hover table-bordered table-striped">
+                     <thead>
+                        <tr>
+                           <td class="text-uppercase font-weight-bolder">ID</td>
+                           <td class="text-uppercase font-weight-bolder">Título</td>
+                           <td class="text-uppercase font-weight-bolder">Puntos</td>
+                        </tr>
+                     </thead>
+                     <tfoot>
+                        <tr>
+                           <td class="text-uppercase font-weight-bolder">ID</td>
+                           <td class="text-uppercase font-weight-bolder">Título</td>
+                           <td class="text-uppercase font-weight-bolder">Puntos</td>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        
                      </tbody>
                   </table>
                </div>
