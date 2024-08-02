@@ -6,7 +6,7 @@ if (isset($_POST['newPoint'])) {
 }
 
 if (isset($_POST['setPoint'])) {
-    $response = ServicePoint::setPoint($_GET['point'], $_POST['puntos']);
+    $response = ServicePoint::setPoint($_GET['point'], $_POST['puntos'], $_POST['descripcion']);
 }
 
 if (isset($_POST['deletePoint'])) {
