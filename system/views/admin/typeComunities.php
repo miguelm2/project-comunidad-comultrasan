@@ -89,7 +89,7 @@
                         <th class="text-uppercase font-weight-bolder">
                            Opciones</th>
                      </tr>
-                 oot>
+                  </tfoot>
                   <tbody class="text-center">
                      <?= $tableTypeComnuties ?>
                   </tbody>

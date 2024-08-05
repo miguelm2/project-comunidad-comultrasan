@@ -119,7 +119,7 @@ class ServiceSurvey extends System
             $total_encuesta = Encuesta::countSurvey();
             $id_usuario = $_SESSION['id'];
             $encuesta_usuario = Encuesta::countSurveyByUser($id_usuario);
-            return ($encuesta_usuario / $total_encuesta) * 100;
+            return ($total_encuesta == 0) ? 0 : ($encuesta_usuario / $total_encuesta) * 100;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

@@ -213,3 +213,22 @@ CREATE TABLE Comunidad (
   id_usuario INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
+
+CREATE TABLE UsuarioBeneficio (
+  id_usuario_beneficio INT IDENTITY(1, 1) PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  id_beneficio INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE UsuarioGrupoInteres (
+  id_usuario_grupo INT IDENTITY(1, 1) PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  id_grupo INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+ALTER TABLE
+  Foro
+ADD
+  titulo VARCHAR(255) NULL;

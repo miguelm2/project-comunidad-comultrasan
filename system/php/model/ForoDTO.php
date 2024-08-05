@@ -7,6 +7,7 @@ class ForoDTO
     protected $usuarioDTO;
     protected $contenido;
     protected $megusta;
+    protected $titulo;
     protected $fecha_registro;
 
     /**
@@ -125,6 +126,26 @@ class ForoDTO
     public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of titulo
+     */ 
+    public function getTitulo()
+    {
+        return $this->titulo;
+    }
+
+    /**
+     * Set the value of titulo
+     *
+     * @return  self
+     */ 
+    public function setTitulo($titulo)
+    {
+        $this->titulo = $titulo;
 
         return $this;
     }

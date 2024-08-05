@@ -114,31 +114,49 @@
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Nombre</label>
-                              <input type="text" class="form-control border p-1" name="nombre" required>
+                              <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre" required>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Correo</label>
-                              <input type="email" class="form-control border p-1" name="correo" required>
+                              <input type="email" class="form-control border p-1" name="correo" placeholder="Correo" required>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
-                              <label class="form-label">Celular</label>
-                              <input type="tel" class="form-control border p-1" name="telefono" required>
+                              <label class="form-label" for="tipo_documento">Tipo de documento</label>
+                              <select name="tipo_documento" class="form-select border p-1" required>
+                                 <option value="">Seleccione una opción</option>
+                                 <option value="1">Cédula de ciudadanía</option>
+                                 <option value="2">Tarjeta de identidad</option>
+                                 <option value="3">Cédula de extranjería</option>
+                                 <option value="4">Pasaporte</option>
+                              </select>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Cédula</label>
-                              <input type="number" class="form-control border p-1" name="cedula" required>
+                              <input type="number" class="form-control border p-1" name="cedula" placeholder="Nro. de cédula" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Celular</label>
+                              <input type="tel" class="form-control border p-1" name="telefono" placeholder="Celular" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Fecha de nacimiento</label>
+                              <input type="date" class="form-control border p-1" name="fecha_nacimiento" required>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
                               <label class="form-label">Contraseña</label>
-                              <input type="password" class="form-control border p-1" name="pass" required>
+                              <input type="password" class="form-control border p-1" name="pass" placeholder="Contraseña" required>
                            </div>
                         </div>
                         <div class="col-12">

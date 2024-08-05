@@ -157,4 +157,21 @@ class ServiceTypeComunity extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function getCardGroupInterest(){
+        try {
+            $html = "";
+            $modelResponse = TipoComunidad::listTypeComunity();
+
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $html .= Elements::getCardGroupInterest($valor->getId_tipo_comunidad(), $valor->getIcono(), $valor->getTitulo(), $valor->getSubtitulo());
+                }
+            } else {
+                return '<div>No hay registros para mostrar</div>';
+            }
+            return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }

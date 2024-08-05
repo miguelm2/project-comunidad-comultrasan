@@ -15,3 +15,11 @@ $("select[id='veracidad'] > option").each(function() {
         mycode[this.text] = this.value;
     }
 });
+var mycode = {};
+$("select[id='tipo_documento'] > option").each(function() {
+    if (mycode[this.text]) {
+        $(this).remove();
+    } else {
+        mycode[this.text] = this.value;
+    }
+});

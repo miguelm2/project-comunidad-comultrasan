@@ -20,7 +20,11 @@ if (isset($_POST['deleteBenefit'])) {
 if (isset($_GET['benefit'])) {
     $benefit = ServiceBenefit::getBenefit($_GET['benefit']);
 }
+if (isset($_GET['user'])) {
+    $tableBenefitUser = ServiceBenefit::getTableBenefitByUser($_GET['user']);
+}
 
 if (isset($_GET)) {
     $tableBenefits = ServiceBenefit::getTableBenefit();
+    $optionBenefit = ServiceBenefit::getOptionBenefit();
 }

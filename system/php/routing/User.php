@@ -24,3 +24,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/answerQuestion/Con
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/answerUser/ControllerAnswerUser.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/community/ControllerCommunty.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/ControllerTypeComunity.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userGroupInterest/ControllerUserGroupInterest.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forum/ControllerForum.php';
