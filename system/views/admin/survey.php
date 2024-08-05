@@ -185,10 +185,6 @@
                            <label for="pregunta">Pregunta</label>
                            <input type="text" class="form-control border p-1" name="pregunta" placeholder="Pregunta" maxlength="255" required>
                         </div>
-                        <div class="col-md-12 form-group">
-                           <label for="imageSurveyQuestion">Imagen</label>
-                           <input type="file" class="form-control border p-1" name="imageSurveyQuestion" accept="image/*" required>
-                        </div>
                      </div>
                   </div>
                   <div class="modal-footer">

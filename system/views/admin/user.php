@@ -70,6 +70,18 @@
                            </div>
                            <div class="col-6">
                               <div class="form-group">
+                                 <label class="form-label" for="tipo_documento">Tipo de documento</label>
+                                 <select name="tipo_documento" class="form-select border p-1" id="tipo_documento" required>
+                                    <option value="<?= $user->getTipo_documento()[0] ?>"><?= $user->getTipo_documento()[1] ?></option>
+                                    <option value="1">Cédula de ciudadanía</option>
+                                    <option value="2">Tarjeta de identidad</option>
+                                    <option value="3">Cédula de extranjería</option>
+                                    <option value="4">Pasaporte</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="form-group">
                                  <label class="form-label">Cédula</label>
                                  <input type="number" class="form-control border p-1" value="<?= $user->getCedula() ?>" name="cedula" required>
                               </div>
@@ -78,6 +90,12 @@
                               <div class="form-group">
                                  <label class="form-label">Celular</label>
                                  <input type="tel" class="form-control border p-1" value="<?= $user->getTelefono() ?>" name="telefono" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="form-group">
+                                 <label class="form-label">Fecha de nacimiento</label>
+                                 <input type="date" class="form-control border p-1" name="fecha_nacimiento" value="<?= $user->getFecha_nacimiento() ?>" required>
                               </div>
                            </div>
                            <div class="col-6">
@@ -148,6 +166,45 @@
                      </tfoot>
                      <tbody>
                         <?= $tablePointsUser ?>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+         <div class="card mt-3">
+            <div class="card-head mt-4">
+               <div class="row">
+                  <div class="col-md-9">
+                     <h5 class="text-success p-1">
+                        Beneficios
+                     </h5>
+                  </div>
+                  <div class="col-md-3 mt-4">
+                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUserBenefit">
+                        <i class="material-icons me-2">add</i> Agregar Beneficio
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped">
+                     <thead>
+                        <tr>
+                           <td class="text-uppercase font-weight-bolder">Beneficio</td>
+                           <td class="text-uppercase font-weight-bolder">Puntos</td>
+                           <td class="text-uppercase font-weight-bolder">Fecha Registro</td>
+                        </tr>
+                     </thead>
+                     <tfoot>
+                        <tr>
+                           <td class="text-uppercase font-weight-bolder">Beneficio</td>
+                           <td class="text-uppercase font-weight-bolder">Puntos</td>
+                           <td class="text-uppercase font-weight-bolder">Fecha Registro</td>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?= $tableBenefitUser ?>
                      </tbody>
                   </table>
                </div>
@@ -239,6 +296,33 @@
          </div>
       </form>
       <!-- End Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post">
+         <div class="modal fade" id="newUserBenefit" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Agregar Beneficio</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="form-group">
+                        <label class="form-label" for="userBenefit">Beneficio</label>
+                        <select class="form-select border p-1" name="userBenefit" required>
+                           <option value="">Seleccione un beneficio</option>
+                           <?= $optionBenefit ?>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="newUserBenefits" class="btn btn-info"><i class="material-icons me-2">add</i> Agregar Beneficio</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
@@ -255,6 +339,7 @@
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <script src="/system/js/viewPassword.js"></script>
    <script src="/system/js/functions.js"></script>
+   <script src="/system/js/selectRepeat.js"></script>
    <?= $response ?>
 </body>
 

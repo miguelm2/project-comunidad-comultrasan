@@ -11,7 +11,6 @@ class PreguntaEncuesta extends System
         $stmt->bindParam(':id_encuesta', $id_encuesta);
         $stmt->bindParam(':pregunta', $pregunta);
         $stmt->bindParam(':estado', $estado);
-        $stmt->bindParam(':imagen', $imagen);
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }

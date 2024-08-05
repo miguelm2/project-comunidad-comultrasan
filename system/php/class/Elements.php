@@ -163,7 +163,7 @@ class Elements
     {
         return '<script>
             Swal.fire({
-            title: "FELICIDADES!! Haz ganado '. $puntos . ' corazones",
+            title: "FELICIDADES!! Haz ganado ' . $puntos . ' corazones",
             width: 500,
             padding: "3em",
             color: "#716add",
@@ -311,7 +311,7 @@ class Elements
         <div class="dark horizontal my-0 border-1 mt-4"></div>
         ';
     }
-    public static function getCardCalendarEvent($imagen, $titulo, $fecha, $lugar)
+    public static function getCardCalendarEvent($imagen, $titulo, $fecha, $lugar, $hora)
     {
         return '
         <div class="col-md-4">
@@ -322,12 +322,36 @@ class Elements
                 </div>
                 <div class="card-footer">
                     <p class="card-text text-start">
-                        FECHA: ' . $fecha . ' <br>
                         LUGAR: ' . $lugar . '<br>
+                        FECHA: ' . $fecha . ' <br>
+                        HORA: ' . $hora . '
                     </p>
                 </div>
             </div>
         </div>
         ';
+    }
+    public static function getCardGroupInterest($id, $icono, $titulo, $subtitulo)
+    {
+        return '<div class="col-md-4 col-sm-4 mt-2 h-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card border-3 h-100">
+                        <div class="card-head justify-content-center text-center mt-2">
+                            <span class="material-symbols-outlined" style="font-size: 70px;">
+                                ' . $icono . '
+                            </span>
+                        </div>
+                        <div class="card-body pt-0">
+                            <h5 class="title text-black text-center">
+                                <strong>
+                                    ' . $titulo . '
+                                </strong>
+                            </h5>
+                            <p class="text-black p-2">
+                                ' . $subtitulo . '
+                            </p>
+                            <a href="groupInterest?groupInterest=' . $id . '" class="btn btn-info">Ver grupo</a>
+                        </div>
+                    </div>
+                </div>';
     }
 }

@@ -58,6 +58,14 @@
             </a>
          </li>
          <li class="nav-item">
+            <a class="nav-link text-black " href="groupsInterest">
+               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">groups_3</i>
+               </div>
+               <span class="nav-link-text ms-1">Grupos de interés</span>
+            </a>
+         </li>
+         <li class="nav-item">
             <a class="nav-link text-black " data-bs-toggle="modal" data-bs-target="#basicModal" role="button">
                <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">logout</i>

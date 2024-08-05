@@ -35,7 +35,8 @@ class Beneficio extends System
         $stmt->bindParam(':imagen', $imagen);
         return  $stmt->execute();
     }
-    public static function getBenefit($id_beneficio){
+    public static function getBenefit($id_beneficio)
+    {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("SELECT * FROM Beneficio WHERE id_beneficio = :id_beneficio");
         $stmt->bindParam(':id_beneficio', $id_beneficio);
@@ -69,5 +70,20 @@ class Beneficio extends System
         $stmt->execute();
         $result = $stmt->fetch();
         return $result['contador'];
+    }
+    public static function listBenefitByUser($id_usuario)
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT bf.* 
+                                FROM Beneficio as bf,
+                                    UsuarioBeneficio as ub,
+                                    Usuario as us
+                                WHERE us.id_usuario = ub.id_usuario
+                                AND us.id_usuario = :id_usuario
+                                AND bf.id_beneficio = ub.id_beneficio");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'BeneficioDTO');
+        $stmt->execute();
+        return  $stmt->fetchAll();
     }
 }

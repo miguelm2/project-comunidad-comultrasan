@@ -22,7 +22,7 @@
                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
                   <span class="text-white"><i class="material-icons me-2">settings</i>Página</span>
                </a>
-               <ul class="dropdown-menu  px-2 py-3 w-auto" aria-labelledby="navbarDropdownMenuLink2">
+               <ul class="dropdown-menu px-2 py-3 w-auto" aria-labelledby="navbarDropdownMenuLink2">
                   <li class="dropdown-item"><a href="questions"> Preguntas frecuentes</a></li>
                   <li class="dropdown-item"><a href="benefitsPage"> Beneficios Pagina</a></li>
                   <li class="dropdown-item"><a href="typeComunities"> Tipos de comunidad</a></li>
@@ -36,7 +36,7 @@
                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink1">
                   <span class="text-white"><i class="material-icons me-2">settings</i>Configuración</span>
                </a>
-               <ul class="dropdown-menu  px-2 py-3 w-auto" aria-labelledby="navbarDropdownMenuLink1">
+               <ul class="dropdown-menu px-2 py-3 w-auto" aria-labelledby="navbarDropdownMenuLink1">
                   <li class="dropdown-item"><a href="information"> Información</a></li>
                   <li class="dropdown-item"><a href="profile"> Perfil</a></li>
                   <li class="dropdown-item"><a href="administrators"> Administradores</a></li>

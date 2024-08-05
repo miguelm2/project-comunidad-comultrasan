@@ -139,4 +139,40 @@ class ServiceBenefit extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function getOptionBenefit()
+    {
+        try {
+            $beneficioDTO = Beneficio::listBenefit();
+            $html = '';
+            foreach ($beneficioDTO as $value) {
+                $html .= '<option value="' . $value->getId_beneficio() . '">' . $value->getTitulo() . '</option>';
+            }
+            return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getTableBenefitByUser($id_usuario)
+    {
+        try {
+            $id_usuario = parent::limpiarString($id_usuario);
+            $tableHtml = "";
+            $modelResponse = Beneficio::listBenefitByUser($id_usuario);
+
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
+                return '<tr><td colspan="3">No hay registros para mostrar</td></tr>';
+            }
+            return $tableHtml;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }

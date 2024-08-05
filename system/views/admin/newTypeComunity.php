@@ -62,7 +62,7 @@
          </div>
          <div class="dark horizontal my-0 border-1 m-3"></div>
          <div class="card-body mt-0 m-0">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                <div class="row">
                   <div class="col-12">
                      <div class="form-group">
@@ -88,7 +88,7 @@
                   </div>
                   <div class="col-md-12 mt-3">
                      <label for="contendio">Contenido</label>
-                     <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" required></textarea>
+                     <textarea name="contenido" id="texto" class="form-control border p-1" rows="5"></textarea>
                   </div>
                   <div class="dark horizontal my-0 border-1 mt-3"></div>
                   <div class="col-md-12 d-grid mt-4">

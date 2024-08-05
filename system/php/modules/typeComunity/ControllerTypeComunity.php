@@ -25,7 +25,12 @@ if (isset($_GET['comunnity'])) {
     $typeComunnity = ServiceTypeComunity::getTypeComunity($_GET['comunnity']);
 }
 
+if (isset($_GET['groupInterest'])) {
+    $groupInterest = ServiceTypeComunity::getTypeComunity($_GET['groupInterest']);
+}
+
 if (isset($_GET)) {
     $tableTypeComnuties = ServiceTypeComunity::getTableTypeComunity();
     $typeComunityIndex  = ServiceTypeComunity::getCardTypeComunity();
+    $cardGroupInterest  = ServiceTypeComunity::getCardGroupInterest();
 }

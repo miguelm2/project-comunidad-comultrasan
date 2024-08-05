@@ -147,7 +147,7 @@ class ServiceEventCalendar extends System
             $modelResponse = CalendarioEvento::listEventCalendar();
             $html = '';
             foreach($modelResponse as $value){
-                $html .= Elements::getCardCalendarEvent($value->getImagen(), $value->getTitulo(), $value->getFecha(), $value->getLugar());
+                $html .= Elements::getCardCalendarEvent($value->getImagen(), $value->getTitulo(), $value->getFecha(), $value->getLugar(), $value->getHora());
             }
             return $html;
         } catch (\Exception $e) {
