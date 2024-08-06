@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/AnswerQuestion/ServiceAnswerQuestion.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/answerQuestion/ServiceAnswerQuestion.php';
 
 if (isset($_POST['newAnswerQuestion'])) {
     $response = ServiceAnswerQuestion::newAnswerQuestion($_GET['survey'], $_GET['surveyQuestion'], $_POST['respuesta'], $_POST['veracidad']);
