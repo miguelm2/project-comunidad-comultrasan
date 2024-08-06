@@ -16,15 +16,26 @@ abstract  class System
 
     public static function Conexion()
     {
-        try {
-            $dbname = Constants::$NOMBRE_BD;
-            $dbh = new PDO("sqlsrv:Server={" . Constants::$IP_BD . "};Database={" .
-                Constants::$NOMBRE_BD . "};Encrypt=false", Constants::$USUARIO_BD, Constants::$PASS_BD);
-            return $dbh;
-        } catch (PDOException $e) {
-            echo $e->getMessage();
+        // Datos de conexión
+        $serverName = Constants::$IP_BD;
+        $connectionOptions = array(
+            "Database" => Constants::$NOMBRE_BD,
+            "Uid" => Constants::$USUARIO_BD,
+            "PWD" => Constants::$PASS_BD,
+            "Encrypt" => false // Puedes establecerlo a true si usas cifrado
+        );
+    
+        // Establecer la conexión
+        $conn = sqlsrv_connect($serverName, $connectionOptions);
+    
+        if ($conn === false) {
+            // Mostrar detalles del error
+            die(print_r(sqlsrv_errors(), true));
         }
+    
+        return $conn;
     }
+    
 
     function hyphenize($string)
     {
