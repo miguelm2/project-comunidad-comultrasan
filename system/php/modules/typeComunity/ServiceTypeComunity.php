@@ -7,10 +7,10 @@ class ServiceTypeComunity extends System
     public static function newTypeComunity($titulo, $icono, $subtitulo, $contenido)
     {
         try {
-            $titulo     = parent::limpiarString($titulo);
-            $icono      = parent::limpiarString($icono);
-            $subtitulo  = parent::limpiarString($subtitulo);
-            $contenido  = parent::limpiarString($contenido);
+            $titulo = parent::limpiarString($titulo);
+            $icono = parent::limpiarString($icono);
+            $subtitulo = parent::limpiarString($subtitulo);
+            $contenido = parent::limpiarString($contenido);
 
             $fecha_registro = date('Y-m-d H:i:s');
             $imagen = self::newImagen();
@@ -28,19 +28,20 @@ class ServiceTypeComunity extends System
     {
         try {
             if (isset($_FILES['imageTypeComunity']) && $_FILES['imageTypeComunity']['error'] === UPLOAD_ERR_OK) {
-                $source     = $_FILES['imageTypeComunity']['tmp_name'];
-                $filename   = $_FILES['imageTypeComunity']['name'];
-                $fileSize   = $_FILES['imageTypeComunity']['size'];
-                $imagen     = '';
+                $source = $_FILES['imageTypeComunity']['tmp_name'];
+                $filename = $_FILES['imageTypeComunity']['name'];
+                $fileSize = $_FILES['imageTypeComunity']['size'];
+                $imagen = '';
 
                 if ($fileSize > 100 && $filename != '') {
                     $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_TYPE_COM;
 
-                    if (!file_exists($dirImagen)) mkdir($dirImagen, 0777, true);
+                    if (!file_exists($dirImagen))
+                        mkdir($dirImagen, 0777, true);
 
-                    $dir         = opendir($dirImagen);
-                    $trozo1      = explode(".", $filename);
-                    $imagen      = 'tipo_comunidad_' . date('Y-m-d') . '_' . rand() . '.' . end($trozo1);
+                    $dir = opendir($dirImagen);
+                    $trozo1 = explode(".", $filename);
+                    $imagen = 'tipo_comunidad_' . date('Y-m-d') . '_' . rand() . '.' . end($trozo1);
                     $target_path = $dirImagen . $imagen;
                     move_uploaded_file($source, $target_path);
                     closedir($dir);
@@ -54,14 +55,14 @@ class ServiceTypeComunity extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setTypeComunity($id_tipo_comunidad, $titulo, $icono,  $subtitulo, $contenido)
+    public static function setTypeComunity($id_tipo_comunidad, $titulo, $icono, $subtitulo, $contenido)
     {
         try {
-            $id_tipo_comunidad      = parent::limpiarString($id_tipo_comunidad);
-            $titulo                 = parent::limpiarString($titulo);
-            $icono                  = parent::limpiarString($icono);
-            $subtitulo              = parent::limpiarString($subtitulo);
-            $contenido              = parent::limpiarString($contenido);
+            $id_tipo_comunidad = parent::limpiarString($id_tipo_comunidad);
+            $titulo = parent::limpiarString($titulo);
+            $icono = parent::limpiarString($icono);
+            $subtitulo = parent::limpiarString($subtitulo);
+            $contenido = parent::limpiarString($contenido);
 
             $result = TipoComunidad::setTypeComunity($id_tipo_comunidad, $titulo, $icono, $subtitulo, $contenido);
 
@@ -77,8 +78,8 @@ class ServiceTypeComunity extends System
     public static function setImageTypeComunityPage($id_tipo_comunidad)
     {
         try {
-            $id_tipo_comunidad  = parent::limpiarString($id_tipo_comunidad);
-            $tipoComunidadDTO   = self::getTypeComunity($id_tipo_comunidad);
+            $id_tipo_comunidad = parent::limpiarString($id_tipo_comunidad);
+            $tipoComunidadDTO = self::getTypeComunity($id_tipo_comunidad);
 
             $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_TYPE_COM . $tipoComunidadDTO->getImagen();
 
@@ -113,7 +114,8 @@ class ServiceTypeComunity extends System
             $id_beneficios_pagina = parent::limpiarString($id_tipo_comunidad);
 
             $result = TipoComunidad::deleteTypeComunity($id_beneficios_pagina);
-            if ($result) header('Location:typeComunities?delete');
+            if ($result)
+                header('Location:typeComunities?delete');
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -181,18 +183,19 @@ class ServiceTypeComunity extends System
     public static function getCardGroupInterestIndex()
     {
         try {
-            session_start();
-            $id_usuario = $_SESSION['id'];
-            $modelResponse = TipoComunidad::getTypeComunityByUser($id_usuario);
-            $html = '';
-            foreach ($modelResponse as $valor) {
-                $html .= Elements::getCardsGroupInterestIndexByUser(
-                    $valor->getTitulo(),
-                    $valor->getSubtitulo(),
-                    $valor->getIcono()
-                );
+            if (isset($_SESSION['id'])) {
+                $id_usuario = $_SESSION['id'];
+                $modelResponse = TipoComunidad::getTypeComunityByUser($id_usuario);
+                $html = '';
+                foreach ($modelResponse as $valor) {
+                    $html .= Elements::getCardsGroupInterestIndexByUser(
+                        $valor->getTitulo(),
+                        $valor->getSubtitulo(),
+                        $valor->getIcono()
+                    );
+                }
+                return $html;
             }
-            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
