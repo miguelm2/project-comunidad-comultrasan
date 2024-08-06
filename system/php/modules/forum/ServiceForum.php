@@ -75,16 +75,15 @@ class ServiceForum extends System
 
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr class="text-center">';
-                    $tableHtml .= '<td>' . $valor->getId_foro() . '</td>';
-                    $tableHtml .= '<td class="text-warp">' . $valor->getTitulo() . '</td>';
-                    $tableHtml .= '<td class="text-warp">' . $valor->getUsuarioDTO()->getNombre() . '</td>';
-                    $tableHtml .= '<td class="text-center">' . $valor->getMegusta() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("forum", $valor->getId_foro()) . '</td>';
-                    $tableHtml .= '</tr>';
+                    $tableHtml .= Elements::getCardForum(
+                        $valor->getUsuarioDTO()->getImagen(),
+                        $valor->getTitulo(),
+                        $valor->getUsuarioDTO()->getNombre(),
+                        $valor->getId_foro()
+                    );
                 }
             } else {
-                return '<tr class="text-center"><td colspan="5">No hay registros para mostrar</td></tr>';
+                return '<div class="text-center fs-4 p-4">No hay datos para mostrar</div>';
             }
 
             return $tableHtml;

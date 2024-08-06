@@ -232,3 +232,11 @@ ALTER TABLE
   Foro
 ADD
   titulo VARCHAR(255) NULL;
+
+CREATE TABLE ComentarioForo (
+  id_comentario INT IDENTITY(1, 1) PRIMARY KEY,
+  id_foro INT NOT NULL,
+  id_usuario INT NOT NULL,
+  comentario TEXT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);

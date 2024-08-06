@@ -74,11 +74,11 @@
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="contenido">Contenido</label>
-                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" required></textarea>
+                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5"></textarea>
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="requisitos">Requisitos</label>
-                        <textarea name="requisitos" id="texto_1" class="form-control border p-1" rows="5" required></textarea>
+                        <textarea name="requisitos" id="texto_1" class="form-control border p-1" rows="5"></textarea>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-12 d-grid mt-4">

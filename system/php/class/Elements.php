@@ -354,4 +354,22 @@ class Elements
                     </div>
                 </div>';
     }
+    public static function getCardForum($imagen, $titulo, $usuario, $id_foro)
+    {
+        return '<div class="col-md-12">
+                    <div class="row ps-2">
+                        <div class="col-md-1">
+                            <img src="' . Path::$DIR_IMAGE_USER . $imagen . '" alt="Imagen" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="col-md-9">
+                            <h4><a href="forum?forum=' . $id_foro . '">' . $titulo . '</a></h4>
+                            <p>por <strong>' . $usuario . '</strong></p>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="forum?forum=' . $id_foro . '" class="btn btn-secondary">
+                            <i class="material-icons me-2">chat</i>Comentar</a>
+                        </div>
+                    </div>
+                </div>';
+    }
 }

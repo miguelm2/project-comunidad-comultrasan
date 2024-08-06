@@ -33,7 +33,7 @@
                <li class="breadcrumb-item"><a href="groupsInterest">Grupos de Interés</a></li>
                <li class="breadcrumb-item"><a href="groupInterest?groupInterest=<?= $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() ?>">Grupo de Interés</a></li>
                <li class="breadcrumb-item"><a href="groupInterest?groupInterest=<?= $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() ?>">Foro</a></li>
-               <li class="breadcrumb-item active">Editar Foro</li>
+               <li class="breadcrumb-item active">Ver Foro</li>
             </ol>
          </nav>
       </div><!-- End Page Title -->
@@ -43,7 +43,7 @@
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success p-1">
-                        Editar Administrador
+                        <?= $foroDTO->getTitulo() ?>
                      </h5>
                   </div>
                   <div class="col-md-2">
@@ -57,112 +57,56 @@
             </div>
             <div class="dark horizontal my-0 border-1"></div>
             <div class="card-body">
-               <form method="post">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <label for="titulo">Título</label>
-                        <input type="text" name="titulo" id="titulo" class="form-control border p-1" value="<?= $foroDTO->getTitulo() ?>" required>
+               <div class="card border-2">
+                  <div class="card-head mt-4 ms-2">
+                     <h4>
+                        <?= $foroDTO->getTitulo() ?>
+                     </h4>
+                  </div>
+                  <div class="card-body">
+                     <?= $foroDTO->getContenido() ?>
+                     <div class="mt-4">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#newForumComment">
+                           <i class="material-icons me-2">chat</i> Comentar
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm">
+                           <i class="material-icons me-2">favorite</i> Me gusta
+                        </button>
                      </div>
-                     <div class="col-md-12">
-                        <label for="contenido">Contenido</label>
-                        <textarea name="contenido" class="form-control border p-1"><?= $foroDTO->getContenido() ?></textarea>
-                     </div>
                   </div>
-                  <div class="dark horizontal my-0 border-1 mt-4"></div>
-                  <div class="row mt-4">
-                     <div class="col-md-12 d-grid">
-                        <button type="submit" class="btn btn-success" name="setForum"><i class="material-icons me-2">edit</i> Editar Foro</button>
-                     </div>
-                  </div>
-               </form>
-            </div>
-         </div>
-      </div>
-      <!-- Modal Eliminar Registro-->
-      <!-- ======= Basic Modal ======= -->
-      <form method="post">
-         <div class="modal fade" id="eliminar" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Eliminar Administrador</h5>
-                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <label class="form-label">¿Esta seguro que desea eliminar el registro?</label>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="deleteAdministrator" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Administrador</button>
+                  <div class="card-footer">
+                     <h5>Comentarios</h5>
                   </div>
                </div>
             </div>
          </div>
-      </form>
-      <!-- End Basic Modal-->
+      </div>
+
       <!-- ======= Basic Modal ======= -->
       <form method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="setImage" tabindex="-1">
+         <div class="modal fade" id="newForumComment" tabindex="-1">
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Cambiar Imagen</h5>
+                     <h5 class="modal-title">Comentar</h5>
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                      <div class="form-group">
-                        <label class="form-label" for="imageAdmin">Imagen</label>
-                        <input type="file" class="form-control border p-1" name="imageAdmin" accept="image/*" required>
+                        <label class="form-label" for="comentario">Comentario</label>
+                        <textarea name="comentario" class="form-control border p-1" placeholder="Esciba su comentario...." rows="4" required></textarea>
                      </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="setImageAdministrator" class="btn btn-info"><i class="material-icons me-2">image</i> Cambiar Imagen</button>
+                     <button type="submit" name="newForumComment" class="btn btn-info"><i class="material-icons me-2">chat</i> Comentar</button>
                   </div>
                </div>
             </div>
          </div>
       </form>
       <!-- End Basic Modal-->
-      <!-- Modal Cambiar Contraseña-->
-      <!-- ======= Basic Modal ======= -->
-      <form method="post" onsubmit="return validatePassword()">
-         <div class="modal fade" id="cambiarPass" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Cambiar Contraseña</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <div class="row g-3">
-                        <div class="col-md-12 form-group">
-                           <label for="newPass">Nueva contraseña</label>
-                           <input type="password" id="newPass" name="newPass" class="form-control border p-1" maxlength="30" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="confirmPass">Confirmar contraseña</label>
-                           <input type="password" id="confirmPass" name="confirmPass" class="form-control border p-1" maxlength="30" required>
-                        </div>
-                     </div>
-                     <div class="col-md-8 col-lg-9">
-                        <div class="form-check">
-                           <input class="form-check-input" type="checkbox" value="" id="viewPass">
-                           <label class="form-check-label" for="flexCheckDefault">
-                              Mostrar contraseña
-                           </label>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="setPassword" class="btn btn-info"><i class="material-icons me-2">lock</i> Actualizar Contraseña</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!-- End Basic Modal-->
+
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->

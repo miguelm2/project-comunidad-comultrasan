@@ -86,7 +86,7 @@ class Foro extends System
     public static function listForumByTypeCommunity($id_tipo_comunidad)
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * 
+        $stmt = $dbh->prepare("SELECT fr.* 
                                 FROM Foro as fr,
                                     TipoComunidad as tc
                                 WHERE tc.id_tipo_comunidad = fr.id_tipo_comunidad

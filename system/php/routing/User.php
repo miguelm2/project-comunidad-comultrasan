@@ -30,3 +30,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/Contr
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userGroupInterest/ControllerUserGroupInterest.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forum/ControllerForum.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forumComment/ControllerForumComment.php';
