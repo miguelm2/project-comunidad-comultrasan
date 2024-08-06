@@ -96,7 +96,7 @@
                            <div class="mb-3">
                               <div class="form-group">
                                  <label>Imagen</label>
-                                 <input type="file" class="form-control border p-1" name="imageManager" accept="image/*" required>
+                                 <input type="file" class="form-control border p-1" name="imageManager" accept="image/*">
                               </div>
                            </div>
                         </div>

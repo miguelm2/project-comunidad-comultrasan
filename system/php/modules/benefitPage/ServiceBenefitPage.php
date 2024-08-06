@@ -34,7 +34,7 @@ class ServiceBenefitPage extends System
                 $imagen     = '';
 
                 if ($fileSize > 100 && $filename != '') {
-                    $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_BENE_PAGE;
+                    $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_BENE_PAGE ;
 
                     if (!file_exists($dirImagen)) mkdir($dirImagen, 0777, true);
 
@@ -80,7 +80,7 @@ class ServiceBenefitPage extends System
             $id_beneficios_pagina  = parent::limpiarString($id_beneficios_pagina);
             $beneficioPaginaDTO     = self::getBenefitPage($id_beneficios_pagina);
 
-            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_MANAGER . $beneficioPaginaDTO->getImagen();
+            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_BENE_PAGE . $beneficioPaginaDTO->getImagen();
 
             if (file_exists($dirImagen) && !empty($beneficioPaginaDTO->getImagen()) && $beneficioPaginaDTO->getImagen() != "default.png") {
                 unlink($dirImagen);

@@ -18,7 +18,7 @@
             </a>
          </li>
          <li class="nav-item">
-            <div class="dropdown">
+            <div class="dropdown-activate">
                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
                   <span class="text-white"><i class="material-icons me-2">settings</i>Página</span>
                </a>
@@ -32,7 +32,7 @@
             </div>
          </li>
          <li class="nav-item">
-            <div class="dropdown">
+            <div class="dropdown-active">
                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink1">
                   <span class="text-white"><i class="material-icons me-2">settings</i>Configuración</span>
                </a>

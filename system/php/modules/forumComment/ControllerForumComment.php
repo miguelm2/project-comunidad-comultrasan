@@ -13,4 +13,7 @@ if (isset($_POST['deleteForum'])) {
     ServiceForum::deleteForum($_GET['forum']);
 }
 
-
+if (isset($_GET['forum'])) {
+    $contadorComment = ServiceForumComment::getCountForumComment($_GET['forum']);
+    $comentarioForum = ServiceForumComment::getCardCommentForumByForum($_GET['forum']);
+}

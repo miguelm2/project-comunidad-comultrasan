@@ -52,7 +52,7 @@ class ComentarioForo extends System
                                 FROM ComentarioForo as cf,
                                     Foro fr
                                 WHERE cf.id_foro = fr.id_foro
-                                AND fr.if_foro = :id_foro");
+                                AND fr.id_foro = :id_foro");
         $stmt->bindParam(':id_foro', $id_foro);
         $stmt->execute();
         $modelResponse = $stmt->fetchAll();
@@ -61,7 +61,7 @@ class ComentarioForo extends System
         foreach($modelResponse as $result){
             $comentarioForoDTO = new ComentarioForoDTO();
 
-            $comentarioForoDTO->setId_comentario($result['id_Comentario']);
+            $comentarioForoDTO->setId_comentario($result['id_comentario']);
             $comentarioForoDTO->setForoDTO(Foro::getForum($result['id_foro']));
             $comentarioForoDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
             $comentarioForoDTO->setComentario($result['comentario']);
@@ -78,5 +78,18 @@ class ComentarioForo extends System
         $stmt = $dbh->prepare("DELETE FROM Foro WHERE id_comentario = :id_comentario");
         $stmt->bindParam(':id_comentario', $id_comentario);
         return  $stmt->execute();
+    }
+    public static function countForumCommentByForum($id_foro)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT COUNT(cf.id_foro) as contador
+                                FROM ComentarioForo as cf,
+                                    Foro fr
+                                WHERE cf.id_foro = fr.id_foro
+                                AND fr.id_foro = :id_foro");
+        $stmt->bindParam(':id_foro', $id_foro);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result['contador'];
     }
 }

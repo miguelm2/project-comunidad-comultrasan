@@ -33,4 +33,5 @@ if (isset($_GET)) {
     $tableTypeComnuties = ServiceTypeComunity::getTableTypeComunity();
     $typeComunityIndex  = ServiceTypeComunity::getCardTypeComunity();
     $cardGroupInterest  = ServiceTypeComunity::getCardGroupInterest();
+    $cardGroupInterestByUser = ServiceTypeComunity::getCardGroupInterestIndex();
 }

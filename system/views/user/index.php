@@ -50,8 +50,8 @@
                         <i class="material-icons opacity-10">stars</i>
                      </div>
                      <div class="text-end pt-1">
-                        <p class="text-sm mb-0 text-capitalize">Mis Puntos</p>
-                        <h4 class="mb-0">10</h4>
+                        <p class="text-sm mb-0 text-capitalize">Mis Corazones</p>
+                        <h4 class="mb-0"><?= $countPoints ?></h4>
                      </div>
                   </div>
                </div>
@@ -119,16 +119,13 @@
             </div>
             <div class="col-lg-6 col-md-6 mt-3 mb-4">
                <div class="card h-100">
-                  <div class="card-body">
-                     <h5>Mi grupo de interés</h5>
-                     <h6><i class="material-icons">diversity_2</i> Nombre: </h6>
-                     <p>Nombre del grupo</p>
-                     <h6><i class="material-icons">supervisor_account</i> Lider: </h6>
-                     <p>Nombre del lider</p>
-                     <h6><i class="material-icons">group_add</i> Personas en el grupo</h6>
-                     <p>N de personas</p>
-                     <h6><i class="material-icons">today</i> Fecha de ingreso</h6>
-                     <p>Fecha de ingreso al grupo</p>
+                  <div class="card-head mt-4 ms-2">
+                     <h5><i class="material-icons">group</i> Mis Grupos de interes:</h5>
+                  </div>
+                  <div class="card-body pt-0">
+                     <div class="row">
+                        <?= $cardGroupInterestByUser ?>
+                     </div>
                   </div>
                </div>
             </div>

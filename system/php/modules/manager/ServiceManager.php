@@ -54,7 +54,7 @@ class ServiceManager extends System
 
                 return $imagen;
             } else {
-                throw new Exception("No se ha enviado ninguna imagen o ha ocurrido un error en la carga del archivo.");
+                return "default.png";
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

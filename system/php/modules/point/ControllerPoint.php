@@ -19,4 +19,5 @@ if (isset($_GET['point'])) {
 
 if (isset($_GET)) {
     $tablePoints = ServicePoint::getTablePoint();
+    $countPoints = ServicePoint::getPointsByUser();
 }
