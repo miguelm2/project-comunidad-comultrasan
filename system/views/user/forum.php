@@ -74,11 +74,13 @@
                         </button>
                      </div>
                   </div>
-                  <div class="card-footer">
-                     <h5>Comentarios</h5>
-                  </div>
+
                </div>
             </div>
+         </div>
+         <div class="mt-3">
+            <h5><?= $contadorComment ?> comentarios</h5>
+            <?= $comentarioForum ?>
          </div>
       </div>
 

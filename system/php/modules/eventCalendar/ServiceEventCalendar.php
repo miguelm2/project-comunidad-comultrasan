@@ -11,6 +11,7 @@ class ServiceEventCalendar extends System
             $fecha          = parent::limpiarString($fecha);
             $lugar          = parent::limpiarString($lugar);
             $hora           = parent::limpiarString($hora);
+
             $fecha_registro = date('Y-m-d H:i:s');
             $imagen         = self::newImagen();
 
@@ -146,7 +147,7 @@ class ServiceEventCalendar extends System
         try {
             $modelResponse = CalendarioEvento::listEventCalendar();
             $html = '';
-            foreach($modelResponse as $value){
+            foreach ($modelResponse as $value) {
                 $html .= Elements::getCardCalendarEvent($value->getImagen(), $value->getTitulo(), $value->getFecha(), $value->getLugar(), $value->getHora());
             }
             return $html;

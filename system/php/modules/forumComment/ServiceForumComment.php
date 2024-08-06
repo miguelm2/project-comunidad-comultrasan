@@ -51,7 +51,7 @@ class ServiceForumComment extends System
     public static function listForumCommentByForum($id_foro)
     {
         try {
-            $id_tipo_comunidad        = parent::limpiarString($id_foro);
+            $id_foro        = parent::limpiarString($id_foro);
             $tableHtml = '';
             $modelResponse = ComentarioForo::listForumCommentByForum($id_foro);
 
@@ -84,6 +84,68 @@ class ServiceForumComment extends System
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
+        }
+    }
+    public static function getCountForumComment($id_foro)
+    {
+        try {
+            $id_foro        = parent::limpiarString($id_foro);
+
+            $contador = ComentarioForo::countForumCommentByForum($id_foro);
+            return $contador;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getCardCommentForumByForum($id_foro)
+    {
+        try {
+            $id_foro        = parent::limpiarString($id_foro);
+            $html = '';
+            $modelResponse = ComentarioForo::listForumCommentByForum($id_foro);
+
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tiempo = self::getTimePublicate($valor->getFecha_registro());
+                    $html .= Elements::getCardForumComment(
+                        $valor->getUsuarioDTO()->getImagen(),
+                        $valor->getUsuarioDTO()->getNombre(),
+                        $tiempo,
+                        $valor->getComentario()
+                    );
+                }
+            } else {
+                return '<div class="text-center fs-5">No hay comentarios aún</div>';
+            }
+
+            return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    private static function getTimePublicate($fechaBD)
+    {
+        // Convertir la fecha en un objeto DateTime
+        $fechaBD = new DateTime($fechaBD);
+
+        // Obtener la fecha y hora actual
+        $fechaActual = new DateTime();
+
+        // Calcular la diferencia
+        $diferencia = $fechaActual->diff($fechaBD);
+
+        if ($diferencia->y > 0) {
+            return "Hace " . $diferencia->y . " años.";
+        } elseif ($diferencia->m > 0) {
+            return "Hace " . $diferencia->m . " meses.";
+        } elseif ($diferencia->d > 0) {
+            return "Hace " . $diferencia->d . " días.";
+        } elseif ($diferencia->h > 0) {
+            return "Hace " . $diferencia->h . " horas.";
+        } elseif ($diferencia->i > 0) {
+            return "Hace " . $diferencia->i . " minutos.";
+        } else {
+            return "Hace un momento.";
         }
     }
 }

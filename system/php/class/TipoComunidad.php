@@ -37,7 +37,8 @@ class TipoComunidad extends System
         $stmt->bindParam(':imagen', $imagen);
         return  $stmt->execute();
     }
-    public static function getTypeComunity($id_tipo_comunidad){
+    public static function getTypeComunity($id_tipo_comunidad)
+    {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("SELECT * FROM TipoComunidad WHERE id_tipo_comunidad = :id_tipo_comunidad");
         $stmt->bindParam(':id_tipo_comunidad', $id_tipo_comunidad);
@@ -59,5 +60,20 @@ class TipoComunidad extends System
         $stmt = $dbh->prepare("DELETE FROM TipoComunidad WHERE id_tipo_comunidad = :id_tipo_comunidad");
         $stmt->bindParam(':id_tipo_comunidad', $id_tipo_comunidad);
         return  $stmt->execute();
+    }
+    public static function getTypeComunityByUser($id_usuario)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT tc.*
+                                FROM TipoComunidad as tc,
+                                    Usuario as us,
+                                    UsuarioGrupoInteres as ugi
+                                WHERE tc.id_tipo_comunidad = ugi.id_grupo
+                                AND ugi.id_usuario = us.id_usuario
+                                AND us.id_usuario = :id_usuario");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'TipoComunidadDTO');
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 }

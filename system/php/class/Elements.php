@@ -372,4 +372,42 @@ class Elements
                     </div>
                 </div>';
     }
+    public static function getCardForumComment($imagen, $usuario, $tiempo, $comentario)
+    {
+        return '<div class="card border-2 mt-2">
+                    <div class="col-md-12">
+                        <div class="row ps-2 mt-2">
+                            <div class="col-md-1">
+                                <img src="' . Path::$DIR_IMAGE_USER . $imagen . '" alt="" class="img-fluid rounded-circle">
+                            </div>
+                            <div class="col-md-11">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <strong class="text-black" style="color:black">' . $usuario . '</strong>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <small><i class="material-icons me-2">schedule</i>' . $tiempo . '</small>
+                                    </div>
+                                    <div class="col-md 12">
+                                        <p>
+                                            ' . $comentario . '
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+    }
+    public static function getCardsGroupInterestIndexByUser($titulo, $contenido, $icono)
+    {
+        return '<div class="card border-2 shadow-sm rounded mt-2">
+                    <div class="card-head mt-2 pb-0 mb-0">
+                        <h5>Grupo: ' . $titulo . ' <i class="material-icons me-2">' . $icono . '</i></h5>
+                    </div>
+                    <div class="card-body pt-0 pb-0">
+                        <p class="text-muted">' . $contenido . '</p>
+                    </div>
+                </div>';
+    }
 }

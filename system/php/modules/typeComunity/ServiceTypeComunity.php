@@ -11,8 +11,10 @@ class ServiceTypeComunity extends System
             $icono      = parent::limpiarString($icono);
             $subtitulo  = parent::limpiarString($subtitulo);
             $contenido  = parent::limpiarString($contenido);
+
             $fecha_registro = date('Y-m-d H:i:s');
             $imagen = self::newImagen();
+
             $result = TipoComunidad::newTypeComunity($titulo, $icono, $subtitulo, $contenido, $imagen, $fecha_registro);
 
             if ($result) {
@@ -140,7 +142,8 @@ class ServiceTypeComunity extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function getCardTypeComunity(){
+    public static function getCardTypeComunity()
+    {
         try {
             $html = "";
             $modelResponse = TipoComunidad::listTypeComunity();
@@ -157,7 +160,8 @@ class ServiceTypeComunity extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function getCardGroupInterest(){
+    public static function getCardGroupInterest()
+    {
         try {
             $html = "";
             $modelResponse = TipoComunidad::listTypeComunity();
@@ -168,6 +172,24 @@ class ServiceTypeComunity extends System
                 }
             } else {
                 return '<div>No hay registros para mostrar</div>';
+            }
+            return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getCardGroupInterestIndex()
+    {
+        try {
+            $id_usuario = $_SESSION['id'];
+            $modelResponse = TipoComunidad::getTypeComunityByUser($id_usuario);
+            $html = '';
+            foreach ($modelResponse as $valor) {
+                $html .= Elements::getCardsGroupInterestIndexByUser(
+                    $valor->getTitulo(),
+                    $valor->getSubtitulo(),
+                    $valor->getIcono()
+                );
             }
             return $html;
         } catch (\Exception $e) {
