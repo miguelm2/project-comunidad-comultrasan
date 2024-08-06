@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/EventCalendar/ServiceEventCalendar.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/eventCalendar/ServiceEventCalendar.php';
 
 if (isset($_POST['newEventCalendar'])) {
     $response = ServiceEventCalendar::newEventCalendar($_POST['titulo'], $_POST['fecha'], $_POST['lugar'], $_POST['hora']);
