@@ -10,8 +10,8 @@
    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
    <link rel="icon" type="image/png" href="/assets/image/favicon_0.ico">
    <!-- Nucleo Icons -->
-   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+   <link href="/system/assets/css/nucleo-icons.css" rel="stylesheet" />
+   <link href="/system/assets/css/nucleo-svg.css" rel="stylesheet" />
    <!-- Font Awesome Icons -->
    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
    <!-- Material Icons -->
@@ -31,7 +31,8 @@
             <ol class="breadcrumb">
                <li class="breadcrumb-item"><a href="index">Inicio</a></li>
                <li class="breadcrumb-item"><a href="groupsInterest">Grupos de Interés</a></li>
-               <li class="breadcrumb-item active">Grupo <?= $groupInterest->getTitulo() ?></li>
+               <li class="breadcrumb-item"><a href="groupInterest?groupInterest=<?= $_GET['comunnityForum'] ?>">Grupo de Interés</a></li>
+               <li class="breadcrumb-item active">Foro</a></li>
             </ol>
          </nav>
       </div><!-- End Page Title -->
@@ -40,45 +41,61 @@
             <div class="card-head mt-4">
                <div class="row">
                   <div class="col-md-10">
-                     <h5 class="text-success">
-                        Grupo <?= $groupInterest->getTitulo() ?>
+                     <h5 class="text-success p-1">
+                        Foro
                      </h5>
                   </div>
-                  <div class="col-md-2 mt-0">
-                     <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="groupsInterest">
-                           <i class="material-icons me-2">keyboard_return</i>atrás</a>
+                  <div class="col-md-2">
+                     <div class="text-right">
+                        <a type="button" class="btn btn-secondary" href="groupInterest?groupInterest=<?= $_GET['comunnityForum'] ?>">
+                           <i class="material-icons me-2">keyboard_return</i>atrás
+                        </a>
                      </div>
                   </div>
                </div>
             </div>
             <div class="dark horizontal my-0 border-1"></div>
-            <div class="card-body mt-0">
-               <form method="post">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <div class="card border-3">
-                           <div class="card-header mp-0">
-                              <h5 class="text-success"><i class="material-icons me-2">library_books</i><?= $groupInterest->getTitulo() ?></h5>
+            <div class="p-3">
+               <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newForo">
+                  <i class="material-icons me-2">edit</i> Añadir nuevo tema
+               </button>
+            </div>
+            <div class="card">
+               <div class="row">
+                  <?= $tableForumGroupInterest ?>
+               </div>
+            </div>
+         </div>
+         <!-- ======= Basic Modal ======= -->
+         <form id="uploadForm" method="post" enctype="multipart/form-data">
+            <div class="modal fade" id="newForo" tabindex="-1">
+               <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title">Nuevo Foro</h5>
+                        <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                        <div class="row g-3">
+                           <div class="col-md-12 form-group">
+                              <label for="titulo">Título</label>
+                              <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" maxlength="255" required>
                            </div>
-                           <div class="card-body pt-0">
-                              <h6 class="card-text text-success">Descripción sobre el grupo</h6>
-                              <p class="card-text text-black">
-                                 <?= $groupInterest->getContenido() ?>
-                              </p>
-                              <div class="text-end">
-                                 <a href="forums?comunnityForum=<?= $_GET['groupInterest'] ?>" class="btn btn-info">Ir a foro</a>
-                                 <form method="post">
-                                    <button name="newUserGroupInterest" class="btn btn-success">¡Unirme Ahora!</button>
-                                 </form>
-                              </div>
+                           <div class="col-md-12 form-group">
+                              <label for="contenido">Contenido</label>
+                              <textarea name="contenido" id="contenido" class="form-control border p-1" rows="4" placeholder="Contenido" required></textarea>
                            </div>
                         </div>
                      </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                        <button type="submit" name="newForum" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Foro</button>
+                     </div>
                   </div>
-               </form>
+               </div>
             </div>
-         </div>
+         </form>
+         <!--Final Basic Modal-->
       </div>
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
@@ -94,7 +111,8 @@
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
-   <script src="/system/js/selectRepeat.js"></script>
+   <script src="/system/js/viewPassword.js"></script>
+   <script src="/system/js/functions.js"></script>
    <?= $response ?>
 </body>
 
