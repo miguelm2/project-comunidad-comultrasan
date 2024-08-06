@@ -181,6 +181,7 @@ class ServiceTypeComunity extends System
     public static function getCardGroupInterestIndex()
     {
         try {
+            session_start();
             $id_usuario = $_SESSION['id'];
             $modelResponse = TipoComunidad::getTypeComunityByUser($id_usuario);
             $html = '';
