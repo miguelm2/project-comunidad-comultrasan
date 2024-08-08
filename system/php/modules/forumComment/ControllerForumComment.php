@@ -9,8 +9,8 @@ if (isset($_POST['setForum'])) {
     $response = ServiceForum::setForum($_GET['forum'], $_POST['contenido'], $_POST['titulo']);
 }
 
-if (isset($_POST['deleteForum'])) {
-    ServiceForum::deleteForum($_GET['forum']);
+if (isset($_POST['deleteForumComment'])) {
+    ServiceForumComment::deleteForumComment($_POST['comment']);
 }
 
 if (isset($_GET['forum'])) {

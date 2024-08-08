@@ -33,7 +33,7 @@
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-                  <li class="breadcrumb-item active">Comunidad</li>
+                  <li class="breadcrumb-item active">Beneficios</li>
                </ol>
             </nav>
             <!-- Start header -->
@@ -45,7 +45,7 @@
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Comunidad</h4>
+                  <h4 class="text-success">Beneficios</h4>
                </div>
             </div>
          </div>

@@ -30,19 +30,17 @@
       <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
          <div class="container-fluid py-1 px-3">
+            <nav aria-label="breadcrumb">
+               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                  <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+                  <li class="breadcrumb-item active">Encuestas</li>
+               </ol>
+            </nav>
             <!-- Start header -->
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
             <!-- End header -->
          </div>
       </nav>
-      <div class="pagetitle p-1 mt-2 mp-0">
-         <nav>
-            <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item active">Encuestas</li>
-            </ol>
-         </nav>
-      </div>
       <div class="card">
          <div class="row m-0">
             <div class="col-md-8 ms-4 mt-3">
@@ -53,9 +51,7 @@
          </div>
          <div class="card-body">
             <div class="progress">
-               <div class="progress-bar progress-bar-striped progress-bar-animated bg-success p-2" 
-                  role="progressbar" aria-valuenow="<?= $progress ?>" aria-valuemin="0" 
-                  aria-valuemax="100" style="width: <?= $progress ?>%"><?= $progress ?>%</div>
+               <div class="progress-bar progress-bar-striped progress-bar-animated bg-success p-2" role="progressbar" aria-valuenow="<?= $progress ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?= $progress ?>%"><?= $progress ?>%</div>
             </div>
             <div class="row mt-3">
                <?= $tableSurveyUser ?>

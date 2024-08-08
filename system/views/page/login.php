@@ -79,7 +79,7 @@
                                        <a href="/singup" class="btn btn-secondary">Registrarse</a>
                                     </div>
                                     <div class="col-md-7 p-2">
-                                       <a href="forget_pass" class="btn btn-secondary">¿Haz olvidado tu contraseña?</a>
+                                       <a href="recovery" class="btn btn-secondary">¿Haz olvidado tu contraseña?</a>
                                     </div>
                                  </div>
                               </div>
@@ -108,6 +108,7 @@
    <!-- Template Main JS File -->
    <script src="/../../../assets/js/main.js"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script src="/assets/js/main.js"></script>
    <?= $response?>
 

@@ -26,16 +26,21 @@
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_user.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
-      <div class="pagetitle p-1 mt-2 mp-0">
-         <nav>
-            <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item"><a href="groupsInterest">Grupos de Interés</a></li>
-               <li class="breadcrumb-item"><a href="groupInterest?groupInterest=<?= $_GET['comunnityForum'] ?>">Grupo de Interés</a></li>
-               <li class="breadcrumb-item active">Foro</a></li>
-            </ol>
-         </nav>
-      </div><!-- End Page Title -->
+      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+         <div class="container-fluid py-1 px-3">
+            <nav aria-label="breadcrumb">
+               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                  <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+                  <li class="breadcrumb-item"><a href="groupsInterest">Grupos de Interés</a></li>
+                  <li class="breadcrumb-item"><a href="groupInterest?groupInterest=<?= $_GET['comunnityForum'] ?>">Grupo de Interés</a></li>
+                  <li class="breadcrumb-item active">Foro</a></li>
+               </ol>
+            </nav>
+            <!-- Start header -->
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+            <!-- End header -->
+         </div>
+      </nav><!-- End Page Title -->
       <div class="row m-0">
          <div class="card">
             <div class="card-head mt-4">
@@ -56,11 +61,11 @@
             </div>
             <div class="dark horizontal my-0 border-1"></div>
             <div class="p-3">
-               <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newForo">
+               <a href="newForum?comunnityForum=<?= $_GET['comunnityForum'] ?>" class="btn btn-success">
                   <i class="material-icons me-2">edit</i> Añadir nuevo tema
-               </button>
+               </a>
             </div>
-            <div class="card">
+            <div class="card mb-4">
                <div class="row">
                   <?= $tableForumGroupInterest ?>
                </div>

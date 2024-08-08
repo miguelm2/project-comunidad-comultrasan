@@ -131,15 +131,22 @@
             </div>
             <div class="col-lg-6 col-md-6 mt-3 mb-4">
                <div class="card h-100">
-                  <div class="card-body">
+                  <div class="card-head mt-4 ms-2">
                      <h5>Mis beneficios</h5>
-                     <h6><i class="material-icons">checklist</i> Benefios obtenidos</h6>
-                     <p>Beneficios del usuario</p>
-                     <h6><i class="material-icons">today</i> Fecha de obtención</h6>
-                     <p>fecha en que se obtuvieron</p>
-                     <h5>Puntos</h5>
-                     <h6><i class="material-icons">control_point_duplicate</i> Mis puntos: </h6>
-                     <p>Puntos obtenidos</p>
+                  </div>
+                  <div class="card-body">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="card border-2">
+                              <h6 class="mt-2 ms-3"><i class="material-icons">check_circle</i> Descuento</h6>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="card border-2">
+                              <h6 class="mt-2 ms-3"><i class="material-icons">check_circle</i> Salud Oral</h6>
+                           </div>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>

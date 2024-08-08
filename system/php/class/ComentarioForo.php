@@ -34,7 +34,7 @@ class ComentarioForo extends System
         if ($result) {
             $comentarioForoDTO = new ComentarioForoDTO();
 
-            $comentarioForoDTO->setId_comentario($result['id_Comentario']);
+            $comentarioForoDTO->setId_comentario($result['id_comentario']);
             $comentarioForoDTO->setForoDTO(Foro::getForum($result['id_foro']));
             $comentarioForoDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
             $comentarioForoDTO->setComentario($result['comentario']);
@@ -75,7 +75,7 @@ class ComentarioForo extends System
     public static function deleteForumComment($id_comentario)
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("DELETE FROM Foro WHERE id_comentario = :id_comentario");
+        $stmt = $dbh->prepare("DELETE FROM ComentarioForo WHERE id_comentario = :id_comentario");
         $stmt->bindParam(':id_comentario', $id_comentario);
         return  $stmt->execute();
     }

@@ -211,7 +211,7 @@ abstract  class System
 
                 header("Location:/system/views/user/index");
             }
-            if($manager != null) {
+            if ($manager != null) {
                 session_start();
                 $_SESSION['id']             =   $manager->getId_gestor();
                 $_SESSION['nombre']         =   $manager->getNombre();
@@ -235,18 +235,32 @@ abstract  class System
     {
         try {
             $administrador  = Administrador::getAdministradorByCedula($cedula);
+            $usuario = Usuario::getUserByCedula($cedula);
+            $gestor = Gestor::getManagerByCedula($cedula);
             $asunto = "Recuperar cuenta Aplicacion Web Kondory";
 
+            $new_pass = self::randomPassword();
             if ($administrador != null) {
-                $new_pass = self::randomPassword();
                 if (Administrador::setAdministradorPass($administrador->getId_administrador(), self::hash($new_pass))) {
                     $mensaje = "Hola " . $administrador->getNombre();
                     $mensaje .= " <br> " . "Su nueva contraseña para ingresar al sistema  es: " . $new_pass;
                     Mail::sendEmail($asunto, $mensaje, $administrador->getCorreo());
                     return true;
                 }
-            } else {
-                return false;
+            } else if ($usuario != null) {
+                if (Usuario::setUserPass($usuario->getId_usuario(), self::hash($new_pass))) {
+                    $mensaje = "Hola " . $usuario->getNombre();
+                    $mensaje .= " <br> " . "Su nueva contraseña para ingresar al sistema  es: " . $new_pass;
+                    Mail::sendEmail($asunto, $mensaje, $usuario->getCorreo());
+                    return true;
+                }
+            } else if ($gestor != null) {
+                if (Gestor::setManagerPass($gestor->getId_gestor(), self::hash($new_pass))) {
+                    $mensaje = "Hola " . $gestor->getNombre();
+                    $mensaje .= " <br> " . "Su nueva contraseña para ingresar al sistema  es: " . $new_pass;
+                    Mail::sendEmail($asunto, $mensaje, $gestor->getCorreo());
+                    return true;
+                }
             }
         } catch (\Throwable $th) {
             throw $th;
