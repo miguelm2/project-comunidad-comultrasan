@@ -125,4 +125,27 @@ class ServicePoint extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function listTablePointsUserByUser()
+    {
+        try {
+            $tableHtml = "";
+            $id_usuario = $_SESSION['id'];
+            $modelResponse = Punto::listPointByUser($id_usuario);
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_punto() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                    $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
+                return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+            }
+            return $tableHtml;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }

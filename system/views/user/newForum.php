@@ -19,6 +19,7 @@
    <!-- CSS Files -->
    <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+   <link rel="stylesheet" href="/system/assets/css/ckeditor.css">
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -28,11 +29,11 @@
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
       <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
          <div class="container-fluid py-1 px-3">
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" class="d-none d-lg-block">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item"><a href="index">Inicio</a></li>
                   <li class="breadcrumb-item"><a href="groupsInterest">Grupos de Interés</a></li>
-                  <li class="breadcrumb-item"><a href="forums?communityForums=<?= $_GET['comunnityForum'] ?>">Foro</a></li>
+                  <li class="breadcrumb-item"><a href="forums?comunnityForum=<?= $_GET['comunnityForum'] ?>">Foro</a></li>
                   <li class="breadcrumb-item active">Nuevo Foro</li>
                </ol>
             </nav>
@@ -53,7 +54,7 @@
                   </div>
                   <div class="col-md-2 mt-0">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="forums?communityForums=<?= $_GET['comunnityForum'] ?>">
+                        <a type="button" class="btn btn-secondary" href="forums?comunnityForum=<?= $_GET['comunnityForum'] ?>">
                            <i class="material-icons me-2">keyboard_return</i>atrás</a>
                      </div>
                   </div>

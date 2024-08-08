@@ -30,8 +30,8 @@
       <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
          <div class="container-fluid py-1 px-3">
-            <nav aria-label="breadcrumb">
-               <ol class="breadcrumb">
+            <nav aria-label="breadcrumb" class="d-none d-lg-block">
+               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item"><a href="index">Inicio</a></li>
                   <li class="breadcrumb-item active">Corazones</li>
                </ol>
@@ -54,68 +54,27 @@
                <table class="table table-bordered table-hover align-items-center mb-0">
                   <thead class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           ID</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Usuario</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Administrador</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Corazones</th>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Administrador</th>
+                        <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        <th class="text-uppercase font-weight-bolder">Descripción</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           ID</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Usuario</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Administrador</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Corazones</th>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Administrador</th>
+                        <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        <th class="text-uppercase font-weight-bolder">Descripción</th>
                      </tr>
                   </tfoot>
                   <tbody class="text-center">
-                     <?= $tablePoints ?>
+                     <?= $tablePointsByUser ?>
                   </tbody>
                </table>
             </div>
          </div>
       </div>
-      <!-- ======= Basic Modal ======= -->
-      <form id="uploadForm" method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="newBenefit" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Nuevos Corazones</h5>
-                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <div class="row g-3">
-                        <div class="col-md-12 form-group">
-                           <label for="puntos">Corazones</label>
-                           <input type="number" class="form-control border p-1" name="puntos" placeholder="Cantidad de Corazones" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="titulo">Usuario</label>
-                           <select name="usuario" id="usuario" class="form-select border p-1">
-                              <option value="">Seleccione un usuario</option>
-                              <?= $optionUser ?>
-                           </select>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newPoint" class="btn btn-success"><i class="material-icons me-2">add</i> Agregar Corazones</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!--Final Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->

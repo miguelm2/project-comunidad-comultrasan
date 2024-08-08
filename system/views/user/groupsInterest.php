@@ -31,7 +31,7 @@
       <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
          <div class="container-fluid py-1 px-3">
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" class="d-none d-lg-block">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item" aria-current="page">Inicio</li>
                   <li class="breadcrumb-item active">Grupo de Interés</li>
@@ -46,7 +46,7 @@
          <div class="row m-0">
             <div class="col-md-8 ms-4 mt-3">
                <div class="card-head">
-                  <h4 class="text-success">Grupos</h4>
+                  <h4 class="text-success">Grupos de Interés</h4>
                </div>
             </div>
          </div>

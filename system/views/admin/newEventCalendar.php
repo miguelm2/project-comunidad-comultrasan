@@ -26,15 +26,20 @@
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_admin.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
-      <div class="pagetitle p-1 mt-2 mp-0">
-         <nav>
-            <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item"><a href="eventsCalendar">Calendario Eventos</a></li>
-               <li class="breadcrumb-item active">Nuevo Evento</li>
-            </ol>
-         </nav>
-      </div><!-- End Page Title -->
+      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+         <div class="container-fluid py-1 px-3">
+            <nav aria-label="breadcrumb" class="d-none d-lg-block">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+                  <li class="breadcrumb-item"><a href="eventsCalendar">Calendario Eventos</a></li>
+                  <li class="breadcrumb-item active">Nuevo Evento</li>
+               </ol>
+            </nav>
+            <!-- Start header -->
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+            <!-- End header -->
+         </div>
+      </nav><!-- End Page Title -->
       <div class="row m-0">
          <div class="card">
             <div class="card-head mt-4">
@@ -78,7 +83,7 @@
                         <label for="imageEventCalendar">Imagen</label>
                         <input type="file" class="form-control border p-1" name="imageEventCalendar" accept="image/*" required>
                      </div>
-                     
+
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-12 d-grid mt-4">
                         <button type="submit" class="btn btn-success" name="newEventCalendar">

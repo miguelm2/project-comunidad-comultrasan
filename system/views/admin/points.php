@@ -30,19 +30,17 @@
       <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
          <div class="container-fluid py-1 px-3">
+            <nav aria-label="breadcrumb" class="d-none d-lg-block">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+                  <li class="breadcrumb-item active">Corazones</li>
+               </ol>
+            </nav>
             <!-- Start header -->
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
             <!-- End header -->
          </div>
       </nav>
-      <div class="pagetitle p-1 mt-2 mp-0">
-         <nav>
-            <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item active">Corazones</li>
-            </ol>
-         </nav>
-      </div>
       <div class="card">
          <div class="row m-0">
             <div class="col-md-8 m-4">

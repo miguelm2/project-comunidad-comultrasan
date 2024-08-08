@@ -32,7 +32,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
       <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
          <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
-               <ol class="breadcrumb">
+               <ol class="breadcrumb" class="d-none d-lg-block">
                   <li class="breadcrumb-item"><a href="index">Inicio</a></li>
                   <li class="breadcrumb-item"><a href="surveys">Encuestas</a></li>
                   <li class="breadcrumb-item active">Encuesta</li>
