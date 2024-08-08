@@ -333,7 +333,7 @@ class Elements
     }
     public static function getCardGroupInterest($id, $icono, $titulo, $subtitulo)
     {
-        return '<div class="col-md-4 col-sm-4 mt-2 h-100" data-aos="fade-up" data-aos-delay="100">
+        return '<div class="col-md-5 col-sm-5 mt-2 h-100" data-aos="fade-up" data-aos-delay="100">
                     <div class="card border-3 h-100">
                         <div class="card-head justify-content-center text-center mt-2">
                             <span class="material-symbols-outlined" style="font-size: 70px;">
@@ -349,7 +349,18 @@ class Elements
                             <p class="text-black p-2">
                                 ' . $subtitulo . '
                             </p>
-                            <a href="groupInterest?groupInterest=' . $id . '" class="btn btn-info">Ver grupo</a>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="groupInterest?groupInterest=' . $id . '" class="btn btn-success">
+                                        <i class="material-icons text-sm me-2">visibility</i>Ver grupo
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="forums?comunnityForum=' . $id . '" class="btn btn-info">
+                                        <i class="material-icons text-sm me-2">dashboard</i>Ir a foro
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>';

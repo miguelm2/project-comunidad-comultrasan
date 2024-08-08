@@ -28,16 +28,16 @@
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
       <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
          <div class="container-fluid py-1 px-3">
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" class="d-none d-lg-block">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item"><a href="index">Inicio</a></li>
                   <li class="breadcrumb-item"><a href="groupsInterest">Grupos de Interés</a></li>
                   <li class="breadcrumb-item"><a href="groupInterest?groupInterest=<?= $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() ?>">Grupo de Interés</a></li>
-                  <li class="breadcrumb-item"><a href="groupInterest?groupInterest=<?= $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() ?>">Foro</a></li>
+                  <li class="breadcrumb-item"><a href="forums?comunnityForum=<?= $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() ?>">Foro</a></li>
                   <li class="breadcrumb-item active">Ver Foro</li>
                </ol>
             </nav>
-            
+
             <!-- Start header -->
             <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
             <!-- End header -->
@@ -55,7 +55,7 @@
                   </div>
                   <div class="col-md-2">
                      <div class="text-right">
-                        <a type="button" class="btn btn-secondary" href="groupInterest?groupInterest=<?= $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() ?>">
+                        <a type="button" class="btn btn-secondary" href="forums?comunnityForum=<?= $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() ?>">
                            <i class="material-icons me-2">keyboard_return</i>atrás
                         </a>
                      </div>
@@ -66,18 +66,36 @@
             <div class="card-body">
                <div class="card border-2">
                   <div class="card-head mt-4 ms-2">
-                     <h4>
-                        <?= $foroDTO->getTitulo() ?>
-                     </h4>
+                     <div class="row">
+                        <div class="col-md-7">
+                           <h4>
+                              <?= $foroDTO->getTitulo() ?>
+                           </h4>
+                        </div>
+                        <div class="col-md-5">
+                           <div class="row">
+                              <div class="col-md-12">
+                                 <small>
+                                    <i class="material-icons me-2">schedule</i>Publicado: <strong><?= $tiempo ?></strong>
+                                 </small>
+                              </div>
+                              <div>
+                                 <small>
+                                    <i class="material-icons me-2">person</i>Por: <strong><?= $foroDTO->getUsuarioDTO()->getNombre() ?></strong>
+                                 </small>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
                   <div class="card-body">
                      <?= $foroDTO->getContenido() ?>
                      <div class="mt-4">
                         <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#newForumComment">
-                           <i class="material-icons me-2">chat</i> Comentar
+                           <i class="material-icons me-2">chat</i>(<?= $contadorComment ?>) Comentar
                         </button>
                         <button type="button" class="btn btn-primary btn-sm">
-                           <i class="material-icons me-2">favorite</i> Me gusta
+                           <i class="material-icons me-2">favorite</i>(<?= $foroDTO->getMegusta() ?>) Me gusta
                         </button>
                      </div>
                   </div>

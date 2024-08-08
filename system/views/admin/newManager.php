@@ -26,15 +26,20 @@
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_admin.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
-      <div class="pagetitle p-1 mt-2 mp-0">
-         <nav>
-            <ol class="breadcrumb">
-               <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-               <li class="breadcrumb-item"><a href="managers">Gestores</a></li>
-               <li class="breadcrumb-item active">Nuevo Gestor</li>
-            </ol>
-         </nav>
-      </div><!-- End Page Title -->
+      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
+         <div class="container-fluid py-1 px-3">
+            <nav aria-label="breadcrumb" class="d-none d-lg-block">
+               <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+                  <li class="breadcrumb-item"><a href="managers">Gestores</a></li>
+                  <li class="breadcrumb-item active">Nuevo Gestor</li>
+               </ol>
+            </nav>
+            <!-- Start header -->
+            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+            <!-- End header -->
+         </div>
+      </nav><!-- End Page Title -->
       <div class="row m-0">
          <div class="card">
             <div class="card-head mt-4">
@@ -56,50 +61,50 @@
             <div class="card-body mt-0">
                <form method="post">
                   <div class="row">
-                  <div class="col-6">
+                     <div class="col-6">
+                        <div class="form-group">
+                           <label class="form-label">Nombre</label>
+                           <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre completo" required>
+                        </div>
+                     </div>
+                     <div class="col-6">
+                        <div class="form-group">
+                           <label class="form-label">Dirección</label>
+                           <input type="text" class="form-control border p-1" name="direccion" placeholder="Dirección" required>
+                        </div>
+                     </div>
+                     <div class="col-6">
+                        <div class="form-group">
+                           <label class="form-label">Cédula</label>
+                           <input type="number" class="form-control border p-1" name="cedula" placeholder="Cédula" required>
+                        </div>
+                     </div>
+                     <div class="col-6">
+                        <div class="form-group">
+                           <label class="form-label">Celular</label>
+                           <input type="tel" class="form-control border p-1" name="telefono" placeholder="Teléfono" required>
+                        </div>
+                     </div>
+                     <div class="col-6">
+                        <div class="form-group">
+                           <label class="form-label">Correo</label>
+                           <input type="email" class="form-control border p-1" name="correo" placeholder="Correo electrónico" required>
+                        </div>
+                     </div>
+                     <div class="col-6">
+                        <div class="form-group">
+                           <label class="form-label">Contraseña</label>
+                           <input type="password" class="form-control border p-1" name="pass" placeholder="Contraseña" required>
+                        </div>
+                     </div>
+                     <div class="col-12">
+                        <div class="mb-3">
                            <div class="form-group">
-                              <label class="form-label">Nombre</label>
-                              <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre completo" required>
+                              <label>Imagen</label>
+                              <input type="file" class="form-control border p-1" name="imageManager" accept="image/*">
                            </div>
                         </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Dirección</label>
-                              <input type="text" class="form-control border p-1" name="direccion" placeholder="Dirección" required>
-                           </div>
-                        </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Cédula</label>
-                              <input type="number" class="form-control border p-1" name="cedula" placeholder="Cédula" required>
-                           </div>
-                        </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Celular</label>
-                              <input type="tel" class="form-control border p-1" name="telefono" placeholder="Teléfono" required>
-                           </div>
-                        </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Correo</label>
-                              <input type="email" class="form-control border p-1" name="correo" placeholder="Correo electrónico" required>
-                           </div>
-                        </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Contraseña</label>
-                              <input type="password" class="form-control border p-1" name="pass" placeholder="Contraseña" required>
-                           </div>
-                        </div>
-                        <div class="col-12">
-                           <div class="mb-3">
-                              <div class="form-group">
-                                 <label>Imagen</label>
-                                 <input type="file" class="form-control border p-1" name="imageManager" accept="image/*">
-                              </div>
-                           </div>
-                        </div>
+                     </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-12 d-grid mt-4">
                         <button type="submit" class="btn btn-success" name="newManager">

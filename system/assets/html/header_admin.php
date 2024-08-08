@@ -3,18 +3,18 @@
       <div class="ms-md-auto pe-md-3 d-flex align-items-center">
       </div>
       <ul class="navbar-nav  justify-content-end">
-         <li class="nav-item nav-profile">
+         <li class="nav-item d-flex align-items-center">
             <div class="dropdown-activate">
                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
                   <span class="text-black"><i class="material-icons" style="font-size: 20px;">account_circle</i> <?= $_SESSION['nombre'] ?></span>
                </a>
                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                  <li class="dropdown-item"><a href="profile"> Mi perfil</a></li>
                   <li class="dropdown-item">
-                     <a class="nav-link text-black" data-bs-toggle="modal" data-bs-target="#basicModal" role="button">
+                     <a class="text-black" data-bs-toggle="modal" data-bs-target="#basicModal" role="button">
                         <span class="nav-link-text">Salir</span>
                      </a>
                   </li>
-                  <li class="dropdown-item"><a href="profile"> Mi perfil</a></li>
                </ul>
             </div>
          </li>

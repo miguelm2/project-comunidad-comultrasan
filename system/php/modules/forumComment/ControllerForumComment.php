@@ -5,10 +5,6 @@ if (isset($_POST['newForumComment'])) {
     $response = ServiceForumComment::newForumComment($_GET['forum'], $_SESSION['id'], $_POST['comentario']);
 }
 
-if (isset($_POST['setForum'])) {
-    $response = ServiceForum::setForum($_GET['forum'], $_POST['contenido'], $_POST['titulo']);
-}
-
 if (isset($_POST['deleteForumComment'])) {
     ServiceForumComment::deleteForumComment($_POST['comment']);
 }

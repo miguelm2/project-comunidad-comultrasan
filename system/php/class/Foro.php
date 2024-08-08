@@ -144,4 +144,31 @@ class Foro extends System
         $stmt->bindParam(':id_foro', $id_foro);
         return  $stmt->execute();
     }
+    public static function getLastForumByTypeCommunity($id_tipo_comunidad, $id_usuario)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * 
+                            FROM Foro 
+                            WHERE id_tipo_comunidad = :id_tipo_comunidad
+                            AND id_usuario = :id_usuario
+                            ORDER BY id_foro DESC");
+        $stmt->bindParam(':id_tipo_comunidad', $id_tipo_comunidad);
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if ($result) {
+            $foroDTO = new ForoDTO();
+
+            $foroDTO->setId_foro($result['id_foro']);
+            $foroDTO->setTipoComunidadDTO(TipoComunidad::getTypeComunity($result['id_tipo_comunidad']));
+            $foroDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $foroDTO->setContenido($result['contenido']);
+            $foroDTO->setMegusta($result['megusta']);
+            $foroDTO->setTitulo($result['titulo']);
+            $foroDTO->setFecha_registro($result['fecha_registro']);
+
+            return $foroDTO;
+        }
+        return null;
+    }
 }
