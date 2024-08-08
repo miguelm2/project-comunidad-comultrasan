@@ -103,6 +103,45 @@ CREATE TABLE Perfil (
   color1 VARCHAR(255) NOT NULL
 );
 
+SET
+  IDENTITY_INSERT comultrasan_bd.dbo.Perfil ON;
+
+INSERT INTO
+  comultrasan_bd.dbo.Perfil (
+    id_perfil,
+    nombre,
+    nit,
+    correo,
+    telefono,
+    direccion,
+    departamento,
+    ciudad,
+    imagen,
+    color1,
+    wp,
+    fb,
+    instagram
+  )
+VALUES
+  (
+    1,
+    'KONDORY TECNOLOGIA',
+    '9999991',
+    'kondory@gmail.com',
+    '12345',
+    'Calle 123 # 45-67',
+    'Santander',
+    'Bucaramanga',
+    'perfil.png',
+    '#ffffff',
+    '31209129312',
+    'www.facebook.com',
+    'www.instragram.com'
+  );
+
+SET
+  IDENTITY_INSERT comultrasan_bd.dbo.Perfil OFF;
+
 CREATE TABLE Visitas (
   id_visita INT IDENTITY(1, 1) PRIMARY KEY,
   ip VARCHAR(255),

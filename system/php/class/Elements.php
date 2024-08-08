@@ -281,8 +281,8 @@ class Elements
     {
         return '
         <div class="col-md-6 mt-3">
-            <div class="card border-2">
-                <div class="card-header mp-0">
+            <div class="card border-2" style="background: rgb(150, 190, 22, 0.4) !important">
+                <div class="card-head mt-3 ms-3">
                     <h5 class="card-text text-success"><i class="material-icons me-2">library_books</i>' . $titulo . '</h5>
                 </div>
                 <div class="card-body mt-0 pt-0">
@@ -356,7 +356,7 @@ class Elements
     }
     public static function getCardForum($imagen, $titulo, $usuario, $id_foro)
     {
-        return '<div class="col-md-12">
+        return '<div class="col-md-12 mt-2">
                     <div class="row ps-2">
                         <div class="col-md-1">
                             <img src="' . Path::$DIR_IMAGE_USER . $imagen . '" alt="Imagen" class="img-fluid rounded-circle">
@@ -372,7 +372,7 @@ class Elements
                     </div>
                 </div>';
     }
-    public static function getCardForumComment($imagen, $usuario, $tiempo, $comentario)
+    public static function getCardForumComment($imagen, $usuario, $tiempo, $comentario, $btnEliminar)
     {
         return '<div class="card border-2 mt-2">
                     <div class="col-md-12">
@@ -388,11 +388,12 @@ class Elements
                                     <div class="col-md-12">
                                         <small><i class="material-icons me-2">schedule</i>' . $tiempo . '</small>
                                     </div>
-                                    <div class="col-md 12">
+                                    <div class="col-md-10">
                                         <p>
                                             ' . $comentario . '
                                         </p>
                                     </div>
+                                    ' . $btnEliminar . '
                                 </div>
                             </div>
                         </div>
@@ -408,6 +409,15 @@ class Elements
                     <div class="card-body pt-0 pb-0">
                         <p class="text-muted">' . $contenido . '</p>
                     </div>
+                </div>';
+    }
+    public static function getButtonDeleteCommentForum($id)
+    {
+        return '<div class="col-md-2">
+                    <form method="post">
+                        <input type="hidden" name="comment" value="' . $id . '">
+                        <button type="submit" class="btn btn-danger" name="deleteForumComment"><i class="material-icons me-2">delete</i>Eliminar</button>
+                    </form>
                 </div>';
     }
 }

@@ -77,10 +77,11 @@ class ServiceForumComment extends System
     {
         try {
             $id_comentario        = parent::limpiarString($id_comentario);
+            $comentarioForoDTO = ComentarioForo::getForumComment($id_comentario);
 
             $result = ComentarioForo::deleteForumComment($id_comentario);
             if ($result) {
-                header('Location:&delete');
+                header('Location:forum?forum=' . $comentarioForoDTO->getForoDTO()->getId_foro() . '&delete');
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -107,11 +108,16 @@ class ServiceForumComment extends System
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
                     $tiempo = self::getTimePublicate($valor->getFecha_registro());
+                    $btnEliminar = '';
+                    if ($_SESSION['id'] == $valor->getUsuarioDTO()->getId_usuario()) {
+                        $btnEliminar = Elements::getButtonDeleteCommentForum($valor->getId_comentario());
+                    }
                     $html .= Elements::getCardForumComment(
                         $valor->getUsuarioDTO()->getImagen(),
                         $valor->getUsuarioDTO()->getNombre(),
                         $tiempo,
-                        $valor->getComentario()
+                        $valor->getComentario(),
+                        $btnEliminar
                     );
                 }
             } else {

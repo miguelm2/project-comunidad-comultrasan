@@ -59,13 +59,13 @@
                      <div class="col-12">
                         <div class="form-group">
                            <label class="form-label" for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" required>
+                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" required>
                         </div>
                      </div>
                      <div class="col-12">
                         <div class="form-group">
                            <label class="form-label" for="subtitulo">Subtítulo</label>
-                           <input type="text" class="form-control border p-1" name="subtitulo"  required>
+                           <input type="text" class="form-control border p-1" name="subtitulo" placeholder="Subtítulo" required>
                         </div>
                      </div>
                      <div class="col-md-12 form-group">
@@ -74,11 +74,11 @@
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="contenido">Contenido</label>
-                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5"></textarea>
+                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5">Contenido del Beneficio</textarea>
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="requisitos">Requisitos</label>
-                        <textarea name="requisitos" id="texto_1" class="form-control border p-1" rows="5"></textarea>
+                        <textarea name="requisitos" id="texto_1" class="form-control border p-1" rows="5">Requisitos para el Beneficio</textarea>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-12 d-grid mt-4">

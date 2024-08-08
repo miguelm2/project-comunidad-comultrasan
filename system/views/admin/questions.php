@@ -105,11 +105,11 @@
                      <div class="row g-3">
                         <div class="col-md-12 form-group">
                            <label for="excelIncome">Pregunta</label>
-                           <input type="text" class="form-control border p-1" name="pregunta" required>
+                           <input type="text" class="form-control border p-1" name="pregunta" placeholder="Pregunta" required>
                         </div>
                         <div class="col-md-12 form-group">
                            <label for="excelIncome">Respuesta</label>
-                           <textarea name="respuesta" id="respuesta" class="form-control border p-1" rows="4"></textarea>
+                           <textarea name="respuesta" id="respuesta" class="form-control border p-1" placeholder="Respuesta" rows="4"></textarea>
                         </div>
                      </div>
                   </div>

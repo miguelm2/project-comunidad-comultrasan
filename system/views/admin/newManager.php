@@ -59,37 +59,37 @@
                   <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Nombre</label>
-                              <input type="text" class="form-control border p-1" name="nombre" required>
+                              <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre completo" required>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Dirección</label>
-                              <input type="text" class="form-control border p-1" name="direccion" required>
+                              <input type="text" class="form-control border p-1" name="direccion" placeholder="Dirección" required>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Cédula</label>
-                              <input type="number" class="form-control border p-1" name="cedula" required>
+                              <input type="number" class="form-control border p-1" name="cedula" placeholder="Cédula" required>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Celular</label>
-                              <input type="tel" class="form-control border p-1" name="telefono" required>
+                              <input type="tel" class="form-control border p-1" name="telefono" placeholder="Teléfono" required>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Correo</label>
-                              <input type="email" class="form-control border p-1" name="correo" required>
+                              <input type="email" class="form-control border p-1" name="correo" placeholder="Correo electrónico" required>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Contraseña</label>
-                              <input type="password" class="form-control border p-1" name="pass" required>
+                              <input type="password" class="form-control border p-1" name="pass" placeholder="Contraseña" required>
                            </div>
                         </div>
                         <div class="col-12">

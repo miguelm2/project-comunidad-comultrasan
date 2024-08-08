@@ -38,7 +38,6 @@
                </a>
                <ul class="dropdown-menu px-2 py-3 w-auto" aria-labelledby="navbarDropdownMenuLink1">
                   <li class="dropdown-item"><a href="information"> Información</a></li>
-                  <li class="dropdown-item"><a href="profile"> Perfil</a></li>
                   <li class="dropdown-item"><a href="administrators"> Administradores</a></li>
                </ul>
             </div>
@@ -105,14 +104,6 @@
                   <i class="material-icons opacity-10">description</i>
                </div>
                <span class="nav-link-text ms-1">Encuesta</span>
-            </a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link text-black " data-bs-toggle="modal" data-bs-target="#basicModal" role="button">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="material-icons opacity-10">logout</i>
-               </div>
-               <span class="nav-link-text ms-1">Salir</span>
             </a>
          </li>
       </ul>
