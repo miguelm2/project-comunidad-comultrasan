@@ -7,30 +7,17 @@ class ServiceForumComment extends System
     public static function newForumComment($id_foro, $id_usuario, $comentario)
     {
         try {
-            $id_foro        = parent::limpiarString($id_foro);
-            $id_usuario     = parent::limpiarString($id_usuario);
-            $comentario     = parent::limpiarString($comentario);
-            $fecha_registro = date('Y-m-d H:i:s');
+            if (basename($_SERVER['PHP_SELF']) == 'forum.php') {
+                $id_foro        = parent::limpiarString($id_foro);
+                $id_usuario     = parent::limpiarString($id_usuario);
+                $comentario     = parent::limpiarString($comentario);
+                $fecha_registro = date('Y-m-d H:i:s');
 
-            $result = ComentarioForo::newForumComment($id_foro, $id_usuario, $comentario, $fecha_registro);
+                $result = ComentarioForo::newForumComment($id_foro, $id_usuario, $comentario, $fecha_registro);
 
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
-            }
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
-    public static function setForumComment($id_comentario, $comentario)
-    {
-        try {
-            $id_comentario  = parent::limpiarString($id_comentario);
-            $comentario     = parent::limpiarString($comentario);
-
-            $result = ComentarioForo::setForumComment($id_comentario, $comentario);
-
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -90,10 +77,12 @@ class ServiceForumComment extends System
     public static function getCountForumComment($id_foro)
     {
         try {
-            $id_foro        = parent::limpiarString($id_foro);
+            if (basename($_SERVER['PHP_SELF']) == 'forum.php') {
+                $id_foro        = parent::limpiarString($id_foro);
 
-            $contador = ComentarioForo::countForumCommentByForum($id_foro);
-            return $contador;
+                $contador = ComentarioForo::countForumCommentByForum($id_foro);
+                return $contador;
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -101,30 +90,32 @@ class ServiceForumComment extends System
     public static function getCardCommentForumByForum($id_foro)
     {
         try {
-            $id_foro        = parent::limpiarString($id_foro);
-            $html = '';
-            $modelResponse = ComentarioForo::listForumCommentByForum($id_foro);
+            if (basename($_SERVER['PHP_SELF']) == 'forum.php') {
+                $id_foro        = parent::limpiarString($id_foro);
+                $html = '';
+                $modelResponse = ComentarioForo::listForumCommentByForum($id_foro);
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tiempo = self::getTimePublicate($valor->getFecha_registro());
-                    $btnEliminar = '';
-                    if ($_SESSION['id'] == $valor->getUsuarioDTO()->getId_usuario()) {
-                        $btnEliminar = Elements::getButtonDeleteCommentForum($valor->getId_comentario());
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tiempo = self::getTimePublicate($valor->getFecha_registro());
+                        $btnEliminar = '';
+                        if ($_SESSION['id'] == $valor->getUsuarioDTO()->getId_usuario()) {
+                            $btnEliminar = Elements::getButtonDeleteCommentForum($valor->getId_comentario());
+                        }
+                        $html .= Elements::getCardForumComment(
+                            $valor->getUsuarioDTO()->getImagen(),
+                            $valor->getUsuarioDTO()->getNombre(),
+                            $tiempo,
+                            $valor->getComentario(),
+                            $btnEliminar
+                        );
                     }
-                    $html .= Elements::getCardForumComment(
-                        $valor->getUsuarioDTO()->getImagen(),
-                        $valor->getUsuarioDTO()->getNombre(),
-                        $tiempo,
-                        $valor->getComentario(),
-                        $btnEliminar
-                    );
+                } else {
+                    return '<div class="text-center fs-5">No hay comentarios aún</div>';
                 }
-            } else {
-                return '<div class="text-center fs-5">No hay comentarios aún</div>';
-            }
 
-            return $html;
+                return $html;
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

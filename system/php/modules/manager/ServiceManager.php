@@ -7,24 +7,26 @@ class ServiceManager extends System
     public static function newManager($nombre, $correo, $telefono, $cedula, $pass)
     {
         try {
-            $nombre = parent::limpiarString($nombre);
-            $correo = parent::limpiarString($correo);
-            $telefono = parent::limpiarString($telefono);
-            $cedula = parent::limpiarString($cedula);
-            $pass = parent::limpiarString($pass);
-            $pass_hash = parent::hash($pass);
-            $estado = 1;
-            $tipo = 2;
-            $fecha_registro = date('Y-m-d H:i:s');
+            if (basename($_SERVER['PHP_SELF']) == 'newManager.php') {
+                $nombre = parent::limpiarString($nombre);
+                $correo = parent::limpiarString($correo);
+                $telefono = parent::limpiarString($telefono);
+                $cedula = parent::limpiarString($cedula);
+                $pass = parent::limpiarString($pass);
+                $pass_hash = parent::hash($pass);
+                $estado = 1;
+                $tipo = 2;
+                $fecha_registro = date('Y-m-d H:i:s');
 
-            $imagen = self::newImagen();
+                $imagen = self::newImagen();
 
-            $result = Gestor::newManager($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $fecha_registro);
-            if ($result) {
-                $lastManager = Gestor::lastManager();
-                header('Location:manager?manager=' . $lastManager->getId_gestor() . '&new');
-            } else {
-                return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
+                $result = Gestor::newManager($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $fecha_registro);
+                if ($result) {
+                    $lastManager = Gestor::lastManager();
+                    header('Location:manager?manager=' . $lastManager->getId_gestor() . '&new');
+                } else {
+                    return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -63,24 +65,26 @@ class ServiceManager extends System
     public static function setProfile($nombre, $correo, $telefono, $cedula)
     {
         try {
-            $nombre = parent::limpiarString($nombre);
-            $correo = parent::limpiarString($correo);
-            $telefono = parent::limpiarString($telefono);
-            $cedula = parent::limpiarString($cedula);
-            $id_gestor = $_SESSION['id'];
+            if (basename($_SERVER['PHP_SELF']) == 'profile.php') {
+                $nombre = parent::limpiarString($nombre);
+                $correo = parent::limpiarString($correo);
+                $telefono = parent::limpiarString($telefono);
+                $cedula = parent::limpiarString($cedula);
+                $id_gestor = $_SESSION['id'];
 
-            if (Gestor::setManagerProfile($id_gestor, $nombre, $correo, $telefono, $cedula)) {
-                $gestorDTO = Gestor::getManagerById($id_gestor);
-                $_SESSION['id']     =   $gestorDTO->getId_gestor();
-                $_SESSION['nombre'] =   $gestorDTO->getNombre();
-                $_SESSION['correo'] =   $gestorDTO->getCorreo();
-                $_SESSION['cedula'] =   $gestorDTO->getCedula();
-                $_SESSION['telefono'] = $gestorDTO->getTelefono();
-                $_SESSION['tipo']   =   $gestorDTO->getTipo();
-                $_SESSION['fecha_registro'] = $gestorDTO->getFecha_registro();
-                return  '<script>swal("' . Constants::$INFORMATION_NEW . '", "", "success");</script>';
-            } else {
-                return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
+                if (Gestor::setManagerProfile($id_gestor, $nombre, $correo, $telefono, $cedula)) {
+                    $gestorDTO = Gestor::getManagerById($id_gestor);
+                    $_SESSION['id']     =   $gestorDTO->getId_gestor();
+                    $_SESSION['nombre'] =   $gestorDTO->getNombre();
+                    $_SESSION['correo'] =   $gestorDTO->getCorreo();
+                    $_SESSION['cedula'] =   $gestorDTO->getCedula();
+                    $_SESSION['telefono'] = $gestorDTO->getTelefono();
+                    $_SESSION['tipo']   =   $gestorDTO->getTipo();
+                    $_SESSION['fecha_registro'] = $gestorDTO->getFecha_registro();
+                    return  '<script>swal("' . Constants::$INFORMATION_NEW . '", "", "success");</script>';
+                } else {
+                    return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -89,21 +93,23 @@ class ServiceManager extends System
     public static function setPassProfile($pass, $newPass, $confirmPass)
     {
         try {
-            $pass = parent::limpiarString($pass);
-            $newPass = parent::limpiarString($newPass);
-            $confirmPass = parent::limpiarString($confirmPass);
+            if (basename($_SERVER['PHP_SELF']) == 'profile.php') {
+                $pass = parent::limpiarString($pass);
+                $newPass = parent::limpiarString($newPass);
+                $confirmPass = parent::limpiarString($confirmPass);
 
-            $cedula = $_SESSION['cedula'];
-            $pass_hash = parent::hash($pass);
-            $result = Gestor::getManager($cedula, $pass_hash);
+                $cedula = $_SESSION['cedula'];
+                $pass_hash = parent::hash($pass);
+                $result = Gestor::getManager($cedula, $pass_hash);
 
-            if ($result) {
-                $id_gestor = $_SESSION['id'];
-                $pass_hash = parent::hash($newPass);
-                $result = Gestor::setManagerPass($id_gestor, $pass_hash);
-                if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
-            } else {
-                return  '<script>swal("' . Constants::$CURRENT_PASS . '", "", "error");</script>';
+                if ($result) {
+                    $id_gestor = $_SESSION['id'];
+                    $pass_hash = parent::hash($newPass);
+                    $result = Gestor::setManagerPass($id_gestor, $pass_hash);
+                    if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
+                } else {
+                    return  '<script>swal("' . Constants::$CURRENT_PASS . '", "", "error");</script>';
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -112,19 +118,21 @@ class ServiceManager extends System
     public static function setManager($id_usuario, $nombre, $correo, $telefono, $cedula, $estado)
     {
         try {
-            $id_usuario = parent::limpiarString($id_usuario);
-            $nombre = parent::limpiarString($nombre);
-            $correo = parent::limpiarString($correo);
-            $telefono = parent::limpiarString($telefono);
-            $cedula = parent::limpiarString($cedula);
-            $estado = parent::limpiarString($estado);
+            if (basename($_SERVER['PHP_SELF']) == 'manager.php') {
+                $id_usuario = parent::limpiarString($id_usuario);
+                $nombre = parent::limpiarString($nombre);
+                $correo = parent::limpiarString($correo);
+                $telefono = parent::limpiarString($telefono);
+                $cedula = parent::limpiarString($cedula);
+                $estado = parent::limpiarString($estado);
 
-            $result = Gestor::setManager($id_usuario, $nombre, $correo, $telefono, $cedula, $estado);
+                $result = Gestor::setManager($id_usuario, $nombre, $correo, $telefono, $cedula, $estado);
 
-            if ($result) {
-                return  '<script>swal("' . Constants::$MANAGER_UPDATE . '", "", "success");</script>';
-            } else {
-                return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
+                if ($result) {
+                    return  '<script>swal("' . Constants::$MANAGER_UPDATE . '", "", "success");</script>';
+                } else {
+                    return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -133,20 +141,22 @@ class ServiceManager extends System
     public static function setImageManager($id_gestor)
     {
         try {
-            $id_gestor  = parent::limpiarString($id_gestor);
-            $gestorDTO     = self::getManager($id_gestor);
+            if (basename($_SERVER['PHP_SELF']) == 'manager.php') {
+                $id_gestor  = parent::limpiarString($id_gestor);
+                $gestorDTO     = self::getManager($id_gestor);
 
-            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_MANAGER . $gestorDTO->getImagen();
+                $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_MANAGER . $gestorDTO->getImagen();
 
-            if (file_exists($dirImagen) && !empty($gestorDTO->getImagen()) && $gestorDTO->getImagen() != "default.png") {
-                unlink($dirImagen);
-            }
+                if (file_exists($dirImagen) && !empty($gestorDTO->getImagen()) && $gestorDTO->getImagen() != "default.png") {
+                    unlink($dirImagen);
+                }
 
-            $imagen = self::newImagen();
+                $imagen = self::newImagen();
 
-            $result = Gestor::setImageManager($id_gestor, $imagen);
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                $result = Gestor::setImageManager($id_gestor, $imagen);
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -155,21 +165,23 @@ class ServiceManager extends System
     public static function setImageManagerProfile()
     {
         try {
-            $id_gestor  = $_SESSION['id'];
-            $gestorDTO     = self::getManager($id_gestor);
+            if (basename($_SERVER['PHP_SELF']) == 'profile.php') {
+                $id_gestor  = $_SESSION['id'];
+                $gestorDTO     = self::getManager($id_gestor);
 
-            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_MANAGER . $gestorDTO->getImagen();
+                $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_MANAGER . $gestorDTO->getImagen();
 
-            if (file_exists($dirImagen) && !empty($gestorDTO->getImagen()) && $gestorDTO->getImagen() != "default.png") {
-                unlink($dirImagen);
-            }
+                if (file_exists($dirImagen) && !empty($gestorDTO->getImagen()) && $gestorDTO->getImagen() != "default.png") {
+                    unlink($dirImagen);
+                }
 
-            $imagen = self::newImagen();
+                $imagen = self::newImagen();
 
-            $result = Gestor::setImageManager($id_gestor, $imagen);
-            if ($result) {
-                $_SESSION['imagen'] = $imagen;
-                return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                $result = Gestor::setImageManager($id_gestor, $imagen);
+                if ($result) {
+                    $_SESSION['imagen'] = $imagen;
+                    return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -178,13 +190,15 @@ class ServiceManager extends System
     public static function setPassManager($id_gestor, $pass, $confirmPass)
     {
         try {
-            $id_gestor = parent::limpiarString($id_gestor);
-            $pass = parent::limpiarString($pass);
-            $confirmPass = parent::limpiarString($confirmPass);
+            if (basename($_SERVER['PHP_SELF']) == 'manager.php') {
+                $id_gestor = parent::limpiarString($id_gestor);
+                $pass = parent::limpiarString($pass);
+                $confirmPass = parent::limpiarString($confirmPass);
 
-            $pass_hash = parent::hash($pass);
-            $result = Gestor::setManagerPass($id_gestor, $pass_hash);
-            if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
+                $pass_hash = parent::hash($pass);
+                $result = Gestor::setManagerPass($id_gestor, $pass_hash);
+                if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -193,10 +207,12 @@ class ServiceManager extends System
     public static function deleteManager($id_gestor)
     {
         try {
-            $id_gestor = parent::limpiarString($id_gestor);
+            if (basename($_SERVER['PHP_SELF']) == 'manager.php') {
+                $id_gestor = parent::limpiarString($id_gestor);
 
-            $result = Gestor::deleteManager($id_gestor);
-            if ($result) header('Location:managers?delete');
+                $result = Gestor::deleteManager($id_gestor);
+                if ($result) header('Location:managers?delete');
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -217,24 +233,26 @@ class ServiceManager extends System
     public static function getTableManager()
     {
         try {
-            $tableHtml = "";
-            $modelResponse = Gestor::listManager();
+            if (basename($_SERVER['PHP_SELF']) == 'managers.php') {
+                $tableHtml = "";
+                $modelResponse = Gestor::listManager();
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("manager", $valor->getId_gestor()) . '</td>';
-                    $tableHtml .= '</tr>';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("manager", $valor->getId_gestor()) . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

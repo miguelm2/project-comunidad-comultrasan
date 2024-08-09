@@ -7,16 +7,18 @@ class ServicePoint extends System
     public static function newPoint($puntos, $id_usuario, $id_administrador, $descripcion)
     {
         try {
-            $puntos         = parent::limpiarString($puntos);
-            $id_usuario    = parent::limpiarString($id_usuario);
-            $fecha_registro = date('Y-m-d H:i:s');
-            $id_administrador = parent::limpiarString($id_administrador);
-            $descripcion = parent::limpiarString($descripcion);
+            if (basename($_SERVER['PHP_SELF']) == 'points.php') {
+                $puntos         = parent::limpiarString($puntos);
+                $id_usuario    = parent::limpiarString($id_usuario);
+                $fecha_registro = date('Y-m-d H:i:s');
+                $id_administrador = parent::limpiarString($id_administrador);
+                $descripcion = parent::limpiarString($descripcion);
 
-            $result = Punto::newPoint($puntos, $id_usuario, $id_administrador, $descripcion, $fecha_registro);
+                $result = Punto::newPoint($puntos, $id_usuario, $id_administrador, $descripcion, $fecha_registro);
 
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -25,16 +27,18 @@ class ServicePoint extends System
     public static function setPoint($id_punto,  $puntos, $descripcion)
     {
         try {
-            $id_punto      = parent::limpiarString($id_punto);
-            $puntos        = parent::limpiarString($puntos);
-            $descripcion   = parent::limpiarString($descripcion);
+            if (basename($_SERVER['PHP_SELF']) == 'point.php') {
+                $id_punto      = parent::limpiarString($id_punto);
+                $puntos        = parent::limpiarString($puntos);
+                $descripcion   = parent::limpiarString($descripcion);
 
-            $result = Punto::setPoint($id_punto, $puntos, $descripcion);
+                $result = Punto::setPoint($id_punto, $puntos, $descripcion);
 
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
-            } else {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE_NOT, "error");
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
+                } else {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE_NOT, "error");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -54,10 +58,12 @@ class ServicePoint extends System
     public static function deletePoint($id_punto)
     {
         try {
-            $id_puntos_pagina = parent::limpiarString($id_punto);
+            if (basename($_SERVER['PHP_SELF']) == 'point.php') {
+                $id_puntos_pagina = parent::limpiarString($id_punto);
 
-            $result = Punto::deletePoint($id_puntos_pagina);
-            if ($result) header('Location:Points?delete');
+                $result = Punto::deletePoint($id_puntos_pagina);
+                if ($result) header('Location:Points?delete');
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -65,26 +71,28 @@ class ServicePoint extends System
     public static function getTablePoint()
     {
         try {
-            $tableHtml = "";
-            $modelResponse = Punto::listPoint();
+            if (basename($_SERVER['PHP_SELF']) == 'points.php') {
+                $tableHtml = "";
+                $modelResponse = Punto::listPoint();
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getId_punto() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                    $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
-                    if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("point", $valor->getId_punto()) . '</td>';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getId_punto() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                        $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
+                        if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
+                            $tableHtml .= '<td>' . Elements::crearBotonVer("point", $valor->getId_punto()) . '</td>';
+                        }
+                        $tableHtml .= '</tr>';
                     }
-                    $tableHtml .= '</tr>';
+                } else {
+                    return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -92,25 +100,27 @@ class ServicePoint extends System
     public static function getTablePointByUser($id_usuario)
     {
         try {
-            $tableHtml = "";
-            $id_usuario = parent::limpiarString($id_usuario);
-            $modelResponse = Punto::listPointByUser($id_usuario);
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getId_punto() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                    $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
-                    if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("point", $valor->getId_punto()) . '</td>';
+            if (basename($_SERVER['PHP_SELF']) == 'user.php') {
+                $tableHtml = "";
+                $id_usuario = parent::limpiarString($id_usuario);
+                $modelResponse = Punto::listPointByUser($id_usuario);
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getId_punto() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                        $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
+                        if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
+                            $tableHtml .= '<td>' . Elements::crearBotonVer("point", $valor->getId_punto()) . '</td>';
+                        }
+                        $tableHtml .= '</tr>';
                     }
-                    $tableHtml .= '</tr>';
+                } else {
+                    return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -118,9 +128,11 @@ class ServicePoint extends System
     public static function getPointsByUser()
     {
         try {
-            $id_usuario = $_SESSION['id'];
-            $total = Punto::getSumPointsByUser($id_usuario);
-            return $total;
+            if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+                $id_usuario = $_SESSION['id'];
+                $total = Punto::getSumPointsByUser($id_usuario);
+                return $total;
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -128,22 +140,24 @@ class ServicePoint extends System
     public static function listTablePointsUserByUser()
     {
         try {
-            $tableHtml = "";
-            $id_usuario = $_SESSION['id'];
-            $modelResponse = Punto::listPointByUser($id_usuario);
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getId_punto() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                    $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
-                    $tableHtml .= '</tr>';
+            if (basename($_SERVER['PHP_SELF']) == 'points.php') {
+                $tableHtml = "";
+                $id_usuario = $_SESSION['id'];
+                $modelResponse = Punto::listPointByUser($id_usuario);
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getId_punto() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                        $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

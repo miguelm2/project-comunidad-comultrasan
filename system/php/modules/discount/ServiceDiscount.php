@@ -7,18 +7,20 @@ class ServiceDiscount extends System
     public static function newDiscount($titulo, $descuento, $vigencia, $acceso)
     {
         try {
-            $titulo         = parent::limpiarString($titulo);
-            $descuento      = parent::limpiarString($descuento);
-            $vigencia       = parent::limpiarString($vigencia);
-            $acceso         = parent::limpiarString($acceso);
-            $fecha_registro = date('Y-m-d H:i:s');
-            $imagen         = self::newImagen();
-            $logo           = self::newLogo();
+            if (basename($_SERVER['PHP_SELF']) == 'newDiscount.php') {
+                $titulo         = parent::limpiarString($titulo);
+                $descuento      = parent::limpiarString($descuento);
+                $vigencia       = parent::limpiarString($vigencia);
+                $acceso         = parent::limpiarString($acceso);
+                $fecha_registro = date('Y-m-d H:i:s');
+                $imagen         = self::newImagen();
+                $logo           = self::newLogo();
 
-            $result = Descuento::newDiscount($titulo, $descuento, $vigencia, $acceso, $imagen, $logo, $fecha_registro);
+                $result = Descuento::newDiscount($titulo, $descuento, $vigencia, $acceso, $imagen, $logo, $fecha_registro);
 
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -87,18 +89,20 @@ class ServiceDiscount extends System
     public static function setDiscount($id_descuento, $titulo, $descuento, $vigencia,  $acceso)
     {
         try {
-            $id_descuento      = parent::limpiarString($id_descuento);
-            $titulo            = parent::limpiarString($titulo);
-            $descuento         = parent::limpiarString($descuento);
-            $vigencia          = parent::limpiarString($vigencia);
-            $acceso            = parent::limpiarString($acceso);
+            if (basename($_SERVER['PHP_SELF']) == 'discount.php') {
+                $id_descuento      = parent::limpiarString($id_descuento);
+                $titulo            = parent::limpiarString($titulo);
+                $descuento         = parent::limpiarString($descuento);
+                $vigencia          = parent::limpiarString($vigencia);
+                $acceso            = parent::limpiarString($acceso);
 
-            $result = Descuento::setDiscount($id_descuento, $titulo, $descuento, $vigencia, $acceso);
+                $result = Descuento::setDiscount($id_descuento, $titulo, $descuento, $vigencia, $acceso);
 
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
-            } else {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE_NOT, "error");
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
+                } else {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE_NOT, "error");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -107,20 +111,22 @@ class ServiceDiscount extends System
     public static function setImageDiscount($id_descuento)
     {
         try {
-            $id_descuento  = parent::limpiarString($id_descuento);
-            $descuentoDTO   = self::getDiscount($id_descuento);
+            if (basename($_SERVER['PHP_SELF']) == 'discount.php') {
+                $id_descuento  = parent::limpiarString($id_descuento);
+                $descuentoDTO   = self::getDiscount($id_descuento);
 
-            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_DIS . $descuentoDTO->getImagen();
+                $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_DIS . $descuentoDTO->getImagen();
 
-            if (file_exists($dirImagen) && !empty($descuentoDTO->getImagen()) && $descuentoDTO->getImagen() != "default.png") {
-                unlink($dirImagen);
-            }
+                if (file_exists($dirImagen) && !empty($descuentoDTO->getImagen()) && $descuentoDTO->getImagen() != "default.png") {
+                    unlink($dirImagen);
+                }
 
-            $imagen = self::newImagen();
+                $imagen = self::newImagen();
 
-            $result = Descuento::setImageDiscount($id_descuento, $imagen);
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                $result = Descuento::setImageDiscount($id_descuento, $imagen);
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -129,20 +135,22 @@ class ServiceDiscount extends System
     public static function setLogoDiscount($id_descuento)
     {
         try {
-            $id_descuento  = parent::limpiarString($id_descuento);
-            $descuentoDTO   = self::getDiscount($id_descuento);
+            if (basename($_SERVER['PHP_SELF']) == 'discount.php') {
+                $id_descuento  = parent::limpiarString($id_descuento);
+                $descuentoDTO   = self::getDiscount($id_descuento);
 
-            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_DIS_LOGO . $descuentoDTO->getLogo();
+                $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_DIS_LOGO . $descuentoDTO->getLogo();
 
-            if (file_exists($dirImagen) && !empty($descuentoDTO->getLogo()) && $descuentoDTO->getLogo() != "default.png") {
-                unlink($dirImagen);
-            }
+                if (file_exists($dirImagen) && !empty($descuentoDTO->getLogo()) && $descuentoDTO->getLogo() != "default.png") {
+                    unlink($dirImagen);
+                }
 
-            $imagen = self::newLogo();
+                $imagen = self::newLogo();
 
-            $result = Descuento::setLogoDiscount($id_descuento, $imagen);
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                $result = Descuento::setLogoDiscount($id_descuento, $imagen);
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -162,10 +170,12 @@ class ServiceDiscount extends System
     public static function deleteDiscount($id_descuento)
     {
         try {
-            $id_descuentos_pagina = parent::limpiarString($id_descuento);
+            if (basename($_SERVER['PHP_SELF']) == 'discount.php') {
+                $id_descuentos_pagina = parent::limpiarString($id_descuento);
 
-            $result = Descuento::deleteDiscount($id_descuentos_pagina);
-            if ($result) header('Location:discounts?delete');
+                $result = Descuento::deleteDiscount($id_descuentos_pagina);
+                if ($result) header('Location:discounts?delete');
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -173,22 +183,24 @@ class ServiceDiscount extends System
     public static function getTableDiscount()
     {
         try {
-            $tableHtml = "";
-            $modelResponse = Descuento::listDiscount();
+            if (basename($_SERVER['PHP_SELF']) == 'discounts.php') {
+                $tableHtml = "";
+                $modelResponse = Descuento::listDiscount();
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getId_descuento() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getDescuento() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("discount", $valor->getId_descuento()) . '</td>';
-                    $tableHtml .= '</tr>';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getId_descuento() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getDescuento() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("discount", $valor->getId_descuento()) . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -196,19 +208,21 @@ class ServiceDiscount extends System
     public static function getCardDiscount()
     {
         try {
-            $html = '';
-            $modelResponse = Descuento::listDiscount();
-            foreach ($modelResponse as $value) {
-                $html .= Elements::getCardDiscount(
-                    $value->getImagen(),
-                    $value->getLogo(),
-                    $value->getDescuento(),
-                    $value->getTitulo(),
-                    $value->getVigencia(),
-                    $value->getAcceso()
-                );
+            if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
+                $html = '';
+                $modelResponse = Descuento::listDiscount();
+                foreach ($modelResponse as $value) {
+                    $html .= Elements::getCardDiscount(
+                        $value->getImagen(),
+                        $value->getLogo(),
+                        $value->getDescuento(),
+                        $value->getTitulo(),
+                        $value->getVigencia(),
+                        $value->getAcceso()
+                    );
+                }
+                return $html;
             }
-            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

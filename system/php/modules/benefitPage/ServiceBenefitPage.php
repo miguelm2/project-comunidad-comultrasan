@@ -7,18 +7,20 @@ class ServiceBenefitPage extends System
     public static function newBenefitPage($titulo, $subtitulo, $contenido, $requisitos)
     {
         try {
-            $titulo     = parent::limpiarString($titulo);
-            $subtitulo  = parent::limpiarString($subtitulo);
-            $contenido  = parent::limpiarString($contenido);
-            $requisitos = parent::limpiarString($requisitos);
+            if (basename($_SERVER['PHP_SELF']) == 'newBenefitPage.php') {
+                $titulo     = parent::limpiarString($titulo);
+                $subtitulo  = parent::limpiarString($subtitulo);
+                $contenido  = parent::limpiarString($contenido);
+                $requisitos = parent::limpiarString($requisitos);
 
-            $fecha_registro = date('Y-m-d H:i:s');
-            $imagen = self::newImagen();
+                $fecha_registro = date('Y-m-d H:i:s');
+                $imagen = self::newImagen();
 
-            $result = BeneficioPagina::newBenefitPage($titulo, $subtitulo, $contenido, $requisitos, $imagen, $fecha_registro);
+                $result = BeneficioPagina::newBenefitPage($titulo, $subtitulo, $contenido, $requisitos, $imagen, $fecha_registro);
 
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -34,7 +36,7 @@ class ServiceBenefitPage extends System
                 $imagen     = '';
 
                 if ($fileSize > 100 && $filename != '') {
-                    $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_BENE_PAGE ;
+                    $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_BENE_PAGE;
 
                     if (!file_exists($dirImagen)) mkdir($dirImagen, 0777, true);
 
@@ -57,18 +59,20 @@ class ServiceBenefitPage extends System
     public static function setBenefitPage($id_beneficios_pagina, $titulo, $subtitulo, $contenido, $requisitos)
     {
         try {
-            $id_beneficios_pagina   = parent::limpiarString($id_beneficios_pagina);
-            $titulo                 = parent::limpiarString($titulo);
-            $subtitulo              = parent::limpiarString($subtitulo);
-            $contenido              = parent::limpiarString($contenido);
-            $requisitos             = parent::limpiarString($requisitos);
+            if (basename($_SERVER['PHP_SELF']) == 'benefitPage.php') {
+                $id_beneficios_pagina   = parent::limpiarString($id_beneficios_pagina);
+                $titulo                 = parent::limpiarString($titulo);
+                $subtitulo              = parent::limpiarString($subtitulo);
+                $contenido              = parent::limpiarString($contenido);
+                $requisitos             = parent::limpiarString($requisitos);
 
-            $result = BeneficioPagina::setBenefitPage($id_beneficios_pagina, $titulo, $subtitulo, $contenido, $requisitos);
+                $result = BeneficioPagina::setBenefitPage($id_beneficios_pagina, $titulo, $subtitulo, $contenido, $requisitos);
 
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
-            } else {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE_NOT, "error");
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
+                } else {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE_NOT, "error");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -77,20 +81,22 @@ class ServiceBenefitPage extends System
     public static function setImageBenefitPage($id_beneficios_pagina)
     {
         try {
-            $id_beneficios_pagina  = parent::limpiarString($id_beneficios_pagina);
-            $beneficioPaginaDTO     = self::getBenefitPage($id_beneficios_pagina);
+            if (basename($_SERVER['PHP_SELF']) == 'benefitPage.php') {
+                $id_beneficios_pagina  = parent::limpiarString($id_beneficios_pagina);
+                $beneficioPaginaDTO     = self::getBenefitPage($id_beneficios_pagina);
 
-            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_BENE_PAGE . $beneficioPaginaDTO->getImagen();
+                $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_BENE_PAGE . $beneficioPaginaDTO->getImagen();
 
-            if (file_exists($dirImagen) && !empty($beneficioPaginaDTO->getImagen()) && $beneficioPaginaDTO->getImagen() != "default.png") {
-                unlink($dirImagen);
-            }
+                if (file_exists($dirImagen) && !empty($beneficioPaginaDTO->getImagen()) && $beneficioPaginaDTO->getImagen() != "default.png") {
+                    unlink($dirImagen);
+                }
 
-            $imagen = self::newImagen();
+                $imagen = self::newImagen();
 
-            $result = BeneficioPagina::setImageBenefitPage($id_beneficios_pagina, $imagen);
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                $result = BeneficioPagina::setImageBenefitPage($id_beneficios_pagina, $imagen);
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -110,9 +116,11 @@ class ServiceBenefitPage extends System
     public static function deleteBenefitPage($id_beneficios_pagina)
     {
         try {
-            $id_beneficios_pagina = parent::limpiarString($id_beneficios_pagina);
+            if (basename($_SERVER['PHP_SELF']) == 'benefitPage.php') {
+                $id_beneficios_pagina = parent::limpiarString($id_beneficios_pagina);
 
-            $result = BeneficioPagina::deleteBenefitPage($id_beneficios_pagina);
+                $result = BeneficioPagina::deleteBenefitPage($id_beneficios_pagina);
+            }
             if ($result) header('Location:benefitsPage?delete');
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -121,22 +129,24 @@ class ServiceBenefitPage extends System
     public static function getTableBenefitPage()
     {
         try {
-            $tableHtml = "";
-            $modelResponse = BeneficioPagina::listBenefitPage();
+            if (basename($_SERVER['PHP_SELF']) == 'benefitsPage.php') {
+                $tableHtml = "";
+                $modelResponse = BeneficioPagina::listBenefitPage();
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getId_beneficios_pagina() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("benefitPage", $valor->getId_beneficios_pagina()) . '</td>';
-                    $tableHtml .= '</tr>';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getId_beneficios_pagina() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("benefitPage", $valor->getId_beneficios_pagina()) . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -144,22 +154,24 @@ class ServiceBenefitPage extends System
     public static function getCardBenefitsPage()
     {
         try {
-            $html = "";
-            $modelResponse = BeneficioPagina::listBenefitPage();
+            if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
+                $html = "";
+                $modelResponse = BeneficioPagina::listBenefitPage();
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $html .= Elements::getCardBenefit(
-                        $valor->getId_beneficios_pagina(),
-                        $valor->getImagen(),
-                        $valor->getTitulo(),
-                        $valor->getSubtitulo()
-                    );
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $html .= Elements::getCardBenefit(
+                            $valor->getId_beneficios_pagina(),
+                            $valor->getImagen(),
+                            $valor->getTitulo(),
+                            $valor->getSubtitulo()
+                        );
+                    }
+                } else {
+                    return '<div>No hay registros para mostrar</div>';
                 }
-            } else {
-                return '<div>No hay registros para mostrar</div>';
+                return $html;
             }
-            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

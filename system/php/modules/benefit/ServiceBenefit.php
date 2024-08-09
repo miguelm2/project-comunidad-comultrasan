@@ -7,16 +7,18 @@ class ServiceBenefit extends System
     public static function newBenefit($titulo, $descripcion, $puntos)
     {
         try {
-            $titulo         = parent::limpiarString($titulo);
-            $descripcion    = parent::limpiarString($descripcion);
-            $puntos         = parent::limpiarString($puntos);
-            $fecha_registro = date('Y-m-d H:i:s');
-            $imagen         = self::newImagen();
+            if (basename($_SERVER['PHP_SELF']) == 'newBenefit.php') {
+                $titulo         = parent::limpiarString($titulo);
+                $descripcion    = parent::limpiarString($descripcion);
+                $puntos         = parent::limpiarString($puntos);
+                $fecha_registro = date('Y-m-d H:i:s');
+                $imagen         = self::newImagen();
 
-            $result = Beneficio::newBenefit($titulo, $descripcion, $puntos, $imagen, $fecha_registro);
+                $result = Beneficio::newBenefit($titulo, $descripcion, $puntos, $imagen, $fecha_registro);
 
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -55,17 +57,19 @@ class ServiceBenefit extends System
     public static function setBenefit($id_beneficio, $titulo, $descripcion,  $puntos)
     {
         try {
-            $id_beneficio      = parent::limpiarString($id_beneficio);
-            $titulo            = parent::limpiarString($titulo);
-            $descripcion       = parent::limpiarString($descripcion);
-            $puntos            = parent::limpiarString($puntos);
+            if (basename($_SERVER['PHP_SELF']) == 'benefit.php') {
+                $id_beneficio      = parent::limpiarString($id_beneficio);
+                $titulo            = parent::limpiarString($titulo);
+                $descripcion       = parent::limpiarString($descripcion);
+                $puntos            = parent::limpiarString($puntos);
 
-            $result = Beneficio::setBenefit($id_beneficio, $titulo, $descripcion, $puntos);
+                $result = Beneficio::setBenefit($id_beneficio, $titulo, $descripcion, $puntos);
 
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
-            } else {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE_NOT, "error");
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
+                } else {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE_NOT, "error");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -74,20 +78,22 @@ class ServiceBenefit extends System
     public static function setImageBenefit($id_beneficio)
     {
         try {
-            $id_beneficio  = parent::limpiarString($id_beneficio);
-            $beneficioDTO   = self::getBenefit($id_beneficio);
+            if (basename($_SERVER['PHP_SELF']) == 'benefit.php') {
+                $id_beneficio  = parent::limpiarString($id_beneficio);
+                $beneficioDTO   = self::getBenefit($id_beneficio);
 
-            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_BENEFIT . $beneficioDTO->getImagen();
+                $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_BENEFIT . $beneficioDTO->getImagen();
 
-            if (file_exists($dirImagen) && !empty($beneficioDTO->getImagen()) && $beneficioDTO->getImagen() != "default.png") {
-                unlink($dirImagen);
-            }
+                if (file_exists($dirImagen) && !empty($beneficioDTO->getImagen()) && $beneficioDTO->getImagen() != "default.png") {
+                    unlink($dirImagen);
+                }
 
-            $imagen = self::newImagen();
+                $imagen = self::newImagen();
 
-            $result = Beneficio::setImageBenefit($id_beneficio, $imagen);
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                $result = Beneficio::setImageBenefit($id_beneficio, $imagen);
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -107,10 +113,12 @@ class ServiceBenefit extends System
     public static function deleteBenefit($id_beneficio)
     {
         try {
-            $id_beneficios_pagina = parent::limpiarString($id_beneficio);
+            if (basename($_SERVER['PHP_SELF']) == 'benefit.php') {
+                $id_beneficios_pagina = parent::limpiarString($id_beneficio);
 
-            $result = Beneficio::deleteBenefit($id_beneficios_pagina);
-            if ($result) header('Location:benefits?delete');
+                $result = Beneficio::deleteBenefit($id_beneficios_pagina);
+                if ($result) header('Location:benefits?delete');
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -118,23 +126,25 @@ class ServiceBenefit extends System
     public static function getTableBenefit()
     {
         try {
-            $tableHtml = "";
-            $modelResponse = Beneficio::listBenefit();
+            if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
+                $tableHtml = "";
+                $modelResponse = Beneficio::listBenefit();
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getId_beneficio() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("benefit", $valor->getId_beneficio()) . '</td>';
-                    $tableHtml .= '</tr>';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getId_beneficio() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("benefit", $valor->getId_beneficio()) . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -142,12 +152,14 @@ class ServiceBenefit extends System
     public static function getOptionBenefit()
     {
         try {
-            $beneficioDTO = Beneficio::listBenefit();
-            $html = '';
-            foreach ($beneficioDTO as $value) {
-                $html .= '<option value="' . $value->getId_beneficio() . '">' . $value->getTitulo() . '</option>';
+            if (basename($_SERVER['PHP_SELF']) == 'user.php') {
+                $beneficioDTO = Beneficio::listBenefit();
+                $html = '';
+                foreach ($beneficioDTO as $value) {
+                    $html .= '<option value="' . $value->getId_beneficio() . '">' . $value->getTitulo() . '</option>';
+                }
+                return $html;
             }
-            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -155,22 +167,49 @@ class ServiceBenefit extends System
     public static function getTableBenefitByUser($id_usuario)
     {
         try {
-            $id_usuario = parent::limpiarString($id_usuario);
-            $tableHtml = "";
-            $modelResponse = Beneficio::listBenefitByUser($id_usuario);
+            if (basename($_SERVER['PHP_SELF']) == 'user.php') {
+                $id_usuario = parent::limpiarString($id_usuario);
+                $tableHtml = "";
+                $modelResponse = Beneficio::listBenefitByUser($id_usuario);
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                    $tableHtml .= '</tr>';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr><td colspan="3">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="3">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getTableBenefitUserByUser()
+    {
+        try {
+            if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
+                $id_usuario = $_SESSION['id'];
+                $tableHtml = "";
+                $modelResponse = Beneficio::listBenefitByUser($id_usuario);
+
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr><td colspan="3">No hay registros para mostrar</td></tr>';
+                }
+                return $tableHtml;
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

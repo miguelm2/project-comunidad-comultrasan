@@ -27,6 +27,7 @@ if (isset($_GET['comunnity'])) {
 
 if (isset($_GET['groupInterest'])) {
     $groupInterest = ServiceTypeComunity::getTypeComunity($_GET['groupInterest']);
+    $btonJoin = ServiceTypeComunity::getButtonJoin();
 }
 
 if (isset($_GET)) {
