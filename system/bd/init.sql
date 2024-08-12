@@ -279,3 +279,10 @@ CREATE TABLE ComentarioForo (
   comentario TEXT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
+
+CREATE TABLE UsuarioComunidad (
+  id_usuario_comunidad INT IDENTITY(1, 1) PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  id_comunidad INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);

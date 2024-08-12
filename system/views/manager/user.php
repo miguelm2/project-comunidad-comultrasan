@@ -25,12 +25,12 @@
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_user.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
-      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-         <div class="container-fluid py-1 px-3">
+      <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
+         <div class="container-fluid">
             <nav aria-label="breadcrumb" class="d-none d-lg-block">
                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-                  <li class="breadcrumb-item"><a href="users">Asociados</a></li>
+                  <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
+                  <li class="breadcrumb-item"><a href="users" class="text-white">Asociados</a></li>
                   <li class="breadcrumb-item active">Ver Asociado</li>
                </ol>
             </nav>
@@ -39,7 +39,7 @@
             <!-- End header -->
          </div>
       </nav><!-- End Page Title -->
-      <div class="row m-0">
+      <div class="row m-0 mt-2">
          <div class="card">
             <div class="card-head mt-4">
                <div class="row">
@@ -158,7 +158,7 @@
                         </tr>
                      </tfoot>
                      <tbody>
-
+                        <?= $tableBenefitUser ?>
                      </tbody>
                   </table>
                </div>

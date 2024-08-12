@@ -30,11 +30,11 @@
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius ">
       <!-- Navbar -->
-      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-         <div class="container-fluid py-1 px-3">
+      <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
+         <div class="container-fluid">
             <nav aria-label="breadcrumb" class="d-none d-lg-block">
-               <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                  <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
                   <li class="breadcrumb-item active">Tipos de comunidades</li>
                </ol>
             </nav>
@@ -43,7 +43,7 @@
             <!-- End header -->
          </div>
       </nav>
-      <div class="card">
+      <div class="card mt-2">
          <div class="row m-0">
             <div class="col-md-9 m-4">
                <div class="card-head">

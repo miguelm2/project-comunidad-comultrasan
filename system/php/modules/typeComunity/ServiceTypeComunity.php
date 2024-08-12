@@ -214,4 +214,18 @@ class ServiceTypeComunity extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function getButtonJoin()
+    {
+        try {
+            $id_usuario = $_SESSION['id'];
+            $tipoComunidadDTO = TipoComunidad::getTypeComunityByUser($id_usuario);
+            if(!$tipoComunidadDTO){
+                return Elements::getFormJoinGroupInterest();
+            }else{
+                return '<button class="btn btn-success disabled">Ya te has unido</button>';
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }

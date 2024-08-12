@@ -28,11 +28,11 @@
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
       <!-- Navbar -->
-      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-         <div class="container-fluid py-1 px-3">
+      <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
+         <div class="container-fluid">
             <nav aria-label="breadcrumb" class="d-none d-lg-block">
                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+                  <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
                   <li class="breadcrumb-item active"><a href="users">Asociados</a></li>
                </ol>
             </nav>
@@ -41,7 +41,7 @@
             <!-- End header -->
          </div>
       </nav><!-- End Page Title -->
-      <div class="card">
+      <div class="card mt-2">
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">

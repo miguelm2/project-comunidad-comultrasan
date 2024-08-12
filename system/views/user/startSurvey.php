@@ -29,12 +29,12 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_user.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
-      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-         <div class="container-fluid py-1 px-3">
-            <nav aria-label="breadcrumb">
+      <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
+         <div class="container-fluid">
+            <nav aria-label="breadcrumb" class="d-none d-lg-block">
                <ol class="breadcrumb" class="d-none d-lg-block">
-                  <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-                  <li class="breadcrumb-item"><a href="surveys">Encuestas</a></li>
+                  <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
+                  <li class="breadcrumb-item"><a href="surveys" class="text-white">Encuestas</a></li>
                   <li class="breadcrumb-item active">Encuesta</li>
                </ol>
             </nav>
@@ -43,8 +43,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
             <!-- End header -->
          </div>
       </nav>
-      </div><!-- End Page Title -->
-      <div class="row m-0">
+      <div class="row m-0 mt-2">
          <div class="card">
             <div class="card-head mt-4">
                <div class="row">

@@ -7,18 +7,20 @@ class ServiceEventCalendar extends System
     public static function newEventCalendar($titulo, $fecha, $lugar, $hora)
     {
         try {
-            $titulo         = parent::limpiarString($titulo);
-            $fecha          = parent::limpiarString($fecha);
-            $lugar          = parent::limpiarString($lugar);
-            $hora           = parent::limpiarString($hora);
+            if (basename($_SERVER['PHP_SELF']) == 'newEventCalendar.php') {
+                $titulo         = parent::limpiarString($titulo);
+                $fecha          = parent::limpiarString($fecha);
+                $lugar          = parent::limpiarString($lugar);
+                $hora           = parent::limpiarString($hora);
 
-            $fecha_registro = date('Y-m-d H:i:s');
-            $imagen         = self::newImagen();
+                $fecha_registro = date('Y-m-d H:i:s');
+                $imagen         = self::newImagen();
 
-            $result = CalendarioEvento::newEventCalendar($titulo, $fecha, $lugar, $hora, $imagen,  $fecha_registro);
+                $result = CalendarioEvento::newEventCalendar($titulo, $fecha, $lugar, $hora, $imagen,  $fecha_registro);
 
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -57,18 +59,20 @@ class ServiceEventCalendar extends System
     public static function setEventCalendar($id_evento, $titulo, $fecha, $lugar, $hora)
     {
         try {
-            $id_evento         = parent::limpiarString($id_evento);
-            $titulo            = parent::limpiarString($titulo);
-            $fecha             = parent::limpiarString($fecha);
-            $lugar             = parent::limpiarString($lugar);
-            $hora              = parent::limpiarString($hora);
+            if (basename($_SERVER['PHP_SELF']) == 'eventCalendar.php') {
+                $id_evento         = parent::limpiarString($id_evento);
+                $titulo            = parent::limpiarString($titulo);
+                $fecha             = parent::limpiarString($fecha);
+                $lugar             = parent::limpiarString($lugar);
+                $hora              = parent::limpiarString($hora);
 
-            $result = CalendarioEvento::setEventCalendar($id_evento, $titulo, $fecha, $lugar, $hora);
+                $result = CalendarioEvento::setEventCalendar($id_evento, $titulo, $fecha, $lugar, $hora);
 
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
-            } else {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE_NOT, "error");
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
+                } else {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE_NOT, "error");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -77,20 +81,22 @@ class ServiceEventCalendar extends System
     public static function setImageEventCalendar($id_evento)
     {
         try {
-            $id_evento  = parent::limpiarString($id_evento);
-            $CalendarioEventoDTO   = self::getEventCalendar($id_evento);
+            if (basename($_SERVER['PHP_SELF']) == 'eventCalendar.php') {
+                $id_evento  = parent::limpiarString($id_evento);
+                $CalendarioEventoDTO   = self::getEventCalendar($id_evento);
 
-            $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_EVENT_CALE . $CalendarioEventoDTO->getImagen();
+                $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_EVENT_CALE . $CalendarioEventoDTO->getImagen();
 
-            if (file_exists($dirImagen) && !empty($CalendarioEventoDTO->getImagen()) && $CalendarioEventoDTO->getImagen() != "default.png") {
-                unlink($dirImagen);
-            }
+                if (file_exists($dirImagen) && !empty($CalendarioEventoDTO->getImagen()) && $CalendarioEventoDTO->getImagen() != "default.png") {
+                    unlink($dirImagen);
+                }
 
-            $imagen = self::newImagen();
+                $imagen = self::newImagen();
 
-            $result = CalendarioEvento::setImageEventCalendar($id_evento, $imagen);
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                $result = CalendarioEvento::setImageEventCalendar($id_evento, $imagen);
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -110,10 +116,12 @@ class ServiceEventCalendar extends System
     public static function deleteEventCalendar($id_evento)
     {
         try {
-            $id_evento = parent::limpiarString($id_evento);
+            if (basename($_SERVER['PHP_SELF']) == 'eventCalendar.php') {
+                $id_evento = parent::limpiarString($id_evento);
 
-            $result = CalendarioEvento::deleteEventCalendar($id_evento);
-            if ($result) header('Location:eventCalendars?delete');
+                $result = CalendarioEvento::deleteEventCalendar($id_evento);
+                if ($result) header('Location:eventCalendars?delete');
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -121,23 +129,25 @@ class ServiceEventCalendar extends System
     public static function getTableEventCalendar()
     {
         try {
-            $tableHtml = "";
-            $modelResponse = CalendarioEvento::listEventCalendar();
+            if (basename($_SERVER['PHP_SELF']) == 'eventsCalendar.php') {
+                $tableHtml = "";
+                $modelResponse = CalendarioEvento::listEventCalendar();
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getId_evento() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getFecha() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("eventCalendar", $valor->getId_evento()) . '</td>';
-                    $tableHtml .= '</tr>';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getId_evento() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getFecha() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("eventCalendar", $valor->getId_evento()) . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -145,12 +155,14 @@ class ServiceEventCalendar extends System
     public static function getCardEventCalendar()
     {
         try {
-            $modelResponse = CalendarioEvento::listEventCalendar();
-            $html = '';
-            foreach ($modelResponse as $value) {
-                $html .= Elements::getCardCalendarEvent($value->getImagen(), $value->getTitulo(), $value->getFecha(), $value->getLugar(), $value->getHora());
+            if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+                $modelResponse = CalendarioEvento::listEventCalendar();
+                $html = '';
+                foreach ($modelResponse as $value) {
+                    $html .= Elements::getCardCalendarEvent($value->getImagen(), $value->getTitulo(), $value->getFecha(), $value->getLugar(), $value->getHora());
+                }
+                return $html;
             }
-            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

@@ -28,11 +28,11 @@
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
       <!-- Navbar -->
-      <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" data-scroll="true">
-         <div class="container-fluid py-1 px-3">
+      <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
+         <div class="container-fluid">
             <nav aria-label="breadcrumb" class="d-none d-lg-block">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                  <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+                  <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
                   <li class="breadcrumb-item active">Beneficios</li>
                </ol>
             </nav>
@@ -41,17 +41,37 @@
             <!-- End header -->
          </div>
       </nav>
-      <div class="card">
+      <div class="card mt-2">
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Beneficios</h4>
+                  <h4 class="text-success">Mis Beneficios</h4>
                </div>
             </div>
          </div>
          <div class="card-body m-0">
             <div class="row">
-
+               <div class="table-responsive">
+                  <table class="table table-hover table-hover table-bordered table-striped">
+                     <thead>
+                        <tr>
+                           <td class="text-uppercase font-weight-bolder">ID</td>
+                           <td class="text-uppercase font-weight-bolder">Título</td>
+                           <td class="text-uppercase font-weight-bolder">Puntos</td>
+                        </tr>
+                     </thead>
+                     <tfoot>
+                        <tr>
+                           <td class="text-uppercase font-weight-bolder">ID</td>
+                           <td class="text-uppercase font-weight-bolder">Título</td>
+                           <td class="text-uppercase font-weight-bolder">Puntos</td>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?= $tableBenefitsUser ?>
+                     </tbody>
+                  </table>
+               </div>
             </div>
          </div>
       </div>

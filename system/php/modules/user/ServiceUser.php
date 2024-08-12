@@ -244,7 +244,7 @@ class ServiceUser extends System
     public static function getTablaUsuarios()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'user.php') {
+            if (basename($_SERVER['PHP_SELF']) == 'users.php') {
                 $tableHtml = "";
                 $modelResponse = Usuario::listUser();
 

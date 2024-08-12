@@ -281,7 +281,7 @@ class Elements
     {
         return '
         <div class="col-md-6 mt-3">
-            <div class="card border-2" style="background: rgb(150, 190, 22, 0.4) !important">
+            <div class="card border-2" style="background: rgb(150, 190, 22, 0.2) !important">
                 <div class="card-head mt-3 ms-3">
                     <h5 class="card-text text-success"><i class="material-icons me-2">library_books</i>' . $titulo . '</h5>
                 </div>
@@ -430,5 +430,10 @@ class Elements
                         <button type="submit" class="btn btn-danger" name="deleteForumComment"><i class="material-icons me-2">delete</i>Eliminar</button>
                     </form>
                 </div>';
+    }
+    public static function getFormJoinGroupInterest(){
+        return '<form method="post">
+                    <button name="newUserGroupInterest" class="btn btn-success">¡Unirme Ahora!</button>
+                </form>';
     }
 }

@@ -17,10 +17,10 @@ if (isset($_GET['answerQuestion'])) {
     $answerQuestion = ServiceAnswerQuestion::getAnswerQuestion($_GET['answerQuestion']);
 }
 
-if (basename($_SERVER['PHP_SELF']) == 'surveyQuestion.php') {
-    $tableAnswerQuestion = ServiceAnswerQuestion::getTableAnswerQuestion($_GET['surveyQuestion']);
+if (isset($_GET['survey'])) {
+    $cardQuestionUser = ServiceAnswerQuestion::getCardsQuetionAndAnwer($_GET['survey']);
 }
 
-if(isset($_GET['survey'])){
-    $cardQuestionUser = ServiceAnswerQuestion::getCardsQuetionAndAnwer($_GET['survey']);
+if (basename($_SERVER['PHP_SELF']) == 'surveyQuestion.php') {
+    $tableAnswerQuestion = ServiceAnswerQuestion::getTableAnswerQuestion($_GET['surveyQuestion']);
 }
