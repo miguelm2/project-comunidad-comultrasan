@@ -41,7 +41,7 @@
 
    <!-- ======= Stats Counter Section ======= -->
    <section id="comunidad" class="p-2">
-      <div class="container-fluid" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
          <div class="container">
             <nav aria-label="breadcrumb">
                <ol class="breadcrumb">

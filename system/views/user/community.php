@@ -43,48 +43,58 @@
       </nav>
       <div class="card mt-2">
          <div class="row m-0">
-            <div class="col-md-8 m-4">
-               <div class="card-head">
-                  <h4 class="text-success">Comunidad</h4>
+            <div class="col-md-5 mt-4 ms-4">
+               <h4 class="text-success">Mi Comunidad</h4>
+            </div>
+            <div class="col-md-6 mt-4">
+               <div class="row">
+                  <div class="col-md-6">
+                     <h4 class="text-success">Integrantes</h4>
+                  </div>
+                  <div class="col-md-6">
+                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUserComm">
+                        <i class="material-icons me-2">add</i> Agregar Integrante
+                     </button>
+                  </div>
                </div>
             </div>
          </div>
-         <div class="card-body m-0">
-            <div class="row">
-               <div class="col-md-6">
-                  <div class="card border-2">
-                     <div class="card-head ms-3 mt-2">
-                        <h5 class="text-success">
-                           Crear una nueva Comunidad
-                        </h5>
-                     </div>
-                     <div class="card-body">
-                        <p class="card-text">
-                           Para crear una nueva comunidad, deben de ser al menos dos personas
-                        </p>
-                        <a href="" class="btn btn-success">Ir a crear comunidad</a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-6">
-                  <div class="card border-2">
-                     <div class="card-head ms-3 mt-2">
-                        <h5 class="text-success">
-                           Unirme a una nueva comunidad
-                        </h5>
-                     </div>
-                     <div class="card-body">
-                        <p class="card-text">
-                           Te puedes unir a cualquier comunidad
-                        </p>
-                        <a href="" class="btn btn-success">Unirme a una comunidad</a>
-                     </div>
-                  </div>
-               </div>
+         <div class="row">
+            <div class="col-md-6">
+               <?= $unitedCommunity ?>
+            </div>
+            <div class="col-md-6">
             </div>
          </div>
       </div>
-
+      <!-- ======= Basic Modal ======= -->
+      <form id="uploadForm" method="post" enctype="multipart/form-data">
+         <div class="modal fade" id="newCommunity" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Nueva comunidad</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="row g-3">
+                        <div class="col-12">
+                           <div class="form-group">
+                              <label class="form-label">Nombre</label>
+                              <input type="text" class="form-control border p-1" name="nombre" required>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="newCommunity" class="btn btn-success"><i class="material-icons me-2">add</i> Nueva Comunidad</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!--Final Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->

@@ -127,7 +127,7 @@
                      </div>
                      <div class="form-group">
                         <br>
-                        <button type="submit" name="newUser" class="btn btn-verde btn1 rounded"> <i class="bi bi-send"></i> Enviar</button>
+                        <button type="submit" name="newUserUnete" class="btn btn-verde btn1 rounded"> <i class="bi bi-send"></i> Enviar</button>
                      </div>
                      <div class="form-group mt-2">
                         <br>

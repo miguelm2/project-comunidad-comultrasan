@@ -4,13 +4,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Comunidad.php';
 
 class ServiceCommunity extends System
 {
-    public static function newCommunity()
+    public static function newCommunity($nombre)
     {
         try {
             $id_usuario    = $_SESSION['id'];
             $fecha_registro = date('Y-m-d H:i:s');
+            $nombre = parent::limpiarString($nombre);
 
-            $result = Comunidad::newCommunity($id_usuario, $fecha_registro);
+            $result = Comunidad::newCommunity($nombre, $id_usuario, $fecha_registro);
 
             if ($result) {
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
@@ -64,22 +65,22 @@ class ServiceCommunity extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function getCommunityByUser()
+    public static function getUnitedCommunity()
     {
         try {
             $id_usuario = $_SESSION['id'];
             $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
-            if ($comunidadDTO) {
-                return $comunidadDTO;
+            if (!$comunidadDTO) {
+                return Elements::getUnitedCommunity();
             } else {
-                return '
-                <div class="col-md-12">
-                    <form method="post">
-                        <div class="d-grid">
-                            
-                        </div>
-                    </form>
-                </div>';
+                return Elements::getUnitedCommunityReady(
+                    $comunidadDTO->getNombre(),
+                    $comunidadDTO->getUsuarioDTO()->getNombre(),
+                    1,
+                    $comunidadDTO->getFecha_registro(),
+                    $comunidadDTO->getId_comunidad(),
+                    10
+                );
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

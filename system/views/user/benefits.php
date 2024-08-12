@@ -33,7 +33,7 @@
             <nav aria-label="breadcrumb" class="d-none d-lg-block">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
-                  <li class="breadcrumb-item active">Beneficios</li>
+                  <li class="breadcrumb-item active">Beneficios y recompensas</li>
                </ol>
             </nav>
             <!-- Start header -->
@@ -41,7 +41,7 @@
             <!-- End header -->
          </div>
       </nav>
-      <div class="card mt-2">
+      <div class="card mt-3">
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
@@ -72,6 +72,40 @@
                      </tbody>
                   </table>
                </div>
+            </div>
+         </div>
+      </div>
+      <div class="card mt-3">
+         <div class="row m-0">
+            <div class="col-md-8 m-4">
+               <div class="card-head">
+                  <h4 class="text-success">Historial de Corazones</h4>
+               </div>
+            </div>
+         </div>
+         <div class="card-body m-0">
+            <div class="table-responsive">
+               <table class="table table-bordered table-hover align-items-center mb-0">
+                  <thead class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Administrador</th>
+                        <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        <th class="text-uppercase font-weight-bolder">Descripción</th>
+                     </tr>
+                  </thead>
+                  <tfoot class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Administrador</th>
+                        <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        <th class="text-uppercase font-weight-bolder">Descripción</th>
+                     </tr>
+                  </tfoot>
+                  <tbody class="text-center">
+                     <?= $tablePointsByUser ?>
+                  </tbody>
+               </table>
             </div>
          </div>
       </div>

@@ -6,7 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 
 class ServiceUser extends System
 {
-    public static function newUser($nombre, $correo, $telefono, $cedula, $pass, $tipo_documento, $fecha_nacimiento)
+    public static function newUser($nombre, $correo, $telefono, $cedula, $pass, $tipo_documento, $fecha_nacimiento, $estado)
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'users.php') {
@@ -18,7 +18,7 @@ class ServiceUser extends System
                 $pass_hash = parent::hash($pass);
                 $tipo_documento = parent::limpiarString($tipo_documento);
                 $fecha_nacimiento = parent::limpiarString($fecha_nacimiento);
-                $estado = 1;
+                $estado = parent::limpiarString($estado);
                 $tipo = 1;
                 $fecha_registro = date('Y-m-d H:i:s');
 

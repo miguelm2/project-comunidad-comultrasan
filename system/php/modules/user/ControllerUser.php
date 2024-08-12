@@ -12,7 +12,11 @@ if (isset($_POST['setPassProfileUser'])) {
 }
 
 if (isset($_POST['newUser'])) {
-    $response = ServiceUser::newUser($_POST['nombre'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['pass'], $_POST['tipo_documento'], $_POST['fecha_nacimiento']);
+    $response = ServiceUser::newUser($_POST['nombre'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['pass'], $_POST['tipo_documento'], $_POST['fecha_nacimiento'], 1);
+}
+
+if (isset($_POST['newUserUnete'])) {
+    $response = ServiceUser::newUser($_POST['nombre'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['pass'], $_POST['tipo_documento'], $_POST['fecha_nacimiento'], 2);
 }
 
 if (isset($_POST['setUser'])) {

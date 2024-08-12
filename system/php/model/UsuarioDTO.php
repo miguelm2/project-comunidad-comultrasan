@@ -15,9 +15,7 @@ class UsuarioDTO
     protected $fecha_nacimiento;
     protected $fecha_registro;
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * Get the value of id_usuario
@@ -132,8 +130,9 @@ class UsuarioDTO
      */
     public function getEstado()
     {
-        if ($this->estado == 1) return explode(";", $this->estado . ';Activo');
         if ($this->estado == 0) return explode(";", $this->estado . ';Inactivo');
+        if ($this->estado == 1) return explode(";", $this->estado . ';Activo');
+        if ($this->estado == 2) return explode(";", $this->estado . ';En proceso');
         return $this->estado;
     }
 
@@ -203,7 +202,7 @@ class UsuarioDTO
 
     /**
      * Get the value of tipo_documento
-     */ 
+     */
     public function getTipo_documento()
     {
         if ($this->estado == 1) return explode(";", $this->estado . ';Cédula de ciudadanía');
@@ -217,7 +216,7 @@ class UsuarioDTO
      * Set the value of tipo_documento
      *
      * @return  self
-     */ 
+     */
     public function setTipo_documento($tipo_documento)
     {
         $this->tipo_documento = $tipo_documento;
@@ -227,7 +226,7 @@ class UsuarioDTO
 
     /**
      * Get the value of fecha_nacimiento
-     */ 
+     */
     public function getFecha_nacimiento()
     {
         return $this->fecha_nacimiento;
@@ -237,7 +236,7 @@ class UsuarioDTO
      * Set the value of fecha_nacimiento
      *
      * @return  self
-     */ 
+     */
     public function setFecha_nacimiento($fecha_nacimiento)
     {
         $this->fecha_nacimiento = $fecha_nacimiento;

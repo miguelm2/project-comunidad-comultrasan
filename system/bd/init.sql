@@ -286,3 +286,8 @@ CREATE TABLE UsuarioComunidad (
   id_comunidad INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
+
+ALTER TABLE
+  Comunidad
+ADD
+  nombre VARCHAR(255) NOT NULL;
