@@ -75,24 +75,4 @@
          </li>
       </ul>
    </div>
-   <!-- ======= Basic Modal ======= -->
-   <form method="POST">
-      <div class="modal fade" id="basicModal" tabindex="-1">
-         <div class="modal-dialog">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title">Salir del sistema</h5>
-                  <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body">
-                  ¿Esta seguro que desea salir del sistema?
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons opacity-10">close</i> Cerrar</button>
-                  <button type="submiT" name="logout" class="btn btn-danger"><i class="material-icons opacity-10">logout</i> Salir del sistema</button>
-               </div>
-            </div>
-         </div>
-      </div>
-   </form>
 </aside>

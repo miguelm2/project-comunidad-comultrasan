@@ -116,6 +116,7 @@
                                     <option value="<?= $user->getEstado()[0] ?>"><?= $user->getEstado()[1] ?></option>
                                     <option value="0">Inactivo</option>
                                     <option value="1">Activo</option>
+                                    <option value="2">En proceso</option>
                                  </select>
                               </div>
                            </div>

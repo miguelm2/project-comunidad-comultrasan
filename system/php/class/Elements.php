@@ -431,9 +431,66 @@ class Elements
                     </form>
                 </div>';
     }
-    public static function getFormJoinGroupInterest(){
+    public static function getFormJoinGroupInterest()
+    {
         return '<form method="post">
                     <button name="newUserGroupInterest" class="btn btn-success">¡Unirme Ahora!</button>
                 </form>';
+    }
+    public static function getUnitedCommunity()
+    {
+        return '<div class="card-body m-0">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card border-2">
+                                <div class="card-head ms-3 mt-2">
+                                    <h5 class="text-success">
+                                    Crear una nueva Comunidad
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                    Para crear una nueva comunidad, deben de ser al menos dos personas
+                                    </p>
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newCommunity">
+                                        <i class="material-icons me-2">add</i> Crear nueva comunidad
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-2">
+                                <div class="card-head ms-3 mt-2">
+                                    <h5 class="text-success">
+                                    Unirme a una nueva comunidad
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                    Te puedes unir a cualquier comunidad
+                                    </p>
+                                    <a href="" class="btn btn-success">Unirme a una comunidad</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+    }
+    public static function getUnitedCommunityReady($nombre, $lider, $cantidad, $fecha, $codigo, $puntos)
+    {
+        return '<div class="card-body m-0">
+                    <h6><i class="material-icons">vpn_key</i> Código del grupo: </h6>
+                    <p>' . $codigo . '</p>
+                    <h6><i class="material-icons">diversity_3</i> Nombre: </h6>
+                    <p>' . $nombre . '</p>
+                    <h6><i class="material-icons">supervisor_account</i> Lider: </h6>
+                    <p>' . $lider . '</p>
+                    <h6><i class="material-icons">group_add</i> Usuarios en la comunidad: </h6>
+                    <p>' . $cantidad . '</p>
+                    <h6><i class="material-icons">event</i> Fecha de creación: </h6>
+                    <p>' . $fecha . '</p>
+                    <h6><i class="material-icons">favorite</i> Sumatoria de puntos: </h6>
+                    <p>' . $puntos . '</p>
+                </div>';
     }
 }
