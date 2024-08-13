@@ -33,7 +33,8 @@
             <nav aria-label="breadcrumb" class="d-none d-lg-block">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
-                  <li class="breadcrumb-item active">Comunidades</li>
+                  <li class="breadcrumb-item"><a href="communities" class="text-white">Comunidad</a></li>
+                  <li class="breadcrumb-item active">Editar Comunidad</li>
                </ol>
             </nav>
             <!-- Start header -->
@@ -41,42 +42,49 @@
             <!-- End header -->
          </div>
       </nav>
-      <div class="card container">
+      <div class="card mt-2">
          <div class="row m-0">
-            <div class="col-md-8 m-4">
-               <div class="card-head">
-                  <h4 class="text-success">Comunidades</h4>
-               </div>
+            <div class="col-md-5 mt-4 ms-4">
+               <h4 class="text-success">Mi Comunidad</h4>
             </div>
-         </div>
-         <div class="card-body m-0">
-            <div class="table-responsive">
-               <table class="table table-bordered table-hover">
-                  <thead class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">ID</th>
-                        <th class="text-uppercase font-weight-bolder">Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">Líder</th>
-                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
-                        <th class="text-uppercase font-weight-bolder">Opciones</th>
-                     </tr>
-                  </thead>
-                  <tfoot class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">ID</th>
-                        <th class="text-uppercase font-weight-bolder">Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">Líder</th>
-                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
-                        <th class="text-uppercase font-weight-bolder">Opciones</th>
-                     </tr>
-                  </tfoot>
-                  <tbody class="text-center">
-                     <?= $tableCommunities ?>
-                  </tbody>
-               </table>
+            <div class="col-md-12 mt-2 pb-4">
+               <form method="post">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label for="id_comunidad">Código</label>
+                           <input type="text" name="id_comunidad" id="id_comunidad" class="form-control border p-1" value="<?= $comunidad->getId_comunidad() ?>" disabled>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label for="nombre">Nombre</label>
+                           <input type="text" name="nombre" id="nombre" class="form-control border p-1" value="<?= $comunidad->getNombre() ?>">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label for="fecha">Creado</label>
+                           <input type="text" name="fecha" id="fecha" class="form-control border p-1" value="<?= $comunidad->getFecha_registro() ?>" disabled>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label for="lider">Líder</label>
+                           <input type="text" name="lider" id="lider" class="form-control border p-1" value="<?= $comunidad->getUsuarioDTO()->getNombre() ?>" disabled>
+                        </div>
+                     </div>
+                     <div class="col-md-12 d-grid mt-4">
+                        <button type="submit" class="btn btn-success" name="editCommunity">
+                           <i class="material-icons me-2">edit</i> Editar Comunidad
+                        </button>
+                     </div>
+                  </div>
+               </form>
             </div>
          </div>
       </div>
+
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
@@ -90,6 +98,8 @@
    <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
+   <script src="/system/js/modalEliminar.js"></script>
    <?= $response ?>
 </body>
 

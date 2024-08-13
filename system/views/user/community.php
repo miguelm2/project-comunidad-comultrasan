@@ -44,28 +44,17 @@
       <div class="card mt-2">
          <div class="row m-0">
             <div class="col-md-5 mt-4 ms-4">
-               <h4 class="text-success">Mi Comunidad</h4>
+               <h4 class="text-success">Comunidad </h4>
             </div>
             <div class="col-md-6 mt-4">
                <div class="row">
-                  <div class="col-md-6">
-                     <h4 class="text-success">Integrantes</h4>
-                  </div>
-                  <div class="col-md-6">
-                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUserComm">
-                        <i class="material-icons me-2">add</i> Agregar Integrante
-                     </button>
-                  </div>
+
+                  <?= $btnJoinUser ?>
+
                </div>
             </div>
          </div>
-         <div class="row">
-            <div class="col-md-6">
-               <?= $unitedCommunity ?>
-            </div>
-            <div class="col-md-6">
-            </div>
-         </div>
+         <?= $unitedCommunity ?>
       </div>
       <!-- ======= Basic Modal ======= -->
       <form id="uploadForm" method="post" enctype="multipart/form-data">
@@ -95,6 +84,82 @@
          </div>
       </form>
       <!--Final Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form id="uploadForm" method="post" enctype="multipart/form-data">
+         <div class="modal fade" id="newUserComm" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Agregar integrante</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="row g-3">
+                        <div class="col-12">
+                           <div class="form-group">
+                              <label class="form-label">Usuario</label>
+                              <select name="usuario" id="usuario" class="form-select border p-1">
+                                 <option value="">Seleccione un usuario</option>
+                                 <?= $optionUserWithoutCommunity ?>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="newUserCommunity" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Integrante</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!--Final Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post">
+         <div class="modal fade" id="leave" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Salir de la comunidad</h5>
+                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <label class="form-label">¿Esta seguro que desea salir de la comunidad?</label>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="leaveCommunity" class="btn btn-danger"><i class="material-icons me-2">logout</i> Salir Ahora</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post">
+         <div class="modal fade" id="takeOut" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Remover asociado de la comunidad</h5>
+                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <label class="form-label">¿Esta seguro que desea remover este asociado?</label>
+                     <input type="hidden" id="usuario" name="usuario">
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="deleteUserCommunity" class="btn btn-danger">
+                        <i class="material-icons me-2">person_remove</i> Remover
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
@@ -108,6 +173,8 @@
    <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
+   <script src="/system/js/modalEliminar.js"></script>
    <?= $response ?>
 </body>
 

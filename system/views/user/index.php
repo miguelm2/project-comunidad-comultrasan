@@ -40,117 +40,111 @@
             <!-- End header -->
          </div>
       </nav>
-      <div class="container-fluid">
-         <section class="services sections-bg bg-light mt-2">
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
-               <div class="text-white">
-                  <small>
-                     ¡Hola, <strong><?= $_SESSION['nombre'] ?></strong>!,
-                     ¡Que bueno tenerte de vuelta! <strong>¿Qué quieres hacer hoy?</strong>
-                  </small>
+      <section class="services sections-bg bg-light mt-2">
+         <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <div class="text-white">
+               <small>
+                  ¡Hola, <strong><?= $_SESSION['nombre'] ?></strong>!,
+                  ¡Que bueno tenerte de vuelta! <strong>¿Qué quieres hacer hoy?</strong>
+               </small>
+            </div>
+            <button type="button" class="btn-close text-white" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+      </section>
+      <!-- ======= Our Services Section ======= -->
+      <section class="sections-bg bg-light">
+         <div class="container-fluid mt-2 p-2">
+            <div class="section-header pb-0">
+               <h3 class="text-pri">Novedades de nuestra comunidad</h3>
+            </div>
+            <div id="novedadesCarousel" class="carousel slide" data-bs-ride="carousel">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <div class="row">
+                        <div class="col-md-4 mt-2">
+                           <div class="card">
+                              <img src="/assets/image/imagen1.jpg" class="card-img-top img-fluid" alt="Celebración día de la familia">
+                              <div class="card-body">
+                                 <h5 class="card-title">Celebración día de la familia</h5>
+                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-4 mt-2">
+                           <div class="card">
+                              <img src="/assets/image/imagen2.jpg" class="card-img-top  img-fluid" alt="Beneficios para tus mascotas">
+                              <div class="card-body">
+                                 <h5 class="card-title">Beneficios para tus mascotas</h5>
+                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-4 mt-2">
+                           <div class="card">
+                              <img src="/assets/image/imagen3.jpg" class="card-img-top img-fluid" alt="Apoyos educativos">
+                              <div class="card-body">
+                                 <h5 class="card-title">Apoyos educativos</h5>
+                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="row">
+                        <div class="col-md-4 mt-2">
+                           <div class="card">
+                              <img src="/assets/image/imagen1.jpg" class="card-img-top img-fluid" alt="Celebración día de la familia">
+                              <div class="card-body">
+                                 <h5 class="card-title">Celebración día de la familia</h5>
+                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-4 mt-2">
+                           <div class="card">
+                              <img src="/assets/image/imagen2.jpg" class="card-img-top" alt="Beneficios para tus mascotas">
+                              <div class="card-body">
+                                 <h5 class="card-title">Beneficios para tus mascotas</h5>
+                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-4 mt-2">
+                           <div class="card">
+                              <img src="/assets/image/imagen3.jpg" class="card-img-top" alt="Apoyos educativos">
+                              <div class="card-body">
+                                 <h5 class="card-title">Apoyos educativos</h5>
+                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                </div>
-               <button type="button" class="btn-close text-white" data-bs-dismiss="alert" aria-label="Close"></button>
+               <button class="carousel-control-prev" type="button" data-bs-target="#novedadesCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+               </button>
+               <button class="carousel-control-next" type="button" data-bs-target="#novedadesCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+               </button>
+            </div>
+         </div>
+      </section><!-- End Our Services Section -->
+      <!-- End Navbar -->
+      <div class="mt-2">
+         <section class="services sections-bg bg-light">
+            <div class="container-fluid">
+               <div class="section-header pb-0">
+                  <h3 class="text-pri">Eventos del mes</h3>
+               </div>
+               <div class="row">
+                  <?= $cardEventCalendar ?>
+               </div>
             </div>
          </section>
-         <!-- ======= Our Services Section ======= -->
-         <section class="services sections-bg bg-light">
-            <div class="container mt-2 p-2">
-               <div class="row">
-                  <div class="section-header pb-0">
-                     <h3 class="text-pri">Novedades de nuestra comunidad</h3>
-                  </div>
-               </div>
-               <div id="novedadesCarousel" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                     <div class="carousel-item active">
-                        <div class="row">
-                           <div class="col-md-4 mt-2">
-                              <div class="card">
-                                 <img src="/assets/image/imagen1.jpg" class="card-img-top img-fluid" alt="Celebración día de la familia">
-                                 <div class="card-body">
-                                    <h5 class="card-title">Celebración día de la familia</h5>
-                                    <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-4 mt-2">
-                              <div class="card">
-                                 <img src="/assets/image/imagen2.jpg" class="card-img-top  img-fluid" alt="Beneficios para tus mascotas">
-                                 <div class="card-body">
-                                    <h5 class="card-title">Beneficios para tus mascotas</h5>
-                                    <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-4 mt-2">
-                              <div class="card">
-                                 <img src="/assets/image/imagen3.jpg" class="card-img-top img-fluid" alt="Apoyos educativos">
-                                 <div class="card-body">
-                                    <h5 class="card-title">Apoyos educativos</h5>
-                                    <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="carousel-item">
-                        <div class="row">
-                           <div class="col-md-4 mt-2">
-                              <div class="card">
-                                 <img src="/assets/image/imagen1.jpg" class="card-img-top img-fluid" alt="Celebración día de la familia">
-                                 <div class="card-body">
-                                    <h5 class="card-title">Celebración día de la familia</h5>
-                                    <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-4 mt-2">
-                              <div class="card">
-                                 <img src="/assets/image/imagen2.jpg" class="card-img-top" alt="Beneficios para tus mascotas">
-                                 <div class="card-body">
-                                    <h5 class="card-title">Beneficios para tus mascotas</h5>
-                                    <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-md-4 mt-2">
-                              <div class="card">
-                                 <img src="/assets/image/imagen3.jpg" class="card-img-top" alt="Apoyos educativos">
-                                 <div class="card-body">
-                                    <h5 class="card-title">Apoyos educativos</h5>
-                                    <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#novedadesCarousel" data-bs-slide="prev">
-                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                     <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#novedadesCarousel" data-bs-slide="next">
-                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                     <span class="visually-hidden">Next</span>
-                  </button>
-               </div>
-            </div>
-         </section><!-- End Our Services Section -->
-         <!-- End Navbar -->
-         <div class="container-fluid py-4 mt-2">
-            <section class="services sections-bg bg-light">
-               <div class="container">
-                  <div class="row">
-                     <div class="section-header pb-0">
-                        <h3 class="text-pri">Eventos del mes</h3>
-                     </div>
-                     <div class="row">
-                        <?= $cardEventCalendar ?>
-                     </div>
-                  </div>
-               </div>
-            </section>
-         </div>
       </div>
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/footer.php'; ?>

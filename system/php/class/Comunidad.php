@@ -13,7 +13,7 @@ class Comunidad extends System
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
-    public static function setCommunity($nombre, $id_comunidad)
+    public static function setCommunity($id_comunidad, $nombre)
     {
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE Comunidad 
@@ -68,11 +68,19 @@ class Comunidad extends System
     {
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("SELECT com.* 
-                                FROM Comunidad com, 
-                                    Usuario us
+                                FROM Comunidad com
                                 WHERE com.id_usuario = :id_usuario
-                                AND us.id_usuario = com.id_usuario");
+                                UNION 
+                                SELECT com.*
+                                FROM Comunidad com,
+                                    UsuarioComunidad uc,
+                                    Usuario us
+                                WHERE us.id_usuario = com.id_usuario
+                                AND uc.id_usuario = :id_usuario1
+                                AND com.id_usuario != :id_usuario2;");
         $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->bindParam(':id_usuario1', $id_usuario);
+        $stmt->bindParam(':id_usuario2', $id_usuario);
         $stmt->execute();
         $result = $stmt->fetch();
         if ($result) {

@@ -55,6 +55,10 @@ class Constants
     static $MESSAGE_NEW         = "Mensaje enviado exitosamente, pronto nos pondremos en contacto contigo";
     static $EMAIL_NEW           = "Correo enviado exitosamente";
     static $MESSAGE_NEW_BLOG    = "Artículo creado exitosamente";
-    static $REGISTER_DELETE_NOT     = "No se ha eliminado el registro";
+    static $REGISTER_DELETE_NOT = "No se ha eliminado el registro";
     static $ANSWER_REPEAT       = "La pregunta ya tiene una respuesta correcta";
+    static $DELETE_USER_COM     = "Has salido de la comunidad, puedes unirte a otra comunidad";
+    static $DELETE_USER_COM_NOT = "No te has podido desvincular de la comunidad";
+    static $DELETE_USER_BY_LEAD = "Has eliminado el usuario de la comunidad";
+    static $DELETE_USER_BY_LEAD_NOT = "No se ha eliminado el usuario de la comunidad";
 }

@@ -39,4 +39,11 @@ class UsuarioComunidad extends system
         $stmt->bindParam(':id_usuario_comunidad', $id_usuario_comunidad);
         return  $stmt->execute();
     }
+    public static function deleteUserCommunityByUser($id_usuario)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("DELETE FROM UsuarioComunidad WHERE id_usuario = :id_usuario");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        return  $stmt->execute();
+    }
 }

@@ -163,7 +163,6 @@ class Usuario extends System
             return false;
         }
     }
-
     public static function lastUsuario()
     {
         $dbh             = parent::Conexion();
@@ -180,5 +179,58 @@ class Usuario extends System
         $stmt->execute();
         $result = $stmt->fetch();
         return $result['total'];
+    }
+    public static function getUsersWithoutCommunity()
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT us.* 
+                            FROM Usuario us
+                            WHERE NOT EXISTS(
+                                SELECT 1
+                                FROM UsuarioComunidad uc
+                                WHERE us.id_usuario = uc.id_usuario
+                            ) AND NOT EXISTS(
+                                SELECT 1
+                                FROM Comunidad cm
+                                WHERE cm.id_usuario = us.id_usuario
+                            )");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'UsuarioDTO');
+        $stmt->execute();
+        return  $stmt->fetchAll();
+    }
+    public static function getUsersInCommunity($id_comunidad)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT us.* 
+                            FROM Usuario us
+                            WHERE EXISTS(
+                                SELECT 1
+                                FROM UsuarioComunidad uc
+                                WHERE us.id_usuario = uc.id_usuario
+								AND uc.id_comunidad = :id_comunidad
+                            ) AND NOT EXISTS(
+                                SELECT 1
+                                FROM Comunidad cm
+                                WHERE cm.id_usuario = us.id_usuario
+								AND cm.id_comunidad = :id_comunidad1
+                            )");
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
+        $stmt->bindParam(':id_comunidad1', $id_comunidad);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'UsuarioDTO');
+        $stmt->execute();
+        return  $stmt->fetchAll();
+    }
+    public static function countUsersInCommunity($id_comunidad)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT Count(us.id_usuario) + 1 as contador
+                                FROM UsuarioComunidad cm,
+                                    Usuario us
+                                WHERE us.id_usuario = cm.id_usuario
+                                AND cm.id_comunidad = :id_comunidad");
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
+        $stmt->execute();
+        $response = $stmt->fetch();
+        return $response['contador'];
     }
 }
