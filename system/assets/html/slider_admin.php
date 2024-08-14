@@ -10,8 +10,8 @@
    <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
          <li class="nav-item">
-            <a class="nav-link text-black" href="index">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+            <a class="nav-link text-white" href="index">
+               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">dashboard</i>
                </div>
                <span class="nav-link-text ms-1">Inicio</span>
@@ -43,64 +43,64 @@
             </div>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="communities">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+            <a class="nav-link text-white " href="communities">
+               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">people</i>
                </div>
                <span class="nav-link-text ms-1">Comunidades</span>
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="points">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+            <a class="nav-link text-white " href="points">
+               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">favorite</i>
                </div>
                <span class="nav-link-text ms-1">Corazones</span>
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="benefits">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+            <a class="nav-link text-white " href="benefits">
+               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">paid</i>
                </div>
                <span class="nav-link-text ms-1">Beneficios</span>
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="rewards">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+            <a class="nav-link text-white " href="rewards">
+               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">emoji_events</i>
                </div>
                <span class="nav-link-text ms-1">Recompensas</span>
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="users">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+            <a class="nav-link text-white " href="users">
+               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">groups</i>
                </div>
                <span class="nav-link-text ms-1">Usuarios</span>
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="groups">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+            <a class="nav-link text-white " href="groups">
+               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">groups</i>
                </div>
                <span class="nav-link-text ms-1">Grupos</span>
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="managers">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+            <a class="nav-link text-white " href="managers">
+               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">people</i>
                </div>
                <span class="nav-link-text ms-1">Gestores</span>
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="surveys">
-               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+            <a class="nav-link text-white " href="surveys">
+               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">description</i>
                </div>
                <span class="nav-link-text ms-1">Encuesta</span>

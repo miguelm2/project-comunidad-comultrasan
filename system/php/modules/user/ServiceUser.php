@@ -9,7 +9,7 @@ class ServiceUser extends System
     public static function newUser($nombre, $correo, $telefono, $cedula, $pass, $tipo_documento, $fecha_nacimiento, $estado)
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'users.php') {
+            if (basename($_SERVER['PHP_SELF']) == 'users.php' || basename($_SERVER['PHP_SELF']) == 'singup.php') {
                 $nombre = parent::limpiarString($nombre);
                 $correo = parent::limpiarString($correo);
                 $telefono = parent::limpiarString($telefono);
@@ -278,6 +278,28 @@ class ServiceUser extends System
                 $html .= '<option value="' . $value->getId_usuario() . '">' . $value->getNombre() . '</option>';
             }
             return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getOptionUserWithoutCommunity()
+    {
+        try {
+            $html = "";
+            $modelResponse = Usuario::getUsersWithoutCommunity();
+
+            foreach ($modelResponse as $value) {
+                $html .= '<option value="' . $value->getId_usuario() . '">' . $value->getNombre() . '</option>';
+            }
+            return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getUsersInCommunity($id_comunidad){
+        try{
+            $id_comunidad = parent::limpiarString($id_comunidad);
+            
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

@@ -36,3 +36,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forumComment/Contr
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefit/ControllerBenefit.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/eventCalendar/ControllerEventCalendar.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userCommunity/ControllerUserComunnity.php';

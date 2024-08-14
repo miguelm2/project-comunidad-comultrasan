@@ -469,7 +469,7 @@ class Elements
                                     <p class="card-text">
                                     Te puedes unir a cualquier comunidad
                                     </p>
-                                    <a href="" class="btn btn-success">Unirme a una comunidad</a>
+                                    <a href="allCommunities" class="btn btn-success">Unirme a una comunidad</a>
                                 </div>
                             </div>
                         </div>
@@ -486,11 +486,59 @@ class Elements
                     <h6><i class="material-icons">supervisor_account</i> Lider: </h6>
                     <p>' . $lider . '</p>
                     <h6><i class="material-icons">group_add</i> Usuarios en la comunidad: </h6>
-                    <p>' . $cantidad . '</p>
+                    <p>' . $cantidad . ' asociados</p>
                     <h6><i class="material-icons">event</i> Fecha de creación: </h6>
                     <p>' . $fecha . '</p>
-                    <h6><i class="material-icons">favorite</i> Sumatoria de puntos: </h6>
-                    <p>' . $puntos . '</p>
+                    <h6><i class="material-icons">favorite</i> Sumatoria de corazones: </h6>
+                    <p>' . $puntos . ' corazones</p>
                 </div>';
+    }
+    public static function getCardUserInCommunity($nombre, $celular, $btnEliminar)
+    {
+        return '<div class="card mt-2 border-2">
+                    <div class="row">
+                        <div class="col-md-8 mt-2">
+                            <h6 class="p-2"><i class="material-icons me-2">account_circle</i> ' . $nombre . '</h6>
+                            <h6 class="ms-2"><i class="material-icons me-2">call</i>Celular: ' . $celular . '</h6>
+                        </div>
+                        <div class="col-md-4 mt-2">
+                            ' . $btnEliminar . '
+                        </div>
+                    </div>
+                </div>';
+    }
+    public static function getCardCommunty($nombre, $lider, $fecha, $cantidad, $id_comunidad)
+    {
+        return '<div class="card border-2 mt-2">
+                    <div class="row">
+                        <div class="col-md-6 ms-2 mt-2">
+                            <h4>' . $nombre . '</h4>
+                            <p><strong>Creada por:</strong> ' . $lider . '</p>
+                        </div>
+                        <div class="col-md-5 mt-2">
+                            <p class=""><strong>Fecha de creación:</strong> ' . $fecha . '</p>
+                            <p class=""><strong>Cantidad de usuarios:</strong> ' . $cantidad . '</p>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="text-end">
+                                <form method="post">
+                                    <input type="hidden" name="comunidad" value="' . $id_comunidad . '">
+                                    <button name="newUserCommunityJoin" class="btn btn-success">¡Unirme Ahora!</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+    }
+    public static function getButtonDeleteModal($modal, $text)
+    {
+        return '<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#' . $modal . '">
+                    <i class="material-icons me-2">logout</i>' . $text . '
+                </button>';
+    }
+    public static function getButtonDeleteModalJs($modal, $text, $id)
+    {
+        return '<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#' . $modal . '" data-id="' . $id . '">
+        <i class="material-icons me-2">person_remove</i>' . $text . '</button>';
     }
 }
