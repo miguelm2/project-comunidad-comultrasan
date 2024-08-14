@@ -19,7 +19,7 @@ class ServiceForum extends System
                 $result = Foro::newForum($id_tipo_comunidad, $id_usuario, $contenido,  $megusta, $titulo, $fecha_registro);
 
                 if ($result) {
-                    $foroDTO = Foro::getLastForumByTypeCommunity($id_tipo_comunidad, $id_usuario);
+                    $foroDTO = Foro::getLastForumByTypeCommunityAndUser($id_tipo_comunidad, $id_usuario);
                     header('Location:forum?forum=' . $foroDTO->getId_foro() . '&new');
                 }
             }
@@ -115,6 +115,27 @@ class ServiceForum extends System
                 } else {
                     return "Hace un momento.";
                 }
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getCardForum($id_tipo_comunidad)
+    {
+        try {
+            $id_tipo_comunidad = parent::limpiarString($id_tipo_comunidad);
+            $foroDTO = Foro::getLastForumByTypeCommunity($id_tipo_comunidad);
+            if ($foroDTO) {
+                $tiempo = self::getTimePublicate($foroDTO->getFecha_registro());
+                return Elements::getCardForo(
+                    $foroDTO->getUsuarioDTO()->getImagen(),
+                    $foroDTO->getUsuarioDTO()->getNombre(),
+                    $foroDTO->getContenido(),
+                    $foroDTO->getMegusta(),
+                    $tiempo
+                );
+            }else{
+                return '<h5>No hay foros por el momento</h5>';
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

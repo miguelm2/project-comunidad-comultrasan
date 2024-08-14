@@ -20,6 +20,7 @@
    <!-- CSS Files -->
    <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -55,6 +56,11 @@
             </div>
          </div>
          <?= $unitedCommunity ?>
+      </div>
+      <div class="card-body">
+         <div class="row mt-3">
+            <?= $cardGroupInterest ?>
+         </div>
       </div>
       <!-- ======= Basic Modal ======= -->
       <form id="uploadForm" method="post" enctype="multipart/form-data">
@@ -153,6 +159,31 @@
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="deleteUserCommunity" class="btn btn-danger">
                         <i class="material-icons me-2">person_remove</i> Remover
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post">
+         <div class="modal fade" id="editName" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Editar Nombre</h5>
+                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <label class="form-label">Nombre</label>
+                     <input type="text" name="nombre" id="nombre" class="form-control border p-1">
+                     <input type="hidden" id="comunidad" name="comunidad">
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="editCommunity" class="btn btn-info">
+                        <i class="material-icons me-2">edit</i> Editar Comunidad
                      </button>
                   </div>
                </div>

@@ -260,9 +260,9 @@ CREATE TABLE UsuarioBeneficio (
   fecha_registro DATETIME NOT NULL
 );
 
-CREATE TABLE UsuarioGrupoInteres (
-  id_usuario_grupo INT IDENTITY(1, 1) PRIMARY KEY,
-  id_usuario INT NOT NULL,
+CREATE TABLE ComunidadGrupoInteres (
+  id_comunidad_grupo INT IDENTITY(1, 1) PRIMARY KEY,
+  id_comunidad INT NOT NULL,
   id_grupo INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
@@ -291,3 +291,8 @@ ALTER TABLE
   Comunidad
 ADD
   nombre VARCHAR(255) NOT NULL;
+
+ALTER TABLE
+  UsuarioComunidad
+ADD
+  estado INT NOT NULL;

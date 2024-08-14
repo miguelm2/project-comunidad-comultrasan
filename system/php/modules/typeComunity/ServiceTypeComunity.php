@@ -175,7 +175,7 @@ class ServiceTypeComunity extends System
     public static function getCardGroupInterest()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'groupsInterest.php') {
+            if (basename($_SERVER['PHP_SELF']) == 'community.php') {
                 $html = "";
                 $modelResponse = TipoComunidad::listTypeComunity();
 
@@ -195,10 +195,11 @@ class ServiceTypeComunity extends System
     public static function getCardGroupInterestIndex()
     {
         try {
+            //revisar
             if (basename($_SERVER['PHP_SELF']) == 'index.php') {
                 if (isset($_SESSION['id'])) {
                     $id_usuario = $_SESSION['id'];
-                    $modelResponse = TipoComunidad::getTypeComunityByUser($id_usuario);
+                    $modelResponse = TipoComunidad::getTypeComunityByCommunity($id_usuario);
                     $html = '';
                     foreach ($modelResponse as $valor) {
                         $html .= Elements::getCardsGroupInterestIndexByUser(
@@ -217,11 +218,20 @@ class ServiceTypeComunity extends System
     public static function getButtonJoin()
     {
         try {
-            $id_usuario = $_SESSION['id'];
-            $tipoComunidadDTO = TipoComunidad::getTypeComunityByUser($id_usuario);
-            if(!$tipoComunidadDTO){
+            $comunidadDTO = Comunidad::getCommunityByUser($_SESSION['id']);
+
+            if (!$comunidadDTO) {
+                $comunidadUsuario = UsuarioComunidad::getUserCommunityByUser($_SESSION['id']);
+                if ($comunidadUsuario) {
+                    $comunidadDTO = $comunidadUsuario->getComunidadDTO();
+                } else {
+                    return '<button class="btn btn-success disabled">No perteneces a una comunidad</button>';
+                }
+            }
+            $tipoComunidadDTO = TipoComunidad::getTypeComunityByCommunity($comunidadDTO->getId_comunidad());
+            if (!$tipoComunidadDTO) {
                 return Elements::getFormJoinGroupInterest();
-            }else{
+            } else {
                 return '<button class="btn btn-success disabled">Ya te has unido</button>';
             }
         } catch (\Exception $e) {

@@ -2,6 +2,7 @@
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/user/ServiceUser.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/point/ServicePoint.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userCommunity/ServiceUserCommunity.php';
 
 if (isset($_POST['setProfileUser'])) {
     $response = ServiceUser::setProfile($_POST['nombre'], $_POST['correo'], $_POST['telefono'], $_POST['cedula'], $_POST['tipo_documento'], $_POST['fecha_nacimiento']);
@@ -38,6 +39,7 @@ if (isset($_POST['setImageUserProfile'])) {
 if (isset($_GET['user'])) {
     $user = ServiceUser::getUsuario($_GET['user']);
     $tablePointsUser = ServicePoint::getTablePointByUser($_GET['user']);
+    $infoCommunityAdmin = ServiceUserCommunity::tableUserCommunityByUser($_GET['user']);
 }
 
 if (isset($_POST['deleteUser'])) {

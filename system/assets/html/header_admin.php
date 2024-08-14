@@ -1,8 +1,13 @@
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 border-radius-xl shadow-none" id="navbarBlur" data-scroll="true">
-   <div class="container-fluid">
+   <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="d-xl-none d-lg-none align-items-center justify-content-start">
+         <a href="index" class="nav-link text-body p-0 text-start">
+            <img src="/../assets/image/favicon_0.ico" alt="logo" class="img-fluid text-start" width="30px">
+         </a>
+      </div>
       <div class="collapse navbar-collapse" id="navbar">
          <ul class="navbar-nav ms-auto">
             <li class="nav-item d-flex align-items-center">

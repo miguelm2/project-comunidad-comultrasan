@@ -217,8 +217,8 @@ class Elements
     }
     public static function getCardBenefit($id, $imagen, $titulo, $subtitulo)
     {
-        return '<div class="col-md-6 mt-3">
-                    <div class="card card1 position-relative">
+        return '<div class="col-md-6 mt-5">
+                    <div class="card card1 position-relative h-100">
                         <img src="' . Path::$DIR_IMAGE_BENE_PAGE . $imagen . '" alt="' . $imagen . '">
                         <h5 class="card-title">' . $titulo . '</h5>
                         <p class="card-text">
@@ -434,7 +434,7 @@ class Elements
     public static function getFormJoinGroupInterest()
     {
         return '<form method="post">
-                    <button name="newUserGroupInterest" class="btn btn-success">¡Unirme Ahora!</button>
+                    <button name="newCommunityGroupInterest" class="btn btn-success">¡Unirme Ahora!</button>
                 </form>';
     }
     public static function getUnitedCommunity()
@@ -476,13 +476,21 @@ class Elements
                     </div>
                 </div>';
     }
-    public static function getUnitedCommunityReady($nombre, $lider, $cantidad, $fecha, $codigo, $puntos)
+    public static function getUnitedCommunityReady($nombre, $lider, $cantidad, $fecha, $codigo, $puntos, $btnEditar)
     {
         return '<div class="card-body m-0">
                     <h6><i class="material-icons">vpn_key</i> Código del grupo: </h6>
                     <p>' . $codigo . '</p>
                     <h6><i class="material-icons">diversity_3</i> Nombre: </h6>
-                    <p>' . $nombre . '</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>' . $nombre . '</p>
+                        </div>
+                        <div class="col-md-6">
+                            '. $btnEditar .'
+                        </div>
+                    </div>
+                    
                     <h6><i class="material-icons">supervisor_account</i> Lider: </h6>
                     <p>' . $lider . '</p>
                     <h6><i class="material-icons">group_add</i> Usuarios en la comunidad: </h6>
@@ -540,5 +548,53 @@ class Elements
     {
         return '<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#' . $modal . '" data-id="' . $id . '">
         <i class="material-icons me-2">person_remove</i>' . $text . '</button>';
+    }
+    public static function getButtonEditModalJs($modal, $text, $id, $nombre)
+    {
+        return '<button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#' . $modal . '" data-id="' . $id . '" data-nombre="' . $nombre . '">
+        <i class="material-icons me-2">edit</i>' . $text . '</button>';
+    }
+    public static function getCardBodyCommunityUser($codigo, $nombre, $lider, $fecha, $fecha_union)
+    {
+        return '<div class="row">
+                    <div class="col-md-6">
+                        <h6><i class="material-icons">vpn_key</i> Código del grupo: </h6>
+                        <p>' . $codigo . '</p>
+                        <h6><i class="material-icons">diversity_3</i> Nombre: </h6>
+                        <p>' . $nombre . '</p>
+                        <h6><i class="material-icons">supervisor_account</i> Lider: </h6>
+                        <p>' . $lider . '</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6><i class="material-icons">event</i> Fecha de creación: </h6>
+                        <p>' . $fecha . '</p>
+                        <h6><i class="material-icons">event</i> Fecha de unión: </h6>
+                        <p>' . $fecha_union . '</p>
+                    </div>
+                </div>';
+    }
+    public static function getCardForo($imagen, $usuario, $contenido, $likes, $tiempo)
+    {
+        return '<div class="card-header">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="' . Path::$DIR_IMAGE_USER . $imagen . '" alt="Profile Image" class="img-fluid img-foro">
+                        </div>
+                        <div class="col-md-10">
+                            <div class="name">' . $usuario . '</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    ' . $contenido . '
+                </div>
+                <div class="card-footer">
+                    <div class="likes">
+                        <span>&#10084; ' . $likes . '</span>
+                    </div>
+                    <div class="time">
+                        ' . $tiempo . '
+                    </div>
+                </div>';
     }
 }
