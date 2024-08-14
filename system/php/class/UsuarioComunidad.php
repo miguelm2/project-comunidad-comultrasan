@@ -13,14 +13,16 @@ class UsuarioComunidad extends system
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
-    public static function getUserCommunity($id_usuario_comunidad)
+    public static function getUserCommunityByCommunity($id_comunidad)
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM UsuarioComunidad WHERE id_usuario_comunidad = :id_usuario_comunidad");
-        $stmt->bindParam(':id_usuario_comunidad', $id_usuario_comunidad);
+        $stmt = $dbh->prepare("SELECT * FROM UsuarioComunidad WHERE id_comunidad = :id_comunidad");
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
         $stmt->execute();
-        $response = $stmt->fetch();
-        if ($response) {
+        $modalResponse = $stmt->fetchAll();
+        $list = array();
+        $con = 0;
+        foreach ($modalResponse as $response) {
             $UsuarioComunidadDTO = new UsuarioComunidadDTO();
 
             $UsuarioComunidadDTO->setId_usuario_comunidad($response['id_usuario_comunidad']);
@@ -28,9 +30,10 @@ class UsuarioComunidad extends system
             $UsuarioComunidadDTO->setComunidadDTO(Comunidad::getCommunity($response['id_comunidad']));
             $UsuarioComunidadDTO->setFecha_registro($response['fecha_registro']);
 
-            return $UsuarioComunidadDTO;
+            $list[$con] = $UsuarioComunidadDTO;
+            $con++;
         }
-        return null;
+        return $list;
     }
     public static function deleteUserCommunity($id_usuario_comunidad)
     {

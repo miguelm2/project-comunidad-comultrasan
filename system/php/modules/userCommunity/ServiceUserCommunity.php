@@ -64,4 +64,15 @@ class ServiceUserCommunity extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function getUserCommunityByComummnity($id_comunidad){
+        try{
+            $id_comunidad = parent::limpiarString($id_comunidad);
+            $modelResponse = UsuarioComunidad::getUserCommunityByCommunity($id_comunidad);
+            foreach($modelResponse as $value){
+                
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }
