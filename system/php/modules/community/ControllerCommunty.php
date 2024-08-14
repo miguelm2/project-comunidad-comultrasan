@@ -15,6 +15,7 @@ if (isset($_POST['deleteCommunity'])) {
 
 if (isset($_GET['community'])) {
     $comunidad = ServiceCommunity::getCommunity($_GET['community']);
+    //$usuarioComunidad = ServiceUserCommunity::get
 }
 
 if (isset($_GET)) {

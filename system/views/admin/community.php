@@ -50,25 +50,25 @@
             <div class="col-md-12 mt-2 pb-4">
                <form method="post">
                   <div class="row">
-                     <div class="col-md-6">
-                        <div class="form-group">
-                           <label for="id_comunidad">Código</label>
-                           <input type="text" name="id_comunidad" id="id_comunidad" class="form-control border p-1" value="<?= $comunidad->getId_comunidad() ?>" disabled>
-                        </div>
-                     </div>
-                     <div class="col-md-6">
+                     <div class="col-md-12">
                         <div class="form-group">
                            <label for="nombre">Nombre</label>
                            <input type="text" name="nombre" id="nombre" class="form-control border p-1" value="<?= $comunidad->getNombre() ?>">
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <label for="id_comunidad">Código</label>
+                           <input type="text" name="id_comunidad" id="id_comunidad" class="form-control border p-1" value="<?= $comunidad->getId_comunidad() ?>" disabled>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
                         <div class="form-group">
                            <label for="fecha">Creado</label>
                            <input type="text" name="fecha" id="fecha" class="form-control border p-1" value="<?= $comunidad->getFecha_registro() ?>" disabled>
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-4">
                         <div class="form-group">
                            <label for="lider">Líder</label>
                            <input type="text" name="lider" id="lider" class="form-control border p-1" value="<?= $comunidad->getUsuarioDTO()->getNombre() ?>" disabled>

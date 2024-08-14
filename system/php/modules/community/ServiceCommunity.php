@@ -123,12 +123,13 @@ class ServiceCommunity extends System
     public static function getDateInWords($fechaBD)
     {
         $fechaBD = new DateTime($fechaBD);
-        $formatter = new IntlDateFormatter(
-            'es_ES',
-            IntlDateFormatter::LONG, // Estilo largo para la fecha
-            IntlDateFormatter::NONE // No mostrar la hora
-        );
-        return $formatter->format($fechaBD);
+
+        // Configurar el local para español
+        setlocale(LC_TIME, 'es_ES.UTF-8');
+
+        // Formatear la fecha en palabras
+        $fechaEnPalabras = strftime('%e de %B de %Y', $fechaBD->getTimestamp());
+        return $fechaEnPalabras;
     }
     public static function getButtonUnitUser()
     {
