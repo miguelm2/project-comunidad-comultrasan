@@ -91,10 +91,10 @@
                   <div class="card-body">
                      <?= $foroDTO->getContenido() ?>
                      <div class="mt-4">
-                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#newForumComment">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#newForumComment" <?= $disabledButton ?>>
                            <i class="material-icons me-2">chat</i>(<?= $contadorComment ?>) Comentar
                         </button>
-                        <button type="button" class="btn btn-primary btn-sm">
+                        <button type="button" class="btn btn-primary btn-sm" <?= $disabledButton ?>>
                            <i class="material-icons me-2">favorite</i>(<?= $foroDTO->getMegusta() ?>) Me gusta
                         </button>
                      </div>

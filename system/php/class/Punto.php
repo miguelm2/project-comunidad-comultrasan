@@ -125,4 +125,22 @@ class Punto extends System
         $result = $stmt->fetch();
         return $result['total'];
     }
+    public static function getSumPointsByCommunity($id_comunidad)
+    {
+        $dbh = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT SUM(p.puntos) AS total
+                                FROM UsuarioComunidad uc,
+                                    Usuario us,
+                                    Comunidad cm,
+                                    Punto p
+                                WHERE uc.id_usuario = us.id_usuario
+                                AND uc.id_comunidad = cm.id_comunidad
+                                AND us.id_usuario = p.id_usuario
+                                OR us.id_usuario = cm.id_usuario
+                                AND cm.id_comunidad = :id_comunidad");
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result['total'];
+    }
 }

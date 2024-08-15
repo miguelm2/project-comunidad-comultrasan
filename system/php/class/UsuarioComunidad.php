@@ -61,6 +61,27 @@ class UsuarioComunidad extends system
         }
         return null;
     }
+    public static function getUserCommunityByUserInactive($id_usuario)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * 
+                                FROM UsuarioComunidad 
+                                WHERE id_usuario = :id_usuario
+                                AND estado = 1");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        $response = $stmt->fetch();
+        if ($response) {
+            $UsuarioComunidadDTO = new UsuarioComunidadDTO();
+
+            $UsuarioComunidadDTO->setId_usuario_comunidad($response['id_usuario_comunidad']);
+            $UsuarioComunidadDTO->setUsuarioDTO(Usuario::getUserById($response['id_usuario']));
+            $UsuarioComunidadDTO->setComunidadDTO(Comunidad::getCommunity($response['id_comunidad']));
+            $UsuarioComunidadDTO->setFecha_registro($response['fecha_registro']);
+            return $UsuarioComunidadDTO;
+        }
+        return null;
+    }
     public static function deleteUserCommunity($id_usuario_comunidad)
     {
         $dbh             = parent::Conexion();
@@ -74,6 +95,13 @@ class UsuarioComunidad extends system
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("DELETE FROM UsuarioComunidad WHERE id_usuario = :id_usuario");
         $stmt->bindParam(':id_usuario', $id_usuario);
+        return  $stmt->execute();
+    }
+    public static function deleteUserCommunityByCommunity($id_comunidad)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("DELETE FROM UsuarioComunidad WHERE id_comunidad = :id_comunidad");
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
         return  $stmt->execute();
     }
     public static function setEstateUserCommunity($id_usuario_comunidad, $estado)
@@ -93,6 +121,27 @@ class UsuarioComunidad extends system
                                 FROM UsuarioComunidad 
                                 WHERE id_usuario_comunidad = :id_usuario_comunidad");
         $stmt->bindParam(':id_usuario_comunidad', $id_usuario_comunidad);
+        $stmt->execute();
+        $response = $stmt->fetch();
+        if ($response) {
+            $UsuarioComunidadDTO = new UsuarioComunidadDTO();
+
+            $UsuarioComunidadDTO->setId_usuario_comunidad($response['id_usuario_comunidad']);
+            $UsuarioComunidadDTO->setUsuarioDTO(Usuario::getUserById($response['id_usuario']));
+            $UsuarioComunidadDTO->setComunidadDTO(Comunidad::getCommunity($response['id_comunidad']));
+            $UsuarioComunidadDTO->setFecha_registro($response['fecha_registro']);
+            return $UsuarioComunidadDTO;
+        }
+        return null;
+    }
+    public static function getOnlyUserCommunityByCommunity($id_comunidad)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * 
+                                FROM UsuarioComunidad 
+                                WHERE id_comunidad = :id_comunidad
+                                AND estado = 2");
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
         $stmt->execute();
         $response = $stmt->fetch();
         if ($response) {

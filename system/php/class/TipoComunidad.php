@@ -74,6 +74,6 @@ class TipoComunidad extends System
         $stmt->bindParam(':id_comunidad', $id_comunidad);
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'TipoComunidadDTO');
         $stmt->execute();
-        return $stmt->fetchAll();
+        return $stmt->fetch();
     }
 }

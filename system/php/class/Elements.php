@@ -333,23 +333,25 @@ class Elements
     }
     public static function getCardGroupInterest($id, $icono, $titulo, $subtitulo)
     {
-        return '<div class="col-md-5 col-sm-5 mt-2 h-100" data-aos="fade-up" data-aos-delay="100">
+        return '<div class="col-md-5 col-sm-5 mt-2" data-aos="fade-up" data-aos-delay="100">
                     <div class="card border-3 h-100">
                         <div class="card-head justify-content-center text-center mt-2">
                             <span class="material-symbols-outlined" style="font-size: 70px;">
                                 ' . $icono . '
                             </span>
                         </div>
-                        <div class="card-body pt-0">
+                        <div class="card-body">
                             <h5 class="title text-black text-center">
                                 <strong>
                                     ' . $titulo . '
                                 </strong>
                             </h5>
-                            <p class="text-black p-2">
+                            <p class="text-black ms-2">
                                 ' . $subtitulo . '
                             </p>
-                            <div class="row">
+                        </div>
+                        <div class="card-foot">
+                            <div class="row ms-4">
                                 <div class="col-md-6">
                                     <a href="groupInterest?groupInterest=' . $id . '" class="btn btn-success">
                                         <i class="material-icons text-sm me-2">visibility</i>Ver grupo
@@ -442,8 +444,8 @@ class Elements
         return '<div class="card-body m-0">
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="card border-2">
-                                <div class="card-head ms-3 mt-2">
+                            <div class="card border-2 h-100">
+                                <div class="card-head ms-4 mt-3">
                                     <h5 class="text-success">
                                     Crear una nueva Comunidad
                                     </h5>
@@ -452,15 +454,17 @@ class Elements
                                     <p class="card-text">
                                     Para crear una nueva comunidad, deben de ser al menos dos personas
                                     </p>
-                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newCommunity">
+                                </div>
+                                <div class="card-foot">
+                                    <button type="button" class="btn btn-success ms-4" data-bs-toggle="modal" data-bs-target="#newCommunity">
                                         <i class="material-icons me-2">add</i> Crear nueva comunidad
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="card border-2">
-                                <div class="card-head ms-3 mt-2">
+                            <div class="card border-2 h-100">
+                                <div class="card-head ms-4 mt-3">
                                     <h5 class="text-success">
                                     Unirme a una nueva comunidad
                                     </h5>
@@ -469,7 +473,9 @@ class Elements
                                     <p class="card-text">
                                     Te puedes unir a cualquier comunidad
                                     </p>
-                                    <a href="allCommunities" class="btn btn-success">Unirme a una comunidad</a>
+                                </div>
+                                <div class="card-foot">
+                                    <a href="allCommunities" class="btn btn-success ms-4">Unirme a una comunidad</a>
                                 </div>
                             </div>
                         </div>
@@ -487,7 +493,7 @@ class Elements
                             <p>' . $nombre . '</p>
                         </div>
                         <div class="col-md-6">
-                            '. $btnEditar .'
+                            ' . $btnEditar . '
                         </div>
                     </div>
                     
@@ -515,13 +521,13 @@ class Elements
                     </div>
                 </div>';
     }
-    public static function getCardCommunty($nombre, $lider, $fecha, $cantidad, $id_comunidad)
+    public static function getCardCommunity($nombre, $lider, $fecha, $cantidad, $id_comunidad)
     {
         return '<div class="card border-2 mt-2">
                     <div class="row">
                         <div class="col-md-6 ms-2 mt-2">
                             <h4>' . $nombre . '</h4>
-                            <p><strong>Creada por:</strong> ' . $lider . '</p>
+                            <p><strong>Líderada por:</strong> ' . $lider . '</p>
                         </div>
                         <div class="col-md-5 mt-2">
                             <p class=""><strong>Fecha de creación:</strong> ' . $fecha . '</p>

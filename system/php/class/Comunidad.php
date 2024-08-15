@@ -102,4 +102,33 @@ class Comunidad extends System
         $stmt->bindParam(':id_comunidad', $id_comunidad);
         return  $stmt->execute();
     }
+    public static function setLeaderCommunity($id_comunidad, $id_usuario){
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("UPDATE Comunidad 
+                                SET id_usuario = :id_usuario 
+                                WHERE id_comunidad = :id_comunidad");
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        return  $stmt->execute();
+    }
+    public static function getLastCommunity()
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * 
+                                FROM Comunidad
+                                ORDER BY id_comunidad DESC");
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if ($result) {
+            $comunidadDTO = new ComunidadDTO();
+
+            $comunidadDTO->setId_comunidad($result['id_comunidad']);
+            $comunidadDTO->setNombre($result['nombre']);
+            $comunidadDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $comunidadDTO->setFecha_registro($result['fecha_registro']);
+
+            return $comunidadDTO;
+        }
+        return null;
+    }
 }

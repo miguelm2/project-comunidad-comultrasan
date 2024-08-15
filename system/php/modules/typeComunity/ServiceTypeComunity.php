@@ -232,8 +232,58 @@ class ServiceTypeComunity extends System
             if (!$tipoComunidadDTO) {
                 return Elements::getFormJoinGroupInterest();
             } else {
-                return '<button class="btn btn-success disabled">Ya te has unido</button>';
+                return '<button class="btn btn-success disabled">Ya te has unido a un grupo</button>';
             }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getButonNewForum($id_grupo)
+    {
+        try {
+            $id_grupo = parent::limpiarString($id_grupo);
+            $comunidadDTO = Comunidad::getCommunityByUser($_SESSION['id']);
+
+            if (!$comunidadDTO) {
+                $comunidadUsuario = UsuarioComunidad::getUserCommunityByUser($_SESSION['id']);
+                $comunidadDTO = $comunidadUsuario ? $comunidadUsuario->getComunidadDTO() : null;
+            }
+
+            if ($comunidadDTO) {
+                $tipoComunidadDTO = TipoComunidad::getTypeComunityByCommunity($comunidadDTO->getId_comunidad());
+
+                if ($tipoComunidadDTO && $tipoComunidadDTO->getId_tipo_comunidad() == $id_grupo) {
+                    return '<a href="newForum?comunnityForum=' . $id_grupo . '" class="btn btn-success">
+                                <i class="material-icons me-2">edit</i> Añadir nuevo tema
+                            </a>';
+                }
+            }
+
+            return '';
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getDisabledComment($id_foro)
+    {
+        try {
+            $comunidadDTO = Comunidad::getCommunityByUser($_SESSION['id']);
+            $foroDTO = Foro::getForum($id_foro);
+
+            if (!$comunidadDTO) {
+                $comunidadUsuario = UsuarioComunidad::getUserCommunityByUser($_SESSION['id']);
+                $comunidadDTO = $comunidadUsuario ? $comunidadUsuario->getComunidadDTO() : null;
+            }
+
+            if ($comunidadDTO && $foroDTO) {
+                $tipoComunidadDTO = TipoComunidad::getTypeComunityByCommunity($comunidadDTO->getId_comunidad());
+
+                if ($tipoComunidadDTO && $tipoComunidadDTO->getId_tipo_comunidad() == $foroDTO->getTipoComunidadDTO()->getId_comunidad()) {
+                    return '';
+                }
+            }
+
+            return 'disabled';
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

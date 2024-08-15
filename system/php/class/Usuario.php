@@ -208,6 +208,7 @@ class Usuario extends System
                                 FROM UsuarioComunidad uc
                                 WHERE us.id_usuario = uc.id_usuario
 								AND uc.id_comunidad = :id_comunidad
+                                AND uc.estado = 2
                             ) AND NOT EXISTS(
                                 SELECT 1
                                 FROM Comunidad cm
