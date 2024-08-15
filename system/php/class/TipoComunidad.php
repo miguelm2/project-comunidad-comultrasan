@@ -61,17 +61,17 @@ class TipoComunidad extends System
         $stmt->bindParam(':id_tipo_comunidad', $id_tipo_comunidad);
         return  $stmt->execute();
     }
-    public static function getTypeComunityByUser($id_usuario)
+    public static function getTypeComunityByCommunity($id_comunidad)
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("SELECT tc.*
                                 FROM TipoComunidad as tc,
-                                    Usuario as us,
-                                    UsuarioGrupoInteres as ugi
+                                    Comunidad as com,
+                                    ComunidadGrupoInteres as ugi
                                 WHERE tc.id_tipo_comunidad = ugi.id_grupo
-                                AND ugi.id_usuario = us.id_usuario
-                                AND us.id_usuario = :id_usuario");
-        $stmt->bindParam(':id_usuario', $id_usuario);
+                                AND ugi.id_comunidad = com.id_comunidad
+                                AND com.id_comunidad = :id_comunidad");
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'TipoComunidadDTO');
         $stmt->execute();
         return $stmt->fetchAll();

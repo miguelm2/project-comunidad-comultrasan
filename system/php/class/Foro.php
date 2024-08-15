@@ -67,7 +67,7 @@ class Foro extends System
         $modelResponse = $stmt->fetchAll();
         $list = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $foroDTO = new ForoDTO();
 
             $foroDTO->setId_foro($result['id_foro']);
@@ -96,7 +96,7 @@ class Foro extends System
         $modelResponse = $stmt->fetchAll();
         $list = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $foroDTO = new ForoDTO();
 
             $foroDTO->setId_foro($result['id_foro']);
@@ -121,7 +121,7 @@ class Foro extends System
         $modelResponse = $stmt->fetchAll();
         $list = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $foroDTO = new ForoDTO();
 
             $foroDTO->setId_foro($result['id_foro']);
@@ -144,7 +144,7 @@ class Foro extends System
         $stmt->bindParam(':id_foro', $id_foro);
         return  $stmt->execute();
     }
-    public static function getLastForumByTypeCommunity($id_tipo_comunidad, $id_usuario)
+    public static function getLastForumByTypeCommunityAndUser($id_tipo_comunidad, $id_usuario)
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("SELECT TOP 1 * 
@@ -154,6 +154,31 @@ class Foro extends System
                             ORDER BY id_foro DESC");
         $stmt->bindParam(':id_tipo_comunidad', $id_tipo_comunidad);
         $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if ($result) {
+            $foroDTO = new ForoDTO();
+
+            $foroDTO->setId_foro($result['id_foro']);
+            $foroDTO->setTipoComunidadDTO(TipoComunidad::getTypeComunity($result['id_tipo_comunidad']));
+            $foroDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $foroDTO->setContenido($result['contenido']);
+            $foroDTO->setMegusta($result['megusta']);
+            $foroDTO->setTitulo($result['titulo']);
+            $foroDTO->setFecha_registro($result['fecha_registro']);
+
+            return $foroDTO;
+        }
+        return null;
+    }
+    public static function getLastForumByTypeCommunity($id_tipo_comunidad)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * 
+                            FROM Foro 
+                            WHERE id_tipo_comunidad = :id_tipo_comunidad
+                            ORDER BY id_foro DESC");
+        $stmt->bindParam(':id_tipo_comunidad', $id_tipo_comunidad);
         $stmt->execute();
         $result = $stmt->fetch();
         if ($result) {

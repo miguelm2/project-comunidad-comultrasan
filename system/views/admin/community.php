@@ -42,7 +42,7 @@
             <!-- End header -->
          </div>
       </nav>
-      <div class="card mt-2">
+      <div class="card mt-3">
          <div class="row m-0">
             <div class="col-md-5 mt-4 ms-4">
                <h4 class="text-success">Mi Comunidad</h4>
@@ -84,10 +84,110 @@
             </div>
          </div>
       </div>
+      <div class="card mt-3">
+         <div class="card-head">
+            <div class="mt-3 ms-3">
+               <div class="row">
+                  <div class="col-md-9">
+                     <h4 class="text-success">
+                        Integrantes
+                     </h4>
+                  </div>
+                  <div class="col-md-3">
+                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUserComm">
+                        <i class="material-icons me-2">add</i> Agregar integrante
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table table-hover table-bordered table-striped">
+                  <thead class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
+                     </tr>
+                  </thead>
+                  <tfoot class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
+                     </tr>
+                  </tfoot>
+                  <tbody>
+                     <?= $usuarioComunidad ?>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
 
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post">
+         <div class="modal fade" id="takeOut" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Remover asociado de la comunidad</h5>
+                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <label class="form-label">¿Esta seguro que desea remover este asociado?</label>
+                     <input type="hidden" id="usuario" name="usuario">
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="deleteUserCommunity" class="btn btn-danger">
+                        <i class="material-icons me-2">person_remove</i> Remover
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form id="uploadForm" method="post" enctype="multipart/form-data">
+         <div class="modal fade" id="newUserComm" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Agregar integrante</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="row g-3">
+                        <div class="col-12">
+                           <div class="form-group">
+                              <label class="form-label">Usuario</label>
+                              <select name="usuario" id="usuario" class="form-select border p-1">
+                                 <option value="">Seleccione un usuario</option>
+                                 <?= $optionUserWithoutCommunity ?>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="newUserCommunityAdmin" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Integrante</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!--Final Basic Modal-->
    </main>
    <!--   Core JS Files   -->
    <script src="/system/assets/js/core/popper.min.js"></script>

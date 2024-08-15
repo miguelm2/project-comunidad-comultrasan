@@ -59,27 +59,7 @@
                <div class="col-md-4">
                   <img src="<?= Path::$DIR_IMAGE_TYPE_COM . $typeComunnity->getImagen() ?>" alt="Pioneros" class="img-fluid">
                   <div class="card mt-3">
-                     <div class="card-header">
-                        <div class="row">
-                           <div class="col-md-2">
-                              <img src="assets/image/profile.png" alt="Profile Image" class="img-fluid img-foro">
-                           </div>
-                           <div class="col-md-10">
-                              <div class="name">Jorge</div>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="card-body">
-                        Jóvenes con propósito ha sido esencial en esta etapa de vida de mi hijo, le ha permitido vivir experiencias enriquecedoras que lo hacen feliz y que le ayudan a generar relaciones fuertes y significativas.
-                     </div>
-                     <div class="card-footer">
-                        <div class="likes">
-                           <span>&#10084; 60</span>
-                        </div>
-                        <div class="time">
-                           Último hace 1 horas
-                        </div>
-                     </div>
+                     <?= $forumPage ?>
                   </div>
                </div>
             </div>

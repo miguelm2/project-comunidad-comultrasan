@@ -1,12 +1,13 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/community/ServiceCommunity.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userCommunity/ServiceUserCommunity.php';
 
 if (isset($_POST['newCommunity'])) {
     $response = ServiceCommunity::newCommunity($_POST['nombre']);
 }
 
 if (isset($_POST['editCommunity'])) {
-    $response = ServiceCommunity::setCommunity($_GET['community'], $_POST['nombre']);
+    $response = ServiceCommunity::setCommunity($_POST['comunidad'], $_POST['nombre']);
 }
 
 if (isset($_POST['deleteCommunity'])) {
@@ -15,7 +16,7 @@ if (isset($_POST['deleteCommunity'])) {
 
 if (isset($_GET['community'])) {
     $comunidad = ServiceCommunity::getCommunity($_GET['community']);
-    //$usuarioComunidad = ServiceUserCommunity::get
+    $usuarioComunidad = ServiceUserCommunity::getUserCommunityByComummnity($_GET['community']);
 }
 
 if (isset($_GET)) {

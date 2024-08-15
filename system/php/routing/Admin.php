@@ -21,6 +21,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/page/ControllerPag
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefitPage/ControllerBenefitPage.php';
 
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userCommunity/ControllerUserComunnity.php';
+
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/manager/ControllerManager.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/question/ControllerQuestion.php';
@@ -46,3 +48,4 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/eventCalendar/Cont
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/community/ControllerCommunty.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userBenefit/ControllerUserBenefit.php';
+

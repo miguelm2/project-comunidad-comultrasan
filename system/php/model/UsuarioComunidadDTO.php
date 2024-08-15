@@ -1,15 +1,16 @@
-<?php 
+<?php
 
 class UsuarioComunidadDTO
 {
     protected $id_usuario_comunidad;
     protected $usuarioDTO;
     protected $comunidadDTO;
+    protected $estado;
     protected $fecha_registro;
 
     /**
      * Get the value of id_usuario_comunidad
-     */ 
+     */
     public function getId_usuario_comunidad()
     {
         return $this->id_usuario_comunidad;
@@ -19,7 +20,7 @@ class UsuarioComunidadDTO
      * Set the value of id_usuario_comunidad
      *
      * @return  self
-     */ 
+     */
     public function setId_usuario_comunidad($id_usuario_comunidad)
     {
         $this->id_usuario_comunidad = $id_usuario_comunidad;
@@ -29,7 +30,7 @@ class UsuarioComunidadDTO
 
     /**
      * Get the value of usuarioDTO
-     */ 
+     */
     public function getUsuarioDTO()
     {
         return $this->usuarioDTO;
@@ -39,7 +40,7 @@ class UsuarioComunidadDTO
      * Set the value of usuarioDTO
      *
      * @return  self
-     */ 
+     */
     public function setUsuarioDTO($usuarioDTO)
     {
         $this->usuarioDTO = $usuarioDTO;
@@ -49,7 +50,7 @@ class UsuarioComunidadDTO
 
     /**
      * Get the value of comunidadDTO
-     */ 
+     */
     public function getComunidadDTO()
     {
         return $this->comunidadDTO;
@@ -59,7 +60,7 @@ class UsuarioComunidadDTO
      * Set the value of comunidadDTO
      *
      * @return  self
-     */ 
+     */
     public function setComunidadDTO($comunidadDTO)
     {
         $this->comunidadDTO = $comunidadDTO;
@@ -69,7 +70,7 @@ class UsuarioComunidadDTO
 
     /**
      * Get the value of fecha_registro
-     */ 
+     */
     public function getFecha_registro()
     {
         return $this->fecha_registro;
@@ -79,10 +80,32 @@ class UsuarioComunidadDTO
      * Set the value of fecha_registro
      *
      * @return  self
-     */ 
+     */
     public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of estado
+     */
+    public function getEstado()
+    {
+        if ($this->estado == 1) return explode(";", $this->estado . ';Enviado');
+        if ($this->estado == 2) return explode(";", $this->estado . ';Aceptado');
+        return $this->estado;
+    }
+
+    /**
+     * Set the value of estado
+     *
+     * @return  self
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
 
         return $this;
     }

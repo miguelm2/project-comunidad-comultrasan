@@ -1,5 +1,6 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/ServiceTypeComunity.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forum/ServiceForum.php';
 
 if (isset($_POST['newTypeComunity'])) {
     $response = ServiceTypeComunity::newTypeComunity($_POST['titulo'], $_POST['icono'], $_POST['subtitulo'], $_POST['contenido']);
@@ -23,6 +24,7 @@ if (isset($_GET['typeComunity'])) {
 
 if (isset($_GET['comunnity'])) {
     $typeComunnity = ServiceTypeComunity::getTypeComunity($_GET['comunnity']);
+    $forumPage = ServiceForum::getCardForum($_GET['comunnity']);
 }
 
 if (isset($_GET['groupInterest'])) {

@@ -74,23 +74,30 @@ class ServiceCommunity extends System
             if (!$comunidadDTO) {
                 return Elements::getUnitedCommunity();
             } else {
+                $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id'];
                 $html = '<div class="row">
                             <div class="col-md-5">
                             ';
                 $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad());
                 $fecha = self::getDateInWords($comunidadDTO->getFecha_registro());
+                $btnEditar = ($isLeader) ? Elements::getButtonEditModalJs(
+                    'editName',
+                    'Editar',
+                    $comunidadDTO->getId_comunidad(),
+                    $comunidadDTO->getNombre()
+                ) : '';
                 $html .= Elements::getUnitedCommunityReady(
                     $comunidadDTO->getNombre(),
                     $comunidadDTO->getUsuarioDTO()->getNombre(),
                     $count,
                     $fecha,
                     $comunidadDTO->getId_comunidad(),
-                    10
+                    10,
+                    $btnEditar
                 );
                 $html .= '</div>
                             <div class="col-md-6">';
                 $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
-                $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id'];
                 foreach ($modelResponse as $valor) {
                     $btnEliminar = (!$isLeader) ? '' : Elements::getButtonDeleteModalJs('takeOut', 'Remover', $valor->getId_usuario());
                     $html .= Elements::getCardUserInCommunity($valor->getNombre(), $valor->getTelefono(), $btnEliminar);
@@ -124,11 +131,12 @@ class ServiceCommunity extends System
     {
         $fechaBD = new DateTime($fechaBD);
 
-        // Configurar el local para español
-        setlocale(LC_TIME, 'es_ES.UTF-8');
+        $dia = $fechaBD->format('j');
+        $mes = Elements::mes((int)$fechaBD->format('n'));
+        $año = $fechaBD->format('Y');
 
         // Formatear la fecha en palabras
-        $fechaEnPalabras = strftime('%e de %B de %Y', $fechaBD->getTimestamp());
+        $fechaEnPalabras = "$dia de $mes de $año";
         return $fechaEnPalabras;
     }
     public static function getButtonUnitUser()

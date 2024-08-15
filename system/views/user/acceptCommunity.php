@@ -4,14 +4,15 @@
 
 <head>
    <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+   <link rel="icon" type="image/png" href="/assets/image/favicon_0.ico">
    <title>Comunidad Comultrasan</title>
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-   <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
-   <link rel="icon" type="image/png" href="/assets/image/favicon_0.ico">
    <!-- Nucleo Icons -->
-   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+   <link href="/system/assets/css/nucleo-icons.css" rel="stylesheet" />
+   <link href="/system/assets/css/nucleo-svg.css" rel="stylesheet" />
    <!-- Font Awesome Icons -->
    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
    <!-- Material Icons -->
@@ -25,14 +26,14 @@
    <!-- Start Slider -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_user.php'; ?>
    <!-- End Slider -->
-   <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
+   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+      <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
          <div class="container-fluid">
             <nav aria-label="breadcrumb" class="d-none d-lg-block">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
-                  <li class="breadcrumb-item"><a href="community" class="text-white">Mi Comunidad</a></li>
-                  <li class="breadcrumb-item active">Grupo <?= $groupInterest->getTitulo() ?></li>
+                  <li class="breadcrumb-item active">Aceptar Comunidad</li>
                </ol>
             </nav>
             <!-- Start header -->
@@ -40,44 +41,28 @@
             <!-- End header -->
          </div>
       </nav>
-      <!-- End Page Title -->
-      <div class="row m-0 mt-2">
-         <div class="card">
-            <div class="card-head mt-4">
-               <div class="row">
-                  <div class="col-md-10">
-                     <h5 class="text-success">
-                        Grupo <?= $groupInterest->getTitulo() ?>
-                     </h5>
-                  </div>
-                  <div class="col-md-2 mt-0">
-                     <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="community">
-                           <i class="material-icons me-2">keyboard_return</i>atrás</a>
-                     </div>
-                  </div>
-               </div>
+      <div class="card mt-2">
+         <div class="row m-0">
+            <div class="col-md-5 mt-4 ms-4">
+               <h4 class="text-success">Aceptar Comunidad</h4>
             </div>
-            <div class="dark horizontal my-0 border-1"></div>
-            <div class="card-body mt-0">
+            <div class="card-body">
                <form method="post">
                   <div class="row">
                      <div class="col-md-12">
-                        <div class="card border-3">
-                           <div class="card-header mp-0">
-                              <h5 class="text-success"><i class="material-icons me-2">library_books</i><?= $groupInterest->getTitulo() ?></h5>
-                           </div>
-                           <div class="card-body pt-0">
-                              <h6 class="card-text text-success">Descripción sobre el grupo</h6>
-                              <p class="card-text text-black">
-                                 <?= $groupInterest->getContenido() ?>
-                              </p>
-                              <div class="text-end">
-                                 <a href="forums?comunnityForum=<?= $_GET['groupInterest'] ?>" class="btn btn-info">Ir a foro</a>
-                                 <?= $btonJoin ?>
-                              </div>
-                           </div>
-                        </div>
+                        <p><strong>Comunidad:</strong> <?= $usuarioComunidadDTO->getComunidadDTO()->getNombre() ?></p>
+                        <p><strong>Líder: </strong><?= $usuarioComunidadDTO->getComunidadDTO()->getUsuarioDTO()->getNombre() ?></p>
+                        <p><strong>Fecha de creación: </strong><?= $usuarioComunidadDTO->getComunidadDTO()->getFecha_registro() ?></p>
+                     </div>
+                     <div class="col-md-6 d-grid">
+                        <button type="submit" class="btn btn-success" name="acceptCommunity">
+                           <i class="material-icons me-2">check</i>Aceptar
+                        </button>
+                     </div>
+                     <div class="col-md-6 d-grid">
+                        <button type="submit" class="btn btn-danger" name="declineCommunity">
+                           <i class="material-icons me-2">close</i>Rechazar
+                        </button>
                      </div>
                   </div>
                </form>
@@ -89,16 +74,14 @@
       <!-- End Footer -->
    </main>
    <!--   Core JS Files   -->
-   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/assets/js/core/popper.min.js"></script>
    <script src="/system/assets/js/core/bootstrap.min.js"></script>
    <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>
    <script src="/system/assets/js/plugins/smooth-scrollbar.min.js"></script>
    <script src="/system/assets/js/plugins/chartjs.min.js"></script>
-   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+   <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
-   <script src="/system/js/selectRepeat.js"></script>
    <?= $response ?>
 </body>
 
