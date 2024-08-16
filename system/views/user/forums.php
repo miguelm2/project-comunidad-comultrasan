@@ -61,9 +61,7 @@
             </div>
             <div class="dark horizontal my-0 border-1"></div>
             <div class="p-3">
-               <a href="newForum?comunnityForum=<?= $_GET['comunnityForum'] ?>" class="btn btn-success">
-                  <i class="material-icons me-2">edit</i> Añadir nuevo tema
-               </a>
+               <?= $buttonNewForum ?>
             </div>
             <div class="card mb-4">
                <div class="row">

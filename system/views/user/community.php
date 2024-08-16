@@ -57,9 +57,15 @@
          </div>
          <?= $unitedCommunity ?>
       </div>
-      <div class="card-body">
-         <div class="row mt-3">
-            <?= $cardGroupInterest ?>
+      <div class="card mt-3">
+         <div class="card-head">
+            <div class="ms-3 mt-3">
+            <h4 class="text-success">Grupos de Interés </h4></div>
+         </div>
+         <div class="card-body">
+            <div class="row justify-content-center">
+               <?= $cardGroupInterest ?>
+            </div>
          </div>
       </div>
       <!-- ======= Basic Modal ======= -->
@@ -77,6 +83,12 @@
                            <div class="form-group">
                               <label class="form-label">Nombre</label>
                               <input type="text" class="form-control border p-1" name="nombre" required>
+                           </div>
+                        </div>
+                        <div class="col-md-12">
+                           <div class="form-group">
+                              <label class="form-label">Cédula del otro integrante</label>
+                              <input type="text" class="form-control border p-1" name="cedula" required>
                            </div>
                         </div>
                      </div>
@@ -185,6 +197,27 @@
                      <button type="submit" name="editCommunity" class="btn btn-info">
                         <i class="material-icons me-2">edit</i> Editar Comunidad
                      </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post">
+         <div class="modal fade" id="leaveLeader" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Salir de la comunidad</h5>
+                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <label class="form-label">¿Esta seguro que desea salir de la comunidad?</label>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="leaveLeaderCommunity" class="btn btn-danger"><i class="material-icons me-2">logout</i> Salir Ahora</button>
                   </div>
                </div>
             </div>

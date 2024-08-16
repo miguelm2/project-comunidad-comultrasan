@@ -134,11 +134,23 @@ class ServiceForum extends System
                     $foroDTO->getMegusta(),
                     $tiempo
                 );
-            }else{
+            } else {
                 return '<h5>No hay foros por el momento</h5>';
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
+        }
+    }
+    public static function getButtonCreateForum()
+    {
+        $comunidadDTO = Comunidad::getCommunityByUser($_SESSION['id']);
+        if (!$comunidadDTO) {
+            $comunidadUsuario = UsuarioComunidad::getUserCommunityByUser($_SESSION['id']);
+            if ($comunidadUsuario) {
+                $comunidadDTO = $comunidadUsuario->getComunidadDTO();
+            } else {
+                return '<button class="btn btn-success disabled">No perteneces a una comunidad</button>';
+            }
         }
     }
 }

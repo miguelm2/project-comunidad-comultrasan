@@ -15,7 +15,7 @@ class ServiceUserCommunity extends System
             $result = UsuarioComunidad::newUserCommunity($id_usuario, $id_comunidad, $estado, $fecha_registro);
 
             if ($result) {
-                $lastRegister = UsuarioComunidad::getUserCommunityByUser($id_usuario);
+                $lastRegister = UsuarioComunidad::getUserCommunityByUserInactive($id_usuario);
                 $correo = $lastRegister->getUsuarioDTO()->getCorreo();
                 $asunto = "Solicitud de unión a comunidad";
                 $mensaje = "Hola, estas siendo invitada a unirte a una nueva comunidad, para aceptar o rechzar la 
@@ -56,12 +56,20 @@ class ServiceUserCommunity extends System
     {
         try {
             $id_usuario = $_SESSION['id'];
+            $usuarioComunidadDTO = UsuarioComunidad::getUserCommunityByUser($id_usuario);
             $result = UsuarioComunidad::deleteUserCommunityByUser($id_usuario);
+            $id_comunidad = $usuarioComunidadDTO->getComunidadDTO()->getId_comunidad();
             if ($result) {
+                $count = Usuario::countUsersInCommunity($id_comunidad);
+                if ($count < 2) {
+                    $response = Comunidad::deleteCommunity($id_comunidad);
+                    if ($response) {
+                        UsuarioComunidad::deleteUserCommunityByCommunity($id_comunidad);
+                    }
+                }
                 return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
-            } else {
-                return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM_NOT, "error");
             }
+            return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM_NOT, "error");
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

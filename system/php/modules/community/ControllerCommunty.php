@@ -3,7 +3,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/community/ServiceC
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userCommunity/ServiceUserCommunity.php';
 
 if (isset($_POST['newCommunity'])) {
-    $response = ServiceCommunity::newCommunity($_POST['nombre']);
+    $response = ServiceCommunity::newCommunity($_POST['nombre'], $_POST['cedula']);
 }
 
 if (isset($_POST['editCommunity'])) {
@@ -12,6 +12,10 @@ if (isset($_POST['editCommunity'])) {
 
 if (isset($_POST['deleteCommunity'])) {
     ServiceCommunity::deleteCommunity($_GET['community']);
+}
+
+if(isset(($_POST['leaveLeaderCommunity']))){
+    $response = ServiceCommunity::leaveLeaderCommunity();
 }
 
 if (isset($_GET['community'])) {

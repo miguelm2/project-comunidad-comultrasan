@@ -4,16 +4,36 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Comunidad.php';
 
 class ServiceCommunity extends System
 {
-    public static function newCommunity($nombre)
+    public static function newCommunity($nombre, $cedula)
     {
         try {
             $id_usuario    = $_SESSION['id'];
             $fecha_registro = date('Y-m-d H:i:s');
             $nombre = parent::limpiarString($nombre);
-
+            //si la cedula es igual a la del usuario logueado
+            if ($_SESSION['cedula'] == $cedula) {
+                return Elements::crearMensajeAlerta(Constants::$USER_DIFERENT, "error");
+            }
+            $usuario = Usuario::getUserByCedula($cedula);
+            if (!$usuario) { //Si el asociado no esta regitrado
+                return Elements::crearMensajeAlerta(Constants::$USER_NOT_EXIST, "error");
+            }
+            $usuarioComunidad = UsuarioComunidad::getUserCommunityByUser($usuario->getId_usuario());
+            $comunidadLider = Comunidad::getCommunityByUser($usuario->getId_usuario());
+            if ($usuarioComunidad || $comunidadLider) { //Si el usuario ya pertenece a una comunidad
+                return Elements::crearMensajeAlerta(Constants::$USER_READY_COMMUNITY, "error");
+            }
             $result = Comunidad::newCommunity($nombre, $id_usuario, $fecha_registro);
-
             if ($result) {
+                $comunidad = Comunidad::getLastCommunity();
+                if ($comunidad) {
+                    UsuarioComunidad::newUserCommunity(
+                        $usuario->getId_usuario(),
+                        $comunidad->getId_comunidad(),
+                        2,
+                        $fecha_registro
+                    );
+                }
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
             }
         } catch (\Exception $e) {
@@ -73,45 +93,48 @@ class ServiceCommunity extends System
             $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
             if (!$comunidadDTO) {
                 return Elements::getUnitedCommunity();
-            } else {
-                $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id'];
-                $html = '<div class="row">
+            }
+            $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id'];
+            $html = '<div class="row">
                             <div class="col-md-5">
                             ';
-                $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad());
-                $fecha = self::getDateInWords($comunidadDTO->getFecha_registro());
-                $btnEditar = ($isLeader) ? Elements::getButtonEditModalJs(
-                    'editName',
-                    'Editar',
-                    $comunidadDTO->getId_comunidad(),
-                    $comunidadDTO->getNombre()
-                ) : '';
-                $html .= Elements::getUnitedCommunityReady(
-                    $comunidadDTO->getNombre(),
-                    $comunidadDTO->getUsuarioDTO()->getNombre(),
-                    $count,
-                    $fecha,
-                    $comunidadDTO->getId_comunidad(),
-                    10,
-                    $btnEditar
-                );
-                $html .= '</div>
+            $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad());
+            $fecha = self::getDateInWords($comunidadDTO->getFecha_registro());
+            $total_points = Punto::getSumPointsByCommunity($comunidadDTO->getId_comunidad());
+            $btnEditar = $isLeader ? Elements::getButtonEditModalJs(
+                'editName',
+                'Editar',
+                $comunidadDTO->getId_comunidad(),
+                $comunidadDTO->getNombre()
+            ) : '';
+            $html .= Elements::getUnitedCommunityReady(
+                $comunidadDTO->getNombre(),
+                $comunidadDTO->getUsuarioDTO()->getNombre(),
+                $count,
+                $fecha,
+                $comunidadDTO->getId_comunidad(),
+                $total_points,
+                $btnEditar
+            );
+            $html .= '</div>
                             <div class="col-md-6">';
-                $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
-                foreach ($modelResponse as $valor) {
-                    $btnEliminar = (!$isLeader) ? '' : Elements::getButtonDeleteModalJs('takeOut', 'Remover', $valor->getId_usuario());
-                    $html .= Elements::getCardUserInCommunity($valor->getNombre(), $valor->getTelefono(), $btnEliminar);
-                }
-                $html .= '</div>
+            $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
+            foreach ($modelResponse as $valor) {
+                $btnEliminar = !$isLeader ? '' : Elements::getButtonDeleteModalJs('takeOut', 'Remover', $valor->getId_usuario());
+                $html .= Elements::getCardUserInCommunity($valor->getNombre(), $valor->getTelefono(), $btnEliminar);
+            }
+            $btnSalir = $isLeader ?
+                Elements::getButtonDeleteModal('leaveLeader', 'Salir de la comunidad') :
+                Elements::getButtonDeleteModal('leave', 'Salir de la comunidad');
+            $html .= '</div>
                             <div class="col-md-11">
                                 <div class="text-end">
-                                ' . Elements::getButtonDeleteModal('leave', 'Salir de la comunidad') . '
+                                ' . $btnSalir . '
                                 </div>
                             </div>
                         </div>
                         ';
-                return $html;
-            }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -187,7 +210,7 @@ class ServiceCommunity extends System
                 foreach ($modelResponse as $valor) {
                     $fecha = self::getDateInWords($valor->getFecha_registro());
                     $count = Usuario::countUsersInCommunity($valor->getId_comunidad());
-                    $html .= Elements::getCardCommunty(
+                    $html .= Elements::getCardCommunity(
                         $valor->getNombre(),
                         $valor->getUsuarioDTO()->getNombre(),
                         $fecha,
@@ -215,6 +238,37 @@ class ServiceCommunity extends System
 
             if ($result) {
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function leaveLeaderCommunity()
+    {
+        try {
+            $id_usuario = $_SESSION['id'];
+            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+            $id_comunidad = $comunidadDTO->getId_comunidad();
+            $count = Usuario::countUsersInCommunity($id_comunidad);
+
+            if ($count < 2) {
+                // Si hay menos de 2 usuarios, eliminar la comunidad
+                if (Comunidad::deleteCommunity($id_comunidad)) {
+                    UsuarioComunidad::deleteUserCommunityByCommunity($id_comunidad);
+                    return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
+                }
+            } else {
+                // Si hay más de un usuario, transferir el liderazgo
+                $usuarioComunidadDTO = UsuarioComunidad::getOnlyUserCommunityByCommunity($id_comunidad);
+                if ($usuarioComunidadDTO && Comunidad::setLeaderCommunity(
+                    $id_comunidad,
+                    $usuarioComunidadDTO->getUsuarioDTO()->getId_usuario()
+                )) {
+                    // Eliminar al antiguo líder de la comunidad
+                    if (UsuarioComunidad::deleteUserCommunity($usuarioComunidadDTO->getId_usuario_comunidad())) {
+                        return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
+                    }
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
