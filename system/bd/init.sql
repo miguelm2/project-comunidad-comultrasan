@@ -83,7 +83,6 @@ CREATE TABLE Foro (
   id_tipo_comunidad INT NOT NULL,
   id_usuario INT NOT NULL,
   contenido TEXT NOT NULL,
-  megusta INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
 
@@ -296,3 +295,20 @@ ALTER TABLE
   UsuarioComunidad
 ADD
   estado INT NOT NULL;
+
+ALTER TABLE
+  CalendarioEvento
+ADD
+  id_grupo INT NULL;
+
+ALTER TABLE
+  CalendarioEvento
+ADD
+  persona_cargo VARCHAR(255) NULL;
+
+CREATE TABLE MeGusta (
+  id_megusta INT IDENTITY(1, 1) PRIMARY KEY,
+  id_foro INT NOT NULL,
+  id_usuario INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);

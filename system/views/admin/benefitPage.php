@@ -35,10 +35,10 @@
                   <li class="breadcrumb-item active">Editar Beneficio Página</li>
                </ol>
             </nav>
-            <!-- Start header -->
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
-            <!-- End header -->
          </div>
+         <!-- Start header -->
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <!-- End header -->
       </nav><!-- End Page Title -->
       <div class="row m-0">
          <div class="card">

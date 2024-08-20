@@ -37,11 +37,10 @@
                   <li class="breadcrumb-item active">Ver Foro</li>
                </ol>
             </nav>
-
-            <!-- Start header -->
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
-            <!-- End header -->
          </div>
+         <!-- Start header -->
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <!-- End header -->
       </nav>
       <!-- End Page Title -->
       <div class="row m-0 mt-2">
@@ -95,7 +94,7 @@
                            <i class="material-icons me-2">chat</i>(<?= $contadorComment ?>) Comentar
                         </button>
                         <button type="button" class="btn btn-primary btn-sm" <?= $disabledButton ?>>
-                           <i class="material-icons me-2">favorite</i>(<?= $foroDTO->getMegusta() ?>) Me gusta
+                           <i class="material-icons me-2">favorite</i>(0) Me gusta
                         </button>
                      </div>
                   </div>

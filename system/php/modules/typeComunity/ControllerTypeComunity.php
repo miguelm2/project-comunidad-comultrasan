@@ -1,6 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/ServiceTypeComunity.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forum/ServiceForum.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/eventCalendar/ServiceEventCalendar.php';
 
 if (isset($_POST['newTypeComunity'])) {
     $response = ServiceTypeComunity::newTypeComunity($_POST['titulo'], $_POST['icono'], $_POST['subtitulo'], $_POST['contenido']);
@@ -28,13 +29,14 @@ if (isset($_GET['comunnity'])) {
 }
 
 if (isset($_GET['groupInterest'])) {
-    $groupInterest = ServiceTypeComunity::getTypeComunity($_GET['groupInterest']);
-    $btonJoin = ServiceTypeComunity::getButtonJoin();
+    $groupInterest          = ServiceTypeComunity::getTypeComunity($_GET['groupInterest']);
+    $btonJoin               = ServiceTypeComunity::getButtonJoin($_GET['groupInterest']);
+    $cardEventCalendarGroup = ServiceEventCalendar::getCardsEventsCalendarByGroup($_GET['groupInterest']);
 }
 
 if (isset($_GET)) {
     $tableTypeComnuties = ServiceTypeComunity::getTableTypeComunity();
     $typeComunityIndex  = ServiceTypeComunity::getCardTypeComunity();
     $cardGroupInterest  = ServiceTypeComunity::getCardGroupInterest();
-    $cardGroupInterestByUser = ServiceTypeComunity::getCardGroupInterestIndex();
+    $optionGroupInterest = ServiceTypeComunity::getOptionsGroupCommunity();
 }

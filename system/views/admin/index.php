@@ -35,10 +35,10 @@
             <li class="breadcrumb-item text-white active" aria-current="page">Inicio</li>
           </ol>
         </nav>
-        <!-- Start header -->
-        <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
-        <!-- End header -->
       </div>
+      <!-- Start header -->
+      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+      <!-- End header -->
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">

@@ -18,7 +18,7 @@
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="community">
+            <a class="nav-link text-black" href="community">
                <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">people</i>
                </div>
@@ -26,7 +26,7 @@
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="benefits">
+            <a class="nav-link text-black" href="benefits">
                <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">paid</i>
                </div>
@@ -34,7 +34,15 @@
             </a>
          </li>
          <li class="nav-item">
-            <a class="nav-link text-black " href="profile">
+            <a class="nav-link text-black" href="surveys">
+               <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">description</i>
+               </div>
+               <span class="nav-link-text ms-1">Encuesta</span>
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link text-black" href="profile">
                <div class="text-black text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">manage_accounts</i>
                </div>

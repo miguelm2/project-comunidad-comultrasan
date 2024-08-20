@@ -35,22 +35,24 @@
                   <li class="breadcrumb-item active">Inicio</li>
                </ol>
             </nav>
-            <!-- Start header -->
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
-            <!-- End header -->
          </div>
+         <!-- Start header -->
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <!-- End header -->
       </nav>
-      <section class="services sections-bg bg-light mt-2">
-         <div class="alert alert-info alert-dismissible fade show" role="alert">
-            <div class="text-white">
-               <small>
-                  ¡Hola, <strong><?= $_SESSION['nombre'] ?></strong>!,
-                  ¡Que bueno tenerte de vuelta! <strong>¿Qué quieres hacer hoy?</strong>
-               </small>
+      <div class="container-fluid pe-4">
+         <section class="services sections-bg bg-light mt-2">
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+               <div class="text-white">
+                  <small>
+                     ¡Hola, <strong><?= $_SESSION['nombre'] ?></strong>!,
+                     ¡Que bueno tenerte de vuelta! <strong>¿Qué quieres hacer hoy?</strong>
+                  </small>
+               </div>
+               <button type="button" class="btn-close text-white" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            <button type="button" class="btn-close text-white" data-bs-dismiss="alert" aria-label="Close"></button>
-         </div>
-      </section>
+         </section>
+      </div>
       <!-- ======= Our Services Section ======= -->
       <section class="sections-bg bg-light">
          <div class="container-fluid mt-2 p-2">

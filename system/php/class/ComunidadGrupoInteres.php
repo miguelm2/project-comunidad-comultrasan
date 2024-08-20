@@ -32,6 +32,25 @@ class ComunidadGrupoInteres extends system
         }
         return null;
     }
+    public static function getCommunityGroupInterestByCommunity($id_comunidad)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM ComunidadGrupoInteres WHERE id_comunidad = :id_comunidad");
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
+        $stmt->execute();
+        $response = $stmt->fetch();
+        if ($response) {
+            $comunidadGrupoInteresDTO = new ComunidadGrupoInteresDTO();
+
+            $comunidadGrupoInteresDTO->setId_comunidad_grupo($response['id_comunidad_grupo']);
+            $comunidadGrupoInteresDTO->setComunidadDTO(Comunidad::getCommunity($response['id_comunidad']));
+            $comunidadGrupoInteresDTO->setTipoComunidadDTO(TipoComunidad::getTypeComunity($response['id_grupo']));
+            $comunidadGrupoInteresDTO->setFecha_registro($response['fecha_registro']);
+
+            return $comunidadGrupoInteresDTO;
+        }
+        return null;
+    }
     public static function deleteCommunityGroupInterest($id_comunidad_grupo)
     {
         $dbh             = parent::Conexion();

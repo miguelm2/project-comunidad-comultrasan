@@ -2,7 +2,7 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/eventCalendar/ServiceEventCalendar.php';
 
 if (isset($_POST['newEventCalendar'])) {
-    $response = ServiceEventCalendar::newEventCalendar($_POST['titulo'], $_POST['fecha'], $_POST['lugar'], $_POST['hora']);
+    $response = ServiceEventCalendar::newEventCalendar($_POST['titulo'], $_POST['fecha'], $_POST['lugar'], $_POST['hora'], $_POST['groupInterest'], $_POST['persona_cargo']);
 }
 
 if (isset($_POST['setEventCalendar'])) {
