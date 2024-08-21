@@ -279,7 +279,7 @@ class ServiceTypeComunity extends System
             if ($comunidadDTO && $foroDTO) {
                 $tipoComunidadDTO = TipoComunidad::getTypeComunityByCommunity($comunidadDTO->getId_comunidad());
 
-                if ($tipoComunidadDTO && $tipoComunidadDTO->getId_tipo_comunidad() == $foroDTO->getTipoComunidadDTO()->getId_comunidad()) {
+                if ($tipoComunidadDTO && $tipoComunidadDTO->getId_tipo_comunidad() == $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad()) {
                     return '';
                 }
             }

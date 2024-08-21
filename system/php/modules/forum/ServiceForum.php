@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Foro.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/MeGusta.php';
 
 class ServiceForum extends System
 {
