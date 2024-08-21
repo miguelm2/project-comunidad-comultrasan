@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/TipoComunidad.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/ComunidadGrupoInteres.php';
 
 class ServiceTypeComunity extends System
 {

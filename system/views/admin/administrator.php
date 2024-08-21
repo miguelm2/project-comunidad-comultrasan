@@ -62,8 +62,8 @@
                 <div class="card-body">
                     <form method="post">
                         <div class="row">
-                            <div class="col-md-4">
-                                <img src="<?= Path::$DIR_IMAGE_ADMIN . $administrator->getImagen() ?>" alt="Imagen" class="img-fluid">
+                            <div class="col-md-4 text-center">
+                                <img src="<?= Path::$DIR_IMAGE_ADMIN . $administrator->getImagen() ?>" alt="Imagen" class="img-fluid" style="max-height:70%">
                             </div>
                             <div class="col-md-8">
                                 <div class="row">

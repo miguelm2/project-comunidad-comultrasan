@@ -43,12 +43,19 @@
       </nav>
       <div class="card mt-3">
          <div class="row m-0 mt-2">
-            <div class="col-md-8 m-4">
+            <div class="col-md-5 ms-4 mt-4">
                <div class="card-head">
                   <h4 class="text-success">Corazones</h4>
                </div>
             </div>
-            <div class="col-md-3 m-2 mt-3">
+            <div class="col-md-3 ms-2 mt-3">
+               <div class="card-head text-right">
+                  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#excel">
+                     <i class="material-icons me-2">insert_chart</i> Cargar Excel
+                  </button>
+               </div>
+            </div>
+            <div class="col-md-3 ms-2 mt-3">
                <div class="card-head text-right">
                   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newBenefit">
                      <i class="material-icons me-2">add</i> Agregar Corazones
@@ -117,6 +124,32 @@
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="newPoint" class="btn btn-success"><i class="material-icons me-2">add</i> Agregar Corazones</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!--Final Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form id="uploadForm" method="post" enctype="multipart/form-data">
+         <div class="modal fade" id="excel" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Cargar Excel Puntos</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="row g-3">
+                        <div class="col-md-12 form-group">
+                           <label for="excelPoint">Seleccionar archivo <small class="text-secondary">(csv,xls,xlsx)</small></label>
+                           <input type="file" class="form-control border p-1" name="excelPoint" required accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Cerrar</button>
+                     <button type="submit" name="loadExcelPoint" class="btn btn-success"><i class="bi bi-plus-square"></i> Cargar Excel</button>
                   </div>
                </div>
             </div>

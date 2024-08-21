@@ -79,10 +79,11 @@ class ServiceSurveyQuestion extends System
 
                 if ($modelResponse) {
                     foreach ($modelResponse as $valor) {
+                        $style = self::getColorByEstate($valor->getEstado()[0]);
                         $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getId_pregunta() . '</td>';
+                        $tableHtml .= '<td class="text-center">' . $valor->getId_pregunta() . '</td>';
                         $tableHtml .= '<td class="text-wrap">' . $valor->getPregunta() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
+                        $tableHtml .= '<td class="text-center"><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
                         $tableHtml .= '<td align="center">' . Elements::crearBotonVerTwoLink("surveyQuestion", $valor->getId_pregunta(), "survey", $valor->getEncuestaDTO()->getId_encuesta()) . '</td>';
                         $tableHtml .= '</tr>';
                     }
@@ -101,6 +102,21 @@ class ServiceSurveyQuestion extends System
             $id_encuesta = parent::limpiarString($id_encuesta);
             $preguntaEncuestaDTO = PreguntaEncuesta::listSurveyQuestionBySurvey($id_encuesta);
             return $preguntaEncuestaDTO;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    private static function getColorByEstate($estado)
+    {
+        try {
+            switch ($estado) {
+                case 0: {
+                        return 'danger';
+                    }
+                case 1: {
+                        return 'success';
+                    }
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

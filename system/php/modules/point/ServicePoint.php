@@ -140,7 +140,7 @@ class ServicePoint extends System
     public static function listTablePointsUserByUser()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'points.php') {
+            if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
                 $tableHtml = "";
                 $id_usuario = $_SESSION['id'];
                 $modelResponse = Punto::listPointByUser($id_usuario);
@@ -157,6 +157,38 @@ class ServicePoint extends System
                     return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
                 }
                 return $tableHtml;
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function loadExcelPoints()
+    {
+        try {
+            if (basename($_SERVER['PHP_SELF']) == 'points.php') {
+                require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Excel.php';
+                $fecha_registro = date('Y-m-d H:i:s');
+
+                $source         = $_FILES['excelPoint']['tmp_name'];
+                $filename       = $_FILES['excelPoint']['name'];
+                $fileSize       = $_FILES['excelPoint']['size'];
+                $dir_excel      = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_EXCEL;
+
+                if ($fileSize > 100 & $filename != '') {
+                    if (!file_exists($dir_excel)) mkdir($dir_excel, 0777, true);
+
+                    $dir       = opendir($dir_excel); //Abrimos el directorio de destino
+                    $trozo1    = explode(".", $filename);
+                    $documento = 'excel_points_' . rand() . '.' . end($trozo1);
+                    $target_path    = $dir_excel . $documento; //Indicamos la ruta de destino, así como el nombre del archivo
+                    move_uploaded_file($source, $target_path);
+                    closedir($dir);
+                    $result = Excel::readExcelIncomes($target_path, $fecha_registro);
+                    unlink($target_path);
+                    if ($result) {
+                        return Elements::crearMensajeAlerta('Se han cargado' . $result . ' registros exitosamente', 'success');
+                    }
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

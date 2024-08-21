@@ -18,8 +18,12 @@
    <!-- Material Icons -->
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
    <!-- CSS Files -->
-   <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+   <link rel="stylesheet" href="/system/assets/vendor/quill/quill.snow.css">
+   <link rel="stylesheet" href="/system/assets/vendor/quill/quill.bubble.css">
+   <link rel="stylesheet" href="/system/assets/vendor/simple-datatables/style.css">
+   <link rel="stylesheet" href="/system/assets/vendor/datatables/dataTables.bootstrap4.min.css">
+   <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet"/>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -58,7 +62,7 @@
          </div>
          <div class="card-body m-0">
             <div class="table-responsive">
-               <table class="table table-bordered table-hover align-items-center mb-0">
+               <table class="table table-bordered table-hover align-items-center mb-0" id="tableAdmin">
                   <thead class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">
@@ -163,6 +167,7 @@
       <!-- End Footer -->
    </main>
    <!--   Core JS Files   -->
+   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/assets/js/core/popper.min.js"></script>
    <script src="/system/assets/js/core/bootstrap.min.js"></script>
    <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -171,6 +176,12 @@
    <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <script src="/system/assets/vendor/quill/quill.core.js"></script>
+   <script src="/system/assets/vendor/quill/quill.min.js"></script>
+   <script src="/system/assets/vendor/simple-datatables/simple-datatables.js"></script>
+   <script src="/system/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+   <script src="/system/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+   <script src="/system/js/demo/datatables-demo.js"></script>
    <?= $response ?>
 </body>
 

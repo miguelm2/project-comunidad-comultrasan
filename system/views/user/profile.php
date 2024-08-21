@@ -4,12 +4,15 @@
 
 <head>
    <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link rel="apple-touch-icon" sizes="76x76" href="/system/assets/img/apple-icon.png">
+   <link rel="icon" type="image/png" href="/assets/image/favicon_0.ico">
    <title>Comunidad Comultrasan</title>
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
    <!-- Nucleo Icons -->
-   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+   <link href="/system/assets/css/nucleo-icons.css" rel="stylesheet" />
+   <link href="/system/assets/css/nucleo-svg.css" rel="stylesheet" />
    <!-- Font Awesome Icons -->
    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
    <!-- Material Icons -->
@@ -54,8 +57,8 @@
 
                   <form method="post">
                      <div class="row">
-                        <div class="col-md-4 text-center mx-auto mb-3">
-                           <img src="<?= Path::$DIR_IMAGE_USER . $_SESSION['imagen'] ?>" alt="" class="img-fluid">
+                        <div class="col-md-4 text-center mx-auto text-center mb-3">
+                           <img src="<?= Path::$DIR_IMAGE_USER . $_SESSION['imagen'] ?>" alt="" class="img-fluid" style="max-height: 70%;">
                         </div>
                         <div class="col-md-8">
                            <div class="row">

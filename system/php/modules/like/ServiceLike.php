@@ -64,10 +64,11 @@ class ServiceLike extends System
         try {
             $id_foro = parent::limpiarString($id_foro);
             $megustaDTO = self::getLike($id_foro);
+            $countLikes = self::getCountLikeByForum($id_foro);
             if (!$megustaDTO) {
-                return 'Me gusta';
+                return '<i class="material-icons me-2">favorite</i> (' . $countLikes . ') Me gusta';
             } else {
-                return 'Ya no me gusta';
+                return '<i class="material-icons me-2">favorite</i> (' . $countLikes . ') Ya no me gusta';
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

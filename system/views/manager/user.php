@@ -61,7 +61,7 @@
             <div class="card-body">
                <div class="row">
                   <div class="col-md-3">
-                     <img src="<?= Path::$DIR_IMAGE_USER . $user->getImagen() ?>" alt="Imagen" class="img-fluid">
+                     <img src="<?= Path::$DIR_IMAGE_USER . $user->getImagen() ?>" alt="Imagen" class="img-fluid" style="max-height: 70%;">
                   </div>
                   <div class="col-md-9">
                      <div class="row">
