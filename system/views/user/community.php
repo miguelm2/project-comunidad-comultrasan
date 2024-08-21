@@ -37,10 +37,10 @@
                   <li class="breadcrumb-item active">Comunidad</li>
                </ol>
             </nav>
-            <!-- Start header -->
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
-            <!-- End header -->
          </div>
+         <!-- Start header -->
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <!-- End header -->
       </nav>
       <div class="card mt-2">
          <div class="row m-0">
@@ -60,7 +60,8 @@
       <div class="card mt-3">
          <div class="card-head">
             <div class="ms-3 mt-3">
-            <h4 class="text-success">Grupos de Interés </h4></div>
+               <h4 class="text-success">Grupos de Interés </h4>
+            </div>
          </div>
          <div class="card-body">
             <div class="row justify-content-center">

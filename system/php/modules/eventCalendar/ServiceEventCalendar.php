@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/CalendarioEvento.php
 
 class ServiceEventCalendar extends System
 {
-    public static function newEventCalendar($titulo, $fecha, $lugar, $hora)
+    public static function newEventCalendar($titulo, $fecha, $lugar, $hora, $id_grupo, $persona_cargo)
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'newEventCalendar.php') {
@@ -12,11 +12,13 @@ class ServiceEventCalendar extends System
                 $fecha          = parent::limpiarString($fecha);
                 $lugar          = parent::limpiarString($lugar);
                 $hora           = parent::limpiarString($hora);
+                $id_grupo       = parent::limpiarString($id_grupo);
+                $persona_cargo  = parent::limpiarString($persona_cargo);
 
                 $fecha_registro = date('Y-m-d H:i:s');
                 $imagen         = self::newImagen();
 
-                $result = CalendarioEvento::newEventCalendar($titulo, $fecha, $lugar, $hora, $imagen,  $fecha_registro);
+                $result = CalendarioEvento::newEventCalendar($titulo, $fecha, $lugar, $hora, $imagen, $id_grupo, $persona_cargo, $fecha_registro);
 
                 if ($result) {
                     return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
@@ -166,5 +168,33 @@ class ServiceEventCalendar extends System
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+    public static function getCardsEventsCalendarByGroup($id_grupo)
+    {
+        try {
+            $id_grupo = parent::limpiarString($id_grupo);
+            $modelResponse = CalendarioEvento::listEventCalendarByGroupInterest($id_grupo);
+            $html = '';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $fecha = self::getDateInWords($valor->getFecha_registro());
+                    $html .= Elements::getCardsEventsByGroup($fecha, $valor->getTitulo(), $valor->getPersona_cargo());
+                }
+            } else {
+                $html .= '<div>No hay eventos disponibles en este momento</div>';
+            }
+            return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    private static function getDateInWords($fechaBD)
+    {
+        $fechaBD = new DateTime($fechaBD);
+
+        $dia = $fechaBD->format('j');
+        $mes = Elements::mes((int)$fechaBD->format('n'));
+        $fechaEnPalabras = "$mes $dia";
+        return $fechaEnPalabras;
     }
 }

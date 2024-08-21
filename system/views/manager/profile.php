@@ -32,10 +32,10 @@
                   <li class="breadcrumb-item active">Perfil</li>
                </ol>
             </nav>
-            <!-- Start header -->
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
-            <!-- End header -->
          </div>
+         <!-- Start header -->
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <!-- End header -->
       </nav><!-- End Page Title -->
       <div class="row m-0 mt-2">
          <div class="card">

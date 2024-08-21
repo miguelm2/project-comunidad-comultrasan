@@ -3,7 +3,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forum/ServiceForum
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/ServiceTypeComunity.php';
 
 if (isset($_POST['newForum'])) {
-    ServiceForum::newForum($_GET['comunnityForum'], $_SESSION['id'], $_POST['contenido'], 0, $_POST['titulo']);
+    ServiceForum::newForum($_GET['comunnityForum'], $_SESSION['id'], $_POST['contenido'], $_POST['titulo']);
 }
 
 if (isset($_POST['deleteForum'])) {

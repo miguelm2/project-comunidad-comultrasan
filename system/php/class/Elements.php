@@ -331,7 +331,7 @@ class Elements
         </div>
         ';
     }
-    public static function getCardGroupInterest($id, $icono, $titulo, $subtitulo)
+    public static function getCardGroupInterest($id, $icono, $titulo, $subtitulo, $btnForo)
     {
         return '<div class="col-md-5 col-sm-5 mt-2" data-aos="fade-up" data-aos-delay="100">
                     <div class="card border-3 h-100">
@@ -358,9 +358,7 @@ class Elements
                                     </a>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="forums?comunnityForum=' . $id . '" class="btn btn-info">
-                                        <i class="material-icons text-sm me-2">dashboard</i>Ir a foro
-                                    </a>
+                                    ' . $btnForo . '
                                 </div>
                             </div>
                         </div>
@@ -602,5 +600,25 @@ class Elements
                         ' . $tiempo . '
                     </div>
                 </div>';
+    }
+    public static function getCardsEventsByGroup($fecha, $titulo, $persona)
+    {
+        return '
+            <div class="card p-2 border-2">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong>' . $fecha . '</strong>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <strong class="text-success">
+                                ' . $titulo . '
+                            </strong>
+                            ' . $persona . '
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ';
     }
 }

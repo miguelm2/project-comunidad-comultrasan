@@ -36,6 +36,9 @@
                </ol>
             </nav>
          </div>
+         <!-- Start header -->
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <!-- End header -->
       </nav>
       <div class="row m-0">
          <div class="card">

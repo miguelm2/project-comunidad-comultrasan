@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Foro.php';
 
 class ServiceForum extends System
 {
-    public static function newForum($id_tipo_comunidad, $id_usuario, $contenido, $megusta, $titulo)
+    public static function newForum($id_tipo_comunidad, $id_usuario, $contenido,  $titulo)
     {
         try {
 
@@ -12,31 +12,15 @@ class ServiceForum extends System
                 $id_tipo_comunidad  = parent::limpiarString($id_tipo_comunidad);
                 $id_usuario         = parent::limpiarString($id_usuario);
                 $contenido          = parent::limpiarString($contenido);
-                $megusta            = parent::limpiarString($megusta);
                 $titulo             = parent::limpiarString($titulo);
                 $fecha_registro     = date('Y-m-d H:i:s');
 
-                $result = Foro::newForum($id_tipo_comunidad, $id_usuario, $contenido,  $megusta, $titulo, $fecha_registro);
+                $result = Foro::newForum($id_tipo_comunidad, $id_usuario, $contenido, $titulo, $fecha_registro);
 
                 if ($result) {
                     $foroDTO = Foro::getLastForumByTypeCommunityAndUser($id_tipo_comunidad, $id_usuario);
                     header('Location:forum?forum=' . $foroDTO->getId_foro() . '&new');
                 }
-            }
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
-    public static function setLiked($id_foro, $megusta)
-    {
-        try {
-            $id_foro        = parent::limpiarString($id_foro);
-            $megusta      = parent::limpiarString($megusta);
-
-            $result = Foro::setForumLiked($id_foro, $megusta);
-
-            if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -127,11 +111,12 @@ class ServiceForum extends System
             $foroDTO = Foro::getLastForumByTypeCommunity($id_tipo_comunidad);
             if ($foroDTO) {
                 $tiempo = self::getTimePublicate($foroDTO->getFecha_registro());
+                $megusta = MeGusta::getCountLikesByForum($foroDTO->getId_foro());
                 return Elements::getCardForo(
                     $foroDTO->getUsuarioDTO()->getImagen(),
                     $foroDTO->getUsuarioDTO()->getNombre(),
                     $foroDTO->getContenido(),
-                    $foroDTO->getMegusta(),
+                    $megusta,
                     $tiempo
                 );
             } else {

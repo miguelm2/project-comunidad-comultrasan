@@ -6,7 +6,6 @@ class ForoDTO
     protected $tipoComunidadDTO;
     protected $usuarioDTO;
     protected $contenido;
-    protected $megusta;
     protected $titulo;
     protected $fecha_registro;
 
@@ -86,26 +85,6 @@ class ForoDTO
     public function setContenido($contenido)
     {
         $this->contenido = $contenido;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of megusta
-     */ 
-    public function getMegusta()
-    {
-        return $this->megusta;
-    }
-
-    /**
-     * Set the value of megusta
-     *
-     * @return  self
-     */ 
-    public function setMegusta($megusta)
-    {
-        $this->megusta = $megusta;
 
         return $this;
     }

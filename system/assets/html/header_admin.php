@@ -1,16 +1,21 @@
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 border-radius-xl shadow-none" id="navbarBlur" data-scroll="true">
-   <div class="container">
+   <div class="container d-flex justify-content-between">
+      <!-- Logo (alineado a la izquierda) -->
+      <div class="d-xl-none d-lg-none d-flex align-items-center me-0">
+         <a href="index" class="nav-link text-body p-0">
+            <img src="/../assets/image/favicon_0.ico" alt="logo" class="img-fluid" width="30px">
+         </a>
+      </div>
+
+      <!-- Navbar-toggler para móviles -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="d-xl-none d-lg-none align-items-center justify-content-start">
-         <a href="index" class="nav-link text-body p-0 text-start">
-            <img src="/../assets/image/favicon_0.ico" alt="logo" class="img-fluid text-start" width="30px">
-         </a>
-      </div>
+
+      <!-- Navbar contenido -->
       <div class="collapse navbar-collapse" id="navbar">
          <ul class="navbar-nav ms-auto">
-            <li class="nav-item d-flex align-items-center">
+            <li class="nav-item d-flex align-items-center justify-content-end">
                <div class="dropdown-activate">
                   <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
                      <span class="text-black"><i class="material-icons" style="font-size: 20px;">account_circle</i> <?= $_SESSION['nombre'] ?></span>
@@ -25,7 +30,7 @@
                   </ul>
                </div>
             </li>
-            <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+            <li class="nav-item d-xl-none ps-3 d-flex align-items-center justify-content-end">
                <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
                   <div class="sidenav-toggler-inner">
                      <i class="sidenav-toggler-line"></i>

@@ -38,10 +38,10 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                   <li class="breadcrumb-item active">Encuesta</li>
                </ol>
             </nav>
-            <!-- Start header -->
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
-            <!-- End header -->
          </div>
+         <!-- Start header -->
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <!-- End header --></div>
       </nav>
       <div class="row m-0 mt-2">
          <div class="card">

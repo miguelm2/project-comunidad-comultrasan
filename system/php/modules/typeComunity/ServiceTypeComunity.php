@@ -181,7 +181,29 @@ class ServiceTypeComunity extends System
 
                 if ($modelResponse) {
                     foreach ($modelResponse as $valor) {
-                        $html .= Elements::getCardGroupInterest($valor->getId_tipo_comunidad(), $valor->getIcono(), $valor->getTitulo(), $valor->getSubtitulo());
+                        $comunidadDTO = Comunidad::getCommunityByUser($_SESSION['id']);
+                        $btnForo = '';
+
+                        if (!$comunidadDTO) {
+                            $comunidadUsuario = UsuarioComunidad::getUserCommunityByUser($_SESSION['id']);
+                            if ($comunidadUsuario) {
+                                $comunidadDTO = $comunidadUsuario->getComunidadDTO();
+                            }
+                        }
+                        $comunidadGrupoDTO = ComunidadGrupoInteres::getCommunityGroupInterestByCommunity($comunidadDTO->getId_comunidad());
+                        if ($comunidadGrupoDTO->getTipoComunidadDTO()->getId_tipo_comunidad() == $valor->getId_tipo_comunidad()) {
+                            $btnForo = '<a href="forums?comunnityForum=' . $valor->getId_tipo_comunidad() . '" class="btn btn-info">
+                                            <i class="material-icons text-sm me-2">dashboard</i>Ir a foro
+                                        </a>';
+                        }
+
+                        $html .= Elements::getCardGroupInterest(
+                            $valor->getId_tipo_comunidad(),
+                            $valor->getIcono(),
+                            $valor->getTitulo(),
+                            $valor->getSubtitulo(),
+                            $btnForo
+                        );
                     }
                 } else {
                     return '<div>No hay registros para mostrar</div>';
@@ -189,35 +211,13 @@ class ServiceTypeComunity extends System
                 return $html;
             }
         } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
+            throw new Exception('Error en getCardGroupInterest: ' . $e->getMessage());
         }
     }
-    public static function getCardGroupInterestIndex()
+    public static function getButtonJoin($id_grupo)
     {
         try {
-            //revisar
-            if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-                if (isset($_SESSION['id'])) {
-                    $id_usuario = $_SESSION['id'];
-                    $modelResponse = TipoComunidad::getTypeComunityByCommunity($id_usuario);
-                    $html = '';
-                    foreach ($modelResponse as $valor) {
-                        $html .= Elements::getCardsGroupInterestIndexByUser(
-                            $valor->getTitulo(),
-                            $valor->getSubtitulo(),
-                            $valor->getIcono()
-                        );
-                    }
-                    return $html;
-                }
-            }
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
-    public static function getButtonJoin()
-    {
-        try {
+            $id_grupo = parent::limpiarString($id_grupo);
             $comunidadDTO = Comunidad::getCommunityByUser($_SESSION['id']);
 
             if (!$comunidadDTO) {
@@ -232,7 +232,8 @@ class ServiceTypeComunity extends System
             if (!$tipoComunidadDTO) {
                 return Elements::getFormJoinGroupInterest();
             } else {
-                return '<button class="btn btn-success disabled">Ya te has unido a un grupo</button>';
+                return '<a href="forums?comunnityForum=' . $id_grupo . '" class="btn btn-info">Ir a foro</a>
+                <a href="groupInterestInfo?groupInterest=' . $id_grupo . '" class="btn btn-success">Ver más detalles</a>';
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -284,6 +285,21 @@ class ServiceTypeComunity extends System
             }
 
             return 'disabled';
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getOptionsGroupCommunity()
+    {
+        try {
+            $modelResponse = TipoComunidad::listTypeComunity();
+            $html = '';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $html .= '<option value="' . $valor->getId_tipo_comunidad() . '">' . $valor->getTitulo() . '</option>';
+                }
+            }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

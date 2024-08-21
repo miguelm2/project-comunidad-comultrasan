@@ -36,14 +36,11 @@
                   <li class="breadcrumb-item active">Recompensas</li>
                </ol>
             </nav>
-            <!-- Start header -->
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
-            <!-- End header -->
          </div>
+         <!-- Start header -->
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <!-- End header -->
       </nav>
-      <div class="pagetitle p-1 mt-2 mp-0">
-
-      </div>
       <div class="card mt-2">
          <div class="row m-0">
             <div class="col-md-8 m-4">

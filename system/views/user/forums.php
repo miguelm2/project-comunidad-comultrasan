@@ -36,10 +36,10 @@
                   <li class="breadcrumb-item active">Foro</a></li>
                </ol>
             </nav>
-            <!-- Start header -->
-            <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
-            <!-- End header -->
          </div>
+         <!-- Start header -->
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <!-- End header --></div>
       </nav><!-- End Page Title -->
       <div class="row m-0 mt-2">
          <div class="card">

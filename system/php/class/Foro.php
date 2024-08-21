@@ -3,15 +3,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/model/ForoDTO.php';
 
 class Foro extends System
 {
-    public static function newForum($id_tipo_comunidad, $id_usuario, $contenido, $megusta, $titulo, $fecha_registro)
+    public static function newForum($id_tipo_comunidad, $id_usuario, $contenido,  $titulo, $fecha_registro)
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("INSERT INTO Foro (id_tipo_comunidad, id_usuario, contenido, megusta, titulo, fecha_registro) 
-                                VALUES (:id_tipo_comunidad, :id_usuario, :contenido, :megusta, :titulo, :fecha_registro)");
+        $stmt = $dbh->prepare("INSERT INTO Foro (id_tipo_comunidad, id_usuario, contenido, titulo, fecha_registro) 
+                                VALUES (:id_tipo_comunidad, :id_usuario, :contenido, :titulo, :fecha_registro)");
         $stmt->bindParam(':id_tipo_comunidad', $id_tipo_comunidad);
         $stmt->bindParam(':id_usuario', $id_usuario);
         $stmt->bindParam(':contenido', $contenido);
-        $stmt->bindParam(':megusta', $megusta);
         $stmt->bindParam(':titulo', $titulo);
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
@@ -25,16 +24,6 @@ class Foro extends System
         $stmt->bindParam(':id_foro', $id_foro);
         $stmt->bindParam(':contenido', $contenido);
         $stmt->bindParam(':titulo', $titulo);
-        return  $stmt->execute();
-    }
-    public static function setForumLiked($id_foro, $megusta)
-    {
-        $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("UPDATE Foro 
-                            SET megusta = :megusta
-                            WHERE id_foro = :id_foro");
-        $stmt->bindParam(':id_foro', $id_foro);
-        $stmt->bindParam(':megusta', $megusta);
         return  $stmt->execute();
     }
     public static function getForum($id_foro)
@@ -51,7 +40,6 @@ class Foro extends System
             $foroDTO->setTipoComunidadDTO(TipoComunidad::getTypeComunity($result['id_tipo_comunidad']));
             $foroDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
             $foroDTO->setContenido($result['contenido']);
-            $foroDTO->setMegusta($result['megusta']);
             $foroDTO->setTitulo($result['titulo']);
             $foroDTO->setFecha_registro($result['fecha_registro']);
 
@@ -74,7 +62,6 @@ class Foro extends System
             $foroDTO->setTipoComunidadDTO(TipoComunidad::getTypeComunity($result['id_tipo_comunidad']));
             $foroDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
             $foroDTO->setContenido($result['contenido']);
-            $foroDTO->setMegusta($result['megusta']);
             $foroDTO->setTitulo($result['titulo']);
             $foroDTO->setFecha_registro($result['fecha_registro']);
 
@@ -103,7 +90,6 @@ class Foro extends System
             $foroDTO->setTipoComunidadDTO(TipoComunidad::getTypeComunity($result['id_tipo_comunidad']));
             $foroDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
             $foroDTO->setContenido($result['contenido']);
-            $foroDTO->setMegusta($result['megusta']);
             $foroDTO->setTitulo($result['titulo']);
             $foroDTO->setFecha_registro($result['fecha_registro']);
 
@@ -128,7 +114,6 @@ class Foro extends System
             $foroDTO->setTipoComunidadDTO(TipoComunidad::getTypeComunity($result['id_tipo_comunidad']));
             $foroDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
             $foroDTO->setContenido($result['contenido']);
-            $foroDTO->setMegusta($result['megusta']);
             $foroDTO->setTitulo($result['titulo']);
             $foroDTO->setFecha_registro($result['fecha_registro']);
 
@@ -163,7 +148,6 @@ class Foro extends System
             $foroDTO->setTipoComunidadDTO(TipoComunidad::getTypeComunity($result['id_tipo_comunidad']));
             $foroDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
             $foroDTO->setContenido($result['contenido']);
-            $foroDTO->setMegusta($result['megusta']);
             $foroDTO->setTitulo($result['titulo']);
             $foroDTO->setFecha_registro($result['fecha_registro']);
 
@@ -188,7 +172,6 @@ class Foro extends System
             $foroDTO->setTipoComunidadDTO(TipoComunidad::getTypeComunity($result['id_tipo_comunidad']));
             $foroDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
             $foroDTO->setContenido($result['contenido']);
-            $foroDTO->setMegusta($result['megusta']);
             $foroDTO->setTitulo($result['titulo']);
             $foroDTO->setFecha_registro($result['fecha_registro']);
 

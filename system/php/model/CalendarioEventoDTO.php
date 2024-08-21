@@ -2,11 +2,13 @@
 class CalendarioEventoDTO
 {
     protected $id_evento;
+    protected $id_grupo;
     protected $titulo;
     protected $fecha;
     protected $lugar;
     protected $hora;
     protected $imagen;
+    protected $persona_cargo;
     protected $fecha_registro;
 
     /**
@@ -145,6 +147,26 @@ class CalendarioEventoDTO
     public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of persona_cargo
+     */ 
+    public function getPersona_cargo()
+    {
+        return $this->persona_cargo;
+    }
+
+    /**
+     * Set the value of persona_cargo
+     *
+     * @return  self
+     */ 
+    public function setPersona_cargo($persona_cargo)
+    {
+        $this->persona_cargo = $persona_cargo;
 
         return $this;
     }
