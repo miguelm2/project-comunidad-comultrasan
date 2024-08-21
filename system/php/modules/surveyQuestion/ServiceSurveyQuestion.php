@@ -72,7 +72,7 @@ class ServiceSurveyQuestion extends System
     public static function getTableSurveyQuestion($id_encuesta)
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'typeComunity.php') {
+            if (basename($_SERVER['PHP_SELF']) == 'typeComunity.php' || basename($_SERVER['PHP_SELF']) == 'survey.php') {
                 $id_encuesta = parent::limpiarString($id_encuesta);
                 $tableHtml = '';
                 $modelResponse = PreguntaEncuesta::listSurveyQuestionBySurvey($id_encuesta);

@@ -94,7 +94,7 @@
                            <i class="material-icons me-2">chat</i>(<?= $contadorComment ?>) Comentar
                         </button>
                         <button type="button" class="btn btn-primary btn-sm" <?= $disabledButton ?>>
-                           <i class="material-icons me-2">favorite</i>(0) Me gusta
+                           <i class="material-icons me-2">favorite</i>(0) <?= $textbutton ?>
                         </button>
                      </div>
                   </div>

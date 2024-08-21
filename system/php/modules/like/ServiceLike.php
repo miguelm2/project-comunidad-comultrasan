@@ -12,6 +12,11 @@ class ServiceLike extends System
             $fecha_registro = date('Y-m-d H:i:s');
 
             $result = MeGusta::newLike($id_foro, $id_usuario,  $fecha_registro);
+            if ($result) {
+                return json_encode(['status' => 'liked', 'message' => 'Like agregado correctamente']);
+            } else {
+                return json_encode(['status' => 'error', 'message' => 'Error al agregar el like']);
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -24,6 +29,9 @@ class ServiceLike extends System
 
             $result = MeGusta::deleteLike($id_foro, $id_usuario);
             if ($result) {
+                return json_encode(['status' => 'unliked', 'message' => 'Like eliminado correctamente']);
+            } else {
+                return json_encode(['status' => 'error', 'message' => 'Error al eliminar el like']);
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -47,6 +55,20 @@ class ServiceLike extends System
             $id_usuario = $_SESSION['id'];
             $meGustaDTO = MeGusta::getLikeByUserAndForum($id_foro, $id_usuario);
             return $meGustaDTO;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getTextButton($id_foro)
+    {
+        try {
+            $id_foro = parent::limpiarString($id_foro);
+            $megustaDTO = self::getLike($id_foro);
+            if (!$megustaDTO) {
+                return 'Me gusta';
+            } else {
+                return 'Ya no me gusta';
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

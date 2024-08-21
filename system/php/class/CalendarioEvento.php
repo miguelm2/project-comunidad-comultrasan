@@ -51,7 +51,7 @@ class CalendarioEvento extends System
     public static function listEventCalendar()
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM CalendarioEvento WHERE id_grupo = NULL");
+        $stmt = $dbh->prepare("SELECT * FROM CalendarioEvento WHERE id_grupo is null");
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'CalendarioEventoDTO');
         $stmt->execute();
         return  $stmt->fetchAll();
