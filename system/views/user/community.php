@@ -34,7 +34,7 @@
             <nav aria-label="breadcrumb" class="d-none d-lg-block">
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
-                  <li class="breadcrumb-item active">Comunidad</li>
+                  <li class="breadcrumb-item active">Mi Comunidad</li>
                </ol>
             </nav>
          </div>
@@ -42,10 +42,10 @@
          <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
          <!-- End header -->
       </nav>
-      <div class="card mt-2">
+      <div class="card mt-3">
          <div class="row m-0">
             <div class="col-md-5 mt-4 ms-4">
-               <h4 class="text-success">Comunidad </h4>
+               <h4 class="text-success">Mi Comunidad </h4>
             </div>
             <div class="col-md-6 mt-4">
                <div class="row">
@@ -82,14 +82,32 @@
                      <div class="row g-3">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label">Nombre</label>
+                              <label class="form-label">Nombre de la comunidad</label>
                               <input type="text" class="form-control border p-1" name="nombre" required>
                            </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label class="form-label">Nombre del otro integrante</label>
+                              <input type="text" class="form-control border p-1" name="nombre_user" required>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
                            <div class="form-group">
                               <label class="form-label">Cédula del otro integrante</label>
                               <input type="text" class="form-control border p-1" name="cedula" required>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label class="form-label">Correo del otro integrante</label>
+                              <input type="mail" class="form-control border p-1" name="correo" required>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="form-group">
+                              <label class="form-label">Celular del otro integrante</label>
+                              <input type="number" class="form-control border p-1" name="celular" required>
                            </div>
                         </div>
                      </div>

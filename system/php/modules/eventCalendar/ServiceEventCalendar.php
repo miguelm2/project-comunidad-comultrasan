@@ -133,7 +133,7 @@ class ServiceEventCalendar extends System
         try {
             if (basename($_SERVER['PHP_SELF']) == 'eventsCalendar.php') {
                 $tableHtml = "";
-                $modelResponse = CalendarioEvento::listEventCalendar();
+                $modelResponse = CalendarioEvento::listAllEventCalendar();
 
                 if ($modelResponse) {
                     foreach ($modelResponse as $valor) {
@@ -178,7 +178,12 @@ class ServiceEventCalendar extends System
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
                     $fecha = self::getDateInWords($valor->getFecha_registro());
-                    $html .= Elements::getCardsEventsByGroup($fecha, $valor->getTitulo(), $valor->getPersona_cargo());
+                    $html .= Elements::getCardsEventsByGroup(
+                        $fecha,
+                        $valor->getTitulo(),
+                        $valor->getPersona_cargo(),
+                        $valor->getLugar()
+                    );
                 }
             } else {
                 $html .= '<div>No hay eventos disponibles en este momento</div>';

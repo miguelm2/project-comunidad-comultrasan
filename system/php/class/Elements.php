@@ -333,7 +333,7 @@ class Elements
     }
     public static function getCardGroupInterest($id, $icono, $titulo, $subtitulo, $btnForo)
     {
-        return '<div class="col-md-5 col-sm-5 mt-2" data-aos="fade-up" data-aos-delay="100">
+        return '<div class="col-md-4 col-sm-5 mt-2" data-aos="fade-up" data-aos-delay="100">
                     <div class="card border-3 h-100">
                         <div class="card-head justify-content-center text-center mt-2">
                             <span class="material-symbols-outlined" style="font-size: 70px;">
@@ -441,41 +441,15 @@ class Elements
     {
         return '<div class="card-body m-0">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="card border-2 h-100">
-                                <div class="card-head ms-4 mt-3">
-                                    <h5 class="text-success">
-                                    Crear una nueva Comunidad
-                                    </h5>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text">
-                                    Para crear una nueva comunidad, deben de ser al menos dos personas
-                                    </p>
-                                </div>
-                                <div class="card-foot">
-                                    <button type="button" class="btn btn-success ms-4" data-bs-toggle="modal" data-bs-target="#newCommunity">
-                                        <i class="material-icons me-2">add</i> Crear nueva comunidad
-                                    </button>
-                                </div>
-                            </div>
+                        <div class="col-md-6 d-grid">
+                            <button type="button" class="btn btn-success ms-4" data-bs-toggle="modal" data-bs-target="#newCommunity">
+                                <i class="material-icons me-2">add</i> Crear nueva comunidad
+                            </button>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card border-2 h-100">
-                                <div class="card-head ms-4 mt-3">
-                                    <h5 class="text-success">
-                                    Unirme a una nueva comunidad
-                                    </h5>
-                                </div>
-                                <div class="card-body">
-                                    <p class="card-text">
-                                    Te puedes unir a cualquier comunidad
-                                    </p>
-                                </div>
-                                <div class="card-foot">
-                                    <a href="allCommunities" class="btn btn-success ms-4">Unirme a una comunidad</a>
-                                </div>
-                            </div>
+                        <div class="col-md-6 d-grid">
+                            <a href="allCommunities" class="btn btn-success ms-4">
+                                <i class="material-icons me-2">add</i> Unirme a una comunidad
+                            </a>
                         </div>
                     </div>
                 </div>';
@@ -505,13 +479,14 @@ class Elements
                     <p>' . $puntos . ' corazones</p>
                 </div>';
     }
-    public static function getCardUserInCommunity($nombre, $celular, $btnEliminar)
+    public static function getCardUserInCommunity($nombre, $celular, $btnEliminar, $points)
     {
         return '<div class="card mt-2 border-2">
                     <div class="row">
                         <div class="col-md-8 mt-2">
                             <h6 class="p-2"><i class="material-icons me-2">account_circle</i> ' . $nombre . '</h6>
                             <h6 class="ms-2"><i class="material-icons me-2">call</i>Celular: ' . $celular . '</h6>
+                            <h6 class="ms-2">'. $points .'</h6>
                         </div>
                         <div class="col-md-4 mt-2">
                             ' . $btnEliminar . '
@@ -601,7 +576,7 @@ class Elements
                     </div>
                 </div>';
     }
-    public static function getCardsEventsByGroup($fecha, $titulo, $persona)
+    public static function getCardsEventsByGroup($fecha, $titulo, $persona, $lugar)
     {
         return '
             <div class="card p-2 border-2">
@@ -614,7 +589,8 @@ class Elements
                             <strong class="text-success">
                                 ' . $titulo . '
                             </strong>
-                            ' . $persona . '
+                            ' . $persona . '<br>
+                            Lugar: ' . $lugar . '
                         </div>
                     </div>
                 </div>

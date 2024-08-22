@@ -63,12 +63,12 @@ class Encuesta extends System
     public static function listSurveyByEstateAndNotResolved($id_usuario)
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT enc.*
-                                FROM comultrasan_bd.dbo.Encuesta enc
+        $stmt = $dbh->prepare("SELECT TOP 1 enc.*
+                                FROM Encuesta enc
                                 WHERE enc.estado = 1
                                 AND NOT EXISTS (
                                     SELECT 1 
-                                    FROM comultrasan_bd.dbo.RespuestaUsuario ru
+                                    FROM RespuestaUsuario ru
                                     WHERE ru.id_usuario = :id_usuario 
                                     AND enc.id_encuesta = ru.id_encuesta
                                 )");

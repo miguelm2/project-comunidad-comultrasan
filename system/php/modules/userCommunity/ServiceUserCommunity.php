@@ -159,8 +159,18 @@ class ServiceUserCommunity extends System
     {
         try {
             $id_usuario_comunidad = parent::limpiarString($id_usuario_comunidad);
+            $usuarioComunidadDTO = UsuarioComunidad::getUserCommunity($id_usuario_comunidad);
             $result = UsuarioComunidad::deleteUserCommunity($id_usuario_comunidad);
             if ($result) {
+                $mail_leader = $usuarioComunidadDTO->getComunidadDTO()->getUsuarioDTO()->getCorreo();
+                $mensaje = "Estimado(a) " . $usuarioComunidadDTO->getComunidadDTO()->getUsuarioDTO()->getNombre() . ",<br><br>
+                Le informamos que la persona a quien extendió una invitación para unirse a la comunidad que ha creado, 
+                no ha aceptado dicha invitación.<br><br>
+                Agradecemos su confianza en nuestra plataforma y quedamos a su disposición para cualquier consulta adicional.<br><br>
+                Atentamente,<br><br>
+                Financiera Comultrasan";
+                $asunto = "Notificación sobre invitación pendiente a su comunidad";
+                Mail::sendEmail($asunto, $mensaje, $mail_leader);
                 header('Location:community?delete');
             }
         } catch (\Exception $e) {

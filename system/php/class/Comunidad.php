@@ -3,7 +3,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/model/ComunidadDTO.php';
 
 class Comunidad extends System
 {
-    public static function newCommunity($nombre, $id_usuario, $fecha_registro)
+    public static function newCommunity($nombre, $id_usuario, $estado, $fecha_registro)
     {
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("INSERT INTO Comunidad (nombre, id_usuario, fecha_registro) 
@@ -13,13 +13,14 @@ class Comunidad extends System
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
-    public static function setCommunity($id_comunidad, $nombre)
+    public static function setCommunity($id_comunidad, $nombre, $estado)
     {
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE Comunidad 
-                                SET nombre = :nombre 
+                                SET nombre = :nombre, estado = :estado
                                 WHERE id_comunidad = :id_comunidad");
         $stmt->bindParam(':nombre', $nombre);
+        $stmt->bindParam(':estado', $estado);
         $stmt->bindParam(':id_comunidad', $id_comunidad);
         return  $stmt->execute();
     }
@@ -27,10 +28,10 @@ class Comunidad extends System
     {
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE Comunidad 
-                                SET nombre = :nombre 
+                                SET estado = :estado 
                                     id_usuario = NULL
                                 WHERE id_comunidad = :id_comunidad");
-        $stmt->bindParam(':nombre', $nombre);
+        $stmt->bindParam(':estado', $estado);
         $stmt->bindParam(':id_comunidad', $id_comunidad);
         return  $stmt->execute();
     }
@@ -48,6 +49,7 @@ class Comunidad extends System
             $comunidadDTO->setId_comunidad($result['id_comunidad']);
             $comunidadDTO->setNombre($result['nombre']);
             $comunidadDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $comunidadDTO->setEstado($result['estado']);
             $comunidadDTO->setFecha_registro($result['fecha_registro']);
 
             return $comunidadDTO;
@@ -69,6 +71,7 @@ class Comunidad extends System
             $comunidadDTO->setid_comunidad($result['id_comunidad']);
             $comunidadDTO->setNombre($result['nombre']);
             $comunidadDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $comunidadDTO->setEstado($result['estado']);
             $comunidadDTO->setFecha_registro($result['fecha_registro']);
             $listResponse[$con] = $comunidadDTO;
             $con++;
@@ -100,6 +103,7 @@ class Comunidad extends System
             $comunidadDTO->setId_comunidad($result['id_comunidad']);
             $comunidadDTO->setNombre($result['nombre']);
             $comunidadDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $comunidadDTO->setEstado($result['estado']);
             $comunidadDTO->setFecha_registro($result['fecha_registro']);
 
             return $comunidadDTO;
@@ -113,7 +117,8 @@ class Comunidad extends System
         $stmt->bindParam(':id_comunidad', $id_comunidad);
         return  $stmt->execute();
     }
-    public static function setLeaderCommunity($id_comunidad, $id_usuario){
+    public static function setLeaderCommunity($id_comunidad, $id_usuario)
+    {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE Comunidad 
                                 SET id_usuario = :id_usuario 
@@ -136,6 +141,7 @@ class Comunidad extends System
             $comunidadDTO->setId_comunidad($result['id_comunidad']);
             $comunidadDTO->setNombre($result['nombre']);
             $comunidadDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $comunidadDTO->setEstado($result['estado']);
             $comunidadDTO->setFecha_registro($result['fecha_registro']);
 
             return $comunidadDTO;
