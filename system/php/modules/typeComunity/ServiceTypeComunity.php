@@ -191,11 +191,13 @@ class ServiceTypeComunity extends System
                                 $comunidadDTO = $comunidadUsuario->getComunidadDTO();
                             }
                         }
-                        $comunidadGrupoDTO = ComunidadGrupoInteres::getCommunityGroupInterestByCommunity($comunidadDTO->getId_comunidad());
-                        if ($comunidadGrupoDTO->getTipoComunidadDTO()->getId_tipo_comunidad() == $valor->getId_tipo_comunidad()) {
-                            $btnForo = '<a href="forums?comunnityForum=' . $valor->getId_tipo_comunidad() . '" class="btn btn-info">
-                                            <i class="material-icons text-sm me-2">dashboard</i>Ir a foro
-                                        </a>';
+                        if ($comunidadDTO) {
+                            $comunidadGrupoDTO = ComunidadGrupoInteres::getCommunityGroupInterestByCommunity($comunidadDTO->getId_comunidad());
+                            if ($comunidadGrupoDTO->getTipoComunidadDTO()->getId_tipo_comunidad() == $valor->getId_tipo_comunidad()) {
+                                $btnForo = '<a href="forums?comunnityForum=' . $valor->getId_tipo_comunidad() . '" class="btn btn-info">
+                                                <i class="material-icons text-sm me-2">dashboard</i>Ir a foro
+                                            </a>';
+                            }
                         }
 
                         $html .= Elements::getCardGroupInterest(
