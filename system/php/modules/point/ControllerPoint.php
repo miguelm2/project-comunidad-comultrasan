@@ -17,6 +17,10 @@ if (isset($_GET['point'])) {
     $points = ServicePoint::getPoint($_GET['point']);
 }
 
+if(isset($_POST['loadExcelPoint'])){
+    $response = ServicePoint::loadExcelPoints();
+}
+
 if (isset($_GET)) {
     $tablePoints = ServicePoint::getTablePoint();
     $countPoints = ServicePoint::getPointsByUser();

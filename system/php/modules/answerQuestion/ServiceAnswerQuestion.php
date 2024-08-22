@@ -85,10 +85,11 @@ class ServiceAnswerQuestion extends System
 
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
+                    $style = self::getColorByEstate($valor->getVeracidad()[0]);
                     $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getid_respuesta() . '</td>';
+                    $tableHtml .= '<td  class="text-center">' . $valor->getid_respuesta() . '</td>';
                     $tableHtml .= '<td class="text-wrap">' . $valor->getRespuesta() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getVeracidad()[1] . '</td>';
+                    $tableHtml .= '<td class="text-center"><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getVeracidad()[1] . '</small></td>';
                     $tableHtml .= '<td align="center">' . Elements::crearBotonVer("answerQuestion", $valor->getid_respuesta()) . '</td>';
                     $tableHtml .= '</tr>';
                 }
@@ -121,6 +122,20 @@ class ServiceAnswerQuestion extends System
                     $cardHtml .= Elements::getCardQuestion($con, $value->getPregunta(), $html);
                 }
                 return $cardHtml;
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }private static function getColorByEstate($estado)
+    {
+        try {
+            switch ($estado) {
+                case 0: {
+                        return 'danger';
+                    }
+                case 1: {
+                        return 'success';
+                    }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

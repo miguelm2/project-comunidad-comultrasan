@@ -6,11 +6,11 @@ class MeGusta extends system
     public static function newLike($id_foro, $id_usuario, $fecha_registro)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("INSERT INTO MeGusta (id_foro, id_usuario, fecha_creacion) 
-                                VALUES (:id_foro, :id_usuario, :fecha_creacion)");
+        $stmt = $dbh->prepare("INSERT INTO MeGusta (id_foro, id_usuario, fecha_registro) 
+                                VALUES (:id_foro, :id_usuario, :fecha_registro)");
         $stmt->bindParam(':id_foro', $id_foro);
         $stmt->bindParam(':id_usuario', $id_usuario);
-        $stmt->bindParam(':fecha_creacion', $fecha_registro);
+        $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
     public static function getLikeByUserAndForum($id_foro, $id_usuario)

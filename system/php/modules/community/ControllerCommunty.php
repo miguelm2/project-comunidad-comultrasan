@@ -28,4 +28,5 @@ if (isset($_GET)) {
     $unitedCommunity = ServiceCommunity::getUnitedCommunity();
     $btnJoinUser = ServiceCommunity::getButtonUnitUser();
     $cardsCommunity = ServiceCommunity::getCardsCommunity();
+    $tableCommunitiesIndex = ServiceCommunity::getTableCommunityIndex();
 }

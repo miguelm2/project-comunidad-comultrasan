@@ -55,7 +55,7 @@
                   <form method="post">
                      <div class="row">
                         <div class="col-md-4 text-center mx-auto mb-3">
-                           <img src="<?= Path::$DIR_IMAGE_ADMIN . $_SESSION['imagen'] ?>" alt="" class="img-fluid">
+                           <img src="<?= Path::$DIR_IMAGE_ADMIN . $_SESSION['imagen'] ?>" alt="" class="img-fluid" style="max-height:70%">
                         </div>
                         <div class="col-md-8">
                            <div class="row">

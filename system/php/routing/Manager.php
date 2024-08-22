@@ -20,3 +20,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/point/ControllerPo
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/user/ControllerUser.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefit/ControllerBenefit.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/community/ControllerCommunty.php';

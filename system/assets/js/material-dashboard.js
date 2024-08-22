@@ -13,7 +13,7 @@
 // The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 "use strict";
-(function() {
+(function () {
   var isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
   if (isWindows) {
@@ -47,7 +47,7 @@ if (document.getElementById('navbarBlur')) {
 
 // initialization of Tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 })
 
@@ -67,7 +67,7 @@ function defocused(el) {
 
 // helper for adding on all elements multiple attributes
 function setAttributes(el, options) {
-  Object.keys(options).forEach(function(attr) {
+  Object.keys(options).forEach(function (attr) {
     el.setAttribute(attr, options[attr]);
   })
 }
@@ -95,7 +95,7 @@ if (document.querySelector('.fixed-plugin')) {
   var buttonNavbarFixed = document.getElementById('navbarFixed');
 
   if (fixedPluginButton) {
-    fixedPluginButton.onclick = function() {
+    fixedPluginButton.onclick = function () {
       if (!fixedPlugin.classList.contains('show')) {
         fixedPlugin.classList.add('show');
       } else {
@@ -105,7 +105,7 @@ if (document.querySelector('.fixed-plugin')) {
   }
 
   if (fixedPluginButtonNav) {
-    fixedPluginButtonNav.onclick = function() {
+    fixedPluginButtonNav.onclick = function () {
       if (!fixedPlugin.classList.contains('show')) {
         fixedPlugin.classList.add('show');
       } else {
@@ -114,13 +114,13 @@ if (document.querySelector('.fixed-plugin')) {
     }
   }
 
-  fixedPluginCloseButton.forEach(function(el) {
-    el.onclick = function() {
+  fixedPluginCloseButton.forEach(function (el) {
+    el.onclick = function () {
       fixedPlugin.classList.remove('show');
     }
   })
 
-  document.querySelector('body').onclick = function(e) {
+  document.querySelector('body').onclick = function (e) {
     if (e.target != fixedPluginButton && e.target != fixedPluginButtonNav && e.target.closest('.fixed-plugin .card') != fixedPluginCard) {
       fixedPlugin.classList.remove('show');
     }
@@ -286,7 +286,7 @@ function navbarBlurOnScroll(id) {
   let toggleClasses = ['shadow-none'];
 
   if (navbarScrollActive == 'true') {
-    window.onscroll = debounce(function() {
+    window.onscroll = debounce(function () {
       if (window.scrollY > scrollDistance) {
         blurNavbar();
       } else {
@@ -294,7 +294,7 @@ function navbarBlurOnScroll(id) {
       }
     }, 10);
   } else {
-    window.onscroll = debounce(function() {
+    window.onscroll = debounce(function () {
       transparentNavbar();
     }, 10);
   }
@@ -304,7 +304,7 @@ function navbarBlurOnScroll(id) {
   if (isWindows) {
     var content = document.querySelector('.main-content');
     if (navbarScrollActive == 'true') {
-      content.addEventListener('ps-scroll-y', debounce(function() {
+      content.addEventListener('ps-scroll-y', debounce(function () {
         if (content.scrollTop > scrollDistance) {
           blurNavbar();
         } else {
@@ -312,7 +312,7 @@ function navbarBlurOnScroll(id) {
         }
       }, 10));
     } else {
-      content.addEventListener('ps-scroll-y', debounce(function() {
+      content.addEventListener('ps-scroll-y', debounce(function () {
         transparentNavbar();
       }, 10));
     }
@@ -363,10 +363,10 @@ function navbarBlurOnScroll(id) {
 // leading edge, instead of the trailing.
 function debounce(func, wait, immediate) {
   var timeout;
-  return function() {
+  return function () {
     var context = this,
       args = arguments;
-    var later = function() {
+    var later = function () {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
@@ -378,17 +378,17 @@ function debounce(func, wait, immediate) {
 };
 
 // initialization of Toasts
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var toastElList = [].slice.call(document.querySelectorAll(".toast"));
 
-  var toastList = toastElList.map(function(toastEl) {
+  var toastList = toastElList.map(function (toastEl) {
     return new bootstrap.Toast(toastEl);
   });
 
   var toastButtonList = [].slice.call(document.querySelectorAll(".toast-btn"));
 
-  toastButtonList.map(function(toastButtonEl) {
-    toastButtonEl.addEventListener("click", function() {
+  toastButtonList.map(function (toastButtonEl) {
+    toastButtonEl.addEventListener("click", function () {
       var toastToTrigger = document.getElementById(toastButtonEl.dataset.target);
 
       if (toastToTrigger) {
@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function() {
 var total = document.querySelectorAll('.nav-pills');
 
 function initNavs() {
-  total.forEach(function(item, i) {
+  total.forEach(function (item, i) {
     var moving_div = document.createElement('div');
     var first_li = item.querySelector('li:first-child .nav-link');
     var tab = first_li.cloneNode();
@@ -421,13 +421,13 @@ function initNavs() {
     moving_div.style.transform = 'translate3d(0px, 0px, 0px)';
     moving_div.style.transition = '.5s ease';
 
-    item.onmouseover = function(event) {
+    item.onmouseover = function (event) {
       let target = getEventTarget(event);
       let li = target.closest('li'); // get reference
       if (li) {
         let nodes = Array.from(li.closest('ul').children); // get array
         let index = nodes.indexOf(li) + 1;
-        item.querySelector('li:nth-child(' + index + ') .nav-link').onclick = function() {
+        item.querySelector('li:nth-child(' + index + ') .nav-link').onclick = function () {
           moving_div = item.querySelector('.moving-tab');
           let sum = 0;
           if (item.classList.contains('flex-column')) {
@@ -449,14 +449,14 @@ function initNavs() {
   });
 }
 
-setTimeout(function() {
+setTimeout(function () {
   initNavs();
 }, 100);
 
 // Tabs navigation resize
 
-window.addEventListener('resize', function(event) {
-  total.forEach(function(item, i) {
+window.addEventListener('resize', function (event) {
+  total.forEach(function (item, i) {
     item.querySelector('.moving-tab').remove();
     var moving_div = document.createElement('div');
     var tab = item.querySelector(".nav-link.active").cloneNode();
@@ -496,7 +496,7 @@ window.addEventListener('resize', function(event) {
   });
 
   if (window.innerWidth < 991) {
-    total.forEach(function(item, i) {
+    total.forEach(function (item, i) {
       if (!item.classList.contains('flex-column')) {
         item.classList.remove('flex-row');
         item.classList.add('flex-column', 'on-resize');
@@ -514,7 +514,7 @@ window.addEventListener('resize', function(event) {
       }
     });
   } else {
-    total.forEach(function(item, i) {
+    total.forEach(function (item, i) {
       if (item.classList.contains('on-resize')) {
         item.classList.remove('flex-column', 'on-resize');
         item.classList.add('flex-row');
@@ -535,7 +535,7 @@ window.addEventListener('resize', function(event) {
 
 // Function to remove flex row on mobile devices
 if (window.innerWidth < 991) {
-  total.forEach(function(item, i) {
+  total.forEach(function (item, i) {
     if (item.classList.contains('flex-row')) {
       item.classList.remove('flex-row');
       item.classList.add('flex-column', 'on-resize');
@@ -550,16 +550,16 @@ function getEventTarget(e) {
 
 // End tabs navigation
 
-window.onload = function() {
+window.onload = function () {
   // Material Design Input function
   var inputs = document.querySelectorAll('input');
 
   for (var i = 0; i < inputs.length; i++) {
-    inputs[i].addEventListener('focus', function(e) {
+    inputs[i].addEventListener('focus', function (e) {
       this.parentElement.classList.add('is-focused');
     }, false);
 
-    inputs[i].onkeyup = function(e) {
+    inputs[i].onkeyup = function (e) {
       if (this.value != "") {
         this.parentElement.classList.add('is-filled');
       } else {
@@ -567,7 +567,7 @@ window.onload = function() {
       }
     };
 
-    inputs[i].addEventListener('focusout', function(e) {
+    inputs[i].addEventListener('focusout', function (e) {
       if (this.value != "") {
         this.parentElement.classList.add('is-filled');
       }
@@ -578,24 +578,30 @@ window.onload = function() {
   // Ripple Effect
   var ripples = document.querySelectorAll('.btn');
 
-  for (var i = 0; i < ripples.length; i++) {
-    ripples[i].addEventListener('click', function(e) {
-      var targetEl = e.target;
-      var rippleDiv = targetEl.querySelector('.ripple');
+  for (var s = document.querySelectorAll(".btn"), t = 0; t < s.length; t++) {
+    s[t].addEventListener("click", function (e) {
+      var t = e.target;
+      var s = t.querySelector(".ripple"); // Aquí defines s, pero debería existir siempre
 
-      rippleDiv = document.createElement('span');
-      rippleDiv.classList.add('ripple');
-      rippleDiv.style.width = rippleDiv.style.height = Math.max(targetEl.offsetWidth, targetEl.offsetHeight) + 'px';
-      targetEl.appendChild(rippleDiv);
+      if (!s) { // Si no existe, lo creas
+        s = document.createElement("span");
+        s.classList.add("ripple");
+        s.style.width = s.style.height = Math.max(t.offsetWidth, t.offsetHeight) + "px";
+        t.appendChild(s);
+      }
 
-      rippleDiv.style.left = (e.offsetX - rippleDiv.offsetWidth / 2) + 'px';
-      rippleDiv.style.top = (e.offsetY - rippleDiv.offsetHeight / 2) + 'px';
-      rippleDiv.classList.add('ripple');
-      setTimeout(function() {
-        rippleDiv.parentElement.removeChild(rippleDiv);
+      s.style.left = e.offsetX - s.offsetWidth / 2 + "px";
+      s.style.top = e.offsetY - s.offsetHeight / 2 + "px";
+      s.classList.add("ripple");
+
+      setTimeout(function () {
+        if (s.parentElement) {
+          s.parentElement.removeChild(s);
+        }
       }, 600);
-    }, false);
+    }, !1);
   }
+
 };
 
 // Toggle Sidenav
@@ -616,7 +622,7 @@ if (iconSidenav) {
 function toggleSidenav() {
   if (body.classList.contains(className)) {
     body.classList.remove(className);
-    setTimeout(function() {
+    setTimeout(function () {
       sidenav.classList.remove('bg-white');
     }, 100);
     sidenav.classList.remove('bg-transparent');
@@ -657,11 +663,11 @@ window.addEventListener("load", sidenavTypeOnResize);
 function sidenavTypeOnResize() {
   let elements = document.querySelectorAll('[onclick="sidebarType(this)"]');
   if (window.innerWidth < 1200) {
-    elements.forEach(function(el) {
+    elements.forEach(function (el) {
       el.classList.add('disabled');
     });
   } else {
-    elements.forEach(function(el) {
+    elements.forEach(function (el) {
       el.classList.remove('disabled');
     });
   }
@@ -851,16 +857,16 @@ if (indicators) {
           }
         });
       }, {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.75
-      }
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.75
+    }
     );
     observer.observe(section);
   };
 
   indicators.forEach((indicator) => {
-    indicator.addEventListener("click", function(event) {
+    indicator.addEventListener("click", function (event) {
       event.preventDefault();
       document
         .querySelector(this.getAttribute("href"))

@@ -93,8 +93,8 @@
                         <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#newForumComment" <?= $disabledButton ?>>
                            <i class="material-icons me-2">chat</i>(<?= $contadorComment ?>) Comentar
                         </button>
-                        <button type="button" class="btn btn-primary btn-sm" <?= $disabledButton ?>>
-                           <i class="material-icons me-2">favorite</i>(0) <?= $textbutton ?>
+                        <button type="button" class="btn btn-primary btn-sm" id="like" <?= $disabledButton ?> >
+                           <?= $textbutton ?>
                         </button>
                      </div>
                   </div>
@@ -145,10 +145,11 @@
    <script src="/system/assets/js/plugins/smooth-scrollbar.min.js"></script>
    <script src="/system/assets/js/plugins/chartjs.min.js"></script>
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-   <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
+   <script src="/system/assets/js/material-dashboard.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <script src="/system/js/viewPassword.js"></script>
    <script src="/system/js/functions.js"></script>
+   <script src="/system/js/like.js"></script>
    <?= $response ?>
 </body>
 

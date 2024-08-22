@@ -78,11 +78,12 @@ class ServiceSurvey extends System
 
                 if ($modelResponse) {
                     foreach ($modelResponse as $valor) {
+                        $style = self::getColorByEstate($valor->getEstado()[0]);
                         $tableHtml .= '<tr>';
                         $tableHtml .= '<td>' . $valor->getId_encuesta() . '</td>';
                         $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
                         $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
+                        $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
                         $tableHtml .= '<td align="center">' . Elements::crearBotonVer("survey", $valor->getId_encuesta()) . '</td>';
                         $tableHtml .= '</tr>';
                     }
@@ -128,6 +129,24 @@ class ServiceSurvey extends System
             $id_usuario = $_SESSION['id'];
             $encuesta_usuario = Encuesta::countSurveyByUser($id_usuario);
             return ($total_encuesta == 0) ? 0 : ($encuesta_usuario / $total_encuesta) * 100;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    private static function getColorByEstate($estado)
+    {
+        try {
+            switch ($estado) {
+                case 0: {
+                        return 'danger';
+                    }
+                case 1: {
+                        return 'success';
+                    }
+                case 2: {
+                        return 'warning';
+                    }
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

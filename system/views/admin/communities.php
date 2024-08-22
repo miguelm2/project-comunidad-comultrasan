@@ -41,7 +41,7 @@
          <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
          <!-- End header -->
       </nav>
-      <div class="card container">
+      <div class="card container-fluid mt-3">
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">

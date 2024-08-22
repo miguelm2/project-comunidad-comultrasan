@@ -198,12 +198,13 @@ class ServiceAdmin extends System
 
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
+                    $style = self::getColorByEstate($valor->getEstado()[0]);
                     $tableHtml .= '<tr>';
                     $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
                     $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
                     $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
                     $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getEstado()[1] . '</td>';
+                    $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
                     $tableHtml .= '<td>' . Elements::crearBotonVer("administrator", $valor->getId_administrador()) . '</td>';
                     $tableHtml .= '</tr>';
                 }
@@ -241,6 +242,21 @@ class ServiceAdmin extends System
                 return $imagen;
             } else {
                 return "default.png";
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    private static function getColorByEstate($estado)
+    {
+        try {
+            switch ($estado) {
+                case 0: {
+                        return 'danger';
+                    }
+                case 1: {
+                        return 'success';
+                    }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

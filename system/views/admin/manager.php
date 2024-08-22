@@ -63,7 +63,7 @@
                <form method="post">
                   <div class="row">
                      <div class="col-md-4">
-                        <img src="<?= Path::$DIR_IMAGE_MANAGER . $manager->getImagen() ?>" alt="Imagen" class="img-fluid">
+                        <img src="<?= Path::$DIR_IMAGE_MANAGER . $manager->getImagen() ?>" alt="Imagen" class="img-fluid" style="max-height:70%">
                      </div>
                      <div class="col-md-8">
                         <div class="row">

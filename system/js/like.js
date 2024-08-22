@@ -4,25 +4,22 @@ $('#like').on('click', function () {
     const urlParams = new URLSearchParams(queryString);
     const id_foro = urlParams.get('forum');
 
+    console.log(id_foro);
+
+
     // Enviar solicitud AJAX mediante POST
     $.post("/system/php/routing/User.php", {
         "likedAndUnlikedForum": true,
         "forum": id_foro
     }).done(function (response) {
-        // Parsear la respuesta si es JSON
-        let data;
-        try {
-            data = JSON.parse(response);
-        } catch (e) {
-            console.error('Error al parsear la respuesta:', e);
-            return;
-        }
+        let data = JSON.parse(response);
+        console.log(data);
 
         // Verifica el estado recibido y actualiza el botón
         if (data.status === 'liked') {
-            $('#like').text('Ya no me gusta');
+            $('#like').text('<i class="material-icons me-2">favorite</i> Ya no me gusta');
         } else if (data.status === 'unliked') {
-            $('#like').text('Me gusta');
+            $('#like').text('<i class="material-icons me-2">favorite</i> Me gusta');
         } else {
             console.error('Error:', data.message);
         }

@@ -79,6 +79,29 @@ class ServiceCommunity extends System
                     $tableHtml .= '</tr>';
                 }
             } else {
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+            }
+            return $tableHtml;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getTableCommunityIndex()
+    {
+        try {
+            $tableHtml = "";
+            $modelResponse = Comunidad::listCommunity();
+
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td class="text-center">' . $valor->getId_comunidad() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
                 return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
             }
             return $tableHtml;

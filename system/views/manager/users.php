@@ -31,9 +31,9 @@
       <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
          <div class="container-fluid">
             <nav aria-label="breadcrumb" class="d-none d-lg-block">
-               <ol class="breadcrumb">
+               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
-                  <li class="breadcrumb-item active"><a href="users">Asociados</a></li>
+                  <li class="breadcrumb-item active">Asociados</li>
                </ol>
             </nav>
          </div>

@@ -1,8 +1,6 @@
 $(document).ready(function () {
    getcharViews();
    getcharPoints();
-   getChartBenefit();
-   getChartDiscount();
 });
 
 function getcharViews() {

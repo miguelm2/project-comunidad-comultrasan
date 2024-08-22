@@ -83,6 +83,44 @@
           </div>
         </div>
       </div>
+      <div class="row mb-4 mt-3">
+        <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-6 col-7">
+                  <h5 class="text-success">Comunidades</h5>
+                </div>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive">
+                <table class="table table-hover table-bordered table-striped">
+                  <thead class="text-center">
+                    <tr>
+                      <th class="text-uppercase font-weight-bolder">ID</th>
+                      <th class="text-uppercase font-weight-bolder">Asociado</th>
+                      <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                      <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                    </tr>
+                  </thead>
+                  <tfoot class="text-center">
+                    <tr>
+                      <th class="text-uppercase font-weight-bolder">ID</th>
+                      <th class="text-uppercase font-weight-bolder">Asociado</th>
+                      <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                      <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    <?= $tableCommunitiesIndex ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row mt-4">
         <div class="col-lg-6 col-md-6 mt-4 mb-4">
           <div class="card z-index-2 ">
@@ -111,177 +149,6 @@
             <div class="card-body">
               <h6 class="mb-0 "><i class="material-icons">favorite</i> Corazones</h6>
               <p class="text-sm ">Corazones entregados por mes</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-4">
-        <div class="col-lg-12 col-md-6 mb-md-0 mb-4">
-          <div class="card">
-            <div class="card-header pb-0">
-              <div class="row">
-                <div class="col-lg-6 col-7">
-                  <h6>Comunidades</h6>
-                  <p class="text-sm mb-0">
-                    <i class="fa fa-check text-info" aria-hidden="true"></i>
-                    <span class="font-weight-bold ms-1">30 comunidades</span> este mes
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
-                        Comunidad</th>
-                      <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                        Miebros</th>
-                      <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
-                        Puntos</th>
-                      <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
-                        Beneficios</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th class="text-uppercase text-secondary  font-weight-bolder opacity-7">
-                        Comunidad</th>
-                      <th class="text-uppercase text-secondary  font-weight-bolder opacity-7 ps-2">
-                        Miebros</th>
-                      <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
-                        Puntos</th>
-                      <th class="text-center text-uppercase text-secondary  font-weight-bolder opacity-7">
-                        Beneficios</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="/system/assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3" alt="xd">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Comunidad 1</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                            <img src="/system/assets/img/team-1.jpg" alt="team1">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <img src="/system/assets/img/team-2.jpg" alt="team2">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
-                            <img src="/system/assets/img/team-3.jpg" alt="team3">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="/system/assets/img/team-4.jpg" alt="team4">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-xs font-weight-bold"> 10 </span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-xs font-weight-bold"> 10 </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="/system/assets/img/small-logos/logo-atlassian.svg" class="avatar avatar-sm me-3" alt="atlassian">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Comunidad 2</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <img src="/system/assets/img/team-2.jpg" alt="team5">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="/system/assets/img/team-4.jpg" alt="team6">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-xs font-weight-bold"> 16 </span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-xs font-weight-bold"> 10 </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="/system/assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm me-3" alt="team7">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Comunidad 3</h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="avatar-group mt-2">
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                            <img src="/system/assets/img/team-3.jpg" alt="team8">
-                          </a>
-                          <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                            <img src="/system//assets/img/team-1.jpg" alt="team9">
-                          </a>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center ">
-                        <span class="text-xs font-weight-bold">20</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-xs font-weight-bold"> 10 </span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 col-md-6 mt-4 mb-3">
-          <div class="card z-index-2 ">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-              <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
-                <div class="chart">
-                  <canvas id="chart-line-tasks" class="chart-canvas" height="220"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <h6 class="mb-0 "><i class="material-icons">paid</i> Beneficios</h6>
-              <p class="text-sm ">Beneficios que han sido obtenidos por mes</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 mt-4 mb-4">
-          <div class="card z-index-2 ">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-              <div class="bg-gradient-primary shadow-success border-radius-lg py-3 pe-1">
-                <div class="chart">
-                  <canvas id="chart-discount" class="chart-canvas" height="220"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <h6 class="mb-0 "><i class="material-icons">stars</i> Descuentos</h6>
-              <p class="text-sm ">Descuentos por mes</p>
             </div>
           </div>
         </div>
