@@ -186,7 +186,7 @@ class ServicePoint extends System
                     $result = Excel::readExcelIncomes($target_path, $fecha_registro);
                     unlink($target_path);
                     if ($result) {
-                        return Elements::crearMensajeAlerta('Se han cargado' . $result . ' registros exitosamente', 'success');
+                        return Elements::crearMensajeAlerta('Se han cargado ' . $result . ' registros exitosamente', 'success');
                     }
                 }
             }
