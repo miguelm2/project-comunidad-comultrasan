@@ -621,4 +621,13 @@ class Elements
             </div>
         ';
     }
+    public static function getCardsBenefitUser($beneficio)
+    {
+        return '
+                <div class="col-md-6">
+                    <div class="card border-2">
+                        <h6 class="mt-2 ms-3"><i class="material-icons">check_circle</i> ' . $beneficio . '</h6>
+                    </div>
+                </div>';
+    }
 }

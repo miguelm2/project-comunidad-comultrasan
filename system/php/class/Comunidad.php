@@ -23,6 +23,17 @@ class Comunidad extends System
         $stmt->bindParam(':id_comunidad', $id_comunidad);
         return  $stmt->execute();
     }
+    public static function setCommunityEstate($id_comunidad, $estado)
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("UPDATE Comunidad 
+                                SET nombre = :nombre 
+                                    id_usuario = NULL
+                                WHERE id_comunidad = :id_comunidad");
+        $stmt->bindParam(':nombre', $nombre);
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
+        return  $stmt->execute();
+    }
     public static function getCommunity($id_comunidad)
     {
         $dbh             = parent::Conexion();

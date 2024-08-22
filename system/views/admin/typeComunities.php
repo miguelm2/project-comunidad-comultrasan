@@ -20,8 +20,10 @@
    <!-- CSS Files -->
    <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
-   <link href="../../assets/vendor/simple-datatables/style.css" rel="stylesheet">
-   <link href="../../assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="/system/assets/vendor/quill/quill.snow.css">
+   <link rel="stylesheet" href="/system/assets/vendor/quill/quill.bubble.css">
+   <link rel="stylesheet" href="/system/assets/vendor/simple-datatables/style.css">
+   <link rel="stylesheet" href="/system/assets/vendor/datatables/dataTables.bootstrap4.min.css">
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -59,7 +61,7 @@
          </div>
          <div class="card-body">
             <div class="table-responsive">
-               <table class="table table-hover table-bordered align-items-center mb-0" id="">
+               <table class="table table-hover table-bordered align-items-center mb-0" id="tableTypeCommunity">
                   <thead class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">

@@ -4,6 +4,7 @@ class ComunidadDTO
     protected $id_comunidad;
     protected $nombre;
     protected $usuarioDTO;
+    protected $estado;
     protected $fecha_registro;
 
     /**
@@ -68,7 +69,7 @@ class ComunidadDTO
 
     /**
      * Get the value of nombre
-     */ 
+     */
     public function getNombre()
     {
         return $this->nombre;
@@ -78,10 +79,32 @@ class ComunidadDTO
      * Set the value of nombre
      *
      * @return  self
-     */ 
+     */
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of estado
+     */
+    public function getEstado()
+    {
+        if ($this->estado == 0) return explode(";", $this->estado . ';Inactivo');
+        if ($this->estado == 1) return explode(";", $this->estado . ';Activo');
+        return $this->estado;
+    }
+
+    /**
+     * Set the value of estado
+     *
+     * @return  self
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
 
         return $this;
     }

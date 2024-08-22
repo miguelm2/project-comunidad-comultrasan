@@ -252,6 +252,14 @@ CREATE TABLE Comunidad (
   fecha_registro DATETIME NOT NULL
 );
 
+-- Permitir valores NULL en id_usuario
+ALTER TABLE Comunidad
+ALTER COLUMN id_usuario INT NULL;
+
+-- Agregar columna estado con valor por defecto 1
+ALTER TABLE Comunidad
+ADD estado INT DEFAULT 1;
+
 CREATE TABLE UsuarioBeneficio (
   id_usuario_beneficio INT IDENTITY(1, 1) PRIMARY KEY,
   id_usuario INT NOT NULL,

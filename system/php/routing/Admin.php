@@ -33,8 +33,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefit/Controller
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/point/ControllerPoint.php';
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/reward/ControllerReward.php';
-
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/discount/ControllerDiscount.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/survey/ControllerSurvey.php';
