@@ -17,7 +17,7 @@ class ServiceAnswerUser extends System
             $result = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $id_pregunta, $id_respuesta, $fecha_registro);
             if ($result) {
                 $encuestaDTO = Encuesta::getSurvey($id_encuesta);
-                return Elements::crearMensajeAlerta2($encuestaDTO->getPuntos());
+                header('Location:surveys?win=' . $encuestaDTO->getPuntos());
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

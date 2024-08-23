@@ -49,7 +49,7 @@ class TipoComunidad extends System
     public static function listTypeComunity()
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM TipoComunidad");
+        $stmt = $dbh->prepare("SELECT * FROM TipoComunidad ORDER BY id_tipo_comunidad DESC");
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'TipoComunidadDTO');
         $stmt->execute();
         return  $stmt->fetchAll();

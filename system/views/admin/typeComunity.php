@@ -106,6 +106,80 @@
                </form>
             </div>
          </div>
+         <div class="card mt-3">
+            <div class="row m-0">
+               <div class="col-md-9 mt-3">
+                  <div class="card-head">
+                     <h4 class="text-success">Foros</h4>
+                  </div>
+               </div>
+            </div>
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table class="table table-hover table-bordered align-items-center mb-0" id="tableTypeCommunity">
+                     <thead class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">ID</th>
+                           <th class="text-uppercase font-weight-bolder">Usuario</th>
+                           <th class="text-uppercase font-weight-bolder">Título</th>
+                           <th class="text-uppercase font-weight-bolder">Opciones</th>
+                        </tr>
+                     </thead>
+                     <tfoot class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">ID</th>
+                           <th class="text-uppercase font-weight-bolder">Usuario</th>
+                           <th class="text-uppercase font-weight-bolder">Título</th>
+                           <th class="text-uppercase font-weight-bolder">Opciones</th>
+                        </tr>
+                     </tfoot>
+                     <tbody class="text-center">
+                        <?= $tableForum ?>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+         <div class="card mt-3">
+            <div class="row m-0">
+               <div class="col-md-9 mt-3">
+                  <div class="card-head">
+                     <h4 class="text-success">Sección</h4>
+                  </div>
+               </div>
+               <div class="col-md-3 mt-3">
+                  <div class="card-head text-right">
+                     <a class="btn btn-success" href="newSectionTypeCommunity?typeComunity=<?= $_GET['typeComunity'] ?>">
+                        <i class="material-icons me-2">add</i>Agregar Sección</a>
+                  </div>
+               </div>
+            </div>
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table class="table table-hover table-bordered align-items-center mb-0" id="tableTypeCommunity">
+                     <thead class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">ID</th>
+                           <th class="text-uppercase font-weight-bolder">Nombre</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                           <th class="text-uppercase font-weight-bolder">Opciones</th>
+                        </tr>
+                     </thead>
+                     <tfoot class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">ID</th>
+                           <th class="text-uppercase font-weight-bolder">Nombre</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                           <th class="text-uppercase font-weight-bolder">Opciones</th>
+                        </tr>
+                     </tfoot>
+                     <tbody class="text-center">
+                        <?= $tableSectionTypeCommunities ?>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
       </div>
       <!-- Modal Eliminar Registro-->
       <!-- ======= Basic Modal ======= -->
@@ -157,6 +231,9 @@
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
    </main>
+   <div id="preloader">
+      <img src="/assets/image/favicon_0.ico" alt="Cargando...">
+   </div>
    <!--   Core JS Files   -->
    <script src="/system/assets/js/core/popper.min.js"></script>
    <script src="/system/assets/js/core/bootstrap.min.js"></script>

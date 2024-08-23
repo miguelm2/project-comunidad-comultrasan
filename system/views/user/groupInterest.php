@@ -46,14 +46,17 @@
          <div class="card">
             <div class="card-head mt-4">
                <div class="row">
-                  <div class="col-md-10">
+                  <div class="col-md-8">
                      <h5 class="text-success">
                         Grupo <?= $groupInterest->getTitulo() ?>
                      </h5>
                   </div>
+                  <div class="col-md-2">
+                     <?= $btonJoin ?>
+                  </div>
                   <div class="col-md-2 mt-0">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="groupInterest?groupInterest=<?= $_GET['groupInterest'] ?>">
+                        <a type="button" class="btn btn-secondary" href="community">
                            <i class="material-icons me-2">keyboard_return</i>atrás</a>
                      </div>
                   </div>
@@ -63,7 +66,22 @@
             <div class="card-body mt-0">
                <form method="post">
                   <div class="row">
-                     <div class="col-md-6">
+                     <div class="col-md-12">
+                        <div class="row justify-content-center">
+                           <?= $cardMiniSection ?>
+                           <div class="col-md-3">
+                              <div class="card border-2 h-100">
+                                 <div class="card-head p-0">
+                                    <img src="/assets/image/foro.png" alt="" class="img-fluid rounded-2 p-0">
+                                 </div>
+                                 <div class="card-foot">
+                                    <h5 class="text-center text-success">Participa en el foro</h5>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6 mt-3">
                         <div class="card border-3">
                            <div class="card-body pt-0 mt-2">
                               <img src="<?= Path::$DIR_IMAGE_TYPE_COM . $groupInterest->getImagen() ?>" alt="Imagen_grupo" class="img-fluid">
@@ -76,7 +94,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mt-3">
                         <div class="card border-3">
                            <div class="card-head">
                               <h5 class="text-success mt-2 ms-2">
@@ -88,6 +106,9 @@
                            </div>
                         </div>
                      </div>
+                     <div class="col-md-12">
+                        <?= $cardSection ?>
+                     </div>
                   </div>
                </form>
             </div>
@@ -97,6 +118,9 @@
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
    </main>
+   <div id="preloader">
+      <img src="/assets/image/favicon_0.ico" alt="Cargando...">
+   </div>
    <!--   Core JS Files   -->
    <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/assets/js/core/popper.min.js"></script>

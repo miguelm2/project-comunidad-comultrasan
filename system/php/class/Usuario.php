@@ -201,20 +201,26 @@ class Usuario extends System
     public static function getUsersInCommunity($id_comunidad)
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT us.* 
+        $stmt = $dbh->prepare("SELECT us.*, 
+                                (SELECT SUM(puntos) 
+                                    FROM Punto 
+                                    WHERE id_usuario = us.id_usuario) AS total_puntos
                             FROM Usuario us
-                            WHERE EXISTS(
-                                SELECT 1
-                                FROM UsuarioComunidad uc
-                                WHERE us.id_usuario = uc.id_usuario
-								AND uc.id_comunidad = :id_comunidad
-                                AND uc.estado = 2
-                            ) AND NOT EXISTS(
-                                SELECT 1
-                                FROM Comunidad cm
-                                WHERE cm.id_usuario = us.id_usuario
-								AND cm.id_comunidad = :id_comunidad1
-                            )");
+                            WHERE EXISTS (
+                                    SELECT 1
+                                    FROM UsuarioComunidad uc
+                                    WHERE us.id_usuario = uc.id_usuario
+                                    AND uc.id_comunidad = :id_comunidad
+                                    AND uc.estado = 2
+                                )
+                            AND NOT EXISTS (
+                                    SELECT 1
+                                    FROM Comunidad cm
+                                    WHERE cm.id_usuario = us.id_usuario
+                                    AND cm.id_comunidad = :id_comunidad1
+                                )
+                            ORDER BY total_puntos DESC;
+                            ");
         $stmt->bindParam(':id_comunidad', $id_comunidad);
         $stmt->bindParam(':id_comunidad1', $id_comunidad);
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'UsuarioDTO');

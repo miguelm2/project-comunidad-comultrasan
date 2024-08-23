@@ -2,6 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Foro.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/MeGusta.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/ComentarioForo.php';
 
 class ServiceForum extends System
 {
@@ -21,6 +22,26 @@ class ServiceForum extends System
                 if ($result) {
                     $foroDTO = Foro::getLastForumByTypeCommunityAndUser($id_tipo_comunidad, $id_usuario);
                     header('Location:forum?forum=' . $foroDTO->getId_foro() . '&new');
+                }
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function setForum($id_foro, $contenido,  $titulo)
+    {
+        try {
+
+            if (basename($_SERVER['PHP_SELF']) == 'forum.php') {
+                $id_foro            = parent::limpiarString($id_foro);
+                $contenido          = parent::limpiarString($contenido);
+                $titulo             = parent::limpiarString($titulo);
+                $fecha_registro     = date('Y-m-d H:i:s');
+
+                $result = Foro::setForum($id_foro, $contenido, $titulo);
+
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
                 }
             }
         } catch (\Exception $e) {
@@ -70,10 +91,11 @@ class ServiceForum extends System
     {
         try {
             $id_foro        = parent::limpiarString($id_foro);
-
+            $foroDTO = Foro::getForum($id_foro);
             $result = Foro::deleteForum($id_foro);
             if ($result) {
-                header('Location:&delete');
+                $response = ComentarioForo::deleteForumCommentByForum($id_foro);
+                header('Location:typeComunity?typeComunity='. $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() .'&delete');
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -137,6 +159,30 @@ class ServiceForum extends System
             } else {
                 return '<button class="btn btn-success disabled">No perteneces a una comunidad</button>';
             }
+        }
+    }
+    public static function getTableForumByTypeCommunity($id_tipo_comunidad)
+    {
+        try {
+            $id_tipo_comunidad = parent::limpiarString($id_tipo_comunidad);
+            $tableHtml = '';
+            $modelResponse = Foro::listForumByTypeCommunity($id_tipo_comunidad);
+
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_foro() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                    $tableHtml .= '<td align="center">' . Elements::crearBotonVer("forum", $valor->getId_foro()) . '</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+            }
+            return $tableHtml;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
         }
     }
 }

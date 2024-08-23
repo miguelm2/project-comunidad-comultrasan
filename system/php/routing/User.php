@@ -40,3 +40,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefit/Controller
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/eventCalendar/ControllerEventCalendar.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/like/ControllerLike.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/sectionTypeCommunity/ControllerSectionTypeCommunity.php';

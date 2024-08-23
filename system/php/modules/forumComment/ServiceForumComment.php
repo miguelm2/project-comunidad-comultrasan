@@ -23,6 +23,23 @@ class ServiceForumComment extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function setForumComment($id_comentario, $comentario)
+    {
+        try {
+            if (basename($_SERVER['PHP_SELF']) == 'forumComment.php') {
+                $id_comentario        = parent::limpiarString($id_comentario);
+                $comentario     = parent::limpiarString($comentario);
+
+                $result = ComentarioForo::setForumComment($id_comentario, $comentario);
+
+                if ($result) {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
+                }
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
     public static function getForumComment($id_comentario)
     {
         try {
@@ -47,8 +64,8 @@ class ServiceForumComment extends System
                     $tableHtml .= '<tr class="text-center">';
                     $tableHtml .= '<td>' . $valor->getId_comentario() . '</td>';
                     $tableHtml .= '<td class="text-warp">' . $valor->getUsuarioDTO()->getNombre() . '</td>';
-                    $tableHtml .= '<td class="text-warp">' . $valor->getComentario() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("forum", $valor->getId_comentario()) . '</td>';
+                    $tableHtml .= '<td class="text-wrap">' . $valor->getComentario() . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("forumComment", $valor->getId_comentario()) . '</td>';
                     $tableHtml .= '</tr>';
                 }
             } else {

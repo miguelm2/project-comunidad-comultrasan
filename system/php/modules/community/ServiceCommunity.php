@@ -140,7 +140,8 @@ class ServiceCommunity extends System
                             ';
             $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad());
             $fecha = self::getDateInWords($comunidadDTO->getFecha_registro());
-            $total_points = Punto::getSumPointsByCommunity($comunidadDTO->getId_comunidad());
+            $total_points = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
+            $total_points += Punto::getSumPointsByCommunity($comunidadDTO->getId_comunidad());
             $btnEditar = $isLeader ? Elements::getButtonEditModalJs(
                 'editName',
                 'Editar',
@@ -168,6 +169,7 @@ class ServiceCommunity extends System
                 }
                 $html .= Elements::getCardUserInCommunity($valor->getNombre(), $valor->getTelefono(), $btnEliminar, $points);
             }
+            $html .= self::getBenefitByComunity();
             $btnSalir = $isLeader ?
                 Elements::getButtonDeleteModal('leaveLeader', 'Salir de la comunidad') :
                 Elements::getButtonDeleteModal('leave', 'Salir de la comunidad');
@@ -342,5 +344,48 @@ class ServiceCommunity extends System
         $script = $_SERVER['REQUEST_URI'];
         $url = $protocol . "://" . $host . $script;
         return $url;
+    }
+
+    public static function getBenefitByComunity()
+    {
+        try {
+            $id_usuario = $_SESSION['id'];
+            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+
+            // Si no existe comunidad directamente asociada al usuario, buscar en la tabla UsuarioComunidad
+            if (!$comunidadDTO) {
+                $comunidadUsuario = UsuarioComunidad::getUserCommunityByUser($id_usuario);
+                if ($comunidadUsuario) {
+                    $comunidadDTO = $comunidadUsuario->getComunidadDTO();
+                }
+            }
+
+            // Si se encuentra una comunidad asociada
+            if ($comunidadDTO) {
+                $html = '<div class="mt-3">
+                            <h5 class="text-success">Beneficios</h5>';
+                $html .= self::generateBenefitCards($comunidadDTO->getUsuarioDTO()->getId_usuario());
+                $usuariosComunidadDTO = UsuarioComunidad::getUserCommunityByCommunity($comunidadDTO->getId_comunidad());
+                foreach ($usuariosComunidadDTO as $usuarioComunidad) {
+                    $html .= self::generateBenefitCards($usuarioComunidad->getUsuarioDTO()->getId_usuario());
+                }
+                $html .= '</div>';
+
+                return $html;
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    private static function generateBenefitCards($id_usuario)
+    {
+        $html = '';
+        $beneficioDTO = Beneficio::listBenefitByUser($id_usuario);
+
+        foreach ($beneficioDTO as $beneficio) {
+            $html .= Elements::getCardsBenefitUser($beneficio->getTitulo());
+        }
+
+        return $html;
     }
 }

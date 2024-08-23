@@ -53,7 +53,7 @@ class ServicePage extends System
             if ($mismaVisita == 0) {
                 NumeroVistas::insertNuevaVista($ip, $session_id, $fecha_registro);
             } else {
-                $fecha_registro = NumeroVistas::getFechaVistas($ip, $session_id, $fecha_registro);
+                $fecha_registro = NumeroVistas::getFechaVistas($ip, $session_id);
 
                 $fecha_actual = date('Y-m-d H:i:s');
                 $nueva_fecha = strtotime($fecha_registro . '+ 1 hour');
@@ -96,5 +96,9 @@ class ServicePage extends System
     static function getAlertaEliminar()
     {
         return '<script>swal("' . Constants::$REGISTER_DELETE . '", "", "success");</script>';
+    }
+    static function getAlertaWin($puntos)
+    {
+        return Elements::crearMensajeAlerta2($puntos);
     }
 }

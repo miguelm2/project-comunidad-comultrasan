@@ -13,7 +13,7 @@ if (isset($_POST['recovery'])) {
 }
 
 if (isset($_POST['logout'])) {
-    $response = ServicePage::Logout();
+    ServicePage::Logout();
 }
 
 if (isset($_POST['sendMail'])) {
@@ -29,8 +29,11 @@ if (isset($_GET['delete'])) {
     $response = ServicePage::getAlertaEliminar();
 }
 
+if (isset($_GET['win'])) {
+    $response = ServicePage::getAlertaWin($_GET['win']);
+}
 
 if (isset($_GET)) {
     $informationPage = ServicePage::getInformation();
-    $nuevaVisita     = ServicePage::getVisitas();
+    ServicePage::getVisitas();
 }

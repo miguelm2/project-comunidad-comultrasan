@@ -47,3 +47,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/community/Controll
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userBenefit/ControllerUserBenefit.php';
 
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/sectionTypeCommunity/ControllerSectionTypeCommunity.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forum/ControllerForum.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forumComment/ControllerForumComment.php';

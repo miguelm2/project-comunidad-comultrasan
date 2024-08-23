@@ -220,32 +220,30 @@ section {
   z-index: 999999;
   overflow: hidden;
   background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: all 0.6s ease-out;
 }
 
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #fff;
-  border-color: var(--color-primary) transparent var(--color-primary)
-    transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
+#preloader img {
+  width: 100px;
+  height: auto;
+  animation: pulse 1.5s infinite; /* Aplica la animación */
 }
 
-@keyframes animate-preloader {
+@keyframes pulse {
   0% {
-    transform: rotate(0deg);
+    transform: scale(1);
   }
-
+  50% {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+  }
   100% {
-    transform: rotate(360deg);
+    transform: scale(1);
   }
 }
+
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
