@@ -252,6 +252,18 @@ CREATE TABLE Comunidad (
   fecha_registro DATETIME NOT NULL
 );
 
+-- Permitir valores NULL en id_usuario
+ALTER TABLE
+  Comunidad
+ALTER COLUMN
+  id_usuario INT NULL;
+
+-- Agregar columna estado con valor por defecto 1
+ALTER TABLE
+  Comunidad
+ADD
+  estado INT DEFAULT 1;
+
 CREATE TABLE UsuarioBeneficio (
   id_usuario_beneficio INT IDENTITY(1, 1) PRIMARY KEY,
   id_usuario INT NOT NULL,
@@ -310,5 +322,22 @@ CREATE TABLE MeGusta (
   id_megusta INT IDENTITY(1, 1) PRIMARY KEY,
   id_foro INT NOT NULL,
   id_usuario INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE Invitacion (
+  id_invitacion INT IDENTITY(1, 1) PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  nombre VARCHAR(255) NOT NULL,
+  correo VARCHAR(255) NOT NULL,
+  celular VARCHAR(255) NOT NULL,
+  cedula VARCHAR(255) NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE EncuestaUsuario (
+  id_encuesta_usuario INT IDENTITY(1, 1) PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  id_encuesta INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );

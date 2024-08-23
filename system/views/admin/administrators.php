@@ -19,11 +19,11 @@
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
    <!-- CSS Files -->
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+   <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet"/>
    <link rel="stylesheet" href="/system/assets/vendor/quill/quill.snow.css">
    <link rel="stylesheet" href="/system/assets/vendor/quill/quill.bubble.css">
    <link rel="stylesheet" href="/system/assets/vendor/simple-datatables/style.css">
    <link rel="stylesheet" href="/system/assets/vendor/datatables/dataTables.bootstrap4.min.css">
-   <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet"/>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">

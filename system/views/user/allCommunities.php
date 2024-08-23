@@ -34,7 +34,7 @@
                <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                   <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
                   <li class="breadcrumb-item"><a href="community" class="text-white">Comunidad</a></li>
-                  <li class="breadcrumb-item active">Nueva Comunidad</li>
+                  <li class="breadcrumb-item active">Unirme a Comunidad</li>
                </ol>
             </nav>
          </div>
@@ -45,7 +45,7 @@
       <div class="card mt-2">
          <div class="row m-0">
             <div class="col-md-5 mt-4 ms-4">
-               <h4 class="text-success">Comunidades</h4>
+               <h4 class="text-success">Todas las Comunidades</h4>
             </div>
             <div class="card-body">
                <?= $cardsCommunity ?>

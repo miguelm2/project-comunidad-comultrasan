@@ -28,4 +28,5 @@ if (isset($_GET)) {
     $tableBenefits = ServiceBenefit::getTableBenefit();
     $optionBenefit = ServiceBenefit::getOptionBenefit();
     $tableBenefitsUser = ServiceBenefit::getTableBenefitUserByUser();
+    $cardBenefitUser = ServiceBenefit::getCardBenefitUserByUser();
 }

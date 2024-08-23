@@ -147,7 +147,6 @@ class ServicePoint extends System
                 if ($modelResponse) {
                     foreach ($modelResponse as $valor) {
                         $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getId_punto() . '</td>';
                         $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
                         $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
                         $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';

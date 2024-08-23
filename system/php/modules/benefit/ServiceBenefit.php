@@ -214,4 +214,25 @@ class ServiceBenefit extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function getCardBenefitUserByUser()
+    {
+        try {
+            if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
+                $id_usuario = $_SESSION['id'];
+                $html = "";
+                $modelResponse = Beneficio::listBenefitByUser($id_usuario);
+
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $html .= Elements::getCardsBenefitUser($valor->getTitulo());
+                    }
+                } else {
+                    return '<div>No tienes beneficios en este momento</div>';
+                }
+                return $html;
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }

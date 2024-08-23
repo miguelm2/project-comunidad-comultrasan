@@ -4,18 +4,33 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Comunidad.php';
 
 class ServiceCommunity extends System
 {
-    public static function newCommunity($nombre, $cedula)
+    public static function newCommunity($nombre, $cedula, $nombre_user, $correo, $celular)
     {
         try {
             $id_usuario    = $_SESSION['id'];
-            $fecha_registro = date('Y-m-d H:i:s');
             $nombre = parent::limpiarString($nombre);
-            //si la cedula es igual a la del usuario logueado
+            $estado = parent::limpiarString(1);
+            $nombre_user = parent::limpiarString($nombre_user);
+            $correo = parent::limpiarString($correo);
+            $celular = parent::limpiarString($celular);
+            $fecha_registro = date('Y-m-d H:i:s');
             if ($_SESSION['cedula'] == $cedula) {
                 return Elements::crearMensajeAlerta(Constants::$USER_DIFERENT, "error");
             }
             $usuario = Usuario::getUserByCedula($cedula);
             if (!$usuario) { //Si el asociado no esta regitrado
+                Invitacion::newInvitation($_SESSION['id'], $nombre_user, $correo, $celular, $cedula, $fecha_registro);
+                $mensaje = "Estimado(a) " . $nombre_user . ",
+                            Nos complace informarle que ha sido invitado(a) a unirse a nuestra aplicación, 
+                            como parte de la comunidad " . $nombre . ", creada por " . $_SESSION['nombre'] . ".<br><br>
+                            Para aceptar la invitación y disfrutar de los beneficios que ofrece nuestra plataforma, 
+                            le invitamos a registrarse en el siguiente enlace: " . self::getURL() . "/singup .<br><br>
+                            Agradecemos su interés y esperamos contar con su valiosa participación.<br><br>
+                            Atentamente,<br>
+                            Financiera Comultrasan";
+                $asunto = "Invitación a unirse a nuestra plataforma y comunidad";
+                Mail::sendEmail($asunto, $mensaje, $correo);
+
                 return Elements::crearMensajeAlerta(Constants::$USER_NOT_EXIST, "error");
             }
             $usuarioComunidad = UsuarioComunidad::getUserCommunityByUser($usuario->getId_usuario());
@@ -23,7 +38,7 @@ class ServiceCommunity extends System
             if ($usuarioComunidad || $comunidadLider) { //Si el usuario ya pertenece a una comunidad
                 return Elements::crearMensajeAlerta(Constants::$USER_READY_COMMUNITY, "error");
             }
-            $result = Comunidad::newCommunity($nombre, $id_usuario, $fecha_registro);
+            $result = Comunidad::newCommunity($nombre, $id_usuario, $estado, $fecha_registro);
             if ($result) {
                 $comunidad = Comunidad::getLastCommunity();
                 if ($comunidad) {
@@ -70,10 +85,12 @@ class ServiceCommunity extends System
 
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
+                    $style = self::getColorByEstate($valor->getEstado()[0]);
                     $tableHtml .= '<tr>';
                     $tableHtml .= '<td>' . $valor->getId_comunidad() . '</td>';
                     $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
                     $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
                     $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
                     $tableHtml .= '<td>' . Elements::crearBotonVer("community", $valor->getId_comunidad()) . '</td>';
                     $tableHtml .= '</tr>';
@@ -144,7 +161,12 @@ class ServiceCommunity extends System
             $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
             foreach ($modelResponse as $valor) {
                 $btnEliminar = !$isLeader ? '' : Elements::getButtonDeleteModalJs('takeOut', 'Remover', $valor->getId_usuario());
-                $html .= Elements::getCardUserInCommunity($valor->getNombre(), $valor->getTelefono(), $btnEliminar);
+                $points = '';
+                if ($isLeader) {
+                    $count = Punto::getSumPointsByUser($valor->getId_usuario());
+                    $points .= '<i class="material-icons me-2">favorite</i>Total: ' . $count;
+                }
+                $html .= Elements::getCardUserInCommunity($valor->getNombre(), $valor->getTelefono(), $btnEliminar, $points);
             }
             $btnSalir = $isLeader ?
                 Elements::getButtonDeleteModal('leaveLeader', 'Salir de la comunidad') :
@@ -251,13 +273,14 @@ class ServiceCommunity extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setCommunity($id_comunidad, $nombre)
+    public static function setCommunity($id_comunidad, $nombre, $estado)
     {
         try {
             $id_comunidad = parent::limpiarString($id_comunidad);
             $nombre = parent::limpiarString($nombre);
+            $estado = parent::limpiarString($estado);
 
-            $result = Comunidad::setCommunity($id_comunidad, $nombre);
+            $result = Comunidad::setCommunity($id_comunidad, $nombre, $estado);
 
             if ($result) {
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
@@ -276,7 +299,7 @@ class ServiceCommunity extends System
 
             if ($count < 2) {
                 // Si hay menos de 2 usuarios, eliminar la comunidad
-                if (Comunidad::deleteCommunity($id_comunidad)) {
+                if (Comunidad::setCommunityEstate($id_comunidad, 0)) {
                     UsuarioComunidad::deleteUserCommunityByCommunity($id_comunidad);
                     return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
                 }
@@ -296,5 +319,28 @@ class ServiceCommunity extends System
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+    private static function getColorByEstate($estado)
+    {
+        try {
+            switch ($estado) {
+                case 0: {
+                        return 'danger';
+                    }
+                case 1: {
+                        return 'success';
+                    }
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    private static function getURL()
+    {
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+        $host = $_SERVER['HTTP_HOST'];
+        $script = $_SERVER['REQUEST_URI'];
+        $url = $protocol . "://" . $host . $script;
+        return $url;
     }
 }

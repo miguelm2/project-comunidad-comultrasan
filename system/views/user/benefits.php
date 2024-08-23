@@ -51,27 +51,7 @@
          </div>
          <div class="card-body m-0">
             <div class="row">
-               <div class="table-responsive">
-                  <table class="table table-hover table-hover table-bordered table-striped">
-                     <thead>
-                        <tr>
-                           <td class="text-uppercase font-weight-bolder">ID</td>
-                           <td class="text-uppercase font-weight-bolder">Título</td>
-                           <td class="text-uppercase font-weight-bolder">Puntos</td>
-                        </tr>
-                     </thead>
-                     <tfoot>
-                        <tr>
-                           <td class="text-uppercase font-weight-bolder">ID</td>
-                           <td class="text-uppercase font-weight-bolder">Título</td>
-                           <td class="text-uppercase font-weight-bolder">Puntos</td>
-                        </tr>
-                     </tfoot>
-                     <tbody>
-                        <?= $tableBenefitsUser ?>
-                     </tbody>
-                  </table>
-               </div>
+               <?= $cardBenefitUser ?>
             </div>
          </div>
       </div>
@@ -88,7 +68,6 @@
                <table class="table table-bordered table-hover align-items-center mb-0">
                   <thead class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">ID</th>
                         <th class="text-uppercase font-weight-bolder">Administrador</th>
                         <th class="text-uppercase font-weight-bolder">Corazones</th>
                         <th class="text-uppercase font-weight-bolder">Descripción</th>
@@ -96,7 +75,6 @@
                   </thead>
                   <tfoot class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">ID</th>
                         <th class="text-uppercase font-weight-bolder">Administrador</th>
                         <th class="text-uppercase font-weight-bolder">Corazones</th>
                         <th class="text-uppercase font-weight-bolder">Descripción</th>

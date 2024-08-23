@@ -50,10 +50,20 @@
             <div class="col-md-12 mt-2 pb-4">
                <form method="post">
                   <div class="row">
-                     <div class="col-md-12">
+                     <div class="col-md-6">
                         <div class="form-group">
                            <label for="nombre">Nombre</label>
                            <input type="text" name="nombre" id="nombre" class="form-control border p-1" value="<?= $comunidad->getNombre() ?>">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <label for="estado">Estado</label>
+                           <select name="estado" id="estado" class="form-select border p-1">
+                              <option value="<?= $comunidad->getEstado()[0] ?>"><?= $comunidad->getEstado()[1] ?></option>
+                              <option value="0">Inactivo</option>
+                              <option value="1">Activo</option>
+                           </select>
                         </div>
                      </div>
                      <div class="col-md-4">
@@ -200,6 +210,7 @@
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/js/modalEliminar.js"></script>
+   <script src="/system/js/selectRepeat.js"></script>
    <?= $response ?>
 </body>
 

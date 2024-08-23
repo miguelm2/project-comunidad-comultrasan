@@ -41,6 +41,7 @@
          <!-- End header -->
       </nav>
       <!-- End Page Title -->
+      <!-- End Page Title -->
       <div class="row m-0 mt-2">
          <div class="card">
             <div class="card-head mt-4">
@@ -52,7 +53,7 @@
                   </div>
                   <div class="col-md-2 mt-0">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="community">
+                        <a type="button" class="btn btn-secondary" href="groupInterest?groupInterest=<?= $_GET['groupInterest'] ?>">
                            <i class="material-icons me-2">keyboard_return</i>atrás</a>
                      </div>
                   </div>
@@ -62,18 +63,27 @@
             <div class="card-body mt-0">
                <form method="post">
                   <div class="row">
-                     <div class="col-md-12">
+                     <div class="col-md-6">
                         <div class="card border-3">
-                           <div class="card-header mp-0">
-                              <h5 class="text-success"><i class="material-icons me-2">library_books</i><?= $groupInterest->getTitulo() ?></h5>
-                           </div>
-                           <div class="card-body pt-0">
-                              <h6 class="card-text text-success">Descripción sobre el grupo</h6>
+                           <div class="card-body pt-0 mt-2">
+                              <img src="<?= Path::$DIR_IMAGE_TYPE_COM . $groupInterest->getImagen() ?>" alt="Imagen_grupo" class="img-fluid">
                               <p class="card-text text-black">
                                  <?= $groupInterest->getContenido() ?>
                               </p>
                               <div class="text-end">
                                  <?= $btonJoin ?>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="card border-3">
+                           <div class="card-head">
+                              <h5 class="text-success mt-2 ms-2">
+                                 Eventos del grupo de interes
+                              </h5>
+                              <div class="card-body">
+                                 <?= $cardEventCalendarGroup ?>
                               </div>
                            </div>
                         </div>
