@@ -152,6 +152,9 @@
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/footer.php'; ?>
       <!-- End Footer -->
    </main>
+   <div id="preloader">
+      <img src="/assets/image/favicon_0.ico" alt="Cargando...">
+   </div>
    <script src="/system/assets/js/core/popper.min.js"></script>
    <script src="/system/assets/js/core/bootstrap.min.js"></script>
    <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>

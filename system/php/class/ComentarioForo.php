@@ -79,6 +79,13 @@ class ComentarioForo extends System
         $stmt->bindParam(':id_comentario', $id_comentario);
         return  $stmt->execute();
     }
+    public static function deleteForumCommentByForum($id_foro)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("DELETE FROM ComentarioForo WHERE id_foro = :id_foro");
+        $stmt->bindParam(':id_foro', $id_foro);
+        return  $stmt->execute();
+    }
     public static function countForumCommentByForum($id_foro)
     {
         $dbh             = parent::Conexion();

@@ -15,4 +15,5 @@ class Path
     static $DIR_IMAGE_DIS_LOGO   = '/system/img/discount/logo/';
     static $DIR_IMAGE_EVENT_CALE = '/system/img/eventCalendar/';
     static $DIR_EXCEL            = '/system/doc/excel/';
+    static $DIR_IMAGE_SECTION    = '/system/img/section/';
 }

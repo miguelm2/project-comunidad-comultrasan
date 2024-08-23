@@ -6,6 +6,10 @@ if (isset($_POST['newForum'])) {
     ServiceForum::newForum($_GET['comunnityForum'], $_SESSION['id'], $_POST['contenido'], $_POST['titulo']);
 }
 
+if (isset($_POST['editForum'])) {
+    $response = ServiceForum::setForum($_GET['forum'], $_POST['contenido'], $_POST['titulo']);
+}
+
 if (isset($_POST['deleteForum'])) {
     ServiceForum::deleteForum($_GET['forum']);
 }
@@ -19,4 +23,8 @@ if (isset($_GET['forum'])) {
 if (isset($_GET['comunnityForum'])) {
     $tableForumGroupInterest = ServiceForum::listForumByTypeCommunity($_GET['comunnityForum']);
     $buttonNewForum = ServiceTypeComunity::getButonNewForum($_GET['comunnityForum']);
+}
+
+if (isset($_GET['typeComunity'])) {
+    $tableForum = ServiceForum::getTableForumByTypeCommunity($_GET['typeComunity']);
 }

@@ -199,6 +199,9 @@
       </form>
       <!--Final Basic Modal-->
    </main>
+   <div id="preloader">
+      <img src="/assets/image/favicon_0.ico" alt="Cargando...">
+   </div>
    <!--   Core JS Files   -->
    <script src="/system/assets/js/core/popper.min.js"></script>
    <script src="/system/assets/js/core/bootstrap.min.js"></script>

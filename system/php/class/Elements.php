@@ -164,17 +164,12 @@ class Elements
         return '<script>
             Swal.fire({
             title: "FELICIDADES!! Haz ganado ' . $puntos . ' corazones",
-            width: 500,
-            padding: "3em",
-            color: "#716add",
-            background: "#fff url(https://sweetalert2.github.io/#downloadimages/trees.png)",
-            backdrop: `
-                rgba(0,0,123,0.4)
-                url("https://www.icegif.com/wp-content/uploads/2023/07/icegif-129.gif")
-                right top
-                no-repeat
-            `
-            });
+            width: 530,
+            height: 1100,
+            padding: "6em",
+            color: "#fff",
+            background: "#fff url(https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExc25tM25ianQ1am1rMGRrOXg2bm8xNzZseXhqN3ZybnVweGJxZ212YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uRAhwxlVBP6ied6EgB/giphy.gif) ",
+            })
             </script>';
     }
 
@@ -331,7 +326,7 @@ class Elements
         </div>
         ';
     }
-    public static function getCardGroupInterest($id, $icono, $titulo, $subtitulo, $btnForo)
+    public static function getCardGroupInterest($id, $icono, $titulo, $subtitulo)
     {
         return '<div class="col-md-4 col-sm-5 mt-2" data-aos="fade-up" data-aos-delay="100">
                     <div class="card border-3 h-100">
@@ -350,15 +345,12 @@ class Elements
                                 ' . $subtitulo . '
                             </p>
                         </div>
-                        <div class="card-foot">
-                            <div class="row ms-4">
-                                <div class="col-md-6">
+                        <div class="card-foot pt-0">
+                            <div class="row justify-content-center">
+                                <div class="col-md-11 d-grid">
                                     <a href="groupInterest?groupInterest=' . $id . '" class="btn btn-success">
                                         <i class="material-icons text-sm me-2">visibility</i>Ver grupo
                                     </a>
-                                </div>
-                                <div class="col-md-6">
-                                    ' . $btnForo . '
                                 </div>
                             </div>
                         </div>
@@ -486,7 +478,7 @@ class Elements
                         <div class="col-md-8 mt-2">
                             <h6 class="p-2"><i class="material-icons me-2">account_circle</i> ' . $nombre . '</h6>
                             <h6 class="ms-2"><i class="material-icons me-2">call</i>Celular: ' . $celular . '</h6>
-                            <h6 class="ms-2">'. $points .'</h6>
+                            <h6 class="ms-2">' . $points . '</h6>
                         </div>
                         <div class="col-md-4 mt-2">
                             ' . $btnEliminar . '
@@ -605,5 +597,40 @@ class Elements
                         <h6 class="mt-2 ms-3"><i class="material-icons">check_circle</i> ' . $beneficio . '</h6>
                     </div>
                 </div>';
+    }
+    public static function getCardMiniSection($imagen, $nombre)
+    {
+        return '
+        <div class="col-md-3">
+            <div class="card border-2 h-100">
+                <div class="card-head p-0">
+                    <img src="' . Path::$DIR_IMAGE_SECTION . $imagen . '" alt="" class="img-fluid rounded-2 p-0">
+                </div>
+                <div class="card-foot">
+                    <h5 class="text-center text-success">' . $nombre . '</h5>
+                </div>
+            </div>
+        </div>
+        ';
+    }
+    public static function getCardSection($nombre, $descripcion, $imagen)
+    {
+        return '
+            <div class="card mt-3 border-2">
+                <div class="card-head">
+                    <h5 class="text-success ms-3 mt-2">
+                        ' . $nombre . '
+                    </h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-7 ms-3">
+                        ' . $descripcion . '
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <img src="' . Path::$DIR_IMAGE_SECTION . $imagen . '" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        ';
     }
 }

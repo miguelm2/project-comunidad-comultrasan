@@ -44,7 +44,7 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="../../../index" class="logo d-flex align-items-center w-auto">
-                  <img src="<?=Path::$DIR_IMG_PERFIL_VIEW . $informationPage->getImagen()?>" alt="">
+                  <img src="<?= Path::$DIR_IMG_PERFIL_VIEW . $informationPage->getImagen() ?>" alt="">
                 </a>
               </div><!-- End Logo -->
 
@@ -65,13 +65,13 @@
                         <span class="input-group-text" id="inputGroupPrepend">
                           <i class="bi bi-person"></i>
                         </span>
-                        <input type="text" name="cedula" class="form-control"  required>
+                        <input type="text" name="cedula" class="form-control" required>
                         <div class="invalid-feedback">Porfavor ingrese su usuario</div>
                       </div>
                     </div>
 
-                
-                 
+
+
                     <div class="col-12">
                       <button class="btn btn-primary w-100" name="recovery" type="submit"><i class="bi bi-envelope-check"></i> Enviar</button>
                     </div>
@@ -85,7 +85,7 @@
               </div>
 
               <div class="credits">
-               
+
                 Desarrollado por <a href="https://kondory.com/">Kondory Tecnologia</a>
               </div>
 
@@ -100,6 +100,9 @@
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <div id="preloader">
+    <img src="/assets/image/favicon_0.ico" alt="Cargando...">
+  </div>
   <!-- Vendor JS Files -->
   <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -112,8 +115,8 @@
 
   <!-- Template Main JS File -->
   <script src="../../assets/js/main.js"></script>
-    <script src="../../assets/vendor/swal/sweetalert.min.js"></script>
-  <?= $response ?>  
+  <script src="../../assets/vendor/swal/sweetalert.min.js"></script>
+  <?= $response ?>
 </body>
 
 </html>

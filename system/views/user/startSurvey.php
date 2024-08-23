@@ -32,7 +32,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
       <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
          <div class="container-fluid">
             <nav aria-label="breadcrumb" class="d-none d-lg-block">
-               <ol class="breadcrumb" class="d-none d-lg-block">
+               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5" class="d-none d-lg-block">
                   <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
                   <li class="breadcrumb-item"><a href="surveys" class="text-white">Encuestas</a></li>
                   <li class="breadcrumb-item active">Encuesta</li>
@@ -85,6 +85,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
    </main>
+   <div id="preloader">
+      <img src="/assets/image/favicon_0.ico" alt="Cargando...">
+   </div>
    <!--   Core JS Files   -->
    <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/assets/js/core/popper.min.js"></script>

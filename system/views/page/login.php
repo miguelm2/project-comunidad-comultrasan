@@ -96,6 +96,9 @@
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/footer.php'; ?>
    <!-- End Footer -->
 
+   <div id="preloader">
+      <img src="/assets/image/favicon_0.ico" alt="Cargando...">
+   </div>
    <!-- Vendor JS Files -->
    <script src="/../../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="/../../../assets/vendor/aos/aos.js"></script>
@@ -110,6 +113,6 @@
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <script src="/assets/js/main.js"></script>
-   <?= $response?>
+   <?= $response ?>
 
 </body>

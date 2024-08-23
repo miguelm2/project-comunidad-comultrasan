@@ -182,30 +182,12 @@ class ServiceTypeComunity extends System
 
                 if ($modelResponse) {
                     foreach ($modelResponse as $valor) {
-                        $comunidadDTO = Comunidad::getCommunityByUser($_SESSION['id']);
-                        $btnForo = '';
-
-                        if (!$comunidadDTO) {
-                            $comunidadUsuario = UsuarioComunidad::getUserCommunityByUser($_SESSION['id']);
-                            if ($comunidadUsuario) {
-                                $comunidadDTO = $comunidadUsuario->getComunidadDTO();
-                            }
-                        }
-                        if ($comunidadDTO) {
-                            $comunidadGrupoDTO = ComunidadGrupoInteres::getCommunityGroupInterestByCommunity($comunidadDTO->getId_comunidad());
-                            if ($comunidadGrupoDTO->getTipoComunidadDTO()->getId_tipo_comunidad() == $valor->getId_tipo_comunidad()) {
-                                $btnForo = '<a href="forums?comunnityForum=' . $valor->getId_tipo_comunidad() . '" class="btn btn-info">
-                                                <i class="material-icons text-sm me-2">dashboard</i>Ir a foro
-                                            </a>';
-                            }
-                        }
 
                         $html .= Elements::getCardGroupInterest(
                             $valor->getId_tipo_comunidad(),
                             $valor->getIcono(),
                             $valor->getTitulo(),
-                            $valor->getSubtitulo(),
-                            $btnForo
+                            $valor->getSubtitulo()
                         );
                     }
                 } else {
@@ -235,8 +217,7 @@ class ServiceTypeComunity extends System
             if (!$tipoComunidadDTO) {
                 return Elements::getFormJoinGroupInterest();
             } else {
-                return '<a href="forums?comunnityForum=' . $id_grupo . '" class="btn btn-info">Ir a foro</a>
-                <a href="groupInterestInfo?groupInterest=' . $id_grupo . '" class="btn btn-success">Ver más detalles</a>';
+                return '<a href="forums?comunnityForum=' . $id_grupo . '" class="btn btn-info"><i class="material-icons text-sm me-2">dashboard</i>Ir a foro</a>';
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

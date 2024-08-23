@@ -335,9 +335,12 @@ CREATE TABLE Invitacion (
   fecha_registro DATETIME NOT NULL
 );
 
-CREATE TABLE EncuestaUsuario (
-  id_encuesta_usuario INT IDENTITY(1, 1) PRIMARY KEY,
-  id_usuario INT NOT NULL,
-  id_encuesta INT NOT NULL,
-  fecha_registro DATETIME NOT NULL
+CREATE TABLE SeccionTipoComunidad (
+  id_seccion INT IDENTITY(1, 1) PRIMARY KEY,
+  id_tipo_comunidad INT NOT NULL,
+  nombre VARCHAR(255) NOT NULL,
+  descripcion TEXT,
+  imagen VARCHAR(255),
+  fecha_registro DATETIME NOT NULL,
+  FOREIGN KEY (id_tipo_comunidad) REFERENCES TipoComunidad(id_tipo_comunidad)
 );
