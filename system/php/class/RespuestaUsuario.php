@@ -15,6 +15,18 @@ class RespuestaUsuario extends System
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
+    public static function newAnswerOpenUser($id_usuario, $id_encuesta, $id_pregunta, $respuesta_abierta, $fecha_registro)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("INSERT INTO RespuestaUsuario (id_usuario, id_encuesta, id_pregunta, respuesta_abierta, fecha_registro) 
+                                VALUES (:id_usuario, :id_encuesta, :id_pregunta, :respuesta_abierta, :fecha_registro)");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->bindParam(':id_encuesta', $id_encuesta);
+        $stmt->bindParam(':id_pregunta', $id_pregunta);
+        $stmt->bindParam(':respuesta_abierta', $respuesta_abierta);
+        $stmt->bindParam(':fecha_registro', $fecha_registro);
+        return  $stmt->execute();
+    }
     public static function getAnswerUser($id_respuesta_usuario)
     {
         $dbh             = parent::Conexion();

@@ -3,14 +3,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/model/PreguntaEncuestaDTO.
 
 class PreguntaEncuesta extends System
 {
-    public static function newSurveyQuestion($id_encuesta, $pregunta, $estado,  $fecha_registro)
+    public static function newSurveyQuestion($id_encuesta, $pregunta, $estado, $tipo_pregunta, $fecha_registro)
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("INSERT INTO PreguntaEncuesta (id_encuesta, pregunta, estado, fecha_registro) 
-                                VALUES (:id_encuesta, :pregunta, :estado, :fecha_registro)");
+        $stmt = $dbh->prepare("INSERT INTO PreguntaEncuesta (id_encuesta, pregunta, estado, tipo_pregunta, fecha_registro) 
+                                VALUES (:id_encuesta, :pregunta, :estado, :tipo_pregunta, :fecha_registro)");
         $stmt->bindParam(':id_encuesta', $id_encuesta);
         $stmt->bindParam(':pregunta', $pregunta);
         $stmt->bindParam(':estado', $estado);
+        $stmt->bindParam(':tipo_pregunta', $tipo_pregunta);
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
@@ -39,6 +40,7 @@ class PreguntaEncuesta extends System
             $preguntaEncuestaDTO->setEncuestaDTO($result['id_encuesta']);
             $preguntaEncuestaDTO->setPregunta($result['pregunta']);
             $preguntaEncuestaDTO->setEstado($result['estado']);
+            $preguntaEncuestaDTO->setTipo_pregunta($result['tipo_pregunta']);
             $preguntaEncuestaDTO->setFecha_registro($result['fecha_registro']);
 
             return $preguntaEncuestaDTO;
@@ -61,6 +63,7 @@ class PreguntaEncuesta extends System
             $preguntaEncuestaDTO->setEncuestaDTO(Encuesta::getSurvey($result['id_encuesta']));
             $preguntaEncuestaDTO->setPregunta($result['pregunta']);
             $preguntaEncuestaDTO->setEstado($result['estado']);
+            $preguntaEncuestaDTO->setTipo_pregunta($result['tipo_pregunta']);
             $preguntaEncuestaDTO->setFecha_registro($result['fecha_registro']);
 
             $list[$con] = $preguntaEncuestaDTO;
@@ -85,6 +88,7 @@ class PreguntaEncuesta extends System
             $preguntaEncuestaDTO->setEncuestaDTO(Encuesta::getSurvey($result['id_encuesta']));
             $preguntaEncuestaDTO->setPregunta($result['pregunta']);
             $preguntaEncuestaDTO->setEstado($result['estado']);
+            $preguntaEncuestaDTO->setTipo_pregunta($result['tipo_pregunta']);
             $preguntaEncuestaDTO->setFecha_registro($result['fecha_registro']);
 
             $list[$con] = $preguntaEncuestaDTO;
@@ -116,6 +120,7 @@ class PreguntaEncuesta extends System
             $preguntaEncuestaDTO->setEncuestaDTO(Encuesta::getSurvey($result['id_encuesta']));
             $preguntaEncuestaDTO->setPregunta($result['pregunta']);
             $preguntaEncuestaDTO->setEstado($result['estado']);
+            $preguntaEncuestaDTO->setTipo_pregunta($result['tipo_pregunta']);
             $preguntaEncuestaDTO->setFecha_registro($result['fecha_registro']);
 
             $list[$con] = $preguntaEncuestaDTO;

@@ -9,6 +9,7 @@
    <link rel="icon" type="image/png" href="/assets/image/favicon_0.ico">
    <title>Comunidad Comultrasan</title>
    <!--     Fonts and icons     -->
+   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
    <!-- Nucleo Icons -->
    <link href="/system/assets/css/nucleo-icons.css" rel="stylesheet" />

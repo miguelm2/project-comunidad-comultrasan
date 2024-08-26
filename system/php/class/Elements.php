@@ -471,13 +471,12 @@ class Elements
                     <p>' . $puntos . ' corazones</p>
                 </div>';
     }
-    public static function getCardUserInCommunity($nombre, $celular, $btnEliminar, $points)
+    public static function getCardUserInCommunity($nombre, $btnEliminar, $points)
     {
         return '<div class="card mt-2 border-2">
                     <div class="row">
                         <div class="col-md-8 mt-2">
                             <h6 class="p-2"><i class="material-icons me-2">account_circle</i> ' . $nombre . '</h6>
-                            <h6 class="ms-2"><i class="material-icons me-2">call</i>Celular: ' . $celular . '</h6>
                             <h6 class="ms-2">' . $points . '</h6>
                         </div>
                         <div class="col-md-4 mt-2">
@@ -602,21 +601,23 @@ class Elements
     {
         return '
         <div class="col-md-3">
-            <div class="card border-2 h-100">
-                <div class="card-head p-0">
-                    <img src="' . Path::$DIR_IMAGE_SECTION . $imagen . '" alt="" class="img-fluid rounded-2 p-0">
+            <a href="#' . $nombre . '">
+                <div class="card border-2 h-100">
+                    <div class="card-head p-0">
+                        <img src="' . Path::$DIR_IMAGE_SECTION . $imagen . '" alt="" class="img-fluid rounded-2 p-0">
+                    </div>
+                    <div class="card-foot">
+                        <h5 class="text-center text-success">' . $nombre . '</h5>
+                    </div>
                 </div>
-                <div class="card-foot">
-                    <h5 class="text-center text-success">' . $nombre . '</h5>
-                </div>
-            </div>
+            </a>
         </div>
         ';
     }
     public static function getCardSection($nombre, $descripcion, $imagen)
     {
         return '
-            <div class="card mt-3 border-2">
+            <div class="card mt-3 border-2" id="' . $nombre . '">
                 <div class="card-head">
                     <h5 class="text-success ms-3 mt-2">
                         ' . $nombre . '

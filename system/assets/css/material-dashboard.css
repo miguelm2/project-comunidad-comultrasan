@@ -98,6 +98,20 @@
   --bs-highlight-bg: #fcf8e3;
 }
 
+:root {
+  --font-default: "Dosis";
+  --font-primary: "Dosis";
+  --font-secondary: "Dosis";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6, * {
+  font-family: var(--font-primary);
+}
+
 *,
 *::before,
 *::after {
@@ -2472,7 +2486,7 @@ progress {
 }
 
 .table {
-  --bs-table-color: #7b809a;
+  --bs-table-color: #000;
   --bs-table-bg: transparent;
   --bs-table-border-color: #f0f2f5;
   --bs-table-accent-bg: transparent;
@@ -21300,7 +21314,7 @@ fieldset:disabled .btn {
 }
 
 .breadcrumb-item {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .breadcrumb-item.text-white::before {

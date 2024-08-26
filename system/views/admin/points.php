@@ -10,6 +10,7 @@
    <title>Comunidad Comultrasan</title>
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
    <!-- Nucleo Icons -->
    <link href="/system/assets/css/nucleo-icons.css" rel="stylesheet" />
    <link href="/system/assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -47,12 +48,12 @@
       </nav>
       <div class="card mt-3">
          <div class="row m-0 mt-2">
-            <div class="col-md-5 ms-4 mt-4">
+            <div class="col-md-6 ms-4 mt-4">
                <div class="card-head">
                   <h4 class="text-success">Corazones</h4>
                </div>
             </div>
-            <div class="col-md-3 ms-2 mt-3">
+            <div class="col-md-2 ms-2 mt-3">
                <div class="card-head text-right">
                   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#excel">
                      <i class="material-icons me-2">insert_chart</i> Cargar Excel

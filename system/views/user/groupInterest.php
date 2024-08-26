@@ -7,6 +7,7 @@
    <title>Comunidad Comultrasan</title>
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
    <link rel="icon" type="image/png" href="/assets/image/favicon_0.ico">
    <!-- Nucleo Icons -->
@@ -21,7 +22,7 @@
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
-<body class="g-sidenav-show  bg-gray-200">
+<body class="g-sidenav-show bg-gray-200">
    <!-- Start Slider -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_user.php'; ?>
    <!-- End Slider -->
@@ -46,13 +47,10 @@
          <div class="card">
             <div class="card-head mt-4">
                <div class="row">
-                  <div class="col-md-8">
+                  <div class="col-md-10">
                      <h5 class="text-success">
                         Grupo <?= $groupInterest->getTitulo() ?>
                      </h5>
-                  </div>
-                  <div class="col-md-2">
-                     <?= $btonJoin ?>
                   </div>
                   <div class="col-md-2 mt-0">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
@@ -70,14 +68,16 @@
                         <div class="row justify-content-center">
                            <?= $cardMiniSection ?>
                            <div class="col-md-3">
-                              <div class="card border-2 h-100">
-                                 <div class="card-head p-0">
-                                    <img src="/assets/image/foro.png" alt="" class="img-fluid rounded-2 p-0">
+                              <a href="forums?comunnityForum=<?= $_GET['groupInterest'] ?>">
+                                 <div class="card border-2 h-100">
+                                    <div class="card-head p-0">
+                                       <img src="/assets/image/foro.png" alt="" class="img-fluid rounded-2 p-0">
+                                    </div>
+                                    <div class="card-foot">
+                                       <h5 class="text-center text-success">Participa en el foro</h5>
+                                    </div>
                                  </div>
-                                 <div class="card-foot">
-                                    <h5 class="text-center text-success">Participa en el foro</h5>
-                                 </div>
-                              </div>
+                              </a>
                            </div>
                         </div>
                      </div>
@@ -88,9 +88,6 @@
                               <p class="card-text text-black">
                                  <?= $groupInterest->getContenido() ?>
                               </p>
-                              <div class="text-end">
-                                 <?= $btonJoin ?>
-                              </div>
                            </div>
                         </div>
                      </div>

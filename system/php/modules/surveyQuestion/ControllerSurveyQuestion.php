@@ -2,7 +2,7 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/surveyQuestion/ServiceSurveyQuestion.php';
 
 if (isset($_POST['newSurveyQuestion'])) {
-    $response = ServiceSurveyQuestion::newSurveyQuestion($_GET['survey'], $_POST['pregunta']);
+    $response = ServiceSurveyQuestion::newSurveyQuestion($_GET['survey'], $_POST['pregunta'], $_POST['tipo_pregunta']);
 }
 
 if (isset($_POST['setSurveyQuestion'])) {

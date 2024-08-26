@@ -109,14 +109,40 @@ class ServiceAnswerQuestion extends System
                 $preguntaDTO = PreguntaEncuesta::listSurveyQuestionBySurveyByEstate($id_encuesta);
                 $cardHtml = '';
                 $con = 0;
+                $contador = $contador_1 = $contador_2 = 0;
                 foreach ($preguntaDTO as $value) {
                     $html = '';
                     $respuestaDTO = RespuestaPregunta::listAnswerQuestionByQuestion($value->getId_pregunta());
-                    foreach ($respuestaDTO as $valor) {
-                        $html .= '<div class="form-check row">
-                                <input type="radio" name="' . $value->getId_pregunta() . '" value="' . $valor->getId_respuesta() . '" class="form-check-input col-1">
-                                <label for="' . $value->getId_pregunta() . '" class="form-check-label col-11" style="color:black; font-size:16px;">' . $valor->getRespuesta() . '</label>
-                            </div>';
+
+                    switch ($value->getTipo_pregunta()[0]) {
+                        case 1:
+                            foreach ($respuestaDTO as $valor) {
+                                $html .= '<div class="form-check row">
+                                                <input type="radio" name="listRespuestas[' . $contador_1 .  ']" value="' . $value->getId_pregunta() .  '-' . $value->getId_pregunta() . '" class="form-check-input col-1">
+                                                <label for="' . $value->getId_pregunta() . '" class="form-check-label col-11" style="color:black; font-size:16px;">' . $valor->getRespuesta() . '</label>
+                                            </div>';
+                            }
+                            $contador_1++;
+                            break;
+
+                        case 2:
+                            $html .= '<div class="form-check row">
+                                            <input type="hidden" value="' . $value->getId_pregunta() . '" name="listRespuestasAbiertas[' . $contador . ']">';
+                            $contador++;
+                            $html .= '<textarea type="text" class="form-control border p-1" name="listRespuestasAbiertas[' . $contador . ']" rows="4" required></textarea>
+                                        </div>';
+                            $contador++;
+                            break;
+
+                        case 3:
+                            foreach ($respuestaDTO as $valor) {
+                                $html .= '<div class="form-check row">
+                                                <input type="checkbox" name="listRespuestas[' . $contador_2 . ']" value="' . $value->getId_pregunta() .  '-' . $value->getId_pregunta() . '" class="form-check-input col-1">
+                                                <label for="' . $value->getId_pregunta() . '" class="form-check-label col-11" style="color:black; font-size:16px;">' . $valor->getRespuesta() . '</label>
+                                            </div>';
+                            }
+                            $contador_2++;
+                            break;
                     }
                     $con++;
                     $cardHtml .= Elements::getCardQuestion($con, $value->getPregunta(), $html);
@@ -126,7 +152,8 @@ class ServiceAnswerQuestion extends System
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
-    }private static function getColorByEstate($estado)
+    }
+    private static function getColorByEstate($estado)
     {
         try {
             switch ($estado) {

@@ -7,6 +7,7 @@
    <title>Comunidad Comultrasan</title>
    <!--     Fonts and icons     -->
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
    <link rel="icon" type="image/png" href="/assets/image/favicon_0.ico">
    <!-- Nucleo Icons -->
@@ -193,6 +194,15 @@
                         <div class="col-md-12 form-group">
                            <label for="pregunta">Pregunta</label>
                            <input type="text" class="form-control border p-1" name="pregunta" placeholder="Pregunta" maxlength="255" required>
+                        </div>
+                        <div class="col-md-12 form-group">
+                           <label for="tipo_pregunta">Tipo de pregunta</label>
+                           <select name="tipo_pregunta" id="tipo_pregunta" class="form-select border p-1">
+                              <option value="">Seleccione una opción</option>
+                              <option value="1">Opción Múltiple</option>
+                              <option value="2">Respuesta Abierta</option>
+                              <option value="3">Múltiples Respuestas</option>
+                           </select>
                         </div>
                      </div>
                   </div>

@@ -172,7 +172,7 @@ class ServiceCommunity extends System
                         $count = Punto::getSumPointsByUser($valor->getId_usuario());
                         $points .= '<i class="material-icons me-2">favorite</i>Total: ' . $count;
                     }
-                    $html .= Elements::getCardUserInCommunity($valor->getNombre(), $valor->getTelefono(), $btnEliminar, $points);
+                    $html .= Elements::getCardUserInCommunity($valor->getNombre(), $btnEliminar, $points);
                 }
                 $html .= self::getBenefitByComunity();
                 $btnSalir = $isLeader ?
