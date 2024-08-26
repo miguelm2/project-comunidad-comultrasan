@@ -64,22 +64,24 @@ class ServiceQuestion extends System
     public static function getTableQuestion()
     {
         try {
-            $tableHtml = '';
-            $modelResponse = PreguntaFrecuente::listQuestion();
+            if (basename($_SERVER['PHP_SELF']) == 'questions.php') {
+                $tableHtml = '';
+                $modelResponse = PreguntaFrecuente::listQuestion();
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getId_pregunta() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getPregunta() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                    $tableHtml .= '<td align="center">' . Elements::crearBotonVer("question", $valor->getId_pregunta()) . '</td>';
-                    $tableHtml .= '</tr>';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getId_pregunta() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getPregunta() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                        $tableHtml .= '<td align="center">' . Elements::crearBotonVer("question", $valor->getId_pregunta()) . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -87,14 +89,16 @@ class ServiceQuestion extends System
     public static function getQuestionIndex()
     {
         try {
-            $html = '';
-            $modelResponse = PreguntaFrecuente::listQuestion();
-            $con = 1;
-            foreach ($modelResponse as $valor) {
-                $html .= Elements::getQuestion($valor->getPregunta(), $valor->getRespuesta(), $con);
-                $con++;
+            if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+                $html = '';
+                $modelResponse = PreguntaFrecuente::listQuestion();
+                $con = 1;
+                foreach ($modelResponse as $valor) {
+                    $html .= Elements::getQuestion($valor->getPregunta(), $valor->getRespuesta(), $con);
+                    $con++;
+                }
+                return $html;
             }
-            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

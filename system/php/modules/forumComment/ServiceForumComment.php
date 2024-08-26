@@ -55,24 +55,26 @@ class ServiceForumComment extends System
     public static function listForumCommentByForum($id_foro)
     {
         try {
-            $id_foro        = parent::limpiarString($id_foro);
-            $tableHtml = '';
-            $modelResponse = ComentarioForo::listForumCommentByForum($id_foro);
+            if (basename($_SERVER['PHP_SELF']) == 'forum.php') {
+                $id_foro        = parent::limpiarString($id_foro);
+                $tableHtml = '';
+                $modelResponse = ComentarioForo::listForumCommentByForum($id_foro);
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr class="text-center">';
-                    $tableHtml .= '<td>' . $valor->getId_comentario() . '</td>';
-                    $tableHtml .= '<td class="text-warp">' . $valor->getUsuarioDTO()->getNombre() . '</td>';
-                    $tableHtml .= '<td class="text-wrap">' . $valor->getComentario() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("forumComment", $valor->getId_comentario()) . '</td>';
-                    $tableHtml .= '</tr>';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr class="text-center">';
+                        $tableHtml .= '<td>' . $valor->getId_comentario() . '</td>';
+                        $tableHtml .= '<td class="text-warp">' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+                        $tableHtml .= '<td class="text-wrap">' . $valor->getComentario() . '</td>';
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("forumComment", $valor->getId_comentario()) . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr class="text-center"><td colspan="4">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr class="text-center"><td colspan="4">No hay registros para mostrar</td></tr>';
-            }
 
-            return $tableHtml;
+                return $tableHtml;
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

@@ -80,25 +80,27 @@ class ServiceCommunity extends System
     public static function getTableCommunity()
     {
         try {
-            $tableHtml = "";
-            $modelResponse = Comunidad::listCommunity();
+            if (basename($_SERVER['PHP_SELF']) == 'communities.php') {
+                $tableHtml = "";
+                $modelResponse = Comunidad::listCommunity();
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $style = self::getColorByEstate($valor->getEstado()[0]);
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getId_comunidad() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
-                    $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
-                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("community", $valor->getId_comunidad()) . '</td>';
-                    $tableHtml .= '</tr>';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $style = self::getColorByEstate($valor->getEstado()[0]);
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getId_comunidad() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+                        $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
+                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("community", $valor->getId_comunidad()) . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -106,74 +108,77 @@ class ServiceCommunity extends System
     public static function getTableCommunityIndex()
     {
         try {
-            $tableHtml = "";
-            $modelResponse = Comunidad::listCommunity();
+            if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+                $tableHtml = "";
+                $modelResponse = Comunidad::listCommunity();
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $tableHtml .= '<tr>';
-                    $tableHtml .= '<td class="text-center">' . $valor->getId_comunidad() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                    $tableHtml .= '</tr>';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td class="text-center">' . $valor->getId_comunidad() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
                 }
-            } else {
-                return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+                return $tableHtml;
             }
-            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
     public static function getUnitedCommunity()
     {
-        try {
-            $id_usuario = $_SESSION['id'];
-            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
-            if (!$comunidadDTO) {
-                return Elements::getUnitedCommunity();
-            }
-            $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id'];
-            $html = '<div class="row">
+        if (basename($_SERVER['PHP_SELF']) == 'community.php') {
+            try {
+                $id_usuario = $_SESSION['id'];
+                $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+                if (!$comunidadDTO) {
+                    return Elements::getUnitedCommunity();
+                }
+                $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id'];
+                $html = '<div class="row">
                             <div class="col-md-5">
                             ';
-            $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad());
-            $fecha = self::getDateInWords($comunidadDTO->getFecha_registro());
-            $total_points = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
-            $total_points += Punto::getSumPointsByCommunity($comunidadDTO->getId_comunidad());
-            $btnEditar = $isLeader ? Elements::getButtonEditModalJs(
-                'editName',
-                'Editar',
-                $comunidadDTO->getId_comunidad(),
-                $comunidadDTO->getNombre()
-            ) : '';
-            $html .= Elements::getUnitedCommunityReady(
-                $comunidadDTO->getNombre(),
-                $comunidadDTO->getUsuarioDTO()->getNombre(),
-                $count,
-                $fecha,
-                $comunidadDTO->getId_comunidad(),
-                $total_points,
-                $btnEditar
-            );
-            $html .= '</div>
+                $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad());
+                $fecha = self::getDateInWords($comunidadDTO->getFecha_registro());
+                $total_points = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
+                $total_points += Punto::getSumPointsByCommunity($comunidadDTO->getId_comunidad());
+                $btnEditar = $isLeader ? Elements::getButtonEditModalJs(
+                    'editName',
+                    'Editar',
+                    $comunidadDTO->getId_comunidad(),
+                    $comunidadDTO->getNombre()
+                ) : '';
+                $html .= Elements::getUnitedCommunityReady(
+                    $comunidadDTO->getNombre(),
+                    $comunidadDTO->getUsuarioDTO()->getNombre(),
+                    $count,
+                    $fecha,
+                    $comunidadDTO->getId_comunidad(),
+                    $total_points,
+                    $btnEditar
+                );
+                $html .= '</div>
                             <div class="col-md-6">';
-            $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
-            foreach ($modelResponse as $valor) {
-                $btnEliminar = !$isLeader ? '' : Elements::getButtonDeleteModalJs('takeOut', 'Remover', $valor->getId_usuario());
-                $points = '';
-                if ($isLeader) {
-                    $count = Punto::getSumPointsByUser($valor->getId_usuario());
-                    $points .= '<i class="material-icons me-2">favorite</i>Total: ' . $count;
+                $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
+                foreach ($modelResponse as $valor) {
+                    $btnEliminar = !$isLeader ? '' : Elements::getButtonDeleteModalJs('takeOut', 'Remover', $valor->getId_usuario());
+                    $points = '';
+                    if ($isLeader) {
+                        $count = Punto::getSumPointsByUser($valor->getId_usuario());
+                        $points .= '<i class="material-icons me-2">favorite</i>Total: ' . $count;
+                    }
+                    $html .= Elements::getCardUserInCommunity($valor->getNombre(), $valor->getTelefono(), $btnEliminar, $points);
                 }
-                $html .= Elements::getCardUserInCommunity($valor->getNombre(), $valor->getTelefono(), $btnEliminar, $points);
-            }
-            $html .= self::getBenefitByComunity();
-            $btnSalir = $isLeader ?
-                Elements::getButtonDeleteModal('leaveLeader', 'Salir de la comunidad') :
-                Elements::getButtonDeleteModal('leave', 'Salir de la comunidad');
-            $html .= '</div>
+                $html .= self::getBenefitByComunity();
+                $btnSalir = $isLeader ?
+                    Elements::getButtonDeleteModal('leaveLeader', 'Salir de la comunidad') :
+                    Elements::getButtonDeleteModal('leave', 'Salir de la comunidad');
+                $html .= '</div>
                             <div class="col-md-11">
                                 <div class="text-end">
                                 ' . $btnSalir . '
@@ -181,9 +186,10 @@ class ServiceCommunity extends System
                             </div>
                         </div>
                         ';
-            return $html;
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
+                return $html;
+            } catch (\Exception $e) {
+                throw new Exception($e->getMessage());
+            }
         }
     }
     public static function getCommunityByUser($id_usuario)
@@ -212,18 +218,19 @@ class ServiceCommunity extends System
     public static function getButtonUnitUser()
     {
         try {
-            $id_usuario = $_SESSION['id'];
-            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+            if (basename($_SERVER['PHP_SELF']) == 'community.php') {
+                $id_usuario = $_SESSION['id'];
+                $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
 
-            if (!$comunidadDTO) {
-                return '';
-            }
+                if (!$comunidadDTO) {
+                    return '';
+                }
 
-            $isUserCreator = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $id_usuario;
-            $buttonHtml = '';
+                $isUserCreator = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $id_usuario;
+                $buttonHtml = '';
 
-            if ($isUserCreator) {
-                $buttonHtml = '
+                if ($isUserCreator) {
+                    $buttonHtml = '
                 <div class="row">
                     <div class="col-md-6">
                         <h4 class="text-success">Integrantes</h4>
@@ -234,15 +241,16 @@ class ServiceCommunity extends System
                         </button>
                     </div>
                 </div>';
-            } else {
-                $buttonHtml = '
+                } else {
+                    $buttonHtml = '
                 <div class="row">
                     <div class="col-md-6">
                         <h4 class="text-success">Integrantes</h4>
                     </div>
                 </div>';
+                }
+                return $buttonHtml;
             }
-            return $buttonHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -250,27 +258,29 @@ class ServiceCommunity extends System
     public static function getCardsCommunity()
     {
         try {
-            $html = "";
-            $modelResponse = Comunidad::listCommunity();
+            if (basename($_SERVER['PHP_SELF']) == 'allCommunities.php') {
+                $html = "";
+                $modelResponse = Comunidad::listCommunity();
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $fecha = self::getDateInWords($valor->getFecha_registro());
-                    $count = Usuario::countUsersInCommunity($valor->getId_comunidad());
-                    $html .= Elements::getCardCommunity(
-                        $valor->getNombre(),
-                        $valor->getUsuarioDTO()->getNombre(),
-                        $fecha,
-                        $count,
-                        $valor->getId_comunidad()
-                    );
-                }
-            } else {
-                return '<div class="text-center">
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $fecha = self::getDateInWords($valor->getFecha_registro());
+                        $count = Usuario::countUsersInCommunity($valor->getId_comunidad());
+                        $html .= Elements::getCardCommunity(
+                            $valor->getNombre(),
+                            $valor->getUsuarioDTO()->getNombre(),
+                            $fecha,
+                            $count,
+                            $valor->getId_comunidad()
+                        );
+                    }
+                } else {
+                    return '<div class="text-center">
                             <h4>No hay comunidades disponibles</h4>
                         </div>';
+                }
+                return $html;
             }
-            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

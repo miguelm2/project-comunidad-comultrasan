@@ -90,12 +90,14 @@ class ServiceForum extends System
     public static function deleteForum($id_foro)
     {
         try {
-            $id_foro        = parent::limpiarString($id_foro);
-            $foroDTO = Foro::getForum($id_foro);
-            $result = Foro::deleteForum($id_foro);
-            if ($result) {
-                $response = ComentarioForo::deleteForumCommentByForum($id_foro);
-                header('Location:typeComunity?typeComunity='. $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() .'&delete');
+            if (basename($_SERVER['PHP_SELF']) == 'forum.php') {
+                $id_foro        = parent::limpiarString($id_foro);
+                $foroDTO = Foro::getForum($id_foro);
+                $result = Foro::deleteForum($id_foro);
+                if ($result) {
+                    $response = ComentarioForo::deleteForumCommentByForum($id_foro);
+                    header('Location:typeComunity?typeComunity=' . $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() . '&delete');
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

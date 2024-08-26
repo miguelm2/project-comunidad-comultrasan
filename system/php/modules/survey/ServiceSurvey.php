@@ -99,24 +99,26 @@ class ServiceSurvey extends System
     public static function getSurveyUser()
     {
         try {
-            $html = '';
-            $id_usuario = $_SESSION['id'];
-            $modelResponse = Encuesta::listSurveyByEstateAndNotResolved($id_usuario);
+            if (basename($_SERVER['PHP_SELF']) == 'surveys.php') {
+                $html = '';
+                $id_usuario = $_SESSION['id'];
+                $modelResponse = Encuesta::listSurveyByEstateAndNotResolved($id_usuario);
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $btnRealizar =  Elements::crearBotonRealizar("survey", $valor->getId_encuesta());
-                    $html .= Elements::getCardSurveyUserNotResolved($valor->getNombre(), $valor->getPuntos(), $valor->getEstado()[1], $btnRealizar);
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $btnRealizar =  Elements::crearBotonRealizar("survey", $valor->getId_encuesta());
+                        $html .= Elements::getCardSurveyUserNotResolved($valor->getNombre(), $valor->getPuntos(), $valor->getEstado()[1], $btnRealizar);
+                    }
                 }
-            }
-            $response = Encuesta::listSurveyByEstateAndResolved($id_usuario);
-            if ($response) {
-                foreach ($response as $value) {
-                    $html .= Elements::getCardSurveyUserResolved($value->getNombre(), $value->getPuntos(), $value->getEstado()[1]);
+                $response = Encuesta::listSurveyByEstateAndResolved($id_usuario);
+                if ($response) {
+                    foreach ($response as $value) {
+                        $html .= Elements::getCardSurveyUserResolved($value->getNombre(), $value->getPuntos(), $value->getEstado()[1]);
+                    }
                 }
-            }
 
-            return $html;
+                return $html;
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -124,11 +126,13 @@ class ServiceSurvey extends System
     public static function getProgress()
     {
         try {
-            $html = '';
-            $total_encuesta = Encuesta::countSurvey();
-            $id_usuario = $_SESSION['id'];
-            $encuesta_usuario = Encuesta::countSurveyByUser($id_usuario);
-            return ($total_encuesta == 0) ? 0 : ($encuesta_usuario / $total_encuesta) * 100;
+            if (basename($_SERVER['PHP_SELF']) == 'surveys.php') {
+                $html = '';
+                $total_encuesta = Encuesta::countSurvey();
+                $id_usuario = $_SESSION['id'];
+                $encuesta_usuario = Encuesta::countSurveyByUser($id_usuario);
+                return ($total_encuesta == 0) ? 0 : ($encuesta_usuario / $total_encuesta) * 100;
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
