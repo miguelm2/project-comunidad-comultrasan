@@ -6,6 +6,7 @@ class PreguntaEncuestaDTO
     protected $encuestaDTO;
     protected $pregunta;
     protected $estado;
+    protected $tipo_pregunta;
     protected $fecha_registro;
 
 
@@ -107,6 +108,29 @@ class PreguntaEncuestaDTO
     public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
+
+        return $this;
+    }
+    /**
+     * Get the value of tipo_pregunta
+     */ 
+    public function getTipo_pregunta()
+    {
+        if($this->tipo_pregunta==1) return explode(";", $this->tipo_pregunta.';Opción Multiple');
+        if($this->tipo_pregunta==2) return explode(";", $this->tipo_pregunta.';Respuesta Abierta');
+        if($this->tipo_pregunta==3) return explode(";", $this->tipo_pregunta.';Relacionar');
+
+        return $this->tipo_pregunta;
+    }
+
+    /**
+     * Set the value of tipo_pregunta
+     *
+     * @return  self
+     */ 
+    public function setTipo_pregunta($tipo_pregunta)
+    {
+        $this->tipo_pregunta = $tipo_pregunta;
 
         return $this;
     }

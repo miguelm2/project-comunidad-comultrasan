@@ -276,14 +276,16 @@ class ServiceTypeComunity extends System
     public static function getOptionsGroupCommunity()
     {
         try {
-            $modelResponse = TipoComunidad::listTypeComunity();
-            $html = '';
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $html .= '<option value="' . $valor->getId_tipo_comunidad() . '">' . $valor->getTitulo() . '</option>';
+            if (basename($_SERVER['PHP_SELF']) == 'newEventCalendar.php') {
+                $modelResponse = TipoComunidad::listTypeComunity();
+                $html = '';
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $html .= '<option value="' . $valor->getId_tipo_comunidad() . '">' . $valor->getTitulo() . '</option>';
+                    }
                 }
+                return $html;
             }
-            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

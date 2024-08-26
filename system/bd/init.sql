@@ -218,6 +218,11 @@ CREATE TABLE PreguntaEncuesta (
   fecha_registro DATETIME NOT NULL
 );
 
+ALTER TABLE
+  PreguntaEncuesta
+ADD
+  tipo_pregunta VARCHAR(255) NULL; 
+
 CREATE TABLE RespuestaPregunta (
   id_respuesta INT IDENTITY(1, 1) PRIMARY KEY,
   id_encuesta INT NOT NULL,

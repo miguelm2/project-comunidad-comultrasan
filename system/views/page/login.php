@@ -66,11 +66,10 @@
                                  <input type="password" class="form-control" placeholder="Contraseña" name="pass" required>
                               </div>
                            </div>
-                           <div class="col-md-11 mt-0 p-0 d-flex justify-content-end">
-                              <div class="from-control">
-                                 <button type="submit" class="form-control btn btn-verde btn1 rounded p-2 m-3" name="login">
-                                    <i class="bi bi-box-arrow-in-right"></i> Ingresar</button>
-                              </div>
+                           <div class="col-md-12 col-sm-12 d-flex justify-content-end">
+                              <button type="submit" class="btn btn-verde btn1 rounded mt-3" name="login">
+                                 <i class="bi bi-box-arrow-in-right"></i> Ingresar
+                              </button>
                            </div>
                            <div class="col-md-12">
                               <div class="form-group">
