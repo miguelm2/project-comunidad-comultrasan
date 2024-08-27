@@ -570,7 +570,7 @@ class Elements
     public static function getCardsEventsByGroup($fecha, $titulo, $persona, $lugar)
     {
         return '
-            <div class="card p-2 border-2">
+            <div class="card p-2 border-2 mt-2">
                 <div class="row">
                     <div class="col-md-4">
                         <strong>' . $fecha . '</strong>
@@ -591,7 +591,7 @@ class Elements
     public static function getCardsBenefitUser($beneficio)
     {
         return '
-                <div class="col-md-6">
+                <div class="col-md-6 mt-2">
                     <div class="card border-2">
                         <h6 class="mt-2 ms-3"><i class="material-icons">check_circle</i> ' . $beneficio . '</h6>
                     </div>

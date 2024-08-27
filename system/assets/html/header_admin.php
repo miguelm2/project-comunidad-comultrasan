@@ -20,7 +20,7 @@
                   <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
                      <span class="text-white"><i class="material-icons" style="font-size: 20px; color:white">account_circle</i> <?= $_SESSION['nombre'] ?></span>
                   </a>
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink2">
+                  <ul class="dropdown-menu dropdown-menu-end border-2 shadow" aria-labelledby="navbarDropdownMenuLink2">
                      <li class="dropdown-item"><a href="profile" class="text-black">Mi perfil</a></li>
                      <li class="dropdown-item">
                         <a class="text-black" data-bs-toggle="modal" data-bs-target="#basicModal" role="button">
