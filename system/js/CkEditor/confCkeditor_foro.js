@@ -89,7 +89,8 @@ CKEDITOR.ClassicEditor.create(document.getElementById("texto_foro"), {
             'Tahoma, Geneva, sans-serif',
             'Times New Roman, Times, serif',
             'Trebuchet MS, Helvetica, sans-serif',
-            'Verdana, Geneva, sans-serif'
+            'Verdana, Geneva, sans-serif',
+            'Dosis, sans-serif'
         ],
         supportAllValues: true
     },

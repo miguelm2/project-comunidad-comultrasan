@@ -4,16 +4,17 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/PreguntaEncuesta.php
 
 class ServiceSurveyQuestion extends System
 {
-    public static function newSurveyQuestion($id_encuesta, $pregunta)
+    public static function newSurveyQuestion($id_encuesta, $pregunta, $tipo_pregunta)
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'survey.php') {
                 $id_encuesta    = parent::limpiarString($id_encuesta);
                 $pregunta       = parent::limpiarString($pregunta);
                 $estado         = parent::limpiarString(1);
+                $tipo_pregunta  = parent::limpiarString($tipo_pregunta);
                 $fecha_registro = date('Y-m-d H:i:s');
 
-                $result = PreguntaEncuesta::newSurveyQuestion($id_encuesta, $pregunta, $estado,  $fecha_registro);
+                $result = PreguntaEncuesta::newSurveyQuestion($id_encuesta, $pregunta, $estado, $tipo_pregunta, $fecha_registro);
 
                 if ($result) {
                     return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
@@ -27,9 +28,9 @@ class ServiceSurveyQuestion extends System
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'surveyQuestion.php') {
-                $id_pregunta  = parent::limpiarString($id_pregunta);
-                $pregunta     = parent::limpiarString($pregunta);
-                $estado       = parent::limpiarString($estado);
+                $id_pregunta    = parent::limpiarString($id_pregunta);
+                $pregunta       = parent::limpiarString($pregunta);
+                $estado         = parent::limpiarString($estado);
 
                 $result = PreguntaEncuesta::setSurveyQuestion($id_pregunta, $pregunta, $estado);
 

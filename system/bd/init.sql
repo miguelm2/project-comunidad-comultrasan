@@ -221,7 +221,7 @@ CREATE TABLE PreguntaEncuesta (
 ALTER TABLE
   PreguntaEncuesta
 ADD
-  tipo_pregunta VARCHAR(255) NULL; 
+  tipo_pregunta INT NULL;
 
 CREATE TABLE RespuestaPregunta (
   id_respuesta INT IDENTITY(1, 1) PRIMARY KEY,
@@ -241,6 +241,17 @@ CREATE TABLE RespuestaUsuario (
   fecha_registro DATETIME NOT NULL
 );
 
+ALTER TABLE
+  RespuestaUsuario
+ALTER COLUMN
+  id_respuesta INT NULL;
+
+ALTER TABLE
+  RespuestaUsuario
+ADD
+  respuesta_abierta TEXT NULL;
+
+-- Agrega la nueva columna 'respuesta_abierta'
 CREATE TABLE CalendarioEvento (
   id_evento INT IDENTITY(1, 1) PRIMARY KEY,
   titulo VARCHAR(255) NOT NULL,

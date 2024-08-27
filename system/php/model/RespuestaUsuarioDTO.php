@@ -6,6 +6,7 @@ class RespuestaUsuarioDTO
     protected $encuestaDTO;
     protected $preguntaDTO;
     protected $respuestaDTO;
+    protected $respuesta_abierta;
     protected $fecha_registro;
 
     /**
@@ -124,6 +125,26 @@ class RespuestaUsuarioDTO
     public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of respuesta_abierta
+     */ 
+    public function getRespuesta_abierta()
+    {
+        return $this->respuesta_abierta;
+    }
+
+    /**
+     * Set the value of respuesta_abierta
+     *
+     * @return  self
+     */ 
+    public function setRespuesta_abierta($respuesta_abierta)
+    {
+        $this->respuesta_abierta = $respuesta_abierta;
 
         return $this;
     }

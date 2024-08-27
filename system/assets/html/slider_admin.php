@@ -7,7 +7,7 @@
       </a>
    </div>
    <hr class="horizontal light mt-0 mb-2">
-   <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
+   <div class="collapse navbar-collapse  w-auto text-white" id="sidenav-collapse-main">
       <ul class="navbar-nav">
          <li class="nav-item">
             <a class="nav-link text-white" href="index">
@@ -19,7 +19,7 @@
          </li>
          <li class="nav-item">
             <div class="dropdown-activate">
-               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
+               <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
                   <span class="text-white"><i class="material-icons me-2">settings</i>Página</span>
                </a>
                <ul class="dropdown-menu px-2 py-3 w-auto" aria-labelledby="navbarDropdownMenuLink2">
@@ -33,7 +33,7 @@
          </li>
          <li class="nav-item">
             <div class="dropdown-active">
-               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink1">
+               <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink1">
                   <span class="text-white"><i class="material-icons me-2">settings</i>Configuración</span>
                </a>
                <ul class="dropdown-menu px-2 py-3 w-auto" aria-labelledby="navbarDropdownMenuLink1">

@@ -113,12 +113,12 @@ class PreguntaEncuestaDTO
     }
     /**
      * Get the value of tipo_pregunta
-     */ 
+     */
     public function getTipo_pregunta()
     {
-        if($this->tipo_pregunta==1) return explode(";", $this->tipo_pregunta.';Opción Multiple');
-        if($this->tipo_pregunta==2) return explode(";", $this->tipo_pregunta.';Respuesta Abierta');
-        if($this->tipo_pregunta==3) return explode(";", $this->tipo_pregunta.';Relacionar');
+        if ($this->tipo_pregunta == 1) return explode(";", $this->tipo_pregunta . ';Opción Múltiple');
+        if ($this->tipo_pregunta == 2) return explode(";", $this->tipo_pregunta . ';Respuesta Abierta');
+        if ($this->tipo_pregunta == 3) return explode(";", $this->tipo_pregunta . ';Múltiples Respuestas');
 
         return $this->tipo_pregunta;
     }
@@ -127,7 +127,7 @@ class PreguntaEncuestaDTO
      * Set the value of tipo_pregunta
      *
      * @return  self
-     */ 
+     */
     public function setTipo_pregunta($tipo_pregunta)
     {
         $this->tipo_pregunta = $tipo_pregunta;

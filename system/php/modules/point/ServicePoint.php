@@ -168,24 +168,31 @@ class ServicePoint extends System
                 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Excel.php';
                 $fecha_registro = date('Y-m-d H:i:s');
 
-                $source         = $_FILES['excelPoint']['tmp_name'];
-                $filename       = $_FILES['excelPoint']['name'];
-                $fileSize       = $_FILES['excelPoint']['size'];
-                $dir_excel      = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_EXCEL;
+                $source    = $_FILES['excelPoint']['tmp_name'];
+                $filename  = $_FILES['excelPoint']['name'];
+                $fileSize  = $_FILES['excelPoint']['size'];
+                $dir_excel = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_EXCEL;
 
-                if ($fileSize > 100 & $filename != '') {
-                    if (!file_exists($dir_excel)) mkdir($dir_excel, 0777, true);
+                if ($fileSize > 100 && $filename != '') {
+                    if (!is_dir($dir_excel)) mkdir($dir_excel, 0777, true);
 
-                    $dir       = opendir($dir_excel); //Abrimos el directorio de destino
-                    $trozo1    = explode(".", $filename);
+                    $trozo1 = explode(".", $filename);
                     $documento = 'excel_points_' . rand() . '.' . end($trozo1);
-                    $target_path    = $dir_excel . $documento; //Indicamos la ruta de destino, así como el nombre del archivo
-                    move_uploaded_file($source, $target_path);
-                    closedir($dir);
-                    $result = Excel::readExcelIncomes($target_path, $fecha_registro);
-                    unlink($target_path);
-                    if ($result) {
-                        return Elements::crearMensajeAlerta('Se han cargado ' . $result . ' registros exitosamente', 'success');
+                    $target_path = $dir_excel . $documento;
+
+                    // Mover el archivo cargado
+                    if (move_uploaded_file($source, $target_path)) {
+                        // Procesar el archivo Excel
+                        $result = Excel::readExcelIncomes($target_path, $fecha_registro);
+
+                        // Verificar si el archivo existe antes de eliminarlo
+                        if (file_exists($target_path)) {
+                            unlink($target_path);
+                        }
+
+                        if ($result) {
+                            return Elements::crearMensajeAlerta('Se han cargado ' . $result . ' registros exitosamente', 'success');
+                        }
                     }
                 }
             }
