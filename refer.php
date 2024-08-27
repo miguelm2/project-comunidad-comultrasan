@@ -48,10 +48,21 @@
                               Datos de quien refiere
                            </h5>
                         </div>
+                        <div class="col-md-12 mt-2">
+                           <div class="form-group">
+                              <label class="label text-black" for="nombre_referir">Nombre y Apellidos</label>
+                              <input type="text" name="nombre_referir" class="form-control" placeholder="Nombres completos" required>
+                           </div>
+                        </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="name">Nombre y Apellidos</label>
-                              <input type="text" class="form-control" placeholder="Nombres completos" required>
+                              <label class="label text-black" for="tipo_documento_referir">Tipo de Documento</label>
+                              <select name="tipo_documento_referir" id="tipo_documento_referir" class="form-select">
+                                 <option value="1">Cédula de Ciudadanía</option>
+                                 <option value="2">Tarjeta de identidad</option>
+                                 <option value="3">Cédula de extranjería</option>
+                                 <option value="4">Pasaporte</option>
+                              </select>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">
@@ -66,38 +77,50 @@
                            </h5>
                         </div>
 
-                        <div class="col-md-6 mt-2">
+                        <div class="col-md-12 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="name">Nombre y Apellidos</label>
-                              <input type="text" class="form-control" placeholder="Nombres completos" required>
+                              <label class="label text-black" for="nombre_referido">Nombre y Apellidos</label>
+                              <input type="text" name="nombre_referido" class="form-control" placeholder="Nombres completos" required>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="name">Nro de documento</label>
-                              <input type="text" class="form-control" placeholder="Nro de documento" required>
+                              <label class="label text-black" for="tipo_documento_referido">Tipo de Documento</label>
+                              <select name="tipo_documento_referido" id="tipo_documento_referido" class="form-select">
+                                 <option value="1">Cédula de Ciudadanía</option>
+                                 <option value="2">Tarjeta de identidad</option>
+                                 <option value="3">Cédula de extranjería</option>
+                                 <option value="4">Pasaporte</option>
+                              </select>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="name">Departamento</label>
-                              <input type="text" class="form-control" placeholder="Departamento" required>
+                              <label class="label text-black" for="cedula_referir">Nro de documento</label>
+                              <input type="text" name="cedula_referir" class="form-control" placeholder="Nro de documento" required>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="name">Ciudad</label>
-                              <input type="text" class="form-control" placeholder="Ciudad" required>
+                              <label class="label text-black" for="departamento">Departamento</label>
+                              <input type="text" name="departamento" class="form-control" placeholder="Departamento" required>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="mail">Correo</label>
-                              <input type="email" class="form-control" placeholder="Correo" required>
+                              <label class="label text-black" for="ciudad">Ciudad</label>
+                              <input type="text" name="ciudad" class="form-control" placeholder="Ciudad" required>
+                           </div>
+                        </div>
+
+                        <div class="col-md-6 mt-2">
+                           <div class="form-group">
+                              <label class="label text-black" for="correo">Correo</label>
+                              <input type="email" name="correo" class="form-control" placeholder="Correo" required>
                            </div>
                         </div>
 

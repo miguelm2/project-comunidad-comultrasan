@@ -135,7 +135,7 @@ class ServiceEventCalendar extends System
                 $tableHtml = "";
                 $modelResponse = CalendarioEvento::listAllEventCalendar();
 
-                if ($modelResponse) {
+                if (($modelResponse)) {
                     foreach ($modelResponse as $valor) {
                         $tableHtml .= '<tr>';
                         $tableHtml .= '<td>' . $valor->getId_evento() . '</td>';

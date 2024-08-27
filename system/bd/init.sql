@@ -357,6 +357,22 @@ CREATE TABLE SeccionTipoComunidad (
   nombre VARCHAR(255) NOT NULL,
   descripcion TEXT,
   imagen VARCHAR(255),
-  fecha_registro DATETIME NOT NULL,
-  FOREIGN KEY (id_tipo_comunidad) REFERENCES TipoComunidad(id_tipo_comunidad)
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE Referido (
+  id_referido INT IDENTITY(1, 1) PRIMARY KEY,
+  nombre_referido VARCHAR(255) NOT NULL,
+  cedula_referido VARCHAR(255) NOT NULL,
+  tipo_documento_referido VARCHAR(255) NOT NULL,
+  departamento VARCHAR(255) NOT NULL,
+  ciudad VARCHAR(255) NOT NULL,
+  correo VARCHAR(255) NOT NULL,
+  celular VARCHAR(255) NOT NULL,
+  nombre_refiere VARCHAR(255) NULL,
+  cedula_refiere VARCHAR(255) NULL,
+  tipo_documento_refiere VARCHAR(255) NULL,
+  id_usuario INT NULL,
+  estado INT NOT NULL,
+  fecha_registro DATETIME DEFAULT GETDATE()
 );
