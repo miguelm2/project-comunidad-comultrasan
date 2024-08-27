@@ -205,10 +205,10 @@ class UsuarioDTO
      */
     public function getTipo_documento()
     {
-        if ($this->estado == 1) return explode(";", $this->estado . ';Cédula de ciudadanía');
-        if ($this->estado == 2) return explode(";", $this->estado . ';Tarjeta de identidad');
-        if ($this->estado == 3) return explode(";", $this->estado . ';Cédula de extranjería');
-        if ($this->estado == 4) return explode(";", $this->estado . ';Pasaporte');
+        if ($this->tipo_documento == 1) return explode(";", $this->tipo_documento . ';Cédula de ciudadanía');
+        if ($this->tipo_documento == 2) return explode(";", $this->tipo_documento . ';Tarjeta de identidad');
+        if ($this->tipo_documento == 3) return explode(";", $this->tipo_documento . ';Cédula de extranjería');
+        if ($this->tipo_documento == 4) return explode(";", $this->tipo_documento . ';Pasaporte');
         return $this->tipo_documento;
     }
 

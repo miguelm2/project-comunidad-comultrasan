@@ -198,7 +198,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="setPassProfileManager" class="btn btn-info"><i class="material-icons me-2">lock</i> Actualizar Contraseña</button>
+                     <button type="submit" name="setPassProfileUser" class="btn btn-info"><i class="material-icons me-2">lock</i> Actualizar Contraseña</button>
                   </div>
                </div>
             </div>

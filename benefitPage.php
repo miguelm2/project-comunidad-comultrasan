@@ -54,10 +54,10 @@
                      </h5>
                   </div>
                </div>
-               <div class="col-md-3">
+               <div class="col-md-4">
                   <img src="<?= Path::$DIR_IMAGE_BENE_PAGE . $benefitsPage->getImagen() ?>" alt="<?= $benefitsPage->getTitulo() ?>" class="img-fluid">
                </div>
-               <div class="col-md-9">
+               <div class="col-md-8">
                   <div class="text-start">
                      <h2 class="text-pri">Requisitos</h2>
                   </div>
@@ -71,11 +71,12 @@
          </div>
       </section>
    </div>
+
+   </main><!-- End #main -->
+
    <!-- Start Footer -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/footer.php'; ?>
    <!-- End Footer -->
-
-   </main><!-- End #main -->
    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
    <div id="preloader">

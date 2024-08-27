@@ -100,7 +100,6 @@ class ServiceUser extends System
     public static function setPassProfile($pass, $newPass, $confirmPass)
     {
         try {
-
             if (basename($_SERVER['PHP_SELF']) == 'profile.php') {
                 $pass = parent::limpiarString($pass);
                 $newPass = parent::limpiarString($newPass);

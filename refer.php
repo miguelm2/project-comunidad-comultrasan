@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/routing/Page.php'; ?>
 <!doctype html>
 <html lang="en">
 
@@ -41,7 +42,7 @@
          <div class="row">
             <div class="col-md-12 col-lg-12">
                <div class="login-wrap">
-                  <form action="#" class="signin-form">
+                  <form method="post" class="signin-form">
                      <div class="row text-start">
                         <div class="col-md-12">
                            <h5 class="text-black">
@@ -67,8 +68,8 @@
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="name">Nro de documento</label>
-                              <input type="text" class="form-control" placeholder="Nro de documento" required>
+                              <label class="label text-black" for="cedula_referir">Nro de documento</label>
+                              <input type="number" name="cedula_referir" class="form-control" placeholder="Nro de documento" required>
                            </div>
                         </div>
                         <div class="col-md-12">
@@ -99,7 +100,7 @@
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="cedula_referir">Nro de documento</label>
-                              <input type="text" name="cedula_referir" class="form-control" placeholder="Nro de documento" required>
+                              <input type="text" name="cedula_referido" class="form-control" placeholder="Nro de documento" required>
                            </div>
                         </div>
 
@@ -126,15 +127,15 @@
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="cellphone">Celular</label>
-                              <input type="number" class="form-control" placeholder="Celular" required>
+                              <label class="label text-black" for="celular">Celular</label>
+                              <input type="number" name="celular" class="form-control" placeholder="Celular" required>
                            </div>
                         </div>
 
                      </div>
                      <div class="form-group">
                         <br>
-                        <button type="submit" class="btn btn-verde btn1 rounded-3"> <i class="bi bi-send"></i> Enviar</button>
+                        <button type="submit" name="referred_page" class="btn btn-verde btn1 rounded-3"> <i class="bi bi-send"></i> Enviar</button>
                      </div>
                   </form>
                </div>
@@ -160,7 +161,8 @@
 
    <!-- Template Main JS File -->
    <script src="assets/js/main.js"></script>
-
+   <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <?= $response ?>
 </body>
 
 </html>

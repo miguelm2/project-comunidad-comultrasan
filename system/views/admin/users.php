@@ -166,7 +166,7 @@
                            <div class="mb-3">
                               <div class="form-group">
                                  <label>Imagen</label>
-                                 <input type="file" class="form-control border p-1" name="imageAdmin" accept="image/*">
+                                 <input type="file" class="form-control border p-1" name="imageUser" accept="image/*">
                               </div>
                            </div>
                         </div>

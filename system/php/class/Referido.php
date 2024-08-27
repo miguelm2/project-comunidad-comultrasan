@@ -9,7 +9,7 @@ class Referido extends system
         $stmt = $dbh->prepare("INSERT INTO Referido (nombre_referido, cedula_referido, tipo_documento_referido, departamento, ciudad, correo, 
                                                     celular, nombre_refiere, tipo_documento_refiere, cedula_refiere, estado, id_usuario, fecha_registro) 
                                 VALUES (:nombre_referido, :cedula_referido, :tipo_documento_referido, :departamento, :ciudad, :correo, :celular,
-                                        nombre_refiere, :tipo_documento_refiere, :cedula_refiere, :estado, :id_usuario, :fecha_registro)");
+                                        :nombre_refiere, :tipo_documento_refiere, :cedula_refiere, :estado, :id_usuario, :fecha_registro)");
         $stmt->bindParam(':nombre_referido', $nombre_referido);
         $stmt->bindParam(':cedula_referido', $cedula_referido);
         $stmt->bindParam(':tipo_documento_referido', $tipo_documento_referido);
@@ -33,7 +33,7 @@ class Referido extends system
                                 tipo_documento_referido = :tipo_documento_referido, departamento = :departamento, ciudad = :ciudad,
                                 correo = :correo, celular = :celular, nombre_refiere = :nombre_refiere, tipo_documento_refiere = :tipo_documento_refiere, 
                                 cedula_refiere = :cedula_refiere, estado = :estado
-                                WHERE id_referido = :referido");
+                                WHERE id_referido = :id_referido");
         $stmt->bindParam(':nombre_referido', $nombre_referido);
         $stmt->bindParam(':cedula_referido', $cedula_referido);
         $stmt->bindParam(':tipo_documento_referido', $tipo_documento_referido);

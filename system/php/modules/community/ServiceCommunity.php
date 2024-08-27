@@ -162,7 +162,28 @@ class ServiceCommunity extends System
                     $total_points,
                     $btnEditar
                 );
+                $html .= '<div class="card">
+                            <div class="card-head ms-2">
+                                <h5 class="text-success">Ranking de puntos</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="card border-2 text-black text-center">
+                                    <h6> Mi comunidad ' . $total_points . ' &#10084;</h6>
+                                </div>';
+                $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
+                $contador = 1;
+                foreach ($modelResponse as $valor) {
+                    $points = '';
+                    if ($_SESSION['id'] == $valor->getId_usuario()) {
+                        $count = Punto::getSumPointsByUser($valor->getId_usuario());
+                        $points .= '' . $count;
+                    }
+                    $html .= Elements::getCardUserInCommunityRanking($valor->getNombre(), $valor->getImagen(), $points, $contador);
+                    $contador++;
+                }
                 $html .= '</div>
+                        </div>
+                        </div>
                             <div class="col-md-6">';
                 $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
                 foreach ($modelResponse as $valor) {
