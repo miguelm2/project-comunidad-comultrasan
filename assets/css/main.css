@@ -2825,3 +2825,7 @@ p {
 .btn-outline-dark:hover{
   color: #fff !important;
 }
+
+body, html {
+  height: 100%; /* Asegura que la página siempre ocupe el 100% del viewport */
+}

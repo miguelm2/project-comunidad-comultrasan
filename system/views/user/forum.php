@@ -26,20 +26,10 @@
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_user.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
+      <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
-         <div class="container-fluid">
-            <nav aria-label="breadcrumb" class="d-none d-lg-block">
-               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                  <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
-                  <li class="breadcrumb-item"><a href="groupsInterest" class="text-white">Grupos de Interés</a></li>
-                  <li class="breadcrumb-item"><a href="groupInterest?groupInterest=<?= $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() ?>" class="text-white">Grupo de Interés</a></li>
-                  <li class="breadcrumb-item"><a href="forums?comunnityForum=<?= $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad() ?>" class="text-white">Foro</a></li>
-                  <li class="breadcrumb-item active">Ver Foro</li>
-               </ol>
-            </nav>
-         </div>
          <!-- Start header -->
-         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_user.php'; ?>
          <!-- End header -->
       </nav>
       <!-- End Page Title -->
@@ -120,7 +110,7 @@
                   <div class="modal-body">
                      <div class="form-group">
                         <label class="form-label" for="comentario">Comentario</label>
-                        <textarea name="comentario" class="form-control border p-1" placeholder="Esciba su comentario...." rows="4" required></textarea>
+                        <textarea name="comentario" class="form-control border p-1" placeholder="Esciba su comentario...." rows="4" maxlength="500" required></textarea>
                      </div>
                   </div>
                   <div class="modal-footer">

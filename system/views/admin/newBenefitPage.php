@@ -65,13 +65,13 @@
                      <div class="col-12">
                         <div class="form-group">
                            <label class="form-label" for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" required>
+                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-12">
                         <div class="form-group">
                            <label class="form-label" for="subtitulo">Subtítulo</label>
-                           <input type="text" class="form-control border p-1" name="subtitulo" placeholder="Subtítulo" required>
+                           <input type="text" class="form-control border p-1" name="subtitulo" placeholder="Subtítulo" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-md-12 form-group">

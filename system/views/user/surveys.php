@@ -30,16 +30,8 @@
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
       <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
-         <div class="container-fluid">
-            <nav aria-label="breadcrumb" class="d-none d-lg-block">
-               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                  <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
-                  <li class="breadcrumb-item active">Encuestas</li>
-               </ol>
-            </nav>
-         </div>
          <!-- Start header -->
-         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_user.php'; ?>
          <!-- End header -->
       </nav>
       <div class="card mt-2">
@@ -60,40 +52,6 @@
             </div>
          </div>
       </div>
-      <!-- ======= Basic Modal ======= -->
-      <form id="uploadForm" method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="newBenefit" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Nueva Encuesta</h5>
-                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <div class="row g-3">
-                        <div class="col-md-12 form-group">
-                           <label for="nombre">Nombre</label>
-                           <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre" maxlength="255" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="puntos">Corazones</label>
-                           <input type="number" class="form-control border p-1" name="puntos" placeholder="Corazones" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="descripcion">Descripción</label>
-                           <textarea name="descripcion" id="descripcion" rows="4" required class="form-control border p-1"></textarea>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newSurvey" class="btn btn-success"><i class="material-icons me-2">add</i> Nueva Encuesta</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!--Final Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->

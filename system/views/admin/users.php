@@ -117,13 +117,13 @@
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Nombre</label>
-                              <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre" required>
+                              <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Correo</label>
-                              <input type="email" class="form-control border p-1" name="correo" placeholder="Correo" required>
+                              <input type="email" class="form-control border p-1" name="correo" placeholder="Correo" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-6">
@@ -147,7 +147,7 @@
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Celular</label>
-                              <input type="tel" class="form-control border p-1" name="telefono" placeholder="Celular" required>
+                              <input type="tel" class="form-control border p-1" name="telefono" placeholder="Celular" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-6">
@@ -159,7 +159,7 @@
                         <div class="col-12">
                            <div class="form-group">
                               <label class="form-label">Contraseña</label>
-                              <input type="password" class="form-control border p-1" name="pass" placeholder="Contraseña" required>
+                              <input type="password" class="form-control border p-1" name="pass" placeholder="Contraseña" maxlength="30" required>
                            </div>
                         </div>
                         <div class="col-12">

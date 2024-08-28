@@ -120,7 +120,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                            <label for="descripcion">Descripción</label>
-                           <textarea name="descripcion" id="descripcion" rows="4" required class="form-control border p-1" placeholder="Agrege una descripción"></textarea>
+                           <textarea name="descripcion" id="descripcion" rows="4" required class="form-control border p-1" maxlength="500" placeholder="Agrege una descripción"></textarea>
                         </div>
                      </div>
                   </div>

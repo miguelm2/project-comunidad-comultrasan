@@ -65,37 +65,37 @@
                      <div class="col-6">
                         <div class="form-group">
                            <label class="form-label">Nombre</label>
-                           <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre completo" required>
+                           <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre completo" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-6">
                         <div class="form-group">
                            <label class="form-label">Dirección</label>
-                           <input type="text" class="form-control border p-1" name="direccion" placeholder="Dirección" required>
+                           <input type="text" class="form-control border p-1" name="direccion" placeholder="Dirección" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-6">
                         <div class="form-group">
                            <label class="form-label">Cédula</label>
-                           <input type="number" class="form-control border p-1" name="cedula" placeholder="Cédula" required>
+                           <input type="number" class="form-control border p-1" name="cedula" placeholder="Cédula" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-6">
                         <div class="form-group">
                            <label class="form-label">Celular</label>
-                           <input type="tel" class="form-control border p-1" name="telefono" placeholder="Teléfono" required>
+                           <input type="tel" class="form-control border p-1" name="telefono" placeholder="Teléfono" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-6">
                         <div class="form-group">
                            <label class="form-label">Correo</label>
-                           <input type="email" class="form-control border p-1" name="correo" placeholder="Correo electrónico" required>
+                           <input type="email" class="form-control border p-1" name="correo" placeholder="Correo electrónico" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-6">
                         <div class="form-group">
                            <label class="form-label">Contraseña</label>
-                           <input type="password" class="form-control border p-1" name="pass" placeholder="Contraseña" required>
+                           <input type="password" class="form-control border p-1" name="pass" placeholder="Contraseña" maxlength="30" required>
                         </div>
                      </div>
                      <div class="col-12">

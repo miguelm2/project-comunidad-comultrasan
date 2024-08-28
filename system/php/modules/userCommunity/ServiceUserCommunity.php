@@ -100,7 +100,8 @@ class ServiceUserCommunity extends System
                 $tableHtml .= '<td>' . $value->getUsuarioDTO()->getNombre() . '</td>';
                 $tableHtml .= '<td>' . $value->getComunidadDTO()->getNombre() . '</td>';
                 $tableHtml .= '<td>' . $value->getFecha_registro() . '</td>';
-                $tableHtml .= '<td class="text-center">' . Elements::getButtonDeleteModalJs('takeOut', '', $value->getUsuarioDTO()->getId_usuario()) . '</td>';
+                if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5)
+                    $tableHtml .= '<td class="text-center">' . Elements::getButtonDeleteModalJs('takeOut', '', $value->getUsuarioDTO()->getId_usuario()) . '</td>';
                 $tableHtml .= '</tr>';
             }
             return $tableHtml;

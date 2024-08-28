@@ -22,3 +22,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/user/ControllerUse
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefit/ControllerBenefit.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/community/ControllerCommunty.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/referred/ControllerReferred.php';

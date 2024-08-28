@@ -162,29 +162,7 @@ class ServiceCommunity extends System
                     $total_points,
                     $btnEditar
                 );
-                $html .= '<div class="card">
-                            <div class="card-head ms-2">
-                                <h5 class="text-success">Ranking de puntos</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="card border-2 text-black text-center">
-                                    <h6> Mi comunidad ' . $total_points . ' &#10084;</h6>
-                                </div>';
-                $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
-                $contador = 1;
-                foreach ($modelResponse as $valor) {
-                    $points = '';
-                    if ($_SESSION['id'] == $valor->getId_usuario()) {
-                        $count = Punto::getSumPointsByUser($valor->getId_usuario());
-                        $points .= '' . $count;
-                    }
-                    $html .= Elements::getCardUserInCommunityRanking($valor->getNombre(), $valor->getImagen(), $points, $contador);
-                    $contador++;
-                }
-                $html .= '</div>
-                        </div>
-                        </div>
-                            <div class="col-md-6">';
+                $html .= '</div><div class="col-md-6">';
                 $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
                 foreach ($modelResponse as $valor) {
                     $btnEliminar = !$isLeader ? '' : Elements::getButtonDeleteModalJs('takeOut', 'Remover', $valor->getId_usuario());
@@ -199,19 +177,207 @@ class ServiceCommunity extends System
                 $btnSalir = $isLeader ?
                     Elements::getButtonDeleteModal('leaveLeader', 'Salir de la comunidad') :
                     Elements::getButtonDeleteModal('leave', 'Salir de la comunidad');
-                $html .= '</div>
-                            <div class="col-md-11">
-                                <div class="text-end">
-                                ' . $btnSalir . '
+                $html .= self::getHtmlCards($btnSalir, $total_points);
+                $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
+                $contador = 1;
+                foreach ($modelResponse as $valor) {
+                    $points = '';
+                    if ($_SESSION['id'] == $valor->getId_usuario() || $isLeader) {
+                        $count = Punto::getSumPointsByUser($valor->getId_usuario());
+                        $points .= '' . $count;
+                    }
+                    $html .= Elements::getCardUserInCommunityRanking($valor->getNombre(), $valor->getImagen(), $points, $contador);
+                    $contador++;
+                }
+                $html .= '</div></div></div></div></div>
+                <div class="card mt-2 border-2" id="exploraYaprende">
+                    <div class="card-head">
+                        <h5 class="text-success ms-3 mt-2">Explora y Aprende</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center align-content-center">
+                            <div class="col-md-3">
+                                <div class="card border-2 h-100">
+                                    <img src="/assets/img/comunidad/comunida_creada.png" alt="Comunidad" class="img-fluid rounded-2">
+                                    <h6 class="text-success text-center">Crea tu comunidad</h6>
+                                    <p class=" ms-2">
+                                        Crea tu comunidad y comparte tus retos y recompensas con tus personas más especiales
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-2 h-100">
+                                    <img src="/assets/img/comunidad/completar_perfil.png" alt="Perfil" class="img-fluid rounded-2">
+                                    <h6 class="text-success text-center">Completar tu perfil</h6>
+                                    <p class=" ms-2">
+                                        Completa tu perfil y empieza a acumular corazones. 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-2 h-100">
+                                    <img src="/assets/img/comunidad/gustos.png" alt="Gustos" class="img-fluid rounded-2">
+                                    <h6 class="text-success text-center">Cuéntanos tus gustos e intereses</h6>
+                                    <p class=" ms-2">
+                                        Permítenos conocerte mejor para diseñar experiencias para ti y tu comunidad. 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-2 h-100">
+                                    <img src="/assets/img/comunidad/reto.png" alt="Reto" class="img-fluid rounded-2">
+                                    <h6 class="text-success text-center">Reto Educación Financiera</h6>
+                                    <p class=" ms-2">
+                                        Fortalece tus conocimientos y gana más &#10084;
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-2 h-100">
+                                    <img src="/assets/img/comunidad/trivia.png" alt="Trivia" class="img-fluid rounded-2">
+                                    <h6 class="text-success text-center">Trivia de economía solidaria</h6>
+                                    <p class=" ms-2">
+                                        Conoce el fascinante mundo solidario y sigue ganando recompensas. 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-2 h-100">
+                                    <img src="/assets/img/comunidad/recompensas.png" alt="Recompensas" class="img-fluid rounded-2">
+                                    <h6 class="text-success text-center">Trivia de programa de recompensas</h6>
+                                    <p class=" ms-2">
+                                        Conoce el fascinante mundo solidario y sigue ganando recompensas. 
+                                    </p>
+                                </div></div>
+                            <div class="col-md-3">
+                                <div class="card border-2 h-100">
+                                    <img src="/assets/img/comunidad/programa_referidos.png" alt="Refereidos" class="img-fluid rounded-2">
+                                    <h6 class="text-success text-center">Trivia de programa de referidos</h6>
+                                    <p class=" ms-2">
+                                        Conoce el fascinante mundo solidario y sigue ganando recompensas. 
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        ';
+                    </div>
+                </div>
+                <div class="card mt-2 border-2" id="invitaYgana">
+                    <div class="card-head">
+                        <h5 class="text-success ms-3 mt-2">Invita y Gana</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center align-content-center">
+                            <div class="col-md-3">
+                                <div class="card border-2 h-100">
+                                    <img src="/assets/img/comunidad/nuevo_miembro.png" alt="NuevoMiembros" class="img-fluid rounded-2">
+                                    <h6 class="text-success text-center">Nuevos miembros en la Comunidad </h6>
+                                    <p class=" ms-2">
+                                        Invita a otros a que disfruten de los beneficios de la comunidad.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-2 h-100">
+                                    <img src="/assets/img/comunidad/datos_dia.png" alt="Datos" class="img-fluid rounded-2">
+                                    <h6 class="text-success text-center">Datos al día</h6>
+                                    <p class=" ms-2">
+                                        Actualiza tus datos para que no perdamos contacto.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-2 h-100">
+                                    <img src="/assets/img/comunidad/productos.png" alt="Productos" class="img-fluid rounded-2">
+                                    <h6 class="text-success text-center">Tus productos financieros</h6>
+                                    <p class=" ms-2">
+                                        Incluye nuevos productos a tu portafolio y moviliza los existentes 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-2 h-100">
+                                    <img src="/assets/img/comunidad/referidos_efectivos.png" alt="Referidos_efecrivos" class="img-fluid rounded-2">
+                                    <h6 class="text-success text-center">Referidos efectivos</h6>
+                                    <p class=" ms-2">
+                                        Cuéntale a otros lo feliz que te sientes de estar aquí
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
                 return $html;
             } catch (\Exception $e) {
                 throw new Exception($e->getMessage());
             }
         }
+    }
+    private static function getHtmlCards($btnSalir, $total_points)
+    {
+        return  '</div>
+                    <div class="col-md-11">
+                        <div class="text-end">
+                        ' . $btnSalir . '
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card border-2 mt-2 pb-3">
+                <div class="card-head mt-2 ms-2">
+                    <h5 class="text-success">Reconocemos tus logros y los de tu comunidad</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-7">
+                        <p class="ms-3 text-black">
+                            En la Comunidad Comultrasan, premiamos tu lealtad y compromiso con beneficios 
+                            exclusivos. Valoramos tu participación y queremos ofrecerte una experiencia 
+                            enriquecedora y memorable. Tú y tu comunidad pueden crecer, aprender y obtener 
+                            recompensas alcanzando los retos que nuestra comunidad propone en estos dos pilares. 
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="#exploraYaprende">
+                                    <div class="card border-2 ms-2">
+                                        <div class="card-head">
+                                            <h5 class="text-success ms-3 mt-2">Explora y aprende</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>
+                                                Acumula corazones al completar actividades educativas en nuestra 
+                                                plataforma. Mejora tu educación financiera y canjea corazones 
+                                                por beneficios.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#invitaYgana">
+                                    <div class="card border-2">
+                                        <div class="card-head">
+                                            <h5 class="text-success ms-3 mt-2">Invita y gana</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>
+                                                Gana corazones haciendo crecer la comunidad e incrementando tus saldos. 
+                                                Valorizamos y recompensamos tu esfuerzo.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card border-2">
+                            <div class="card-head mt-2">
+                                <h5 class="text-success text-center">Tabla de recompensas</h5>
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="card border-2 text-black text-center">
+                                    <h6> Mi comunidad ' . $total_points . ' &#10084;</h6>
+                                </div>
+                ';
     }
     public static function getCommunityByUser($id_usuario)
     {

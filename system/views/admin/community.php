@@ -46,7 +46,7 @@
       <div class="card mt-3">
          <div class="row m-0">
             <div class="col-md-5 mt-4 ms-4">
-               <h4 class="text-success">Mi Comunidad</h4>
+               <h4 class="text-success">Editar Comunidad</h4>
             </div>
             <div class="col-md-12 mt-2 pb-4">
                <form method="post">
@@ -54,7 +54,7 @@
                      <div class="col-md-6">
                         <div class="form-group">
                            <label for="nombre">Nombre</label>
-                           <input type="text" name="nombre" id="nombre" class="form-control border p-1" value="<?= $comunidad->getNombre() ?>">
+                           <input type="text" name="nombre" id="nombre" class="form-control border p-1" value="<?= $comunidad->getNombre() ?>" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-md-6">

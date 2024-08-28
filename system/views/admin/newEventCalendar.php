@@ -65,16 +65,16 @@
                      <div class="col-12">
                         <div class="form-group">
                            <label class="form-label" for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" required>
+                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-md-6 form-group">
                         <label for="lugar">Lugar</label>
-                        <input type="text" class="form-control border p-1" name="lugar" placeholder="Lugar" required>
+                        <input type="text" class="form-control border p-1" name="lugar" placeholder="Lugar" maxlength="255" required>
                      </div>
                      <div class="col-md-6 form-group">
                         <label for="persona_cargo">Persona a cargo</label>
-                        <input type="text" class="form-control border p-1" name="persona_cargo" placeholder="Persona a cargo" required>
+                        <input type="text" class="form-control border p-1" name="persona_cargo" placeholder="Persona a cargo" maxlength="255" required>
                      </div>
                      <div class="col-md-6 form-group">
                         <label for="fecha">Fecha</label>
