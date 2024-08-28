@@ -18,3 +18,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/user/ControllerUse
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/eventCalendar/ControllerEventCalendar.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forum/ControllerForum.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/referred/ControllerReferred.php';

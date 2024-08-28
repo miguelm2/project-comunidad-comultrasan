@@ -29,8 +29,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/question/Controlle
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/ControllerTypeComunity.php';
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefit/ControllerBenefit.php';
-
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/point/ControllerPoint.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/discount/ControllerDiscount.php';
@@ -52,3 +50,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/sectionTypeCommuni
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forum/ControllerForum.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forumComment/ControllerForumComment.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefit/ControllerBenefit.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/referred/ControllerReferred.php';

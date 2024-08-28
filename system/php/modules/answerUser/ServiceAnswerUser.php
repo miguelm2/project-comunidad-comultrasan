@@ -11,7 +11,14 @@ class ServiceAnswerUser extends System
             $id_encuesta = parent::limpiarString($id_encuesta);
             $id_usuario = $_SESSION['id'];
             $fecha_registro = date('Y-m-d H:i:s');
+            // Asegurarse de que las variables sean arrays
+            if (!is_array($listRespuestas)) {
+                $listRespuestas = [];
+            }
 
+            if (!is_array($listRespuestasAbiertas)) {
+                $listRespuestasAbiertas = [];
+            }
             if (count($listRespuestas) > 0) {
                 foreach ($listRespuestas as $value) {
                     $listTotal = explode("-", $value);

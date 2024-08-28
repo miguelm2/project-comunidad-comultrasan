@@ -81,7 +81,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-md-6 mt-3">
+                     <div class="col-md-7 mt-3">
                         <div class="card border-3">
                            <div class="card-body pt-0 mt-2">
                               <img src="<?= Path::$DIR_IMAGE_TYPE_COM . $groupInterest->getImagen() ?>" alt="Imagen_grupo" class="img-fluid">
@@ -91,7 +91,7 @@
                            </div>
                         </div>
                      </div>
-                     <div class="col-md-6 mt-3">
+                     <div class="col-md-5 mt-3">
                         <div class="card border-3">
                            <div class="card-head">
                               <h5 class="text-success mt-2 ms-2">

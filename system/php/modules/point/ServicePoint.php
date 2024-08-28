@@ -7,18 +7,16 @@ class ServicePoint extends System
     public static function newPoint($puntos, $id_usuario, $id_administrador, $descripcion)
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'points.php') {
-                $puntos         = parent::limpiarString($puntos);
-                $id_usuario    = parent::limpiarString($id_usuario);
-                $fecha_registro = date('Y-m-d H:i:s');
-                $id_administrador = parent::limpiarString($id_administrador);
-                $descripcion = parent::limpiarString($descripcion);
+            $puntos         = parent::limpiarString($puntos);
+            $id_usuario    = parent::limpiarString($id_usuario);
+            $fecha_registro = date('Y-m-d H:i:s');
+            $id_administrador = parent::limpiarString($id_administrador);
+            $descripcion = parent::limpiarString($descripcion);
 
-                $result = Punto::newPoint($puntos, $id_usuario, $id_administrador, $descripcion, $fecha_registro);
+            $result = Punto::newPoint($puntos, $id_usuario, $id_administrador, $descripcion, $fecha_registro);
 
-                if ($result) {
-                    return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
-                }
+            if ($result) {
+                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

@@ -2,7 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Referido.php';
 
-class ServiceManager extends System
+class ServiceReferred extends System
 {
     public static function newReferredPage(
         $nombre_referido,
@@ -151,12 +151,10 @@ class ServiceManager extends System
     public static function deleteReferred($id_referido)
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'referred.php') {
-                $id_referido = parent::limpiarString($id_referido);
+            $id_referido = parent::limpiarString($id_referido);
 
-                $result = Referido::deleteReferred($id_referido);
-                if ($result) header('Location:referrals?delete');
-            }
+            $result = Referido::deleteReferred($id_referido);
+            if ($result) header('Location:referrals?delete');
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -185,12 +183,12 @@ class ServiceManager extends System
                     foreach ($modelResponse as $valor) {
                         $style = self::getColorByEstate($valor->getEstado()[0]);
                         $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->setCedula_referido() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getCedula_referido() . '</td>';
                         $tableHtml .= '<td>' . $valor->getNombre_referido() . '</td>';
                         $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
                         $tableHtml .= '<td>' . $valor->getCelular() . '</td>';
                         $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("referred", $valor->getId_gestor()) . '</td>';
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("referred", $valor->getId_referido()) . '</td>';
                         $tableHtml .= '</tr>';
                     }
                 } else {
@@ -206,13 +204,13 @@ class ServiceManager extends System
     {
         try {
             switch ($estado) {
-                case 0: {
-                        return 'danger';
-                    }
                 case 1: {
-                        return 'success';
+                        return 'info';
                     }
                 case 2: {
+                        return 'success';
+                    }
+                case 3: {
                         return 'warning';
                     }
             }

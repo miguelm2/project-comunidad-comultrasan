@@ -170,7 +170,8 @@
                            <td class="text-uppercase font-weight-bolder">ID</td>
                            <td class="text-uppercase font-weight-bolder">Administrador</td>
                            <td class="text-uppercase font-weight-bolder">Corazones</td>
-                           <td class="text-uppercase font-weight-bolder">Fecha Registro</td>
+                           <td class="text-uppercase font-weight-bolder">Descripción</td>
+                           <td class="text-uppercase font-weight-bolder">Opciones</td>
                         </tr>
                      </thead>
                      <tfoot>
@@ -178,7 +179,8 @@
                            <td class="text-uppercase font-weight-bolder">Id</td>
                            <td class="text-uppercase font-weight-bolder">Administrador</td>
                            <td class="text-uppercase font-weight-bolder">Corazones</td>
-                           <td class="text-uppercase font-weight-bolder">Fecha Registro</td>
+                           <td class="text-uppercase font-weight-bolder">Descripción</td>
+                           <td class="text-uppercase font-weight-bolder">Opciones</td>
                         </tr>
                      </tfoot>
                      <tbody>

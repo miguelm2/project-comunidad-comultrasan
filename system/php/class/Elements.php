@@ -449,26 +449,22 @@ class Elements
     public static function getUnitedCommunityReady($nombre, $lider, $cantidad, $fecha, $codigo, $puntos, $btnEditar)
     {
         return '<div class="card-body m-0">
-                    <h6><i class="material-icons">vpn_key</i> Código del grupo: </h6>
-                    <p>' . $codigo . '</p>
-                    <h6><i class="material-icons">diversity_3</i> Nombre: </h6>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p>' . $nombre . '</p>
-                        </div>
-                        <div class="col-md-6">
-                            ' . $btnEditar . '
-                        </div>
-                    </div>
+                    <h6><i class="material-icons">vpn_key</i> Código del grupo: ' . $codigo . '</h6>
                     
-                    <h6><i class="material-icons">supervisor_account</i> Lider: </h6>
-                    <p>' . $lider . '</p>
-                    <h6><i class="material-icons">group_add</i> Usuarios en la comunidad: </h6>
-                    <p>' . $cantidad . ' asociados</p>
-                    <h6><i class="material-icons">event</i> Fecha de creación: </h6>
-                    <p>' . $fecha . '</p>
-                    <h6><i class="material-icons">favorite</i> Sumatoria de corazones: </h6>
-                    <p>' . $puntos . ' corazones</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6><i class="material-icons">diversity_3</i> Nombre: ' . $nombre . '
+                            </div>
+                            <div class="col-md-6">
+                                ' . $btnEditar . '
+                            </div>
+                        </div>
+                    </h6>
+                    <h6><i class="material-icons">supervisor_account</i> Lider: ' . $lider . '</h6>
+                    <h6><i class="material-icons">group_add</i> Usuarios en la comunidad: ' . $cantidad . ' asociados</h6>
+                    <p></p>
+                    <h6><i class="material-icons">event</i> Fecha de creación: ' . $fecha . '</h6>
+                    <h6><i class="material-icons">favorite</i> Sumatoria de corazones: ' . $puntos . ' corazones</h6>
                 </div>';
     }
     public static function getCardUserInCommunity($nombre, $btnEliminar, $points)
@@ -476,11 +472,33 @@ class Elements
         return '<div class="card mt-2 border-2">
                     <div class="row">
                         <div class="col-md-8 mt-2">
-                            <h6 class="p-2"><i class="material-icons me-2">account_circle</i> ' . $nombre . '</h6>
-                            <h6 class="ms-2">' . $points . '</h6>
+                            <h6 class="p-2"><i class="material-icons me-2">account_circle</i> ' . $nombre . '
+                            <br>' . $points . '</h6>
                         </div>
                         <div class="col-md-4 mt-2">
                             ' . $btnEliminar . '
+                        </div>
+                    </div>
+                </div>';
+    }
+    public static function getCardUserInCommunityRanking($nombre, $imagen, $points, $contador)
+    {
+        return '<div class="card mt-2 border-2 pb-2">
+                    <div class="row">
+                        <div class="col-md-2 mt-2 ms-2">
+                            <img src="' . Path::$DIR_IMAGE_USER . $imagen . '" alt="" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="col-md-8 mt-2">
+                            <h6 class="text-black">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        ' . $contador . '. ' . $nombre . '
+                                    </div>
+                                    <div class="col-md-3">
+                                        ' . $points . ' &#10084;
+                                    </div>
+                                </div>
+                            </h6>
                         </div>
                     </div>
                 </div>';
@@ -573,15 +591,15 @@ class Elements
             <div class="card p-2 border-2 mt-2">
                 <div class="row">
                     <div class="col-md-4">
-                        <strong>' . $fecha . '</strong>
+                        <strong class="text-black">' . $fecha . '</strong>
                     </div>
                     <div class="col-md-8">
-                        <div class="row">
+                        <div class="row text-black">
                             <strong class="text-success">
                                 ' . $titulo . '
                             </strong>
-                            ' . $persona . '<br>
-                            Lugar: ' . $lugar . '
+                            <p class="text-black"> ' . $persona . '<br>
+                            Lugar: ' . $lugar . '</p>
                         </div>
                     </div>
                 </div>
@@ -604,7 +622,7 @@ class Elements
             <a href="#' . $nombre . '">
                 <div class="card border-2 h-100">
                     <div class="card-head p-0">
-                        <img src="' . Path::$DIR_IMAGE_SECTION . $imagen . '" alt="" class="img-fluid rounded-2 p-0">
+                        <img src="' . Path::$DIR_IMAGE_SECTION . $imagen . '" alt="Mini_card" class="img-fluid rounded-2 p-0">
                     </div>
                     <div class="card-foot">
                         <h5 class="text-center text-success">' . $nombre . '</h5>
@@ -628,7 +646,7 @@ class Elements
                         ' . $descripcion . '
                     </div>
                     <div class="col-md-4 mb-2">
-                        <img src="' . Path::$DIR_IMAGE_SECTION . $imagen . '" alt="" class="img-fluid">
+                        <img src="' . Path::$DIR_IMAGE_SECTION . $imagen . '" alt="" class="img-fluid" alt="img-section">
                     </div>
                 </div>
             </div>
