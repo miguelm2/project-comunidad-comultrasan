@@ -69,13 +69,13 @@
                         <div class="col-12">
                            <div class="form-group">
                               <label class="form-label" for="titulo">Título</label>
-                              <input type="text" class="form-control border p-1" name="titulo" value="<?= $benefit->getTitulo() ?>" required>
+                              <input type="text" class="form-control border p-1" name="titulo" value="<?= $benefit->getTitulo() ?>" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
                               <label class="form-label" for="puntos">Puntos</label>
-                              <input type="number" class="form-control border p-1" name="puntos" value="<?= $benefit->getPuntos() ?>" required>
+                              <input type="number" class="form-control border p-1" name="puntos" value="<?= $benefit->getPuntos() ?>" maxlength="255" required>
                            </div>
                         </div>
                      </div>

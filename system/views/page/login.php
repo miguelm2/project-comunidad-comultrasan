@@ -57,13 +57,13 @@
                            <div class="col-md-12">
                               <div class="form-group mb-3">
                                  <label class="label" for="cedula">Usuario</label>
-                                 <input type="text" class="form-control" placeholder="Usuario" name="cedula" required>
+                                 <input type="text" class="form-control" placeholder="Usuario" name="cedula" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-md-12">
                               <div class="form-group">
                                  <label class="label" for="password">Contraseña</label>
-                                 <input type="password" class="form-control" placeholder="Contraseña" name="pass" required>
+                                 <input type="password" class="form-control" placeholder="Contraseña" name="pass" maxlength="30" required>
                               </div>
                            </div>
                            <div class="col-md-12 col-sm-12 d-flex justify-content-end">

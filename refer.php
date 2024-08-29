@@ -30,7 +30,7 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
    <!-- Start Header -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
    <!-- End Header -->
@@ -52,7 +52,7 @@
                         <div class="col-md-12 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="nombre_referir">Nombre y Apellidos</label>
-                              <input type="text" name="nombre_referir" class="form-control" placeholder="Nombres completos" required>
+                              <input type="text" name="nombre_referir" class="form-control" placeholder="Nombres completos" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">
@@ -69,7 +69,7 @@
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="cedula_referir">Nro de documento</label>
-                              <input type="number" name="cedula_referir" class="form-control" placeholder="Nro de documento" required>
+                              <input type="text" name="cedula_referir" class="form-control" placeholder="Nro de documento" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-12">
@@ -81,7 +81,7 @@
                         <div class="col-md-12 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="nombre_referido">Nombre y Apellidos</label>
-                              <input type="text" name="nombre_referido" class="form-control" placeholder="Nombres completos" required>
+                              <input type="text" name="nombre_referido" class="form-control" placeholder="Nombres completos" maxlength="255" required>
                            </div>
                         </div>
 
@@ -100,28 +100,28 @@
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="cedula_referir">Nro de documento</label>
-                              <input type="text" name="cedula_referido" class="form-control" placeholder="Nro de documento" required>
+                              <input type="text" name="cedula_referido" class="form-control" placeholder="Nro de documento" maxlength="255" required>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="departamento">Departamento</label>
-                              <input type="text" name="departamento" class="form-control" placeholder="Departamento" required>
+                              <input type="text" name="departamento" class="form-control" placeholder="Departamento" maxlength="255" required>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="ciudad">Ciudad</label>
-                              <input type="text" name="ciudad" class="form-control" placeholder="Ciudad" required>
+                              <input type="text" name="ciudad" class="form-control" placeholder="Ciudad" maxlength="255" required>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="correo">Correo</label>
-                              <input type="email" name="correo" class="form-control" placeholder="Correo" required>
+                              <input type="email" name="correo" class="form-control" placeholder="Correo" maxlength="255" required>
                            </div>
                         </div>
 

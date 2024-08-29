@@ -65,7 +65,7 @@
                      <div class="col-12">
                         <div class="form-group">
                            <label class="form-label" for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" value="<?= $foroDTO->getTitulo() ?>" required>
+                           <input type="text" class="form-control border p-1" name="titulo" value="<?= $foroDTO->getTitulo() ?>" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">

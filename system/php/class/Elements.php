@@ -485,16 +485,16 @@ class Elements
     {
         return '<div class="card mt-2 border-2 pb-2">
                     <div class="row">
-                        <div class="col-md-2 mt-2 ms-2">
+                        <div class="col-md-2 col-sm-2 mt-2 ms-2">
                             <img src="' . Path::$DIR_IMAGE_USER . $imagen . '" alt="" class="img-fluid rounded-circle">
                         </div>
-                        <div class="col-md-8 mt-2">
+                        <div class="col-md-8 col-sm-8 mt-2">
                             <h6 class="text-black">
                                 <div class="row">
-                                    <div class="col-md-9">
+                                    <div class="col-md-9 col-sm-9">
                                         ' . $contador . '. ' . $nombre . '
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 col-sm-3">
                                         ' . $points . ' &#10084;
                                     </div>
                                 </div>
@@ -588,10 +588,10 @@ class Elements
     public static function getCardsEventsByGroup($fecha, $titulo, $persona, $lugar)
     {
         return '
-            <div class="card p-2 border-2 mt-2">
+            <div class="card pt-1 border-2 mt-2">
                 <div class="row">
-                    <div class="col-md-4">
-                        <strong class="text-black">' . $fecha . '</strong>
+                    <div class="col-md-4 justify-content-center align-content-center">
+                        <strong class="text-black ms-2">' . $fecha . '</strong>
                     </div>
                     <div class="col-md-8">
                         <div class="row text-black">

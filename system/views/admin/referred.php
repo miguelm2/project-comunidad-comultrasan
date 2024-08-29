@@ -121,35 +121,35 @@
                            <div class="col-md-6 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="cedula_referir">Nro de documento</label>
-                                 <input type="text" name="cedula_referido" class="form-control border p-1" placeholder="Nro de documento" required value="<?= $referred->getCedula_referido() ?>">
+                                 <input type="text" name="cedula_referido" class="form-control border p-1" placeholder="Nro de documento" maxlength="255" required value="<?= $referred->getCedula_referido() ?>">
                               </div>
                            </div>
 
                            <div class="col-md-6 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="departamento">Departamento</label>
-                                 <input type="text" name="departamento" class="form-control border p-1" placeholder="Departamento" required value="<?= $referred->getDepartamento() ?>">
+                                 <input type="text" name="departamento" class="form-control border p-1" placeholder="Departamento" maxlength="255" required value="<?= $referred->getDepartamento() ?>">
                               </div>
                            </div>
 
                            <div class="col-md-6 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="ciudad">Ciudad</label>
-                                 <input type="text" name="ciudad" class="form-control border p-1" placeholder="Ciudad" required value="<?= $referred->getCiudad() ?>">
+                                 <input type="text" name="ciudad" class="form-control border p-1" placeholder="Ciudad" required maxlength="255" value="<?= $referred->getCiudad() ?>">
                               </div>
                            </div>
 
                            <div class="col-md-4 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="correo">Correo</label>
-                                 <input type="email" name="correo" class="form-control border p-1" placeholder="Correo" required value="<?= $referred->getCorreo() ?>">
+                                 <input type="email" name="correo" class="form-control border p-1" placeholder="Correo" required maxlength="255" value="<?= $referred->getCorreo() ?>">
                               </div>
                            </div>
 
                            <div class="col-md-4 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="celular">Celular</label>
-                                 <input type="number" name="celular" class="form-control border p-1" placeholder="Celular" required value="<?= $referred->getCelular() ?>">
+                                 <input type="number" name="celular" class="form-control border p-1" placeholder="Celular" required maxlength="255" value="<?= $referred->getCelular() ?>">
                               </div>
                            </div>
                            <div class="col-md-4 mt-2">

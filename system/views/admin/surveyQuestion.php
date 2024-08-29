@@ -65,7 +65,7 @@
                      <div class="col-md-12">
                         <div class="form-group">
                            <label class="form-label" for="pregunta">Pregunta</label>
-                           <input type="text" class="form-control border p-1" name="pregunta" value="<?= $surveyQuestion->getPregunta() ?>" required>
+                           <input type="text" class="form-control border p-1" name="pregunta" value="<?= $surveyQuestion->getPregunta() ?>" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-md-12">

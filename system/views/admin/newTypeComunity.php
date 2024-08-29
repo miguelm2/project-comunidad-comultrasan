@@ -66,13 +66,13 @@
                   <div class="col-12">
                      <div class="form-group">
                         <label class="form-label" for="titulo">Título</label>
-                        <input type="text" class="form-control border p-1" name="titulo" required>
+                        <input type="text" class="form-control border p-1" name="titulo" maxlength="255" required>
                      </div>
                   </div>
                   <div class="col-12">
                      <div class="form-group">
                         <label class="form-label" for="icono">Icono</label>
-                        <input type="text" class="form-control border p-1" name="icono" required>
+                        <input type="text" class="form-control border p-1" name="icono" maxlength="255" required>
                      </div>
                   </div>
                   <div class="col-md-12 form-group">
@@ -82,7 +82,7 @@
                   <div class="col-12">
                      <div class="form-group">
                         <label class="form-label" for="subtitulo">Subtítulo</label>
-                        <input type="text" class="form-control border p-1" name="subtitulo" required>
+                        <input type="text" class="form-control border p-1" name="subtitulo" maxlength="255" required>
                      </div>
                   </div>
                   <div class="col-md-12 mt-3">

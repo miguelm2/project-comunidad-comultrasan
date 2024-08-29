@@ -72,7 +72,7 @@
                            <div class="col-md-12">
                               <div class="form-group">
                                  <label class="form-label" for="respuesta">Respuesta</label>
-                                 <input type="text" class="form-control border p-1" name="respuesta" value="<?= $answerQuestion->getRespuesta() ?>" required>
+                                 <input type="text" class="form-control border p-1" name="respuesta" value="<?= $answerQuestion->getRespuesta() ?>" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-md-12">

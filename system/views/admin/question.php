@@ -66,13 +66,13 @@
                            <div class="col-12">
                               <div class="form-group">
                                  <label class="form-label">Pregunta</label>
-                                 <input type="text" class="form-control border p-1" name="pregunta" value="<?= $question->getPregunta() ?>" required>
+                                 <input type="text" class="form-control border p-1" name="pregunta" value="<?= $question->getPregunta() ?>" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-12">
                               <div class="form-group">
                                  <label class="form-label">Respuesta</label>
-                                 <textarea name="respuesta" id="respuesta" class="form-control border p-1" rows="4" required><?= $question->getRespuesta() ?></textarea>
+                                 <textarea name="respuesta" id="respuesta" class="form-control border p-1" rows="4" maxlength="255" required><?= $question->getRespuesta() ?></textarea>
                               </div>
                            </div>
                         </div>

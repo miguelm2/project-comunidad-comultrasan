@@ -68,7 +68,7 @@
                      <div class="col-12 mt-3">
                         <div class="form-group">
                            <label class="form-label" for="nombre">Nombre</label>
-                           <input type="text" class="form-control border p-1" name="nombre" value="<?= $sectionTypeComunity->getNombre() ?>" required>
+                           <input type="text" class="form-control border p-1" name="nombre" value="<?= $sectionTypeComunity->getNombre() ?>" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">

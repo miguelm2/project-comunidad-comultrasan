@@ -12,10 +12,11 @@ class ServiceLike extends System
             $fecha_registro = date('Y-m-d H:i:s');
 
             $result = MeGusta::newLike($id_foro, $id_usuario,  $fecha_registro);
+            $count = MeGusta::getCountLikesByForum($id_foro);
             if ($result) {
-                return json_encode(['status' => 'liked', 'message' => 'Like agregado correctamente']);
+                return json_encode(['status' => 'liked', 'message' => 'Like agregado correctamente', 'likes' => $count]);
             } else {
-                return json_encode(['status' => 'error', 'message' => 'Error al agregar el like']);
+                return json_encode(['status' => 'error', 'message' => 'Error al agregar el like', 'likes' => $count]);
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -28,10 +29,11 @@ class ServiceLike extends System
             $id_usuario = $_SESSION['id'];
 
             $result = MeGusta::deleteLike($id_foro, $id_usuario);
+            $count = MeGusta::getCountLikesByForum($id_foro);
             if ($result) {
-                return json_encode(['status' => 'unliked', 'message' => 'Like eliminado correctamente']);
+                return json_encode(['status' => 'unliked', 'message' => 'Like eliminado correctamente', 'likes' => $count]);
             } else {
-                return json_encode(['status' => 'error', 'message' => 'Error al eliminar el like']);
+                return json_encode(['status' => 'error', 'message' => 'Error al eliminar el like', 'likes' => $count]);
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

@@ -69,13 +69,13 @@
                         <div class="col-12">
                            <div class="form-group">
                               <label class="form-label" for="titulo">Título</label>
-                              <input type="text" class="form-control border p-1" name="titulo" value="<?= $benefitPage->getTitulo() ?>" required>
+                              <input type="text" class="form-control border p-1" name="titulo" value="<?= $benefitPage->getTitulo() ?>" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
                               <label class="form-label" for="subtitulo">Subtítulo</label>
-                              <input type="text" class="form-control border p-1" name="subtitulo" value="<?= $benefitPage->getSubtitulo() ?>" required>
+                              <input type="text" class="form-control border p-1" name="subtitulo" value="<?= $benefitPage->getSubtitulo() ?>" maxlength="255" required>
                            </div>
                         </div>
                      </div>

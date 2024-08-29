@@ -65,16 +65,16 @@
                      <div class="col-12">
                         <div class="form-group">
                            <label class="form-label" for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" required>
+                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-md-12 form-group">
                         <label for="descuento">Descuento</label>
-                        <input type="text" class="form-control border p-1" name="descuento" placeholder="Descuento" required>
+                        <input type="text" class="form-control border p-1" name="descuento" placeholder="Descuento" maxlength="255" required>
                      </div>
                      <div class="col-md-12 form-group">
                         <label for="vigencia">Vigencia</label>
-                        <input type="text" class="form-control border p-1" name="vigencia" placeholder="Vigencia" required>
+                        <input type="text" class="form-control border p-1" name="vigencia" placeholder="Vigencia" maxlength="255" required>
                      </div>
                      <div class="col-md-6 form-group">
                         <label for="imageDiscount">Imagen</label>

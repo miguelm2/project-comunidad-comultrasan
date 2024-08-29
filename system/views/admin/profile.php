@@ -63,13 +63,13 @@
                               <div class="col-12">
                                  <div class="form-group">
                                     <label class="form-label">Nombre</label>
-                                    <input type="text" class="form-control border p-1" name="nombre" value="<?= $_SESSION['nombre'] ?>" required>
+                                    <input type="text" class="form-control border p-1" name="nombre" value="<?= $_SESSION['nombre'] ?>" maxlength="255" required>
                                  </div>
                               </div>
                               <div class="col-12">
                                  <div class="form-group">
                                     <label class="form-label">Correo</label>
-                                    <input type="email" class="form-control border p-1" name="correo" value="<?= $_SESSION['correo'] ?>" required>
+                                    <input type="email" class="form-control border p-1" name="correo" value="<?= $_SESSION['correo'] ?>" maxlength="255" required>
                                  </div>
                               </div>
                               <div class="col-12">
@@ -81,7 +81,7 @@
                               <div class="col-md-6">
                                  <div class="form-group">
                                     <label for="" class="form-label">Cedula</label><br>
-                                    <input type="text" class="form-control border p-1" name="cedula" value="<?= $_SESSION['cedula'] ?>">
+                                    <input type="text" class="form-control border p-1" name="cedula" value="<?= $_SESSION['cedula'] ?>" maxlength="255" required>
                                  </div>
                               </div>
                               <div class="col-md-6">

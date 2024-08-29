@@ -94,48 +94,6 @@
             </div>
          </div>
       </div>
-      <!-- ======= Basic Modal ======= -->
-      <form id="uploadForm" method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="newBenefit" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Nuevo Beneficio Página</h5>
-                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <div class="row g-3">
-                        <div class="col-md-12 form-group">
-                           <label for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="subtitulo">Subtítulo</label>
-                           <input type="text" class="form-control border p-1" name="subtitulo" placeholder="Subtitulo" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="imageBenefitPage">Imagen</label>
-                           <input type="file" class="form-control border p-1" name="imageBenefitPage" accept="image/*" required>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="contenido">Contenido</label>
-                           <textarea name="contenido" id="contenido" class="form-control border p-1" rows="5" placeholder="Escribe el contenido aqui" required></textarea>
-                        </div>
-                        <div class="col-md-12 form-group">
-                           <label for="contenido">Requisitos</label>
-                           <textarea name="requisitos" id="requisitos" class="form-control border p-1" rows="5" placeholder="Escribe el contenido aqui" required></textarea>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newBenefitPage" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo tipo comunidad</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!--Final Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->

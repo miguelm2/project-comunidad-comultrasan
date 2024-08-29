@@ -47,7 +47,7 @@
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success">
-                        Editar Tipo de Comunidad
+                        Editar Comentario de Foro
                      </h5>
                   </div>
                   <div class="col-md-2 mt-0">

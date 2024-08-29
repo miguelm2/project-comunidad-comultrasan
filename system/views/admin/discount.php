@@ -75,18 +75,18 @@
                      <div class="col-md-12">
                         <div class="col-md-12 form-group">
                            <label for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" value="<?= $discount->getTitulo() ?>" required>
+                           <input type="text" class="form-control border p-1" name="titulo" value="<?= $discount->getTitulo() ?>" maxlength="255" required>
                         </div>
                         <div class="col-12 mt-3">
                            <div class="form-group">
                               <label class="form-label" for="descuento">Descuento</label>
-                              <input type="text" class="form-control border p-1" name="descuento" value="<?= $discount->getDescuento() ?>" required>
+                              <input type="text" class="form-control border p-1" name="descuento" value="<?= $discount->getDescuento() ?>" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
                               <label class="form-label" for="vigencia">Vigencia</label>
-                              <input type="text" class="form-control border p-1" name="vigencia" value="<?= $discount->getVigencia() ?>" required>
+                              <input type="text" class="form-control border p-1" name="vigencia" value="<?= $discount->getVigencia() ?>" maxlength="255" required>
                            </div>
                         </div>
                      </div>

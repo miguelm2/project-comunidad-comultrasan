@@ -111,15 +111,15 @@
                      <div class="row g-3">
                         <div class="col-md-6 form-group">
                            <label for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" required>
+                           <input type="text" class="form-control border p-1" name="titulo" maxlength="255" required>
                         </div>
                         <div class="col-md-6 form-group">
                            <label for="icono">Icono</label>
-                           <input type="text" class="form-control border p-1" name="icono" required>
+                           <input type="text" class="form-control border p-1" name="icono" maxlength="255" required>
                         </div>
                         <div class="col-md-12 form-group">
                            <label for="subtitulo">Subtítulo</label>
-                           <input type="text" class="form-control border p-1" name="subtitulo" required>
+                           <input type="text" class="form-control border p-1" name="subtitulo" maxlength="255" required>
                         </div>
                         <div class="col-md-12 form-group">
                            <label for="imageTypeComunity">Imagen</label>

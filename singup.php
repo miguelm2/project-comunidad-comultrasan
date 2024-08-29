@@ -30,7 +30,7 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
    <!-- Start Header -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
    <!-- End Header -->
@@ -75,14 +75,14 @@
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="cedula">Nro de documento</label>
-                              <input type="text" class="form-control" name="cedula" placeholder="Nro de documento" required>
+                              <input type="text" class="form-control" name="cedula" placeholder="Nro de documento" maxlength="255" required>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="nombre">Nombre y Apellidos</label>
-                              <input type="text" class="form-control" name="nombre" placeholder="Nombres completos" required>
+                              <input type="text" class="form-control" name="nombre" placeholder="Nombres completos" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">
@@ -94,7 +94,7 @@
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="correo">Correo</label>
-                              <input type="email" class="form-control" name="correo" placeholder="Correo" required>
+                              <input type="email" class="form-control" name="correo" placeholder="Correo" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">
@@ -106,7 +106,7 @@
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="pass">Contraseña</label>
-                              <input type="password" class="form-control" name="pass" placeholder="Contraseña" required>
+                              <input type="password" class="form-control" name="pass" placeholder="Contraseña" maxlength="30" required>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">

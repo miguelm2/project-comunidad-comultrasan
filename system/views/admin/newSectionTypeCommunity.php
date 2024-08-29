@@ -67,7 +67,7 @@
                   <div class="col-12">
                      <div class="form-group">
                         <label class="form-label" for="nombre">Nombre</label>
-                        <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre" required>
+                        <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre" maxlength="255" required>
                      </div>
                   </div>
                   <div class="col-md-12 form-group">

@@ -71,7 +71,7 @@
                            <div class="col-12">
                               <div class="form-group">
                                  <label class="form-label">Nombre</label>
-                                 <input type="text" class="form-control border p-1" value="<?= $user->getNombre() ?>" name="nombre" required>
+                                 <input type="text" class="form-control border p-1" value="<?= $user->getNombre() ?>" name="nombre" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-6">
@@ -89,7 +89,7 @@
                            <div class="col-6">
                               <div class="form-group">
                                  <label class="form-label">Cédula</label>
-                                 <input type="number" class="form-control border p-1" value="<?= $user->getCedula() ?>" name="cedula" required>
+                                 <input type="number" class="form-control border p-1" value="<?= $user->getCedula() ?>" name="cedula" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-6">
@@ -107,7 +107,7 @@
                            <div class="col-6">
                               <div class="form-group">
                                  <label class="form-label">Correo</label>
-                                 <input type="email" class="form-control border p-1" value="<?= $user->getCorreo() ?>" name="correo" required>
+                                 <input type="email" class="form-control border p-1" value="<?= $user->getCorreo() ?>" name="correo" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-6">
