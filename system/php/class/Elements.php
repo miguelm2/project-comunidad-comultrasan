@@ -426,7 +426,7 @@ class Elements
     public static function getFormJoinGroupInterest()
     {
         return '<form method="post">
-                    <button name="newCommunityGroupInterest" class="btn btn-success">¡Unirme Ahora!</button>
+                    <button name="newUserGroupInterest" class="btn btn-success">¡Unirme Ahora!</button>
                 </form>';
     }
     public static function getUnitedCommunity()
@@ -439,9 +439,9 @@ class Elements
                             </button>
                         </div>
                         <div class="col-md-6 d-grid">
-                            <a href="allCommunities" class="btn btn-success ms-4">
+                            <button class="btn btn-success ms-4" data-bs-toggle="modal" data-bs-target="#unitedCommunity">
                                 <i class="material-icons me-2">add</i> Unirme a una comunidad
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>';

@@ -123,6 +123,34 @@ class ServiceSurvey extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function getIdLastSurveyByUser(){
+        try{
+            $id_usuario = $_SESSION['id'];
+            $encuestaDTO = Encuesta::getIdSurveyByEstateAndNotResolved($id_usuario);
+            return $encuestaDTO->getId_encuesta();
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getScriptModal()
+    {
+        try {
+            $_SESSION['show_modal'] = false;
+            $id_usuario = $_SESSION['id'];
+            $encuestaDTO = Encuesta::getIdSurveyByEstateAndNotResolved($id_usuario);
+            if(!$encuestaDTO){
+                return '';
+            }
+            return '<script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            var loginModal = new bootstrap.Modal(document.getElementById("loginModal"));
+                            loginModal.show();
+                        });
+                    </script>';
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
     public static function getProgress()
     {
         try {

@@ -61,7 +61,8 @@ class Constants
     static $DELETE_USER_COM_NOT = "No te has podido desvincular de la comunidad";
     static $DELETE_USER_BY_LEAD = "Has eliminado el usuario de la comunidad";
     static $DELETE_USER_BY_LEAD_NOT = "No se ha eliminado el usuario de la comunidad";
-    static $USER_NOT_EXIST      = "El asociado que busca no existe";
-    static $USER_READY_COMMUNITY   = "El asociado que busca no existe";
-    static $USER_DIFERENT       = "La cédula debe pertenecer a otro asociado";
+    static $USER_NOT_EXIST          = "El asociado que busca no existe";
+    static $USER_READY_COMMUNITY    = "El asociado que busca no existe";
+    static $USER_DIFERENT           = "La cédula debe pertenecer a otro asociado";
+    static $COMMUNITY_NOT           = "La comunidad que digitó no existe";
 }

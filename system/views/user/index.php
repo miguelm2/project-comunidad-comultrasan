@@ -23,7 +23,7 @@
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
-<body class="g-sidenav-show  bg-gray-200">
+<body class="g-sidenav-show  bg-gray-200 align-content-center d-flex justify-content-center">
    <!-- Start Slider -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_user.php'; ?>
    <!-- End Slider -->
@@ -34,7 +34,7 @@
          <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_user.php'; ?>
          <!-- End header -->
       </nav>
-      <div class="container-fluid pe-4">
+      <div class="container pe-4">
          <section class="services sections-bg bg-light mt-2">
             <div class="alert alert-info alert-dismissible fade show" role="alert">
                <div class="text-white">
@@ -49,7 +49,7 @@
       </div>
       <!-- ======= Our Services Section ======= -->
       <section class="sections-bg bg-light">
-         <div class="container-fluid mt-2 p-2">
+         <div class="container mt-2 p-2">
             <div class="section-header pb-0">
                <h3 class="text-pri">Novedades de nuestra comunidad</h3>
             </div>
@@ -132,7 +132,7 @@
       <!-- End Navbar -->
       <div class="mt-2">
          <section class="services sections-bg bg-light">
-            <div class="container-fluid">
+            <div class="container">
                <div class="section-header pb-0">
                   <h3 class="text-pri">Eventos del mes</h3>
                </div>
@@ -142,6 +142,26 @@
             </div>
          </section>
       </div>
+      <!-- ======= Basic Modal ======= -->
+      <div class="modal fade" id="loginModal" tabindex="-1">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="loginModalLabel">Aviso de encuestas pendientes</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  Tienes pendiente encuetas por resolver, dale en en ir y resuelvela
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                     <i class="material-icons me-2">close</i> Cerrar</button>
+                  <a href="startSurvey?survey=<?= $encuesta_id ?>" class="btn btn-success"><i class="material-icons me-2">school</i> Ir</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- End Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/footer.php'; ?>
       <!-- End Footer -->
@@ -155,6 +175,7 @@
    <script src="/system/assets/js/plugins/smooth-scrollbar.min.js"></script>
    <script src="/system/assets/js/plugins/chartjs.min.js"></script>
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
+   <?= $response?>
 </body>
 
 </html>

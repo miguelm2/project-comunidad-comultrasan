@@ -16,4 +16,12 @@ class Invitacion extends system
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
+    public static function getInvitationByCedula($cedula)
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM Invitacion WHERE cedula = :cedula");
+        $stmt->bindParam(':cedula', $cedula);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }

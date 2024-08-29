@@ -148,4 +148,25 @@ class Comunidad extends System
         }
         return null;
     }
+    public static function getRankingByCommunity($id_comunidad){
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("WITH Ranking AS (
+                                SELECT  C.id_comunidad, SUM(P.puntos) AS total_puntos, 
+                                    RANK() OVER (ORDER BY SUM(P.puntos) DESC) AS posicion
+                                FROM 
+                                    Comunidad C, 
+                                    UsuarioComunidad UC,
+                                    Punto P
+                                WHERE C.id_comunidad = UC.id_comunidad
+                                AND UC.id_usuario = P.id_usuario
+                                GROUP BY C.id_comunidad)
+                                SELECT 
+                                    R.posicion,
+                                    (SELECT COUNT(*) FROM Ranking) AS total_comunidades
+                                FROM Ranking R
+                                WHERE R.id_comunidad = :id_comunidad");
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }

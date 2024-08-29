@@ -25,11 +25,11 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
 " rel="stylesheet">
 </head>
 
-<body class="g-sidenav-show  bg-gray-200">
+<body class="g-sidenav-show bg-gray-200 align-content-center d-flex justify-content-center">
    <!-- Start Slider -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_user.php'; ?>
    <!-- End Slider -->
-   <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
+   <main class="main-content position-relative max-height-vh-100 h-100 border-radius container">
       <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
          <!-- Start header -->

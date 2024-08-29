@@ -22,11 +22,11 @@
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
-<body class="g-sidenav-show  bg-gray-200">
+<body class="g-sidenav-show bg-gray-200 align-content-center d-flex justify-content-center">
    <!-- Start Slider -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_user.php'; ?>
    <!-- End Slider -->
-   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg container">
       <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
          <!-- Start header -->
@@ -35,13 +35,13 @@
       </nav>
       <div class="card mt-3">
          <div class="row m-0">
-            <div class="col-md-8 m-4">
+            <div class="col-md-8 ms-4 mt-4">
                <div class="card-head">
                   <h4 class="text-success">Mis Beneficios</h4>
                </div>
             </div>
          </div>
-         <div class="card-body m-0">
+         <div class="card-body p-3 pt-0">
             <div class="row">
                <?= $cardBenefitUser ?>
             </div>
@@ -49,13 +49,13 @@
       </div>
       <div class="card mt-3">
          <div class="row m-0">
-            <div class="col-md-8 m-4">
+            <div class="col-md-8 ms-4 mt-4">
                <div class="card-head">
                   <h4 class="text-success">Historial de Corazones</h4>
                </div>
             </div>
          </div>
-         <div class="card-body m-0">
+         <div class="card-body p-3 pt-0">
             <div class="table-responsive">
                <table class="table table-bordered table-hover align-items-center mb-0">
                   <thead class="text-center">
