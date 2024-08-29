@@ -77,6 +77,23 @@ class Encuesta extends System
         $stmt->execute();
         return  $stmt->fetchAll();
     }
+    public static function getIdSurveyByEstateAndNotResolved($id_usuario)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 enc.*
+                                FROM Encuesta enc
+                                WHERE enc.estado = 1
+                                AND NOT EXISTS (
+                                    SELECT 1 
+                                    FROM RespuestaUsuario ru
+                                    WHERE ru.id_usuario = :id_usuario 
+                                    AND enc.id_encuesta = ru.id_encuesta
+                                )");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'EncuestaDTO');
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        return  $stmt->fetch();
+    }
     public static function listSurveyByEstateAndResolved($id_usuario)
     {
         $dbh             = parent::Conexion();

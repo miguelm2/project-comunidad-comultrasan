@@ -12,14 +12,38 @@ class ServiceUserCommunity extends System
             $estado             = parent::limpiarString(1);
             $fecha_registro = date('Y-m-d H:i:s');
 
+            $comunidadDTO = Comunidad::getCommunity($id_comunidad);
+
+            if (!$comunidadDTO) {
+                return Elements::crearMensajeAlerta(Constants::$COMMUNITY_NOT, "error");
+            }
+
             $result = UsuarioComunidad::newUserCommunity($id_usuario, $id_comunidad, $estado, $fecha_registro);
 
-            if ($result) {
+            if ($result && $comunidadDTO) {
                 $lastRegister = UsuarioComunidad::getUserCommunityByUserInactive($id_usuario);
-                $correo = $lastRegister->getUsuarioDTO()->getCorreo();
-                $asunto = "Solicitud de unión a comunidad";
-                $mensaje = "Hola, estas siendo invitada a unirte a una nueva comunidad, para aceptar o rechzar la 
-                oferta da click en el siguiente link: " . self::getURL() . '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad();
+                if ($comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id']) {
+                    $correo = $lastRegister->getUsuarioDTO()->getCorreo();
+                    $asunto = "Solicitud de unión a comunidad";
+                    $mensaje = "Estimado/a, <br><br>
+                            Has sido invitado/a a unirte a una nueva comunidad en nuestra plataforma. 
+                            Para aceptar o rechazar esta oferta, por favor, haz clic en el siguiente enlace:<a href='" . self::getURL() .
+                        '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "'>" . self::getURL() .
+                        '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "</a><br>br>
+                            Gracias por ser parte de nuestra comunidad. <br><br>
+                            Saludos cordiales,<br>
+                            El equipo de Financiera Comultrasan";
+                } else {
+                    $correo = $comunidadDTO->getUsuarioDTO()->getCorreo();
+                    $asunto = "Solicitud de unión a comunidad";
+                    $mensaje = "Estimado/a líder de la comunidad, <br><br>
+                            El usuario " . $lastRegister->getUsuarioDTO()->getNombre() . " ha solicitado unirse a tu comunidad. 
+                            Para revisar y aceptar o rechazar esta solicitud, por favor, haz clic en el siguiente enlace: " . self::getURL() .
+                        '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "<br><br>
+                            Gracias por tu liderazgo y dedicación. <br><br>
+                            Saludos cordiales, <br>
+                            El equipo de Financiera Comultrasan";
+                }
                 Mail::sendEmail($asunto, $mensaje, $correo);
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
             }
@@ -40,13 +64,43 @@ class ServiceUserCommunity extends System
         try {
             $id_usuario         = parent::limpiarString($id_usuario);
             $id_comunidad       = parent::limpiarString($id_comunidad);
-            $estado             = parent::limpiarString(2);
+            $estado             = parent::limpiarString(1);
             $fecha_registro = date('Y-m-d H:i:s');
+
+            $comunidadDTO = Comunidad::getCommunity($id_comunidad);
+
+            if (!$comunidadDTO) {
+                return Elements::crearMensajeAlerta(Constants::$COMMUNITY_NOT, "error");
+            }
 
             $result = UsuarioComunidad::newUserCommunity($id_usuario, $id_comunidad, $estado, $fecha_registro);
 
-            if ($result) {
-                header('Location: community?new');
+            if ($result && $comunidadDTO) {
+                $lastRegister = UsuarioComunidad::getUserCommunityByUserInactive($id_usuario);
+                if ($comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id']) {
+                    $correo = $lastRegister->getUsuarioDTO()->getCorreo();
+                    $asunto = "Solicitud de unión a comunidad";
+                    $mensaje = "Estimado/a, <br><br>
+                            Has sido invitado/a a unirte a una nueva comunidad en nuestra plataforma. 
+                            Para aceptar o rechazar esta oferta, por favor, haz clic en el siguiente enlace:<a href='" . self::getURL() .
+                        '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "'>" . self::getURL() .
+                        '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "</a><br>br>
+                            Gracias por ser parte de nuestra comunidad. <br><br>
+                            Saludos cordiales,<br>
+                            El equipo de Financiera Comultrasan";
+                } else {
+                    $correo = $comunidadDTO->getUsuarioDTO()->getCorreo();
+                    $asunto = "Solicitud de unión a comunidad";
+                    $mensaje = "Estimado/a líder de la comunidad, <br><br>
+                            El usuario " . $lastRegister->getUsuarioDTO()->getNombre() . " ha solicitado unirse a tu comunidad. 
+                            Para revisar y aceptar o rechazar esta solicitud, por favor, haz clic en el siguiente enlace: " . self::getURL() .
+                        '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "<br><br>
+                            Gracias por tu liderazgo y dedicación. <br><br>
+                            Saludos cordiales, <br>
+                            El equipo de Financiera Comultrasan";
+                }
+                Mail::sendEmail($asunto, $mensaje, $correo);
+                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

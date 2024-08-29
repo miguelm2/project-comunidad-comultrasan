@@ -3,6 +3,9 @@
 use PhpOffice\PhpSpreadsheet\Writer\Ods\Content;
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Usuario.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Punto.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/HistorialInformacion.php';
 
 class ServiceUser extends System
 {
@@ -25,6 +28,11 @@ class ServiceUser extends System
                 $imagen = self::newImagen();
 
                 $result = Usuario::newUser($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $tipo_documento, $fecha_nacimiento, $fecha_registro);
+                $invitacionDTO = Invitacion::getInvitationByCedula($cedula);
+                if($invitacionDTO){
+                    $usuarioDTO = Usuario::getUserByCedula($cedula);
+                    //$result = UsuarioComunidad::newUserCommunity($usuarioDTO->getId_usuario, $id_comunidad, 1, $fecha_registro);
+                }
                 if ($result) {
                     return Elements::crearMensajeAlerta(Constants::$USER_NEW, "success");
                 } else {
@@ -88,6 +96,12 @@ class ServiceUser extends System
                     $_SESSION['tipo']               =   $usuario->getTipo();
                     $_SESSION['fecha_nacimiento']   =   $usuario->getFecha_nacimiento();
                     $_SESSION['fecha_registro']     =   $usuario->getFecha_registro();
+                    $historialDTO = HistorialInformacion::getHistoryInformationByUser($_SESSION['id']);
+                    $fecha_registro = date('Y-m-d H:i:s');
+                    if (!$historialDTO) {
+                        HistorialInformacion::newHistoryInformation($_SESSION['id'], $fecha_registro);
+                        Punto::newPoint(5, $_SESSION['id'], 1, "Actualización de información", $fecha_registro);
+                    }
                     return  '<script>swal("' . Constants::$INFORMATION_NEW . '", "", "success");</script>';
                 } else {
                     return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';

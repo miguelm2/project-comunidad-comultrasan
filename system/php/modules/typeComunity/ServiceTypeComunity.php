@@ -213,11 +213,11 @@ class ServiceTypeComunity extends System
                     return '<button class="btn btn-success disabled">No perteneces a una comunidad</button>';
                 }
             }
-            $tipoComunidadDTO = TipoComunidad::getTypeComunityByCommunity($comunidadDTO->getId_comunidad());
+            $tipoComunidadDTO = TipoComunidad::getTypeComunityByUser($_SESSION['id']);
             if (!$tipoComunidadDTO) {
                 return Elements::getFormJoinGroupInterest();
             } else {
-                return '<a href="forums?comunnityForum=' . $id_grupo . '" class="btn btn-info"><i class="material-icons text-sm me-2">dashboard</i>Ir a foro</a>';
+                return '';
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -235,7 +235,7 @@ class ServiceTypeComunity extends System
             }
 
             if ($comunidadDTO) {
-                $tipoComunidadDTO = TipoComunidad::getTypeComunityByCommunity($comunidadDTO->getId_comunidad());
+                $tipoComunidadDTO = TipoComunidad::getTypeComunityByUser($_SESSION['id']);
 
                 if ($tipoComunidadDTO && $tipoComunidadDTO->getId_tipo_comunidad() == $id_grupo) {
                     return '<a href="newForum?comunnityForum=' . $id_grupo . '" class="btn btn-success">
@@ -261,7 +261,7 @@ class ServiceTypeComunity extends System
             }
 
             if ($comunidadDTO && $foroDTO) {
-                $tipoComunidadDTO = TipoComunidad::getTypeComunityByCommunity($comunidadDTO->getId_comunidad());
+                $tipoComunidadDTO = TipoComunidad::getTypeComunityByUser($_SESSION['id']);
 
                 if ($tipoComunidadDTO && $tipoComunidadDTO->getId_tipo_comunidad() == $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad()) {
                     return '';

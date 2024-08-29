@@ -20,8 +20,13 @@ if (isset($_GET['survey'])) {
     $survey = ServiceSurvey::getSurvey($_GET['survey']);
 }
 
+if (isset($_SESSION['show_modal']) && $_SESSION['show_modal']) {
+    $response =  ServiceSurvey::getScriptModal();
+}
+
 if (isset($_GET)) {
     $tableSurvey = ServiceSurvey::getTableSurvey();
     $tableSurveyUser = ServiceSurvey::getSurveyUser();
     $progress = ServiceSurvey::getProgress();
+    $encuesta_id = ServiceSurvey::getIdLastSurveyByUser();
 }

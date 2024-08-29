@@ -287,13 +287,6 @@ CREATE TABLE UsuarioBeneficio (
   fecha_registro DATETIME NOT NULL
 );
 
-CREATE TABLE ComunidadGrupoInteres (
-  id_comunidad_grupo INT IDENTITY(1, 1) PRIMARY KEY,
-  id_comunidad INT NOT NULL,
-  id_grupo INT NOT NULL,
-  fecha_registro DATETIME NOT NULL
-);
-
 ALTER TABLE
   Foro
 ADD
@@ -375,4 +368,17 @@ CREATE TABLE Referido (
   id_usuario INT NULL,
   estado INT NOT NULL,
   fecha_registro DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE HistorialInformacion (
+  id_historial INT IDENTITY(1, 1) PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  fecha_registro DATETIME DEFAULT GETDATE() NOT NULL
+);
+
+CREATE TABLE UsuarioGrupoInteres (
+  id_usuario_grupo INT IDENTITY(1, 1) PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  id_grupo INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
 );

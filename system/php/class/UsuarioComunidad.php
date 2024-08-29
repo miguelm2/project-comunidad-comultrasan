@@ -33,6 +33,7 @@ class UsuarioComunidad extends system
             $UsuarioComunidadDTO->setId_usuario_comunidad($response['id_usuario_comunidad']);
             $UsuarioComunidadDTO->setUsuarioDTO(Usuario::getUserById($response['id_usuario']));
             $UsuarioComunidadDTO->setComunidadDTO(Comunidad::getCommunity($response['id_comunidad']));
+            $UsuarioComunidadDTO->setEstado($response['estado']);
             $UsuarioComunidadDTO->setFecha_registro($response['fecha_registro']);
 
             $list[$con] = $UsuarioComunidadDTO;
@@ -56,6 +57,7 @@ class UsuarioComunidad extends system
             $UsuarioComunidadDTO->setId_usuario_comunidad($response['id_usuario_comunidad']);
             $UsuarioComunidadDTO->setUsuarioDTO(Usuario::getUserById($response['id_usuario']));
             $UsuarioComunidadDTO->setComunidadDTO(Comunidad::getCommunity($response['id_comunidad']));
+            $UsuarioComunidadDTO->setEstado($response['estado']);
             $UsuarioComunidadDTO->setFecha_registro($response['fecha_registro']);
             return $UsuarioComunidadDTO;
         }
@@ -77,6 +79,7 @@ class UsuarioComunidad extends system
             $UsuarioComunidadDTO->setId_usuario_comunidad($response['id_usuario_comunidad']);
             $UsuarioComunidadDTO->setUsuarioDTO(Usuario::getUserById($response['id_usuario']));
             $UsuarioComunidadDTO->setComunidadDTO(Comunidad::getCommunity($response['id_comunidad']));
+            $UsuarioComunidadDTO->setEstado($response['estado']);
             $UsuarioComunidadDTO->setFecha_registro($response['fecha_registro']);
             return $UsuarioComunidadDTO;
         }
@@ -129,6 +132,7 @@ class UsuarioComunidad extends system
             $UsuarioComunidadDTO->setId_usuario_comunidad($response['id_usuario_comunidad']);
             $UsuarioComunidadDTO->setUsuarioDTO(Usuario::getUserById($response['id_usuario']));
             $UsuarioComunidadDTO->setComunidadDTO(Comunidad::getCommunity($response['id_comunidad']));
+            $UsuarioComunidadDTO->setEstado($response['estado']);
             $UsuarioComunidadDTO->setFecha_registro($response['fecha_registro']);
             return $UsuarioComunidadDTO;
         }
@@ -150,6 +154,7 @@ class UsuarioComunidad extends system
             $UsuarioComunidadDTO->setId_usuario_comunidad($response['id_usuario_comunidad']);
             $UsuarioComunidadDTO->setUsuarioDTO(Usuario::getUserById($response['id_usuario']));
             $UsuarioComunidadDTO->setComunidadDTO(Comunidad::getCommunity($response['id_comunidad']));
+            $UsuarioComunidadDTO->setEstado($response['estado']);
             $UsuarioComunidadDTO->setFecha_registro($response['fecha_registro']);
             return $UsuarioComunidadDTO;
         }
