@@ -14,46 +14,68 @@ class ServiceCommunity extends System
             $correo = parent::limpiarString($correo);
             $celular = parent::limpiarString($celular);
             $fecha_registro = date('Y-m-d H:i:s');
+
             if ($_SESSION['cedula'] == $cedula) {
                 return Elements::crearMensajeAlerta(Constants::$USER_DIFERENT, "error");
             }
+
             $usuario = Usuario::getUserByCedula($cedula);
-            if (!$usuario) { //Si el asociado no esta regitrado
-                Invitacion::newInvitation($_SESSION['id'], $nombre_user, $correo, $celular, $cedula, $fecha_registro);
-                $mensaje = "Estimado(a) " . $nombre_user . ",
-                            Nos complace informarle que ha sido invitado(a) a unirse a nuestra aplicación, 
-                            como parte de la comunidad " . $nombre . ", creada por " . $_SESSION['nombre'] . ".<br><br>
-                            Para aceptar la invitación y disfrutar de los beneficios que ofrece nuestra plataforma, 
-                            le invitamos a registrarse en el siguiente enlace: " . self::getURL() . "/singup .<br><br>
-                            Agradecemos su interés y esperamos contar con su valiosa participación.<br><br>
-                            Atentamente,<br>
-                            Financiera Comultrasan";
-                $asunto = "Invitación a unirse a nuestra plataforma y comunidad";
-                Mail::sendEmail($asunto, $mensaje, $correo);
+            if (!$usuario) {
+                self::registrarNuevoReferido($nombre_user, $cedula, $correo, $celular, $fecha_registro);
+                self::enviarInvitacionCorreo($nombre_user, $nombre, $correo, $celular, $cedula);
 
                 return Elements::crearMensajeAlerta(Constants::$USER_NOT_EXIST, "error");
             }
-            $usuarioComunidad = UsuarioComunidad::getUserCommunityByUser($usuario->getId_usuario());
-            $comunidadLider = Comunidad::getCommunityByUser($usuario->getId_usuario());
-            if ($usuarioComunidad || $comunidadLider) { //Si el usuario ya pertenece a una comunidad
+
+            // Si ya pertenece a una comunidad
+            if (UsuarioComunidad::getUserCommunityByUser($usuario->getId_usuario()) || Comunidad::getCommunityByUser($usuario->getId_usuario())) {
                 return Elements::crearMensajeAlerta(Constants::$USER_READY_COMMUNITY, "error");
             }
+
+            // Registro de la comunidad
             $result = Comunidad::newCommunity($nombre, $id_usuario, $estado, $fecha_registro);
             if ($result) {
-                $comunidad = Comunidad::getLastCommunity();
-                if ($comunidad) {
-                    UsuarioComunidad::newUserCommunity(
-                        $usuario->getId_usuario(),
-                        $comunidad->getId_comunidad(),
-                        2,
-                        $fecha_registro
-                    );
+                if ($comunidad = Comunidad::getLastCommunity()) {
+                    UsuarioComunidad::newUserCommunity($usuario->getId_usuario(), $comunidad->getId_comunidad(), 2, $fecha_registro);
                 }
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+    private static function registrarNuevoReferido($nombre_user, $cedula, $correo, $celular, $fecha_registro)
+    {
+        Referido::newReferred(
+            $nombre_user,
+            $cedula,
+            1,
+            "",
+            "",
+            $correo,
+            $celular,
+            $_SESSION['nombre'],
+            1,
+            $_SESSION['cedula'],
+            1,
+            $_SESSION['id'],
+            $fecha_registro
+        );
+    }
+
+    // Enviar invitación por correo
+    private static function enviarInvitacionCorreo($nombre_user, $nombre_comunidad, $correo, $celular, $cedula)
+    {
+        $mensaje = "Estimado(a) $nombre_user,
+                Nos complace informarle que ha sido invitado(a) a unirse a nuestra aplicación, 
+                como parte de la comunidad $nombre_comunidad, creada por " . $_SESSION['nombre'] . ".<br><br>
+                Para aceptar la invitación y disfrutar de los beneficios que ofrece nuestra plataforma, 
+                le invitamos a registrarse en el siguiente enlace: " . self::getURL() . "/singup .<br><br>
+                Agradecemos su interés y esperamos contar con su valiosa participación.<br><br>
+                Atentamente,<br> Financiera Comultrasan";
+
+        $asunto = "Invitación a unirse a nuestra plataforma y comunidad";
+        Mail::sendEmail($asunto, $mensaje, $correo);
     }
     public static function getCommunity($id_comunidad)
     {
@@ -132,366 +154,87 @@ class ServiceCommunity extends System
     }
     public static function getUnitedCommunity()
     {
-        if (basename($_SERVER['PHP_SELF']) == 'community.php') {
-            try {
-                $id_usuario = $_SESSION['id'];
-                $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
-                if (!$comunidadDTO) {
-                    return Elements::getUnitedCommunity();
-                }
-                $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id'];
-                $html = '<div class="row">
-                            <div class="col-md-5">
-                            ';
-                $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad());
-                $fecha = self::getDateInWords($comunidadDTO->getFecha_registro());
-                $total_points = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
-                $total_points += Punto::getSumPointsByCommunity($comunidadDTO->getId_comunidad());
-                $btnEditar = $isLeader ? Elements::getButtonEditModalJs(
-                    'editName',
-                    'Editar',
-                    $comunidadDTO->getId_comunidad(),
-                    $comunidadDTO->getNombre()
-                ) : '';
-                $html .= Elements::getUnitedCommunityReady(
-                    $comunidadDTO->getNombre(),
-                    $comunidadDTO->getUsuarioDTO()->getNombre(),
-                    $count,
-                    $fecha,
-                    $comunidadDTO->getId_comunidad(),
-                    $total_points,
-                    $btnEditar
-                );
-                $html .= '</div><div class="col-md-6">';
-                $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
-                foreach ($modelResponse as $valor) {
-                    $btnEliminar = !$isLeader ? '' : Elements::getButtonDeleteModalJs('takeOut', 'Remover', $valor->getId_usuario());
-                    $points = '';
-                    if ($isLeader) {
-                        $count = Punto::getSumPointsByUser($valor->getId_usuario());
-                        $points .= '<i class="material-icons me-2">favorite</i>Total: ' . $count;
-                    }
-                    $html .= Elements::getCardUserInCommunity($valor->getNombre(), $btnEliminar, $points);
-                }
-                $html .= self::getBenefitByComunity();
-                $btnSalir = $isLeader ?
-                    Elements::getButtonDeleteModal('leaveLeader', 'Salir de la comunidad') :
-                    Elements::getButtonDeleteModal('leave', 'Salir de la comunidad');
-                $ranking = Comunidad::getRankingByCommunity($comunidadDTO->getId_comunidad());
-                $html .= self::getHtmlCards($btnSalir, $total_points, $ranking['posicion'], $ranking['total_comunidades']);
-                $modelResponse = Usuario::getUsersInCommunity($comunidadDTO->getId_comunidad());
-                $contador = 1;
-                foreach ($modelResponse as $valor) {
-                    $points = '';
-                    if ($_SESSION['id'] == $valor->getId_usuario() || $isLeader) {
-                        $count = Punto::getSumPointsByUser($valor->getId_usuario());
-                        $points .= '' . $count;
-                    }
-                    $html .= Elements::getCardUserInCommunityRanking($valor->getNombre(), $valor->getImagen(), $points, $contador);
-                    $contador++;
-                }
-                $html .= self::getCardsExplApre();
-                return $html;
-            } catch (\Exception $e) {
-                throw new Exception($e->getMessage());
+        if (basename($_SERVER['PHP_SELF']) != 'community.php') {
+            return;
+        }
+
+        try {
+            $id_usuario = $_SESSION['id'];
+            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+
+            if (!$comunidadDTO) {
+                return Elements::getUnitedCommunity();
             }
+
+            $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $id_usuario;
+            $html = '<div class="row"><div class="col-md-6">';
+
+            $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad());
+            $fecha = self::getDateInWords($comunidadDTO->getFecha_registro());
+            $total_points = self::getTotalPoints($comunidadDTO);
+            $btnEditar = $isLeader ? Elements::getButtonEditModalJs('editName', 'Editar', $comunidadDTO->getId_comunidad(), $comunidadDTO->getNombre()) : '';
+
+            $html .= Elements::getUnitedCommunityReady(
+                $comunidadDTO->getNombre(),
+                $comunidadDTO->getUsuarioDTO()->getNombre(),
+                $count,
+                $fecha,
+                $comunidadDTO->getId_comunidad(),
+                $total_points,
+                $btnEditar
+            );
+
+            $html .= '</div><div class="col-md-5">';
+            $html .= self::getCommunityMembers($comunidadDTO->getId_comunidad(), $isLeader);
+            $html .= self::getBenefitByComunity();
+
+            $btnSalir = $isLeader ?
+                Elements::getButtonDeleteModal('leaveLeader', 'Salir de la comunidad') :
+                Elements::getButtonDeleteModal('leave', 'Salir de la comunidad');
+
+            $ranking = Comunidad::getRankingByCommunity($comunidadDTO->getId_comunidad());
+            $html .= Elements::getHtmlCards($btnSalir, $total_points, $ranking['posicion'], $ranking['total_comunidades']);
+
+            $html .= self::getCommunityRanking($comunidadDTO->getId_comunidad(), $isLeader);
+
+            $html .= Elements::getCardsExploraAprende();
+            $html .= Elements::getCardInvitaGana();
+
+            return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
         }
     }
-    private static function getHtmlCards($btnSalir, $total_points, $posicion, $comunidades)
+    private static function getTotalPoints($comunidadDTO)
     {
-        return  '</div>
-                    <div class="col-md-11">
-                        <div class="text-end">
-                        ' . $btnSalir . '
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card border-2 mt-2 pb-3">
-                <div class="card-head mt-2 ms-2">
-                    <h5 class="text-success">Reconocemos tus logros y los de tu comunidad</h5>
-                </div>
-                <div class="row">
-                    <div class="col-md-7">
-                        <p class="ms-3 text-black">
-                            En la Comunidad Comultrasan, premiamos tu lealtad y compromiso con beneficios 
-                            exclusivos. Valoramos tu participación y queremos ofrecerte una experiencia 
-                            enriquecedora y memorable. Tú y tu comunidad pueden crecer, aprender y obtener 
-                            recompensas alcanzando los retos que nuestra comunidad propone en estos dos pilares. 
-                        </p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="#exploraYaprende">
-                                    <div class="card border-2 ms-2">
-                                        <div class="card-head">
-                                            <h5 class="text-success ms-3 mt-2">Explora y aprende</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <p>
-                                                Acumula corazones al completar actividades educativas en nuestra 
-                                                plataforma. Mejora tu educación financiera y canjea corazones 
-                                                por beneficios.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-6">
-                                <a href="#invitaYgana">
-                                    <div class="card border-2">
-                                        <div class="card-head">
-                                            <h5 class="text-success ms-3 mt-2">Invita y gana</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <p>
-                                                Gana corazones haciendo crecer la comunidad e incrementando tus saldos. 
-                                                Valorizamos y recompensamos tu esfuerzo.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="card border-2" style="background: #58B9AB">
-                            <div class="card-head mt-2">
-                                <h5 class="text-success text-center">Tabla de recompensas</h5>
-                            </div>
-                            <div class="card-body pt-0">
-                                <div class="card border-2 text-black text-center">
-                                    <h6> Mi comunidad ' . $total_points . ' &#10084;</h6>
-                                </div>
-                                <div class="card border-2 text-black text-center mt-2">
-                                    <h6> Ranking ' . $posicion . ' de '. $comunidades .'</h6>
-                                </div>
-                ';
+        $total_points = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
+        return $total_points + Punto::getSumPointsByCommunity($comunidadDTO->getId_comunidad());
     }
-    public static function getCardsExplApre()
+    private static function getCommunityMembers($id_comunidad, $isLeader)
     {
-        $html = '</div></div></div></div></div>
-                <div class="card mt-2 border-2" id="exploraYaprende">
-                    <div class="card-head">
-                        <h5 class="text-success ms-3 mt-2">Explora y Aprende</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row justify-content-center align-content-center">
-                            <div class="col-md-3">
-                                <div class="card border-2 h-100">
-                                    <img src="/assets/img/comunidad/comunida_creada.png" alt="Comunidad" class="img-fluid rounded-2">
-                                    <div class="card-body">
-                                        <h6 class="text-success text-center">Crea tu comunidad</h6>
-                                        <p class=" ms-2">
-                                            Crea tu comunidad y comparte tus retos y recompensas con tus personas más especiales
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card border-2 h-100">
-                                    <img src="/assets/img/comunidad/completar_perfil.png" alt="Perfil" class="img-fluid rounded-2">
-                                    <div class="card-body">
-                                        <h6 class="text-success text-center">Completar tu perfil</h6>
-                                        <p class=" ms-2">
-                                            Completa tu perfil y empieza a acumular corazones. 
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card border-2 h-100">
-                                    <img src="/assets/img/comunidad/gustos.png" alt="Gustos" class="img-fluid rounded-2">
-                                    <div class="card-body">
-                                        <h6 class="text-success text-center">Cuéntanos tus gustos e intereses</h6>
-                                        <p class=" ms-2">
-                                            Permítenos conocerte mejor para diseñar experiencias para ti y tu comunidad. 
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card border-2 h-100">
-                                    <img src="/assets/img/comunidad/reto.png" alt="Reto" class="img-fluid rounded-2">
-                                    <div class="card-body">
-                                        <h6 class="text-success text-center">Reto Educación Financiera</h6>
-                                        <p class=" ms-2">
-                                            Fortalece tus conocimientos y gana más &#10084;
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mt-2">
-                                <div class="card border-2 h-100">
-                                    <img src="/assets/img/comunidad/trivia.png" alt="Trivia" class="img-fluid rounded-2">
-                                    <div class="card-body">
-                                        <h6 class="text-success text-center">Trivia de economía solidaria</h6>
-                                        <p class=" ms-2">
-                                            Conoce el fascinante mundo solidario y sigue ganando recompensas. 
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mt-2">
-                                <div class="card border-2">
-                                    <img src="/assets/img/comunidad/recompensas.png" alt="Recompensas" class="img-fluid rounded-2">
-                                    <div class="card-body">
-                                        <h6 class="text-success text-center">Trivia de programa de recompensas</h6>
-                                        <p class=" ms-2">
-                                            Conoce el fascinante mundo solidario y sigue ganando recompensas. 
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mt-2">
-                                <div class="card border-2">
-                                    <img src="/assets/img/comunidad/programa_referidos.png" alt="Refereidos" class="img-fluid rounded-2">
-                                    <div class="card-body">
-                                        <h6 class="text-success text-center">Trivia de programa de referidos</h6>
-                                        <p class=" ms-2">
-                                            Conoce el fascinante mundo solidario y sigue ganando recompensas. 
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mt-2 border-2 tamano_card" id="invitaYgana">
-                    <div class="card-head">
-                        <h5 class="text-success ms-3 mt-2">Invita y Gana</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row justify-content-center align-content-center">
-                            <div class="col-md-3">
-                                <div class="card-flip">
-                                    <div class="card border-2 h-100">
-                                        <div class="card-front">
-                                            <img src="/assets/img/comunidad/nuevo_miembro.png" alt="NuevoMiembros" class="img-fluid rounded-2">
-                                            <h6 class="text-success text-center">Nuevos miembros en la Comunidad</h6>
-                                            <p class="ms-2">
-                                                Invita a otros a que disfruten de los beneficios de la comunidad.
-                                            </p>
-                                        </div>
-                                        <div class="card-back">
-                                            <h6 class="text-center">Nuevos miembros en la comunidad</h6>
-                                            <p class="ms-2">
-                                                Tus nuevos miembros pueden ser:
-                                                <ul class="text-black">
-                                                    <li>
-                                                        Asociado   -  5
-                                                    </li>
-                                                    <li>
-                                                        Nuevo asociado   -  10
-                                                    </li>
-                                                    <li>
-                                                        Nueva comunidad familiar  (A)   - 10
-                                                    </li>
-                                                    <li>
-                                                        Nueva comunidad familiar  (NA) - 20
-                                                    </li>
-                                                </ul>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card-flip">
-                                    <div class="card border-2 h-100">
-                                        <div class="card-front">
-                                            <img src="/assets/img/comunidad/datos_dia.png" alt="Datos" class="img-fluid rounded-2">
-                                            <h6 class="text-success text-center">Datos al día</h6>
-                                            <p class=" ms-2">
-                                                Actualiza tus datos para que no perdamos contacto.
-                                            </p>
-                                        </div>
-                                        <div class="card-back">
-                                            <h6 class="text-center">Datos al día</h6>
-                                            <p class="ms-2">
-                                                Tu actualización de datos puedes hacerla semestralmente así:
-                                                <ul class="text-black">
-                                                    <li>
-                                                        Agencias, campaña Contact Center  - 5
-                                                    </li>
-                                                    <li>
-                                                        Autogestión con Agencia virtual, Contact Center, Fibot   -  8
-                                                    </li>
-                                                </ul>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card-flip">
-                                    <div class="card border-2 h-100">
-                                        <div class="card-front">
-                                            <img src="/assets/img/comunidad/productos.png" alt="Productos" class="img-fluid rounded-2">
-                                            <h6 class="text-success text-center">Tus productos financieros</h6>
-                                            <p class=" ms-2">
-                                                Incluye nuevos productos a tu portafolio y moviliza los existentes 
-                                            </p>
-                                        </div>
-                                        <div class="card-back">
-                                            <h6 class="text-center">Tus productos financieros</h6>
-                                            <p class="ms-2">
-                                                Puedes incluir o movilizar tus productos así:
-                                                <ul class="text-black">
-                                                    <li>
-                                                        Apertura PAP  - 10
-                                                    </li>
-                                                    <li>
-                                                        Constitución CDAT  - 10
-                                                    </li>
-                                                    <li>
-                                                        Adquisición tarjeta de crédito   -  10
-                                                    </li>
-                                                    <li>
-                                                        Compras y avances en comercios nacionales e internacionales 
-                                                        $500.000  - 1 por cada $500.000
-                                                    </li>
-                                                    <li>
-                                                        Incremento saldos en PAP a partir de $50.000 -  1 por cada $50.000
-                                                    </li>
-                                                </ul>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card-flip">
-                                    <div class="card border-2 h-100">
-                                        <div class="card-front">
-                                            <img src="/assets/img/comunidad/referidos_efectivos.png" alt="Referidos_efecrivos" class="img-fluid rounded-2">
-                                            <h6 class="text-success text-center">Referidos efectivos</h6>
-                                            <p class=" ms-2">
-                                                Cuéntale a otros lo feliz que te sientes de estar aquí
-                                            </p>
-                                        </div>
-                                        <div class="card-back">
-                                            <h6 class="text-center">Programa de referidos</h6>
-                                            <p class="ms-2">
-                                                Comparte beneficios con los que más quieres así:
-                                                <ul class="text-black">
-                                                    <li>
-                                                        Desembolso de crédito – ver tabla
-                                                    </li>
-                                                    <li>
-                                                        Constitución CDAT – ver tabla 
-                                                    </li>
-                                                    <li>
-                                                        Adquisición tarjeta de crédito   -  10
-                                                    </li>
-                                                </ul>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>';
+        $html = '';
+        $modelResponse = Usuario::getUsersInCommunity($id_comunidad);
+
+        foreach ($modelResponse as $valor) {
+            $btnEliminar = $isLeader ? Elements::getButtonDeleteModalJs('takeOut', 'Remover', $valor->getId_usuario()) : '';
+            $points = $isLeader ? '<i class="material-icons me-2">favorite</i>Total: ' . Punto::getSumPointsByUser($valor->getId_usuario()) : '';
+            $html .= Elements::getCardUserInCommunity($valor->getNombre(), $btnEliminar, $points);
+        }
+
+        return $html;
+    }
+    private static function getCommunityRanking($id_comunidad, $isLeader)
+    {
+        $html = '';
+        $modelResponse = Usuario::getUsersInCommunity($id_comunidad);
+        $contador = 1;
+
+        foreach ($modelResponse as $valor) {
+            $points = ($_SESSION['id'] == $valor->getId_usuario() || $isLeader) ? Punto::getSumPointsByUser($valor->getId_usuario()) : '';
+            $html .= Elements::getCardUserInCommunityRanking($valor->getNombre(), $valor->getImagen(), $points, $contador);
+            $contador++;
+        }
+
         return $html;
     }
     public static function getCommunityByUser($id_usuario)
@@ -530,10 +273,10 @@ class ServiceCommunity extends System
 
                 $buttonHtml = '
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <h4 class="text-success">Integrantes</h4>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUserComm">
                             <i class="material-icons me-2">add</i> Agregar Integrante
                         </button>
@@ -664,7 +407,7 @@ class ServiceCommunity extends System
             // Si se encuentra una comunidad asociada
             if ($comunidadDTO) {
                 $html = '<div class="mt-3">
-                            <h5 class="text-success">Beneficios</h5>';
+                            <h5 class="text-success ms-2">Beneficios</h5>';
                 $html .= self::generateBenefitCards($comunidadDTO->getUsuarioDTO()->getId_usuario());
                 $usuariosComunidadDTO = UsuarioComunidad::getUserCommunityByCommunity($comunidadDTO->getId_comunidad());
                 foreach ($usuariosComunidadDTO as $usuarioComunidad) {

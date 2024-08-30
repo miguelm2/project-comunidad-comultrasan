@@ -34,12 +34,12 @@
          <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_user.php'; ?>
          <!-- End header -->
       </nav>
-      <div class="card mt-3">
+      <div class="card mt-3 border-2">
          <div class="row m-0">
-            <div class="col-md-5 mt-4 ms-4">
+            <div class="col-md-6 mt-4 ms-4">
                <h4 class="text-success">Mi Comunidad </h4>
             </div>
-            <div class="col-md-6 mt-4">
+            <div class="col-md-5 mt-4">
                <div class="row">
 
                   <?= $btnJoinUser ?>
@@ -49,7 +49,7 @@
          </div>
          <?= $unitedCommunity ?>
       </div>
-      <div class="card mt-3">
+      <div class="card mt-3 border-2">
          <div class="card-head">
             <div class="ms-3 mt-3">
                <h4 class="text-success">Grupos de Interés </h4>

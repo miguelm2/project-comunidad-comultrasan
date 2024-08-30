@@ -151,12 +151,18 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
-                  Tienes pendiente encuetas por resolver, dale en en ir y resuelvela
+                  <div class="text-center">
+                     <img src="/assets/image/modal.jpg" alt="Modal" class="img-fluid" style="max-width: 200px;">
+                  </div>
+                  <br>
+                  ¡Nos encantaría saber tu opinión! Tienes encuestas pendientes que van desde trivias divertidas hasta tus preferencias y experiencias.
+                  Haz clic en ¡Resolver Ahora! y comparte tu perspectiva. ¡Será rápido y te lo agradeceremos!
+                  <br>
+                  <a href="survey?survey=<?= $encuesta_id ?>" class="btn btn-success mt-2"><i class="material-icons me-2">school</i> ¡Resolver Ahora!</a>
                </div>
                <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                      <i class="material-icons me-2">close</i> Cerrar</button>
-                  <a href="startSurvey?survey=<?= $encuesta_id ?>" class="btn btn-success"><i class="material-icons me-2">school</i> Ir</a>
                </div>
             </div>
          </div>
@@ -175,7 +181,7 @@
    <script src="/system/assets/js/plugins/smooth-scrollbar.min.js"></script>
    <script src="/system/assets/js/plugins/chartjs.min.js"></script>
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
-   <?= $response?>
+   <?= $response ?>
 </body>
 
 </html>

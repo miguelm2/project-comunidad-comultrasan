@@ -28,20 +28,45 @@ class ServiceUser extends System
                 $imagen = self::newImagen();
 
                 $result = Usuario::newUser($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $tipo_documento, $fecha_nacimiento, $fecha_registro);
-                $invitacionDTO = Invitacion::getInvitationByCedula($cedula);
-                if($invitacionDTO){
+
+                // Si existe una invitación, gestionar unión a la comunidad
+                if ($invitacionDTO = Invitacion::getInvitationByCedula($cedula)) {
                     $usuarioDTO = Usuario::getUserByCedula($cedula);
-                    //$result = UsuarioComunidad::newUserCommunity($usuarioDTO->getId_usuario, $id_comunidad, 1, $fecha_registro);
+                    $referidoDTO = Referido::getReferredByCedula($cedula);
+                    $comunidadDTO = Comunidad::getCommunityByUser($referidoDTO->getId_usuario());
+
+                    $result = UsuarioComunidad::newUserCommunity($usuarioDTO->getId_usuario(), $comunidadDTO->getId_comunidad(), 1, $fecha_registro);
+                    self::enviarCorreoUnionComunidad($usuarioDTO, $correo);
                 }
-                if ($result) {
-                    return Elements::crearMensajeAlerta(Constants::$USER_NEW, "success");
-                } else {
-                    return Elements::crearMensajeAlerta(Constants::$ADMIN_REPEAT, "error");
-                }
+
+                return $result
+                    ? Elements::crearMensajeAlerta(Constants::$USER_NEW, "success")
+                    : Elements::crearMensajeAlerta(Constants::$ADMIN_REPEAT, "error");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+    private static function enviarCorreoUnionComunidad($usuarioDTO, $correo)
+    {
+        $lastRegister = UsuarioComunidad::getUserCommunityByUserInactive($usuarioDTO->getId_usuario());
+        $asunto = "Solicitud de unión a comunidad";
+        $mensaje = "Estimado/a líder de la comunidad, <br><br>
+                El usuario " . $lastRegister->getUsuarioDTO()->getNombre() . " ha solicitado unirse a tu comunidad. 
+                Para revisar y aceptar o rechazar esta solicitud, por favor, haz clic en el siguiente enlace: " . self::getURL() .
+            '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "<br><br>
+                Gracias por tu liderazgo y dedicación. <br><br>
+                Saludos cordiales, <br> El equipo de Financiera Comultrasan";
+
+        Mail::sendEmail($asunto, $mensaje, $correo);
+    }
+    private static function getURL()
+    {
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+        $host = $_SERVER['HTTP_HOST'];
+        $script = $_SERVER['REQUEST_URI'];
+        $url = $protocol . "://" . $host . $script;
+        return $url;
     }
     private static function newImagen()
     {
