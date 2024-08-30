@@ -57,6 +57,15 @@ class Referido extends system
         $stmt->execute();
         return $stmt->fetch();
     }
+    public static function getReferredByCedula($cedula)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM Referido WHERE cedula = :cedula");
+        $stmt->bindParam(':cedula', $cedula);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'ReferidoDTO');
+        $stmt->execute();
+        return $stmt->fetch();
+    }
     public static function listReferred()
     {
         $dbh             = parent::Conexion();

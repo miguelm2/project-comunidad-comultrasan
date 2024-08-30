@@ -2,7 +2,12 @@
    <div class="container-fluid d-flex justify-content-between">
       <!-- Logo (alineado a la izquierda) -->
       <a href="index" class="nav-link text-body p-1">
-         <img src="/../assets/image/logo_principal.png" alt="logo" class="img-fluid" width="220px">
+         <div class="d-none d-lg-block">
+            <img src="/../assets/image/logo_principal.png" alt="logo" class="img-fluid" width="220px">
+         </div>
+         <div class="d-xl-none">
+            <img src="/../assets/image/favicon_0.ico" alt="logo_movil" class="img-fluid" style="max-width: 40px;">
+         </div>
       </a>
       <!-- Navbar contenido -->
       <div class="collapse navbar-collapse d-flex justify-content-end text-end" id="navbar">
