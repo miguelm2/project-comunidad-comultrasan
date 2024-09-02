@@ -142,4 +142,27 @@ class Punto extends System
         $result = $stmt->fetch();
         return $result['total'];
     }
+    public static function getLastPointByUser($id_usuario)
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * FROM Punto 
+                            WHERE id_usuario = :id_usuario
+                            ORDER BY id_punto DESC");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        $result = $stmt->fetch();
+
+        if ($result) {
+            $puntoDTO = new PuntoDTO();
+
+            $puntoDTO->setId_punto($result['id_punto']);
+            $puntoDTO->setPuntos($result['puntos']);
+            $puntoDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $puntoDTO->setAdministradorDTO(Administrador::getAdministradorById($result['id_administrador']));
+            $puntoDTO->setDescripcion($result['descripcion']);
+            $puntoDTO->setFecha_registro($result['fecha_registro']);
+            return $puntoDTO;
+        }
+        return null;
+    }
 }

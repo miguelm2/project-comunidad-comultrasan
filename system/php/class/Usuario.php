@@ -80,6 +80,14 @@ class Usuario extends System
         $stmt->execute();
         return  $stmt->fetchAll();
     }
+    public static function listUserByFilter($filtro)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM Usuario WHERE 1=1 " . $filtro);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'UsuarioDTO');
+        $stmt->execute();
+        return  $stmt->fetchAll();
+    }
     public static function getUserByCedula($cedula)
     {
         $dbh             = parent::Conexion();

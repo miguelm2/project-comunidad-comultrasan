@@ -262,6 +262,7 @@
    <!-- Uncomment to load the Spanish translation -->
    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/translations/es.js"></script>
    <script src="/system/js/CkEditor/confCkeditor.js"></script>
+   <script src="/system/js/valideImage.js"></script>
    <?= $response ?>
 </body>
 

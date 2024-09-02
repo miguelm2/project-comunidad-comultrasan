@@ -197,8 +197,7 @@ class ServiceCommunity extends System
 
             $html .= self::getCommunityRanking($comunidadDTO->getId_comunidad(), $isLeader);
 
-            $html .= Elements::getCardsExploraAprende();
-            $html .= Elements::getCardInvitaGana();
+            $html .= '</div></div></div></div></div>';
 
             return $html;
         } catch (\Exception $e) {
@@ -284,36 +283,6 @@ class ServiceCommunity extends System
                 </div>';
 
                 return $buttonHtml;
-            }
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
-    public static function getCardsCommunity()
-    {
-        try {
-            if (basename($_SERVER['PHP_SELF']) == 'allCommunities.php') {
-                $html = "";
-                $modelResponse = Comunidad::listCommunity();
-
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $fecha = self::getDateInWords($valor->getFecha_registro());
-                        $count = Usuario::countUsersInCommunity($valor->getId_comunidad());
-                        $html .= Elements::getCardCommunity(
-                            $valor->getNombre(),
-                            $valor->getUsuarioDTO()->getNombre(),
-                            $fecha,
-                            $count,
-                            $valor->getId_comunidad()
-                        );
-                    }
-                } else {
-                    return '<div class="text-center">
-                            <h4>No hay comunidades disponibles</h4>
-                        </div>';
-                }
-                return $html;
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -431,5 +400,60 @@ class ServiceCommunity extends System
         }
 
         return $html;
+    }
+    public static function getInformationByCommunity($id_comunidad)
+    {
+        try {
+            $id_comunidad = parent::limpiarString($id_comunidad);
+            $count = Usuario::countUsersInCommunity($id_comunidad);
+            $ranking = Comunidad::getRankingByCommunity($id_comunidad);
+            return (object)[
+                'nro_usuarios' => $count,
+                'total_puntos' => $ranking['total_puntos'],
+                'ranking' => $ranking['posicion'],
+                'total_comunidades' => $ranking['total_comunidades']
+            ];
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getTableCommunityFilter($id_comunidad, $nombre_comunidad, $nombre_lider)
+    {
+        try {
+            // Limpiar las entradas
+            $id_comunidad = parent::limpiarString($id_comunidad);
+            $nombre_comunidad = parent::limpiarString($nombre_comunidad);
+            $nombre_lider = parent::limpiarString($nombre_lider);
+            $tableHtml = [];
+
+            $sql = '';
+            if ($id_comunidad != '') {
+                $sql .= sprintf(" AND id_comunidad = %s", $id_comunidad);
+            }
+
+            if ($nombre_comunidad != '') {
+                $sql .= sprintf(" AND nombre LIKE '%%%s%%'", $nombre_comunidad);
+            }
+
+            if ($nombre_lider != '') {
+                $sql .= sprintf(" AND id_usuario IN (SELECT id_usuario FROM Usuario WHERE nombre LIKE '%%%s%%')", $nombre_lider);
+            }
+            $comunidadDTO = Comunidad::getCommunityByFilter($sql);
+            foreach ($comunidadDTO as $valor) {
+                $style = self::getColorByEstate($valor->getEstado()[0]);
+                $tableHtml[] = [
+                    'Codigo' => $valor->getId_comunidad(),
+                    'Nombre' => $valor->getNombre(),
+                    'Lider' =>  $valor->getUsuarioDTO()->getNombre(),
+                    'Estado' => '<small class="alert alert-' . $style . ' p-1">' . $valor->getEstado()[1] . '</small>',
+                    'Fecha' => $valor->getFecha_registro(),
+                    'Opciones' => Elements::crearBotonVer("community", $valor->getId_comunidad())
+                ];
+            }
+
+            return json_encode($tableHtml);
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
     }
 }

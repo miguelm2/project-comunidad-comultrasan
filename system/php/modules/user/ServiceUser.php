@@ -6,6 +6,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Usuario.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Punto.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/HistorialInformacion.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Comunidad.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Referido.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/TipoComunidad.php';
 
 class ServiceUser extends System
 {
@@ -307,6 +310,48 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function getTablaUserByManager()
+    {
+        try {
+            if (basename($_SERVER['PHP_SELF']) == 'communities.php') {
+                $tableHtml = "";
+                $modelResponse = Usuario::listUser();
+
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $comunidadDTO = Comunidad::getCommunityByUserType($valor->getId_usuario());
+                        $referidoDTO = Referido::getReferredByCedula($valor->getCedula());
+                        $referido = ($referidoDTO) ? $referidoDTO->getNombre_refiere() : 'No fue referido';
+                        $grupoInteresDTO = TipoComunidad::getUserGroupInterestByUser($valor->getId_usuario());
+                        $grupoInteres = ($grupoInteresDTO) ? $grupoInteresDTO->getTitulo() : 'No tiene';
+                        $puntoDTO = Punto::getLastPointByUser($valor->getId_usuario());
+                        $countPoints = Punto::getSumPointsByUser($valor->getId_usuario());
+                        $style = self::getColorByEstate($valor->getEstado()[0]);
+                        $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                        $tableHtml .= '<td>' . $comunidadDTO->nombre . '</td>';
+                        $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
+                        $tableHtml .= '<td>' . $valor->getFecha_nacimiento() . '</td>';
+                        $tableHtml .= '<td>' . $referido . '</td>';
+                        $tableHtml .= '<td>' . $comunidadDTO->tipo . '</td>';
+                        $tableHtml .= '<td>' . $comunidadDTO->fecha . '</td>';
+                        $tableHtml .= '<td>' . $grupoInteres . '</td>';
+                        $tableHtml .= '<td>' . ($puntoDTO ? $puntoDTO->getFecha_registro() : 'Sin registro') . '</td>';
+                        $tableHtml .= '<td>' . $countPoints . '</td>';
+                        $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("user", $valor->getId_usuario()) . '</td>';
+                        $tableHtml .= '</tr>';
+                    }
+                } else {
+                    $tableHtml = '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
+                }
+                return $tableHtml;
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
     public static function getOptionUser()
     {
         try {
@@ -349,6 +394,72 @@ class ServiceUser extends System
                         return 'warning';
                     }
             }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getTablaUserByManagerFilter($id_comunidad, $nombre, $cedula)
+    {
+        try {
+            $id_comunidad = parent::limpiarString($id_comunidad);
+            $nombre = parent::limpiarString($nombre);
+            $cedula = parent::limpiarString($cedula);
+            $sql = '';
+            if ($id_comunidad != '') {
+                $sql .= sprintf(" AND id_usuario IN (SELECT com.id_usuario
+                                                        FROM Comunidad com
+                                                        WHERE com.id_comunidad = %s
+                                                        UNION 
+                                                        SELECT uc.id_usuario
+                                                        FROM Comunidad com,
+                                                            UsuarioComunidad uc,
+                                                            Usuario us
+                                                        WHERE us.id_usuario = uc.id_usuario
+                                                        AND com.id_usuario != us.id_usuario
+                                                        AND com.id_comunidad = uc.id_comunidad
+                                                        AND com.id_comunidad =  %s
+                                                        AND uc.estado = 2 ) ", $id_comunidad, $id_comunidad);
+            }
+
+            if ($nombre != '') {
+                $sql .= sprintf(" AND nombre LIKE '%%%s%%'", $nombre);
+            }
+
+            if ($cedula != '') {
+                $sql .= sprintf(" AND cedula LIKE %%%s%%", $cedula);
+            }
+            $tableHtml = [];
+            $modelResponse = Usuario::listUserByFilter($sql);
+
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $comunidadDTO = Comunidad::getCommunityByUserType($valor->getId_usuario());
+                    $referidoDTO = Referido::getReferredByCedula($valor->getCedula());
+                    $referido = ($referidoDTO) ? $referidoDTO->getNombre_refiere() : 'No fue referido';
+                    $grupoInteresDTO = TipoComunidad::getUserGroupInterestByUser($valor->getId_usuario());
+                    $grupoInteres = ($grupoInteresDTO) ? $grupoInteresDTO->getTitulo() : 'No tiene';
+                    $puntoDTO = Punto::getLastPointByUser($valor->getId_usuario());
+                    $countPoints = Punto::getSumPointsByUser($valor->getId_usuario());
+                    $style = self::getColorByEstate($valor->getEstado()[0]);
+
+                    $tableHtml[] = [
+                        'Nombre' => $valor->getNombre(),
+                        'Comunidad' => $comunidadDTO->nombre,
+                        'Celular' => $valor->getTelefono(),
+                        'Correo' => $valor->getCorreo(),
+                        'Fecha_nacimiento' => $valor->getFecha_nacimiento(),
+                        'Referido' => $referido,
+                        'Tipo' => $comunidadDTO->tipo,
+                        'Fecha_comunidad' => $comunidadDTO->fecha,
+                        'Grupo_interes' => $grupoInteres,
+                        'Ultimo_punto' => ($puntoDTO ? $puntoDTO->getFecha_registro() : 'Sin registro'),
+                        'Total_puntos' => $countPoints,
+                        'Estado' => '<small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small>',
+                        'Opciones' => Elements::crearBotonVer("user", $valor->getId_usuario())
+                    ];
+                }
+            }
+            return json_encode($tableHtml);
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

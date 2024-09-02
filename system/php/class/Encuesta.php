@@ -3,29 +3,31 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/model/EncuestaDTO.php';
 
 class Encuesta extends System
 {
-    public static function newSurvey($nombre, $descripcion, $estado, $puntos, $fecha_registro)
+    public static function newSurvey($nombre, $descripcion, $estado, $puntos, $mensaje, $fecha_registro)
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("INSERT INTO Encuesta (nombre, descripcion,estado, puntos, fecha_registro) 
-                                VALUES (:nombre, :descripcion, :estado, :puntos, :fecha_registro)");
+        $stmt = $dbh->prepare("INSERT INTO Encuesta (nombre, descripcion,estado, puntos, mensaje, fecha_registro) 
+                                VALUES (:nombre, :descripcion, :estado, :puntos, :mensaje, :fecha_registro)");
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':descripcion', $descripcion);
         $stmt->bindParam(':estado', $estado);
         $stmt->bindParam(':puntos', $puntos);
+        $stmt->bindParam(':mensaje', $mensaje);
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
-    public static function setSurvey($id_encuesta, $descripcion, $nombre, $estado, $puntos)
+    public static function setSurvey($id_encuesta, $descripcion, $nombre, $estado, $puntos, $mensaje)
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE Encuesta 
-                            SET nombre = :nombre, descripcion =:descripcion, estado = :estado, puntos = :puntos
+                            SET nombre = :nombre, descripcion =:descripcion, estado = :estado, puntos = :puntos, mensaje = :mensaje
                             WHERE id_encuesta = :id_encuesta");
         $stmt->bindParam(':id_encuesta', $id_encuesta);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':descripcion', $descripcion);
         $stmt->bindParam(':estado', $estado);
         $stmt->bindParam(':puntos', $puntos);
+        $stmt->bindParam(':mensaje', $mensaje);
         return  $stmt->execute();
     }
     public static function getSurvey($id_encuesta)

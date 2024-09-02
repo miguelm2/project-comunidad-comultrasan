@@ -382,3 +382,8 @@ CREATE TABLE UsuarioGrupoInteres (
   id_grupo INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
+
+ALTER TABLE
+  Encuesta
+ADD
+  mensaje VARCHAR(255) NULL;

@@ -228,6 +228,7 @@
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <script src="/system/js/viewPassword.js"></script>
    <script src="/system/js/functions.js"></script>
+   <script src="/system/js/valideImage.js"></script>
    <?= $response ?>
 </body>
 

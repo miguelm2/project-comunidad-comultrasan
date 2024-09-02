@@ -74,7 +74,7 @@
                                     <input type="email" class="form-control border p-1" name="correo" value="<?= $_SESSION['correo'] ?>" required>
                                  </div>
                               </div>
-                              <div class="col-12">
+                              <div class="col-6">
                                  <div class="form-group">
                                     <label class="form-label">Celular</label>
                                     <input type="tel" class="form-control border p-1" name="telefono" value="<?= $_SESSION['telefono'] ?>" required>
@@ -86,13 +86,6 @@
                                     <input type="text" class="form-control border p-1" name="cedula" value="<?= $_SESSION['cedula'] ?>">
                                  </div>
                               </div>
-                              <div class="col-md-6">
-                                 <div class="form-group">
-                                    <label for="" class="form-label">Tipo</label><br>
-                                    <input type="text" class="form-control border p-1" value="<?= $_SESSION['tipo'] ?>" disabled>
-                                 </div>
-                              </div>
-
                            </div>
                         </div>
                      </div>

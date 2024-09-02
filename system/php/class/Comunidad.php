@@ -56,6 +56,27 @@ class Comunidad extends System
         }
         return null;
     }
+    public static function getCommunityFilter($id_comunidad, $filtro)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM Comunidad WHERE id_comunidad = :id_comunidad ". $filtro);
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
+        $stmt->execute();
+        $result = $stmt->fetch();
+
+        if ($result) {
+            $comunidadDTO = new ComunidadDTO();
+
+            $comunidadDTO->setId_comunidad($result['id_comunidad']);
+            $comunidadDTO->setNombre($result['nombre']);
+            $comunidadDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $comunidadDTO->setEstado($result['estado']);
+            $comunidadDTO->setFecha_registro($result['fecha_registro']);
+
+            return $comunidadDTO;
+        }
+        return null;
+    }
     public static function listCommunity()
     {
         $dbh  = parent::Conexion();
@@ -91,7 +112,8 @@ class Comunidad extends System
                                     Usuario us
                                 WHERE us.id_usuario = com.id_usuario
                                 AND uc.id_usuario = :id_usuario1
-                                AND com.id_usuario != :id_usuario2;");
+                                AND com.id_usuario != :id_usuario2
+                                AND uc.estado = 2");
         $stmt->bindParam(':id_usuario', $id_usuario);
         $stmt->bindParam(':id_usuario1', $id_usuario);
         $stmt->bindParam(':id_usuario2', $id_usuario);
@@ -109,6 +131,40 @@ class Comunidad extends System
             return $comunidadDTO;
         }
         return null;
+    }
+    public static function getCommunityByUserType($id_usuario)
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT com.*, 'Líder' as tipo, com.fecha_registro
+                                FROM Comunidad com
+                                WHERE com.id_usuario = :id_usuario
+                                UNION 
+                                SELECT com.*, 'Miembro' as tipo, uc.fecha_registro
+                                FROM Comunidad com,
+                                    UsuarioComunidad uc,
+                                    Usuario us
+                                WHERE us.id_usuario = com.id_usuario
+                                AND uc.id_usuario = :id_usuario1
+                                AND com.id_usuario != :id_usuario2
+                                AND uc.estado = 2");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->bindParam(':id_usuario1', $id_usuario);
+        $stmt->bindParam(':id_usuario2', $id_usuario);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if ($result) {
+            return (object)[
+                'nombre' => $result['nombre'],
+                'tipo' => $result['tipo'],
+                'fecha' => $result['fecha_registro']
+            ];
+        } else {
+            return (object)[
+                'nombre' => 'No tiene comunidad',
+                'tipo' => 'No tiene comunidad',
+                'fecha' => 'No tiene comunidad'
+            ];
+        }
     }
     public static function deleteCommunity($id_comunidad)
     {
@@ -148,7 +204,8 @@ class Comunidad extends System
         }
         return null;
     }
-    public static function getRankingByCommunity($id_comunidad){
+    public static function getRankingByCommunity($id_comunidad)
+    {
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("WITH Ranking AS (
                                 SELECT  C.id_comunidad, SUM(P.puntos) AS total_puntos, 
@@ -162,11 +219,33 @@ class Comunidad extends System
                                 GROUP BY C.id_comunidad)
                                 SELECT 
                                     R.posicion,
-                                    (SELECT COUNT(*) FROM Ranking) AS total_comunidades
+                                    (SELECT COUNT(*) FROM Ranking) AS total_comunidades, R.total_puntos
                                 FROM Ranking R
                                 WHERE R.id_comunidad = :id_comunidad");
         $stmt->bindParam(':id_comunidad', $id_comunidad);
         $stmt->execute();
         return $stmt->fetch();
+    }
+    public static function getCommunityByFilter($filtro)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM Comunidad WHERE 1=1 " . $filtro);
+        $stmt->execute();
+        $modelResponse = $stmt->fetchAll();
+
+        $listResponse = array();
+        $con = 0;
+        foreach ($modelResponse as $result) {
+            $comunidadDTO = new ComunidadDTO();
+
+            $comunidadDTO->setid_comunidad($result['id_comunidad']);
+            $comunidadDTO->setNombre($result['nombre']);
+            $comunidadDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $comunidadDTO->setEstado($result['estado']);
+            $comunidadDTO->setFecha_registro($result['fecha_registro']);
+            $listResponse[$con] = $comunidadDTO;
+            $con++;
+        }
+        return $listResponse;
     }
 }

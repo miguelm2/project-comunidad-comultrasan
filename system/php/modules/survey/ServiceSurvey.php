@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Encuesta.php';
 
 class ServiceSurvey extends System
 {
-    public static function newSurvey($nombre, $descripcion, $puntos)
+    public static function newSurvey($nombre, $descripcion, $puntos, $mensaje)
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'surveys.php') {
@@ -12,9 +12,10 @@ class ServiceSurvey extends System
                 $descripcion    = parent::limpiarString($descripcion);
                 $estado         = parent::limpiarString(1);
                 $puntos         = parent::limpiarString($puntos);
+                $mensaje        = parent::limpiarString($mensaje);
                 $fecha_registro = date('Y-m-d H:i:s');
 
-                $result = Encuesta::newSurvey($nombre, $descripcion, $estado,  $puntos, $fecha_registro);
+                $result = Encuesta::newSurvey($nombre, $descripcion, $estado,  $puntos, $mensaje, $fecha_registro);
 
                 if ($result) {
                     $encuestaDTO = Encuesta::getLastSurvey();
@@ -25,14 +26,18 @@ class ServiceSurvey extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setSurvey($id_encuesta, $descripcion, $nombre, $estado, $puntos)
+    public static function setSurvey($id_encuesta, $descripcion, $nombre, $estado, $puntos, $mensaje)
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'survey.php') {
                 $id_encuesta  = parent::limpiarString($id_encuesta);
+                $descripcion  = parent::limpiarString($descripcion);
+                $nombre       = parent::limpiarString($nombre);
                 $estado       = parent::limpiarString($estado);
+                $puntos       = parent::limpiarString($puntos);
+                $mensaje      = parent::limpiarString($mensaje);
 
-                $result = Encuesta::setSurvey($id_encuesta, $descripcion, $nombre, $estado, $puntos);
+                $result = Encuesta::setSurvey($id_encuesta, $descripcion, $nombre, $estado, $puntos, $mensaje);
 
                 if ($result) {
                     return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
@@ -123,22 +128,27 @@ class ServiceSurvey extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function getIdLastSurveyByUser(){
-        try{
-            $id_usuario = $_SESSION['id'];
-            $encuestaDTO = Encuesta::getIdSurveyByEstateAndNotResolved($id_usuario);
-            return $encuestaDTO->getId_encuesta();
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
+    public static function getIdLastSurveyByUser()
+{
+    try {
+        $id_usuario = $_SESSION['id'];
+        $encuestaDTO = Encuesta::getIdSurveyByEstateAndNotResolved($id_usuario);
+        return (object) [
+            'id_encuesta' => $encuestaDTO->getId_encuesta(),
+            'mensaje' => $encuestaDTO->getMensaje()
+        ];
+    } catch (\Exception $e) {
+        throw new Exception($e->getMessage());
     }
+}
+
     public static function getScriptModal()
     {
         try {
             $_SESSION['show_modal'] = false;
             $id_usuario = $_SESSION['id'];
             $encuestaDTO = Encuesta::getIdSurveyByEstateAndNotResolved($id_usuario);
-            if(!$encuestaDTO){
+            if (!$encuestaDTO) {
                 return '';
             }
             return '<script>

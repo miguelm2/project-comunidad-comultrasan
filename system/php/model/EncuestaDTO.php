@@ -7,6 +7,7 @@ class EncuestaDTO
     protected $descripcion;
     protected $estado;
     protected $puntos;
+    protected $mensaje;
     protected $fecha_registro;
 
     /**
@@ -127,6 +128,26 @@ class EncuestaDTO
     public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of mensaje
+     */ 
+    public function getMensaje()
+    {
+        return $this->mensaje;
+    }
+
+    /**
+     * Set the value of mensaje
+     *
+     * @return  self
+     */ 
+    public function setMensaje($mensaje)
+    {
+        $this->mensaje = $mensaje;
 
         return $this;
     }

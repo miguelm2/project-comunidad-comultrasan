@@ -17,8 +17,13 @@ if (isset($_GET['point'])) {
     $points = ServicePoint::getPoint($_GET['point']);
 }
 
-if(isset($_POST['loadExcelPoint'])){
+if (isset($_POST['loadExcelPoint'])) {
     $response = ServicePoint::loadExcelPoints();
+}
+
+if (isset($_POST['getTablePointsFilter'])) {
+    $response = ServicePoint::listTablePointsUserByManagerFilter($_POST['comunidad'], $_POST['nombre']);
+    echo $response;
 }
 
 if (isset($_GET)) {
