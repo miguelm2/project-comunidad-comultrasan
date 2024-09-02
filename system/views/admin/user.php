@@ -362,6 +362,7 @@
    <script src="/system/js/viewPassword.js"></script>
    <script src="/system/js/functions.js"></script>
    <script src="/system/js/selectRepeat.js"></script>
+   <script src="/system/js/valideImage.js"></script>
    <?= $response ?>
 </body>
 

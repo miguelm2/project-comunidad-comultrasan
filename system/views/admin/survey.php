@@ -91,7 +91,13 @@
                      <div class="col-md-12">
                         <div class="form-group">
                            <label for="descripcion">Descripción</label>
-                           <textarea name="descripcion" id="descripcion" class="form-control border p-1" rows="4" maxlength="500"><?= $survey->getDescripcion() ?></textarea>
+                           <textarea name="descripcion" id="descripcion" class="form-control border p-1" rows="4" maxlength="255" required><?= $survey->getDescripcion() ?></textarea>
+                        </div>
+                     </div>
+                     <div class="col-md-12">
+                        <div class="form-group">
+                           <label for="mensaje">Mensaje</label>
+                           <textarea name="mensaje" id="mensaje" class="form-control border p-1" rows="4" maxlength="255" required><?= $survey->getMensaje() ?></textarea>
                         </div>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>

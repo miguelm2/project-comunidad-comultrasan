@@ -45,9 +45,14 @@ if (isset($_GET['user'])) {
 if (isset($_POST['deleteUser'])) {
     ServiceUser::deleteUser($_GET['user']);
 }
+if(isset($_POST['getTableUserFilter'])){
+    $response = ServiceUser::getTablaUserByManagerFilter($_POST['codigo_user'], $_POST['nombre_user'], $_POST['documento']);
+    echo $response;
+}
 
 if (isset($_GET)) {
-    $tableUsuarios  = ServiceUser::getTablaUsuarios();
-    $optionUser     = ServiceUser::getOptionUser();
+    $tableUsuarios      = ServiceUser::getTablaUsuarios();
+    $tableUserManager   = ServiceUser::getTablaUserByManager();
+    $optionUser         = ServiceUser::getOptionUser();
     $optionUserWithoutCommunity = ServiceUser::getOptionUserWithoutCommunity();
 }

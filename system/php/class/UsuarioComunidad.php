@@ -41,6 +41,32 @@ class UsuarioComunidad extends system
         }
         return $list;
     }
+    public static function getUserCommunityByCommunityFilter($id_comunidad, $filtro)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * 
+                                FROM UsuarioComunidad 
+                                WHERE id_comunidad = :id_comunidad
+                                AND estado = 2 " . $filtro);
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
+        $stmt->execute();
+        $modalResponse = $stmt->fetchAll();
+        $list = array();
+        $con = 0;
+        foreach ($modalResponse as $response) {
+            $UsuarioComunidadDTO = new UsuarioComunidadDTO();
+
+            $UsuarioComunidadDTO->setId_usuario_comunidad($response['id_usuario_comunidad']);
+            $UsuarioComunidadDTO->setUsuarioDTO(Usuario::getUserById($response['id_usuario']));
+            $UsuarioComunidadDTO->setComunidadDTO(Comunidad::getCommunity($response['id_comunidad']));
+            $UsuarioComunidadDTO->setEstado($response['estado']);
+            $UsuarioComunidadDTO->setFecha_registro($response['fecha_registro']);
+
+            $list[$con] = $UsuarioComunidadDTO;
+            $con++;
+        }
+        return $list;
+    }
     public static function getUserCommunityByUser($id_usuario)
     {
         $dbh             = parent::Conexion();

@@ -205,6 +205,7 @@
    <script src="/system/assets/vendor/datatables/jquery.dataTables.min.js"></script>
    <script src="/system/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
    <script src="/system/js/demo/datatables-demo.js"></script>
+   <script src="/system/js/valideImage.js"></script>
    <?= $response ?>
 </body>
 

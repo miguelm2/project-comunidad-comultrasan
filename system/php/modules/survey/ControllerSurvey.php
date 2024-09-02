@@ -5,11 +5,11 @@ use PhpOffice\PhpSpreadsheet\Calculation\Web\Service;
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/survey/ServiceSurvey.php';
 
 if (isset($_POST['newSurvey'])) {
-    ServiceSurvey::newSurvey($_POST['nombre'], $_POST['descripcion'], $_POST['puntos']);
+    ServiceSurvey::newSurvey($_POST['nombre'], $_POST['descripcion'], $_POST['puntos'], $_POST['mensaje']);
 }
 
 if (isset($_POST['setSurvey'])) {
-    $response = ServiceSurvey::setSurvey($_GET['survey'], $_POST['descripcion'], $_POST['nombre'], $_POST['estado'], $_POST['puntos']);
+    $response = ServiceSurvey::setSurvey($_GET['survey'], $_POST['descripcion'], $_POST['nombre'], $_POST['estado'], $_POST['puntos'], $_POST['mensaje']);
 }
 
 if (isset($_POST['deleteSurvey'])) {
@@ -28,5 +28,5 @@ if (isset($_GET)) {
     $tableSurvey = ServiceSurvey::getTableSurvey();
     $tableSurveyUser = ServiceSurvey::getSurveyUser();
     $progress = ServiceSurvey::getProgress();
-    $encuesta_id = ServiceSurvey::getIdLastSurveyByUser();
+    $encuesta = ServiceSurvey::getIdLastSurveyByUser();
 }

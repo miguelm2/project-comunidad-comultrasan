@@ -76,4 +76,19 @@ class TipoComunidad extends System
         $stmt->execute();
         return $stmt->fetch();
     }
+    public static function getUserGroupInterestByUser($id_usuario)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT tc.* 
+                                FROM TipoComunidad tc,
+                                    UsuarioGrupoInteres ugi,
+                                    Usuario us
+                                WHERE tc.id_tipo_comunidad = ugi.id_grupo
+                                AND ugi.id_usuario = us.id_usuario
+                                AND us.id_usuario = :id_usuario");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'TipoComunidadDTO');
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }

@@ -21,12 +21,18 @@ if (isset(($_POST['leaveLeaderCommunity']))) {
 if (isset($_GET['community'])) {
     $comunidad = ServiceCommunity::getCommunity($_GET['community']);
     $usuarioComunidad = ServiceUserCommunity::getUserCommunityByComummnity($_GET['community']);
+    $infoCommunity = ServiceCommunity::getInformationByCommunity($_GET['community']);
+    $tableCommunityManager = ServicePoint::listTablePointsUserByManager($_GET['community']);
+}
+
+if(isset($_POST['getTableCommunityFilter'])){
+    $response = ServiceCommunity::getTableCommunityFilter($_POST['codigo'], $_POST['nombre'], $_POST['lider']);
+    echo $response;
 }
 
 if (isset($_GET)) {
     $tableCommunities = ServiceCommunity::getTableCommunity();
     $unitedCommunity = ServiceCommunity::getUnitedCommunity();
     $btnJoinUser = ServiceCommunity::getButtonUnitUser();
-    $cardsCommunity = ServiceCommunity::getCardsCommunity();
     $tableCommunitiesIndex = ServiceCommunity::getTableCommunityIndex();
 }

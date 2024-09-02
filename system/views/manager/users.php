@@ -51,45 +51,7 @@
             </div>
          </div>
          <div class="card-body m-0">
-            <div class="table-responsive">
-               <table class="table table-bordered table-hover align-items-center mb-0">
-                  <thead class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Cédula</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
-                     </tr>
-                  </thead>
-                  <tfoot class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Cédula</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
-                     </tr>
-                  </tfoot>
-                  <tbody class="text-center">
-                     <?= $tableUsuarios ?>
-                  </tbody>
-               </table>
-            </div>
+            
          </div>
       </div>
       <!-- Start Footer -->

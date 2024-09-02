@@ -1,6 +1,8 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Punto.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Comunidad.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/UsuarioComunidad.php';
 
 class ServicePoint extends System
 {
@@ -197,5 +199,126 @@ class ServicePoint extends System
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+    public static function listTablePointsUserByManager($id_comunidad)
+    {
+        try {
+            if (basename($_SERVER['PHP_SELF']) == 'community.php') {
+                $id_comunidad = parent::limpiarString($id_comunidad);
+                $comunidadDTO = Comunidad::getCommunity($id_comunidad);
+                $tableHtml = "";
+
+                $tableHtml .= self::getPointsTableRows($comunidadDTO->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
+
+                $usuarioComunidadDTO = UsuarioComunidad::getUserCommunityByCommunityFilter($id_comunidad, $sql);
+                if ($usuarioComunidadDTO) {
+                    foreach ($usuarioComunidadDTO as $value) {
+                        $tableHtml .= self::getPointsTableRows($value->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
+                    }
+                }
+
+                return $tableHtml;
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function listTablePointsUserByManagerFilter($id_comunidad, $nombre)
+    {
+        try {
+            $nombre       = parent::limpiarString($nombre);
+            $id_comunidad = parent::limpiarString($id_comunidad);
+            $sql = '';
+            if ($nombre != '') {
+                $sql .= sprintf(" AND id_usuario IN (SELECT id_usuario FROM Usuario WHERE nombre LIKE '%%%s%%')", $nombre);
+            }
+            $comunidadDTO = Comunidad::getCommunityFilter($id_comunidad, $sql);
+            $tableHtml = [];
+
+            $tableHtml[] = self::getPointsTableRowsJSON($comunidadDTO->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
+
+            $usuarioComunidadDTO = UsuarioComunidad::getUserCommunityByCommunity($id_comunidad);
+            if ($usuarioComunidadDTO) {
+                foreach ($usuarioComunidadDTO as $value) {
+                    $tableHtml[] = self::getPointsTableRowsJSON($value->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
+                }
+            }
+
+            return json_encode($tableHtml);
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    private static function getPointsTableRows($id_usuario, $nombre)
+    {
+        $modelResponse = Punto::listPointByUser($id_usuario);
+
+        if (!$modelResponse) {
+            return '';
+        }
+
+        // Construir las filas de la tabla
+        $tableRows = '';
+        foreach ($modelResponse as $valor) {
+            $tableRows .= '<tr>';
+            $tableRows .= '<td>' . $nombre . '</td>';
+            $tableRows .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+            $tableRows .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
+            $tableRows .= '<td class="text-wrap">' . self::getDateInWords($valor->getFecha_registro()) . '</td>';
+            $tableRows .= '<td>Completada</td>';
+            $tableRows .= '<td>' . $valor->getPuntos() . '</td>';
+            $tableRows .= '</tr>';
+        }
+
+        return $tableRows;
+    }
+    private static function getPointsTableRowsJSON($id_usuario, $nombre)
+    {
+        $modelResponse = Punto::listPointByUser($id_usuario);
+
+        if (!$modelResponse) {
+            return [];
+        }
+
+        // Construir las filas de la tabla
+        $tableRows = [];
+        foreach ($modelResponse as $valor) {
+            $tableRows[] = [
+                'Comunidad' => $nombre,
+                'Nombre' => $valor->getUsuarioDTO()->getNombre(),
+                'Descripcion' => $valor->getDescripcion(),
+                'Fecha' => self::getDateInWords($valor->getFecha_registro()),
+                'Estatus' => 'Completada',
+                'Puntos' => $valor->getPuntos()
+            ];
+        }
+
+        return $tableRows;
+    }
+    private static function getDateInWords($fecha_bd)
+    {
+        $fecha = new DateTime($fecha_bd);
+        $fecha_formateada = $fecha->format('F d \d\e\l Y');
+        $fecha->modify('+1 year');
+        $fecha_formateada_mas_un_ano = $fecha->format('F d \d\e\l Y');
+        $meses = array(
+            'January' => 'Enero',
+            'February' => 'Febrero',
+            'March' => 'Marzo',
+            'April' => 'Abril',
+            'May' => 'Mayo',
+            'June' => 'Junio',
+            'July' => 'Julio',
+            'August' => 'Agosto',
+            'September' => 'Septiembre',
+            'October' => 'Octubre',
+            'November' => 'Noviembre',
+            'December' => 'Diciembre'
+        );
+
+        $fecha_formateada = str_replace(array_keys($meses), array_values($meses), $fecha_formateada);
+        $fecha_formateada_mas_un_ano = str_replace(array_keys($meses), array_values($meses), $fecha_formateada_mas_un_ano);
+
+        return $fecha_formateada . "/" . $fecha_formateada_mas_un_ano;
     }
 }

@@ -48,41 +48,94 @@
             <div class="col-md-5 mt-4 ms-4">
                <h4 class="text-success">Ver Comunidad</h4>
             </div>
-            <div class="col-md-12 mt-2 pb-4 ms-4">
+         </div>
+         <div class="table-responsive">
+            <table class="table table-hover table-bordered table-striped">
+               <thead class="text-center">
+                  <tr>
+                     <th class="text-uppercase font-weight-bolder">Código</th>
+                     <th class="text-uppercase font-weight-bolder">Nombre</th>
+                     <th class="text-uppercase font-weight-bolder">Líder</th>
+                     <th class="text-uppercase font-weight-bolder">Fecha de creación</th>
+                     <th class="text-uppercase font-weight-bolder">Estado</th>
+                     <th class="text-uppercase font-weight-bolder">Nro de miembros</th>
+                     <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                     <th class="text-uppercase font-weight-bolder">Ranking</th>
+                  </tr>
+               </thead>
+               <tfoot class="text-center">
+                  <tr>
+                     <th class="text-uppercase font-weight-bolder">Código</th>
+                     <th class="text-uppercase font-weight-bolder">Nombre</th>
+                     <th class="text-uppercase font-weight-bolder">Líder</th>
+                     <th class="text-uppercase font-weight-bolder">Fecha de creación</th>
+                     <th class="text-uppercase font-weight-bolder">Estado</th>
+                     <th class="text-uppercase font-weight-bolder">Nro de miembros</th>
+                     <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                     <th class="text-uppercase font-weight-bolder">Ranking</th>
+                     </tbody>
+                  </tr>
+               </tfoot>
+               <tbody class="text-center">
+                  <tr>
+                     <td><?= $comunidad->getId_comunidad() ?></td>
+                     <td><?= $comunidad->getNombre() ?></td>
+                     <td><?= $comunidad->getUsuarioDTO()->getNombre() ?></td>
+                     <td><?= $comunidad->getFecha_registro() ?></td>
+                     <td><?= $comunidad->getEstado()[1] ?></td>
+                     <td><?= $infoCommunity->nro_usuarios ?></td>
+                     <td><?= $infoCommunity->total_puntos ?></td>
+                     <td><?= $infoCommunity->ranking ?> de <?= $infoCommunity->total_comunidades ?></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <div class="card mt-3">
+         <div class="card-head">
+            <div class="mt-3 ms-3">
                <div class="row">
-               <div class="col-md-2">
-                     <div class="form-group">
-                        <h6>Código</h6>
-                        <p><?= $comunidad->getId_comunidad() ?></p>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="form-group">
-                        <h6>Nombre</h6>
-                        <p><?= $comunidad->getNombre() ?></p>
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="form-group">
-                        <h6>Creado</h6>
-                        <p><?= $comunidad->getFecha_registro() ?></p>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div class="form-group">
-                        <h6>Estado</h6>
-                        <p><?= $comunidad->getEstado()[1] ?></p>
-                     </div>
-                  </div>
-                  
-                  
-                  <div class="col-md-6">
-                     <div class="form-group">
-                        <h6>Líder</h6>
-                        <p><?= $comunidad->getUsuarioDTO()->getNombre() ?></p>
-                     </div>
+                  <div class="col-md-9">
+                     <h4 class="text-success">
+                        Puntos en la comunidad
+                     </h4>
                   </div>
                </div>
+            </div>
+         </div>
+         <div class="card-body">
+            <div class="row p-2">
+               <div class="col-md-4">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" name="nombre" id="nombre" class="form-control border p-1">
+               </div>
+            </div>
+            <div class="table-responsive">
+               <table class="table table-hover table-bordered table-striped" id="tablePoints">
+                  <thead class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Actividad</th>
+                        <th class="text-uppercase font-weight-bolder">Asignación / Vencimiento</th>
+                        <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        <th class="text-uppercase font-weight-bolder">Corazones</th>
+                     </tr>
+                  </thead>
+                  <tfoot class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Actividad</th>
+                        <th class="text-uppercase font-weight-bolder">Asignación / Vencimiento</th>
+                        <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        <th class="text-uppercase font-weight-bolder">Corazones</th>
+                     </tr>
+                  </tfoot>
+                  <tbody>
+                     <?= $tableCommunityManager ?>
+                  </tbody>
+               </table>
             </div>
          </div>
       </div>
@@ -144,6 +197,7 @@
    <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/js/modalEliminar.js"></script>
    <script src="/system/js/selectRepeat.js"></script>
+   <script src="/system/js/filter/filter_points.js"></script>
    <?= $response ?>
 </body>
 
