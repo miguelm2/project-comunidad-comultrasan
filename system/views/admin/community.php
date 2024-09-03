@@ -21,6 +21,10 @@
    <!-- CSS Files -->
    <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+   <link rel="stylesheet" href="/system/assets/vendor/quill/quill.snow.css">
+   <link rel="stylesheet" href="/system/assets/vendor/quill/quill.bubble.css">
+   <link rel="stylesheet" href="/system/assets/vendor/simple-datatables/style.css">
+   <link rel="stylesheet" href="/system/assets/vendor/datatables/dataTables.bootstrap4.min.css">
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -120,6 +124,7 @@
                         <th class="text-uppercase font-weight-bolder">ID</th>
                         <th class="text-uppercase font-weight-bolder">Asociado</th>
                         <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
@@ -129,6 +134,7 @@
                         <th class="text-uppercase font-weight-bolder">ID</th>
                         <th class="text-uppercase font-weight-bolder">Asociado</th>
                         <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
@@ -140,7 +146,54 @@
             </div>
          </div>
       </div>
-
+      <div class="card mt-3">
+         <div class="card-head">
+            <div class="mt-3 ms-3">
+               <div class="row">
+                  <div class="col-md-9">
+                     <h4 class="text-success">
+                        Puntos en la comunidad
+                     </h4>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="card-body">
+            <div class="row p-2">
+               <div class="col-md-4">
+                  <label for="nombre">Nombre</label>
+                  <input type="text" name="nombre" id="nombre" class="form-control border p-1">
+               </div>
+            </div>
+            <div class="table-responsive">
+               <table class="table table-hover table-bordered table-striped" id="tablePoints">
+                  <thead class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Actividad</th>
+                        <th class="text-uppercase font-weight-bolder">Asignación / Vencimiento</th>
+                        <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        <th class="text-uppercase font-weight-bolder">Corazones</th>
+                     </tr>
+                  </thead>
+                  <tfoot class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Actividad</th>
+                        <th class="text-uppercase font-weight-bolder">Asignación / Vencimiento</th>
+                        <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        <th class="text-uppercase font-weight-bolder">Corazones</th>
+                     </tr>
+                  </tfoot>
+                  <tbody>
+                     <?= $tableCommunityManager ?>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
@@ -204,6 +257,7 @@
       <img src="/assets/image/favicon_0.ico" alt="Cargando...">
    </div>
    <!--   Core JS Files   -->
+   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/assets/js/core/popper.min.js"></script>
    <script src="/system/assets/js/core/bootstrap.min.js"></script>
    <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -211,10 +265,14 @@
    <script src="/system/assets/js/plugins/chartjs.min.js"></script>
    <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
+   <script src="/system/assets/vendor/simple-datatables/simple-datatables.js"></script>
+   <script src="/system/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+   <script src="/system/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+   <script src="/system/js/demo/datatables-demo.js"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
-   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/js/modalEliminar.js"></script>
    <script src="/system/js/selectRepeat.js"></script>
+   <script src="/system/js/filter/filter_points.js"></script>
    <?= $response ?>
 </body>
 

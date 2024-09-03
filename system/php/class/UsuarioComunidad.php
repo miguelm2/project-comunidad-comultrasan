@@ -143,6 +143,16 @@ class UsuarioComunidad extends system
         $stmt->bindParam(':estado', $estado);
         return  $stmt->execute();
     }
+    public static function moveUserCommunityToCommunity($id_usuario_comunidad, $id_comunidad)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("UPDATE UsuarioComunidad 
+                                SET id_comunidad = :id_comunidad
+                                WHERE id_usuario_comunidad = :id_usuario_comunidad");
+        $stmt->bindParam(':id_usuario_comunidad', $id_usuario_comunidad);
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
+        return  $stmt->execute();
+    }
     public static function getUserCommunity($id_usuario_comunidad)
     {
         $dbh             = parent::Conexion();

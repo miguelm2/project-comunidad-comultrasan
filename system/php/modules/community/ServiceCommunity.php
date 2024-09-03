@@ -192,14 +192,58 @@ class ServiceCommunity extends System
                 Elements::getButtonDeleteModal('leaveLeader', 'Salir de la comunidad') :
                 Elements::getButtonDeleteModal('leave', 'Salir de la comunidad');
 
+            $html .= '</div>
+                        <div class="col-md-11">
+                            <div class="text-end">
+                            ' . $btnSalir . '
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+
+            return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getRestHmtl()
+    {
+        try {
+            $id_usuario = $_SESSION['id'];
+            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+
+            if (!$comunidadDTO) {
+                return '<div class="col-md-6">Debes unirte a una Comunidad</div>';
+            }
+
+            $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $id_usuario;
+            $html = '';
             $ranking = Comunidad::getRankingByCommunity($comunidadDTO->getId_comunidad());
-            $html .= Elements::getHtmlCards($btnSalir, $total_points, $ranking['posicion'], $ranking['total_comunidades']);
+            $html .= Elements::getHtmlCards($ranking['total_puntos'], $ranking['posicion'], $ranking['total_comunidades']);
 
             $html .= self::getCommunityRanking($comunidadDTO->getId_comunidad(), $isLeader);
 
-            $html .= '</div></div></div></div></div>';
-
+            $html .= '</div></div></div>';
             return $html;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getOptionRequest(){
+        try{
+            $id_usuario = $_SESSION['id'];
+            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+
+            if (!$comunidadDTO) {
+                return 'disabled';
+            }
+
+            $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $id_usuario;
+            if($isLeader){
+                return '';
+            }else{
+                return 'disabled';
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -314,7 +358,7 @@ class ServiceCommunity extends System
 
             if ($count < 2) {
                 // Si hay menos de 2 usuarios, eliminar la comunidad
-                if (Comunidad::setCommunityEstate($id_comunidad, 0)) {
+                if (Comunidad::setCommunityEstate($id_comunidad, 0, NULL)) {
                     UsuarioComunidad::deleteUserCommunityByCommunity($id_comunidad);
                     return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
                 }

@@ -203,16 +203,6 @@ class ServiceTypeComunity extends System
     {
         try {
             $id_grupo = parent::limpiarString($id_grupo);
-            $comunidadDTO = Comunidad::getCommunityByUser($_SESSION['id']);
-
-            if (!$comunidadDTO) {
-                $comunidadUsuario = UsuarioComunidad::getUserCommunityByUser($_SESSION['id']);
-                if ($comunidadUsuario) {
-                    $comunidadDTO = $comunidadUsuario->getComunidadDTO();
-                } else {
-                    return '<button class="btn btn-success disabled">No perteneces a una comunidad</button>';
-                }
-            }
             $tipoComunidadDTO = TipoComunidad::getTypeComunityByUser($_SESSION['id']);
             if (!$tipoComunidadDTO) {
                 return Elements::getFormJoinGroupInterest();

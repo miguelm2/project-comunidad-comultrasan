@@ -25,7 +25,7 @@ if (isset($_GET['community'])) {
     $tableCommunityManager = ServicePoint::listTablePointsUserByManager($_GET['community']);
 }
 
-if(isset($_POST['getTableCommunityFilter'])){
+if (isset($_POST['getTableCommunityFilter'])) {
     $response = ServiceCommunity::getTableCommunityFilter($_POST['codigo'], $_POST['nombre'], $_POST['lider']);
     echo $response;
 }
@@ -33,6 +33,8 @@ if(isset($_POST['getTableCommunityFilter'])){
 if (isset($_GET)) {
     $tableCommunities = ServiceCommunity::getTableCommunity();
     $unitedCommunity = ServiceCommunity::getUnitedCommunity();
+    $cardRest = ServiceCommunity::getRestHmtl();
+    $optionRequest = ServiceCommunity::getOptionRequest();
     $btnJoinUser = ServiceCommunity::getButtonUnitUser();
     $tableCommunitiesIndex = ServiceCommunity::getTableCommunityIndex();
 }

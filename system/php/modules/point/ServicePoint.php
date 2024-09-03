@@ -210,7 +210,7 @@ class ServicePoint extends System
 
                 $tableHtml .= self::getPointsTableRows($comunidadDTO->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
 
-                $usuarioComunidadDTO = UsuarioComunidad::getUserCommunityByCommunityFilter($id_comunidad, $sql);
+                $usuarioComunidadDTO = UsuarioComunidad::getUserCommunityByCommunity($id_comunidad);
                 if ($usuarioComunidadDTO) {
                     foreach ($usuarioComunidadDTO as $value) {
                         $tableHtml .= self::getPointsTableRows($value->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
@@ -234,13 +234,13 @@ class ServicePoint extends System
             }
             $comunidadDTO = Comunidad::getCommunityFilter($id_comunidad, $sql);
             $tableHtml = [];
+            if ($comunidadDTO)
+                $tableHtml = self::getPointsTableRowsJSON($comunidadDTO->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
 
-            $tableHtml[] = self::getPointsTableRowsJSON($comunidadDTO->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
-
-            $usuarioComunidadDTO = UsuarioComunidad::getUserCommunityByCommunity($id_comunidad);
+            $usuarioComunidadDTO = UsuarioComunidad::getUserCommunityByCommunityFilter($id_comunidad, $sql);
             if ($usuarioComunidadDTO) {
                 foreach ($usuarioComunidadDTO as $value) {
-                    $tableHtml[] = self::getPointsTableRowsJSON($value->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
+                    $tableHtml = self::getPointsTableRowsJSON($value->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
                 }
             }
 
@@ -280,21 +280,21 @@ class ServicePoint extends System
             return [];
         }
 
-        // Construir las filas de la tabla
         $tableRows = [];
         foreach ($modelResponse as $valor) {
             $tableRows[] = [
                 'Comunidad' => $nombre,
-                'Nombre' => $valor->getUsuarioDTO()->getNombre(),
-                'Descripcion' => $valor->getDescripcion(),
-                'Fecha' => self::getDateInWords($valor->getFecha_registro()),
-                'Estatus' => 'Completada',
-                'Puntos' => $valor->getPuntos()
+                'Asociado' => $valor->getUsuarioDTO()->getNombre(),
+                'Actividad' => $valor->getDescripcion(),
+                'Asignación / Vencimiento' => self::getDateInWords($valor->getFecha_registro()),
+                'Estatus Actividad' => 'Completada',
+                'Corazones' => $valor->getPuntos()
             ];
         }
 
         return $tableRows;
     }
+
     private static function getDateInWords($fecha_bd)
     {
         $fecha = new DateTime($fecha_bd);
