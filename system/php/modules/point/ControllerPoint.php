@@ -5,6 +5,10 @@ if (isset($_POST['newPoint'])) {
     $response = ServicePoint::newPoint($_POST['puntos'], $_POST['usuario'], $_SESSION['id'], $_POST['descripcion']);
 }
 
+if (isset($_POST['newPointUser'])) {
+    $response = ServicePoint::newPoint($_POST['puntos'], $_GET['user'], $_SESSION['id'], $_POST['descripcion']);
+}
+
 if (isset($_POST['setPoint'])) {
     $response = ServicePoint::setPoint($_GET['point'], $_POST['puntos'], $_POST['descripcion']);
 }

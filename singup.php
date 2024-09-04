@@ -111,7 +111,7 @@
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="imageUser">Imagen</label>
+                              <label class="label text-black" for="imageUser">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                               <input type="file" accept="image/*" name="imageUser" class="form-control">
                            </div>
                         </div>

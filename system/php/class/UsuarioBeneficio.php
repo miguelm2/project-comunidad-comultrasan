@@ -32,6 +32,28 @@ class UsuarioBeneficio extends system
         }
         return null;
     }
+    public static function getUserBenefitByUserAndBenefit($id_usuario, $id_beneficio)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM UsuarioBeneficio 
+                            WHERE id_usuario = :id_usuario
+                            AND id_beneficio = :id_beneficio");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->bindParam(':id_beneficio', $id_beneficio);
+        $stmt->execute();
+        $response = $stmt->fetch();
+        if ($response) {
+            $usuarioBeneficioDTO = new UsuarioBeneficioDTO();
+
+            $usuarioBeneficioDTO->setId_usuario_beneficio($response['id_usuario_beneficio']);
+            $usuarioBeneficioDTO->setUsuarioDTO(Usuario::getUserById($response['id_usuario']));
+            $usuarioBeneficioDTO->setBeneficioDTO(Beneficio::getBenefit($response['id_beneficio']));
+            $usuarioBeneficioDTO->setFecha_registro($response['fecha_registro']);
+
+            return $usuarioBeneficioDTO;
+        }
+        return null;
+    }
     public static function deleteUserBenefit($id_usuario_beneficio)
     {
         $dbh             = parent::Conexion();

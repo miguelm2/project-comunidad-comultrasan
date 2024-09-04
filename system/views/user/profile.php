@@ -103,11 +103,12 @@
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="row mt-4">
                         <div class="col-md-4 d-grid">
-                           <button type="submit" class="btn btn-success" name="setProfileUser"><i class="material-icons me-2">edit</i> Editar Perfil</button>
-                        </div>
-                        <div class="col-md-4 d-grid">
                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">
                               <i class="material-icons me-2">image</i> Cambiar Imagen</button>
+                        </div>
+                        <div class="col-md-4 d-grid">
+                           <button type="submit" class="btn btn-success" name="setProfileUser">
+                              <i class="material-icons me-2">edit</i> Editar Perfil</button>
                         </div>
                         <div class="col-md-4 d-grid">
                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiarPass">
@@ -130,7 +131,7 @@
                   </div>
                   <div class="modal-body">
                      <div class="form-group">
-                        <label class="form-label" for="imageUser">Imagen</label>
+                        <label class="form-label" for="imageUser">Imagen<small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                         <input type="file" class="form-control border p-1" name="imageUser" accept="image/*" required>
                      </div>
                   </div>

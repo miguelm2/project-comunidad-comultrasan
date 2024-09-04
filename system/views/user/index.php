@@ -155,9 +155,11 @@
                      <img src="/assets/image/modal.jpg" alt="Modal" class="img-fluid" style="max-width: 200px;">
                   </div>
                   <br>
-                  <?= $encuesta->mensaje?>
-                  <br>
-                  <a href="survey?survey=<?= $encuesta->id_encuesta ?>" class="btn btn-success mt-2"><i class="material-icons me-2">school</i> ¡Resolver Ahora!</a>
+                  <p class="text-black m-0">
+                     <?= $encuesta->mensaje ?>
+                     <br>
+                     <a href="survey?survey=<?= $encuesta->id_encuesta ?>" class="btn btn-success mt-2"><i class="material-icons me-2">school</i> ¡Resolver Ahora!</a>
+                  </p>
                </div>
                <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

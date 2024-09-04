@@ -293,6 +293,7 @@ class ServiceUser extends System
                     foreach ($modelResponse as $valor) {
                         $style = self::getColorByEstate($valor->getEstado()[0]);
                         $tableHtml .= '<tr>';
+                        $tableHtml .= '<td>' . $valor->getId_usuario() . '</td>';
                         $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
                         $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
                         $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
@@ -340,7 +341,7 @@ class ServiceUser extends System
                         $tableHtml .= '<td>' . ($puntoDTO ? $puntoDTO->getFecha_registro() : 'Sin registro') . '</td>';
                         $tableHtml .= '<td>' . $countPoints . '</td>';
                         $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("user", $valor->getId_usuario()) . '</td>';
+                        $tableHtml .= '<td>' . Elements::crearBotonVer2("user", $valor->getId_usuario()) . '</td>';
                         $tableHtml .= '</tr>';
                     }
                 } else {
@@ -455,7 +456,7 @@ class ServiceUser extends System
                         'Ultimo_punto' => ($puntoDTO ? $puntoDTO->getFecha_registro() : 'Sin registro'),
                         'Total_puntos' => $countPoints,
                         'Estado' => '<small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small>',
-                        'Opciones' => Elements::crearBotonVer("user", $valor->getId_usuario())
+                        'Opciones' => Elements::crearBotonVer2("user", $valor->getId_usuario())
                     ];
                 }
             }

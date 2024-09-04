@@ -387,3 +387,12 @@ ALTER TABLE
   Encuesta
 ADD
   mensaje VARCHAR(255) NULL;
+
+ALTER TABLE
+  Beneficio
+ADD
+  definicion VARCHAR(255) NULL,
+  condiciones VARCHAR(255) NULL;
+
+ALTER TABLE
+  Beneficio DROP COLUMN descripcion;

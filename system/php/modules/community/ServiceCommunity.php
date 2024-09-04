@@ -115,7 +115,12 @@ class ServiceCommunity extends System
                         $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
                         $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
                         $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("community", $valor->getId_comunidad()) . '</td>';
+                        if ($_SESSION['tipo'] == 0 && $_SESSION['tipo'] == 5){
+                            $tableHtml .= '<td>' . Elements::crearBotonVer("community", $valor->getId_comunidad()) . '</td>';
+                        }                            
+                        else{
+                            $tableHtml .= '<td>' . Elements::crearBotonVer2("community", $valor->getId_comunidad()) . '</td>';
+                        }
                         $tableHtml .= '</tr>';
                     }
                 } else {
@@ -171,7 +176,7 @@ class ServiceCommunity extends System
 
             $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad());
             $fecha = self::getDateInWords($comunidadDTO->getFecha_registro());
-            $total_points = self::getTotalPoints($comunidadDTO);
+            $ranking = Comunidad::getRankingByCommunity($comunidadDTO->getId_comunidad());
             $btnEditar = $isLeader ? Elements::getButtonEditModalJs('editName', 'Editar', $comunidadDTO->getId_comunidad(), $comunidadDTO->getNombre()) : '';
 
             $html .= Elements::getUnitedCommunityReady(
@@ -180,7 +185,7 @@ class ServiceCommunity extends System
                 $count,
                 $fecha,
                 $comunidadDTO->getId_comunidad(),
-                $total_points,
+                $ranking['total_puntos'],
                 $btnEditar
             );
 
@@ -213,7 +218,7 @@ class ServiceCommunity extends System
             $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
 
             if (!$comunidadDTO) {
-                return '<div class="col-md-6">Debes unirte a una Comunidad</div>';
+                return '<div class="col-md-5"><h5 class="text-black">Debes unirte a una Comunidad</h5></div>';
             }
 
             $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $id_usuario;
@@ -229,29 +234,30 @@ class ServiceCommunity extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function getOptionRequest(){
-        try{
+    public static function getOptionRequest()
+    {
+        try {
             $id_usuario = $_SESSION['id'];
             $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
 
             if (!$comunidadDTO) {
-                return 'disabled';
+                return '';
             }
 
             $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $id_usuario;
-            if($isLeader){
+            if ($isLeader) {
+                return '<li class="nav-item">
+                            <a class="nav-link mb-0 px-0 py-1 text-success" data-bs-toggle="tab" href="#information" 
+                                role="tab" aria-controls="dashboard" aria-selected="false">
+                                Solicitudes
+                            </a>
+                        </li>';
+            } else {
                 return '';
-            }else{
-                return 'disabled';
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
-    }
-    private static function getTotalPoints($comunidadDTO)
-    {
-        $total_points = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
-        return $total_points + Punto::getSumPointsByCommunity($comunidadDTO->getId_comunidad());
     }
     private static function getCommunityMembers($id_comunidad, $isLeader)
     {

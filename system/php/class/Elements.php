@@ -554,7 +554,7 @@ class Elements
         return '<button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#' . $modal . '" data-id="' . $id . '" data-nombre="' . $nombre . '">
         <i class="material-icons me-2">edit</i>' . $text . '</button>';
     }
-    public static function getCardBodyCommunityUser($codigo, $nombre, $lider, $fecha, $fecha_union)
+    public static function getCardBodyCommunityUser($codigo, $nombre, $lider, $fecha, $fecha_union, $btnCambiar)
     {
         return '<div class="row">
                     <div class="col-md-6">
@@ -570,6 +570,8 @@ class Elements
                         <p>' . $fecha . '</p>
                         <h6><i class="material-icons">event</i> Fecha de unión: </h6>
                         <p>' . $fecha_union . '</p>
+                        <h6>Cambiar de comunidad</h6>
+                        <p>'. $btnCambiar . '</p>
                     </div>
                 </div>';
     }

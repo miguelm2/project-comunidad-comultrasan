@@ -5,3 +5,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userBenefit/Servic
 if (isset($_POST['newUserBenefits'])) {
     $response = ServiceUserBenefit::newUserBenefit($_GET['user'], $_POST['userBenefit']);
 }
+
+if (isset($_POST['deleteUserBenefit'])) {
+    $response = ServiceUserBenefit::deleteUserBenefit($_POST['usuarioBeneficio']);
+}

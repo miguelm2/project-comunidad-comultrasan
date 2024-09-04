@@ -7,7 +7,7 @@ if (isset($_POST['newCommunity'])) {
 }
 
 if (isset($_POST['editCommunity'])) {
-    $response = ServiceCommunity::setCommunity($_POST['comunidad'], $_POST['nombre'], $_POST['estado']);
+    $response = ServiceCommunity::setCommunity($_GET['community'], $_POST['nombre'], $_POST['estado']);
 }
 
 if (isset($_POST['deleteCommunity'])) {

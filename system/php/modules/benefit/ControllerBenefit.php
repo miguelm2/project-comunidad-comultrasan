@@ -2,11 +2,11 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefit/ServiceBenefit.php';
 
 if (isset($_POST['newBenefit'])) {
-    $response = ServiceBenefit::newBenefit($_POST['titulo'], $_POST['descripcion'], $_POST['puntos']);
+    $response = ServiceBenefit::newBenefit($_POST['titulo'], $_POST['definicion'], $_POST['condiciones'], $_POST['puntos']);
 }
 
 if (isset($_POST['setBenefit'])) {
-    $response = ServiceBenefit::setBenefit($_GET['benefit'], $_POST['titulo'], $_POST['descripcion'], $_POST['puntos']);
+    $response = ServiceBenefit::setBenefit($_GET['benefit'], $_POST['titulo'], $_POST['definicion'], $_POST['condiciones'], $_POST['puntos']);
 }
 
 if (isset($_POST['setImageBenefit'])) {

@@ -34,28 +34,20 @@
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
       <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
-         <div class="container-fluid">
-            <nav aria-label="breadcrumb" class="d-none d-lg-block">
-               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                  <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
-                  <li class="breadcrumb-item active">Comunidades</li>
-               </ol>
-            </nav>
-         </div>
          <!-- Start header -->
-         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_gestor.php'; ?>
          <!-- End header -->
-      </nav>
+      </nav><!-- End Page Title -->
       <div class="card container-fluid mt-3">
          <div class="nav-wrapper position-relative end-0">
             <ul class="nav nav-pills nav-fill p-1" role="tablist">
                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#community" role="tab" aria-controls="profile" aria-selected="true">
+                  <a class="nav-link mb-0 px-0 py-1 active text-success" data-bs-toggle="tab" href="#community" role="tab" aria-controls="profile" aria-selected="true">
                      Comunidades
                   </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#information" role="tab" aria-controls="dashboard" aria-selected="false">
+                  <a class="nav-link mb-0 px-0 py-1 text-success" data-bs-toggle="tab" href="#information" role="tab" aria-controls="dashboard" aria-selected="false">
                      Información personal
                   </a>
                </li>
