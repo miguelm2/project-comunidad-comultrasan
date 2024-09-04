@@ -7,6 +7,18 @@ class Elements
                     <i class="material-icons text-sm me-2">edit</i>Editar
                 </a>';
     }
+    public static function crearBotonVer2($link, $valor)
+    {
+        return '<a class="btn btn-link text-info px-3 mb-0" href="' . $link . '?' . $link . '=' . $valor . '">
+                    <i class="material-icons text-sm me-2">visibility</i>Ver
+                </a>';
+    }
+    public static function crearBotonMover($link, $valor)
+    {
+        return '<a class="btn btn-link text-info px-3 mb-0" href="' . $link . '?' . $link . '=' . $valor . '">
+                    <i class="material-icons text-sm me-2">published_with_changes</i>Mover
+                </a>';
+    }
     public static function crearBotonRealizar($link, $valor)
     {
         return '<a class="btn btn-link text-info px-3 mb-0" href="' . $link . '?' . $link . '=' . $valor . '" style="font-size: 16px;">
@@ -534,7 +546,7 @@ class Elements
     }
     public static function getButtonDeleteModalJs($modal, $text, $id)
     {
-        return '<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#' . $modal . '" data-id="' . $id . '">
+        return '<button type="button" class="btn btn-link text-danger px-3 mb-0" data-bs-toggle="modal" data-bs-target="#' . $modal . '" data-id="' . $id . '">
         <i class="material-icons me-2">person_remove</i>' . $text . '</button>';
     }
     public static function getButtonEditModalJs($modal, $text, $id, $nombre)
@@ -652,74 +664,20 @@ class Elements
             </div>
         ';
     }
-    public static function getHtmlCards($btnSalir, $total_points, $posicion, $comunidades)
+    public static function getHtmlCards($total_points, $posicion, $comunidades)
     {
-        return  '</div>
-                    <div class="col-md-11">
-                        <div class="text-end">
-                        ' . $btnSalir . '
+        return  '<div class="col-md-5">
+                    <div class="card border-2" style="background: #58B9AB">
+                        <div class="card-head mt-2">
+                            <h5 class="text-white text-center">Tabla de recompensas</h5>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card border-2 mt-2 pb-3">
-                <div class="card-head mt-2 ms-2">
-                    <h5 class="text-success">Reconocemos tus logros y los de tu comunidad</h5>
-                </div>
-                <div class="row">
-                    <div class="col-md-7">
-                        <p class="ms-3 text-black">
-                            En la Comunidad Comultrasan, premiamos tu lealtad y compromiso con beneficios 
-                            exclusivos. Valoramos tu participación y queremos ofrecerte una experiencia 
-                            enriquecedora y memorable. Tú y tu comunidad pueden crecer, aprender y obtener 
-                            recompensas alcanzando los retos que nuestra comunidad propone en estos dos pilares. 
-                        </p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a href="#exploraYaprende">
-                                    <div class="card border-2 ms-2 h-100">
-                                        <div class="card-head">
-                                            <h5 class="text-success ms-3 mt-2">Explora y aprende</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <p>
-                                                Acumula corazones al completar actividades educativas en nuestra 
-                                                plataforma. Mejora tu educación financiera y canjea corazones 
-                                                por beneficios.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
+                        <div class="card-body pt-0">
+                            <div class="card border-2 text-black text-center">
+                                <h6> Mi comunidad ' . $total_points . ' &#10084;</h6>
                             </div>
-                            <div class="col-md-6">
-                                <a href="#invitaYgana">
-                                    <div class="card border-2 h-100">
-                                        <div class="card-head">
-                                            <h5 class="text-success ms-3 mt-2">Invita y gana</h5>
-                                        </div>
-                                        <div class="card-body">
-                                            <p>
-                                                Gana corazones haciendo crecer la comunidad e incrementando tus saldos. 
-                                                Valorizamos y recompensamos tu esfuerzo.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
+                            <div class="card border-2 text-black text-center mt-2">
+                                <h6> Ranking ' . $posicion . ' de ' . $comunidades . '</h6>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="card border-2" style="background: #58B9AB">
-                            <div class="card-head mt-2">
-                                <h5 class="text-white text-center">Tabla de recompensas</h5>
-                            </div>
-                            <div class="card-body pt-0">
-                                <div class="card border-2 text-black text-center">
-                                    <h6> Mi comunidad ' . $total_points . ' &#10084;</h6>
-                                </div>
-                                <div class="card border-2 text-black text-center mt-2">
-                                    <h6> Ranking ' . $posicion . ' de ' . $comunidades . '</h6>
-                                </div>
                 ';
     }
 }

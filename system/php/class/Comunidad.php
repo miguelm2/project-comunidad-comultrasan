@@ -24,15 +24,16 @@ class Comunidad extends System
         $stmt->bindParam(':id_comunidad', $id_comunidad);
         return  $stmt->execute();
     }
-    public static function setCommunityEstate($id_comunidad, $estado)
+    public static function setCommunityEstate($id_comunidad, $estado, $id_usuario)
     {
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE Comunidad 
-                                SET estado = :estado 
-                                    id_usuario = NULL
+                                SET estado = :estado, 
+                                    id_usuario = :id_usuario
                                 WHERE id_comunidad = :id_comunidad");
         $stmt->bindParam(':estado', $estado);
         $stmt->bindParam(':id_comunidad', $id_comunidad);
+        $stmt->bindParam(':id_usuario', $id_usuario);
         return  $stmt->execute();
     }
     public static function getCommunity($id_comunidad)
@@ -81,6 +82,29 @@ class Comunidad extends System
     {
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("SELECT * FROM Comunidad");
+        $stmt->execute();
+        $modelResponse = $stmt->fetchAll();
+
+        $listResponse = array();
+        $con = 0;
+        foreach ($modelResponse as $result) {
+            $comunidadDTO = new ComunidadDTO();
+
+            $comunidadDTO->setid_comunidad($result['id_comunidad']);
+            $comunidadDTO->setNombre($result['nombre']);
+            $comunidadDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $comunidadDTO->setEstado($result['estado']);
+            $comunidadDTO->setFecha_registro($result['fecha_registro']);
+            $listResponse[$con] = $comunidadDTO;
+            $con++;
+        }
+        return $listResponse;
+    }
+    public static function listCommunityDiferernt($id_comunidad)
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM Comunidad WHERE id_comunidad != :id_comunidad");
+        $stmt->bindParam(':id_comunidad', $id_comunidad);
         $stmt->execute();
         $modelResponse = $stmt->fetchAll();
 

@@ -65,4 +65,5 @@ class Constants
     static $USER_READY_COMMUNITY    = "El asociado que busca no existe";
     static $USER_DIFERENT           = "La cédula debe pertenecer a otro asociado";
     static $COMMUNITY_NOT           = "La comunidad que digitó no existe";
+    static $MOVE_USER_COMMUNITY     = "Se ha realizado el cambio de comunidad";
 }

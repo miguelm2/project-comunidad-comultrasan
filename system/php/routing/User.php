@@ -27,8 +27,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/answerUser/Control
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/community/ControllerCommunty.php';
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/ControllerTypeComunity.php';
-
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forum/ControllerForum.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forumComment/ControllerForumComment.php';
@@ -42,3 +40,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/like/ControllerLik
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/sectionTypeCommunity/ControllerSectionTypeCommunity.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userGroupInterest/ControllerUserGroupInterest.php';
+
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/ControllerTypeComunity.php';

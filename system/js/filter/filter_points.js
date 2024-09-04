@@ -27,11 +27,11 @@ function renderDataTable(data) {
         data: data,
         columns: [
             { data: 'Comunidad' },
-            { data: 'Nombre' },
-            { data: 'Descripcion' },
-            { data: 'Fecha' },
-            { data: 'Estatus' },
-            { data: 'Puntos' }
+            { data: 'Asociado' },
+            { data: 'Actividad' },
+            { data: 'Asignación / Vencimiento' },
+            { data: 'Estatus Actividad' },
+            { data: 'Corazones' }
         ]
     });
 }

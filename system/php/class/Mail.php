@@ -34,8 +34,7 @@ class Mail extends System{
             $mail->send();
             return true;
         } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-            return false;
+            throw new Exception($e->getMessage());
         }
     }
 
