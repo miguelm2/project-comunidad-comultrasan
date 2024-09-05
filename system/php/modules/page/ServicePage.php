@@ -6,7 +6,7 @@ class ServicePage extends System
 {
     static function Login($cedula, $pass)
     {
-        
+
         $cedula = parent::limpiarString($cedula);
         $pass = parent::limpiarString($pass);
         $pass_hash = parent::hash($pass);
@@ -83,6 +83,17 @@ class ServicePage extends System
             }
         } catch (\Throwable $th) {
             throw $th;
+        }
+    }
+
+    public static function getURL()
+    {
+        if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+            $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+            $host = $_SERVER['HTTP_HOST'];
+            $script = $_SERVER['REQUEST_URI'];
+            $url = $protocol . "://" . $host ;
+            return $url;
         }
     }
 

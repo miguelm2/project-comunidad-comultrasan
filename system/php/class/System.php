@@ -206,6 +206,8 @@ abstract  class System
                 $_SESSION['imagen']             =   $usuario->getImagen();
                 $_SESSION['tipo']               =   $usuario->getTipo();
                 $_SESSION['fecha_nacimiento']   =   $usuario->getFecha_nacimiento();
+                $_SESSION['departamento']       =   $usuario->getDepartamento();
+                $_SESSION['ciudad']             =   $usuario->getCiudad();
                 $_SESSION['fecha_registro']     =   $usuario->getFecha_registro();
                 $_SESSION['usuario']            = "Usuario";
                 $_SESSION['show_modal']         = true;

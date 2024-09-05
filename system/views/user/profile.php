@@ -97,6 +97,18 @@
                                     <input type="text" class="form-control border p-1" name="cedula" value="<?= $_SESSION['cedula'] ?>" maxlength="255" required>
                                  </div>
                               </div>
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label for="departamento" class="form-label">Departamento</label><br>
+                                    <input type="text" class="form-control border p-1" name="departamento" value="<?= $_SESSION['departamento'] ?>" maxlength="255" required>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label for="ciudad" class="form-label">Ciudad</label><br>
+                                    <input type="text" class="form-control border p-1" name="ciudad" value="<?= $_SESSION['ciudad'] ?>" maxlength="255" required>
+                                 </div>
+                              </div>
                            </div>
                         </div>
                      </div>

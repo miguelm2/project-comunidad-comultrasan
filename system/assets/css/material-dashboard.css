@@ -130,7 +130,6 @@ body {
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
-  color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
   background: var(--bs-body-bg);
   background-color: var(--bs-body);
@@ -8210,12 +8209,12 @@ fieldset:disabled .btn {
 
 .text-bg-secondary {
   color: #000 !important;
-  background-color: RGBA(, 128, 154, var(--bs-bg-opacity, 1)) !important;
+  background-color: RGBA(0, 128, 154, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-success {
   color: #000 !important;
-  background-color: RGBA(88, 161, 42, var(--bs-bg-opacity, 1)) !important;
+  background-color: RGBA(150, 190, 22, var(--bs-bg-opacity, 1)) !important;
 }
 
 .text-bg-info {
@@ -10872,7 +10871,7 @@ fieldset:disabled .btn {
 }
 
 .bg-success {
-  background-color: #58a12a !important;
+  background-color: #96be16 !important;
 }
 
 .bg-info {
@@ -20867,8 +20866,8 @@ fieldset:disabled .btn {
 
 .btn-success:hover,
 .btn.bg-gradient-success:hover {
-  background-color: #58a12a;
-  border-color: #4caf50;
+  background-color: #96be16;
+  border-color: #96be16;
   box-shadow: 0 14px 26px -12px rgba(76, 175, 80, 0.4),
     0 4px 23px 0 rgba(76, 175, 80, 0.15), 0 8px 10px -5px rgba(76, 175, 80, 0.2);
 }
@@ -22979,7 +22978,7 @@ label,
 }
 
 .bg-gradient-success {
-  background-image: linear-gradient(195deg, #58a12a 0%, #58a12a 100%);
+  background-image: linear-gradient(195deg, #96be16 0%, #96be16 100%);
 }
 
 .bg-gradient-info {
@@ -23021,8 +23020,8 @@ label,
 .bg-gradient-faded-success {
   background-image: radial-gradient(
     370px circle at 80% 50%,
-    #58a12a 0,
-    #58a12a 100%
+    #96be16 0,
+    #96be16 100%
   );
 }
 

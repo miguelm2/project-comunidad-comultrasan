@@ -115,7 +115,7 @@ class ServiceCommunity extends System
                         $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
                         $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
                         $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                        if ($_SESSION['tipo'] == 0 && $_SESSION['tipo'] == 5){
+                        if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5){
                             $tableHtml .= '<td>' . Elements::crearBotonVer("community", $valor->getId_comunidad()) . '</td>';
                         }                            
                         else{

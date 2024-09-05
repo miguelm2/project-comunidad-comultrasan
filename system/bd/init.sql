@@ -396,3 +396,9 @@ ADD
 
 ALTER TABLE
   Beneficio DROP COLUMN descripcion;
+
+ALTER TABLE
+  Usuario
+ADD
+  departamento VARCHAR(255) NULL,
+  ciudad VARCHAR(255) NULL;
