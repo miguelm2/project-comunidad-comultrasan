@@ -77,6 +77,9 @@
                                  <p><?= $referred->getCedula_refiere() ?></p>
                               </div>
                            </div>
+                           <div class="col-md-12 mt-3 pb-2">
+                              <div class="dark horizontal my-0 border-1"></div>
+                           </div>
                            <div class="col-md-12">
                               <h5 class="text-black">
                                  Datos Referidos

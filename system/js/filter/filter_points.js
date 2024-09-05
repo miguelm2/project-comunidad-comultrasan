@@ -1,9 +1,11 @@
 // FILTRO DE ADMINISTRADOR
-$('#nombre').on('input', function () {
+$('#nombre, #fecha_inicio, #fecha_fin').on('input', function () {
     getTableFilter();
 });
 
 function getTableFilter() {
+    let nombre = $('#nombre').val() || '';
+    let nombre = $('#nombre').val() || '';
     let nombre = $('#nombre').val() || '';
     const urlParams = new URLSearchParams(window.location.search);
 

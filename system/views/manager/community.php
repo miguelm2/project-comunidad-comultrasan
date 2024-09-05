@@ -44,46 +44,50 @@
                <h4 class="text-success">Ver Comunidad</h4>
             </div>
          </div>
-         <div class="table-responsive">
-            <table class="table table-hover table-bordered table-striped">
-               <thead class="text-center">
-                  <tr>
-                     <th class="text-uppercase font-weight-bolder">Código</th>
-                     <th class="text-uppercase font-weight-bolder">Nombre</th>
-                     <th class="text-uppercase font-weight-bolder">Líder</th>
-                     <th class="text-uppercase font-weight-bolder">Fecha de creación</th>
-                     <th class="text-uppercase font-weight-bolder">Estado</th>
-                     <th class="text-uppercase font-weight-bolder">Nro de miembros</th>
-                     <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
-                     <th class="text-uppercase font-weight-bolder">Ranking</th>
-                  </tr>
-               </thead>
-               <tfoot class="text-center">
-                  <tr>
-                     <th class="text-uppercase font-weight-bolder">Código</th>
-                     <th class="text-uppercase font-weight-bolder">Nombre</th>
-                     <th class="text-uppercase font-weight-bolder">Líder</th>
-                     <th class="text-uppercase font-weight-bolder">Fecha de creación</th>
-                     <th class="text-uppercase font-weight-bolder">Estado</th>
-                     <th class="text-uppercase font-weight-bolder">Nro de miembros</th>
-                     <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
-                     <th class="text-uppercase font-weight-bolder">Ranking</th>
-                     </tbody>
-                  </tr>
-               </tfoot>
-               <tbody class="text-center">
-                  <tr>
-                     <td><?= $comunidad->getId_comunidad() ?></td>
-                     <td><?= $comunidad->getNombre() ?></td>
-                     <td><?= $comunidad->getUsuarioDTO()->getNombre() ?></td>
-                     <td><?= $comunidad->getFecha_registro() ?></td>
-                     <td><?= $comunidad->getEstado()[1] ?></td>
-                     <td><?= $infoCommunity->nro_usuarios ?></td>
-                     <td><?= $infoCommunity->total_puntos ?></td>
-                     <td><?= $infoCommunity->ranking ?> de <?= $infoCommunity->total_comunidades ?></td>
-                  </tr>
-               </tbody>
-            </table>
+         <div class="card-body">
+            <div class="card-body">
+               <div class="row">
+                  <div class="col-md-3">
+                     <img src="/assets/image/comunidad_general.jpg" alt="Imagen" class="img-fluid">
+                  </div>
+                  <div class="col-md-9">
+                     <div class="row">
+                        <div class="col-6">
+                           <h6>Código:</h6>
+                           <p><?= $comunidad->getId_comunidad() ?></p>
+                        </div>
+                        <div class="col-6">
+                           <h6>Nombre</h6>
+                           <p><?= $comunidad->getNombre() ?></p>
+                        </div>
+                        <div class="col-6">
+                           <h6>Líder</h6>
+                           <p><?= $comunidad->getUsuarioDTO()->getNombre() ?></p>
+                        </div>
+                        <div class="col-6">
+                           <h6>Fecha de creación</h6>
+                           <p><?= $comunidad->getFecha_registro() ?></p>
+                        </div>
+                        <div class="col-6">
+                           <h6>Estado</h6>
+                           <p><?= $comunidad->getEstado()[1] ?></p>
+                        </div>
+                        <div class="col-6">
+                           <h6>Nro de miembros</h6>
+                           <p><?= $infoCommunity->nro_usuarios ?> asociados</p>
+                        </div>
+                        <div class="col-6">
+                           <h6>&#10084; Acumulados</h6>
+                           <p><?= $infoCommunity->total_puntos ?> corazones</p>
+                        </div>
+                        <div class="col-6">
+                           <h6>Ranking</h6>
+                           <p><?= $infoCommunity->ranking ?> de <?= $infoCommunity->total_comunidades ?></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
       <div class="card mt-3">
@@ -103,6 +107,14 @@
                <div class="col-md-4">
                   <label for="nombre">Nombre</label>
                   <input type="text" name="nombre" id="nombre" class="form-control border p-1">
+               </div>
+               <div class="col-md-4">
+                  <label for="fecha_inicio">Fecha inicio</label>
+                  <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control border p-1">
+               </div>
+               <div class="col-md-4">
+                  <label for="fecha_fin">Fecha fin</label>
+                  <input type="date" name="fecha_fin" id="fecha_fin" class="form-control border p-1">
                </div>
             </div>
             <div class="table-responsive">

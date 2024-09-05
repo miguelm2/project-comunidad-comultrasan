@@ -105,6 +105,18 @@
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
+                              <label class="label text-black" for="departamento">Departamento</label>
+                              <input type="text" class="form-control" name="departamento" required>
+                           </div>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                           <div class="form-group">
+                              <label class="label text-black" for="ciudad">Ciudad</label>
+                              <input type="text" class="form-control" name="ciudad" required>
+                           </div>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                           <div class="form-group">
                               <label class="label text-black" for="pass">Contraseña</label>
                               <input type="password" class="form-control" name="pass" placeholder="Contraseña" maxlength="30" required>
                            </div>

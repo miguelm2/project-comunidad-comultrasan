@@ -36,4 +36,5 @@ if (isset($_GET['win'])) {
 if (isset($_GET)) {
     $informationPage = ServicePage::getInformation();
     ServicePage::getVisitas();
+    $url = ServicePage::getURL();
 }

@@ -103,6 +103,18 @@
                            </div>
                            <div class="col-6">
                               <div class="form-group">
+                                 <label class="form-label">Departamento</label>
+                                 <input type="text" class="form-control border p-1" value="<?= $user->getDepartamento() ?>" name="departamento" maxlength="255" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="form-group">
+                                 <label class="form-label">Ciudad</label>
+                                 <input type="text" class="form-control border p-1" value="<?= $user->getCiudad() ?>" name="ciudad" maxlength="255" required>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="form-group">
                                  <label for="estado">Estado</label>
                                  <select name="estado" id="estado" class="form-select border p-1">
                                     <option value="<?= $user->getEstado()[0] ?>"><?= $user->getEstado()[1] ?></option>
@@ -118,16 +130,24 @@
                   <div class="dark horizontal my-0 border-1 mt-4"></div>
                   <div class="row mt-4">
                      <div class="col-md-3 d-grid">
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar"><i class="material-icons me-2">delete</i> Eliminar Registro</button>
+                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">
+                           <i class="material-icons me-2">image</i> Cambiar Imagen
+                        </button>
                      </div>
                      <div class="col-md-3 d-grid">
-                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage"><i class="material-icons me-2">image</i> Cambiar Imagen</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiarPass">
+                           <i class="material-icons me-2">lock</i> Cambiar Contraseña
+                        </button>
                      </div>
                      <div class="col-md-3 d-grid">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiarPass"><i class="material-icons me-2">lock</i> Cambiar Contraseña</button>
+                        <button type="submit" class="btn btn-success" name="setUser">
+                           <i class="material-icons me-2">edit</i> Editar Asociado
+                        </button>
                      </div>
                      <div class="col-md-3 d-grid">
-                        <button type="submit" class="btn btn-success" name="setUser"><i class="material-icons me-2">edit</i> Editar Asociado</button>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">
+                           <i class="material-icons me-2">delete</i> Eliminar Registro
+                        </button>
                      </div>
                   </div>
                </form>

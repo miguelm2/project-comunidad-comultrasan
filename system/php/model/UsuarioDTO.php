@@ -13,6 +13,8 @@ class UsuarioDTO
     protected $imagen;
     protected $tipo_documento;
     protected $fecha_nacimiento;
+    protected $departamento;
+    protected $ciudad;
     protected $fecha_registro;
 
     public function __construct() {}
@@ -240,6 +242,46 @@ class UsuarioDTO
     public function setFecha_nacimiento($fecha_nacimiento)
     {
         $this->fecha_nacimiento = $fecha_nacimiento;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of departamento
+     */ 
+    public function getDepartamento()
+    {
+        return $this->departamento;
+    }
+
+    /**
+     * Set the value of departamento
+     *
+     * @return  self
+     */ 
+    public function setDepartamento($departamento)
+    {
+        $this->departamento = $departamento;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of ciudad
+     */ 
+    public function getCiudad()
+    {
+        return $this->ciudad;
+    }
+
+    /**
+     * Set the value of ciudad
+     *
+     * @return  self
+     */ 
+    public function setCiudad($ciudad)
+    {
+        $this->ciudad = $ciudad;
 
         return $this;
     }
