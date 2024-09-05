@@ -3,27 +3,29 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/model/BeneficioDTO.php';
 
 class Beneficio extends System
 {
-    public static function newBenefit($titulo, $descripcion, $puntos, $imagen, $fecha_registro)
+    public static function newBenefit($titulo, $definicion, $condiciones, $puntos, $imagen, $fecha_registro)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("INSERT INTO Beneficio (titulo, descripcion, puntos, imagen, fecha_registro) 
-                                VALUES (:titulo, :descripcion, :puntos, :imagen, :fecha_registro)");
+        $stmt = $dbh->prepare("INSERT INTO Beneficio (titulo, definicion, condiciones, puntos, imagen, fecha_registro) 
+                                VALUES (:titulo, :definicion, :condiciones, :puntos, :imagen, :fecha_registro)");
         $stmt->bindParam(':titulo', $titulo);
-        $stmt->bindParam(':descripcion', $descripcion);
+        $stmt->bindParam(':definicion', $definicion);
+        $stmt->bindParam(':condiciones', $condiciones);
         $stmt->bindParam(':puntos', $puntos);
         $stmt->bindParam(':imagen', $imagen);
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
-    public static function setBenefit($id_beneficio, $titulo, $descripcion, $puntos)
+    public static function setBenefit($id_beneficio, $titulo, $definicion, $condiciones, $puntos)
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE Beneficio 
-                            SET titulo = :titulo, descripcion = :descripcion, puntos = :puntos
+                            SET titulo = :titulo, definicion = :definicion, condiciones = :condiciones, puntos = :puntos
                             WHERE id_beneficio = :id_beneficio");
         $stmt->bindParam(':id_beneficio', $id_beneficio);
         $stmt->bindParam(':titulo', $titulo);
-        $stmt->bindParam(':descripcion', $descripcion);
+        $stmt->bindParam(':definicion', $definicion);
+        $stmt->bindParam(':condiciones', $condiciones);
         $stmt->bindParam(':puntos', $puntos);
         return  $stmt->execute();
     }

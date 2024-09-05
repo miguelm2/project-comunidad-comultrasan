@@ -34,14 +34,6 @@
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
       <!-- Navbar -->
       <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
-         <div class="container-fluid">
-            <nav aria-label="breadcrumb" class="d-none d-lg-block">
-               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                  <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
-                  <li class="breadcrumb-item active">Usuarios</li>
-               </ol>
-            </nav>
-         </div>
          <!-- Start header -->
          <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
          <!-- End header -->
@@ -50,13 +42,13 @@
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Usuarios</h4>
+                  <h4 class="text-success">Asociado</h4>
                </div>
             </div>
             <div class="col-md-3 mt-3">
                <div class="card-head text-right">
                   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUser">
-                     <i class="material-icons me-2">add</i> Agregar Usuario
+                     <i class="material-icons me-2">add</i> Agregar Asociado
                   </button>
                </div>
             </div>
@@ -66,6 +58,8 @@
                <table class="table table-bordered table-hover align-items-center mb-0" id="tableUser">
                   <thead class="text-center">
                      <tr>
+                        <th class="text-uppercase font-weight-bolder">
+                           Id</th>
                         <th class="text-uppercase font-weight-bolder">
                            Nombre</th>
                         <th class="text-uppercase font-weight-bolder">
@@ -82,6 +76,8 @@
                   </thead>
                   <tfoot class="text-center">
                      <tr>
+                        <th class="text-uppercase font-weight-bolder">
+                           Id</th>
                         <th class="text-uppercase font-weight-bolder">
                            Nombre</th>
                         <th class="text-uppercase font-weight-bolder">
@@ -109,7 +105,7 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Nuevo Usuario</h5>
+                     <h5 class="modal-title">Nuevo Asociado</h5>
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -165,7 +161,7 @@
                         <div class="col-12">
                            <div class="mb-3">
                               <div class="form-group">
-                                 <label>Imagen</label>
+                                 <label>Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                                  <input type="file" class="form-control border p-1" name="imageUser" accept="image/*">
                               </div>
                            </div>
@@ -174,7 +170,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newUser" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Usuario</button>
+                     <button type="submit" name="newUser" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Asociado</button>
                   </div>
                </div>
             </div>

@@ -35,75 +35,73 @@
       </nav>
       <!-- End Page Title -->
       <!-- End Page Title -->
-      <div class="row m-0 mt-2">
-         <div class="card">
-            <div class="card-head mt-4">
-               <div class="row">
-                  <div class="col-md-10">
-                     <h5 class="text-success">
-                        Grupo <?= $groupInterest->getTitulo() ?>
-                     </h5>
-                  </div>
-                  <div class="col-md-2 mt-0">
-                     <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="community">
-                           <i class="material-icons me-2">keyboard_return</i>atrás</a>
-                     </div>
+      <div class="card mt-3">
+         <div class="card-head mt-4">
+            <div class="row">
+               <div class="col-md-10">
+                  <h5 class="text-success ms-3">
+                     Grupo <?= $groupInterest->getTitulo() ?>
+                  </h5>
+               </div>
+               <div class="col-md-2 mt-0">
+                  <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
+                     <a type="button" class="btn btn-secondary" href="community">
+                        <i class="material-icons me-2">keyboard_return</i>atrás</a>
                   </div>
                </div>
             </div>
-            <div class="dark horizontal my-0 border-1"></div>
-            <div class="card-body mt-0">
-               <form method="post">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <div class="row justify-content-center">
-                           <?= $cardMiniSection ?>
-                           <div class="col-md-3">
-                              <a href="forums?comunnityForum=<?= $_GET['groupInterest'] ?>">
-                                 <div class="card border-2 h-100">
-                                    <div class="card-head p-0">
-                                       <img src="/assets/image/foro.png" alt="" class="img-fluid rounded-2 p-0">
-                                    </div>
-                                    <div class="card-foot">
-                                       <h5 class="text-center text-success">Participa en el foro</h5>
-                                    </div>
+         </div>
+         <div class="dark horizontal my-0 border-1"></div>
+         <div class="card-body mt-0">
+            <form method="post">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="row justify-content-center">
+                        <?= $cardMiniSection ?>
+                        <div class="col-md-3">
+                           <a href="forums?comunnityForum=<?= $_GET['groupInterest'] ?>">
+                              <div class="card border-2 h-100">
+                                 <div class="card-head p-0">
+                                    <img src="/assets/image/foro.png" alt="" class="img-fluid rounded-2 p-0">
                                  </div>
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-7 mt-3">
-                        <div class="card border-3">
-                           <div class="card-body pt-0 mt-2">
-                              <img src="<?= Path::$DIR_IMAGE_TYPE_COM . $groupInterest->getImagen() ?>" alt="Imagen_grupo" class="img-fluid">
-                              <p class="card-text text-black">
-                                 <?= $groupInterest->getContenido() ?>
-                              </p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-5 mt-3">
-                        <div class="card border-3">
-                           <div class="card-head">
-                              <h5 class="text-success mt-2 ms-2">
-                                 Eventos del grupo de interes
-                              </h5>
-                              <div class="card-body">
-                                 <?= $cardEventCalendarGroup ?>
+                                 <div class="card-foot">
+                                    <h5 class="text-center text-success">Participa en el foro</h5>
+                                 </div>
                               </div>
-                           </div>
+                           </a>
                         </div>
-                     </div>
-                     <div class="col-md-12">
-                        <?= $cardSection ?>
-                     </div>
-                     <div class="col-md-11 mt-3 text-end">
-                        <?= $btonJoin ?>
                      </div>
                   </div>
-               </form>
-            </div>
+                  <div class="col-md-7 mt-3">
+                     <div class="card border-3">
+                        <div class="card-body pt-0 mt-2">
+                           <img src="<?= Path::$DIR_IMAGE_TYPE_COM . $groupInterest->getImagen() ?>" alt="Imagen_grupo" class="img-fluid">
+                           <p class="card-text text-black">
+                              <?= $groupInterest->getContenido() ?>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-5 mt-3">
+                     <div class="card border-3">
+                        <div class="card-head">
+                           <h5 class="text-success mt-2 ms-2">
+                              Eventos del grupo de interes
+                           </h5>
+                           <div class="card-body">
+                              <?= $cardEventCalendarGroup ?>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-12">
+                     <?= $cardSection ?>
+                  </div>
+                  <div class="col-md-11 mt-3 text-end">
+                     <?= $btonJoin ?>
+                  </div>
+               </div>
+            </form>
          </div>
       </div>
       <!-- Start Footer -->

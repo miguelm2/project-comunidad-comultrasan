@@ -29,16 +29,8 @@
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
       <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
-         <div class="container-fluid">
-            <nav aria-label="breadcrumb" class="d-none d-lg-block">
-               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                  <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
-                  <li class="breadcrumb-item active">Perfil</li>
-               </ol>
-            </nav>
-         </div>
          <!-- Start header -->
-         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
+         <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_gestor.php'; ?>
          <!-- End header -->
       </nav><!-- End Page Title -->
       <div class="row m-0 mt-2">
@@ -92,11 +84,12 @@
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="row mt-4">
                         <div class="col-md-4 d-grid">
-                           <button type="submit" class="btn btn-success" name="setProfileManager"><i class="material-icons me-2">edit</i> Editar Perfil</button>
-                        </div>
-                        <div class="col-md-4 d-grid">
                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">
                               <i class="material-icons me-2">image</i> Cambiar Imagen</button>
+                        </div>
+                        <div class="col-md-4 d-grid">
+                           <button type="submit" class="btn btn-success" name="setProfileManager">
+                              <i class="material-icons me-2">edit</i> Editar Perfil</button>
                         </div>
                         <div class="col-md-4 d-grid">
                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiarPass">

@@ -71,7 +71,7 @@
                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">groups</i>
                </div>
-               <span class="nav-link-text ms-1">Usuarios</span>
+               <span class="nav-link-text ms-1">Asociado</span>
             </a>
          </li>
          <li class="nav-item">
@@ -87,7 +87,7 @@
                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">description</i>
                </div>
-               <span class="nav-link-text ms-1">Encuesta</span>
+               <span class="nav-link-text ms-1">Encuestas</span>
             </a>
          </li>
          <li class="nav-item">

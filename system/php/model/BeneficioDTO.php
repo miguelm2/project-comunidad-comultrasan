@@ -4,14 +4,13 @@ class BeneficioDTO
 {
     protected $id_beneficio;
     protected $titulo;
-    protected $descripcion;
+    protected $definicion;
+    protected $condiciones;
     protected $puntos;
     protected $imagen;
     protected $fecha_registro;
 
-    public function __construct()
-    {
-    }
+    public function __construct() {}
 
     /**
      * Get the value of id_beneficio
@@ -45,24 +44,6 @@ class BeneficioDTO
     public function setTitulo($titulo)
     {
         $this->titulo = $titulo;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of descripcion
-     */
-    public function getDescripcion()
-    {
-        return $this->descripcion;
-    }
-
-    /**
-     * Set the value of descripcion
-     */
-    public function setDescripcion($descripcion)
-    {
-        $this->descripcion = $descripcion;
 
         return $this;
     }
@@ -120,5 +101,44 @@ class BeneficioDTO
 
         return $this;
     }
+
+    /**
+     * Get the value of definicion
+     */
+    public function getDefinicion()
+    {
+        return $this->definicion;
+    }
+
+    /**
+     * Set the value of definicion
+     *
+     * @return  self
+     */
+    public function setDefinicion($definicion)
+    {
+        $this->definicion = $definicion;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of condiciones
+     */
+    public function getCondiciones()
+    {
+        return $this->condiciones;
+    }
+
+    /**
+     * Set the value of condiciones
+     *
+     * @return  self
+     */
+    public function setCondiciones($condiciones)
+    {
+        $this->condiciones = $condiciones;
+
+        return $this;
+    }
 }
-?>

@@ -1,20 +1,22 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Beneficio.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/UsuarioBeneficio.php';
 
 class ServiceBenefit extends System
 {
-    public static function newBenefit($titulo, $descripcion, $puntos)
+    public static function newBenefit($titulo, $deficion, $condiciones, $puntos)
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'newBenefit.php') {
                 $titulo         = parent::limpiarString($titulo);
-                $descripcion    = parent::limpiarString($descripcion);
+                $deficion     = parent::limpiarString($deficion);
+                $condiciones    = parent::limpiarString($condiciones);
                 $puntos         = parent::limpiarString($puntos);
                 $fecha_registro = date('Y-m-d H:i:s');
                 $imagen         = self::newImagen();
 
-                $result = Beneficio::newBenefit($titulo, $descripcion, $puntos, $imagen, $fecha_registro);
+                $result = Beneficio::newBenefit($titulo, $deficion, $condiciones, $puntos, $imagen, $fecha_registro);
 
                 if ($result) {
                     return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
@@ -54,16 +56,17 @@ class ServiceBenefit extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setBenefit($id_beneficio, $titulo, $descripcion,  $puntos)
+    public static function setBenefit($id_beneficio, $titulo, $deficion, $condiciones,  $puntos)
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'benefit.php') {
                 $id_beneficio      = parent::limpiarString($id_beneficio);
                 $titulo            = parent::limpiarString($titulo);
-                $descripcion       = parent::limpiarString($descripcion);
+                $deficion          = parent::limpiarString($deficion);
+                $condiciones       = parent::limpiarString($condiciones);
                 $puntos            = parent::limpiarString($puntos);
 
-                $result = Beneficio::setBenefit($id_beneficio, $titulo, $descripcion, $puntos);
+                $result = Beneficio::setBenefit($id_beneficio, $titulo, $deficion, $condiciones, $puntos);
 
                 if ($result) {
                     return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
@@ -174,14 +177,17 @@ class ServiceBenefit extends System
 
                 if ($modelResponse) {
                     foreach ($modelResponse as $valor) {
+                        $usuarioBeneficio = UsuarioBeneficio::getUserBenefitByUserAndBenefit($id_usuario, $valor->getId_beneficio());
                         $tableHtml .= '<tr>';
                         $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
                         $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
                         $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                        if ($_SESSION['tipo'] == 5 || $_SESSION['tipo'] == 0)
+                            $tableHtml .= '<td class="text-center">' . Elements::getButtonDeleteModalJs('takeOutBenefit', 'Remover', $usuarioBeneficio->getId_usuario_beneficio())  . '</td>';
                         $tableHtml .= '</tr>';
                     }
                 } else {
-                    return '<tr><td colspan="3">No hay registros para mostrar</td></tr>';
+                    return '<tr><td colspan="4" class="text-center">No hay registros para mostrar</td></tr>';
                 }
                 return $tableHtml;
             }

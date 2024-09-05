@@ -20,6 +20,10 @@
    <!-- CSS Files -->
    <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+   
+   <!-- Select2 -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 </head>
 
 <body class="g-sidenav-show bg-gray-200 align-content-center d-flex justify-content-center">
@@ -45,8 +49,8 @@
                   </a>
                </div>
             </div>
-            <div class="card-body">
-               <form method="post">
+            <div class="card-body" id="formulario">
+               <form method="post" >
                   <div class="row">
                      <div class="col-md-6">
                         <h6 class="text-success">Comunidad Actual</h6>
@@ -61,14 +65,14 @@
                         <p><strong>Celular: </strong><?= $moveUserCommunity->getUsuarioDTO()->getTelefono() ?></p>
                      </div>
                      <div class="col-md-12">
-                        <select name="comunidad" id="comunidad" class="form-control border p-1">
+                        <select name="comunidad" id="comunidad" class="form-control border p-1 selectCommunity">
                            <option value="">Seleccione una opción</option>
                            <?= $optionCommunity ?>
                         </select>
                      </div>
                      <div class="col-md-12 d-grid mt-3">
                         <button type="submit" class="btn btn-success" name="realiceMoveUser">
-                           <i class="material-icons me-2">published_with_changes</i>Mover
+                           <i class="material-icons me-2">published_with_changes</i>Mover Asociado
                         </button>
                      </div>
                   </div>
@@ -84,6 +88,7 @@
       <img src="/assets/image/favicon_0.ico" alt="Cargando...">
    </div>
    <!--   Core JS Files   -->
+   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/assets/js/core/popper.min.js"></script>
    <script src="/system/assets/js/core/bootstrap.min.js"></script>
    <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -92,6 +97,10 @@
    <!-- Control ../Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
+   <!-- Select2 -->
+   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+
    <?= $response ?>
 </body>
 

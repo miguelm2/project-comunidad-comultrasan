@@ -38,17 +38,11 @@
          <div class="nav-wrapper position-relative end-0">
             <ul class="nav nav-pills nav-fill p-1" role="tablist">
                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#community" role="tab" aria-controls="profile" aria-selected="true">
+                  <a class="nav-link mb-0 px-0 py-1 active text-success" data-bs-toggle="tab" href="#community" role="tab" aria-controls="profile" aria-selected="true">
                      Mi comunidad
                   </a>
                </li>
-               <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1<?= $optionRequest ?>" data-bs-toggle="tab" href="#information" 
-                     role="tab" aria-controls="dashboard" aria-selected="false">
-                     Solicitudes
-                  </a>
-               </li>
-               
+               <?= $optionRequest ?>
             </ul>
          </div>
          <div class="tab-content pt-2">
@@ -100,7 +94,7 @@
          </div>
       </div>
       <div class="card border-2 mt-2 pb-3">
-         <div class="card-head mt-2 ms-2">
+         <div class="card-head mt-2 ms-4">
             <h5 class="text-success">Reconocemos tus logros y los de tu comunidad</h5>
          </div>
          <div class="row">

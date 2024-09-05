@@ -188,7 +188,8 @@ class ServiceUserCommunity extends System
                     $usuarioComunidadDTO->getComunidadDTO()->getNombre(),
                     $usuarioComunidadDTO->getComunidadDTO()->getUsuarioDTO()->getNombre(),
                     $usuarioComunidadDTO->getComunidadDTO()->getFecha_registro(),
-                    $usuarioComunidadDTO->getFecha_registro()
+                    $usuarioComunidadDTO->getFecha_registro(),
+                    Elements::crearBotonMover('moveUser', $usuarioComunidadDTO->getId_usuario_comunidad())
                 );
             } else {
                 return '<div class="text-center">
@@ -329,7 +330,7 @@ class ServiceUserCommunity extends System
             $comunidadesDTO = Comunidad::listCommunityDiferernt($usuarioComunidadDTO->getComunidadDTO()->getId_comunidad());
             $html = '';
             foreach ($comunidadesDTO as $value) {
-                $html .= '<option value="' . $value->getId_comunidad() . '">' . $value->getId_comunidad() . ' - ' . $value->getNombre() . '</option>';
+                $html .= '<option value="' . $value->getId_comunidad() . '">' . $value->getId_comunidad() . ' - ' . $value->getNombre() . ' ' . $value->getUsuarioDTO()->getNombre() . '</option>';
             }
             return $html;
         } catch (\Exception $e) {

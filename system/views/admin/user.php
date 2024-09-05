@@ -28,15 +28,6 @@
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
       <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
-         <div class="container-fluid">
-            <nav aria-label="breadcrumb" class="d-none d-lg-block">
-               <ol class="breadcrumb  bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                  <li class="breadcrumb-item"><a href="index" class="text-white">Inicio</a></li>
-                  <li class="breadcrumb-item"><a href="users" class="text-white">Usuarios</a></li>
-                  <li class="breadcrumb-item active">Editar Usuario</li>
-               </ol>
-            </nav>
-         </div>
          <!-- Start header -->
          <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
          <!-- End header -->
@@ -47,7 +38,7 @@
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success p-1">
-                        Editar Usuario
+                        Editar Asociado
                      </h5>
                   </div>
                   <div class="col-md-2">
@@ -130,13 +121,13 @@
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar"><i class="material-icons me-2">delete</i> Eliminar Registro</button>
                      </div>
                      <div class="col-md-3 d-grid">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiarPass"><i class="material-icons me-2">lock</i> Cambiar Contraseña</button>
-                     </div>
-                     <div class="col-md-3 d-grid">
                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage"><i class="material-icons me-2">image</i> Cambiar Imagen</button>
                      </div>
                      <div class="col-md-3 d-grid">
-                        <button type="submit" class="btn btn-success" name="setUser"><i class="material-icons me-2">edit</i> Editar Usuario</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiarPass"><i class="material-icons me-2">lock</i> Cambiar Contraseña</button>
+                     </div>
+                     <div class="col-md-3 d-grid">
+                        <button type="submit" class="btn btn-success" name="setUser"><i class="material-icons me-2">edit</i> Editar Asociado</button>
                      </div>
                   </div>
                </form>
@@ -155,10 +146,15 @@
          <div class="card mt-3">
             <div class="card-head mt-4">
                <div class="row">
-                  <div class="col-md-10">
+                  <div class="col-md-9">
                      <h5 class="text-success p-1">
                         Puntos
                      </h5>
+                  </div>
+                  <div class="col-md-3 mt-4">
+                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUserPoint">
+                        <i class="material-icons me-2">add</i> Agregar Corazones
+                     </button>
                   </div>
                </div>
             </div>
@@ -211,15 +207,17 @@
                      <thead>
                         <tr>
                            <td class="text-uppercase font-weight-bolder">Beneficio</td>
-                           <td class="text-uppercase font-weight-bolder">Puntos</td>
+                           <td class="text-uppercase font-weight-bolder">Corazones</td>
                            <td class="text-uppercase font-weight-bolder">Fecha Registro</td>
+                           <td class="text-uppercase font-weight-bolder">Opciones</td>
                         </tr>
                      </thead>
                      <tfoot>
                         <tr>
                            <td class="text-uppercase font-weight-bolder">Beneficio</td>
-                           <td class="text-uppercase font-weight-bolder">Puntos</td>
+                           <td class="text-uppercase font-weight-bolder">Corazones</td>
                            <td class="text-uppercase font-weight-bolder">Fecha Registro</td>
+                           <td class="text-uppercase font-weight-bolder">Opciones</td>
                         </tr>
                      </tfoot>
                      <tbody>
@@ -237,7 +235,7 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Eliminar Usuario</h5>
+                     <h5 class="modal-title">Eliminar Asociado</h5>
                      <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -245,7 +243,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="deleteUser" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Usuario</button>
+                     <button type="submit" name="deleteUser" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Asociado</button>
                   </div>
                </div>
             </div>
@@ -263,7 +261,7 @@
                   </div>
                   <div class="modal-body">
                      <div class="form-group">
-                        <label class="form-label" for="imageUser">Imagen</label>
+                        <label class="form-label" for="imageUser">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                         <input type="file" class="form-control border p-1" name="imageUser" accept="image/*" required>
                      </div>
                   </div>
@@ -342,6 +340,62 @@
          </div>
       </form>
       <!-- End Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post">
+         <div class="modal fade" id="newUserPoint" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Agregar Corazones</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="form-group">
+                        <div class="row">
+                           <div class="col-md-12">
+                              <label class="form-label" for="punto">Corazones</label>
+                              <input type="number" name="puntos" id="puntos" class="form-control border p-1" placeholder="Cantidad de Corazones" required>
+                           </div>
+                           <div class="col-md-12">
+                              <label for="descripcion">Descripción</label>
+                              <textarea name="descripcion" id="descripcion" class="form-control border p-1" placeholder="Descripción de los puntos" rows="4" maxlength="255" required></textarea>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="newPointUser" class="btn btn-info"><i class="material-icons me-2">add</i> Agregar Corazones</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post">
+         <div class="modal fade" id="takeOutBenefit" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Remover beneficio del asociado</h5>
+                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <label class="form-label">¿Esta seguro que desea remover este beneficio?</label>
+                     <input type="hidden" id="usuarioBeneficio" name="usuarioBeneficio">
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="deleteUserBenefit" class="btn btn-danger">
+                        <i class="material-icons me-2">delete</i> Remover Beneficio
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
       <!-- End Footer -->
@@ -363,6 +417,7 @@
    <script src="/system/js/functions.js"></script>
    <script src="/system/js/selectRepeat.js"></script>
    <script src="/system/js/valideImage.js"></script>
+   <script src="/system/js/modalEliminar.js"></script>
    <?= $response ?>
 </body>
 

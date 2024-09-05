@@ -20,4 +20,15 @@ class ServiceUserBenefit extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function deleteUserBenefit($id_usuario_beneficio){
+        try{
+            $id_usuario_beneficio = parent::limpiarString($id_usuario_beneficio);
+            $result = UsuarioBeneficio::deleteUserBenefit($id_usuario_beneficio);
+            if($result){
+                return Elements::crearMensajeAlerta(Constants::$REGISTER_DELETE, "success");
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 }
