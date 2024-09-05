@@ -38,10 +38,13 @@
       <div class="card mt-3">
          <div class="card-head mt-4">
             <div class="row">
-               <div class="col-md-10">
+               <div class="col-md-7">
                   <h5 class="text-success ms-3">
                      Grupo <?= $groupInterest->getTitulo() ?>
                   </h5>
+               </div>
+               <div class="col-md-3 mt-0 text-end">
+                  <?= $btonJoin ?>
                </div>
                <div class="col-md-2 mt-0">
                   <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
@@ -96,9 +99,6 @@
                   </div>
                   <div class="col-md-12">
                      <?= $cardSection ?>
-                  </div>
-                  <div class="col-md-11 mt-3 text-end">
-                     <?= $btonJoin ?>
                   </div>
                </div>
             </form>

@@ -105,7 +105,7 @@ class Punto extends System
     public static function getCountPonitsByDate($fecha_inicio, $fecha_fin)
     {
         $dbh = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT COUNT(*) AS contador 
+        $stmt = $dbh->prepare("SELECT SUM(puntos) AS contador 
                                 FROM Punto 
                                 WHERE fecha_registro BETWEEN :fecha_inicio AND :fecha_fin");
         $stmt->bindParam(':fecha_inicio', $fecha_inicio);

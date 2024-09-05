@@ -177,7 +177,7 @@ class ServiceEventCalendar extends System
             $html = '';
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
-                    $fecha = self::getDateInWords($valor->getFecha_registro());
+                    $fecha = self::getDateInWords($valor->getFecha());
                     $html .= Elements::getCardsEventsByGroup(
                         $fecha,
                         $valor->getTitulo(),

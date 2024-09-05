@@ -26,8 +26,11 @@ if (isset($_POST['loadExcelPoint'])) {
 }
 
 if (isset($_POST['getTablePointsFilter'])) {
-    $response = ServicePoint::listTablePointsUserByManagerFilter($_POST['comunidad'], $_POST['nombre']);
+    $response = ServicePoint::listTablePointsUserByManagerFilter($_POST['comunidad'], $_POST['cedula'],$_POST['nombre'], $_POST['fecha_inicio'], $_POST['fecha_fin']);
     echo $response;
+}
+if(isset($_GET['user'])){
+    $total_puntos = ServicePoint::getPointsUserByUser($_GET['user']);
 }
 
 if (isset($_GET)) {

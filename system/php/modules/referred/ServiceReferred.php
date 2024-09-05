@@ -171,6 +171,20 @@ class ServiceReferred extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function getReferredInfoExtra($id_referido)
+    {
+        try {
+            $id_referido = parent::limpiarString($id_referido);
+
+            $referidoDTO = Referido::getReferred($id_referido);
+            if(!empty($referidoDTO->getId_usuario())){
+                return 'Realizado por asociado';
+            }
+            return 'Realizado desde la pagina';
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 
     public static function getTableReferred()
     {

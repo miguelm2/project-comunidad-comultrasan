@@ -40,19 +40,61 @@
       </nav>
       <div class="card mt-3">
          <div class="row m-0">
-            <div class="col-md-5 mt-4 ms-4">
+            <div class="col-md-9 mt-4 ms-4">
                <h4 class="text-success">Editar Comunidad</h4>
+            </div>
+            <div class="col-md-2 mt-mt-4">
+               <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
+                  <a type="button" class="btn btn-secondary" href="questions"><i class="material-icons me-2">keyboard_return</i>atrás</a>
+               </div>
             </div>
             <div class="col-md-12 mt-2 pb-4">
                <form method="post">
                   <div class="row">
-                     <div class="col-md-6">
+
+                     <div class="col-md-4 mt-2">
+                        <div class="form-group">
+                           <h6>Código</h6>
+                           <p><?= $comunidad->getId_comunidad() ?></p>
+                        </div>
+                     </div>
+                     <div class="col-md-4 mt-2">
+                        <div class="form-group">
+                           <h6>Fecha de creación</h6>
+                           <p><?= $comunidad->getFecha_registro() ?></p>
+                        </div>
+                     </div>
+                     <div class="col-md-4 mt-2">
+                        <div class="form-group">
+                           <h6>Líder</h6>
+                           <p><?= $comunidad->getUsuarioDTO()->getNombre() ?></p>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <h6>Ranking</h6>
+                           <p><?= $infoCommunity->ranking ?> de <?= $infoCommunity->total_comunidades ?></p>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <h6>&#10084; Acumulados</h6>
+                           <p><?= $infoCommunity->total_puntos ?> corazones</p>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                        <div class="form-group">
+                           <h6>Nro de miembros</h6>
+                           <p><?= $infoCommunity->nro_usuarios ?> asociados</p>
+                        </div>
+                     </div>
+                     <div class="col-md-6 mt-2">
                         <div class="form-group">
                            <label for="nombre">Nombre</label>
                            <input type="text" name="nombre" id="nombre" class="form-control border p-1" value="<?= $comunidad->getNombre() ?>" maxlength="255" required>
                         </div>
                      </div>
-                     <div class="col-md-6">
+                     <div class="col-md-6 mt-2">
                         <div class="form-group">
                            <label for="estado">Estado</label>
                            <select name="estado" id="estado" class="form-select border p-1">
@@ -60,24 +102,6 @@
                               <option value="0">Inactivo</option>
                               <option value="1">Activo</option>
                            </select>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
-                        <div class="form-group">
-                           <label for="id_comunidad">Código</label>
-                           <input type="text" name="id_comunidad" id="id_comunidad" class="form-control border p-1" value="<?= $comunidad->getId_comunidad() ?>" disabled>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
-                        <div class="form-group">
-                           <label for="fecha">Creado</label>
-                           <input type="text" name="fecha" id="fecha" class="form-control border p-1" value="<?= $comunidad->getFecha_registro() ?>" disabled>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
-                        <div class="form-group">
-                           <label for="lider">Líder</label>
-                           <input type="text" name="lider" id="lider" class="form-control border p-1" value="<?= $comunidad->getUsuarioDTO()->getNombre() ?>" disabled>
                         </div>
                      </div>
                      <div class="col-md-12 d-grid mt-4">
@@ -151,9 +175,21 @@
          </div>
          <div class="card-body">
             <div class="row p-2">
-               <div class="col-md-4">
+               <div class="col-md-3">
+                  <label for="cedula">Cédula</label>
+                  <input type="text" name="cedula" id="cedula" class="form-control border p-1">
+               </div>
+               <div class="col-md-3">
                   <label for="nombre">Nombre</label>
                   <input type="text" name="nombre" id="nombre" class="form-control border p-1">
+               </div>
+               <div class="col-md-3">
+                  <label for="fecha_inicio">Fecha inicio</label>
+                  <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control border p-1">
+               </div>
+               <div class="col-md-3">
+                  <label for="fecha_fin">Fecha fin</label>
+                  <input type="date" name="fecha_fin" id="fecha_fin" class="form-control border p-1">
                </div>
             </div>
             <div class="table-responsive">
@@ -166,6 +202,7 @@
                         <th class="text-uppercase font-weight-bolder">Asignación / Vencimiento</th>
                         <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
                         <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
@@ -176,10 +213,49 @@
                         <th class="text-uppercase font-weight-bolder">Asignación / Vencimiento</th>
                         <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
                         <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </tfoot>
                   <tbody>
                      <?= $tableCommunityManager ?>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      <div class="card mt-3">
+         <div class="card-head">
+            <div class="mt-3 ms-3">
+               <div class="row">
+                  <div class="col-md-9">
+                     <h4 class="text-success">
+                        Beneficios en la comunidad
+                     </h4>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table table-hover table-bordered table-striped">
+                  <thead class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">Título</th>
+                        <th class="text-uppercase font-weight-bolder">Puntos</th>
+                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                     </tr>
+                  </thead>
+                  <tfoot class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">Título</th>
+                        <th class="text-uppercase font-weight-bolder">Puntos</th>
+                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                     </tr>
+                  </tfoot>
+                  <tbody>
+                     <?= $benefitByCommunity ?>
                   </tbody>
                </table>
             </div>
@@ -263,7 +339,7 @@
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <script src="/system/js/modalEliminar.js"></script>
    <script src="/system/js/selectRepeat.js"></script>
-   <script src="/system/js/filter/filter_points.js"></script>
+   <script src="/system/js/filter/filter_points_admin.js"></script>
    <?= $response ?>
 </body>
 

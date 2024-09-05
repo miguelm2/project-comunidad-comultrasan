@@ -223,14 +223,23 @@ class ServicePoint extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function listTablePointsUserByManagerFilter($id_comunidad, $nombre)
+    public static function listTablePointsUserByManagerFilter($id_comunidad, $cedula, $nombre, $fecha_inicio, $fecha_fin)
     {
         try {
             $nombre       = parent::limpiarString($nombre);
             $id_comunidad = parent::limpiarString($id_comunidad);
             $sql = '';
+            if ($cedula != '') {
+                $sql .= sprintf(" AND id_usuario IN (SELECT id_usuario FROM Usuario WHERE cedula LIKE '%%%s%%')", $cedula);
+            }
             if ($nombre != '') {
                 $sql .= sprintf(" AND id_usuario IN (SELECT id_usuario FROM Usuario WHERE nombre LIKE '%%%s%%')", $nombre);
+            }
+            if ($fecha_inicio != '') {
+                $sql .= sprintf(" AND fecha_registro >= '%s'", $fecha_inicio);
+            }
+            if ($fecha_inicio != '') {
+                $sql .= sprintf(" AND fecha_registro <= '%s'", $fecha_fin);
             }
             $comunidadDTO = Comunidad::getCommunityFilter($id_comunidad, $sql);
             $tableHtml = [];
@@ -266,7 +275,10 @@ class ServicePoint extends System
             $tableRows .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
             $tableRows .= '<td class="text-wrap">' . self::getDateInWords($valor->getFecha_registro()) . '</td>';
             $tableRows .= '<td>Completada</td>';
-            $tableRows .= '<td>' . $valor->getPuntos() . '</td>';
+            $tableRows .= '<td class="text-center">' . $valor->getPuntos() . '</td>';
+            if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
+                $tableRows .= '<td>' . Elements::crearBotonVer("point", $valor->getId_punto()) . '</td>';
+            }
             $tableRows .= '</tr>';
         }
 
@@ -282,14 +294,26 @@ class ServicePoint extends System
 
         $tableRows = [];
         foreach ($modelResponse as $valor) {
-            $tableRows[] = [
-                'Comunidad' => $nombre,
-                'Asociado' => $valor->getUsuarioDTO()->getNombre(),
-                'Actividad' => $valor->getDescripcion(),
-                'Asignación / Vencimiento' => self::getDateInWords($valor->getFecha_registro()),
-                'Estatus Actividad' => 'Completada',
-                'Corazones' => $valor->getPuntos()
-            ];
+            if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
+                $tableRows[] = [
+                    'Comunidad' => $nombre,
+                    'Asociado' => $valor->getUsuarioDTO()->getNombre(),
+                    'Actividad' => $valor->getDescripcion(),
+                    'Asignación / Vencimiento' => self::getDateInWords($valor->getFecha_registro()),
+                    'Estatus Actividad' => 'Completada',
+                    'Corazones' => $valor->getPuntos(),
+                    'Opciones' => Elements::crearBotonVer("point", $valor->getId_punto())
+                ];
+            } else {
+                $tableRows[] = [
+                    'Comunidad' => $nombre,
+                    'Asociado' => $valor->getUsuarioDTO()->getNombre(),
+                    'Actividad' => $valor->getDescripcion(),
+                    'Asignación / Vencimiento' => self::getDateInWords($valor->getFecha_registro()),
+                    'Estatus Actividad' => 'Completada',
+                    'Corazones' => $valor->getPuntos()
+                ];
+            }
         }
 
         return $tableRows;
@@ -320,5 +344,14 @@ class ServicePoint extends System
         $fecha_formateada_mas_un_ano = str_replace(array_keys($meses), array_values($meses), $fecha_formateada_mas_un_ano);
 
         return $fecha_formateada . "/" . $fecha_formateada_mas_un_ano;
+    }
+    public static function getPointsUserByUser($id_usuario)
+    {
+        try {
+            $id_usuario = parent::limpiarString($id_usuario);
+            return Punto::getSumPointsByUser($id_usuario);
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
     }
 }

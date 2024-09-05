@@ -26,7 +26,7 @@
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_gestor.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
-   <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
+      <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
          <!-- Start header -->
          <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_gestor.php'; ?>
          <!-- End header -->
@@ -123,10 +123,8 @@
                      </thead>
                      <tfoot>
                         <tr>
-                           <td class="text-uppercase font-weight-bolder">Id</td>
-                           <td class="text-uppercase font-weight-bolder">Administrador</td>
-                           <td class="text-uppercase font-weight-bolder">Corazones</td>
-                           <td class="text-uppercase font-weight-bolder">Descripción</td>
+                           <th colspan="2" class="text-uppercase font-weight-bolder">Total</th>
+                           <th colspan="3" class="text-uppercase font-weight-bolder"><?= $total_puntos ?></th>
                         </tr>
                      </tfoot>
                      <tbody>

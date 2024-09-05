@@ -15,12 +15,3 @@ if (isset($_POST['getChartPoints'])) {
     echo $response;
 }
 
-if(isset($_POST['getChartBenefit'])){
-    $response = ServiceDashboard::getCountBenefits();
-    echo $response;
-}
-
-if(isset($_POST['getChartDiscount'])){
-    $response = ServiceDashboard::getCountDiscount();
-    echo $response;
-}
