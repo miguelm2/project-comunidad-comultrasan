@@ -72,8 +72,6 @@
       </section>
    </div>
 
-   </main><!-- End #main -->
-
    <!-- Start Footer -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/footer.php'; ?>
    <!-- End Footer -->

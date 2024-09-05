@@ -35,10 +35,11 @@ if (isset($_POST['setReferred'])) {
 
 if (isset($_GET['referred'])) {
     $referred = ServiceReferred::getReferred($_GET['referred']);
+    $infoExtra = ServiceReferred::getReferredInfoExtra($_GET['referred']);
 }
 
 if (isset($_POST['deleteReferred'])) {
-    ServiceReferred::deleteReferred($_GET['refered']);
+    ServiceReferred::deleteReferred($_GET['referred']);
 }
 
 if (isset($_GET)) {

@@ -12,7 +12,7 @@ function getTableFilter() {
 
     let id = urlParams.get('community');
 
-    $.post("/system/php/routing/Manager.php", {
+    $.post("/system/php/routing/Admin.php", {
         "getTablePointsFilter": true,
         "cedula": cedula,
         "nombre": nombre,
@@ -22,6 +22,8 @@ function getTableFilter() {
     }).done(function (data) {
 
         let response = JSON.parse(data);
+        console.log(response);
+        
 
         renderDataTable(response);
     });
@@ -37,7 +39,8 @@ function renderDataTable(data) {
             { data: 'Actividad' },
             { data: 'Asignación / Vencimiento' },
             { data: 'Estatus Actividad' },
-            { data: 'Corazones' }
+            { data: 'Corazones' },
+            { data: 'Opciones' }
         ]
     });
 }

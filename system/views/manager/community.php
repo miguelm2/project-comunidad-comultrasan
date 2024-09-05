@@ -40,8 +40,13 @@
       </nav><!-- End Page Title -->
       <div class="card mt-3">
          <div class="row m-0">
-            <div class="col-md-5 mt-4 ms-4">
+            <div class="col-md-9 mt-4 ms-4">
                <h4 class="text-success">Ver Comunidad</h4>
+            </div>
+            <div class="col-md-2 mt-mt-4">
+               <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
+                  <a type="button" class="btn btn-secondary" href="questions"><i class="material-icons me-2">keyboard_return</i>atrás</a>
+               </div>
             </div>
          </div>
          <div class="card-body">
@@ -104,15 +109,19 @@
          </div>
          <div class="card-body">
             <div class="row p-2">
-               <div class="col-md-4">
+               <div class="col-md-3">
+                  <label for="cedula">Cédula</label>
+                  <input type="text" name="cedula" id="cedula" class="form-control border p-1">
+               </div>
+               <div class="col-md-3">
                   <label for="nombre">Nombre</label>
                   <input type="text" name="nombre" id="nombre" class="form-control border p-1">
                </div>
-               <div class="col-md-4">
+               <div class="col-md-3">
                   <label for="fecha_inicio">Fecha inicio</label>
                   <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control border p-1">
                </div>
-               <div class="col-md-4">
+               <div class="col-md-3">
                   <label for="fecha_fin">Fecha fin</label>
                   <input type="date" name="fecha_fin" id="fecha_fin" class="form-control border p-1">
                </div>
@@ -181,6 +190,44 @@
                   </tfoot>
                   <tbody>
                      <?= $usuarioComunidad ?>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      <div class="card mt-3">
+         <div class="card-head">
+            <div class="mt-3 ms-3">
+               <div class="row">
+                  <div class="col-md-9">
+                     <h4 class="text-success">
+                        Beneficios en la comunidad
+                     </h4>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table table-hover table-bordered table-striped">
+                  <thead class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">Título</th>
+                        <th class="text-uppercase font-weight-bolder">Puntos</th>
+                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                     </tr>
+                  </thead>
+                  <tfoot class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">Título</th>
+                        <th class="text-uppercase font-weight-bolder">Puntos</th>
+                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                     </tr>
+                  </tfoot>
+                  <tbody>
+                     <?= $benefitByCommunity ?>
                   </tbody>
                </table>
             </div>

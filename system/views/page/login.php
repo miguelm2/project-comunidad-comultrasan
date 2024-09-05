@@ -30,7 +30,7 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
    <!-- Start Header -->
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/header.php'; ?>
    <!-- End Header -->
@@ -51,13 +51,13 @@
                   <div class="login-wrap p-2 p-md-2 bg-secondary rounded-3">
                      <form method="post" class="signin-form">
                         <div class="text-center section-header pb-1 text-black">
-                           <h5>Comunidad Familia Comultrasan</h5>
+                           <h5 class="text-success">Comunidad Familia Comultrasan</h5>
                         </div>
                         <div class="row p-1 text-black">
                            <div class="col-md-12">
                               <div class="form-group mb-3">
-                                 <label class="label" for="cedula">Usuario</label>
-                                 <input type="text" class="form-control" placeholder="Usuario" name="cedula" maxlength="255" required>
+                                 <label class="label" for="cedula">Cédula</label>
+                                 <input type="text" class="form-control" placeholder="Cédula" name="cedula" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-md-12">

@@ -241,4 +241,41 @@ class ServiceBenefit extends System
             throw new Exception($e->getMessage());
         }
     }
+    public static function getTableBenefitUserByCommunity($id_comunidad)
+    {
+        try {
+            $id_comunidad = parent::limpiarString($id_comunidad);
+            $tableHtml = "";
+
+            $comunidadDTO = Comunidad::getCommunity($id_comunidad);
+
+            if ($comunidadDTO) {
+                $tableHtml .= self::generateBenefitTable($comunidadDTO->getUsuarioDTO()->getId_usuario());
+                $usuariosComunidadDTO = UsuarioComunidad::getUserCommunityByCommunity($comunidadDTO->getId_comunidad());
+                foreach ($usuariosComunidadDTO as $usuarioComunidad) {
+                    $tableHtml .= self::generateBenefitTable($usuarioComunidad->getUsuarioDTO()->getId_usuario());
+                }
+            }
+            return $tableHtml;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    private static function generateBenefitTable($id_usuario)
+    {
+        $tableHtml = '';
+        $modelResponse = Beneficio::listBenefitByUser($id_usuario);
+        $usuarioDTO = Usuario::getUserById($id_usuario);
+        if ($modelResponse) {
+            foreach ($modelResponse as $valor) {
+                $tableHtml .= '<tr>';
+                $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                $tableHtml .= '<td>' . $usuarioDTO->getNombre() . '</td>';
+                $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                $tableHtml .= '</tr>';
+            }
+        }
+        return $tableHtml;
+    }
 }

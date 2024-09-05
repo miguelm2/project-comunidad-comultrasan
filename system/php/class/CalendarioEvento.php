@@ -51,7 +51,11 @@ class CalendarioEvento extends System
     public static function listEventCalendar()
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM CalendarioEvento WHERE id_grupo is null");
+        $stmt = $dbh->prepare("SELECT * 
+                            FROM CalendarioEvento 
+                            WHERE id_grupo is null 
+                            AND fecha >= GETDATE()
+                            ORDER BY fecha");
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'CalendarioEventoDTO');
         $stmt->execute();
         return  $stmt->fetchAll();
@@ -67,7 +71,11 @@ class CalendarioEvento extends System
     public static function listEventCalendarByGroupInterest($id_grupo)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM CalendarioEvento WHERE id_grupo = :id_grupo");
+        $stmt = $dbh->prepare("SELECT * 
+                            FROM CalendarioEvento 
+                            WHERE id_grupo = :id_grupo 
+                            AND fecha >= GETDATE() 
+                            ORDER BY fecha");
         $stmt->bindParam(':id_grupo', $id_grupo);
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'CalendarioEventoDTO');
         $stmt->execute();

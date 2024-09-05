@@ -192,11 +192,8 @@
                      </thead>
                      <tfoot>
                         <tr>
-                           <td class="text-uppercase font-weight-bolder">Id</td>
-                           <td class="text-uppercase font-weight-bolder">Administrador</td>
-                           <td class="text-uppercase font-weight-bolder">Corazones</td>
-                           <td class="text-uppercase font-weight-bolder">Descripción</td>
-                           <td class="text-uppercase font-weight-bolder">Opciones</td>
+                           <th colspan="2" class="text-uppercase font-weight-bolder">Total</th>
+                           <th colspan="3" class="text-uppercase font-weight-bolder"><?= $total_puntos ?></th>
                         </tr>
                      </tfoot>
                      <tbody>

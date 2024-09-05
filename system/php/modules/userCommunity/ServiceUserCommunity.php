@@ -117,11 +117,11 @@ class ServiceUserCommunity extends System
 
             if ($count <= 2) {
                 if (Comunidad::setCommunityEstate($id_comunidad, 0, $comunidadDTO->getUsuarioDTO()->getId_comunidad())) {
-                    UsuarioComunidad::deleteUserCommunityByCommunity($id_comunidad);
+                    UsuarioComunidad::deleteUserCommunityByUser($id_usuario);
                     return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
                 }
             } else {
-                UsuarioComunidad::deleteUserCommunityByCommunity($id_comunidad);
+                UsuarioComunidad::deleteUserCommunityByUser($id_usuario);
                 return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
             }
 
@@ -155,8 +155,18 @@ class ServiceUserCommunity extends System
     {
         try {
             $id_comunidad = parent::limpiarString($id_comunidad);
+            $comunidadDTO = Comunidad::getCommunity($id_comunidad);
+            $count_points = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
+            $tableHtml = '<tr>';
+            $tableHtml .= '<td>Líder</td>';
+            $tableHtml .= '<td>' . $comunidadDTO->getUsuarioDTO()->getNombre() . '</td>';
+            $tableHtml .= '<td>' . $comunidadDTO->getNombre() . '</td>';
+            $tableHtml .= '<td class="text-center">' . $count_points . '</td>';
+            $tableHtml .= '<td>' . $comunidadDTO->getFecha_registro() . '</td>';
+            $tableHtml .= '<td></td>';
+            $tableHtml .= '</tr>';
+
             $modelResponse = UsuarioComunidad::getUserCommunityByCommunity($id_comunidad);
-            $tableHtml = '';
             foreach ($modelResponse as $value) {
                 $count_points = Punto::getSumPointsByUser($value->getUsuarioDTO()->getId_usuario());
                 $tableHtml .= '<tr>';

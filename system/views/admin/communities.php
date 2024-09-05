@@ -39,40 +39,120 @@
          <!-- End header -->
       </nav>
       <div class="card container-fluid mt-3">
-         <div class="row m-0">
-            <div class="col-md-8 m-4">
-               <div class="card-head">
-                  <h4 class="text-success">Comunidades</h4>
+         <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1" role="tablist">
+               <li class="nav-item">
+                  <a class="nav-link mb-0 px-0 py-1 active text-success" data-bs-toggle="tab" href="#community" role="tab" aria-controls="profile" aria-selected="true">
+                     Comunidades
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link mb-0 px-0 py-1 text-success" data-bs-toggle="tab" href="#information" role="tab" aria-controls="dashboard" aria-selected="false">
+                     Información personal
+                  </a>
+               </li>
+            </ul>
+         </div>
+         <div class="tab-content pt-2">
+            <div class="tab-pane fade show active profile-overview" id="community">
+               <div class="row p-2">
+                  <div class="col-md-4">
+                     <label for="codigo">Código</label>
+                     <input type="number" name="codigo" id="codigo" class="form-control border p-1">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="nombre">Nombre</label>
+                     <input type="text" name="nombre" id="nombre" class="form-control border p-1">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="nombre_lider">Nombre del Líder</label>
+                     <input type="text" name="nombre_lider" id="nombre_lider" class="form-control border p-1">
+                  </div>
+               </div>
+               <div class="table-responsive">
+                  <table class="table table-bordered table-hover" id="tableCommunity">
+                     <thead class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">ID</th>
+                           <th class="text-uppercase font-weight-bolder">Nombre</th>
+                           <th class="text-uppercase font-weight-bolder">Líder</th>
+                           <th class="text-uppercase font-weight-bolder">Estado</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                           <th class="text-uppercase font-weight-bolder">Opciones</th>
+                        </tr>
+                     </thead>
+                     <tfoot class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">ID</th>
+                           <th class="text-uppercase font-weight-bolder">Nombre</th>
+                           <th class="text-uppercase font-weight-bolder">Líder</th>
+                           <th class="text-uppercase font-weight-bolder">Estado</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                           <th class="text-uppercase font-weight-bolder">Opciones</th>
+                        </tr>
+                     </tfoot>
+                     <tbody class="text-center">
+                        <?= $tableCommunities ?>
+                     </tbody>
+                  </table>
                </div>
             </div>
-         </div>
-         <div class="card-body m-0">
-            <div class="table-responsive">
-               <table class="table table-bordered table-hover" id="tableCommunity">
-                  <thead class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">ID</th>
-                        <th class="text-uppercase font-weight-bolder">Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">Líder</th>
-                        <th class="text-uppercase font-weight-bolder">Estado</th>
-                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
-                        <th class="text-uppercase font-weight-bolder">Opciones</th>
-                     </tr>
-                  </thead>
-                  <tfoot class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">ID</th>
-                        <th class="text-uppercase font-weight-bolder">Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">Líder</th>
-                        <th class="text-uppercase font-weight-bolder">Estado</th>
-                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
-                        <th class="text-uppercase font-weight-bolder">Opciones</th>
-                     </tr>
-                  </tfoot>
-                  <tbody class="text-center">
-                     <?= $tableCommunities ?>
-                  </tbody>
-               </table>
+            <div class="tab-pane fade profile-overview" id="information">
+               <div class="row">
+                  <div class="col-md-4">
+                     <label for="codigo">Código</label>
+                     <input type="number" name="codigo" id="codigo_user" class="form-control border p-1">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="nombre">Nombre</label>
+                     <input type="text" name="nombre" id="nombre_user" class="form-control border p-1">
+                  </div>
+                  <div class="col-md-4">
+                     <label for="documento">Nro de documento</label>
+                     <input type="text" name="documento" id="documento" class="form-control border p-1">
+                  </div>
+               </div>
+               <div class="table-responsive">
+                  <table class="table table-bordered table-hover align-items-center mb-0" id="tableUser">
+                     <thead class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre</th>
+                           <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                           <th class="text-uppercase font-weight-bolder">Teléfono</th>
+                           <th class="text-uppercase font-weight-bolder">Correo</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha nacimiento</th>
+                           <th class="text-uppercase font-weight-bolder">Referido</th>
+                           <th class="text-uppercase font-weight-bolder">Tipo</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha ingreso</th>
+                           <th class="text-uppercase font-weight-bolder">Grupo Interes</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha último &#10084;</th>
+                           <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                           <th class="text-uppercase font-weight-bolder">Estado</th>
+                           <th class="text-uppercase font-weight-bolder">Opciones</th>
+                        </tr>
+                     </thead>
+                     <tfoot class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre</th>
+                           <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                           <th class="text-uppercase font-weight-bolder">Teléfono</th>
+                           <th class="text-uppercase font-weight-bolder">Correo</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha nacimiento</th>
+                           <th class="text-uppercase font-weight-bolder">Referido</th>
+                           <th class="text-uppercase font-weight-bolder">Tipo</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha ingreso</th>
+                           <th class="text-uppercase font-weight-bolder">Grupo Interes</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha último &#10084;</th>
+                           <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                           <th class="text-uppercase font-weight-bolder">Estado</th>
+                           <th class="text-uppercase font-weight-bolder">Opciones</th>
+                        </tr>
+                     </tfoot>
+                     <tbody class="text-center">
+                        <?= $tableUserManager ?>
+                     </tbody>
+                  </table>
+               </div>
             </div>
          </div>
       </div>
@@ -96,9 +176,11 @@
    <script src="/system/assets/vendor/quill/quill.core.js"></script>
    <script src="/system/assets/vendor/quill/quill.min.js"></script>
    <script src="/system/assets/vendor/simple-datatables/simple-datatables.js"></script>
-   <script src="/system/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
    <script src="/system/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+   <script src="/system/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
    <script src="/system/js/demo/datatables-demo.js"></script>
+   <script src="/system/js/filter/filter_community_admin.js"></script>
+   <script src="/system/js/filter/filter_users_admin.js"></script>
    <?= $response ?>
 </body>
 

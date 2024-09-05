@@ -115,10 +115,9 @@ class ServiceCommunity extends System
                         $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
                         $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
                         $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                        if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5){
+                        if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
                             $tableHtml .= '<td>' . Elements::crearBotonVer("community", $valor->getId_comunidad()) . '</td>';
-                        }                            
-                        else{
+                        } else {
                             $tableHtml .= '<td>' . Elements::crearBotonVer2("community", $valor->getId_comunidad()) . '</td>';
                         }
                         $tableHtml .= '</tr>';
@@ -241,19 +240,28 @@ class ServiceCommunity extends System
             $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
 
             if (!$comunidadDTO) {
-                return '';
+                return [
+                    'html' => '',
+                    'style' => 'style="display: none"'
+                ];
             }
 
             $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $id_usuario;
             if ($isLeader) {
-                return '<li class="nav-item">
+                return [
+                    'html' => '<li class="nav-item">
                             <a class="nav-link mb-0 px-0 py-1 text-success" data-bs-toggle="tab" href="#information" 
                                 role="tab" aria-controls="dashboard" aria-selected="false">
                                 Solicitudes
                             </a>
-                        </li>';
+                        </li>',
+                    'style' => ''
+                ];
             } else {
-                return '';
+                return [
+                    'html' => '',
+                    'style' => 'style="display: none"'
+                ];
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -279,7 +287,7 @@ class ServiceCommunity extends System
         $contador = 1;
 
         foreach ($modelResponse as $valor) {
-            $points = ($_SESSION['id'] == $valor->getId_usuario() || $isLeader) ? Punto::getSumPointsByUser($valor->getId_usuario()) : '';
+            $points =  Punto::getSumPointsByUser($valor->getId_usuario());
             $html .= Elements::getCardUserInCommunityRanking($valor->getNombre(), $valor->getImagen(), $points, $contador);
             $contador++;
         }

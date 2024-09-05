@@ -42,7 +42,7 @@
                      Mi comunidad
                   </a>
                </li>
-               <?= $optionRequest ?>
+               <?= $optionRequest['html'] ?>
             </ul>
          </div>
          <div class="tab-content pt-2">
@@ -61,7 +61,7 @@
                </div>
                <?= $unitedCommunity ?>
             </div>
-            <div class="tab-pane fade profile-overview <?= $optionRequest ?>" id="information">
+            <div class="tab-pane fade profile-overview"<?= $optionRequest['style'] ?> id="information">
                <div class="row m-0">
                   <div class="col-md-6 mt-4 ms-4">
                      <h4 class="text-success">Solicitudes </h4>
