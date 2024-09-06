@@ -18,6 +18,10 @@ if (isset(($_POST['leaveLeaderCommunity']))) {
     $response = ServiceCommunity::leaveLeaderCommunity();
 }
 
+if (isset($_POST['deleteUserLeader'])) {
+    $response = ServiceCommunity::removeLeaderCommunity($_GET['community']);
+}
+
 if (isset($_GET['community'])) {
     $comunidad = ServiceCommunity::getCommunity($_GET['community']);
     $usuarioComunidad = ServiceUserCommunity::getUserCommunityByComummnity($_GET['community']);

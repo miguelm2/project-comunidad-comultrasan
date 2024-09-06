@@ -140,11 +140,11 @@ class ServiceUserCommunity extends System
             $count = Usuario::countUsersInCommunity($id_comunidad);
             if ($count <= 2) {
                 if (Comunidad::setCommunityEstate($id_comunidad, 0, $comunidadDTO->getUsuarioDTO()->getId_comunidad())) {
-                    UsuarioComunidad::deleteUserCommunityByCommunity($id_comunidad);
+                    UsuarioComunidad::deleteUserCommunityByUser($id_usuario);
                     return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
                 }
             } else {
-                UsuarioComunidad::deleteUserCommunityByCommunity($id_comunidad);
+                UsuarioComunidad::deleteUserCommunityByUser($id_usuario);
                 return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
             }
         } catch (\Exception $e) {
@@ -163,7 +163,9 @@ class ServiceUserCommunity extends System
             $tableHtml .= '<td>' . $comunidadDTO->getNombre() . '</td>';
             $tableHtml .= '<td class="text-center">' . $count_points . '</td>';
             $tableHtml .= '<td>' . $comunidadDTO->getFecha_registro() . '</td>';
-            $tableHtml .= '<td></td>';
+            $tableHtml .= '<td class="text-center"><button type="button" class="btn btn-link text-danger px-3 mb-0" data-bs-toggle="modal" data-bs-target="#removeLeader">
+                            <i class="material-icons me-2">person_remove</i> Remover
+                        </button></td>';
             $tableHtml .= '</tr>';
 
             $modelResponse = UsuarioComunidad::getUserCommunityByCommunity($id_comunidad);

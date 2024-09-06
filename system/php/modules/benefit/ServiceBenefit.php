@@ -268,11 +268,15 @@ class ServiceBenefit extends System
         $usuarioDTO = Usuario::getUserById($id_usuario);
         if ($modelResponse) {
             foreach ($modelResponse as $valor) {
+                $usuarioBeneficio = UsuarioBeneficio::getUserBenefitByUserAndBenefit($id_usuario, $valor->getId_beneficio());
                 $tableHtml .= '<tr>';
                 $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
                 $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
                 $tableHtml .= '<td>' . $usuarioDTO->getNombre() . '</td>';
                 $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
+                    $tableHtml .= '<td class="text-center">' . Elements::getButtonDeleteModalJs('takeOutBenefit', 'Remover', $usuarioBeneficio->getId_usuario_beneficio())  . '</td>';
+                }
                 $tableHtml .= '</tr>';
             }
         }

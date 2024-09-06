@@ -41,6 +41,8 @@
                <span class="nav-link-text ms-1">Referidos</span>
             </a>
          </li>
+         <?= $btnLogout['boton'] ?>
       </ul>
    </div>
+   <?= $btnLogout['modal'] ?>
 </aside>
