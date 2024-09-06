@@ -43,7 +43,7 @@
             <div class="col-md-9 mt-4 ms-4">
                <h4 class="text-success">Editar Comunidad</h4>
             </div>
-            <div class="col-md-2 mt-mt-4">
+            <div class="col-md-2 mt-4">
                <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
                   <a type="button" class="btn btn-secondary" href="questions"><i class="material-icons me-2">keyboard_return</i>atrás</a>
                </div>
@@ -244,6 +244,7 @@
                         <th class="text-uppercase font-weight-bolder">Puntos</th>
                         <th class="text-uppercase font-weight-bolder">Asociado</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
@@ -252,6 +253,7 @@
                         <th class="text-uppercase font-weight-bolder">Puntos</th>
                         <th class="text-uppercase font-weight-bolder">Asociado</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </tfoot>
                   <tbody>
@@ -319,6 +321,53 @@
          </div>
       </form>
       <!--Final Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post">
+         <div class="modal fade" id="takeOutBenefit" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Remover beneficio del asociado</h5>
+                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <label class="form-label">¿Esta seguro que desea remover este beneficio?</label>
+                     <input type="hidden" id="usuarioBeneficio" name="usuarioBeneficio">
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="deleteUserBenefit" class="btn btn-danger">
+                        <i class="material-icons me-2">delete</i> Remover Beneficio
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post">
+         <div class="modal fade" id="removeLeader" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Remover líder de la comunidad</h5>
+                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <label class="form-label">¿Esta seguro que desea remover al líder?</label>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="deleteUserLeader" class="btn btn-danger">
+                        <i class="material-icons me-2">delete</i> Remover Lider
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!-- End Basic Modal-->
    </main>
    <div id="preloader">
       <img src="/assets/image/favicon_0.ico" alt="Cargando...">
@@ -340,6 +389,7 @@
    <script src="/system/js/modalEliminar.js"></script>
    <script src="/system/js/selectRepeat.js"></script>
    <script src="/system/js/filter/filter_points_admin.js"></script>
+   <script src="/system/js/modalEliminar.js"></script>
    <?= $response ?>
 </body>
 

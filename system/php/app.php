@@ -66,4 +66,6 @@ class Constants
     static $USER_DIFERENT           = "La cédula debe pertenecer a otro asociado";
     static $COMMUNITY_NOT           = "La comunidad que digitó no existe";
     static $MOVE_USER_COMMUNITY     = "Se ha realizado el cambio de comunidad";
+    static $NO_USER_FOUND           = "No se encontro otro usuario para hacer la transferencia de lider";
+    static $DELETE_LEADER           = "Haz removido el líder de esta comunidad";
 }

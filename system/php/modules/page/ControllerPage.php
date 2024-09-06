@@ -33,6 +33,13 @@ if (isset($_GET['win'])) {
     $response = ServicePage::getAlertaWin($_GET['win']);
 }
 
+if (!isset($_SESSION['id'])) {
+    $btnLogin = ServicePage::getHtmlLogin();
+} else {
+    $btnLogin = '';
+    $btnLogout = ServicePage::getHtmlLogout();
+}
+
 if (isset($_GET)) {
     $informationPage = ServicePage::getInformation();
     ServicePage::getVisitas();

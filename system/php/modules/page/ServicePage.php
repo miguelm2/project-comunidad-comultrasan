@@ -92,9 +92,49 @@ class ServicePage extends System
             $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
             $host = $_SERVER['HTTP_HOST'];
             $script = $_SERVER['REQUEST_URI'];
-            $url = $protocol . "://" . $host ;
+            $url = $protocol . "://" . $host;
             return $url;
         }
+    }
+    public static function getHtmlLogout()
+    {
+        if (basename($_SERVER['PHP_SELF']) == 'index.php' && $_SESSION['usuario'] == 'Gestor') {
+            return [
+                'modal'=>
+                '<form method="POST">
+                        <div class="modal fade" id="basicModal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Salir del sistema</h5>
+                                    <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    ¿Esta seguro que desea salir del sistema?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons opacity-10">close</i> Cerrar</button>
+                                    <button type="submiT" name="logout" class="btn btn-danger"><i class="material-icons opacity-10">logout</i> Salir del sistema</button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>',
+                'boton'=>
+                '<li class="nav-item">
+                        <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#basicModal" role="button">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">logout</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Salir</span>
+                        </a>
+                    </li>'
+            ];
+        }
+    }
+    public static function getHtmlLogin()
+    {
+        return '<a href="/system/views/page/login" class="btn btn-outline-dark text-dark btn1 p-1 m-3">Ingresar</a>';
     }
 
     //ALERTAS ----------------------------------------------------------------------------------

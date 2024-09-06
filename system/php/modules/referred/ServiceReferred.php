@@ -139,6 +139,35 @@ class ServiceReferred extends System
                     $id_referido
                 );
 
+                if ($estado == 2) {
+                    $pass = parent::randomPassword();
+                    $fecha_registro = date('Y-m-d H:i:s');
+                    $response = Usuario::newUser(
+                        $nombre_referido,
+                        $correo,
+                        $celular,
+                        $cedula_referido,
+                        $pass,
+                        1,
+                        1,
+                        'default.png',
+                        $tipo_documento_referido,
+                        '',
+                        $departamento,
+                        $ciudad,
+                        $fecha_registro
+                    );
+                    if ($response) {
+                        $asunto = "Registro exitoso - Bienvenido/a a nuestra plataforma";
+                        $mensaje = "Hola " . $nombre_referido . ",<br><br>"
+                            . "Tu registro ha sido exitoso. A continuación te proporcionamos tu contraseña de acceso:<br>"
+                            . "Contraseña: " . $pass . "<br><br>"
+                            . "Te recomendamos cambiar tu contraseña una vez inicies sesión.<br><br>"
+                            . "Gracias por unirte a nuestra comunidad.<br><br>"
+                            . "Saludos,<br>El equipo Financiera Comultrasan.";
+                        Mail::sendEmail($asunto, $mensaje, $correo);
+                    }
+                }
                 if ($result) {
                     return  '<script>swal("' . Constants::$REGISTER_UPDATE . '", "", "success");</script>';
                 }
@@ -177,7 +206,7 @@ class ServiceReferred extends System
             $id_referido = parent::limpiarString($id_referido);
 
             $referidoDTO = Referido::getReferred($id_referido);
-            if(!empty($referidoDTO->getId_usuario())){
+            if (!empty($referidoDTO->getId_usuario())) {
                 return 'Realizado por asociado';
             }
             return 'Realizado desde la pagina';

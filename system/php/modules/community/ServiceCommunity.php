@@ -370,20 +370,63 @@ class ServiceCommunity extends System
             $id_comunidad = $comunidadDTO->getId_comunidad();
             $count = Usuario::countUsersInCommunity($id_comunidad);
 
+            // Obtener el único usuario de la comunidad
+            $usuarioComunidadDTO = UsuarioComunidad::getOnlyUserCommunityByCommunity($id_comunidad);
+
+            if (!$usuarioComunidadDTO) {
+                return Elements::crearMensajeAlerta(Constants::$NO_USER_FOUND, "warning");
+            }
+
+            // Si hay menos de 2 usuarios, cambiar el estado a inactivo
             if ($count < 2) {
-                // Si hay menos de 2 usuarios, eliminar la comunidad
-                if (Comunidad::setCommunityEstate($id_comunidad, 0, NULL)) {
-                    UsuarioComunidad::deleteUserCommunityByCommunity($id_comunidad);
-                    return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
+                if (Comunidad::setCommunityEstate($id_comunidad, 0, null)) {
+                    // Transferir el liderazgo si es posible
+                    if (Comunidad::setLeaderCommunity($id_comunidad, $usuarioComunidadDTO->getUsuarioDTO()->getId_usuario())) {
+                        if (UsuarioComunidad::deleteUserCommunity($usuarioComunidadDTO->getId_usuario_comunidad())) {
+                            return Elements::crearMensajeAlerta(Constants::$DELETE_LEADER, "success");
+                        }
+                    }
                 }
             } else {
-                // Si hay más de un usuario, transferir el liderazgo
-                $usuarioComunidadDTO = UsuarioComunidad::getOnlyUserCommunityByCommunity($id_comunidad);
-                if ($usuarioComunidadDTO && Comunidad::setLeaderCommunity(
-                    $id_comunidad,
-                    $usuarioComunidadDTO->getUsuarioDTO()->getId_usuario()
-                )) {
-                    // Eliminar al antiguo líder de la comunidad
+                // Transferir el liderazgo a otro usuario
+                if (Comunidad::setLeaderCommunity($id_comunidad, $usuarioComunidadDTO->getUsuarioDTO()->getId_usuario())) {
+                    if (UsuarioComunidad::deleteUserCommunity($usuarioComunidadDTO->getId_usuario_comunidad())) {
+                        return Elements::crearMensajeAlerta(Constants::$DELETE_LEADER, "success");
+                    }
+                }
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function removeLeaderCommunity($id_comunidad)
+    {
+        try {
+            $id_comunidad = parent::limpiarString($id_comunidad);
+            $comunidadDTO = Comunidad::getCommunity($id_comunidad);
+            $id_comunidad = $comunidadDTO->getId_comunidad();
+            $count = Usuario::countUsersInCommunity($id_comunidad);
+
+            // Obtener el único usuario de la comunidad
+            $usuarioComunidadDTO = UsuarioComunidad::getOnlyUserCommunityByCommunity($id_comunidad);
+
+            if (!$usuarioComunidadDTO) {
+                return Elements::crearMensajeAlerta(Constants::$NO_USER_FOUND, "warning");
+            }
+
+            // Si hay menos de 2 usuarios, cambiar el estado a inactivo
+            if ($count < 2) {
+                if (Comunidad::setCommunityEstate($id_comunidad, 0, null)) {
+                    // Transferir el liderazgo si es posible
+                    if (Comunidad::setLeaderCommunity($id_comunidad, $usuarioComunidadDTO->getUsuarioDTO()->getId_usuario())) {
+                        if (UsuarioComunidad::deleteUserCommunity($usuarioComunidadDTO->getId_usuario_comunidad())) {
+                            return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
+                        }
+                    }
+                }
+            } else {
+                // Transferir el liderazgo a otro usuario
+                if (Comunidad::setLeaderCommunity($id_comunidad, $usuarioComunidadDTO->getUsuarioDTO()->getId_usuario())) {
                     if (UsuarioComunidad::deleteUserCommunity($usuarioComunidadDTO->getId_usuario_comunidad())) {
                         return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
                     }
