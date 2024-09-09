@@ -25,7 +25,11 @@ if (isset($_GET['discount'])) {
     $discount = ServiceDiscount::getDiscount($_GET['discount']);
 }
 
-if (isset($_GET)) {
+if (basename($_SERVER['PHP_SELF']) == 'discounts.php') {
     $tableDiscount = ServiceDiscount::getTableDiscount();
+}
+
+
+if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
     $cardDiscount = ServiceDiscount::getCardDiscount();
 }

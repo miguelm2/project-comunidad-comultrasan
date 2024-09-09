@@ -293,28 +293,26 @@ class ServiceUser extends System
     public static function getTablaUsuarios()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'users.php') {
-                $tableHtml = "";
-                $modelResponse = Usuario::listUser();
+            $tableHtml = "";
+            $modelResponse = Usuario::listUser();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $style = self::getColorByEstate($valor->getEstado()[0]);
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getId_usuario() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
-                        $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("user", $valor->getId_usuario()) . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    $tableHtml = '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $style = self::getColorByEstate($valor->getEstado()[0]);
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_usuario() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
+                    $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("user", $valor->getId_usuario()) . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                $tableHtml = '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -322,41 +320,39 @@ class ServiceUser extends System
     public static function getTablaUserByManager()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'communities.php') {
-                $tableHtml = "";
-                $modelResponse = Usuario::listUser();
+            $tableHtml = "";
+            $modelResponse = Usuario::listUser();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $comunidadDTO = Comunidad::getCommunityByUserType($valor->getId_usuario());
-                        $referidoDTO = Referido::getReferredByCedula($valor->getCedula());
-                        $referido = ($referidoDTO) ? $referidoDTO->getNombre_refiere() : 'No fue referido';
-                        $grupoInteresDTO = TipoComunidad::getUserGroupInterestByUser($valor->getId_usuario());
-                        $grupoInteres = ($grupoInteresDTO) ? $grupoInteresDTO->getTitulo() : 'No tiene';
-                        $puntoDTO = Punto::getLastPointByUser($valor->getId_usuario());
-                        $countPoints = Punto::getSumPointsByUser($valor->getId_usuario());
-                        $style = self::getColorByEstate($valor->getEstado()[0]);
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                        $tableHtml .= '<td>' . $comunidadDTO->nombre . '</td>';
-                        $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getFecha_nacimiento() . '</td>';
-                        $tableHtml .= '<td>' . $referido . '</td>';
-                        $tableHtml .= '<td>' . $comunidadDTO->tipo . '</td>';
-                        $tableHtml .= '<td>' . $comunidadDTO->fecha . '</td>';
-                        $tableHtml .= '<td>' . $grupoInteres . '</td>';
-                        $tableHtml .= '<td>' . ($puntoDTO ? $puntoDTO->getFecha_registro() : 'Sin registro') . '</td>';
-                        $tableHtml .= '<td>' . $countPoints . '</td>';
-                        $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer2("user", $valor->getId_usuario()) . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    $tableHtml = '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $comunidadDTO = Comunidad::getCommunityByUserType($valor->getId_usuario());
+                    $referidoDTO = Referido::getReferredByCedula($valor->getCedula());
+                    $referido = ($referidoDTO) ? $referidoDTO->getNombre_refiere() : 'No fue referido';
+                    $grupoInteresDTO = TipoComunidad::getUserGroupInterestByUser($valor->getId_usuario());
+                    $grupoInteres = ($grupoInteresDTO) ? $grupoInteresDTO->getTitulo() : 'No tiene';
+                    $puntoDTO = Punto::getLastPointByUser($valor->getId_usuario());
+                    $countPoints = Punto::getSumPointsByUser($valor->getId_usuario());
+                    $style = self::getColorByEstate($valor->getEstado()[0]);
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $comunidadDTO->nombre . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_nacimiento() . '</td>';
+                    $tableHtml .= '<td>' . $referido . '</td>';
+                    $tableHtml .= '<td>' . $comunidadDTO->tipo . '</td>';
+                    $tableHtml .= '<td>' . $comunidadDTO->fecha . '</td>';
+                    $tableHtml .= '<td>' . $grupoInteres . '</td>';
+                    $tableHtml .= '<td>' . ($puntoDTO ? $puntoDTO->getFecha_registro() : 'Sin registro') . '</td>';
+                    $tableHtml .= '<td>' . $countPoints . '</td>';
+                    $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer2("user", $valor->getId_usuario()) . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                $tableHtml = '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

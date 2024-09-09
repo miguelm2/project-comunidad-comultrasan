@@ -129,24 +129,22 @@ class ServiceBenefitPage extends System
     public static function getTableBenefitPage()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'benefitsPage.php') {
-                $tableHtml = "";
-                $modelResponse = BeneficioPagina::listBenefitPage();
+            $tableHtml = "";
+            $modelResponse = BeneficioPagina::listBenefitPage();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getId_beneficios_pagina() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("benefitPage", $valor->getId_beneficios_pagina()) . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_beneficios_pagina() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("benefitPage", $valor->getId_beneficios_pagina()) . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -154,24 +152,22 @@ class ServiceBenefitPage extends System
     public static function getCardBenefitsPage()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
-                $html = "";
-                $modelResponse = BeneficioPagina::listBenefitPage();
+            $html = "";
+            $modelResponse = BeneficioPagina::listBenefitPage();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $html .= Elements::getCardBenefit(
-                            $valor->getId_beneficios_pagina(),
-                            $valor->getImagen(),
-                            $valor->getTitulo(),
-                            $valor->getSubtitulo()
-                        );
-                    }
-                } else {
-                    return '<div>No hay registros para mostrar</div>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $html .= Elements::getCardBenefit(
+                        $valor->getId_beneficios_pagina(),
+                        $valor->getImagen(),
+                        $valor->getTitulo(),
+                        $valor->getSubtitulo()
+                    );
                 }
-                return $html;
+            } else {
+                return '<div>No hay registros para mostrar</div>';
             }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

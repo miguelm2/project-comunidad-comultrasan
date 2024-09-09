@@ -17,7 +17,11 @@ if (isset($_POST['deleteQuestion'])) {
     $response = ServiceQuestion::deleteQuestion($_GET['question']);
 }
 
-if (isset($_GET)) {
+
+if (basename($_SERVER['PHP_SELF']) == 'questions.php') {
     $tableQuestion = ServiceQuestion::getTableQuestion();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'index.php') {
     $questionIndex = ServiceQuestion::getQuestionIndex();
 }

@@ -21,7 +21,10 @@ if (isset($_GET['eventCalendar'])) {
     $eventCalendar = ServiceEventCalendar::getEventCalendar($_GET['eventCalendar']);
 }
 
-if (isset($_GET)) {
+if (basename($_SERVER['PHP_SELF']) == 'eventsCalendar.php') {
     $tableEventCalendar = ServiceEventCalendar::getTableEventCalendar();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'index.php') {
     $cardEventCalendar = ServiceEventCalendar::getCardEventCalendar();
 }

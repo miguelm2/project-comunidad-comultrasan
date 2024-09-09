@@ -92,9 +92,18 @@ if (isset($_POST['getTableUserFilter'])) {
     echo $response;
 }
 
-if (isset($_GET)) {
+if (basename($_SERVER['PHP_SELF']) == 'users.php') {
     $tableUsuarios      = ServiceUser::getTablaUsuarios();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'communities.php') {
     $tableUserManager   = ServiceUser::getTablaUserByManager();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'points.php') {
     $optionUser         = ServiceUser::getOptionUser();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'community.php') {
     $optionUserWithoutCommunity = ServiceUser::getOptionUserWithoutCommunity();
 }

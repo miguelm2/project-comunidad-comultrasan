@@ -56,6 +56,6 @@ if(isset($_POST['realiceMoveUser'])){
     $response = ServiceUserCommunity::moveUser($_GET['moveUser'], $_POST['comunidad']);
 }
 
-if (isset($_GET)) {
+if (basename($_SERVER['PHP_SELF']) == 'community.php') {
     $tableRequestCommunity = ServiceUserCommunity::getTableRequestUnited();
 }

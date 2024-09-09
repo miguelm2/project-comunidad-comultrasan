@@ -102,31 +102,29 @@ class ServiceCommunity extends System
     public static function getTableCommunity()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'communities.php') {
-                $tableHtml = "";
-                $modelResponse = Comunidad::listCommunity();
+            $tableHtml = "";
+            $modelResponse = Comunidad::listCommunity();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $style = self::getColorByEstate($valor->getEstado()[0]);
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getId_comunidad() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
-                        $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
-                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                        if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
-                            $tableHtml .= '<td>' . Elements::crearBotonVer("community", $valor->getId_comunidad()) . '</td>';
-                        } else {
-                            $tableHtml .= '<td>' . Elements::crearBotonVer2("community", $valor->getId_comunidad()) . '</td>';
-                        }
-                        $tableHtml .= '</tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $style = self::getColorByEstate($valor->getEstado()[0]);
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_comunidad() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("community", $valor->getId_comunidad()) . '</td>';
+                    } else {
+                        $tableHtml .= '<td>' . Elements::crearBotonVer2("community", $valor->getId_comunidad()) . '</td>';
                     }
-                } else {
-                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -134,7 +132,6 @@ class ServiceCommunity extends System
     public static function getTableCommunityIndex()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'index.php') {
                 $tableHtml = "";
                 $modelResponse = Comunidad::listCommunity();
 
@@ -151,17 +148,13 @@ class ServiceCommunity extends System
                     return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
                 }
                 return $tableHtml;
-            }
+            
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
     public static function getUnitedCommunity()
     {
-        if (basename($_SERVER['PHP_SELF']) != 'community.php') {
-            return;
-        }
-
         try {
             $id_usuario = $_SESSION['id'];
             $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
@@ -320,15 +313,14 @@ class ServiceCommunity extends System
     public static function getButtonUnitUser()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'community.php') {
-                $id_usuario = $_SESSION['id'];
-                $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+            $id_usuario = $_SESSION['id'];
+            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
 
-                if (!$comunidadDTO) {
-                    return '';
-                }
+            if (!$comunidadDTO) {
+                return '';
+            }
 
-                $buttonHtml = '
+            $buttonHtml = '
                 <div class="row">
                     <div class="col-md-4">
                         <h4 class="text-success">Integrantes</h4>
@@ -340,8 +332,7 @@ class ServiceCommunity extends System
                     </div>
                 </div>';
 
-                return $buttonHtml;
-            }
+            return $buttonHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

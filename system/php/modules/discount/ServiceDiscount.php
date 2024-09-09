@@ -183,24 +183,22 @@ class ServiceDiscount extends System
     public static function getTableDiscount()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'discounts.php') {
-                $tableHtml = "";
-                $modelResponse = Descuento::listDiscount();
+            $tableHtml = "";
+            $modelResponse = Descuento::listDiscount();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getId_descuento() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getDescuento() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("discount", $valor->getId_descuento()) . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_descuento() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getDescuento() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("discount", $valor->getId_descuento()) . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -208,21 +206,19 @@ class ServiceDiscount extends System
     public static function getCardDiscount()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
-                $html = '';
-                $modelResponse = Descuento::listDiscount();
-                foreach ($modelResponse as $value) {
-                    $html .= Elements::getCardDiscount(
-                        $value->getImagen(),
-                        $value->getLogo(),
-                        $value->getDescuento(),
-                        $value->getTitulo(),
-                        $value->getVigencia(),
-                        $value->getAcceso()
-                    );
-                }
-                return $html;
+            $html = '';
+            $modelResponse = Descuento::listDiscount();
+            foreach ($modelResponse as $value) {
+                $html .= Elements::getCardDiscount(
+                    $value->getImagen(),
+                    $value->getLogo(),
+                    $value->getDescuento(),
+                    $value->getTitulo(),
+                    $value->getVigencia(),
+                    $value->getAcceso()
+                );
             }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

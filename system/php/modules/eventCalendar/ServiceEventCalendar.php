@@ -131,25 +131,23 @@ class ServiceEventCalendar extends System
     public static function getTableEventCalendar()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'eventsCalendar.php') {
-                $tableHtml = "";
-                $modelResponse = CalendarioEvento::listAllEventCalendar();
+            $tableHtml = "";
+            $modelResponse = CalendarioEvento::listAllEventCalendar();
 
-                if (($modelResponse)) {
-                    foreach ($modelResponse as $valor) {
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getId_evento() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getFecha() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("eventCalendar", $valor->getId_evento()) . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+            if (($modelResponse)) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_evento() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("eventCalendar", $valor->getId_evento()) . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -157,14 +155,12 @@ class ServiceEventCalendar extends System
     public static function getCardEventCalendar()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-                $modelResponse = CalendarioEvento::listEventCalendar();
-                $html = '';
-                foreach ($modelResponse as $value) {
-                    $html .= Elements::getCardCalendarEvent($value->getImagen(), $value->getTitulo(), $value->getFecha(), $value->getLugar(), $value->getHora());
-                }
-                return $html;
+            $modelResponse = CalendarioEvento::listEventCalendar();
+            $html = '';
+            foreach ($modelResponse as $value) {
+                $html .= Elements::getCardCalendarEvent($value->getImagen(), $value->getTitulo(), $value->getFecha(), $value->getLugar(), $value->getHora());
             }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

@@ -233,27 +233,25 @@ class ServiceManager extends System
     public static function getTableManager()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'managers.php') {
-                $tableHtml = "";
-                $modelResponse = Gestor::listManager();
+            $tableHtml = "";
+            $modelResponse = Gestor::listManager();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $style = self::getColorByEstate($valor->getEstado()[0]);
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
-                        $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("manager", $valor->getId_gestor()) . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $style = self::getColorByEstate($valor->getEstado()[0]);
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
+                    $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("manager", $valor->getId_gestor()) . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

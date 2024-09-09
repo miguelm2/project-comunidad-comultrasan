@@ -130,25 +130,23 @@ class ServiceTypeComunity extends System
     public static function getTableTypeComunity()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'typeComunities.php') {
-                $tableHtml = "";
-                $modelResponse = TipoComunidad::listTypeComunity();
+            $tableHtml = "";
+            $modelResponse = TipoComunidad::listTypeComunity();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getId_tipo_comunidad() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getIcono() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("typeComunity", $valor->getId_tipo_comunidad()) . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_tipo_comunidad() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getIcono() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("typeComunity", $valor->getId_tipo_comunidad()) . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -156,19 +154,17 @@ class ServiceTypeComunity extends System
     public static function getCardTypeComunity()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'comunidad.php') {
-                $html = "";
-                $modelResponse = TipoComunidad::listTypeComunity();
+            $html = "";
+            $modelResponse = TipoComunidad::listTypeComunity();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $html .= Elements::getCardTypeComunity($valor->getId_tipo_comunidad(), $valor->getIcono(), $valor->getTitulo(), $valor->getSubtitulo());
-                    }
-                } else {
-                    return '<div>No hay registros para mostrar</div>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $html .= Elements::getCardTypeComunity($valor->getId_tipo_comunidad(), $valor->getIcono(), $valor->getTitulo(), $valor->getSubtitulo());
                 }
-                return $html;
+            } else {
+                return '<div>No hay registros para mostrar</div>';
             }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -176,25 +172,23 @@ class ServiceTypeComunity extends System
     public static function getCardGroupInterest()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'community.php') {
-                $html = "";
-                $modelResponse = TipoComunidad::listTypeComunity();
+            $html = "";
+            $modelResponse = TipoComunidad::listTypeComunity();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
 
-                        $html .= Elements::getCardGroupInterest(
-                            $valor->getId_tipo_comunidad(),
-                            $valor->getIcono(),
-                            $valor->getTitulo(),
-                            $valor->getSubtitulo()
-                        );
-                    }
-                } else {
-                    return '<div>No hay registros para mostrar</div>';
+                    $html .= Elements::getCardGroupInterest(
+                        $valor->getId_tipo_comunidad(),
+                        $valor->getIcono(),
+                        $valor->getTitulo(),
+                        $valor->getSubtitulo()
+                    );
                 }
-                return $html;
+            } else {
+                return '<div>No hay registros para mostrar</div>';
             }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception('Error en getCardGroupInterest: ' . $e->getMessage());
         }
@@ -266,16 +260,14 @@ class ServiceTypeComunity extends System
     public static function getOptionsGroupCommunity()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'newEventCalendar.php') {
-                $modelResponse = TipoComunidad::listTypeComunity();
-                $html = '';
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $html .= '<option value="' . $valor->getId_tipo_comunidad() . '">' . $valor->getTitulo() . '</option>';
-                    }
+            $modelResponse = TipoComunidad::listTypeComunity();
+            $html = '';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $html .= '<option value="' . $valor->getId_tipo_comunidad() . '">' . $valor->getTitulo() . '</option>';
                 }
-                return $html;
             }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
