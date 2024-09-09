@@ -129,25 +129,23 @@ class ServiceBenefit extends System
     public static function getTableBenefit()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
-                $tableHtml = "";
-                $modelResponse = Beneficio::listBenefit();
+            $tableHtml = "";
+            $modelResponse = Beneficio::listBenefit();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getId_beneficio() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("benefit", $valor->getId_beneficio()) . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_beneficio() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("benefit", $valor->getId_beneficio()) . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -155,14 +153,12 @@ class ServiceBenefit extends System
     public static function getOptionBenefit()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'user.php') {
-                $beneficioDTO = Beneficio::listBenefit();
-                $html = '';
-                foreach ($beneficioDTO as $value) {
-                    $html .= '<option value="' . $value->getId_beneficio() . '">' . $value->getTitulo() . '</option>';
-                }
-                return $html;
+            $beneficioDTO = Beneficio::listBenefit();
+            $html = '';
+            foreach ($beneficioDTO as $value) {
+                $html .= '<option value="' . $value->getId_beneficio() . '">' . $value->getTitulo() . '</option>';
             }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -223,20 +219,18 @@ class ServiceBenefit extends System
     public static function getCardBenefitUserByUser()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
-                $id_usuario = $_SESSION['id'];
-                $html = "";
-                $modelResponse = Beneficio::listBenefitByUser($id_usuario);
+            $id_usuario = $_SESSION['id'];
+            $html = "";
+            $modelResponse = Beneficio::listBenefitByUser($id_usuario);
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $html .= Elements::getCardsBenefitUser($valor->getTitulo());
-                    }
-                } else {
-                    return '<div>No tienes beneficios en este momento</div>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $html .= Elements::getCardsBenefitUser($valor->getTitulo());
                 }
-                return $html;
+            } else {
+                return '<div>No tienes beneficios en este momento</div>';
             }
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

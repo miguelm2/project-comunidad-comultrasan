@@ -25,13 +25,16 @@ if (isset($_GET['user'])) {
     $tableBenefitUser = ServiceBenefit::getTableBenefitByUser($_GET['user']);
 }
 
-if(isset($_GET['community'])){
+if (isset($_GET['community'])) {
     $benefitByCommunity = ServiceBenefit::getTableBenefitUserByCommunity($_GET['community']);
 }
 
-if (isset($_GET)) {
+if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
     $tableBenefits = ServiceBenefit::getTableBenefit();
-    $optionBenefit = ServiceBenefit::getOptionBenefit();
     $tableBenefitsUser = ServiceBenefit::getTableBenefitUserByUser();
     $cardBenefitUser = ServiceBenefit::getCardBenefitUserByUser();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'user.php') {
+    $optionBenefit = ServiceBenefit::getOptionBenefit();
 }

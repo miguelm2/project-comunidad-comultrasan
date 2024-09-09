@@ -71,28 +71,26 @@ class ServicePoint extends System
     public static function getTablePoint()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'points.php') {
-                $tableHtml = "";
-                $modelResponse = Punto::listPoint();
+            $tableHtml = "";
+            $modelResponse = Punto::listPoint();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getId_punto() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                        $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
-                        if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
-                            $tableHtml .= '<td>' . Elements::crearBotonVer("point", $valor->getId_punto()) . '</td>';
-                        }
-                        $tableHtml .= '</tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_punto() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                    $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
+                    if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("point", $valor->getId_punto()) . '</td>';
                     }
-                } else {
-                    return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -128,11 +126,9 @@ class ServicePoint extends System
     public static function getPointsByUser()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-                $id_usuario = $_SESSION['id'];
-                $total = Punto::getSumPointsByUser($id_usuario);
-                return $total;
-            }
+            $id_usuario = $_SESSION['id'];
+            $total = Punto::getSumPointsByUser($id_usuario);
+            return $total;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -140,23 +136,21 @@ class ServicePoint extends System
     public static function listTablePointsUserByUser()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
-                $tableHtml = "";
-                $id_usuario = $_SESSION['id'];
-                $modelResponse = Punto::listPointByUser($id_usuario);
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                        $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+            $tableHtml = "";
+            $id_usuario = $_SESSION['id'];
+            $modelResponse = Punto::listPointByUser($id_usuario);
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                    $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

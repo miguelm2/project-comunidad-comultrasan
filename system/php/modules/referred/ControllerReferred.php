@@ -42,6 +42,6 @@ if (isset($_POST['deleteReferred'])) {
     ServiceReferred::deleteReferred($_GET['referred']);
 }
 
-if (isset($_GET)) {
+if (basename($_SERVER['PHP_SELF']) == 'referrals.php') {
     $tableReferred = ServiceReferred::getTableReferred();
 }

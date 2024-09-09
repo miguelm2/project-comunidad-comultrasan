@@ -34,11 +34,17 @@ if (isset($_POST['getTableCommunityFilter'])) {
     echo $response;
 }
 
-if (isset($_GET)) {
+if (basename($_SERVER['PHP_SELF']) == 'communities.php') {
     $tableCommunities = ServiceCommunity::getTableCommunity();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'community.php') {
     $unitedCommunity = ServiceCommunity::getUnitedCommunity();
     $cardRest = ServiceCommunity::getRestHmtl();
     $optionRequest = ServiceCommunity::getOptionRequest();
     $btnJoinUser = ServiceCommunity::getButtonUnitUser();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'index.php') {
     $tableCommunitiesIndex = ServiceCommunity::getTableCommunityIndex();
 }

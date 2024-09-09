@@ -26,15 +26,22 @@ if (isset($_POST['loadExcelPoint'])) {
 }
 
 if (isset($_POST['getTablePointsFilter'])) {
-    $response = ServicePoint::listTablePointsUserByManagerFilter($_POST['comunidad'], $_POST['cedula'],$_POST['nombre'], $_POST['fecha_inicio'], $_POST['fecha_fin']);
+    $response = ServicePoint::listTablePointsUserByManagerFilter($_POST['comunidad'], $_POST['cedula'], $_POST['nombre'], $_POST['fecha_inicio'], $_POST['fecha_fin']);
     echo $response;
 }
-if(isset($_GET['user'])){
+if (isset($_GET['user'])) {
     $total_puntos = ServicePoint::getPointsUserByUser($_GET['user']);
 }
 
-if (isset($_GET)) {
+
+if (basename($_SERVER['PHP_SELF']) == 'points.php') {
     $tablePoints = ServicePoint::getTablePoint();
-    $countPoints = ServicePoint::getPointsByUser();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
     $tablePointsByUser = ServicePoint::listTablePointsUserByUser();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+    $countPoints = ServicePoint::getPointsByUser();
 }

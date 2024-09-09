@@ -218,27 +218,25 @@ class ServiceReferred extends System
     public static function getTableReferred()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'referrals.php') {
-                $tableHtml = "";
-                $modelResponse = Referido::listReferred();
+            $tableHtml = "";
+            $modelResponse = Referido::listReferred();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $style = self::getColorByEstate($valor->getEstado()[0]);
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getCedula_referido() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getNombre_referido() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getCelular() . '</td>';
-                        $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer("referred", $valor->getId_referido()) . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $style = self::getColorByEstate($valor->getEstado()[0]);
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getCedula_referido() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getNombre_referido() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCelular() . '</td>';
+                    $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer("referred", $valor->getId_referido()) . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                return '<tr><td colspan="6">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

@@ -77,26 +77,24 @@ class ServiceSurvey extends System
     public static function getTableSurvey()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'surveys.php') {
-                $tableHtml = '';
-                $modelResponse = Encuesta::listSurvey();
+            $tableHtml = '';
+            $modelResponse = Encuesta::listSurvey();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $style = self::getColorByEstate($valor->getEstado()[0]);
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $valor->getId_encuesta() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                        $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
-                        $tableHtml .= '<td align="center">' . Elements::crearBotonVer("survey", $valor->getId_encuesta()) . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $style = self::getColorByEstate($valor->getEstado()[0]);
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor->getId_encuesta() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                    $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
+                    $tableHtml .= '<td align="center">' . Elements::crearBotonVer("survey", $valor->getId_encuesta()) . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
+            } else {
+                return '<tr><td colspan="5">No hay registros para mostrar</td></tr>';
             }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -104,43 +102,41 @@ class ServiceSurvey extends System
     public static function getSurveyUser()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'surveys.php') {
-                $html = '';
-                $id_usuario = $_SESSION['id'];
-                $modelResponse = Encuesta::listSurveyByEstateAndNotResolved($id_usuario);
+            $html = '';
+            $id_usuario = $_SESSION['id'];
+            $modelResponse = Encuesta::listSurveyByEstateAndNotResolved($id_usuario);
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $btnRealizar =  Elements::crearBotonRealizar("survey", $valor->getId_encuesta());
-                        $html .= Elements::getCardSurveyUserNotResolved($valor->getNombre(), $valor->getPuntos(), $valor->getEstado()[1], $btnRealizar);
-                    }
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $btnRealizar =  Elements::crearBotonRealizar("survey", $valor->getId_encuesta());
+                    $html .= Elements::getCardSurveyUserNotResolved($valor->getNombre(), $valor->getPuntos(), $valor->getEstado()[1], $btnRealizar);
                 }
-                $response = Encuesta::listSurveyByEstateAndResolved($id_usuario);
-                if ($response) {
-                    foreach ($response as $value) {
-                        $html .= Elements::getCardSurveyUserResolved($value->getNombre(), $value->getPuntos(), $value->getEstado()[1]);
-                    }
-                }
-
-                return $html;
             }
+            $response = Encuesta::listSurveyByEstateAndResolved($id_usuario);
+            if ($response) {
+                foreach ($response as $value) {
+                    $html .= Elements::getCardSurveyUserResolved($value->getNombre(), $value->getPuntos(), $value->getEstado()[1]);
+                }
+            }
+
+            return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
     public static function getIdLastSurveyByUser()
-{
-    try {
-        $id_usuario = $_SESSION['id'];
-        $encuestaDTO = Encuesta::getIdSurveyByEstateAndNotResolved($id_usuario);
-        return (object) [
-            'id_encuesta' => $encuestaDTO->getId_encuesta(),
-            'mensaje' => $encuestaDTO->getMensaje()
-        ];
-    } catch (\Exception $e) {
-        throw new Exception($e->getMessage());
+    {
+        try {
+            $id_usuario = $_SESSION['id'];
+            $encuestaDTO = Encuesta::getIdSurveyByEstateAndNotResolved($id_usuario);
+            return (object) [
+                'id_encuesta' => $encuestaDTO->getId_encuesta(),
+                'mensaje' => $encuestaDTO->getMensaje()
+            ];
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
     }
-}
 
     public static function getScriptModal()
     {
@@ -164,13 +160,11 @@ class ServiceSurvey extends System
     public static function getProgress()
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'surveys.php') {
-                $html = '';
-                $total_encuesta = Encuesta::countSurvey();
-                $id_usuario = $_SESSION['id'];
-                $encuesta_usuario = Encuesta::countSurveyByUser($id_usuario);
-                return ($total_encuesta == 0) ? 0 : ($encuesta_usuario / $total_encuesta) * 100;
-            }
+            $html = '';
+            $total_encuesta = Encuesta::countSurvey();
+            $id_usuario = $_SESSION['id'];
+            $encuesta_usuario = Encuesta::countSurveyByUser($id_usuario);
+            return ($total_encuesta == 0) ? 0 : ($encuesta_usuario / $total_encuesta) * 100;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

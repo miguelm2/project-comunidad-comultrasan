@@ -37,6 +37,7 @@ if (isset($_POST['deleteManager'])) {
     ServiceManager::deleteManager($_GET['manager']);
 }
 
-if (isset($_GET)) {
+
+if (basename($_SERVER['PHP_SELF']) == 'managers.php') {
     $tableManagers = ServiceManager::getTableManager();
 }

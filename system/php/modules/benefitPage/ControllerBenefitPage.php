@@ -21,11 +21,13 @@ if (isset($_GET['benefitPage'])) {
     $benefitPage = ServiceBenefitPage::getBenefitPage($_GET['benefitPage']);
 }
 
-if(isset($_GET['benefit_page'])){
+if (isset($_GET['benefit_page'])) {
     $benefitsPage = ServiceBenefitPage::getBenefitPage($_GET['benefit_page']);
 }
 
-if (isset($_GET)) {
+if (basename($_SERVER['PHP_SELF']) == 'benefitsPage.php') {
     $tableBenfitPage  = ServiceBenefitPage::getTableBenefitPage();
+}
+if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
     $benefitPageIndex = ServiceBenefitPage::getCardBenefitsPage();
 }

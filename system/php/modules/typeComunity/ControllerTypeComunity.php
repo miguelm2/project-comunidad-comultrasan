@@ -34,9 +34,19 @@ if (isset($_GET['groupInterest'])) {
     $cardEventCalendarGroup = ServiceEventCalendar::getCardsEventsCalendarByGroup($_GET['groupInterest']);
 }
 
-if (isset($_GET)) {
+
+if (basename($_SERVER['PHP_SELF']) == 'typeComunities.php') {
     $tableTypeComnuties = ServiceTypeComunity::getTableTypeComunity();
-    $typeComunityIndex  = ServiceTypeComunity::getCardTypeComunity();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'community.php') {
     $cardGroupInterest  = ServiceTypeComunity::getCardGroupInterest();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'comunidad.php') {
+    $typeComunityIndex  = ServiceTypeComunity::getCardTypeComunity();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'newEventCalendar.php') {
     $optionGroupInterest = ServiceTypeComunity::getOptionsGroupCommunity();
 }

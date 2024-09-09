@@ -24,9 +24,13 @@ if (isset($_SESSION['show_modal']) && $_SESSION['show_modal']) {
     $response =  ServiceSurvey::getScriptModal();
 }
 
-if (isset($_GET)) {
+
+if (basename($_SERVER['PHP_SELF']) == 'surveys.php') {
     $tableSurvey = ServiceSurvey::getTableSurvey();
     $tableSurveyUser = ServiceSurvey::getSurveyUser();
     $progress = ServiceSurvey::getProgress();
+}
+
+if (basename($_SERVER['PHP_SELF']) == 'index.php') {
     $encuesta = ServiceSurvey::getIdLastSurveyByUser();
 }
