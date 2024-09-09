@@ -18,6 +18,14 @@
             </a>
          </li>
          <li class="nav-item">
+            <a class="nav-link text-white" href="dashboard">
+               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">dashboard</i>
+               </div>
+               <span class="nav-link-text ms-1">Dashboard</span>
+            </a>
+         </li>
+         <li class="nav-item">
             <div class="dropdown-activate">
                <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
                   <span class="text-white"><i class="material-icons me-2">settings</i>Página</span>
@@ -71,7 +79,7 @@
                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="material-icons opacity-10">groups</i>
                </div>
-               <span class="nav-link-text ms-1">Asociado</span>
+               <span class="nav-link-text ms-1">Información Personal</span>
             </a>
          </li>
          <li class="nav-item">

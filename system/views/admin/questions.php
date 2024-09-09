@@ -104,13 +104,13 @@
                         </div>
                         <div class="col-md-12 form-group">
                            <label for="excelIncome">Respuesta</label>
-                           <textarea name="respuesta" id="respuesta" class="form-control border p-1" placeholder="Respuesta" maxlength="255" rows="4" required></textarea>
+                           <textarea name="respuesta" id="respuesta" class="form-control border p-1" placeholder="Respuesta" maxlength="800" rows="4" required></textarea>
                         </div>
                      </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newQuestion" class="btn btn-success"><i class="material-icons me-2">add</i> Nueva Pregunta</button>
+                     <button type="submit" name="newQuestion" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Pregunta</button>
                   </div>
                </div>
             </div>

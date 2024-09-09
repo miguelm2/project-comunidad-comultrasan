@@ -40,7 +40,7 @@
       <div class="card mt-2">
          <div class="row m-0">
             <div class="col-md-9 mt-4 ms-4">
-               <h4 class="text-success">Mover Usuario</h4>
+               <h4 class="text-success">Mover Miembro</h4>
             </div>
             <div class="col-md-2 mt-4">
                <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
@@ -59,7 +59,7 @@
                         <p><strong>Fecha de creación: </strong><?= $moveUserCommunity->getFecha_registro() ?></p>
                      </div>
                      <div class="col-md-6">
-                        <h6 class="text-success">Datos del Usuario</h6>
+                        <h6 class="text-success">Datos del Miembro</h6>
                         <p><strong>Nombre: </strong><?= $moveUserCommunity->getUsuarioDTO()->getNombre() ?></p>
                         <p><strong>Correo: </strong><?= $moveUserCommunity->getUsuarioDTO()->getCorreo() ?></p>
                         <p><strong>Celular: </strong><?= $moveUserCommunity->getUsuarioDTO()->getTelefono() ?></p>
@@ -72,7 +72,7 @@
                      </div>
                      <div class="col-md-12 d-grid mt-3">
                         <button type="submit" class="btn btn-success" name="realiceMoveUser">
-                           <i class="material-icons me-2">published_with_changes</i>Mover Asociado
+                           <i class="material-icons me-2">published_with_changes</i>Mover Miembro
                         </button>
                      </div>
                   </div>

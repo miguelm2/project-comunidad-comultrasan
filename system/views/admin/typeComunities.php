@@ -42,7 +42,7 @@
          <div class="row m-0">
             <div class="col-md-9 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Tipos de comunidades</h4>
+                  <h4 class="text-success">Grupos de Interés</h4>
                </div>
             </div>
             <div class="col-md-2 m-2 mt-3">
@@ -125,7 +125,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newTypeComunity" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo tipo comunidad</button>
+                     <button type="submit" name="newTypeComunity" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Grupo de Interés</button>
                   </div>
                </div>
             </div>

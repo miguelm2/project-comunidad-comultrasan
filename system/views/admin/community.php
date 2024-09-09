@@ -106,7 +106,7 @@
                      </div>
                      <div class="col-md-12 d-grid mt-4">
                         <button type="submit" class="btn btn-success" name="editCommunity">
-                           <i class="material-icons me-2">edit</i> Editar Comunidad
+                           <i class="material-icons me-2">save</i> Guardar Información
                         </button>
                      </div>
                   </div>

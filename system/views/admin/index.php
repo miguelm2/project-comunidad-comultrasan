@@ -27,134 +27,12 @@
   <!-- Start Slider -->
   <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_admin.php'; ?>
   <!-- End Slider -->
-  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-    <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
-      <!-- Start header -->
-      <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
-      <!-- End header -->
-    </nav>
-    <!-- End Navbar -->
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-xl-4 col-sm-4 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">groups</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Usuarios</p>
-                <h4 class="mb-0"><?= $listCountsAdmin[2] ?></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-sm-4 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div class="icon icon-lg icon-shape bg-gradient-info shadow-primary text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">groups</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Administrador</p>
-                <h4 class="mb-0"><?= $listCountsAdmin[1] ?></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-sm-4 mb-xl-0 mb-4">
-          <div class="card">
-            <div class="card-header p-3 pt-2">
-              <div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">person</i>
-              </div>
-              <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Gestores</p>
-                <h4 class="mb-0"><?= $listCountsAdmin[0] ?></h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mb-4 mt-3">
-        <div class="col-lg-12 col-md-12 mb-md-0 mb-4">
-          <div class="card">
-            <div class="card-header pb-0">
-              <div class="row">
-                <div class="col-lg-6 col-7">
-                  <h5 class="text-success">Comunidades</h5>
-                </div>
-              </div>
-            </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive">
-                <table class="table table-hover table-bordered table-striped">
-                  <thead class="text-center">
-                    <tr>
-                      <th class="text-uppercase font-weight-bolder">ID</th>
-                      <th class="text-uppercase font-weight-bolder">Asociado</th>
-                      <th class="text-uppercase font-weight-bolder">Comunidad</th>
-                      <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
-                    </tr>
-                  </thead>
-                  <tfoot class="text-center">
-                    <tr>
-                      <th class="text-uppercase font-weight-bolder">ID</th>
-                      <th class="text-uppercase font-weight-bolder">Asociado</th>
-                      <th class="text-uppercase font-weight-bolder">Comunidad</th>
-                      <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <?= $tableCommunitiesIndex ?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-lg-6 col-md-6 mt-4 mb-4">
-          <div class="card z-index-2 ">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-              <div class="bg-gradient-info shadow-primary border-radius-lg py-3 pe-1">
-                <div class="chart">
-                  <canvas id="chart-bars" class="chart-canvas" height="220"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <h6 class="mb-0"><i class="material-icons">visibility</i> Visitas</h6>
-              <p class="text-sm">Visitas a la Web</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 mt-4 mb-4">
-          <div class="card z-index-2  ">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-              <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
-                <div class="chart">
-                  <canvas id="chart-line" class="chart-canvas" height="220"></canvas>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-              <h6 class="mb-0 "><i class="material-icons">favorite</i> Corazones</h6>
-              <p class="text-sm ">Corazones entregados por mes</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Start Footer -->
-    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/footer.php'; ?>
-    <!-- End Footer -->
-    <div id="preloader">
-      <img src="/assets/image/favicon_0.ico" alt="Cargando...">
-    </div>
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg mt-2">
+    <iframe src="<?= $url ?>" frameborder="0" style="width: 100%; height: 100%;" class="vh-100"></iframe>
   </main>
+  <div id="preloader">
+    <img src="/assets/image/favicon_0.ico" alt="Cargando...">
+  </div>
 
   <!--   Core JS Files   -->
   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
@@ -162,19 +40,7 @@
   <script src="/system/assets/js/core/bootstrap.min.js"></script>
   <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="/system/assets/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="/system/assets/js/plugins/chartjs.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-  <script src="/system/js/graphics/dashboard.js"></script>
-  <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
-      }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
+  <script src="/system/assets/js/plugins/chartjs.min.js"></script>  
 
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>

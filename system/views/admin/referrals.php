@@ -55,6 +55,7 @@
                         <th class="text-uppercase font-weight-bolder">Nombre</th>
                         <th class="text-uppercase font-weight-bolder">Correo</th>
                         <th class="text-uppercase font-weight-bolder">Celular</th>
+                        <th class="text-uppercase font-weight-bolder">Refiere</th>
                         <th class="text-uppercase font-weight-bolder">Estado</th>
                         <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
@@ -65,6 +66,7 @@
                         <th class="text-uppercase font-weight-bolder">Nombre</th>
                         <th class="text-uppercase font-weight-bolder">Correo</th>
                         <th class="text-uppercase font-weight-bolder">Celular</th>
+                        <th class="text-uppercase font-weight-bolder">Refiere</th>
                         <th class="text-uppercase font-weight-bolder">Estado</th>
                         <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>

@@ -87,7 +87,7 @@
                         </div>
                         <div class="col-md-4 d-grid">
                            <button type="submit" class="btn btn-success" name="setProfile">
-                              <i class="material-icons me-2">edit</i> Editar Perfil</button>
+                              <i class="material-icons me-2">save</i> Guardrar Información</button>
                         </div>
                         <div class="col-md-4 d-grid">
                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiarPass">

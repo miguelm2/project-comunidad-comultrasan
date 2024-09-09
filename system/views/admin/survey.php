@@ -98,7 +98,7 @@
                      </div>
                      <div class="col-md-6 d-grid mt-4">
                         <button type="submit" class="btn btn-success" name="setSurvey">
-                           <i class="material-icons me-2">edit</i> Editar Encuesta
+                           <i class="material-icons me-2">save</i> Guardar Información
                         </button>
                      </div>
                   </div>
@@ -205,7 +205,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newSurveyQuestion" class="btn btn-success"><i class="material-icons me-2">add</i> Nueva Pregunta</button>
+                     <button type="submit" name="newSurveyQuestion" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Pregunta</button>
                   </div>
                </div>
             </div>

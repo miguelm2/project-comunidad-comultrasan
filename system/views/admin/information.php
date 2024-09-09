@@ -122,7 +122,9 @@
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="row mt-4">
                         <div class="col-md-6 d-grid">
-                           <button type="submit" class="btn btn-success" name="setInformation"><i class="material-icons me-2">edit</i> Editar Perfil</button>
+                           <button type="submit" class="btn btn-success" name="setInformation">
+                              <i class="material-icons me-2">save</i> Guardar Información
+                           </button>
                         </div>
                         <div class="col-md-6 d-grid">
                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">

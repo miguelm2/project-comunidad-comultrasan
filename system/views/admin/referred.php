@@ -163,7 +163,7 @@
                               </div>
                               <div class="col-md-6 d-grid">
                                  <button type="submit" class="btn btn-success" name="setReferred">
-                                    <i class="material-icons me-2">edit</i>Editar Referido</button>
+                                    <i class="material-icons me-2">save</i> Guardra Información</button>
                               </div>
                            </div>
                         </div>

@@ -57,30 +57,22 @@
                <table class="table table-bordered table-hover" id="tableEvents">
                   <thead class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           ID</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Título</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Fecha</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Fecha Registro</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Título</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha</th>
+                        <th class="text-uppercase font-weight-bolder">Grupo de interés</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           ID</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Título</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Fecha</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Fecha Registro</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Título</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha</th>
+                        <th class="text-uppercase font-weight-bolder">Grupo de interés</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </tfoot>
                   <tbody class="text-center">

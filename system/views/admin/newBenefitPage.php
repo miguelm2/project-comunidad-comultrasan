@@ -80,7 +80,7 @@
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-12 d-grid mt-4">
                         <button type="submit" class="btn btn-success" name="newBenefitPage">
-                           <i class="material-icons me-2">add</i> Nuevo Beneficio Página
+                           <i class="material-icons me-2">add</i> Guardar Beneficio Página
                         </button>
                      </div>
                   </div>

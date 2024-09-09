@@ -122,7 +122,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newSurvey" class="btn btn-success"><i class="material-icons me-2">add</i> Nueva Encuesta</button>
+                     <button type="submit" name="newSurvey" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Encuesta</button>
                   </div>
                </div>
             </div>
