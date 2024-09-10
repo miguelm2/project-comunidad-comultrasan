@@ -271,6 +271,46 @@
                <div class="row">
                   <div class="col-md-9">
                      <h4 class="text-success">
+                        Miembros
+                     </h4>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table table-hover table-bordered table-striped">
+                  <thead class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                     </tr>
+                  </thead>
+                  <tfoot class="text-center">
+                     <tr>
+                        <th class="text-uppercase font-weight-bolder">ID</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
+                     </tr>
+                  </tfoot>
+                  <tbody>
+                     <?= $usuarioComunidad ?>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      <div class="card mt-3">
+         <div class="card-head">
+            <div class="mt-3 ms-3">
+               <div class="row">
+                  <div class="col-md-9">
+                     <h4 class="text-success">
                         Beneficios en la comunidad
                      </h4>
                   </div>
