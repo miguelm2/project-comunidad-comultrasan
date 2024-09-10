@@ -10,6 +10,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Comunidad.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Referido.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/TipoComunidad.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/ActividadUsuario.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Invitacion.php';
 
 class ServiceUser extends System
 {
