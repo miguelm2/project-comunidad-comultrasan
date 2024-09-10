@@ -461,19 +461,19 @@ class Elements
     public static function getUnitedCommunityReady($nombre, $lider, $cantidad, $fecha, $codigo, $puntos, $btnEditar)
     {
         return '<div class="card-body m-0">
-                    <h6><i class="material-icons">vpn_key</i> Código del grupo: <strong>' . $codigo . '</strong></h6>
+                    <h6><i class="material-icons">vpn_key</i> Código de la comunidad: <strong>' . $codigo . '</strong></h6>
                     
                         <div class="row">
                             <div class="col-md-6">
-                                <h6><i class="material-icons">diversity_3</i> Nombre: <strong>' . $nombre . '</strong>
+                                <h6><i class="material-icons">diversity_3</i> Nombre de la comunidad: <strong>' . $nombre . '</strong>
                             </div>
                             <div class="col-md-6">
                                 ' . $btnEditar . '
                             </div>
                         </div>
                     </h6>
-                    <h6><i class="material-icons">supervisor_account</i> Lider: <strong>' . $lider . '</strong></h6>
-                    <h6><i class="material-icons">group_add</i> Usuarios en la comunidad: <strong>' . $cantidad . ' asociados</strong></h6>
+                    <h6><i class="material-icons">supervisor_account</i> Lider de la comunidad: <strong>' . $lider . '</strong></h6>
+                    <h6><i class="material-icons">group_add</i> Miembros en la comunidad: <strong>' . $cantidad . ' asociados</strong></h6>
                     <p></p>
                     <h6><i class="material-icons">event</i> Fecha de creación: <strong>' . $fecha . '</strong></h6>
                     <h6><i class="material-icons">favorite</i> Sumatoria de corazones: <strong>' . $puntos . ' corazones</strong></h6>

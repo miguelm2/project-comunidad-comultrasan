@@ -192,6 +192,7 @@
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <script src="/system/js/viewPassword.js"></script>
+   <script src="/system/js/valideImage.js"></script>
    <script src="/system/js/functions.js"></script>
    <?= $response ?>
 </body>
