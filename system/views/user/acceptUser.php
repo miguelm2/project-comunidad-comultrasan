@@ -62,12 +62,12 @@
                      </div>
                      <div class="col-md-6 d-grid">
                         <button type="submit" class="btn btn-success" name="acceptUser">
-                           <i class="material-icons me-2">check</i>Aceptar
+                           <i class="material-icons me-2">check</i>Aceptar miembro
                         </button>
                      </div>
                      <div class="col-md-6 d-grid">
                         <button type="submit" class="btn btn-danger" name="declineUser">
-                           <i class="material-icons me-2">close</i>Rechazar
+                           <i class="material-icons me-2">close</i>Rechazar miembro
                         </button>
                      </div>
                   </div>

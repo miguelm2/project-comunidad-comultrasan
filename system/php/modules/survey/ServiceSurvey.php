@@ -129,10 +129,17 @@ class ServiceSurvey extends System
         try {
             $id_usuario = $_SESSION['id'];
             $encuestaDTO = Encuesta::getIdSurveyByEstateAndNotResolved($id_usuario);
-            return (object) [
-                'id_encuesta' => $encuestaDTO->getId_encuesta(),
-                'mensaje' => $encuestaDTO->getMensaje()
-            ];
+            if ($encuestaDTO) {
+                return (object) [
+                    'id_encuesta' => $encuestaDTO->getId_encuesta(),
+                    'mensaje' => $encuestaDTO->getMensaje()
+                ];
+            }else{
+                return (object) [
+                    'id_encuesta' => 0,
+                    'mensaje' => 'Ya solucionaste todas las encuestas'
+                ];
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
