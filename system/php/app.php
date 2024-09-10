@@ -28,7 +28,7 @@ class Constants
 
     //Configuracion PHPMailer
     static $MAIL_SMTP_SERVER = "mail.kondory.com";
-    static $MAIL_SMTP_USER   = "sistema@kondory.com";
+    static $MAIL_SMTP_USER   = "sistema@biomantenimiento.com";
     static $MAIL_SMTP_PASS   = "JwnQ?O0#E}6A";
     static $MAIL_SMTP_NAME   = "Aplicacion Web Kondory";
 

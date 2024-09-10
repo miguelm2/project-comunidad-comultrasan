@@ -69,6 +69,12 @@
                               <p><?= $comunidad->getFecha_registro() ?></p>
                            </div>
                         </div>
+                        <div class="col-md-4 mt-2">
+                           <div class="form-group">
+                              <h6>Nombre de la comunidad</h6>
+                              <p><?= $comunidad->getNombre() ?></p>
+                           </div>
+                        </div>
                         <div class="col-md-12">
                            <div class="table-resposive text-center">
                               <table class="table table-hover table-bordered table-striped">
