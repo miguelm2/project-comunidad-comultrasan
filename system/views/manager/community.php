@@ -43,7 +43,7 @@
             <div class="col-md-9 mt-4 ms-4">
                <h4 class="text-success">Ver Comunidad</h4>
             </div>
-            <div class="col-md-2 mt-mt-4">
+            <div class="col-md-2 mt-4">
                <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
                   <a type="button" class="btn btn-secondary" href="questions"><i class="material-icons me-2">keyboard_return</i>atrás</a>
                </div>
@@ -57,37 +57,27 @@
                   </div>
                   <div class="col-md-9">
                      <div class="row">
-                        <div class="col-6">
-                           <h6>Código:</h6>
-                           <p><?= $comunidad->getId_comunidad() ?></p>
+                        <div class="col-md-12">
+                           <div class="table-resposive text-center">
+                              <table class="table table-hover table-bordered table-striped">
+                                 <thead>
+                                    <tr>
+                                       <th>Número de miembros</th>
+                                       <th>&#10084; Acumulados</th>
+                                       <th>Ranking</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td><?= $infoCommunity->nro_usuarios ?></td>
+                                       <td><?= $infoCommunity->total_puntos ?></td>
+                                       <td><?= $infoCommunity->ranking ?></td>
+                                 </tbody>
+                              </table>
+                           </div>
                         </div>
-                        <div class="col-6">
-                           <h6>Nombre</h6>
-                           <p><?= $comunidad->getNombre() ?></p>
-                        </div>
-                        <div class="col-6">
-                           <h6>Líder</h6>
-                           <p><?= $comunidad->getUsuarioDTO()->getNombre() ?></p>
-                        </div>
-                        <div class="col-6">
-                           <h6>Fecha de creación</h6>
-                           <p><?= $comunidad->getFecha_registro() ?></p>
-                        </div>
-                        <div class="col-6">
-                           <h6>Estado</h6>
-                           <p><?= $comunidad->getEstado()[1] ?></p>
-                        </div>
-                        <div class="col-6">
-                           <h6>Nro de miembros</h6>
-                           <p><?= $infoCommunity->nro_usuarios ?> asociados</p>
-                        </div>
-                        <div class="col-6">
-                           <h6>&#10084; Acumulados</h6>
-                           <p><?= $infoCommunity->total_puntos ?> corazones</p>
-                        </div>
-                        <div class="col-6">
-                           <h6>Ranking</h6>
-                           <p><?= $infoCommunity->ranking ?> de <?= $infoCommunity->total_comunidades ?></p>
+                        <div class="col-12">
+                           <h6>Líder<?= $comunidad->getUsuarioDTO()->getNombre() ?></h6>
                         </div>
                      </div>
                   </div>

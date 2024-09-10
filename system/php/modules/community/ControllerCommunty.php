@@ -45,6 +45,6 @@ if (basename($_SERVER['PHP_SELF']) == 'community.php') {
     $btnJoinUser = ServiceCommunity::getButtonUnitUser();
 }
 
-if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+if (basename($_SERVER['PHP_SELF']) == 'dashboard.php') {
     $tableCommunitiesIndex = ServiceCommunity::getTableCommunityIndex();
 }

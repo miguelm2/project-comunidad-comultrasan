@@ -467,7 +467,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newUserCommunity" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Integrante</button>
+                     <button type="submit" name="newUserCommunity" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Integrante</button>
                   </div>
                </div>
             </div>
@@ -536,7 +536,7 @@
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="editCommunity" class="btn btn-info">
-                        <i class="material-icons me-2">edit</i> Editar Comunidad
+                        <i class="material-icons me-2">save</i> Guardar Información
                      </button>
                   </div>
                </div>

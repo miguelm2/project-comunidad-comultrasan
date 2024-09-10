@@ -148,7 +148,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newAdministrator" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Administrador</button>
+                     <button type="submit" name="newAdministrator" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Administrador</button>
                   </div>
                </div>
             </div>

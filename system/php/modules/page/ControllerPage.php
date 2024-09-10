@@ -35,6 +35,7 @@ if (isset($_GET['win'])) {
 
 if (!isset($_SESSION['id'])) {
     $btnLogin = ServicePage::getHtmlLogin();
+    $btnLogout = ['modal' => '', 'boton' => ''];
 } else {
     $btnLogin = '';
     $btnLogout = ServicePage::getHtmlLogout();

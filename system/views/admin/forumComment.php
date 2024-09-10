@@ -64,7 +64,7 @@
                      </div>
                      <div class="col-md-6 d-grid mt-4">
                         <button type="submit" class="btn btn-success" name="editForumComment">
-                           <i class="material-icons me-2">edit</i> Editar Comentario
+                           <i class="material-icons me-2">edit</i> Guardar Información
                         </button>
                      </div>
                   </div>

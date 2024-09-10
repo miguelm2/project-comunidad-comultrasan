@@ -332,17 +332,25 @@ class ServiceUser extends System
                     $grupoInteres = ($grupoInteresDTO) ? $grupoInteresDTO->getTitulo() : 'No tiene';
                     $puntoDTO = Punto::getLastPointByUser($valor->getId_usuario());
                     $countPoints = Punto::getSumPointsByUser($valor->getId_usuario());
+                    $benfits = self::getBenefitByUser($valor->getId_usuario());
+
                     $style = self::getColorByEstate($valor->getEstado()[0]);
                     $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $comunidadDTO->id_comunidad . '</td>';
                     $tableHtml .= '<td>' . $comunidadDTO->nombre . '</td>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
                     $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
                     $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
                     $tableHtml .= '<td>' . $valor->getFecha_nacimiento() . '</td>';
                     $tableHtml .= '<td>' . $referido . '</td>';
+                    $tableHtml .= '<td>' . $valor->getDepartamento() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getCiudad() . '</td>';
                     $tableHtml .= '<td>' . $comunidadDTO->tipo . '</td>';
+                    $tableHtml .= '<td>' . $comunidadDTO->creacion . '</td>';
                     $tableHtml .= '<td>' . $comunidadDTO->fecha . '</td>';
                     $tableHtml .= '<td>' . $grupoInteres . '</td>';
+                    $tableHtml .= '<td>' . $benfits . '</td>';
                     $tableHtml .= '<td>' . ($puntoDTO ? $puntoDTO->getFecha_registro() : 'Sin registro') . '</td>';
                     $tableHtml .= '<td>' . $countPoints . '</td>';
                     $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
@@ -356,6 +364,18 @@ class ServiceUser extends System
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+    private static function getBenefitByUser($id_usuario)
+    {
+        $beneficiosDTO = Beneficio::listBenefitByUser($id_usuario);
+        $benefits = [];
+
+        foreach ($beneficiosDTO as $value) {
+            $benefits[] = $value->getTitulo(); // Acumulamos los títulos en el array
+        }
+
+        $benefitsString = implode(', ', $benefits); // Unimos los títulos con comas
+        return $benefitsString;
     }
     public static function getOptionUser()
     {
@@ -446,17 +466,23 @@ class ServiceUser extends System
                     $puntoDTO = Punto::getLastPointByUser($valor->getId_usuario());
                     $countPoints = Punto::getSumPointsByUser($valor->getId_usuario());
                     $style = self::getColorByEstate($valor->getEstado()[0]);
-
+                    $benfits = self::getBenefitByUser($valor->getId_usuario());
                     $tableHtml[] = [
-                        'Nombre' => $valor->getNombre(),
+                        'Codigo' => $comunidadDTO->id_comunidad,
                         'Comunidad' => $comunidadDTO->nombre,
+                        'Nombre' => $valor->getNombre(),
+                        'Cedula' => $valor->getCedula(),
                         'Celular' => $valor->getTelefono(),
                         'Correo' => $valor->getCorreo(),
                         'Fecha_nacimiento' => $valor->getFecha_nacimiento(),
                         'Referido' => $referido,
+                        'Departamento' => $valor->getDepartamento(),
+                        'Ciudad' => $valor->getCiudad(),
                         'Tipo' => $comunidadDTO->tipo,
+                        'Fecha_creacion' => $comunidadDTO->creacion,
                         'Fecha_comunidad' => $comunidadDTO->fecha,
                         'Grupo_interes' => $grupoInteres,
+                        'Beneficios' => $benfits,
                         'Ultimo_punto' => ($puntoDTO ? $puntoDTO->getFecha_registro() : 'Sin registro'),
                         'Total_puntos' => $countPoints,
                         'Estado' => '<small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small>',

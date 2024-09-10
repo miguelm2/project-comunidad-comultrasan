@@ -42,7 +42,7 @@
          <div class="row m-0">
             <div class="col-md-8 m-4">
                <div class="card-head">
-                  <h4 class="text-success">Asociado</h4>
+                  <h4 class="text-success">Información personal</h4>
                </div>
             </div>
             <div class="col-md-3 mt-3">
@@ -54,46 +54,70 @@
             </div>
          </div>
          <div class="card-body m-0">
+            <div class="row">
+               <div class="col-md-4">
+                  <label for="codigo">Código de la comunidad</label>
+                  <input type="number" name="codigo" id="codigo_user" class="form-control border p-1" placeholder="Código de la comunidad">
+               </div>
+               <div class="col-md-4">
+                  <label for="nombre">Nombre de la comunidad</label>
+                  <input type="text" name="nombre" id="nombre_user" class="form-control border p-1" placeholder="Nombre de la comunidad">
+               </div>
+               <div class="col-md-4">
+                  <label for="documento">Documento de Identidad</label>
+                  <input type="text" name="documento" id="documento" class="form-control border p-1" placeholder="Documento de Identidad">
+               </div>
+            </div>
             <div class="table-responsive">
                <table class="table table-bordered table-hover align-items-center mb-0" id="tableUser">
                   <thead class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           Id</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Cédula</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
+                        <th class="text-uppercase font-weight-bolder">Código de la Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre</th>
+                        <th class="text-uppercase font-weight-bolder">Documento de Identidad</th>
+                        <th class="text-uppercase font-weight-bolder">Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">Correo</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha nacimiento</th>
+                        <th class="text-uppercase font-weight-bolder">Referido</th>
+                        <th class="text-uppercase font-weight-bolder">Departamento</th>
+                        <th class="text-uppercase font-weight-bolder">Ciudad</th>
+                        <th class="text-uppercase font-weight-bolder">Tipo</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha de creación de la comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha ingreso</th>
+                        <th class="text-uppercase font-weight-bolder">Grupo Interés</th>
+                        <th class="text-uppercase font-weight-bolder">Beneficios</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha último &#10084;</th>
+                        <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                        <th class="text-uppercase font-weight-bolder">Estado</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           Id</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Cédula</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
+                        <th class="text-uppercase font-weight-bolder">Código de la Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre</th>
+                        <th class="text-uppercase font-weight-bolder">Documento de Identidad</th>
+                        <th class="text-uppercase font-weight-bolder">Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">Correo</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha nacimiento</th>
+                        <th class="text-uppercase font-weight-bolder">Referido</th>
+                        <th class="text-uppercase font-weight-bolder">Departamento</th>
+                        <th class="text-uppercase font-weight-bolder">Ciudad</th>
+                        <th class="text-uppercase font-weight-bolder">Tipo</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha de creación de la comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha ingreso</th>
+                        <th class="text-uppercase font-weight-bolder">Grupo Interés</th>
+                        <th class="text-uppercase font-weight-bolder">Beneficios</th>
+                        <th class="text-uppercase font-weight-bolder">Fecha último &#10084;</th>
+                        <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                        <th class="text-uppercase font-weight-bolder">Estado</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </tfoot>
                   <tbody class="text-center">
-                     <?= $tableUsuarios ?>
+                     <?= $tableUserManager ?>
                   </tbody>
                </table>
             </div>
@@ -170,7 +194,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newUser" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Asociado</button>
+                     <button type="submit" name="newUser" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Asociado</button>
                   </div>
                </div>
             </div>
@@ -202,6 +226,7 @@
    <script src="/system/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
    <script src="/system/js/demo/datatables-demo.js"></script>
    <script src="/system/js/valideImage.js"></script>
+   <script src="/system/js/filter/filter_users.js"></script>
    <?= $response ?>
 </body>
 

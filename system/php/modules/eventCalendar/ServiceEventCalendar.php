@@ -136,10 +136,13 @@ class ServiceEventCalendar extends System
 
             if (($modelResponse)) {
                 foreach ($modelResponse as $valor) {
+                    $tipoComunidad = TipoComunidad::getTypeComunity($valor->getId_grupo());
+                    $grupoInteres = ($tipoComunidad) ? $tipoComunidad->getTitulo() : 'General';
                     $tableHtml .= '<tr>';
                     $tableHtml .= '<td>' . $valor->getId_evento() . '</td>';
                     $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
                     $tableHtml .= '<td>' . $valor->getFecha() . '</td>';
+                    $tableHtml .= '<td>' . $grupoInteres . '</td>';
                     $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
                     $tableHtml .= '<td>' . Elements::crearBotonVer("eventCalendar", $valor->getId_evento()) . '</td>';
                     $tableHtml .= '</tr>';

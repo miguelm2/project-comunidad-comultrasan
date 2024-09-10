@@ -63,7 +63,7 @@
                            <div class="col-12">
                               <div class="form-group">
                                  <label class="form-label">Respuesta</label>
-                                 <textarea name="respuesta" id="respuesta" class="form-control border p-1" rows="4" maxlength="600" required><?= $question->getRespuesta() ?></textarea>
+                                 <textarea name="respuesta" id="respuesta" class="form-control border p-1" rows="4" maxlength="800" required><?= $question->getRespuesta() ?></textarea>
                               </div>
                            </div>
                         </div>
@@ -76,7 +76,7 @@
                            </div>
                            <div class="col-md-6 d-grid">
                               <button type="submit" class="btn btn-success" name="setQuestion">
-                                 <i class="material-icons me-2">edit</i>Editar Pregunta</button>
+                                 <i class="material-icons me-2">edit</i>Guardar Información</button>
                            </div>
                         </div>
                      </form>

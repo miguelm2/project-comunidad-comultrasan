@@ -93,10 +93,6 @@ if (isset($_POST['getTableUserFilter'])) {
 }
 
 if (basename($_SERVER['PHP_SELF']) == 'users.php') {
-    $tableUsuarios      = ServiceUser::getTablaUsuarios();
-}
-
-if (basename($_SERVER['PHP_SELF']) == 'communities.php') {
     $tableUserManager   = ServiceUser::getTablaUserByManager();
 }
 

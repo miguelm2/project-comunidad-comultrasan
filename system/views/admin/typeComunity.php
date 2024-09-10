@@ -38,7 +38,7 @@
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success">
-                        Editar Tipo de Comunidad
+                        Editar Grupos de Interés
                      </h5>
                   </div>
                   <div class="col-md-2 mt-0">
@@ -91,7 +91,7 @@
                      </div>
                      <div class="col-md-4 d-grid mt-4">
                         <button type="submit" class="btn btn-success" name="setTypeComunity">
-                           <i class="material-icons me-2">edit</i> Editar Tipo Comunidad
+                           <i class="material-icons me-2">save</i> Guardar Información
                         </button>
                      </div>
                   </div>

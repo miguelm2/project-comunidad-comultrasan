@@ -163,9 +163,12 @@ class ServiceUserCommunity extends System
             $tableHtml .= '<td>' . $comunidadDTO->getNombre() . '</td>';
             $tableHtml .= '<td class="text-center">' . $count_points . '</td>';
             $tableHtml .= '<td>' . $comunidadDTO->getFecha_registro() . '</td>';
-            $tableHtml .= '<td class="text-center"><button type="button" class="btn btn-link text-danger px-3 mb-0" data-bs-toggle="modal" data-bs-target="#removeLeader">
+
+            if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
+                $tableHtml .= '<td class="text-center"><button type="button" class="btn btn-link text-danger px-3 mb-0" data-bs-toggle="modal" data-bs-target="#removeLeader">
                             <i class="material-icons me-2">person_remove</i> Remover
                         </button></td>';
+            }
             $tableHtml .= '</tr>';
 
             $modelResponse = UsuarioComunidad::getUserCommunityByCommunity($id_comunidad);

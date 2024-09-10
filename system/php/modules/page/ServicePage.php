@@ -100,7 +100,7 @@ class ServicePage extends System
     {
         if (basename($_SERVER['PHP_SELF']) == 'index.php' && $_SESSION['usuario'] == 'Gestor') {
             return [
-                'modal'=>
+                'modal' =>
                 '<form method="POST">
                         <div class="modal fade" id="basicModal" tabindex="-1">
                             <div class="modal-dialog">
@@ -120,7 +120,7 @@ class ServicePage extends System
                             </div>
                         </div>
                     </form>',
-                'boton'=>
+                'boton' =>
                 '<li class="nav-item">
                         <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#basicModal" role="button">
                         <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">

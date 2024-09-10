@@ -108,7 +108,7 @@
                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage"><i class="material-icons me-2">image</i> Cambiar Imagen</button>
                      </div>
                      <div class="col-md-3 d-grid">
-                        <button type="submit" class="btn btn-success" name="setAdministrator"><i class="material-icons me-2">edit</i> Editar Administrador</button>
+                        <button type="submit" class="btn btn-success" name="setAdministrator"><i class="material-icons me-2">save</i> Guardar Información</button>
                      </div>
                   </div>
                </form>

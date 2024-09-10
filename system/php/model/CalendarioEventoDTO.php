@@ -170,4 +170,24 @@ class CalendarioEventoDTO
 
         return $this;
     }
+
+    /**
+     * Get the value of id_grupo
+     */ 
+    public function getId_grupo()
+    {
+        return $this->id_grupo;
+    }
+
+    /**
+     * Set the value of id_grupo
+     *
+     * @return  self
+     */ 
+    public function setId_grupo($id_grupo)
+    {
+        $this->id_grupo = $id_grupo;
+
+        return $this;
+    }
 }

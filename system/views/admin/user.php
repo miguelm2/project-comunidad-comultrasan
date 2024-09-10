@@ -141,7 +141,7 @@
                      </div>
                      <div class="col-md-3 d-grid">
                         <button type="submit" class="btn btn-success" name="setUser">
-                           <i class="material-icons me-2">edit</i> Editar Asociado
+                           <i class="material-icons me-2">save</i> Guardar Información
                         </button>
                      </div>
                      <div class="col-md-3 d-grid">
@@ -350,7 +350,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newUserBenefits" class="btn btn-info"><i class="material-icons me-2">add</i> Agregar Beneficio</button>
+                     <button type="submit" name="newUserBenefits" class="btn btn-info"><i class="material-icons me-2">add</i> Guardar Beneficio</button>
                   </div>
                </div>
             </div>
@@ -382,7 +382,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newPointUser" class="btn btn-info"><i class="material-icons me-2">add</i> Agregar Corazones</button>
+                     <button type="submit" name="newPointUser" class="btn btn-info"><i class="material-icons me-2">add</i> Guardar Corazones</button>
                   </div>
                </div>
             </div>

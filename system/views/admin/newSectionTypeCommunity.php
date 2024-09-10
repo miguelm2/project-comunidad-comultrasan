@@ -71,7 +71,7 @@
                   <div class="dark horizontal my-0 border-1 mt-3"></div>
                   <div class="col-md-12 d-grid mt-4">
                      <button type="submit" class="btn btn-success" name="newSectionTypeCommunity">
-                        <i class="material-icons me-2">edit</i> Agregar Sección
+                        <i class="material-icons me-2">edit</i> Guardar Sección
                      </button>
                   </div>
                </div>

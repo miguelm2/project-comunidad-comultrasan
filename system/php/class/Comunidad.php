@@ -159,11 +159,11 @@ class Comunidad extends System
     public static function getCommunityByUserType($id_usuario)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT com.*, 'Líder' as tipo, com.fecha_registro
+        $stmt = $dbh->prepare("SELECT com.*, 'Líder' as tipo, com.fecha_registro, com.fecha_registro as creacion
                                 FROM Comunidad com
                                 WHERE com.id_usuario = :id_usuario
                                 UNION 
-                                SELECT com.*, 'Miembro' as tipo, uc.fecha_registro
+                                SELECT com.*, 'Miembro' as tipo, uc.fecha_registro, com.fecha_registro as creacion
                                 FROM Comunidad com,
                                     UsuarioComunidad uc,
                                     Usuario us
@@ -178,15 +178,19 @@ class Comunidad extends System
         $result = $stmt->fetch();
         if ($result) {
             return (object)[
+                'id_comunidad' => $result['id_comunidad'],
                 'nombre' => $result['nombre'],
                 'tipo' => $result['tipo'],
-                'fecha' => $result['fecha_registro']
+                'fecha' => $result['fecha_registro'],
+                'creacion' => $result['creacion']
             ];
         } else {
             return (object)[
+                'id_comunidad' => 'No tiene comunidad',
                 'nombre' => 'No tiene comunidad',
                 'tipo' => 'No tiene comunidad',
-                'fecha' => 'No tiene comunidad'
+                'fecha' => 'No tiene comunidad',
+                'creacion' => 'No tiene comunidad'
             ];
         }
     }
