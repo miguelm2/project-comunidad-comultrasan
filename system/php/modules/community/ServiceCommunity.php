@@ -35,6 +35,8 @@ class ServiceCommunity extends System
             // Registro de la comunidad
             $result = Comunidad::newCommunity($nombre, $id_usuario, $estado, $fecha_registro);
             if ($result) {
+                ActividadUsuario::newActivityUser($_SESSION['id'], 1, $fecha_registro);
+                Punto::newPoint(16, $_SESSION['id'], 1, 'Puntos por conformar nueva comunidad', $fecha_registro);
                 if ($comunidad = Comunidad::getLastCommunity()) {
                     UsuarioComunidad::newUserCommunity($usuario->getId_usuario(), $comunidad->getId_comunidad(), 2, $fecha_registro);
                 }
@@ -132,23 +134,22 @@ class ServiceCommunity extends System
     public static function getTableCommunityIndex()
     {
         try {
-                $tableHtml = "";
-                $modelResponse = Comunidad::listCommunity();
+            $tableHtml = "";
+            $modelResponse = Comunidad::listCommunity();
 
-                if ($modelResponse) {
-                    foreach ($modelResponse as $valor) {
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td class="text-center">' . $valor->getId_comunidad() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
-                        $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td class="text-center">' . $valor->getId_comunidad() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                    $tableHtml .= '</tr>';
                 }
-                return $tableHtml;
-            
+            } else {
+                return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+            }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

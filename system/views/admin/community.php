@@ -51,41 +51,45 @@
             <div class="col-md-12 mt-2 pb-4">
                <form method="post">
                   <div class="row">
-
-                     <div class="col-md-4 mt-2">
-                        <div class="form-group">
-                           <h6>Código</h6>
-                           <p><?= $comunidad->getId_comunidad() ?></p>
-                        </div>
+                     <div class="col-md-3">
+                        <img src="/assets/image/comunidad_general.jpg" alt="Imagen" class="img-fluid">
                      </div>
-                     <div class="col-md-4 mt-2">
-                        <div class="form-group">
-                           <h6>Fecha de creación</h6>
-                           <p><?= $comunidad->getFecha_registro() ?></p>
-                        </div>
-                     </div>
-                     <div class="col-md-4 mt-2">
-                        <div class="form-group">
-                           <h6>Líder</h6>
-                           <p><?= $comunidad->getUsuarioDTO()->getNombre() ?></p>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
-                        <div class="form-group">
-                           <h6>Ranking</h6>
-                           <p><?= $infoCommunity->ranking ?> de <?= $infoCommunity->total_comunidades ?></p>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
-                        <div class="form-group">
-                           <h6>&#10084; Acumulados</h6>
-                           <p><?= $infoCommunity->total_puntos ?> corazones</p>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
-                        <div class="form-group">
-                           <h6>Nro de miembros</h6>
-                           <p><?= $infoCommunity->nro_usuarios ?> asociados</p>
+                     <div class="col-md-9">
+                        <div class="row">
+                           <div class="col-md-4 mt-2">
+                              <div class="form-group">
+                                 <h6>Código</h6>
+                                 <p><?= $comunidad->getId_comunidad() ?></p>
+                              </div>
+                           </div>
+                           <div class="col-md-4 mt-2">
+                              <div class="form-group">
+                                 <h6>Fecha de creación</h6>
+                                 <p><?= $comunidad->getFecha_registro() ?></p>
+                              </div>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="table-resposive text-center">
+                                 <table class="table table-hover table-bordered table-striped">
+                                    <thead>
+                                       <tr>
+                                          <th>Número de miembros</th>
+                                          <th>&#10084; Acumulados</th>
+                                          <th>Ranking</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr>
+                                          <td><?= $infoCommunity->nro_usuarios ?></td>
+                                          <td><?= $infoCommunity->total_puntos ?></td>
+                                          <td><?= $infoCommunity->ranking ?></td>
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                           <div class="col-12">
+                              <h6>Líder: <?= $comunidad->getUsuarioDTO()->getNombre() ?></h6>
+                           </div>
                         </div>
                      </div>
                      <div class="col-md-6 mt-2">
@@ -115,111 +119,149 @@
          </div>
       </div>
       <div class="card mt-3">
-         <div class="card-head">
-            <div class="mt-3 ms-3">
-               <div class="row">
-                  <div class="col-md-9">
-                     <h4 class="text-success">
-                        Integrantes
-                     </h4>
+         <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1" role="tablist">
+               <li class="nav-item">
+                  <a class="nav-link mb-0 px-0 py-1 active text-success" style="font-size: 20px;" data-bs-toggle="tab" href="#activityMissing" role="tab" aria-controls="missing" aria-selected="true">
+                     Mostrar Actividades por realizar
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link mb-0 px-0 py-1 text-success" style="font-size: 20px;" data-bs-toggle="tab" href="#activityComplete" role="tab" aria-controls="complete" aria-selected="true">
+                     Mostrar Actividades completas
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link mb-0 px-0 py-1 text-success" style="font-size: 20px;" data-bs-toggle="tab" href="#pointsReclamend" role="tab" aria-controls="reclamed" aria-selected="true">
+                     Mostrar &#10084; Redimidos
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link mb-0 px-0 py-1 text-success" style="font-size: 20px;" data-bs-toggle="tab" href="#showAll" role="tab" aria-controls="all" aria-selected="true">
+                     Mostrar Todas
+                  </a>
+               </li>
+            </ul>
+         </div>
+
+         <div class="tab-content pt-2">
+            <div class="tab-pane fade show active profile-overview" id="activityMissing">
+               <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped">
+                     <thead>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </thead>
+                     <tfoot>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?= $activityMissing ?>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+
+            <div class="tab-pane fade profile-overview" id="activityComplete">
+               <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped">
+                     <thead>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </thead>
+                     <tfoot>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?= $activityRealized ?>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+
+            <div class="tab-pane fade profile-overview" id="pointsReclamend">
+               <div class="row p-2">
+                  <div class="col-md-3">
+                     <label for="cedula">Documento de identidad</label>
+                     <input type="text" name="cedula" id="cedula" class="form-control border p-1" placeholder="Documento de identidad">
                   </div>
                   <div class="col-md-3">
-                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUserComm">
-                        <i class="material-icons me-2">add</i> Agregar integrante
-                     </button>
+                     <label for="nombre">Nombre Miembro</label>
+                     <input type="text" name="nombre" id="nombre" class="form-control border p-1" placeholder="Nombre Miembro">
+                  </div>
+                  <div class="col-md-3">
+                     <label for="fecha_inicio">Fecha inicio</label>
+                     <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control border p-1">
+                  </div>
+                  <div class="col-md-3">
+                     <label for="fecha_fin">Fecha fin</label>
+                     <input type="date" name="fecha_fin" id="fecha_fin" class="form-control border p-1">
                   </div>
                </div>
-            </div>
-         </div>
-         <div class="card-body">
-            <div class="table-responsive">
-               <table class="table table-hover table-bordered table-striped">
-                  <thead class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">ID</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
-                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
-                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
-                        <th class="text-uppercase font-weight-bolder">Opciones</th>
-                     </tr>
-                  </thead>
-                  <tfoot class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">ID</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
-                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
-                        <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
-                        <th class="text-uppercase font-weight-bolder">Opciones</th>
-                     </tr>
-                  </tfoot>
-                  <tbody>
-                     <?= $usuarioComunidad ?>
-                  </tbody>
-               </table>
-            </div>
-         </div>
-      </div>
-      <div class="card mt-3">
-         <div class="card-head">
-            <div class="mt-3 ms-3">
-               <div class="row">
-                  <div class="col-md-9">
-                     <h4 class="text-success">
-                        Puntos en la comunidad
-                     </h4>
-                  </div>
+               <div class="table-responsive">
+                  <table class="table table-hover table-bordered table-striped" id="tablePoints">
+                     <thead class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha Asignación / Vencimiento</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        </tr>
+                     </thead>
+                     <tfoot class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha Asignación / Vencimiento</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?= $tableCommunityManager ?>
+                     </tbody>
+                  </table>
                </div>
             </div>
-         </div>
-         <div class="card-body">
-            <div class="row p-2">
-               <div class="col-md-3">
-                  <label for="cedula">Cédula</label>
-                  <input type="text" name="cedula" id="cedula" class="form-control border p-1">
+            <div class="tab-pane fade profile-overview" id="showAll">
+               <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped">
+                     <thead>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </thead>
+                     <tfoot>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?= $showAll ?>
+                     </tbody>
+                  </table>
                </div>
-               <div class="col-md-3">
-                  <label for="nombre">Nombre</label>
-                  <input type="text" name="nombre" id="nombre" class="form-control border p-1">
-               </div>
-               <div class="col-md-3">
-                  <label for="fecha_inicio">Fecha inicio</label>
-                  <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control border p-1">
-               </div>
-               <div class="col-md-3">
-                  <label for="fecha_fin">Fecha fin</label>
-                  <input type="date" name="fecha_fin" id="fecha_fin" class="form-control border p-1">
-               </div>
-            </div>
-            <div class="table-responsive">
-               <table class="table table-hover table-bordered table-striped" id="tablePoints">
-                  <thead class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
-                        <th class="text-uppercase font-weight-bolder">Actividad</th>
-                        <th class="text-uppercase font-weight-bolder">Asignación / Vencimiento</th>
-                        <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
-                        <th class="text-uppercase font-weight-bolder">Corazones</th>
-                        <th class="text-uppercase font-weight-bolder">Opciones</th>
-                     </tr>
-                  </thead>
-                  <tfoot class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
-                        <th class="text-uppercase font-weight-bolder">Actividad</th>
-                        <th class="text-uppercase font-weight-bolder">Asignación / Vencimiento</th>
-                        <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
-                        <th class="text-uppercase font-weight-bolder">Corazones</th>
-                        <th class="text-uppercase font-weight-bolder">Opciones</th>
-                     </tr>
-                  </tfoot>
-                  <tbody>
-                     <?= $tableCommunityManager ?>
-                  </tbody>
-               </table>
             </div>
          </div>
       </div>
@@ -242,7 +284,7 @@
                      <tr>
                         <th class="text-uppercase font-weight-bolder">Título</th>
                         <th class="text-uppercase font-weight-bolder">Puntos</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
@@ -251,7 +293,7 @@
                      <tr>
                         <th class="text-uppercase font-weight-bolder">Título</th>
                         <th class="text-uppercase font-weight-bolder">Puntos</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
                         <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
@@ -272,11 +314,11 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Remover asociado de la comunidad</h5>
+                     <h5 class="modal-title">Remover miembro de la comunidad</h5>
                      <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                     <label class="form-label">¿Esta seguro que desea remover este asociado?</label>
+                     <label class="form-label">¿Esta seguro que desea remover este miembro?</label>
                      <input type="hidden" id="usuario" name="usuario">
                   </div>
                   <div class="modal-footer">
@@ -296,7 +338,7 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Agregar integrante</h5>
+                     <h5 class="modal-title">Agregar Miembro</h5>
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -314,7 +356,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newUserCommunityAdmin" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Integrante</button>
+                     <button type="submit" name="newUserCommunityAdmin" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Miembro</button>
                   </div>
                </div>
             </div>
@@ -327,7 +369,7 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Remover beneficio del asociado</h5>
+                     <h5 class="modal-title">Remover beneficio del miembro</h5>
                      <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">

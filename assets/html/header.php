@@ -17,7 +17,7 @@
                 </li>
                 <li>
                     <a class="text-black" style="font-size: 18px;" href="/benefits">
-                        Beneficios y Recompensas
+                        Beneficios y recompensas
                     </a>
                 </li>
                 <?= $btnLogin ?>

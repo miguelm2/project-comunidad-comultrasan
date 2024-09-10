@@ -9,6 +9,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/HistorialInformacion
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Comunidad.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Referido.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/TipoComunidad.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/ActividadUsuario.php';
 
 class ServiceUser extends System
 {
@@ -39,6 +40,7 @@ class ServiceUser extends System
                     $usuarioDTO = Usuario::getUserByCedula($cedula);
                     $referidoDTO = Referido::getReferredByCedula($cedula);
                     $comunidadDTO = Comunidad::getCommunityByUser($referidoDTO->getId_usuario());
+                    ActividadUsuario::newActivityUser($referidoDTO->getId_usuario(), 5, $fecha_registro);
 
                     $result = UsuarioComunidad::newUserCommunity($usuarioDTO->getId_usuario(), $comunidadDTO->getId_comunidad(), 1, $fecha_registro);
                     self::enviarCorreoUnionComunidad($usuarioDTO, $correo);
@@ -134,6 +136,7 @@ class ServiceUser extends System
                     $fecha_registro = date('Y-m-d H:i:s');
                     if (!$historialDTO) {
                         HistorialInformacion::newHistoryInformation($_SESSION['id'], $fecha_registro);
+                        ActividadUsuario::newActivityUser($_SESSION['id'], 2, $fecha_registro);
                         Punto::newPoint(5, $_SESSION['id'], 1, "Actualización de información", $fecha_registro);
                     }
                     return  '<script>swal("' . Constants::$INFORMATION_NEW . '", "", "success");</script>';
@@ -269,9 +272,17 @@ class ServiceUser extends System
             if (basename($_SERVER['PHP_SELF']) == 'user.php') {
                 $id_usuario = parent::limpiarString($id_usuario);
 
-                $result = Usuario::deleteUser($id_usuario);
-                if ($result) {
-                    header('Location:users?delete');
+                $listBenefit  = Beneficio::listBenefitByUser($id_usuario);
+                $comunidad    = Comunidad::getCommunityByUser($id_usuario);
+                $grupoInteres = TipoComunidad::getTypeComunityByUser($id_usuario);
+
+                if (!$listBenefit && !$comunidad && !$grupoInteres) {
+                    $result = Usuario::deleteUser($id_usuario);
+                    if ($result) {
+                        header('Location:users?delete');
+                    }
+                } else {
+                    return Elements::crearMensajeAlerta(Constants::$REGISTER_DELETE_NOT, "error");
                 }
             }
         } catch (\Exception $e) {
@@ -491,6 +502,75 @@ class ServiceUser extends System
                 }
             }
             return json_encode($tableHtml);
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getTableMisingActivityByCommunity($id_comunidad)
+    {
+        try {
+            $id_comunidad = parent::limpiarString($id_comunidad);
+            $tableHtml = "";
+            $modelResponse = ActividadUsuario::listMissingActivityUserCommunity($id_comunidad);
+
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor['nombre'] . '</td>';
+                    $tableHtml .= '<td>' . $valor['actividad'] . '</td>';
+                    $tableHtml .= '<td>Actividad pendiente por realizar</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
+                $tableHtml = '<tr><td colspan="3" class="text-center">No hay registros para mostrar</td></tr>';
+            }
+            return $tableHtml;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getTableRealizedActivityByCommunity($id_comunidad)
+    {
+        try {
+            $id_comunidad = parent::limpiarString($id_comunidad);
+            $tableHtml = "";
+            $modelResponse = ActividadUsuario::listRealizedActivityUserCommunity($id_comunidad);
+
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor['nombre'] . '</td>';
+                    $tableHtml .= '<td>' . $valor['actividad'] . '</td>';
+                    $tableHtml .= '<td>Actividad realizada</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
+                $tableHtml = '<tr><td colspan="3" class="text-center">No hay registros para mostrar</td></tr>';
+            }
+            return $tableHtml;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getShowAllActivityByCommunity($id_comunidad)
+    {
+        try {
+            $id_comunidad = parent::limpiarString($id_comunidad);
+            $tableHtml = "";
+            $modelResponse = ActividadUsuario::listShowAllActivityUserCommunity($id_comunidad);
+
+            if ($modelResponse) {
+                foreach ($modelResponse as $valor) {
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $valor['nombre'] . '</td>';
+                    $tableHtml .= '<td>' . $valor['actividad'] . '</td>';
+                    $tableHtml .= '<td>' . $valor['estado'] . '</td>';
+                    $tableHtml .= '</tr>';
+                }
+            } else {
+                $tableHtml = '<tr><td colspan="3" class="text-center">No hay registros para mostrar</td></tr>';
+            }
+            return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
