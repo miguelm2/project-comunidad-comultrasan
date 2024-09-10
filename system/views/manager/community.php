@@ -57,6 +57,18 @@
                   </div>
                   <div class="col-md-9">
                      <div class="row">
+                        <div class="col-md-4 mt-2">
+                           <div class="form-group">
+                              <h6>Código</h6>
+                              <p><?= $comunidad->getId_comunidad() ?></p>
+                           </div>
+                        </div>
+                        <div class="col-md-4 mt-2">
+                           <div class="form-group">
+                              <h6>Fecha de creación</h6>
+                              <p><?= $comunidad->getFecha_registro() ?></p>
+                           </div>
+                        </div>
                         <div class="col-md-12">
                            <div class="table-resposive text-center">
                               <table class="table table-hover table-bordered table-striped">
@@ -77,7 +89,7 @@
                            </div>
                         </div>
                         <div class="col-12">
-                           <h6>Líder<?= $comunidad->getUsuarioDTO()->getNombre() ?></h6>
+                           <h6>Líder: <?= $comunidad->getUsuarioDTO()->getNombre() ?></h6>
                         </div>
                      </div>
                   </div>
@@ -86,62 +98,149 @@
          </div>
       </div>
       <div class="card mt-3">
-         <div class="card-head">
-            <div class="mt-3 ms-3">
-               <div class="row">
-                  <div class="col-md-9">
-                     <h4 class="text-success">
-                        Puntos en la comunidad
-                     </h4>
+         <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1" role="tablist">
+               <li class="nav-item">
+                  <a class="nav-link mb-0 px-0 py-1 active text-success" style="font-size: 20px;" data-bs-toggle="tab" href="#activityMissing" role="tab" aria-controls="missing" aria-selected="true">
+                     Mostrar Actividades por realizar
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link mb-0 px-0 py-1 text-success" style="font-size: 20px;" data-bs-toggle="tab" href="#activityComplete" role="tab" aria-controls="complete" aria-selected="true">
+                     Mostrar Actividades completas
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link mb-0 px-0 py-1 text-success" style="font-size: 20px;" data-bs-toggle="tab" href="#pointsReclamend" role="tab" aria-controls="reclamed" aria-selected="true">
+                     Mostrar &#10084; Redimidos
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link mb-0 px-0 py-1 text-success" style="font-size: 20px;" data-bs-toggle="tab" href="#showAll" role="tab" aria-controls="all" aria-selected="true">
+                     Mostrar Todas
+                  </a>
+               </li>
+            </ul>
+         </div>
+
+         <div class="tab-content pt-2">
+            <div class="tab-pane fade show active profile-overview" id="activityMissing">
+               <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped">
+                     <thead>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </thead>
+                     <tfoot>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?= $activityMissing ?>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+
+            <div class="tab-pane fade profile-overview" id="activityComplete">
+               <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped">
+                     <thead>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </thead>
+                     <tfoot>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?= $activityRealized ?>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+
+            <div class="tab-pane fade profile-overview" id="pointsReclamend">
+               <div class="row p-2">
+                  <div class="col-md-3">
+                     <label for="cedula">Documento de identidad</label>
+                     <input type="text" name="cedula" id="cedula" class="form-control border p-1" placeholder="Documento de identidad">
+                  </div>
+                  <div class="col-md-3">
+                     <label for="nombre">Nombre Miembro</label>
+                     <input type="text" name="nombre" id="nombre" class="form-control border p-1" placeholder="Nombre Miembro">
+                  </div>
+                  <div class="col-md-3">
+                     <label for="fecha_inicio">Fecha inicio</label>
+                     <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control border p-1">
+                  </div>
+                  <div class="col-md-3">
+                     <label for="fecha_fin">Fecha fin</label>
+                     <input type="date" name="fecha_fin" id="fecha_fin" class="form-control border p-1">
                   </div>
                </div>
+               <div class="table-responsive">
+                  <table class="table table-hover table-bordered table-striped" id="tablePoints">
+                     <thead class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha Asignación / Vencimiento</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        </tr>
+                     </thead>
+                     <tfoot class="text-center">
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Fecha Asignación / Vencimiento</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Corazones</th>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?= $tableCommunityManager ?>
+                     </tbody>
+                  </table>
+               </div>
             </div>
-         </div>
-         <div class="card-body">
-            <div class="row p-2">
-               <div class="col-md-3">
-                  <label for="cedula">Cédula</label>
-                  <input type="text" name="cedula" id="cedula" class="form-control border p-1">
+            <div class="tab-pane fade profile-overview" id="showAll">
+               <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped">
+                     <thead>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </thead>
+                     <tfoot>
+                        <tr>
+                           <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                           <th class="text-uppercase font-weight-bolder">Actividad</th>
+                           <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
+                        </tr>
+                     </tfoot>
+                     <tbody>
+                        <?= $showAll ?>
+                     </tbody>
+                  </table>
                </div>
-               <div class="col-md-3">
-                  <label for="nombre">Nombre</label>
-                  <input type="text" name="nombre" id="nombre" class="form-control border p-1">
-               </div>
-               <div class="col-md-3">
-                  <label for="fecha_inicio">Fecha inicio</label>
-                  <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control border p-1">
-               </div>
-               <div class="col-md-3">
-                  <label for="fecha_fin">Fecha fin</label>
-                  <input type="date" name="fecha_fin" id="fecha_fin" class="form-control border p-1">
-               </div>
-            </div>
-            <div class="table-responsive">
-               <table class="table table-hover table-bordered table-striped" id="tablePoints">
-                  <thead class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
-                        <th class="text-uppercase font-weight-bolder">Actividad</th>
-                        <th class="text-uppercase font-weight-bolder">Asignación / Vencimiento</th>
-                        <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
-                        <th class="text-uppercase font-weight-bolder">Corazones</th>
-                     </tr>
-                  </thead>
-                  <tfoot class="text-center">
-                     <tr>
-                        <th class="text-uppercase font-weight-bolder">Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
-                        <th class="text-uppercase font-weight-bolder">Actividad</th>
-                        <th class="text-uppercase font-weight-bolder">Asignación / Vencimiento</th>
-                        <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
-                        <th class="text-uppercase font-weight-bolder">Corazones</th>
-                     </tr>
-                  </tfoot>
-                  <tbody>
-                     <?= $tableCommunityManager ?>
-                  </tbody>
-               </table>
             </div>
          </div>
       </div>
@@ -163,7 +262,7 @@
                   <thead class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">ID</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Comunidad</th>
                         <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
@@ -172,7 +271,7 @@
                   <tfoot class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">ID</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Comunidad</th>
                         <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
@@ -204,7 +303,7 @@
                      <tr>
                         <th class="text-uppercase font-weight-bolder">Título</th>
                         <th class="text-uppercase font-weight-bolder">Puntos</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
                      </tr>
                   </thead>
@@ -212,7 +311,7 @@
                      <tr>
                         <th class="text-uppercase font-weight-bolder">Título</th>
                         <th class="text-uppercase font-weight-bolder">Puntos</th>
-                        <th class="text-uppercase font-weight-bolder">Asociado</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
                      </tr>
                   </tfoot>

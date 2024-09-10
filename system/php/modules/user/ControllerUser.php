@@ -85,11 +85,18 @@ if (isset($_GET['user'])) {
 }
 
 if (isset($_POST['deleteUser'])) {
-    ServiceUser::deleteUser($_GET['user']);
+    $response = ServiceUser::deleteUser($_GET['user']);
 }
+
 if (isset($_POST['getTableUserFilter'])) {
     $response = ServiceUser::getTablaUserByManagerFilter($_POST['codigo_user'], $_POST['nombre_user'], $_POST['documento']);
     echo $response;
+}
+
+if (isset($_GET['community'])) {
+    $activityMissing    = ServiceUser::getTableMisingActivityByCommunity($_GET['community']);
+    $activityRealized   = ServiceUser::getTableRealizedActivityByCommunity($_GET['community']);
+    $showAll            = ServiceUser::getShowAllActivityByCommunity($_GET['community']);
 }
 
 if (basename($_SERVER['PHP_SELF']) == 'users.php') {

@@ -36,6 +36,19 @@ class ServiceAnswerUser extends System
             }
 
             if ($responseMultiple || $responseAbierta) {
+                $total_encuesta = Encuesta::countSurvey();
+                $id_usuario = $_SESSION['id'];
+                $encuesta_usuario = Encuesta::countSurveyByUser($id_usuario);
+                $valor = ($total_encuesta == 0) ? 0 : ($encuesta_usuario / $total_encuesta) * 100;
+                if ($valor == 100) {
+                    ActividadUsuario::newActivityUser($_SESSION['id'], 4, $fecha_registro);
+                    Punto::newPoint(5, $_SESSION['id'], 1, 'Completo todas las encuestas', $fecha_registro);
+                }
+
+                if($id_encuesta == 5){
+                    ActividadUsuario::newActivityUser($_SESSION['id'], 3, $fecha_registro);
+                }
+
                 $encuestaDTO = Encuesta::getSurvey($id_encuesta);
                 header('Location:surveys?win=' . $encuestaDTO->getPuntos());
             }

@@ -74,7 +74,7 @@
                      <tr>
                         <th class="text-uppercase font-weight-bolder">Código de la Comunidad</th>
                         <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">Nombre</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Documento de Identidad</th>
                         <th class="text-uppercase font-weight-bolder">Teléfono</th>
                         <th class="text-uppercase font-weight-bolder">Correo</th>
@@ -97,7 +97,7 @@
                      <tr>
                         <th class="text-uppercase font-weight-bolder">Código de la Comunidad</th>
                         <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">Nombre</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Documento de Identidad</th>
                         <th class="text-uppercase font-weight-bolder">Teléfono</th>
                         <th class="text-uppercase font-weight-bolder">Correo</th>
