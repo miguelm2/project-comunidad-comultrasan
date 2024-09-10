@@ -48,16 +48,16 @@
          </div>
          <div class="row p-2">
             <div class="col-md-4">
-               <label for="codigo">Código</label>
-               <input type="number" name="codigo" id="codigo" class="form-control border p-1">
+               <label for="codigo">Código de la comunidad</label>
+               <input type="number" name="codigo" id="codigo" class="form-control border p-1" placeholder="Código de la comunidad">
             </div>
             <div class="col-md-4">
-               <label for="nombre">Nombre</label>
-               <input type="text" name="nombre" id="nombre" class="form-control border p-1">
+               <label for="nombre">Nombre de la comunidad</label>
+               <input type="text" name="nombre" id="nombre" class="form-control border p-1" placeholder="Nombre de la comunidad">
             </div>
             <div class="col-md-4">
                <label for="nombre_lider">Nombre del Líder</label>
-               <input type="text" name="nombre_lider" id="nombre_lider" class="form-control border p-1">
+               <input type="text" name="nombre_lider" id="nombre_lider" class="form-control border p-1" placeholder="Nombre del líder">
             </div>
          </div>
          <div class="table-responsive">
