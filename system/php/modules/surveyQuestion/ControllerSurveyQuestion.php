@@ -6,7 +6,7 @@ if (isset($_POST['newSurveyQuestion'])) {
 }
 
 if (isset($_POST['setSurveyQuestion'])) {
-    $response = ServiceSurveyQuestion::setSurveyQuestion($_GET['surveyQuestion'], $_POST['pregunta'], $_POST['estado']);
+    $response = ServiceSurveyQuestion::setSurveyQuestion($_GET['surveyQuestion'], $_POST['pregunta'], $_POST['estado'], $_POST['tipo_pregunta']);
 }
 
 if (isset($_GET['surveyQuestion'])) {

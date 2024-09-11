@@ -67,23 +67,27 @@
                         <div class="col-md-12 form-group">
                            <label for="titulo">Título</label>
                            <input type="text" class="form-control border p-1" name="titulo" value="<?= $discount->getTitulo() ?>" maxlength="255" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                         <div class="col-12 mt-3">
                            <div class="form-group">
                               <label class="form-label" for="descuento">Descuento</label>
                               <input type="text" class="form-control border p-1" name="descuento" value="<?= $discount->getDescuento() ?>" maxlength="255" required>
+                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
                               <label class="form-label" for="vigencia">Vigencia</label>
                               <input type="text" class="form-control border p-1" name="vigencia" value="<?= $discount->getVigencia() ?>" maxlength="255" required>
+                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="acceso">Acceso</label>
-                        <textarea name="acceso" id="acceso" class="form-control border p-1" rows="5" required><?= $discount->getAcceso() ?></textarea>
+                        <textarea name="acceso" id="acceso" class="form-control border p-1" rows="5" maxlength="255" required><?= $discount->getAcceso() ?></textarea>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-3 d-grid mt-4">

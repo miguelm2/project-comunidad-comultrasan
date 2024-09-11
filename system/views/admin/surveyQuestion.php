@@ -56,9 +56,10 @@
                         <div class="form-group">
                            <label class="form-label" for="pregunta">Pregunta</label>
                            <input type="text" class="form-control border p-1" name="pregunta" value="<?= $surveyQuestion->getPregunta() ?>" maxlength="255" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
-                     <div class="col-md-12">
+                     <div class="col-md-6">
                         <div class="form-group">
                            <label class="form-label" for="puntos">Estado</label>
                            <select name="estado" id="estado" class="form-select border p-1">
@@ -67,6 +68,15 @@
                               <option value="1">Activo</option>
                            </select>
                         </div>
+                     </div>
+                     <div class="col-md-6 form-group">
+                        <label for="tipo_pregunta">Tipo de pregunta</label>
+                        <select name="tipo_pregunta" id="tipo_pregunta" class="form-select border p-1">
+                           <option value="<?= $surveyQuestion->getTipo_pregunta()[0] ?>"><?= $surveyQuestion->getTipo_pregunta()[1] ?></option>
+                           <option value="1">Opción Múltiple</option>
+                           <option value="2">Respuesta Abierta</option>
+                           <option value="3">Múltiples Respuestas</option>
+                        </select>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-6 d-grid mt-4">
@@ -168,6 +178,7 @@
                         <div class="col-md-12 form-group">
                            <label for="respuesta">Respuesta</label>
                            <input type="text" class="form-control border p-1" name="respuesta" placeholder="Respuesta" maxlength="255" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                         <div class="col-md-12 form-group">
                            <label for="veracidad">Veracidad</label>

@@ -147,7 +147,7 @@ class ServiceReferred extends System
                         $correo,
                         $celular,
                         $cedula_referido,
-                        $pass,
+                        self::hash($pass),
                         1,
                         1,
                         'default.png',
@@ -155,6 +155,7 @@ class ServiceReferred extends System
                         '',
                         $departamento,
                         $ciudad,
+                        '',
                         $fecha_registro
                     );
                     if ($response) {

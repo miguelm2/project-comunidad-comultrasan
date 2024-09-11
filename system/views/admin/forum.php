@@ -57,11 +57,13 @@
                         <div class="form-group">
                            <label class="form-label" for="titulo">Título</label>
                            <input type="text" class="form-control border p-1" name="titulo" value="<?= $foroDTO->getTitulo() ?>" maxlength="255" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="contendio">Contenido</label>
-                        <textarea name="contenido" id="texto_foro" class="form-control border p-1" rows="5" required><?= html_entity_decode($foroDTO->getContenido()) ?></textarea>
+                        <textarea name="contenido" id="texto_foro" class="form-control border p-1" rows="5" required maxlength="1500"><?= html_entity_decode($foroDTO->getContenido()) ?></textarea>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-6 d-grid mt-4">

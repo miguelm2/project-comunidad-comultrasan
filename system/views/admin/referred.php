@@ -38,12 +38,12 @@
                <div class="row">
                   <div class="col-md-10 mt-1">
                      <h5 class="text-success p-1">
-                        Editar Pregunta Frecuente
+                        Editar Referido
                      </h5>
                   </div>
                   <div class="col-md-2 mt-0">
                      <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                        <a type="button" class="btn btn-secondary" href="questions"><i class="material-icons me-2">keyboard_return</i>atrás</a>
+                        <a type="button" class="btn btn-secondary" href="referrals"><i class="material-icons me-2">keyboard_return</i>atrás</a>
                      </div>
                   </div>
                </div>
@@ -62,7 +62,8 @@
                            <div class="col-md-12 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="nombre_referir">Nombre y Apellidos</label>
-                                 <input type="text" name="nombre_referir" class="form-control border p-1" placeholder="Nombres completos" required value="<?= $referred->getNombre_refiere() ?>">
+                                 <input type="text" name="nombre_referir" class="form-control border p-1" placeholder="Nombres completos" maxlength="255" required value="<?= $referred->getNombre_refiere() ?>">
+                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
                            <div class="col-md-6 mt-2">
@@ -80,7 +81,7 @@
                            <div class="col-md-6 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="cedula_referir">Nro de documento</label>
-                                 <input type="number" name="cedula_referir" class="form-control border p-1" placeholder="Nro de documento" required value="<?= $referred->getCedula_refiere() ?>">
+                                 <input type="text" name="cedula_referir" class="form-control border p-1" placeholder="Nro de documento" maxlength="30" required value="<?= $referred->getCedula_refiere() ?>">
                               </div>
                            </div>
                            <div class="col-md-12">
@@ -92,7 +93,8 @@
                            <div class="col-md-12 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="nombre_referido">Nombre y Apellidos</label>
-                                 <input type="text" name="nombre_referido" class="form-control border p-1" placeholder="Nombres completos" required value="<?= $referred->getNombre_referido() ?>">
+                                 <input type="text" name="nombre_referido" class="form-control border p-1" placeholder="Nombres completos" maxlength="255" required value="<?= $referred->getNombre_referido() ?>">
+                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
 
@@ -111,8 +113,9 @@
 
                            <div class="col-md-6 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="cedula_referir">Nro de documento</label>
-                                 <input type="text" name="cedula_referido" class="form-control border p-1" placeholder="Nro de documento" maxlength="255" required value="<?= $referred->getCedula_referido() ?>">
+                                 <label class="text-black" for="cedula_referir">Documento de identidad</label>
+                                 <input type="text" name="cedula_referido" class="form-control border p-1" placeholder="Documento de identidad" maxlength="255" required value="<?= $referred->getCedula_referido() ?>">
+                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
 
@@ -120,6 +123,7 @@
                               <div class="form-group">
                                  <label class="text-black" for="departamento">Departamento</label>
                                  <input type="text" name="departamento" class="form-control border p-1" placeholder="Departamento" maxlength="255" required value="<?= $referred->getDepartamento() ?>">
+                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
 
@@ -127,6 +131,7 @@
                               <div class="form-group">
                                  <label class="text-black" for="ciudad">Ciudad</label>
                                  <input type="text" name="ciudad" class="form-control border p-1" placeholder="Ciudad" required maxlength="255" value="<?= $referred->getCiudad() ?>">
+                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
 
@@ -134,13 +139,14 @@
                               <div class="form-group">
                                  <label class="text-black" for="correo">Correo</label>
                                  <input type="email" name="correo" class="form-control border p-1" placeholder="Correo" required maxlength="255" value="<?= $referred->getCorreo() ?>">
+                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
 
                            <div class="col-md-4 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="celular">Celular</label>
-                                 <input type="number" name="celular" class="form-control border p-1" placeholder="Celular" required maxlength="255" value="<?= $referred->getCelular() ?>">
+                                 <input type="number" name="celular" class="form-control border p-1" placeholder="Celular" required maxlength="30" value="<?= $referred->getCelular() ?>">
                               </div>
                            </div>
                            <div class="col-md-4 mt-2">

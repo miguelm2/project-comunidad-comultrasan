@@ -62,10 +62,13 @@ class Constants
     static $DELETE_USER_BY_LEAD = "Has eliminado el usuario de la comunidad";
     static $DELETE_USER_BY_LEAD_NOT = "No se ha eliminado el usuario de la comunidad";
     static $USER_NOT_EXIST          = "El asociado que busca no existe";
-    static $USER_READY_COMMUNITY    = "El asociado que busca no existe";
+    static $USER_READY_COMMUNITY    = "El asociado que busca ya pertenece a una comunidad";
     static $USER_DIFERENT           = "La cédula debe pertenecer a otro asociado";
     static $COMMUNITY_NOT           = "La comunidad que digitó no existe";
     static $MOVE_USER_COMMUNITY     = "Se ha realizado el cambio de comunidad";
     static $NO_USER_FOUND           = "No se encontro otro usuario para hacer la transferencia de lider";
     static $DELETE_LEADER           = "Haz removido el líder de esta comunidad";
+    static $USER_COMMUNITY_EXITS    = "Ya enviaste una solitud de unirte a una comunidad";
+    static $REQUEST_SEND            = "Solicitud para unirse a la comunidad enviada con éxito";
+    static $FORM_POINTS             = "La plantilla no está disponible.";
 }

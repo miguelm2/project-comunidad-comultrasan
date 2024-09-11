@@ -58,12 +58,14 @@
                               <div class="form-group">
                                  <label class="form-label">Pregunta</label>
                                  <input type="text" class="form-control border p-1" name="pregunta" value="<?= $question->getPregunta() ?>" maxlength="255" required>
+                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
                            <div class="col-12">
                               <div class="form-group">
                                  <label class="form-label">Respuesta</label>
                                  <textarea name="respuesta" id="respuesta" class="form-control border p-1" rows="4" maxlength="800" required><?= $question->getRespuesta() ?></textarea>
+                                 <small>Maximo de caracteres: <span id="contadorPublicacion">800</span></small>
                               </div>
                            </div>
                         </div>

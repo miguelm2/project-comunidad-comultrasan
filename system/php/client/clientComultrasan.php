@@ -109,7 +109,6 @@ class RestCall
         ]);
 
         $response = curl_exec($request);
-        echo "response: " . $response . "\n";
         if ($response === false) {
             throw new RuntimeException("cURL request failed: " . curl_error($request));
         }
@@ -127,23 +126,3 @@ class RestCall
         return null;
     }
 }
-
-
-// Crear una instancia de RestCall
-$restCall = new RestCall();
-
-// Configurar los valores
-$restCall->setHost('https://fcappshlab.comultrasan.com.co:8087/validadorcialcerti');
-$restCall->setEndpoint('/shareppy/tx_validator.Proxy/executeProxy/09e564d0-8556-46df-9e74-057f6014da60');
-$restCall->setKey('hb56jT1vS/Ulr+tEZwyX5hzfP/Rtlfy5DtopBu3H4mkBUDyvwMpgWM26OKt0W1hb364mXPUDkeN8BxgFELtfVA==');
-$restCall->setUser('shareppy');
-
-// Agregar parámetros
-$restCall->add('NRONIT', '1102390855');
-
-// Ejecutar la solicitud
-$result = $restCall->run('mi_token');
-
-// Acceder a los resultados
-$valor = $restCall->get('RETMSG0');
-echo $valor;

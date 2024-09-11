@@ -61,6 +61,13 @@
                      </div>
                      <div class="col-12">
                         <div class="form-group">
+                           <label class="form-label" for="descripcion">Descripción</label>
+                           <textarea class="form-control border p-1" name="descripcion" maxlength="255" rows="4" required><?= $points->getDescripcion() ?></textarea>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
+                        </div>
+                     </div>
+                     <div class="col-12">
+                        <div class="form-group">
                            <label class="form-label" for="usuario">Usuario</label>
                            <input type="text" class="form-control border p-1" id="usuario" value="<?= $points->getUsuarioDTO()->getNombre() ?>" disabled>
                         </div>

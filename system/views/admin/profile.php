@@ -56,24 +56,26 @@
                                  <div class="form-group">
                                     <label class="form-label">Nombre</label>
                                     <input type="text" class="form-control border p-1" name="nombre" value="<?= $_SESSION['nombre'] ?>" maxlength="255" required>
+                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-12">
                                  <div class="form-group">
                                     <label class="form-label">Correo</label>
                                     <input type="email" class="form-control border p-1" name="correo" value="<?= $_SESSION['correo'] ?>" maxlength="255" required>
+                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
                                     <label class="form-label">Celular</label>
-                                    <input type="tel" class="form-control border p-1" name="telefono" value="<?= $_SESSION['telefono'] ?>" required>
+                                    <input type="text" class="form-control border p-1" name="telefono" value="<?= $_SESSION['telefono'] ?>" maxlength="30" required>
                                  </div>
                               </div>
                               <div class="col-md-6">
                                  <div class="form-group">
                                     <label for="" class="form-label">Cedula</label><br>
-                                    <input type="text" class="form-control border p-1" name="cedula" value="<?= $_SESSION['cedula'] ?>" maxlength="255" required>
+                                    <input type="text" class="form-control border p-1" name="cedula" value="<?= $_SESSION['cedula'] ?>" maxlength="30" required>
                                  </div>
                               </div>
                            </div>

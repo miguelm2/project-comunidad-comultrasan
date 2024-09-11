@@ -18,6 +18,11 @@ class ServiceUserCommunity extends System
                 return Elements::crearMensajeAlerta(Constants::$COMMUNITY_NOT, "error");
             }
 
+            $usuarioComunidad = UsuarioComunidad::getValideUserCommunityByUser($id_usuario);
+            if ($comunidadDTO->getUsuarioDTO() == $id_usuario || $usuarioComunidad) {
+                return Elements::crearMensajeAlerta(Constants::$USER_READY_COMMUNITY, "error");
+            }
+
             $result = UsuarioComunidad::newUserCommunity($id_usuario, $id_comunidad, $estado, $fecha_registro);
 
             if ($result && $comunidadDTO) {
@@ -46,7 +51,7 @@ class ServiceUserCommunity extends System
                             El equipo de Financiera Comultrasan";
                 }
                 Mail::sendEmail($asunto, $mensaje, $correo);
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "success");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -72,6 +77,11 @@ class ServiceUserCommunity extends System
 
             if (!$comunidadDTO) {
                 return Elements::crearMensajeAlerta(Constants::$COMMUNITY_NOT, "error");
+            }
+
+            $usuarioComunidad = UsuarioComunidad::getValideUserCommunityByUser($id_usuario);
+            if ($usuarioComunidad) {
+                return Elements::crearMensajeAlerta(Constants::$USER_COMMUNITY_EXITS, "error");
             }
 
             $result = UsuarioComunidad::newUserCommunity($id_usuario, $id_comunidad, $estado, $fecha_registro);
@@ -101,7 +111,7 @@ class ServiceUserCommunity extends System
                             El equipo de Financiera Comultrasan";
                 }
                 Mail::sendEmail($asunto, $mensaje, $correo);
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "success");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -372,7 +382,16 @@ class ServiceUserCommunity extends System
             $id_comunidad = parent::limpiarString($id_comunidad);
             $usuarioComunidadDTO = UsuarioComunidad::getUserCommunity($id_usuario_comunidad);
             $comunidadDTO = $usuarioComunidadDTO->getComunidadDTO();
-            $count = Usuario::countUsersInCommunity($id_comunidad);
+            $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad);
+
+            $fecha_registro = date('Y-m-d H:i:s');
+            HistorialTraslado::newHistoryTransfer(
+                $usuarioComunidadDTO->getUsuarioDTO()->getId_usuario(),
+                $_SESSION['id'],
+                $comunidadDTO->getId_comunidad(),
+                $id_comunidad,
+                $fecha_registro
+            );
             if ($count <= 2) {
                 if (Comunidad::setCommunityEstate($id_comunidad, 0, $comunidadDTO->getUsuarioDTO()->getId_usuario())) {
                     UsuarioComunidad::moveUserCommunityToCommunity($id_usuario_comunidad, $id_comunidad);

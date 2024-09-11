@@ -110,7 +110,8 @@
                   <div class="modal-body">
                      <div class="form-group">
                         <label class="form-label" for="comentario">Comentario</label>
-                        <textarea name="comentario" class="form-control border p-1" placeholder="Esciba su comentario...." rows="4" maxlength="500" required></textarea>
+                        <textarea name="comentario" class="form-control border p-1" placeholder="Esciba su comentario...." id="publicacionForo" rows="4" maxlength="500" required></textarea>
+                        <small>Caracteres restantes: <span id="contadorPublicacion">500</span></small>
                      </div>
                   </div>
                   <div class="modal-footer">
@@ -143,6 +144,7 @@
    <script src="/system/js/viewPassword.js"></script>
    <script src="/system/js/functions.js"></script>
    <script src="/system/js/like.js"></script>
+   <script src="/system/js/caracteres/caracteres_comentario.js"></script>
    <?= $response ?>
 </body>
 

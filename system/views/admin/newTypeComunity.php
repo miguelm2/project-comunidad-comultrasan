@@ -58,27 +58,32 @@
                      <div class="form-group">
                         <label class="form-label" for="titulo">Título</label>
                         <input type="text" class="form-control border p-1" name="titulo" maxlength="255" required>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                   </div>
                   <div class="col-12">
                      <div class="form-group">
                         <label class="form-label" for="icono">Icono</label>
                         <input type="text" class="form-control border p-1" name="icono" maxlength="255" required>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                   </div>
                   <div class="col-md-12 form-group">
                      <label for="imageTypeComunity">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                      <input type="file" class="form-control border p-1" name="imageTypeComunity" accept="image/*" required>
+                     <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                   </div>
                   <div class="col-12">
                      <div class="form-group">
                         <label class="form-label" for="subtitulo">Subtítulo</label>
                         <input type="text" class="form-control border p-1" name="subtitulo" maxlength="255" required>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                   </div>
                   <div class="col-md-12 mt-3">
                      <label for="contendio">Contenido</label>
-                     <textarea name="contenido" id="texto" class="form-control border p-1" rows="5"></textarea>
+                     <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" maxlength="800"></textarea>
+                     <small>Maximo de caracteres: <span id="contadorPublicacion">800</span></small>
                   </div>
                   <div class="dark horizontal my-0 border-1 mt-3"></div>
                   <div class="col-md-12 d-grid mt-4">

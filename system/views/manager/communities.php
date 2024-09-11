@@ -65,8 +65,8 @@
                <thead class="text-center">
                   <tr>
                      <th class="text-uppercase font-weight-bolder">ID</th>
-                     <th class="text-uppercase font-weight-bolder">Nombre</th>
-                     <th class="text-uppercase font-weight-bolder">Líder</th>
+                     <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
+                     <th class="text-uppercase font-weight-bolder">Nombre del Líder</th>
                      <th class="text-uppercase font-weight-bolder">Estado</th>
                      <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
                      <th class="text-uppercase font-weight-bolder">Opciones</th>
@@ -75,8 +75,8 @@
                <tfoot class="text-center">
                   <tr>
                      <th class="text-uppercase font-weight-bolder">ID</th>
-                     <th class="text-uppercase font-weight-bolder">Nombre</th>
-                     <th class="text-uppercase font-weight-bolder">Líder</th>
+                     <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
+                     <th class="text-uppercase font-weight-bolder">Nombre del Líder</th>
                      <th class="text-uppercase font-weight-bolder">Estado</th>
                      <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
                      <th class="text-uppercase font-weight-bolder">Opciones</th>

@@ -140,12 +140,14 @@
                            <div class="form-group">
                               <label class="form-label">Nombre</label>
                               <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre" maxlength="255" required>
+                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Correo</label>
                               <input type="email" class="form-control border p-1" name="correo" placeholder="Correo" maxlength="255" required>
+                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-6">
@@ -169,7 +171,7 @@
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Celular</label>
-                              <input type="tel" class="form-control border p-1" name="telefono" placeholder="Celular" maxlength="255" required>
+                              <input type="text" class="form-control border p-1" name="telefono" placeholder="Celular" maxlength="30" required>
                            </div>
                         </div>
                         <div class="col-6">
@@ -181,19 +183,22 @@
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Departamento</label>
-                              <input type="text" class="form-control border p-1" name="departamento"  maxlength="255" placeholder="Departamento" required>
+                              <input type="text" class="form-control border p-1" name="departamento" maxlength="255" placeholder="Departamento" required>
+                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Ciudad</label>
-                              <input type="text" class="form-control border p-1" name="ciudad"  maxlength="255" placeholder="Ciudad" required>
+                              <input type="text" class="form-control border p-1" name="ciudad" maxlength="255" placeholder="Ciudad" required>
+                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Dirección</label>
-                              <input type="text" class="form-control border p-1" name="direccion"  maxlength="255" placeholder="Dirección" required>
+                              <input type="text" class="form-control border p-1" name="direccion" maxlength="255" placeholder="Dirección" required>
+                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-6">

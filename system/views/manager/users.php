@@ -55,8 +55,8 @@
                   <input type="number" name="codigo" id="codigo_user" class="form-control border p-1" placeholder="Código de la comunidad">
                </div>
                <div class="col-md-4">
-                  <label for="nombre">Nombre de la comunidad</label>
-                  <input type="text" name="nombre" id="nombre_user" class="form-control border p-1" placeholder="Nombre de la comunidad">
+                  <label for="nombre">Nombre Completo</label>
+                  <input type="text" name="nombre" id="nombre_user" class="form-control border p-1" placeholder="Nombre completo">
                </div>
                <div class="col-md-4">
                   <label for="documento">Documento de Identidad</label>
