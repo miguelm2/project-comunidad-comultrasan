@@ -410,16 +410,36 @@ CREATE TABLE Actividad (
   fecha_registro DATETIME NOT NULL
 );
 
-INSERT INTO Actividad (actividad, fecha_registro) VALUES
-('Conformar la comunidad', GETDATE()),
-('Completar el perfil de usuario', GETDATE()),
-('Diligenciar formato de gustos e intereses', GETDATE()),
-('Hacer cursos de educación financiera, actualmente son 4', GETDATE()),
-('Vincular nuevo miembro al grupo siendo ya asociado', GETDATE());
+INSERT INTO
+  Actividad (actividad, fecha_registro)
+VALUES
+  ('Conformar la comunidad', GETDATE()),
+  ('Completar el perfil de usuario', GETDATE()),
+  (
+    'Diligenciar formato de gustos e intereses',
+    GETDATE()
+  ),
+  (
+    'Hacer cursos de educación financiera, actualmente son 4',
+    GETDATE()
+  ),
+  (
+    'Vincular nuevo miembro al grupo siendo ya asociado',
+    GETDATE()
+  );
 
 CREATE TABLE ActividadUsuario (
   id_actividad_usuario INT IDENTITY(1, 1) PRIMARY KEY,
   id_actividad INT NOT NULL,
   id_usuario INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE HistorialTraslado (
+  id_historial INT IDENTITY(1, 1) PRIMARY KEY,
+  id_usuario INT NOT NULL,
+  id_administrador INT NOT NULL,
+  id_comunidad_antigua INT NOT NULL,
+  id_comunidad_nueva INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );

@@ -59,10 +59,12 @@
                      <div class="col-md-12 form-group">
                         <label for="titulo">Título</label>
                         <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" maxlength="255" required>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="col-md-12 form-group">
                         <label for="contenido">Contenido</label>
-                        <textarea name="contenido" id="texto_foro" class="form-control border p-1" rows="4"  maxlength="1500">Escriba contenido para el foro</textarea>
+                        <textarea name="contenido" id="texto_foro" class="form-control border p-1" rows="4" maxlength="1500">Escriba contenido para el foro</textarea>
+                        <small>Caracteres restantes: <span id="contadorPublicacion">1500</span></small>
                      </div>
                      <div class="col-md-12">
                         <button type="submit" name="newForum" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Foro</button>

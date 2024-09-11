@@ -24,15 +24,16 @@ class ServiceSurveyQuestion extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setSurveyQuestion($id_pregunta, $pregunta, $estado)
+    public static function setSurveyQuestion($id_pregunta, $pregunta, $estado, $tipo_pregunta)
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'surveyQuestion.php') {
                 $id_pregunta    = parent::limpiarString($id_pregunta);
                 $pregunta       = parent::limpiarString($pregunta);
                 $estado         = parent::limpiarString($estado);
+                $tipo_pregunta  = parent::limpiarString($tipo_pregunta);
 
-                $result = PreguntaEncuesta::setSurveyQuestion($id_pregunta, $pregunta, $estado);
+                $result = PreguntaEncuesta::setSurveyQuestion($id_pregunta, $pregunta, $estado, $tipo_pregunta);
 
                 if ($result) {
                     return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");

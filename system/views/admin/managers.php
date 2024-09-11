@@ -57,34 +57,22 @@
                <table class="table table-bordered table-hover align-items-center mb-0" id="tableManager">
                   <thead class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           ID</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                        <th class="text-uppercase font-weight-bolder">Correo</th>
+                        <th class="text-uppercase font-weight-bolder">Celular</th>
+                        <th class="text-uppercase font-weight-bolder">Documento de identidad</th>
+                        <th class="text-uppercase font-weight-bolder">Estado</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">
-                           ID</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Correo</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Teléfono</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Estado</th>
-                        <th class="text-uppercase font-weight-bolder">
-                           Opciones</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
+                        <th class="text-uppercase font-weight-bolder">Correo</th>
+                        <th class="text-uppercase font-weight-bolder">Celular</th>
+                        <th class="text-uppercase font-weight-bolder">Documento de identidad</th>
+                        <th class="text-uppercase font-weight-bolder">Estado</th>
+                        <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </tfoot>
                   <tbody class="text-center">

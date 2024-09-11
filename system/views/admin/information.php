@@ -56,30 +56,34 @@
                                  <div class="form-group">
                                     <label class="form-label">Nombre</label>
                                     <input type="text" class="form-control border p-1" name="nombre" value="<?= $information->getNombre() ?>" maxlength="255" required>
+                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
                                     <label class="form-label">NIT</label>
                                     <input type="text" class="form-control border p-1" name="nit" value="<?= $information->getNit() ?>" maxlength="255" required>
+                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
                                     <label class="form-label">Dirección</label>
                                     <input type="text" class="form-control border p-1" name="direccion" value="<?= $information->getDireccion() ?>" maxlength="255" required>
+                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
                                     <label class="form-label">Correo</label>
                                     <input type="email" class="form-control border p-1" name="correo" value="<?= $information->getCorreo() ?>" maxlength="255" required>
+                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
                                     <label class="form-label">Celular</label>
-                                    <input type="tel" class="form-control border p-1" name="whatsapp" value="<?= $information->getWp() ?>" maxlength="255" required>
+                                    <input type="text" class="form-control border p-1" name="whatsapp" value="<?= $information->getWp() ?>" maxlength="30" required>
                                  </div>
                               </div>
                               <div class="col-6">
@@ -96,24 +100,28 @@
                                  <div class="form-group">
                                     <label class="form-label">Ciudad</label>
                                     <input type="text" class="form-control border p-1" name="ciudad" value="<?= $information->getCiudad() ?>" maxlength="255" required>
+                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
                                     <label class="form-label">Departamento</label>
                                     <input type="text" class="form-control border p-1" name="departamento" value="<?= $information->getDepartamento() ?>" maxlength="255" required>
+                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
                                     <label class="form-label">Facebook</label>
                                     <input type="url" class="form-control border p-1" name="facebook" value="<?= $information->getFb() ?>" maxlength="255">
+                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
                                     <label class="form-label">Instagram</label>
                                     <input type="url" class="form-control border p-1" name="instagram" value="<?= $information->getInstagram() ?>" maxlength="255">
+                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                            </div>

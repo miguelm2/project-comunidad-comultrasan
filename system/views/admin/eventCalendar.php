@@ -63,11 +63,13 @@
                                  <div class="col-md-12">
                                     <label for="titulo">Título</label>
                                     <input type="text" class="form-control border p-1" name="titulo" value="<?= $eventCalendar->getTitulo() ?>" maxlength="255" required>
+                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                                  <div class="col-12 ">
                                     <div class="form-group">
                                        <label class="form-label" for="lugar">Lugar</label>
                                        <input type="text" class="form-control border p-1" name="lugar" value="<?= $eventCalendar->getLugar() ?>" maxlength="255" required>
+                                       <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                     </div>
                                  </div>
                                  <div class="col-6">

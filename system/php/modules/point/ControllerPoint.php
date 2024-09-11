@@ -22,7 +22,11 @@ if (isset($_GET['point'])) {
 }
 
 if (isset($_POST['loadExcelPoint'])) {
-    $response = ServicePoint::loadExcelPoints();
+    $response = ServicePoint::loadCSVPoints();
+}
+
+if (isset($_POST['descagarPlantilla'])) {
+    ServicePoint::descargarPlantilla('PUNTOS.csv');
 }
 
 if (isset($_POST['getTablePointsFilter'])) {

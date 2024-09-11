@@ -60,11 +60,13 @@
                         <div class="form-group">
                            <label class="form-label" for="nombre">Nombre</label>
                            <input type="text" class="form-control border p-1" name="nombre" value="<?= $sectionTypeComunity->getNombre() ?>" maxlength="255" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="descripcion">Descripción</label>
-                        <textarea name="descripcion" id="texto" class="form-control border p-1" rows="5" required><?= html_entity_decode($sectionTypeComunity->getDescripcion()) ?></textarea>
+                        <textarea name="descripcion" id="texto" class="form-control border p-1" maxlength="255" rows="5" required><?= html_entity_decode($sectionTypeComunity->getDescripcion()) ?></textarea>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-4 d-grid mt-4">

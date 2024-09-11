@@ -198,8 +198,7 @@ class ServiceCommunity extends System
                             ' . $btnSalir . '
                             </div>
                         </div>
-                    </div>
-                </div>';
+                    </div>';
 
             return $html;
         } catch (\Exception $e) {
@@ -326,11 +325,11 @@ class ServiceCommunity extends System
             $buttonHtml = '
                 <div class="row">
                     <div class="col-md-4">
-                        <h4 class="text-success">Integrantes</h4>
+                        <h4 class="text-success">Miembros</h4>
                     </div>
                     <div class="col-md-7">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUserComm">
-                            <i class="material-icons me-2">add</i> Agregar Integrante
+                            <i class="material-icons me-2">add</i> Agregar Miembro
                         </button>
                     </div>
                 </div>';

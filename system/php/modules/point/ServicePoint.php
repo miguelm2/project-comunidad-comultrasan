@@ -18,6 +18,17 @@ class ServicePoint extends System
             $result = Punto::newPoint($puntos, $id_usuario, $id_administrador, $descripcion, $fecha_registro);
 
             if ($result) {
+                $usuarioDTO = Usuario::getUserById($id_usuario);
+                $correo = $usuarioDTO->getCorreo();
+                $asunto = 'Notificación de nuevos puntos acreditados en tu cuenta';
+                $mensaje = 'Estimado/a '. $usuarioDTO->getNombre() .',
+                            Nos complace informarte que hemos acreditado nuevos puntos en tu 
+                            cuenta como parte de tu participación en nuestras actividades y comunidad. 
+                            Estos puntos ya están disponibles y podrás visualizarlos ingresando a tu perfil en nuestra plataforma.<br><br>
+                            Te invitamos a seguir participando para acumular más puntos y disfrutar de los beneficios que ofrecemos.<br><br>
+                            Si tienes alguna consulta o necesitas más información, no dudes en contactarnos.<br><br>
+                            Atentamente, Financiera Comultrasan';
+                Mail::sendEmail($asunto, $mensaje, $correo);
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
             }
         } catch (\Exception $e) {
@@ -155,29 +166,29 @@ class ServicePoint extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function loadExcelPoints()
+    public static function loadCSVPoints()
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'points.php') {
                 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Excel.php';
                 $fecha_registro = date('Y-m-d H:i:s');
 
-                $source    = $_FILES['excelPoint']['tmp_name'];
-                $filename  = $_FILES['excelPoint']['name'];
-                $fileSize  = $_FILES['excelPoint']['size'];
-                $dir_excel = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_EXCEL;
+                $source    = $_FILES['csvPoint']['tmp_name'];
+                $filename  = $_FILES['csvPoint']['name'];
+                $fileSize  = $_FILES['csvPoint']['size'];
+                $dir_csv   = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_EXCEL;
 
                 if ($fileSize > 100 && $filename != '') {
-                    if (!is_dir($dir_excel)) mkdir($dir_excel, 0777, true);
+                    if (!is_dir($dir_csv)) mkdir($dir_csv, 0777, true);
 
                     $trozo1 = explode(".", $filename);
-                    $documento = 'excel_points_' . rand() . '.' . end($trozo1);
-                    $target_path = $dir_excel . $documento;
+                    $documento = 'csv_points_' . rand() . '.' . end($trozo1);
+                    $target_path = $dir_csv . $documento;
 
                     // Mover el archivo cargado
                     if (move_uploaded_file($source, $target_path)) {
-                        // Procesar el archivo Excel
-                        $result = Excel::readExcelIncomes($target_path, $fecha_registro);
+                        // Procesar el archivo CSV
+                        $result = Excel::readCSVIncomes($target_path, $fecha_registro);
 
                         // Verificar si el archivo existe antes de eliminarlo
                         if (file_exists($target_path)) {
@@ -194,6 +205,7 @@ class ServicePoint extends System
             throw new Exception($e->getMessage());
         }
     }
+
     public static function listTablePointsUserByManager($id_comunidad)
     {
         try {
@@ -222,7 +234,7 @@ class ServicePoint extends System
         try {
             $nombre       = parent::limpiarString($nombre);
             $id_comunidad = parent::limpiarString($id_comunidad);
-            $sql = '';
+            $sql = $sql1= '';
             if ($cedula != '') {
                 $sql .= sprintf(" AND id_usuario IN (SELECT id_usuario FROM Usuario WHERE cedula LIKE '%%%s%%')", $cedula);
             }
@@ -230,20 +242,20 @@ class ServicePoint extends System
                 $sql .= sprintf(" AND id_usuario IN (SELECT id_usuario FROM Usuario WHERE nombre LIKE '%%%s%%')", $nombre);
             }
             if ($fecha_inicio != '') {
-                $sql .= sprintf(" AND fecha_registro >= '%s'", $fecha_inicio);
+                $sql1 .= sprintf(" AND CONVERT(DATE, fecha_registro) >= '%s'", $fecha_inicio);
             }
-            if ($fecha_inicio != '') {
-                $sql .= sprintf(" AND fecha_registro <= '%s'", $fecha_fin);
+            if ($fecha_fin != '') {
+                $sql1 .= sprintf(" AND CONVERT(DATE, fecha_registro) <= '%s'", $fecha_fin);
             }
             $comunidadDTO = Comunidad::getCommunityFilter($id_comunidad, $sql);
             $tableHtml = [];
             if ($comunidadDTO)
-                $tableHtml = self::getPointsTableRowsJSON($comunidadDTO->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
+                $tableHtml = self::getPointsTableRowsJSON($comunidadDTO->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre(), $sql1);
 
             $usuarioComunidadDTO = UsuarioComunidad::getUserCommunityByCommunityFilter($id_comunidad, $sql);
             if ($usuarioComunidadDTO) {
                 foreach ($usuarioComunidadDTO as $value) {
-                    $tableHtml = self::getPointsTableRowsJSON($value->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre());
+                    $tableHtml = self::getPointsTableRowsJSON($value->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre(), $sql1);
                 }
             }
 
@@ -278,13 +290,9 @@ class ServicePoint extends System
 
         return $tableRows;
     }
-    private static function getPointsTableRowsJSON($id_usuario, $nombre)
+    private static function getPointsTableRowsJSON($id_usuario, $nombre, $filtro)
     {
-        $modelResponse = Punto::listPointByUser($id_usuario);
-
-        if (!$modelResponse) {
-            return [];
-        }
+        $modelResponse = Punto::listPointByUserFilter($id_usuario, $filtro);
 
         $tableRows = [];
         foreach ($modelResponse as $valor) {
@@ -293,7 +301,7 @@ class ServicePoint extends System
                     'Comunidad' => $nombre,
                     'Asociado' => $valor->getUsuarioDTO()->getNombre(),
                     'Actividad' => $valor->getDescripcion(),
-                    'Asignación / Vencimiento' => self::getDateInWords($valor->getFecha_registro()),
+                    'Asignacion / Vencimiento' => self::getDateInWords($valor->getFecha_registro()),
                     'Estatus Actividad' => 'Completada',
                     'Corazones' => $valor->getPuntos(),
                     'Opciones' => Elements::crearBotonVer("point", $valor->getId_punto())
@@ -346,6 +354,24 @@ class ServicePoint extends System
             return Punto::getSumPointsByUser($id_usuario);
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
+        }
+    }
+    public static function descargarPlantilla($name)
+    {
+        $archivo = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_EXCEL . $name;
+
+        if (file_exists($archivo)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            header('Content-Disposition: attachment; filename="' . $name . '"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($archivo));
+            readfile($archivo);
+            exit;
+        } else {
+            return Elements::crearMensajeAlerta(Constants::$FORM_POINTS, "error");
         }
     }
 }

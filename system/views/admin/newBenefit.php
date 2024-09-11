@@ -11,8 +11,8 @@
    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
    <link rel="icon" type="image/png" href="/assets/image/favicon_0.ico">
    <!-- Nucleo Icons -->
-   <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-   <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+   <link href="/system/assets/css/nucleo-icons.css" rel="stylesheet" />
+   <link href="/system/assets/css/nucleo-svg.css" rel="stylesheet" />
    <!-- Font Awesome Icons -->
    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
    <!-- Material Icons -->
@@ -56,13 +56,14 @@
                      <div class="col-12">
                         <div class="form-group">
                            <label class="form-label" for="titulo">Título</label>
-                           <input type="text" class="form-control border p-1" name="titulo" maxlength="255" required>
+                           <input type="text" class="form-control border p-1" name="titulo" maxlength="255" placeholder="Título" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-12">
                         <div class="form-group">
                            <label class="form-label" for="puntos">Corazones</label>
-                           <input type="number" class="form-control border p-1" name="puntos" required>
+                           <input type="number" class="form-control border p-1" name="puntos" placeholder="Corazones" required>
                         </div>
                      </div>
                      <div class="col-md-12 form-group">
@@ -71,11 +72,13 @@
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="definicion">Definición</label>
-                        <textarea name="definicion" id="definicion" class="form-control border p-1" rows="5" required></textarea>
+                        <textarea name="definicion" id="definicion" class="form-control border p-1" rows="5" required placeholder="Escribe una definición del beneficio" maxlength="255"></textarea>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="col-md-12 mt-3">
                         <label for="condiciones">Condiciones</label>
-                        <textarea name="condiciones" id="condiciones" class="form-control border p-1" rows="5" required></textarea>
+                        <textarea name="condiciones" id="condiciones" class="form-control border p-1" rows="5" required placeholder="Escribe las condiciones que debe cumplir el beneficio" maxlength="255"></textarea>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-12 d-grid mt-4">
@@ -96,6 +99,7 @@
       <img src="/assets/image/favicon_0.ico" alt="Cargando...">
    </div>
    <!--   Core JS Files   -->
+   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/assets/js/core/popper.min.js"></script>
    <script src="/system/assets/js/core/bootstrap.min.js"></script>
    <script src="/system/assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -104,11 +108,6 @@
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
-
-   <!-- Uncomment to load the Spanish translation -->
-   <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/translations/es.js"></script>
-   <script src="/system/js/CkEditor/confCkeditor_1.js"></script>
-   <script src="/system/js/CkEditor/confCkeditor.js"></script>
    <script src="/system/js/valideImage.js"></script>
    <?= $response ?>
 </body>

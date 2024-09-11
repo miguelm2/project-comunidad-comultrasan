@@ -44,5 +44,4 @@
          <?= $btnLogout['boton'] ?>
       </ul>
    </div>
-   <?= $btnLogout['modal'] ?>
 </aside>

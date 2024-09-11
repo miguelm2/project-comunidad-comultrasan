@@ -55,7 +55,8 @@
                   <div class="row">
                      <div class="col-md-12 mt-3">
                         <label for="comentario">Comentario</label>
-                        <textarea name="comentario"  class="form-control border p-1" rows="5" required><?= $forumComment->getComentario() ?></textarea>
+                        <textarea name="comentario"  class="form-control border p-1" rows="5" maxlength="500" required><?= $forumComment->getComentario() ?></textarea>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">500</span></small>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-6 d-grid mt-4">

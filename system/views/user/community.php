@@ -410,25 +410,25 @@
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <label class="form-label">Nombre del otro integrante</label>
+                              <label class="form-label">Nombre del otro miembro</label>
                               <input type="text" class="form-control border p-1" name="nombre_user" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <label class="form-label">Cédula del otro integrante</label>
+                              <label class="form-label">Documento de identidad del otro miembro</label>
                               <input type="text" class="form-control border p-1" name="cedula" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <label class="form-label">Correo del otro integrante</label>
+                              <label class="form-label">Correo del otro miembro</label>
                               <input type="mail" class="form-control border p-1" name="correo" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <label class="form-label">Celular del otro integrante</label>
+                              <label class="form-label">Celular del otro miembro</label>
                               <input type="number" class="form-control border p-1" name="celular" maxlength="255" required>
                            </div>
                         </div>
@@ -449,16 +449,16 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Agregar integrante</h5>
+                     <h5 class="modal-title">Agregar Miembro</h5>
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                      <div class="row g-3">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label">Usuario</label>
+                              <label class="form-label">Miembros</label>
                               <select name="usuario" id="usuario" class="form-select border p-1">
-                                 <option value="">Seleccione un usuario</option>
+                                 <option value="">Seleccione un miembro</option>
                                  <?= $optionUserWithoutCommunity ?>
                               </select>
                            </div>
@@ -467,7 +467,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newUserCommunity" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Integrante</button>
+                     <button type="submit" name="newUserCommunity" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Miembro</button>
                   </div>
                </div>
             </div>
@@ -501,17 +501,17 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Remover asociado de la comunidad</h5>
+                     <h5 class="modal-title">Remover miembro de la comunidad</h5>
                      <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                     <label class="form-label">¿Esta seguro que desea remover este asociado?</label>
+                     <label class="form-label">¿Esta seguro que desea remover este miembro?</label>
                      <input type="hidden" id="usuario" name="usuario">
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="deleteUserCommunity" class="btn btn-danger">
-                        <i class="material-icons me-2">person_remove</i> Remover
+                        <i class="material-icons me-2">person_remove</i> Remover miembro
                      </button>
                   </div>
                </div>
@@ -525,11 +525,11 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Editar Nombre</h5>
+                     <h5 class="modal-title">Editar Nombre de la Comunidad</h5>
                      <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                     <label class="form-label">Nombre</label>
+                     <label class="form-label">Nombre de la Comunidad</label>
                      <input type="text" name="nombre" id="nombre" class="form-control border p-1">
                      <input type="hidden" id="comunidad" name="comunidad">
                   </div>

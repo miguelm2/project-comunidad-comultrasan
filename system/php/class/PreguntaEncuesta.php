@@ -15,15 +15,16 @@ class PreguntaEncuesta extends System
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
-    public static function setSurveyQuestion($id_pregunta, $pregunta, $estado)
+    public static function setSurveyQuestion($id_pregunta, $pregunta, $estado, $tipo_pregunta)
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE PreguntaEncuesta 
-                            SET pregunta = :pregunta, estado = :estado
+                            SET pregunta = :pregunta, estado = :estado, tipo_pregunta = :tipo_pregunta
                             WHERE id_pregunta = :id_pregunta");
         $stmt->bindParam(':id_pregunta', $id_pregunta);
         $stmt->bindParam(':pregunta', $pregunta);
         $stmt->bindParam(':estado', $estado);
+        $stmt->bindParam(':tipo_pregunta', $tipo_pregunta);
         return  $stmt->execute();
     }
     public static function getSurveyQuestion($id_pregunta)

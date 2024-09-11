@@ -32,6 +32,7 @@ function renderDataTable(data) {
             { data: 'Nombre' },
             { data: 'Cedula' },
             { data: 'Celular' },
+            { data: 'Direccion' },
             { data: 'Correo' },
             { data: 'Fecha_nacimiento' },
             { data: 'Referido' },

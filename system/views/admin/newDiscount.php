@@ -62,10 +62,12 @@
                      <div class="col-md-12 form-group">
                         <label for="descuento">Descuento</label>
                         <input type="text" class="form-control border p-1" name="descuento" placeholder="Descuento" maxlength="255" required>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="col-md-12 form-group">
                         <label for="vigencia">Vigencia</label>
                         <input type="text" class="form-control border p-1" name="vigencia" placeholder="Vigencia" maxlength="255" required>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="col-md-6 form-group">
                         <label for="imageDiscount">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
@@ -77,7 +79,8 @@
                      </div>
                      <div class="col-md-12 form-group">
                         <label for="acceso">Acceso</label>
-                        <textarea name="acceso" id="acceso" class="form-control border p-1" rows="5" placeholder="Escribe una descripción aqui" required></textarea>
+                        <textarea name="acceso" id="acceso" class="form-control border p-1" rows="5" maxlength="255" placeholder="Escribe una descripción aqui" required></textarea>
+                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-12 d-grid mt-4">

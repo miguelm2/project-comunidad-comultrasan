@@ -196,4 +196,26 @@ class UsuarioComunidad extends system
         }
         return null;
     }
+    public static function getValideUserCommunityByUser($id_usuario)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * 
+                                FROM UsuarioComunidad 
+                                WHERE id_usuario = :id_usuario");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        $response = $stmt->fetch();
+        if ($response) {
+            $UsuarioComunidadDTO = new UsuarioComunidadDTO();
+
+            $UsuarioComunidadDTO->setId_usuario_comunidad($response['id_usuario_comunidad']);
+            $UsuarioComunidadDTO->setUsuarioDTO(Usuario::getUserById($response['id_usuario']));
+            $UsuarioComunidadDTO->setComunidadDTO(Comunidad::getCommunity($response['id_comunidad']));
+            $UsuarioComunidadDTO->setEstado($response['estado']);
+            $UsuarioComunidadDTO->setFecha_registro($response['fecha_registro']);
+            return $UsuarioComunidadDTO;
+        }
+        return null;
+    }
+
 }

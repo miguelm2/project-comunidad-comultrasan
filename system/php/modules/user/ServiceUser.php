@@ -46,6 +46,8 @@ class ServiceUser extends System
 
                 $imagen = self::newImagen();
 
+                self::getUserByAPI($cedula);
+
                 $result = Usuario::newUser(
                     $nombre,
                     $correo,
@@ -81,6 +83,23 @@ class ServiceUser extends System
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+
+    private static function getUserByAPI($cedula)
+    {
+        $restCall = new RestCall();
+
+        $restCall->setHost('https://fcappshlab.comultrasan.com.co:8087/validadorcialcerti');
+        $restCall->setEndpoint('/shareppy/tx_validator.Proxy/executeProxy/09e564d0-8556-46df-9e74-057f6014da60');
+        $restCall->setKey('hb56jT1vS/Ulr+tEZwyX5hzfP/Rtlfy5DtopBu3H4mkBUDyvwMpgWM26OKt0W1hb364mXPUDkeN8BxgFELtfVA==');
+        $restCall->setUser('shareppy');
+
+        $restCall->add('NRONIT', $cedula);
+
+        $result = $restCall->run('mi_token');
+
+        $valor = $restCall->get('RETMSG0');
+        return $valor;
     }
     private static function enviarCorreoUnionComunidad($usuarioDTO, $correo)
     {
@@ -557,6 +576,7 @@ class ServiceUser extends System
                         'Nombre' => $valor->getNombre(),
                         'Cedula' => $valor->getCedula(),
                         'Celular' => $valor->getTelefono(),
+                        'Direccion' => $valor->getDireccion(),
                         'Correo' => $valor->getCorreo(),
                         'Fecha_nacimiento' => $valor->getFecha_nacimiento(),
                         'Referido' => $referido,

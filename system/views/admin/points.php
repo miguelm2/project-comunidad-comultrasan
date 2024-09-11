@@ -48,7 +48,7 @@
             <div class="col-md-2 ms-2 mt-3">
                <div class="card-head text-right">
                   <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#excel">
-                     <i class="material-icons me-2">insert_chart</i> Cargar Excel
+                     <i class="material-icons me-2">insert_chart</i> Cargar CSV
                   </button>
                </div>
             </div>
@@ -133,20 +133,21 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Cargar Excel Puntos</h5>
+                     <h5 class="modal-title">Cargar CSV Puntos</h5>
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                      <div class="row g-3">
                         <div class="col-md-12 form-group">
-                           <label for="excelPoint">Seleccionar archivo <small class="text-secondary">(csv,xls,xlsx)</small></label>
-                           <input type="file" class="form-control border p-1" name="excelPoint" required accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                           <label for="csvPoint">Seleccionar archivo <small class="text-secondary">(csv)</small></label>
+                           <input type="file" class="form-control border p-1" name="csvPoint" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
                         </div>
                      </div>
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Cerrar</button>
-                     <button type="submit" name="loadExcelPoint" class="btn btn-success"><i class="bi bi-plus-square"></i> Cargar Excel</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="descagarPlantilla" class="btn btn-info"><i class="material-icons me-2">download</i> Descargar Plantilla</button>
+                     <button type="submit" name="loadExcelPoint" class="btn btn-success"><i class="material-icons me-2">insert_chart</i> Cargar Excel</button>
                   </div>
                </div>
             </div>
@@ -173,9 +174,10 @@
    <script src="/system/assets/vendor/quill/quill.core.js"></script>
    <script src="/system/assets/vendor/quill/quill.min.js"></script>
    <script src="/system/assets/vendor/simple-datatables/simple-datatables.js"></script>
-   <script src="/system/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
    <script src="/system/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+   <script src="/system/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
    <script src="/system/js/demo/datatables-demo.js"></script>
+   <script src="/system/js/valideFile.js"></script>
    <?= $response ?>
 </body>
 

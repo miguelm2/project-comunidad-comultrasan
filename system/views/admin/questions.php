@@ -101,10 +101,12 @@
                         <div class="col-md-12 form-group">
                            <label for="excelIncome">Pregunta</label>
                            <input type="text" class="form-control border p-1" name="pregunta" placeholder="Pregunta" maxlength="255" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                         <div class="col-md-12 form-group">
                            <label for="excelIncome">Respuesta</label>
                            <textarea name="respuesta" id="respuesta" class="form-control border p-1" placeholder="Respuesta" maxlength="800" rows="4" required></textarea>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">800</span></small>
                         </div>
                      </div>
                   </div>

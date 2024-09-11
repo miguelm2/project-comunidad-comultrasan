@@ -57,30 +57,35 @@
                         <div class="form-group">
                            <label class="form-label">Nombre</label>
                            <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre completo" maxlength="255" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-6">
                         <div class="form-group">
                            <label class="form-label">Dirección</label>
                            <input type="text" class="form-control border p-1" name="direccion" placeholder="Dirección" maxlength="255" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-6">
                         <div class="form-group">
                            <label class="form-label">Cédula</label>
                            <input type="number" class="form-control border p-1" name="cedula" placeholder="Cédula" maxlength="255" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-6">
                         <div class="form-group">
                            <label class="form-label">Celular</label>
                            <input type="tel" class="form-control border p-1" name="telefono" placeholder="Teléfono" maxlength="255" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-6">
                         <div class="form-group">
                            <label class="form-label">Correo</label>
                            <input type="email" class="form-control border p-1" name="correo" placeholder="Correo electrónico" maxlength="255" required>
+                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-6">
