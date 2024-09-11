@@ -74,12 +74,12 @@
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="cedula">Nro de documento</label>
-                              <input type="text" class="form-control" name="cedula" placeholder="Nro de documento" maxlength="255" required>
+                              <label class="label text-black" for="cedula">Documento de identidad</label>
+                              <input type="text" class="form-control" name="cedula" placeholder="Documento de identidad" maxlength="30" required>
                            </div>
                         </div>
 
-                        <div class="col-md-6 mt-2">
+                        <div class="col-md-12 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="nombre">Nombre y Apellidos</label>
                               <input type="text" class="form-control" name="nombre" placeholder="Nombres completos" maxlength="255" required>
@@ -106,13 +106,19 @@
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="departamento">Departamento</label>
-                              <input type="text" class="form-control" name="departamento" required>
+                              <input type="text" class="form-control" name="departamento" maxlength="255" placeholder="Departamento" required>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="ciudad">Ciudad</label>
-                              <input type="text" class="form-control" name="ciudad" required>
+                              <input type="text" class="form-control" name="ciudad" maxlength="255" placeholder="Ciudad" required>
+                           </div>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                           <div class="form-group">
+                              <label class="label text-black" for="direccion">Dirección</label>
+                              <input type="text" class="form-control" name="direccion" maxlength="255" placeholder="Dirección" required>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">

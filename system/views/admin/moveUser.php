@@ -54,13 +54,13 @@
                   <div class="row">
                      <div class="col-md-6">
                         <h6 class="text-success">Comunidad Actual</h6>
-                        <p><strong>Nombre: </strong><?= $moveUserCommunity->getComunidadDTO()->getNombre() ?></p>
-                        <p><strong>Líder: </strong><?= $moveUserCommunity->getUsuarioDTO()->getNombre() ?></p>
+                        <p><strong>Nombre de la comunidad: </strong><?= $moveUserCommunity->getComunidadDTO()->getNombre() ?></p>
+                        <p><strong>Nombre del Líder: </strong><?= $moveUserCommunity->getUsuarioDTO()->getNombre() ?></p>
                         <p><strong>Fecha de creación: </strong><?= $moveUserCommunity->getFecha_registro() ?></p>
                      </div>
                      <div class="col-md-6">
                         <h6 class="text-success">Datos del Miembro</h6>
-                        <p><strong>Nombre: </strong><?= $moveUserCommunity->getUsuarioDTO()->getNombre() ?></p>
+                        <p><strong>Nombre Completo: </strong><?= $moveUserCommunity->getUsuarioDTO()->getNombre() ?></p>
                         <p><strong>Correo: </strong><?= $moveUserCommunity->getUsuarioDTO()->getCorreo() ?></p>
                         <p><strong>Celular: </strong><?= $moveUserCommunity->getUsuarioDTO()->getTelefono() ?></p>
                      </div>

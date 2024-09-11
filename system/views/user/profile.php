@@ -62,7 +62,7 @@
                                     <input type="text" class="form-control border p-1" name="nombre" value="<?= $_SESSION['nombre'] ?>" maxlength="255" required>
                                  </div>
                               </div>
-                              <div class="col-12">
+                              <div class="col-6">
                                  <div class="form-group">
                                     <label class="form-label">Correo</label>
                                     <input type="email" class="form-control border p-1" name="correo" value="<?= $_SESSION['correo'] ?>" maxlength="255" required>
@@ -93,8 +93,8 @@
                               </div>
                               <div class="col-md-6">
                                  <div class="form-group">
-                                    <label for="" class="form-label">Cedula</label><br>
-                                    <input type="text" class="form-control border p-1" name="cedula" value="<?= $_SESSION['cedula'] ?>" maxlength="255" required>
+                                    <label for="cedula" class="form-label">Documento de identidad</label><br>
+                                    <input type="text" class="form-control border p-1" name="cedula" value="<?= $_SESSION['cedula'] ?>" maxlength="30" required>
                                  </div>
                               </div>
                               <div class="col-md-6">
@@ -107,6 +107,12 @@
                                  <div class="form-group">
                                     <label for="ciudad" class="form-label">Ciudad</label><br>
                                     <input type="text" class="form-control border p-1" name="ciudad" value="<?= $_SESSION['ciudad'] ?>" maxlength="255" required>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label for="direccion" class="form-label">Dirección</label><br>
+                                    <input type="text" class="form-control border p-1" name="direccion" value="<?= $_SESSION['direccion'] ?>" maxlength="255" required>
                                  </div>
                               </div>
                            </div>

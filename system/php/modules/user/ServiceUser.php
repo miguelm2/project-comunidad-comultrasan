@@ -14,27 +14,54 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Invitacion.php';
 
 class ServiceUser extends System
 {
-    public static function newUser($nombre, $correo, $telefono, $cedula, $pass, $tipo_documento, $fecha_nacimiento, $estado, $departamento, $ciudad)
-    {
+    public static function newUser(
+        $nombre,
+        $correo,
+        $telefono,
+        $cedula,
+        $pass,
+        $tipo_documento,
+        $fecha_nacimiento,
+        $estado,
+        $departamento,
+        $ciudad,
+        $direccion
+    ) {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'users.php' || basename($_SERVER['PHP_SELF']) == 'singup.php') {
-                $nombre = parent::limpiarString($nombre);
-                $correo = parent::limpiarString($correo);
-                $telefono = parent::limpiarString($telefono);
-                $cedula = parent::limpiarString($cedula);
-                $pass = parent::limpiarString($pass);
-                $pass_hash = parent::hash($pass);
-                $tipo_documento = parent::limpiarString($tipo_documento);
-                $fecha_nacimiento = parent::limpiarString($fecha_nacimiento);
-                $departamento = parent::limpiarString($departamento);
-                $ciudad = parent::limpiarString($ciudad);
-                $estado = parent::limpiarString($estado);
-                $tipo = 1;
-                $fecha_registro = date('Y-m-d H:i:s');
+                $nombre             = parent::limpiarString($nombre);
+                $correo             = parent::limpiarString($correo);
+                $telefono           = parent::limpiarString($telefono);
+                $cedula             = parent::limpiarString($cedula);
+                $pass               = parent::limpiarString($pass);
+                $pass_hash          = parent::hash($pass);
+                $tipo_documento     = parent::limpiarString($tipo_documento);
+                $fecha_nacimiento   = parent::limpiarString($fecha_nacimiento);
+                $departamento       = parent::limpiarString($departamento);
+                $ciudad             = parent::limpiarString($ciudad);
+                $estado             = parent::limpiarString($estado);
+                $direccion          = parent::limpiarString($direccion);
+                $tipo               = 1;
+                $fecha_registro     = date('Y-m-d H:i:s');
 
                 $imagen = self::newImagen();
 
-                $result = Usuario::newUser($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $tipo_documento, $fecha_nacimiento, $departamento, $ciudad, $fecha_registro);
+                $result = Usuario::newUser(
+                    $nombre,
+                    $correo,
+                    $telefono,
+                    $cedula,
+                    $pass_hash,
+                    $estado,
+                    $tipo,
+                    $imagen,
+                    $tipo_documento,
+                    $fecha_nacimiento,
+                    $departamento,
+                    $ciudad,
+                    $direccion,
+                    $fecha_registro
+                );
 
                 // Si existe una invitación, gestionar unión a la comunidad
                 if ($invitacionDTO = Invitacion::getInvitationByCedula($cedula)) {
@@ -106,8 +133,17 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setProfile($nombre, $correo, $telefono, $cedula, $tipo_documento, $fecha_nacimiento, $departamento, $ciudad)
-    {
+    public static function setProfile(
+        $nombre,
+        $correo,
+        $telefono,
+        $cedula,
+        $tipo_documento,
+        $fecha_nacimiento,
+        $departamento,
+        $ciudad,
+        $direccion
+    ) {
         try {
 
             if (basename($_SERVER['PHP_SELF']) == 'profile.php') {
@@ -119,9 +155,21 @@ class ServiceUser extends System
                 $fecha_nacimiento   = parent::limpiarString($fecha_nacimiento);
                 $departamento       = parent::limpiarString($departamento);
                 $ciudad             = parent::limpiarString($ciudad);
+                $direccion          = parent::limpiarString($direccion);
                 $id_usuario         = $_SESSION['id'];
 
-                if (Usuario::setUserProfile($id_usuario, $nombre, $correo, $telefono, $cedula, $tipo_documento, $fecha_nacimiento, $departamento, $ciudad)) {
+                if (Usuario::setUserProfile(
+                    $id_usuario,
+                    $nombre,
+                    $correo,
+                    $telefono,
+                    $cedula,
+                    $tipo_documento,
+                    $fecha_nacimiento,
+                    $departamento,
+                    $ciudad,
+                    $direccion
+                )) {
                     $usuario = Usuario::getUserById($id_usuario);
                     $_SESSION['id']                 =   $usuario->getId_usuario();
                     $_SESSION['nombre']             =   $usuario->getNombre();
@@ -132,6 +180,7 @@ class ServiceUser extends System
                     $_SESSION['fecha_nacimiento']   =   $usuario->getFecha_nacimiento();
                     $_SESSION['departamento']       =   $usuario->getDepartamento();
                     $_SESSION['ciudad']             =   $usuario->getCiudad();
+                    $_SESSION['direccion']          =   $usuario->getDireccion();
                     $_SESSION['fecha_registro']     =   $usuario->getFecha_registro();
                     $historialDTO = HistorialInformacion::getHistoryInformationByUser($_SESSION['id']);
                     $fecha_registro = date('Y-m-d H:i:s');
@@ -174,22 +223,44 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setUser($id_usuario, $nombre, $correo, $telefono, $cedula, $estado, $tipo_documento, $fecha_nacimiento, $departamento, $ciudad)
-    {
+    public static function setUser(
+        $id_usuario,
+        $nombre,
+        $correo,
+        $telefono,
+        $cedula,
+        $estado,
+        $tipo_documento,
+        $fecha_nacimiento,
+        $departamento,
+        $ciudad,
+        $direccion
+    ) {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'user.php') {
-                $id_usuario = parent::limpiarString($id_usuario);
-                $nombre = parent::limpiarString($nombre);
-                $correo = parent::limpiarString($correo);
-                $telefono = parent::limpiarString($telefono);
-                $cedula = parent::limpiarString($cedula);
-                $estado = parent::limpiarString($estado);
-                $tipo_documento = parent::limpiarString($tipo_documento);
-                $fecha_nacimiento = parent::limpiarString($fecha_nacimiento);
-                $departamento = parent::limpiarString($departamento);
-                $ciudad = parent::limpiarString($ciudad);
+                $nombre             = parent::limpiarString($nombre);
+                $correo             = parent::limpiarString($correo);
+                $telefono           = parent::limpiarString($telefono);
+                $cedula             = parent::limpiarString($cedula);
+                $tipo_documento     = parent::limpiarString($tipo_documento);
+                $fecha_nacimiento   = parent::limpiarString($fecha_nacimiento);
+                $departamento       = parent::limpiarString($departamento);
+                $ciudad             = parent::limpiarString($ciudad);
+                $direccion          = parent::limpiarString($direccion);
 
-                $result = Usuario::setUser($id_usuario, $nombre, $correo, $telefono, $cedula, $estado, $tipo_documento, $fecha_nacimiento, $departamento, $ciudad);
+                $result = Usuario::setUser(
+                    $id_usuario,
+                    $nombre,
+                    $correo,
+                    $telefono,
+                    $cedula,
+                    $estado,
+                    $tipo_documento,
+                    $fecha_nacimiento,
+                    $departamento,
+                    $ciudad,
+                    $direccion
+                );
 
                 if ($result) {
                     return  '<script>swal("' . Constants::$USER_UPDATE . '", "", "success");</script>';
@@ -353,6 +424,7 @@ class ServiceUser extends System
                     $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
                     $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
                     $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getDireccion() . '</td>';
                     $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
                     $tableHtml .= '<td>' . $valor->getFecha_nacimiento() . '</td>';
                     $tableHtml .= '<td>' . $referido . '</td>';

@@ -556,13 +556,19 @@ class Elements
     }
     public static function getCardBodyCommunityUser($codigo, $nombre, $lider, $fecha, $fecha_union, $btnCambiar)
     {
-        return '<div class="row">
+        return '    <div class="col-md-3">
+                    ' . $btnCambiar . '
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
                     <div class="col-md-6">
-                        <h6><i class="material-icons">vpn_key</i> Código del grupo: </h6>
+                        <h6><i class="material-icons">vpn_key</i> Código de la comunidad: </h6>
                         <p>' . $codigo . '</p>
-                        <h6><i class="material-icons">diversity_3</i> Nombre: </h6>
+                        <h6><i class="material-icons">diversity_3</i> Nombre de la comunidad: </h6>
                         <p>' . $nombre . '</p>
-                        <h6><i class="material-icons">supervisor_account</i> Lider: </h6>
+                        <h6><i class="material-icons">supervisor_account</i> Nombre del Lider: </h6>
                         <p>' . $lider . '</p>
                     </div>
                     <div class="col-md-6">
@@ -570,8 +576,6 @@ class Elements
                         <p>' . $fecha . '</p>
                         <h6><i class="material-icons">event</i> Fecha de unión: </h6>
                         <p>' . $fecha_union . '</p>
-                        <h6>Cambiar de comunidad</h6>
-                        <p>'. $btnCambiar . '</p>
                     </div>
                 </div>';
     }

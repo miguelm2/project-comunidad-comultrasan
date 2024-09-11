@@ -15,6 +15,7 @@ class UsuarioDTO
     protected $fecha_nacimiento;
     protected $departamento;
     protected $ciudad;
+    protected $direccion;
     protected $fecha_registro;
 
     public function __construct() {}
@@ -282,6 +283,26 @@ class UsuarioDTO
     public function setCiudad($ciudad)
     {
         $this->ciudad = $ciudad;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of direccion
+     */ 
+    public function getDireccion()
+    {
+        return $this->direccion;
+    }
+
+    /**
+     * Set the value of direccion
+     *
+     * @return  self
+     */ 
+    public function setDireccion($direccion)
+    {
+        $this->direccion = $direccion;
 
         return $this;
     }

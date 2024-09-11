@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-2 mt-4">
                <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                  <a type="button" class="btn btn-secondary" href="questions"><i class="material-icons me-2">keyboard_return</i>atrás</a>
+                  <a type="button" class="btn btn-secondary" href="communities"><i class="material-icons me-2">keyboard_return</i>atrás</a>
                </div>
             </div>
             <div class="col-md-12 mt-2 pb-4">

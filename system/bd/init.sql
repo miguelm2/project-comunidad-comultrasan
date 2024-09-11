@@ -401,7 +401,8 @@ ALTER TABLE
   Usuario
 ADD
   departamento VARCHAR(255) NULL,
-  ciudad VARCHAR(255) NULL;
+  ciudad VARCHAR(255) NULL,
+  direccion VARCHAR(255) NULL;
 
 CREATE TABLE Actividad (
   id_actividad INT IDENTITY(1, 1) PRIMARY KEY,

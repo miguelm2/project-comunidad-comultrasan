@@ -13,7 +13,8 @@ if (isset($_POST['setProfileUser'])) {
         $_POST['tipo_documento'],
         $_POST['fecha_nacimiento'],
         $_POST['departamento'],
-        $_POST['ciudad']
+        $_POST['ciudad'],
+        $_POST['direccion']
     );
 }
 
@@ -32,7 +33,8 @@ if (isset($_POST['newUser'])) {
         $_POST['fecha_nacimiento'],
         1,
         $_POST['departamento'],
-        $_POST['ciudad']
+        $_POST['ciudad'],
+        $_POST['direccion']
     );
 }
 
@@ -47,7 +49,8 @@ if (isset($_POST['newUserUnete'])) {
         $_POST['fecha_nacimiento'],
         2,
         $_POST['departamento'],
-        $_POST['ciudad']
+        $_POST['ciudad'],
+        $_POST['direccion']
     );
 }
 
@@ -62,7 +65,8 @@ if (isset($_POST['setUser'])) {
         $_POST['tipo_documento'],
         $_POST['fecha_nacimiento'],
         $_POST['departamento'],
-        $_POST['ciudad']
+        $_POST['ciudad'],
+        $_POST['direccion']
     );
 }
 

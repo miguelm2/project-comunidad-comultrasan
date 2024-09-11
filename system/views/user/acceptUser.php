@@ -36,7 +36,7 @@
       <div class="card mt-2">
          <div class="row m-0">
             <div class="col-md-9 mt-4 ms-4">
-               <h4 class="text-success">Aceptar Usuario</h4>
+               <h4 class="text-success">Aceptar Miembro</h4>
             </div>
             <div class="col-md-2 mt-4">
                <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
@@ -50,13 +50,13 @@
                   <div class="row">
                      <div class="col-md-6">
                         <h5 class="text-success">Datos de la comunidad</h5>
-                        <p><strong>Comunidad:</strong> <?= $usuarioComunidadDTO->getComunidadDTO()->getNombre() ?></p>
-                        <p><strong>Líder: </strong><?= $usuarioComunidadDTO->getComunidadDTO()->getUsuarioDTO()->getNombre() ?></p>
+                        <p><strong>Nombre de la Comunidad:</strong> <?= $usuarioComunidadDTO->getComunidadDTO()->getNombre() ?></p>
+                        <p><strong>Nombre del Líder: </strong><?= $usuarioComunidadDTO->getComunidadDTO()->getUsuarioDTO()->getNombre() ?></p>
                         <p><strong>Fecha de creación: </strong><?= $usuarioComunidadDTO->getComunidadDTO()->getFecha_registro() ?></p>
                      </div>
                      <div class="col-md-6">
-                        <h5 class="text-success">Datos del Usuario</h5>
-                        <p><strong>Nombre: </strong><?= $usuarioComunidadDTO->getUsuarioDTO()->getNombre() ?></p>
+                        <h5 class="text-success">Datos del Miembro</h5>
+                        <p><strong>Nombre completo: </strong><?= $usuarioComunidadDTO->getUsuarioDTO()->getNombre() ?></p>
                         <p><strong>Correo: </strong><?= $usuarioComunidadDTO->getUsuarioDTO()->getCorreo() ?></p>
                         <p><strong>Celular: </strong><?= $usuarioComunidadDTO->getUsuarioDTO()->getTelefono() ?></p>
                      </div>
