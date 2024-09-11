@@ -195,22 +195,35 @@ class ServiceUserCommunity extends System
     {
         try {
             $id_usuario = parent::limpiarString($id_usuario);
-            $usuarioComunidadDTO = UsuarioComunidad::getUserCommunityByUser($id_usuario);
+            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
 
-            if ($usuarioComunidadDTO) {
-                return Elements::getCardBodyCommunityUser(
-                    $usuarioComunidadDTO->getComunidadDTO()->getId_comunidad(),
-                    $usuarioComunidadDTO->getComunidadDTO()->getNombre(),
-                    $usuarioComunidadDTO->getComunidadDTO()->getUsuarioDTO()->getNombre(),
-                    $usuarioComunidadDTO->getComunidadDTO()->getFecha_registro(),
-                    $usuarioComunidadDTO->getFecha_registro(),
-                    Elements::crearBotonMover('moveUser', $usuarioComunidadDTO->getId_usuario_comunidad())
-                );
-            } else {
+            if (!$comunidadDTO) {
                 return '<div class="text-center">
                             <h4>Aún no pertenece a una comunidad</h4>
                         </div>';
             }
+
+            // Verificar si es el líder de la comunidad
+            $esLider = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $id_usuario;
+            $fechaRegistro = $comunidadDTO->getFecha_registro();
+            $btnMover = '';
+
+            if (!$esLider) {
+                $usuarioComunidadDTO = UsuarioComunidad::getUserCommunityByUser($id_usuario);
+                $fechaRegistro = $usuarioComunidadDTO->getFecha_registro();
+                if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
+                    $btnMover = Elements::crearBotonMover('moveUser', $usuarioComunidadDTO->getId_usuario_comunidad());
+                }
+            }
+
+            return Elements::getCardBodyCommunityUser(
+                $comunidadDTO->getId_comunidad(),
+                $comunidadDTO->getNombre(),
+                $comunidadDTO->getUsuarioDTO()->getNombre(),
+                $comunidadDTO->getFecha_registro(),
+                $fechaRegistro,
+                $btnMover
+            );
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

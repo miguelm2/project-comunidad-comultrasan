@@ -77,6 +77,7 @@
                         <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Documento de Identidad</th>
                         <th class="text-uppercase font-weight-bolder">Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">Dirección</th>
                         <th class="text-uppercase font-weight-bolder">Correo</th>
                         <th class="text-uppercase font-weight-bolder">Fecha nacimiento</th>
                         <th class="text-uppercase font-weight-bolder">Referido</th>
@@ -100,6 +101,7 @@
                         <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Documento de Identidad</th>
                         <th class="text-uppercase font-weight-bolder">Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">Dirección</th>
                         <th class="text-uppercase font-weight-bolder">Correo</th>
                         <th class="text-uppercase font-weight-bolder">Fecha nacimiento</th>
                         <th class="text-uppercase font-weight-bolder">Referido</th>
@@ -160,8 +162,8 @@
                         </div>
                         <div class="col-6">
                            <div class="form-group">
-                              <label class="form-label">Cédula</label>
-                              <input type="number" class="form-control border p-1" name="cedula" placeholder="Nro. de cédula" required>
+                              <label class="form-label">Documento de identidad</label>
+                              <input type="text" class="form-control border p-1" name="cedula" placeholder="Documento de identidad" maxlength="30" required>
                            </div>
                         </div>
                         <div class="col-6">
@@ -176,7 +178,25 @@
                               <input type="date" class="form-control border p-1" name="fecha_nacimiento" required>
                            </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Departamento</label>
+                              <input type="text" class="form-control border p-1" name="departamento"  maxlength="255" placeholder="Departamento" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Ciudad</label>
+                              <input type="text" class="form-control border p-1" name="ciudad"  maxlength="255" placeholder="Ciudad" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
+                           <div class="form-group">
+                              <label class="form-label">Dirección</label>
+                              <input type="text" class="form-control border p-1" name="direccion"  maxlength="255" placeholder="Dirección" required>
+                           </div>
+                        </div>
+                        <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Contraseña</label>
                               <input type="password" class="form-control border p-1" name="pass" placeholder="Contraseña" maxlength="30" required>

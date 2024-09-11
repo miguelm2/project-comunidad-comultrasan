@@ -73,17 +73,21 @@
                            <h6>Correo</h6>
                            <p><?= $user->getCorreo() ?></p>
                         </div>
-                        <div class="col-4">
-                           <h6>Estado</h6>
-                           <p><?= $user->getEstado()[1] ?></p>
-                        </div>
-                        <div class="col-4">
+                        <div class="col-6">
                            <h6>Departamento</h6>
                            <p><?= $user->getDepartamento() ?></p>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                            <h6>Ciudad</h6>
                            <p><?= $user->getCiudad() ?></p>
+                        </div>
+                        <div class="col-6">
+                           <h6>Estado</h6>
+                           <p><?= $user->getEstado()[1] ?></p>
+                        </div>
+                        <div class="col-6">
+                           <h6>Dirección</h6>
+                           <p><?= $user->getDireccion() ?></p>
                         </div>
                      </div>
                   </div>

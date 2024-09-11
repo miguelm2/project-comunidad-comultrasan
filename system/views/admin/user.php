@@ -80,7 +80,7 @@
                            <div class="col-6">
                               <div class="form-group">
                                  <label class="form-label">Cédula</label>
-                                 <input type="number" class="form-control border p-1" value="<?= $user->getCedula() ?>" name="cedula" maxlength="255" required>
+                                 <input type="number" class="form-control border p-1" value="<?= $user->getCedula() ?>" name="cedula" maxlength="30" required>
                               </div>
                            </div>
                            <div class="col-6">
@@ -114,6 +114,12 @@
                               </div>
                            </div>
                            <div class="col-6">
+                              <div class="form-group">
+                                 <label class="form-label">Dirección</label>
+                                 <input type="text" class="form-control border p-1" value="<?= $user->getDireccion() ?>" name="direccion" maxlength="255" required>
+                              </div>
+                           </div>
+                           <div class="col-12">
                               <div class="form-group">
                                  <label for="estado">Estado</label>
                                  <select name="estado" id="estado" class="form-select border p-1">
@@ -155,11 +161,12 @@
          </div>
          <div class="card mt-3">
             <div class="card-head mt-4">
-               <h5 class="text-success">
-                  Comunidad
-               </h5>
-            </div>
-            <div class="card-body">
+               <div class="row">
+                  <div class="col-md-9">
+                     <h5 class="text-success">
+                        Comunidad
+                     </h5>
+                  </div>
                <?= $infoCommunityAdmin ?>
             </div>
          </div>

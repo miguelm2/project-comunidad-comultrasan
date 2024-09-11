@@ -16,6 +16,7 @@ class Usuario extends System
         $fecha_nacimiento,
         $departamento,
         $ciudad,
+        $direccion,
         $fecha_registro
     ) {
         $validarUser = self::validateUser($cedula, $correo, null);
@@ -25,9 +26,9 @@ class Usuario extends System
         if (!$validarAdmin && !$validarUser && !$valideManager) {
             $dbh             = parent::Conexion();
             $stmt = $dbh->prepare("INSERT INTO Usuario (nombre, correo, telefono, cedula, pass, estado, tipo, imagen, tipo_documento, 
-                                                        fecha_nacimiento, departamento, ciudad, fecha_registro) 
+                                                        fecha_nacimiento, departamento, ciudad, direccion, fecha_registro) 
                                 VALUES (:nombre, :correo, :telefono, :cedula, :pass, :estado, :tipo, :imagen, 
-                                        :tipo_documento, :fecha_nacimiento, :departamento, :ciudad, :fecha_registro)");
+                                        :tipo_documento, :fecha_nacimiento, :departamento, :ciudad, :direccion, :fecha_registro)");
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':correo', $correo);
             $stmt->bindParam(':telefono', $telefono);
@@ -40,14 +41,26 @@ class Usuario extends System
             $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
             $stmt->bindParam(':departamento', $departamento);
             $stmt->bindParam(':ciudad', $ciudad);
+            $stmt->bindParam(':direccion', $direccion);
             $stmt->bindParam(':fecha_registro', $fecha_registro);
             return  $stmt->execute();
         } else {
             return false;
         }
     }
-    public static function setUser($id_usuario, $nombre, $correo, $telefono, $cedula, $estado, $tipo_documento, $fecha_nacimiento, $departamento, $ciudad)
-    {
+    public static function setUser(
+        $id_usuario,
+        $nombre,
+        $correo,
+        $telefono,
+        $cedula,
+        $estado,
+        $tipo_documento,
+        $fecha_nacimiento,
+        $departamento,
+        $ciudad,
+        $direccion
+    ) {
         $validarUser = self::validateUser($cedula, $correo, $id_usuario);
         $validarAdmin = Administrador::validateAdministrator($cedula, $correo, null);
         $valideManager = Gestor::validateManager($cedula, $correo, null);
@@ -57,7 +70,7 @@ class Usuario extends System
             $stmt = $dbh->prepare("UPDATE Usuario 
                                 SET nombre = :nombre, correo = :correo, telefono = :telefono, cedula = :cedula, 
                                 estado = :estado, tipo_documento = :tipo_documento, fecha_nacimiento = :fecha_nacimiento,
-                                departamento = :departamento, ciudad = :ciudad
+                                departamento = :departamento, ciudad = :ciudad, direccion = :direccion
                                 WHERE id_usuario = :id_usuario ");
             $stmt->bindParam(':id_usuario', $id_usuario);
             $stmt->bindParam(':nombre', $nombre);
@@ -69,6 +82,7 @@ class Usuario extends System
             $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
             $stmt->bindParam(':departamento', $departamento);
             $stmt->bindParam(':ciudad', $ciudad);
+            $stmt->bindParam(':direccion', $direccion);
             return  $stmt->execute();
         } else {
             return false;
@@ -138,8 +152,18 @@ class Usuario extends System
     }
 
 
-    public static function setUserProfile($id_usuario, $nombre, $correo, $telefono, $cedula, $tipo_documento, $fecha_nacimiento, $departamento, $ciudad)
-    {
+    public static function setUserProfile(
+        $id_usuario,
+        $nombre,
+        $correo,
+        $telefono,
+        $cedula,
+        $tipo_documento,
+        $fecha_nacimiento,
+        $departamento,
+        $ciudad,
+        $direccion
+    ) {
         $validarUser = self::validateUser($cedula, $correo, $id_usuario);
         $validarAdmin = Administrador::validateAdministrator($cedula, $correo, null);
         $valideManager = Gestor::validateManager($cedula, $correo, null);
@@ -149,7 +173,7 @@ class Usuario extends System
             $stmt = $dbh->prepare("UPDATE Usuario 
                             SET nombre = :nombre, correo = :correo, telefono = :telefono, cedula = :cedula,
                                 tipo_documento = :tipo_documento, fecha_nacimiento = :fecha_nacimiento, 
-                                departamento = :departamento, ciudad = :ciudad
+                                departamento = :departamento, ciudad = :ciudad, direccion = :direccion
                             WHERE id_usuario = :id_usuario ");
             $stmt->bindParam(':id_usuario', $id_usuario);
             $stmt->bindParam(':nombre', $nombre);
@@ -160,6 +184,7 @@ class Usuario extends System
             $stmt->bindParam(':fecha_nacimiento', $fecha_nacimiento);
             $stmt->bindParam(':departamento', $departamento);
             $stmt->bindParam(':ciudad', $ciudad);
+            $stmt->bindParam(':direccion', $direccion);
             return  $stmt->execute();
         } else {
             return false;
@@ -294,7 +319,8 @@ class Usuario extends System
                                 FROM UsuarioComunidad cm,
                                     Usuario us
                                 WHERE us.id_usuario = cm.id_usuario
-                                AND cm.id_comunidad = :id_comunidad");
+                                AND cm.id_comunidad = :id_comunidad
+                                AND cm.estado = 2");
         $stmt->bindParam(':id_comunidad', $id_comunidad);
         $stmt->execute();
         $response = $stmt->fetch();

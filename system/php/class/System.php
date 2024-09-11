@@ -208,9 +208,10 @@ abstract  class System
                 $_SESSION['fecha_nacimiento']   =   $usuario->getFecha_nacimiento();
                 $_SESSION['departamento']       =   $usuario->getDepartamento();
                 $_SESSION['ciudad']             =   $usuario->getCiudad();
+                $_SESSION['direccion']          =   $usuario->getDireccion();
                 $_SESSION['fecha_registro']     =   $usuario->getFecha_registro();
-                $_SESSION['usuario']            = "Usuario";
-                $_SESSION['show_modal']         = true;
+                $_SESSION['usuario']            =   "Usuario";
+                $_SESSION['show_modal']         =   true;
 
                 header("Location:/system/views/user/index");
             }

@@ -72,6 +72,7 @@
                         <th class="text-uppercase font-weight-bolder">Nombre</th>
                         <th class="text-uppercase font-weight-bolder">Documento de Identidad</th>
                         <th class="text-uppercase font-weight-bolder">Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">Dirección</th>
                         <th class="text-uppercase font-weight-bolder">Correo</th>
                         <th class="text-uppercase font-weight-bolder">Fecha nacimiento</th>
                         <th class="text-uppercase font-weight-bolder">Referido</th>
@@ -95,6 +96,7 @@
                         <th class="text-uppercase font-weight-bolder">Nombre</th>
                         <th class="text-uppercase font-weight-bolder">Documento de Identidad</th>
                         <th class="text-uppercase font-weight-bolder">Teléfono</th>
+                        <th class="text-uppercase font-weight-bolder">Dirección</th>
                         <th class="text-uppercase font-weight-bolder">Correo</th>
                         <th class="text-uppercase font-weight-bolder">Fecha nacimiento</th>
                         <th class="text-uppercase font-weight-bolder">Referido</th>

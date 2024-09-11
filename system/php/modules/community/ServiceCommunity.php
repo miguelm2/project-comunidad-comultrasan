@@ -110,10 +110,12 @@ class ServiceCommunity extends System
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
                     $style = self::getColorByEstate($valor->getEstado()[0]);
+                    $count_user = Usuario::countUsersInCommunity($valor->getId_comunidad());
                     $tableHtml .= '<tr>';
                     $tableHtml .= '<td>' . $valor->getId_comunidad() . '</td>';
                     $tableHtml .= '<td>' . $valor->getNombre() . '</td>';
                     $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $count_user . '</td>';
                     $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
                     $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
                     if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {

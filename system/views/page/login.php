@@ -44,10 +44,10 @@
          </nav>
          <div class="row justify-content-center">
             <div class="col-md-7 col-lg-7 p-2">
-               <img src="/assets/image/login.jpg" alt="Login" class="img-fluid">
+               <img src="/assets/image/login.jpg" alt="Login" class="img-fluid rounded-3">
             </div>
             <div class="col-md-5 col-lg-5 p-2">
-               <div class="wrap d-md-flex ">
+               <div class="wrap d-md-flex h-100">
                   <div class="login-wrap p-2 p-md-2 bg-secondary rounded-3">
                      <form method="post" class="signin-form">
                         <div class="text-center section-header pb-1 text-black">
