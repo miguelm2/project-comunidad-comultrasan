@@ -16,4 +16,7 @@ class Path
     static $DIR_IMAGE_EVENT_CALE = '/system/img/eventCalendar/';
     static $DIR_EXCEL            = '/system/doc/excel/';
     static $DIR_IMAGE_SECTION    = '/system/img/section/';
+    static $DIR_LOG_ADMIN        = '/system/php/logs/log_administrador.log';
+    static $DIR_LOG_USER         = '/system/php/logs/log_usuario.log';
+    static $DIR_LOG_MANAGER      = '/system/php/logs/log_gestor.log';
 }

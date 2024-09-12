@@ -81,4 +81,13 @@ class Descuento extends System
         $result = $stmt->fetch();
         return $result['contador'];
     }
+    public static function getLastDiscount()
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * FROM Descuento 
+                            ORDER BY id_descuento DESC");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'DescuentoDTO');
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }

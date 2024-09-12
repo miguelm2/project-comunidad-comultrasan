@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Informacion.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/reports/ReporteInformacion.php';
 
 class ServiceInformation extends System
@@ -20,7 +21,11 @@ class ServiceInformation extends System
         $color      = parent::limpiarString($color);
 
         $result = Informacion::setInformacion($nombre, $nit, $direccion, $ciudad, $departamento, $correo, $telefono, $whatsapp, $facebook, $instagram, $color);
-        if ($result) return  '<script>swal("' . Constants::$INFORMATION_NEW . '", "", "success");</script>';
+        if ($result) {
+            $text = "UPDATE - INFORMACION ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+            Log::setLog($text);
+            return  '<script>swal("' . Constants::$INFORMATION_NEW . '", "", "success");</script>';
+        }
     }
 
     public static function setImageInformation()
@@ -48,7 +53,11 @@ class ServiceInformation extends System
         }
 
         $result = Informacion::setImagenInformacion($imagen);
-        if ($result) return  '<script>swal("' . Constants::$IMAGE_UPDATE . '", "", "success");</script>';
+        if ($result) {
+            $text = "UPDATE - INFORMACION - IMAGEN ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+            Log::setLog($text);
+            return  '<script>swal("' . Constants::$IMAGE_UPDATE . '", "", "success");</script>';
+        }
     }
 
     public static function getInformation()

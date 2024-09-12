@@ -67,6 +67,7 @@
                      <th class="text-uppercase font-weight-bolder">ID</th>
                      <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
                      <th class="text-uppercase font-weight-bolder">Nombre del Líder</th>
+                     <th class="text-uppercase font-weight-bolder">Cantidad de miembros</th>
                      <th class="text-uppercase font-weight-bolder">Estado</th>
                      <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
                      <th class="text-uppercase font-weight-bolder">Opciones</th>
@@ -77,6 +78,7 @@
                      <th class="text-uppercase font-weight-bolder">ID</th>
                      <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
                      <th class="text-uppercase font-weight-bolder">Nombre del Líder</th>
+                     <th class="text-uppercase font-weight-bolder">Cantidad de miembros</th>
                      <th class="text-uppercase font-weight-bolder">Estado</th>
                      <th class="text-uppercase font-weight-bolder">Fecha Registro</th>
                      <th class="text-uppercase font-weight-bolder">Opciones</th>

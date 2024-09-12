@@ -56,7 +56,7 @@ class PreguntaEncuesta extends System
         $modelResponse = $stmt->fetchAll();
         $list = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $preguntaEncuestaDTO = new PreguntaEncuestaDTO();
 
             $preguntaEncuestaDTO->setId_pregunta($result['id_pregunta']);
@@ -81,7 +81,7 @@ class PreguntaEncuesta extends System
         $modelResponse = $stmt->fetchAll();
         $list = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $preguntaEncuestaDTO = new PreguntaEncuestaDTO();
 
             $preguntaEncuestaDTO->setId_pregunta($result['id_pregunta']);
@@ -113,7 +113,7 @@ class PreguntaEncuesta extends System
         $modelResponse = $stmt->fetchAll();
         $list = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $preguntaEncuestaDTO = new PreguntaEncuestaDTO();
 
             $preguntaEncuestaDTO->setId_pregunta($result['id_pregunta']);
@@ -128,5 +128,26 @@ class PreguntaEncuesta extends System
             $con++;
         }
         return $list;
+    }
+    public static function getLastSurveyQuestion()
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * FROM PreguntaEncuesta 
+                            ORDER BY id_pregunta DESC");
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if ($result) {
+            $preguntaEncuestaDTO = new PreguntaEncuestaDTO();
+
+            $preguntaEncuestaDTO->setId_pregunta($result['id_pregunta']);
+            $preguntaEncuestaDTO->setEncuestaDTO($result['id_encuesta']);
+            $preguntaEncuestaDTO->setPregunta($result['pregunta']);
+            $preguntaEncuestaDTO->setEstado($result['estado']);
+            $preguntaEncuestaDTO->setTipo_pregunta($result['tipo_pregunta']);
+            $preguntaEncuestaDTO->setFecha_registro($result['fecha_registro']);
+
+            return $preguntaEncuestaDTO;
+        }
+        return null;
     }
 }

@@ -88,4 +88,14 @@ class CalendarioEvento extends System
         $stmt->bindParam(':id_evento', $id_evento);
         return  $stmt->execute();
     }
+    
+    public static function getLastEventCalendar()
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * FROM CalendarioEvento 
+                            ORDER BY id_evento DESC");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'CalendarioEventoDTO');
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }

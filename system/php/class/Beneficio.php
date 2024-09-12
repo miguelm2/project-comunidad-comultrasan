@@ -88,4 +88,13 @@ class Beneficio extends System
         $stmt->execute();
         return  $stmt->fetchAll();
     }
+    public static function getLastBenefit()
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * FROM Beneficio 
+                            ORDER BY id_beneficio DESC");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'BeneficioDTO');
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }

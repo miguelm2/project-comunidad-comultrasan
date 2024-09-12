@@ -3,6 +3,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Punto.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Comunidad.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/UsuarioComunidad.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Administrador.php';
 
 class ServicePoint extends System
 {
@@ -19,9 +21,13 @@ class ServicePoint extends System
 
             if ($result) {
                 $usuarioDTO = Usuario::getUserById($id_usuario);
+                $lastPoint = Punto::getLastPointByUser($id_usuario);
+                $administradorDTO = Administrador::getAdministradorById($id_administrador);
+                $text = "CREATE - PUNTOS - " . $lastPoint->getId_punto() . " - " . $lastPoint->getDescripcion() . " ----> " . $id_administrador . " - " . $administradorDTO->getNombre();
+                Log::setLog($text);
                 $correo = $usuarioDTO->getCorreo();
                 $asunto = 'Notificación de nuevos puntos acreditados en tu cuenta';
-                $mensaje = 'Estimado/a '. $usuarioDTO->getNombre() .',
+                $mensaje = 'Estimado/a ' . $usuarioDTO->getNombre() . ',
                             Nos complace informarte que hemos acreditado nuevos puntos en tu 
                             cuenta como parte de tu participación en nuestras actividades y comunidad. 
                             Estos puntos ya están disponibles y podrás visualizarlos ingresando a tu perfil en nuestra plataforma.<br><br>
@@ -70,10 +76,15 @@ class ServicePoint extends System
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'point.php') {
-                $id_puntos_pagina = parent::limpiarString($id_punto);
+                $id_punto = parent::limpiarString($id_punto);
+                $puntoDTO = Punto::getPoint($id_punto);
 
-                $result = Punto::deletePoint($id_puntos_pagina);
-                if ($result) header('Location:Points?delete');
+                $result = Punto::deletePoint($id_punto);
+                if ($result) {
+                    $text = "DELETE - PUNTOS - " . $id_punto . " - " . $puntoDTO->getDescripcion() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
+                    header('Location:Points?delete');
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -178,6 +189,15 @@ class ServicePoint extends System
                 $fileSize  = $_FILES['csvPoint']['size'];
                 $dir_csv   = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_EXCEL;
 
+                $allowedExtension = 'csv';
+                $fileName = $_FILES['file']['name'];
+                $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
+
+                if ($fileExtension !== $allowedExtension) {
+                    return Elements::crearMensajeAlerta("Por favor, sube solo archivos con el formato CSV", "error");
+                }
+
+
                 if ($fileSize > 100 && $filename != '') {
                     if (!is_dir($dir_csv)) mkdir($dir_csv, 0777, true);
 
@@ -185,12 +205,9 @@ class ServicePoint extends System
                     $documento = 'csv_points_' . rand() . '.' . end($trozo1);
                     $target_path = $dir_csv . $documento;
 
-                    // Mover el archivo cargado
                     if (move_uploaded_file($source, $target_path)) {
-                        // Procesar el archivo CSV
                         $result = Excel::readCSVIncomes($target_path, $fecha_registro);
 
-                        // Verificar si el archivo existe antes de eliminarlo
                         if (file_exists($target_path)) {
                             unlink($target_path);
                         }
@@ -234,7 +251,11 @@ class ServicePoint extends System
         try {
             $nombre       = parent::limpiarString($nombre);
             $id_comunidad = parent::limpiarString($id_comunidad);
-            $sql = $sql1= '';
+            $cedula       = parent::limpiarString($cedula);
+            $fecha_inicio = parent::limpiarString($fecha_inicio);
+            $fecha_fin    = parent::limpiarString($fecha_fin);
+
+            $sql = $sql1 = '';
             if ($cedula != '') {
                 $sql .= sprintf(" AND id_usuario IN (SELECT id_usuario FROM Usuario WHERE cedula LIKE '%%%s%%')", $cedula);
             }
@@ -248,6 +269,7 @@ class ServicePoint extends System
                 $sql1 .= sprintf(" AND CONVERT(DATE, fecha_registro) <= '%s'", $fecha_fin);
             }
             $comunidadDTO = Comunidad::getCommunityFilter($id_comunidad, $sql);
+
             $tableHtml = [];
             if ($comunidadDTO)
                 $tableHtml = self::getPointsTableRowsJSON($comunidadDTO->getUsuarioDTO()->getId_usuario(), $comunidadDTO->getNombre(), $sql1);
@@ -277,6 +299,7 @@ class ServicePoint extends System
         foreach ($modelResponse as $valor) {
             $tableRows .= '<tr>';
             $tableRows .= '<td>' . $nombre . '</td>';
+            $tableRows .= '<td>' . $valor->getUsuarioDTO()->getCedula() . '</td>';
             $tableRows .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
             $tableRows .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
             $tableRows .= '<td class="text-wrap">' . self::getDateInWords($valor->getFecha_registro()) . '</td>';
@@ -299,20 +322,22 @@ class ServicePoint extends System
             if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
                 $tableRows[] = [
                     'Comunidad' => $nombre,
+                    'Documenro' => $valor->getUsuarioDTO()->getCedula(),
                     'Asociado' => $valor->getUsuarioDTO()->getNombre(),
                     'Actividad' => $valor->getDescripcion(),
-                    'Asignacion / Vencimiento' => self::getDateInWords($valor->getFecha_registro()),
-                    'Estatus Actividad' => 'Completada',
+                    'AsignacionVencimiento' => self::getDateInWords($valor->getFecha_registro()),
+                    'EstatusActividad' => 'Completada',
                     'Corazones' => $valor->getPuntos(),
                     'Opciones' => Elements::crearBotonVer("point", $valor->getId_punto())
                 ];
             } else {
                 $tableRows[] = [
                     'Comunidad' => $nombre,
+                    'Documenro' => $valor->getUsuarioDTO()->getCedula(),
                     'Asociado' => $valor->getUsuarioDTO()->getNombre(),
                     'Actividad' => $valor->getDescripcion(),
-                    'Asignación / Vencimiento' => self::getDateInWords($valor->getFecha_registro()),
-                    'Estatus Actividad' => 'Completada',
+                    'AsignacionVencimiento' => self::getDateInWords($valor->getFecha_registro()),
+                    'EstatusActividad' => 'Completada',
                     'Corazones' => $valor->getPuntos()
                 ];
             }

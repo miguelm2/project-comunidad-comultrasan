@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
 
 class ServiceAdmin extends System
 {
@@ -40,14 +41,19 @@ class ServiceAdmin extends System
 
             $result = Administrador::getAdministrador($cedula, $pass_hash);
 
-            if ($result) {
-                $id_administrador = $_SESSION['id'];
-                $pass_hash = parent::hash($newPass);
-                $result = Administrador::setAdministradorPass($id_administrador, $pass_hash);
-                if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
-            } else {
+            if (!$result) {
                 return  '<script>swal("' . Constants::$CURRENT_PASS . '", "", "error");</script>';
             }
+            if ($newPass !== $confirmPass) {
+                return Elements::crearMensajeAlerta("Las contraseñas no coinciden, intente de nuevo", "warning");
+            }
+            if (!self::valideSecurityPassword($newPass)) {
+                return Elements::crearMensajeAlerta("La contraseña debe tener mínimo 8 caracteres, incluyendo 1 mayúscula, 1 número y 1 carácter especial", "warning");
+            }
+            $id_administrador = $_SESSION['id'];
+            $pass_hash = parent::hash($newPass);
+            $result = Administrador::setAdministradorPass($id_administrador, $pass_hash);
+            if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -70,6 +76,8 @@ class ServiceAdmin extends System
             $result = Administrador::newAdministrator($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $fecha_registro);
             if ($result) {
                 $lastAdmin = Administrador::lastAdministrator();
+                $text = "CREATE - ADMINISTRADOR - " . $lastAdmin->getId_administrador() . " - " . $lastAdmin->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                Log::setLog($text);
                 header('Location:administrator?administrator=' . $lastAdmin->getId_administrador() . '&new');
             } else {
                 return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
@@ -157,12 +165,29 @@ class ServiceAdmin extends System
             $pass = parent::limpiarString($pass);
             $confirmPass = parent::limpiarString($confirmPass);
 
-            $pass_hash = parent::hash($pass);
-            $result = Administrador::setAdministradorPass($id_administrador, $pass_hash);
-            if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
+            if ($pass == $confirmPass) {
+                if (!self::valideSecurityPassword($pass)) {
+                    return Elements::crearMensajeAlerta("La contraseña debe tener mínimo 8 caracteres, incluyendo 1 mayúscula, 1 número y 1 carácter especial", "warning");
+                }
+                $pass_hash = parent::hash($pass);
+                $result = Administrador::setAdministradorPass($id_administrador, $pass_hash);
+                if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
+            } else {
+                return Elements::crearMensajeAlerta("Las contraseñas no coinciden, intente de nuevo", "warning");
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+
+    private static function valideSecurityPassword($password)
+    {
+        return (
+            strlen($password) >= 8 &&
+            preg_match('/[A-Z]/', $password) &&
+            preg_match('/[0-9]/', $password) &&
+            preg_match('/[\W]/', $password)
+        );
     }
 
     public static function getAdministrator($id_administrador)
@@ -181,9 +206,13 @@ class ServiceAdmin extends System
     {
         try {
             $id_administrador = parent::limpiarString($id_administrador);
-
+            $administradorDTO = Administrador::getAdministradorById($id_administrador);
             $result = Administrador::deleteAdministrador($id_administrador);
-            if ($result) header('Location:administrators?delete');
+            if ($result) {
+                $text = "DELETE - ADMINISTRADOR - " . $id_administrador . " - " . $administradorDTO->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                Log::setLog($text);
+                header('Location:administrators?delete');
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -225,6 +254,15 @@ class ServiceAdmin extends System
                 $filename   = $_FILES['imageAdmin']['name'];
                 $fileSize   = $_FILES['imageAdmin']['size'];
                 $imagen     = '';
+
+                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+                $fileType = $_FILES['imageAdmin']['type'];
+
+                if (!in_array($fileType, $allowedTypes)) {
+                    return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
+                }
+
+
 
                 if ($fileSize > 100 && $filename != '') {
                     $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_ADMIN;

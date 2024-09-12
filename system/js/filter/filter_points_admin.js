@@ -22,8 +22,6 @@ function getTableFilter() {
     }).done(function (data) {
 
         let response = JSON.parse(data);
-        console.log(response);
-        
 
         renderDataTable(response);
     });
@@ -31,14 +29,13 @@ function getTableFilter() {
 
 function renderDataTable(data) {
     $('#tablePoints').DataTable({
-        destroy: true,
         data: data,
         columns: [
             { data: 'Comunidad' },
             { data: 'Asociado' },
             { data: 'Actividad' },
-            { data: 'Asignación / Vencimiento' },
-            { data: 'Estatus Actividad' },
+            { data: 'AsignacionVencimiento' },
+            { data: 'EstatusActividad' },
             { data: 'Corazones' },
             { data: 'Opciones' }
         ]

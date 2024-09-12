@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-2 mt-4">
                <div class="text-right"> <!-- Añadí 'text-right' para alinear el botón a la derecha -->
-                  <a type="button" class="btn btn-secondary" href="questions"><i class="material-icons me-2">keyboard_return</i>atrás</a>
+                  <a type="button" class="btn btn-secondary" href="communities"><i class="material-icons me-2">keyboard_return</i>atrás</a>
                </div>
             </div>
          </div>
@@ -202,6 +202,7 @@
                      <thead class="text-center">
                         <tr>
                            <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                           <th class="text-uppercase font-weight-bolder">Documento de identidad</th>
                            <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                            <th class="text-uppercase font-weight-bolder">Actividad</th>
                            <th class="text-uppercase font-weight-bolder">Fecha Asignación / Vencimiento</th>
@@ -212,6 +213,7 @@
                      <tfoot class="text-center">
                         <tr>
                            <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                           <th class="text-uppercase font-weight-bolder">Documento de identidad</th>
                            <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                            <th class="text-uppercase font-weight-bolder">Actividad</th>
                            <th class="text-uppercase font-weight-bolder">Fecha Asignación / Vencimiento</th>

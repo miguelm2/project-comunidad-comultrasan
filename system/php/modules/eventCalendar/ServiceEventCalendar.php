@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/CalendarioEvento.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
 
 class ServiceEventCalendar extends System
 {
@@ -21,6 +22,9 @@ class ServiceEventCalendar extends System
                 $result = CalendarioEvento::newEventCalendar($titulo, $fecha, $lugar, $hora, $imagen, $id_grupo, $persona_cargo, $fecha_registro);
 
                 if ($result) {
+                    $lastEventCalendar = CalendarioEvento::getLastEventCalendar();
+                    $text = "CREATE - EVENTO CALENDARIO - " . $lastEventCalendar->getId_evento() . " - " . $lastEventCalendar->getTitulo() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
                     return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
                 }
             }
@@ -36,6 +40,15 @@ class ServiceEventCalendar extends System
                 $filename   = $_FILES['imageEventCalendar']['name'];
                 $fileSize   = $_FILES['imageEventCalendar']['size'];
                 $imagen     = '';
+
+                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+                $fileType = $_FILES['imageEventCalendar']['type'];
+
+                if (!in_array($fileType, $allowedTypes)) {
+                    // Obtener los formatos permitidos de manera dinámica
+                    $allowedFormats = implode(', ', ['JPG', 'JPEG', 'PNG', 'GIF']);
+                    return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
+                }
 
                 if ($fileSize > 100 && $filename != '') {
                     $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_EVENT_CALE;
@@ -120,9 +133,13 @@ class ServiceEventCalendar extends System
         try {
             if (basename($_SERVER['PHP_SELF']) == 'eventCalendar.php') {
                 $id_evento = parent::limpiarString($id_evento);
-
+                $calendarioEventoDTO = CalendarioEvento::getEventCalendar($id_evento);
                 $result = CalendarioEvento::deleteEventCalendar($id_evento);
-                if ($result) header('Location:eventCalendars?delete');
+                if ($result) {
+                    $text = "DELETE - EVENTO CALENDARIO - " . $id_evento . " - " . $calendarioEventoDTO->getTitulo() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
+                    header('Location:eventCalendars?delete');
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

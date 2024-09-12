@@ -30,6 +30,13 @@ class ServiceSectionTypeCommunity extends System
                 $filename = $_FILES['imageSectionTypeCommunity']['name'];
                 $fileSize = $_FILES['imageSectionTypeCommunity']['size'];
                 $imagen   = '';
+                
+                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+                $fileType = $_FILES['imageSectionTypeCommunity']['type'];
+
+                if (!in_array($fileType, $allowedTypes)) {
+                    return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
+                }
 
                 if ($fileSize > 100 && $filename != '') {
                     $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_SECTION;

@@ -35,8 +35,8 @@ function renderDataTable(data) {
             { data: 'Comunidad' },
             { data: 'Asociado' },
             { data: 'Actividad' },
-            { data: 'Asignacion / Vencimiento' },
-            { data: 'Estatus Actividad' },
+            { data: 'AsignacionVencimiento' },
+            { data: 'EstatusActividad' },
             { data: 'Corazones' }
         ]
     });
