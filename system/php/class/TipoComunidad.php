@@ -91,4 +91,13 @@ class TipoComunidad extends System
         $stmt->execute();
         return $stmt->fetch();
     }
+    public static function getLastTypeCommunity()
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * FROM TipoComunidad 
+                            ORDER BY id_tipo_comunidad DESC");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'TipoComunidadDTO');
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }

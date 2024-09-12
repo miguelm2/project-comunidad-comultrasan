@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/TipoComunidad.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
 
 class ServiceTypeComunity extends System
 {
@@ -19,6 +20,9 @@ class ServiceTypeComunity extends System
                 $result = TipoComunidad::newTypeComunity($titulo, $icono, $subtitulo, $contenido, $imagen, $fecha_registro);
 
                 if ($result) {
+                    $lastTypeCommunity = TipoComunidad::getLastTypeCommunity();
+                    $text = "CREATE - GRUPO DE INTERES - " . $lastTypeCommunity->getId_tipo_comunidad() . " - " . $lastTypeCommunity->getTitulo() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
                     return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
                 }
             }
@@ -34,6 +38,13 @@ class ServiceTypeComunity extends System
                 $filename = $_FILES['imageTypeComunity']['name'];
                 $fileSize = $_FILES['imageTypeComunity']['size'];
                 $imagen = '';
+
+                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+                $fileType = $_FILES['imageTypeComunity']['type'];
+
+                if (!in_array($fileType, $allowedTypes)) {
+                    return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
+                }
 
                 if ($fileSize > 100 && $filename != '') {
                     $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_TYPE_COM;
@@ -116,11 +127,15 @@ class ServiceTypeComunity extends System
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'typeComunity.php') {
-                $id_beneficios_pagina = parent::limpiarString($id_tipo_comunidad);
+                $id_tipo_comunidad = parent::limpiarString($id_tipo_comunidad);
+                $tipoComunidadDTO = TipoComunidad::getTypeComunity($id_tipo_comunidad);
 
-                $result = TipoComunidad::deleteTypeComunity($id_beneficios_pagina);
-                if ($result)
+                $result = TipoComunidad::deleteTypeComunity($id_tipo_comunidad);
+                if ($result) {
+                    $text = "DELETE - GRUPO DE INTERES - " . $id_tipo_comunidad . " - " . $tipoComunidadDTO->getTitulo() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
                     header('Location:typeComunities?delete');
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

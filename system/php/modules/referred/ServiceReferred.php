@@ -232,7 +232,11 @@ class ServiceReferred extends System
                     $tableHtml .= '<td>' . $valor->getCelular() . '</td>';
                     $tableHtml .= '<td>' . $valor->getNombre_refiere() . '</td>';
                     $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer("referred", $valor->getId_referido()) . '</td>';
+                    if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("referred", $valor->getId_referido()) . '</td>';
+                    } else {
+                        $tableHtml .= '<td>' . Elements::crearBotonVer2("referred", $valor->getId_referido()) . '</td>';
+                    }
                     $tableHtml .= '</tr>';
                 }
             } else {

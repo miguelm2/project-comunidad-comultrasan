@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Descuento.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
 
 class ServiceDiscount extends System
 {
@@ -19,6 +20,9 @@ class ServiceDiscount extends System
                 $result = Descuento::newDiscount($titulo, $descuento, $vigencia, $acceso, $imagen, $logo, $fecha_registro);
 
                 if ($result) {
+                    $lastDiscount = Descuento::getLastDiscount();
+                    $text = "CREATE - DESCUENTO - " . $lastDiscount->getId_descuento() . " - " . $lastDiscount->getTitulo() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
                     return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
                 }
             }
@@ -34,6 +38,15 @@ class ServiceDiscount extends System
                 $filename   = $_FILES['imageDiscount']['name'];
                 $fileSize   = $_FILES['imageDiscount']['size'];
                 $imagen     = '';
+
+                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+                $fileType = $_FILES['imageDiscount']['type'];
+
+                if (!in_array($fileType, $allowedTypes)) {
+                    // Obtener los formatos permitidos de manera dinámica
+                    $allowedFormats = implode(', ', ['JPG', 'JPEG', 'PNG', 'GIF']);
+                    return Elements::crearMensajeAlerta("Formato de archivo no permitido. Solo se aceptan $allowedFormats.", "error");
+                }
 
                 if ($fileSize > 100 && $filename != '') {
                     $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_DIS;
@@ -64,6 +77,13 @@ class ServiceDiscount extends System
                 $filename   = $_FILES['logoDiscount']['name'];
                 $fileSize   = $_FILES['logoDiscount']['size'];
                 $imagen     = '';
+
+                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+                $fileType = $_FILES['logoDiscount']['type'];
+
+                if (!in_array($fileType, $allowedTypes)) {
+                    return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
+                }
 
                 if ($fileSize > 100 && $filename != '') {
                     $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_DIS_LOGO;
@@ -172,9 +192,14 @@ class ServiceDiscount extends System
         try {
             if (basename($_SERVER['PHP_SELF']) == 'discount.php') {
                 $id_descuentos_pagina = parent::limpiarString($id_descuento);
+                $descuentoDTO = Descuento::getDiscount($id_descuento);
 
                 $result = Descuento::deleteDiscount($id_descuentos_pagina);
-                if ($result) header('Location:discounts?delete');
+                if ($result) {
+                    $text = "DELETE - DESCUENTO - " . $id_descuento . " - " . $descuentoDTO->getTitulo() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
+                    header('Location:discounts?delete');
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

@@ -2,6 +2,7 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Beneficio.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/UsuarioBeneficio.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
 
 class ServiceBenefit extends System
 {
@@ -19,6 +20,9 @@ class ServiceBenefit extends System
                 $result = Beneficio::newBenefit($titulo, $deficion, $condiciones, $puntos, $imagen, $fecha_registro);
 
                 if ($result) {
+                    $lastBenefit = Beneficio::getLastBenefit();
+                    $text = "CREATE - BENEFICIO - " . $lastBenefit->getId_beneficio() . " - " . $lastBenefit->getTitulo() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
                     return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
                 }
             }
@@ -34,6 +38,13 @@ class ServiceBenefit extends System
                 $filename   = $_FILES['imageBenefit']['name'];
                 $fileSize   = $_FILES['imageBenefit']['size'];
                 $imagen     = '';
+
+                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+                $fileType = $_FILES['imageBenefit']['type'];
+
+                if (!in_array($fileType, $allowedTypes)) {
+                    return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
+                }
 
                 if ($fileSize > 100 && $filename != '') {
                     $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_BENEFIT;
@@ -117,10 +128,15 @@ class ServiceBenefit extends System
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'benefit.php') {
-                $id_beneficios_pagina = parent::limpiarString($id_beneficio);
+                $id_beneficio = parent::limpiarString($id_beneficio);
+                $beneficioDTO = Beneficio::getBenefit($id_beneficio);
 
-                $result = Beneficio::deleteBenefit($id_beneficios_pagina);
-                if ($result) header('Location:benefits?delete');
+                $result = Beneficio::deleteBenefit($id_beneficio);
+                if ($result) {
+                    $text = "DELETE - BENEFICIO - " . $id_beneficio . " - " . $beneficioDTO->getTitulo() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
+                    header('Location:benefits?delete');
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

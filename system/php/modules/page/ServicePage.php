@@ -130,6 +130,8 @@ class ServicePage extends System
                         </a>
                     </li>'
             ];
+        } else {
+            return ['modal' => '', 'boton' => ''];
         }
     }
     public static function getHtmlLogin()

@@ -95,7 +95,7 @@
                      <div class="col-md-6 mt-2">
                         <div class="form-group">
                            <label for="nombre">Nombre</label>
-                           <input type="text" name="nombre" id="nombre" class="form-control border p-1" value="<?= $comunidad->getNombre() ?>" maxlength="255" required>
+                           <input type="text" name="nombre" id="nombre_" class="form-control border p-1" value="<?= $comunidad->getNombre() ?>" maxlength="255" required>
                            <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
@@ -218,21 +218,25 @@
                      <thead class="text-center">
                         <tr>
                            <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                           <th class="text-uppercase font-weight-bolder">Documento de identidad</th>
                            <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                            <th class="text-uppercase font-weight-bolder">Actividad</th>
                            <th class="text-uppercase font-weight-bolder">Fecha Asignación / Vencimiento</th>
                            <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
                            <th class="text-uppercase font-weight-bolder">Corazones</th>
+                           <th class="text-uppercase font-weight-bolder">Opciones</th>
                         </tr>
                      </thead>
                      <tfoot class="text-center">
                         <tr>
                            <th class="text-uppercase font-weight-bolder">Comunidad</th>
+                           <th class="text-uppercase font-weight-bolder">Documento de identidad</th>
                            <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                            <th class="text-uppercase font-weight-bolder">Actividad</th>
                            <th class="text-uppercase font-weight-bolder">Fecha Asignación / Vencimiento</th>
                            <th class="text-uppercase font-weight-bolder">Estatus Actividad</th>
                            <th class="text-uppercase font-weight-bolder">Corazones</th>
+                           <th class="text-uppercase font-weight-bolder">Opciones</th>
                         </tr>
                      </tfoot>
                      <tbody>
@@ -274,6 +278,11 @@
                      <h4 class="text-success">
                         Miembros
                      </h4>
+                  </div>
+                  <div class="col-md-3">
+                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUserComm">
+                        <i class="material-icons me-2">add</i> Agregar Miembro
+                     </button>
                   </div>
                </div>
             </div>

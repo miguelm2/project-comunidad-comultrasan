@@ -6,6 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Administrador.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Usuario.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Elements.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/NumeroVistas.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
 
 
 abstract  class System
@@ -193,6 +194,8 @@ abstract  class System
                 $_SESSION['tipo']           =   $administrador->getTipo();
                 $_SESSION['fecha_registro'] =   $administrador->getFecha_registro();
                 $_SESSION['usuario']        =   "Administrador";
+                $text = "INICIO SESION ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                Log::setLog($text);
 
                 header("Location:/system/views/admin/index");
             }
@@ -212,6 +215,8 @@ abstract  class System
                 $_SESSION['fecha_registro']     =   $usuario->getFecha_registro();
                 $_SESSION['usuario']            =   "Usuario";
                 $_SESSION['show_modal']         =   true;
+                $text = "INICIO SESION ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                Log::setLog($text);
 
                 header("Location:/system/views/user/index");
             }
@@ -226,6 +231,8 @@ abstract  class System
                 $_SESSION['tipo']           =   $manager->getTipo();
                 $_SESSION['fecha_registro'] =   $manager->getFecha_registro();
                 $_SESSION['usuario']        =   "Gestor";
+                $text = "INICIO SESION ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                Log::setLog($text);
 
                 header("Location:/system/views/manager/index");
             }

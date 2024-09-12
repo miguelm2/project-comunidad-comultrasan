@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/PreguntaFrecuente.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
 
 class ServiceQuestion extends System
 {
@@ -14,6 +15,9 @@ class ServiceQuestion extends System
             $result = PreguntaFrecuente::newQuestion($pregunta, $repuesta, $fecha_registro);
 
             if ($result) {
+                $lastQuestion = PreguntaFrecuente::getLastQuestion();
+                $text = "CREATE - PREGUNTA FRECUENTE - " . $lastQuestion->getId_pregunta() . " - " . $lastQuestion->getPregunta() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                Log::setLog($text);
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
             }
         } catch (\Exception $e) {
@@ -50,9 +54,11 @@ class ServiceQuestion extends System
     {
         try {
             $id_pregunta = parent::limpiarString($id_pregunta);
+            $preguntaFrecuenteDTO = PreguntaFrecuente::getQuestion($id_pregunta);
             $result = PreguntaFrecuente::deleteQuestion($id_pregunta);
             if ($result) {
-                $_SESSION['alert'] = 1;
+                $text = "DELETE - PREGUNTA FRECUENTE - " . $id_pregunta . " - " . $preguntaFrecuenteDTO->getPregunta() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                Log::setLog($text);
                 header('Location:questions?delete');
             } else {
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_DELETE_NOT, "error");

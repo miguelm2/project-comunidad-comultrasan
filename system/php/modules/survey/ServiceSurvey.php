@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Encuesta.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
 
 class ServiceSurvey extends System
 {
@@ -19,6 +20,8 @@ class ServiceSurvey extends System
 
                 if ($result) {
                     $encuestaDTO = Encuesta::getLastSurvey();
+                    $text = "CREATE - ENCUESTA - " . $encuestaDTO->getId_encuesta() . " - " . $encuestaDTO->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
                     header('Location:survey?survey=' . $encuestaDTO->getId_encuesta() . '&new');
                 }
             }
@@ -62,9 +65,11 @@ class ServiceSurvey extends System
         try {
             if (basename($_SERVER['PHP_SELF']) == 'survey.php') {
                 $id_encuesta = parent::limpiarString($id_encuesta);
+                $encuestaDTO = Encuesta::getSurvey($id_encuesta);
                 $result = Encuesta::deleteSurvey($id_encuesta);
                 if ($result) {
-                    $_SESSION['alert'] = 1;
+                    $text = "DELETE - ENCUESTA - " . $id_encuesta . " - " . $encuestaDTO->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
                     header('Location:surveys?delete');
                 } else {
                     return Elements::crearMensajeAlerta(Constants::$REGISTER_DELETE_NOT, "error");

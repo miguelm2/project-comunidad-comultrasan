@@ -48,4 +48,13 @@ class PreguntaFrecuente extends System
         $stmt->bindParam(':id_pregunta', $id_pregunta);
         return  $stmt->execute();
     }
+    public static function getLastQuestion()
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 1 * FROM PreguntaFrecuente 
+                            ORDER BY id_pregunta DESC");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'PreguntaFrecuenteDTO');
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }

@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Gestor.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
 
 class ServiceManager extends System
 {
@@ -23,6 +24,10 @@ class ServiceManager extends System
                 $result = Gestor::newManager($nombre, $correo, $telefono, $cedula, $pass_hash, $estado, $tipo, $imagen, $fecha_registro);
                 if ($result) {
                     $lastManager = Gestor::lastManager();
+
+                    $text = "CREATE - GESTOR - " . $lastManager->getId_usuario() . " - " . $lastManager->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
+
                     header('Location:manager?manager=' . $lastManager->getId_gestor() . '&new');
                 } else {
                     return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
@@ -40,6 +45,13 @@ class ServiceManager extends System
                 $filename   = $_FILES['imageManager']['name'];
                 $fileSize   = $_FILES['imageManager']['size'];
                 $imagen     = '';
+
+                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+                $fileType = $_FILES['imageManager']['type'];
+
+                if (!in_array($fileType, $allowedTypes)) {
+                    return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
+                }
 
                 if ($fileSize > 100 && $filename != '') {
                     $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_MANAGER;
@@ -101,15 +113,19 @@ class ServiceManager extends System
                 $cedula = $_SESSION['cedula'];
                 $pass_hash = parent::hash($pass);
                 $result = Gestor::getManager($cedula, $pass_hash);
-
-                if ($result) {
-                    $id_gestor = $_SESSION['id'];
-                    $pass_hash = parent::hash($newPass);
-                    $result = Gestor::setManagerPass($id_gestor, $pass_hash);
-                    if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
-                } else {
+                if (!$result) {
                     return  '<script>swal("' . Constants::$CURRENT_PASS . '", "", "error");</script>';
                 }
+                if ($newPass !== $confirmPass) {
+                    return Elements::crearMensajeAlerta("Las contraseñas no coinciden, intente de nuevo", "warning");
+                }
+                if (!self::valideSecurityPassword($newPass)) {
+                    return Elements::crearMensajeAlerta("La contraseña debe tener mínimo 8 caracteres, incluyendo 1 mayúscula, 1 número y 1 carácter especial", "warning");
+                }
+                $id_gestor = $_SESSION['id'];
+                $pass_hash = parent::hash($newPass);
+                $result = Gestor::setManagerPass($id_gestor, $pass_hash);
+                if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -194,24 +210,44 @@ class ServiceManager extends System
                 $id_gestor = parent::limpiarString($id_gestor);
                 $pass = parent::limpiarString($pass);
                 $confirmPass = parent::limpiarString($confirmPass);
-
-                $pass_hash = parent::hash($pass);
-                $result = Gestor::setManagerPass($id_gestor, $pass_hash);
-                if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
+                if ($pass == $confirmPass) {
+                    if (!self::valideSecurityPassword($pass)) {
+                        return Elements::crearMensajeAlerta("La contraseña debe tener mínimo 8 caracteres, incluyendo 1 mayúscula, 1 número y 1 carácter especial", "warning");
+                    }
+                    $pass_hash = parent::hash($pass);
+                    $result = Gestor::setManagerPass($id_gestor, $pass_hash);
+                    if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
+                } else {
+                    return Elements::crearMensajeAlerta("Las contraseñas no coinciden, intente de nuevo", "warning");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
-
+    private static function valideSecurityPassword($password)
+    {
+        return (
+            strlen($password) >= 8 &&
+            preg_match('/[A-Z]/', $password) &&
+            preg_match('/[0-9]/', $password) &&
+            preg_match('/[\W]/', $password)
+        );
+    }
     public static function deleteManager($id_gestor)
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'manager.php') {
                 $id_gestor = parent::limpiarString($id_gestor);
+                $gestorDTO = Gestor::getManagerById($id_gestor);
 
                 $result = Gestor::deleteManager($id_gestor);
-                if ($result) header('Location:managers?delete');
+                if ($result) {
+
+                    $text = "DELETE - GESTOR - " . $id_gestor . " - " . $gestorDTO->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
+                    header('Location:managers?delete');
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

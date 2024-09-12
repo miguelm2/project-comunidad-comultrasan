@@ -11,6 +11,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Referido.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/TipoComunidad.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/ActividadUsuario.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Invitacion.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/client/clientComultrasan.php';
 
 class ServiceUser extends System
 {
@@ -76,6 +78,16 @@ class ServiceUser extends System
                     self::enviarCorreoUnionComunidad($usuarioDTO, $correo);
                 }
 
+                if ($result && isset($_SESSION['id'])) {
+                    $lastUsuario = Usuario::lastUsuario();
+                    $text = "CREATE - USUARIO - " . $lastUsuario->getId_usuario() . " - " . $usuarioDTO->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
+                } elseif ($result) {
+                    $lastUsuario = Usuario::lastUsuario();
+                    $text = "CREATE - USUARIO - " . $lastUsuario->getId_usuario() . " - " . $usuarioDTO->getNombre() . " ----> Creado desde uneté";
+                    Log::setLog($text);
+                }
+
                 return $result
                     ? Elements::crearMensajeAlerta(Constants::$USER_NEW, "success")
                     : Elements::crearMensajeAlerta(Constants::$ADMIN_REPEAT, "error");
@@ -130,6 +142,13 @@ class ServiceUser extends System
                 $filename   = $_FILES['imageUser']['name'];
                 $fileSize   = $_FILES['imageUser']['size'];
                 $imagen     = '';
+
+                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+                $fileType = $_FILES['imageUser']['type'];
+
+                if (!in_array($fileType, $allowedTypes)) {
+                    return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
+                }
 
                 if ($fileSize > 100 && $filename != '') {
                     $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_USER;
@@ -229,14 +248,19 @@ class ServiceUser extends System
                 $pass_hash = parent::hash($pass);
                 $result = Usuario::getUser($cedula, $pass_hash);
 
-                if ($result) {
-                    $id_usuario = $_SESSION['id'];
-                    $pass_hash = parent::hash($newPass);
-                    $result = Usuario::setUserPass($id_usuario, $pass_hash);
-                    if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
-                } else {
+                if (!$result) {
                     return  '<script>swal("' . Constants::$CURRENT_PASS . '", "", "error");</script>';
                 }
+                if ($newPass !== $confirmPass) {
+                    return Elements::crearMensajeAlerta("Las contraseñas no coinciden, intente de nuevo", "warning");
+                }
+                if (!self::valideSecurityPassword($newPass)) {
+                    return Elements::crearMensajeAlerta("La contraseña debe tener mínimo 8 caracteres, incluyendo 1 mayúscula, 1 número y 1 carácter especial", "warning");
+                }
+                $id_usuario = $_SESSION['id'];
+                $pass_hash = parent::hash($newPass);
+                $result = Usuario::setUserPass($id_usuario, $pass_hash);
+                if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -347,22 +371,37 @@ class ServiceUser extends System
                 $id_usuario = parent::limpiarString($id_usuario);
                 $pass = parent::limpiarString($pass);
                 $confirmPass = parent::limpiarString($confirmPass);
-
-                $pass_hash = parent::hash($pass);
-                $result = Usuario::setUserPass($id_usuario, $pass_hash);
-                if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
+                if ($pass == $confirmPass) {
+                    if (!self::valideSecurityPassword($pass)) {
+                        return Elements::crearMensajeAlerta("La contraseña debe tener mínimo 8 caracteres, incluyendo 1 mayúscula, 1 número y 1 carácter especial", "warning");
+                    }
+                    $pass_hash = parent::hash($pass);
+                    $result = Usuario::setUserPass($id_usuario, $pass_hash);
+                    if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
+                } else {
+                    return Elements::crearMensajeAlerta("Las contraseñas no coinciden, intente de nuevo", "warning");
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
-
+    private static function valideSecurityPassword($password)
+    {
+        return (
+            strlen($password) >= 8 &&
+            preg_match('/[A-Z]/', $password) &&
+            preg_match('/[0-9]/', $password) &&
+            preg_match('/[\W]/', $password)
+        );
+    }
     public static function deleteUser($id_usuario)
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'user.php') {
                 $id_usuario = parent::limpiarString($id_usuario);
 
+                $usuarioDTO = Usuario::getUserById($id_usuario);
                 $listBenefit  = Beneficio::listBenefitByUser($id_usuario);
                 $comunidad    = Comunidad::getCommunityByUser($id_usuario);
                 $grupoInteres = TipoComunidad::getTypeComunityByUser($id_usuario);
@@ -370,6 +409,8 @@ class ServiceUser extends System
                 if (!$listBenefit && !$comunidad && !$grupoInteres) {
                     $result = Usuario::deleteUser($id_usuario);
                     if ($result) {
+                        $text = "DELETE - USUARIO - " . $id_usuario . " - " . $usuarioDTO->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                        Log::setLog($text);
                         header('Location:users?delete');
                     }
                 } else {
@@ -457,7 +498,11 @@ class ServiceUser extends System
                     $tableHtml .= '<td>' . ($puntoDTO ? $puntoDTO->getFecha_registro() : 'Sin registro') . '</td>';
                     $tableHtml .= '<td>' . $countPoints . '</td>';
                     $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';
-                    $tableHtml .= '<td>' . Elements::crearBotonVer2("user", $valor->getId_usuario()) . '</td>';
+                    if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
+                        $tableHtml .= '<td>' . Elements::crearBotonVer("user", $valor->getId_usuario()) . '</td>';
+                    } else {
+                        $tableHtml .= '<td>' . Elements::crearBotonVer2("user", $valor->getId_usuario()) . '</td>';
+                    }
                     $tableHtml .= '</tr>';
                 }
             } else {

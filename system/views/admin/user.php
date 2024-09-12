@@ -169,6 +169,7 @@
                   </div>
                <?= $infoCommunityAdmin ?>
             </div>
+            </div>
          </div>
          <div class="card mt-3">
             <div class="card-head mt-4">

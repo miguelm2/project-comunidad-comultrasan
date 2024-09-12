@@ -49,7 +49,7 @@ class ActividadUsuario extends System
     public static function listMissingActivityUserCommunity($id_comunidad)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT u.id_usuario, u.nombre, a.id_actividad, a.actividad
+        $stmt = $dbh->prepare("SELECT u.id_usuario, u.nombre, a.actividad
                                 FROM Usuario u, UsuarioComunidad uc, Actividad a
                                 WHERE uc.id_comunidad = :id_comunidad
                                 AND u.id_usuario = uc.id_usuario
@@ -59,7 +59,7 @@ class ActividadUsuario extends System
                                     WHERE au.id_usuario = u.id_usuario
                                 )
                                 UNION
-                                SELECT u.id_usuario, u.nombre, a.id_actividad, a.actividad
+                                SELECT u.id_usuario, u.nombre, a.actividad
                                 FROM Usuario u, Comunidad c, Actividad a
                                 WHERE c.id_comunidad = :id_comunidad1
                                 AND u.id_usuario = c.id_usuario
@@ -87,14 +87,14 @@ class ActividadUsuario extends System
     public static function listRealizedActivityUserCommunity($id_comunidad)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT u.id_usuario, u.nombre, a.id_actividad, a.actividad
+        $stmt = $dbh->prepare("SELECT u.id_usuario, u.nombre, a.actividad
                                 FROM Usuario u, UsuarioComunidad uc, Actividad a, ActividadUsuario au
                                 WHERE uc.id_comunidad = :id_comunidad
                                 AND u.id_usuario = uc.id_usuario
                                 AND au.id_usuario = u.id_usuario
                                 AND a.id_actividad = au.id_actividad
                                 UNION
-                                SELECT u.id_usuario, u.nombre, a.id_actividad, a.actividad
+                                SELECT u.id_usuario, u.nombre, a.actividad
                                 FROM Usuario u, Comunidad c, Actividad a, ActividadUsuario au
                                 WHERE c.id_comunidad = :id_comunidad1
                                 AND u.id_usuario = c.id_usuario
@@ -120,7 +120,7 @@ class ActividadUsuario extends System
     public static function listShowAllActivityUserCommunity($id_comunidad)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT u.id_usuario, u.nombre, a.id_actividad, a.actividad, 'Actividad Realizada' as estado
+        $stmt = $dbh->prepare("SELECT u.id_usuario, u.nombre, a.actividad, 'Actividad Realizada' as estado
                                 FROM Usuario u, UsuarioComunidad uc, Actividad a, ActividadUsuario au
                                 WHERE uc.id_comunidad = :id_comunidad
                                 AND u.id_usuario = uc.id_usuario
@@ -129,7 +129,7 @@ class ActividadUsuario extends System
 
                                 UNION
 
-                                SELECT u.id_usuario, u.nombre, a.id_actividad, a.actividad, 'Actividad Realizada' as estado
+                                SELECT u.id_usuario, u.nombre, a.actividad, 'Actividad Realizada' as estado
                                 FROM Usuario u, Comunidad c, Actividad a, ActividadUsuario au
                                 WHERE c.id_comunidad = :id_comunidad1
                                 AND u.id_usuario = c.id_usuario
@@ -138,7 +138,7 @@ class ActividadUsuario extends System
 
                                 UNION
 
-                                SELECT u.id_usuario, u.nombre, a.id_actividad, a.actividad, 'Actividad pendiente por realizar' as estado
+                                SELECT u.id_usuario, u.nombre, a.actividad, 'Actividad pendiente por realizar' as estado
                                 FROM Usuario u, UsuarioComunidad uc, Actividad a
                                 WHERE uc.id_comunidad = :id_comunidad2
                                 AND u.id_usuario = uc.id_usuario
@@ -147,10 +147,8 @@ class ActividadUsuario extends System
                                     FROM ActividadUsuario au
                                     WHERE au.id_usuario = u.id_usuario
                                 )
-
                                 UNION
-
-                                SELECT u.id_usuario, u.nombre, a.id_actividad, a.actividad, 'Actividad pendiente por realizar' as estado
+                                SELECT u.id_usuario, u.nombre, a.actividad, 'Actividad pendiente por realizar' as estado
                                 FROM Usuario u, Comunidad c, Actividad a
                                 WHERE c.id_comunidad = :id_comunidad3
                                 AND u.id_usuario = c.id_usuario
