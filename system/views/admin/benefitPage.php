@@ -59,28 +59,27 @@
                      <div class="col-md-8">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="titulo">Título</label>
+                              <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="titulo" value="<?= $benefitPage->getTitulo() ?>" maxlength="255" required>
-                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="subtitulo">Subtítulo</label>
+                              <label class="form-label" for="subtitulo">Subtítulo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="subtitulo" value="<?= $benefitPage->getSubtitulo() ?>" maxlength="255" required>
-                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="contenido">Contenido</label>
+                        <label for="contenido">Contenido <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
                         <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" maxlength="800" required><?= html_entity_decode($benefitPage->getContenido()) ?></textarea>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">800</span></small>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="requisitos">Requisitos</label>
+                        <label for="requisitos">Requisitos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
                         <textarea name="requisitos" id="texto_1" class="form-control border p-1" rows="5" maxlength="800" required><?= html_entity_decode($benefitPage->getRequisitos()) ?></textarea>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">800</span></small>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-4 d-grid mt-4">
@@ -113,6 +112,9 @@
                   </div>
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea eliminar el registro?</label>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                     </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
@@ -136,6 +138,9 @@
                      <div class="form-group">
                         <label class="form-label" for="imageBenefitPage">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                         <input type="file" class="form-control border p-1" name="imageBenefitPage" accept="image/*" required>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                   </div>
                   <div class="modal-footer">

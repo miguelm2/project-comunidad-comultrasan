@@ -2,18 +2,30 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/benefit/ServiceBenefit.php';
 
 if (isset($_POST['newBenefit'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceBenefit::newBenefit($_POST['titulo'], $_POST['definicion'], $_POST['condiciones'], $_POST['puntos']);
 }
 
 if (isset($_POST['setBenefit'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceBenefit::setBenefit($_GET['benefit'], $_POST['titulo'], $_POST['definicion'], $_POST['condiciones'], $_POST['puntos']);
 }
 
 if (isset($_POST['setImageBenefit'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceBenefit::setImageBenefit($_GET['benefit']);
 }
 
 if (isset($_POST['deleteBenefit'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     ServiceBenefit::deleteBenefit($_GET['benefit']);
 }
 

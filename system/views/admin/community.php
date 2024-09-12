@@ -94,9 +94,8 @@
                      </div>
                      <div class="col-md-6 mt-2">
                         <div class="form-group">
-                           <label for="nombre">Nombre</label>
+                           <label for="nombre">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" name="nombre" id="nombre_" class="form-control border p-1" value="<?= $comunidad->getNombre() ?>" maxlength="255" required>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-md-6 mt-2">
@@ -108,6 +107,9 @@
                               <option value="1">Activo</option>
                            </select>
                         </div>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="col-md-12 d-grid mt-4">
                         <button type="submit" class="btn btn-success" name="editCommunity">
@@ -197,12 +199,12 @@
             <div class="tab-pane fade profile-overview" id="pointsReclamend">
                <div class="row p-2">
                   <div class="col-md-3">
-                     <label for="cedula">Documento de identidad</label>
-                     <input type="text" name="cedula" id="cedula" class="form-control border p-1" placeholder="Documento de identidad">
+                     <label for="cedula">Documento de identidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                     <input type="text" name="cedula" id="cedula" class="form-control border p-1" maxlength="255" placeholder="Documento de identidad">
                   </div>
                   <div class="col-md-3">
-                     <label for="nombre">Nombre Miembro</label>
-                     <input type="text" name="nombre" id="nombre" class="form-control border p-1" placeholder="Nombre Miembro">
+                     <label for="nombre">Nombre Miembro <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                     <input type="text" name="nombre" id="nombre" class="form-control border p-1" maxlength="255" placeholder="Nombre Miembro">
                   </div>
                   <div class="col-md-3">
                      <label for="fecha_inicio">Fecha inicio</label>
@@ -425,6 +427,9 @@
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea remover este beneficio?</label>
                      <input type="hidden" id="usuarioBeneficio" name="usuarioBeneficio">
+                  </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>

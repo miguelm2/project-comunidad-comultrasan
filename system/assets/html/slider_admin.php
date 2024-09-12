@@ -53,7 +53,7 @@
          <li class="nav-item">
             <a class="nav-link text-white " href="communities">
                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="material-icons opacity-10">people</i>
+                  <i class="material-icons opacity-10">diversity_3</i>
                </div>
                <span class="nav-link-text ms-1">Comunidades</span>
             </a>
@@ -61,7 +61,7 @@
          <li class="nav-item">
             <a class="nav-link text-white " href="users">
                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="material-icons opacity-10">groups</i>
+                  <i class="material-icons opacity-10">person</i>
                </div>
                <span class="nav-link-text ms-1">Información Personal</span>
             </a>
@@ -85,7 +85,7 @@
          <li class="nav-item">
             <a class="nav-link text-white " href="managers">
                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="material-icons opacity-10">people</i>
+                  <i class="material-icons opacity-10">support_agent</i>
                </div>
                <span class="nav-link-text ms-1">Gestores</span>
             </a>
@@ -101,7 +101,7 @@
          <li class="nav-item">
             <a class="nav-link text-white" href="referrals">
                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="material-icons opacity-10">people</i>
+                  <i class="material-icons opacity-10">group</i>
                </div>
                <span class="nav-link-text ms-1">Referidos</span>
             </a>

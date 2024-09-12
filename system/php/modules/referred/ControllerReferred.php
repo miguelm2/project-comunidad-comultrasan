@@ -2,6 +2,9 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/referred/ServiceReferred.php';
 
 if (isset($_POST['referred_page'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceReferred::newReferredPage(
         $_POST['nombre_referido'],
         $_POST['cedula_referido'],
@@ -17,6 +20,9 @@ if (isset($_POST['referred_page'])) {
 }
 
 if (isset($_POST['setReferred'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceReferred::setReferred(
         $_POST['nombre_referido'],
         $_POST['cedula_referido'],
@@ -39,6 +45,9 @@ if (isset($_GET['referred'])) {
 }
 
 if (isset($_POST['deleteReferred'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     ServiceReferred::deleteReferred($_GET['referred']);
 }
 

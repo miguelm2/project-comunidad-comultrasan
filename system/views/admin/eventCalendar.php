@@ -61,15 +61,13 @@
                            <div class="col-md-7">
                               <div class="row">
                                  <div class="col-md-12">
-                                    <label for="titulo">Título</label>
+                                    <label for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="text" class="form-control border p-1" name="titulo" value="<?= $eventCalendar->getTitulo() ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                                  <div class="col-12 ">
                                     <div class="form-group">
-                                       <label class="form-label" for="lugar">Lugar</label>
+                                       <label class="form-label" for="lugar">Lugar <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                        <input type="text" class="form-control border p-1" name="lugar" value="<?= $eventCalendar->getLugar() ?>" maxlength="255" required>
-                                       <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                     </div>
                                  </div>
                                  <div class="col-6">
@@ -77,6 +75,9 @@
                                        <label class="form-label" for="fecha">Fecha</label>
                                        <input type="date" class="form-control border p-1" name="fecha" value="<?= $eventCalendar->getFecha() ?>" required>
                                     </div>
+                                 </div>
+                                 <div>
+                                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                                  </div>
                                  <div class="col-md-6">
                                     <label for="hora">Hora</label>
@@ -118,6 +119,9 @@
                   </div>
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea eliminar el registro?</label>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                     </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
@@ -141,6 +145,9 @@
                      <div class="form-group">
                         <label class="form-label" for="imageEventCalendar">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                         <input type="file" class="form-control border p-1" name="imageEventCalendar" accept="image/*" required>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                   </div>
                   <div class="modal-footer">

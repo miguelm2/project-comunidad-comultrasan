@@ -61,9 +61,8 @@
                            </div>
                            <div class="col-md-12 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="nombre_referir">Nombre y Apellidos</label>
+                                 <label class="text-black" for="nombre_referir">Nombre y Apellidos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" name="nombre_referir" class="form-control border p-1" placeholder="Nombres completos" maxlength="255" required value="<?= $referred->getNombre_refiere() ?>">
-                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
                            <div class="col-md-6 mt-2">
@@ -92,9 +91,8 @@
 
                            <div class="col-md-12 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="nombre_referido">Nombre y Apellidos</label>
+                                 <label class="text-black" for="nombre_referido">Nombre y Apellidos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" name="nombre_referido" class="form-control border p-1" placeholder="Nombres completos" maxlength="255" required value="<?= $referred->getNombre_referido() ?>">
-                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
 
@@ -121,25 +119,22 @@
 
                            <div class="col-md-6 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="departamento">Departamento</label>
+                                 <label class="text-black" for="departamento">Departamento <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" name="departamento" class="form-control border p-1" placeholder="Departamento" maxlength="255" required value="<?= $referred->getDepartamento() ?>">
-                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
 
                            <div class="col-md-6 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="ciudad">Ciudad</label>
+                                 <label class="text-black" for="ciudad">Ciudad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" name="ciudad" class="form-control border p-1" placeholder="Ciudad" required maxlength="255" value="<?= $referred->getCiudad() ?>">
-                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
 
                            <div class="col-md-4 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="correo">Correo</label>
+                                 <label class="text-black" for="correo">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="email" name="correo" class="form-control border p-1" placeholder="Correo" required maxlength="255" value="<?= $referred->getCorreo() ?>">
-                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
 
@@ -159,6 +154,9 @@
                                     <option value="3">En proceso</option>
                                  </select>
                               </div>
+                           </div>
+                           <div>
+                              <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                            </div>
                            <div class="dark horizontal my-0 border-1 mt-4"></div>
                            <div class="row mt-4">
@@ -191,6 +189,9 @@
                   </div>
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea eliminar el registros?</label>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                     </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>

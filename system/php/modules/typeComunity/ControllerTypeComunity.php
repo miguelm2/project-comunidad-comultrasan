@@ -4,18 +4,30 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forum/ServiceForum
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/eventCalendar/ServiceEventCalendar.php';
 
 if (isset($_POST['newTypeComunity'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceTypeComunity::newTypeComunity($_POST['titulo'], $_POST['icono'], $_POST['subtitulo'], $_POST['contenido']);
 }
 
 if (isset($_POST['setTypeComunity'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceTypeComunity::setTypeComunity($_GET['typeComunity'], $_POST['titulo'], $_POST['icono'], $_POST['subtitulo'], $_POST['contenido']);
 }
 
 if (isset($_POST['setImageTypeComunity'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceTypeComunity::setImageTypeComunityPage($_GET['typeComunity']);
 }
 
 if (isset($_POST['deleteTypeComunity'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     ServiceTypeComunity::deleteTypeComunity($_GET['typeComunity']);
 }
 

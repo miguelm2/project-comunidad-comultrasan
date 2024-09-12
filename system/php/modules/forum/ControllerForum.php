@@ -3,14 +3,23 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/forum/ServiceForum
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/typeComunity/ServiceTypeComunity.php';
 
 if (isset($_POST['newForum'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     ServiceForum::newForum($_GET['comunnityForum'], $_SESSION['id'], $_POST['contenido'], $_POST['titulo']);
 }
 
 if (isset($_POST['editForum'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceForum::setForum($_GET['forum'], $_POST['contenido'], $_POST['titulo']);
 }
 
 if (isset($_POST['deleteForum'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     ServiceForum::deleteForum($_GET['forum']);
 }
 

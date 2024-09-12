@@ -55,20 +55,17 @@
                   <div class="row">
                      <div class="col-12">
                         <div class="form-group">
-                           <label class="form-label" for="titulo">Título</label>
+                           <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" maxlength="255" required>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-md-6 form-group">
-                        <label for="lugar">Lugar</label>
+                        <label for="lugar">Lugar <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <input type="text" class="form-control border p-1" name="lugar" placeholder="Lugar" maxlength="255" required>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="col-md-6 form-group">
-                        <label for="persona_cargo">Persona a cargo</label>
+                        <label for="persona_cargo">Persona a cargo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <input type="text" class="form-control border p-1" name="persona_cargo" placeholder="Persona a cargo" maxlength="255" required>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="col-md-6 form-group">
                         <label for="fecha">Fecha</label>
@@ -88,6 +85,9 @@
                            <option value="">Seleccione una opción</option>
                            <?= $optionGroupInterest ?>
                         </select>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-12 d-grid mt-4">

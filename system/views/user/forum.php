@@ -83,7 +83,7 @@
                         <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#newForumComment" <?= $disabledButton ?>>
                            <i class="material-icons me-2">chat</i>(<?= $contadorComment ?>) Comentar
                         </button>
-                        <button type="button" class="btn btn-primary btn-sm" id="like" <?= $disabledButton ?> >
+                        <button type="button" class="btn btn-primary btn-sm" id="like" <?= $disabledButton ?>>
                            <?= $textbutton ?>
                         </button>
                      </div>
@@ -112,6 +112,9 @@
                         <label class="form-label" for="comentario">Comentario</label>
                         <textarea name="comentario" class="form-control border p-1" placeholder="Esciba su comentario...." id="publicacionForo" rows="4" maxlength="500" required></textarea>
                         <small>Caracteres restantes: <span id="contadorPublicacion">500</span></small>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                   </div>
                   <div class="modal-footer">

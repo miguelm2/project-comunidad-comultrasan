@@ -132,6 +132,9 @@
                            </div>
                         </div>
 
+                        <div>
+                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                        </div>
                      </div>
                      <div class="form-group">
                         <br>

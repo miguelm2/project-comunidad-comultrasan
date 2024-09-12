@@ -61,9 +61,8 @@
                         <div class="row">
                            <div class="col-12">
                               <div class="form-group">
-                                 <label class="form-label">Nombre</label>
+                                 <label class="form-label">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" class="form-control border p-1" value="<?= $administrator->getNombre() ?>" name="nombre" maxlength="255" required>
-                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
                            <div class="col-6">
@@ -80,9 +79,8 @@
                            </div>
                            <div class="col-6">
                               <div class="form-group">
-                                 <label class="form-label">Correo</label>
+                                 <label class="form-label">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="email" class="form-control border p-1" value="<?= $administrator->getCorreo() ?>" name="correo" maxlength="255" required>
-                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
                            <div class="col-6">
@@ -94,6 +92,9 @@
                                     <option value="1">Activo</option>
                                  </select>
                               </div>
+                           </div>
+                           <div>
+                              <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                            </div>
                         </div>
                      </div>
@@ -130,6 +131,9 @@
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea eliminar el registro?</label>
                   </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                  </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="deleteAdministrator" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Administrador</button>
@@ -153,6 +157,9 @@
                         <label class="form-label" for="imageAdmin">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                         <input type="file" class="form-control border p-1" name="imageAdmin" accept="image/*" required>
                      </div>
+                  </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
@@ -191,6 +198,9 @@
                               Mostrar contraseña
                            </label>
                         </div>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                   </div>
                   <div class="modal-footer">

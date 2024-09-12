@@ -179,9 +179,25 @@ abstract  class System
     public static function login($user, $pass_hash)
     {
         try {
-            $administrador  = Administrador::getAdministrador($user, $pass_hash);
-            $usuario        = Usuario::getUser($user, $pass_hash);
-            $manager        = Gestor::getManager($user, $pass_hash);
+
+            // Inicializa el número de intentos si no está definido
+            if (!isset($_SESSION['login_attempts'])) {
+                $_SESSION['login_attempts'] = 0;
+            }
+
+            // Inicializa el tiempo de bloqueo si no está definido
+            if (!isset($_SESSION['block_time'])) {
+                $_SESSION['block_time'] = null;
+            }
+
+            // Verifica si el usuario está bloqueado
+            if ($_SESSION['block_time'] && time() - $_SESSION['block_time'] < 300) { // 300 segundos = 5 minutos
+                return Elements::crearMensajeAlerta("Tu cuenta ha sido bloqueada temporalmente. Intenta de nuevo en 5 minutos.", "warning");
+            }
+
+            $administrador = Administrador::getAdministrador($user, $pass_hash);
+            $usuario       = Usuario::getUser($user, $pass_hash);
+            $manager       = Gestor::getManager($user, $pass_hash);
 
             if ($administrador != null) {
                 session_start();
@@ -194,6 +210,8 @@ abstract  class System
                 $_SESSION['tipo']           =   $administrador->getTipo();
                 $_SESSION['fecha_registro'] =   $administrador->getFecha_registro();
                 $_SESSION['usuario']        =   "Administrador";
+                $_SESSION['login_attempts'] =   0; // Reinicia los intentos fallidos
+                $_SESSION['block_time']     =   null; // Reinicia el tiempo de bloqueo
                 $text = "INICIO SESION ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
                 Log::setLog($text);
 
@@ -215,10 +233,13 @@ abstract  class System
                 $_SESSION['fecha_registro']     =   $usuario->getFecha_registro();
                 $_SESSION['usuario']            =   "Usuario";
                 $_SESSION['show_modal']         =   true;
+                $_SESSION['login_attempts']     =   0; // Reinicia los intentos fallidos
+                $_SESSION['block_time']         =   null; // Reinicia el tiempo de bloqueo
                 $text = "INICIO SESION ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
                 Log::setLog($text);
 
                 header("Location:/system/views/user/index");
+                exit();
             }
             if ($manager != null) {
                 session_start();
@@ -231,12 +252,24 @@ abstract  class System
                 $_SESSION['tipo']           =   $manager->getTipo();
                 $_SESSION['fecha_registro'] =   $manager->getFecha_registro();
                 $_SESSION['usuario']        =   "Gestor";
+                $_SESSION['login_attempts'] =   0; // Reinicia los intentos fallidos
+                $_SESSION['block_time']     =   null; // Reinicia el tiempo de bloqueo
                 $text = "INICIO SESION ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
                 Log::setLog($text);
 
                 header("Location:/system/views/manager/index");
+                exit();
             }
-            return false;
+
+            // Si llega aquí, el inicio de sesión ha fallado
+            $_SESSION['login_attempts']++; // Incrementa los intentos fallidos
+
+            if ($_SESSION['login_attempts'] >= 5) {
+                $_SESSION['block_time'] = time(); // Establece el tiempo de bloqueo
+                return Elements::crearMensajeAlerta("Tu cuenta ha sido bloqueada temporalmente. Intenta de nuevo en 5 minutos.", "warning");
+            }
+
+            return Elements::crearMensajeAlerta("Credenciales incorrectas. Intentos restantes: " . (5 - $_SESSION['login_attempts']), "warning");
         } catch (\Throwable $th) {
             throw $th;
         }

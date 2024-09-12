@@ -59,28 +59,28 @@
                      <div class="col-md-8">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="titulo">Título</label>
+                              <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="titulo" value="<?= $benefit->getTitulo() ?>" maxlength="255" required>
-                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
                               <label class="form-label" for="puntos">Puntos</label>
-                              <input type="number" class="form-control border p-1" name="puntos" value="<?= $benefit->getPuntos() ?>" maxlength="255" required>
-                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
+                              <input type="number" class="form-control border p-1" name="puntos" value="<?= $benefit->getPuntos() ?>" required>
                            </div>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="definicion">Deficion</label>
+                        <label for="definicion">Deficion <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
                         <textarea name="definicion" id="definicion" class="form-control border p-1" rows="5" maxlength="800" required><?= $benefit->getDefinicion() ?></textarea>
                         <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="condiciones">Condiciones</label>
+                        <label for="condiciones">Condiciones <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
                         <textarea name="condiciones" id="condiciones" class="form-control border p-1" rows="5" maxlength="800" required><?= $benefit->getCondiciones() ?></textarea>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">800</span></small>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-4 d-grid mt-4">
@@ -113,6 +113,9 @@
                   </div>
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea eliminar el registro?</label>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                     </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
@@ -136,6 +139,9 @@
                      <div class="form-group">
                         <label class="form-label" for="imageBenefit">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                         <input type="file" class="form-control border p-1" name="imageBenefit" accept="image/*" required>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                   </div>
                   <div class="modal-footer">

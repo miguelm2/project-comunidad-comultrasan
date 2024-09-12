@@ -20,7 +20,7 @@
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
    <!-- CSS Files -->
    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
-   <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet"/>
+   <link id="pagestyle" href="/system/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
    <link rel="stylesheet" href="/system/assets/vendor/quill/quill.snow.css">
    <link rel="stylesheet" href="/system/assets/vendor/quill/quill.bubble.css">
    <link rel="stylesheet" href="/system/assets/vendor/simple-datatables/style.css">
@@ -108,23 +108,20 @@
                      <div class="row g-3">
                         <div class="col-6">
                            <div class="form-group">
-                              <label class="form-label">Nombre</label>
+                              <label class="form-label">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="nombre" maxlength="255" required>
-                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
-                              <label class="form-label">Correo</label>
+                              <label class="form-label">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="email" class="form-control border p-1" name="correo" maxlength="255" required>
-                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="form-group">
                               <label class="form-label">Celular</label>
-                              <input type="text" class="form-control border p-1" name="telefono" maxlength="10" required>
-                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
+                              <input type="text" class="form-control border p-1" name="telefono" maxlength="30" required>
                            </div>
                         </div>
                         <div class="col-6">
@@ -146,6 +143,9 @@
                                  <input type="file" class="form-control border p-1" name="imageAdmin" accept="image/*">
                               </div>
                            </div>
+                        </div>
+                        <div>
+                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                         </div>
                      </div>
                   </div>
