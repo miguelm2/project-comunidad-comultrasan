@@ -5,6 +5,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/point/ServicePoint
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userCommunity/ServiceUserCommunity.php';
 
 if (isset($_POST['setProfileUser'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceUser::setProfile(
         $_POST['nombre'],
         $_POST['correo'],
@@ -19,10 +22,16 @@ if (isset($_POST['setProfileUser'])) {
 }
 
 if (isset($_POST['setPassProfileUser'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceUser::setPassProfile($_POST['pass'], $_POST['newPass'], $_POST['confirmPass']);
 }
 
 if (isset($_POST['newUser'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceUser::newUser(
         $_POST['nombre'],
         $_POST['correo'],
@@ -39,6 +48,9 @@ if (isset($_POST['newUser'])) {
 }
 
 if (isset($_POST['newUserUnete'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceUser::newUser(
         $_POST['nombre'],
         $_POST['correo'],
@@ -55,6 +67,9 @@ if (isset($_POST['newUserUnete'])) {
 }
 
 if (isset($_POST['setUser'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceUser::setUser(
         $_GET['user'],
         $_POST['nombre'],
@@ -71,14 +86,23 @@ if (isset($_POST['setUser'])) {
 }
 
 if (isset($_POST['setPassUser'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceUser::setPassUser($_GET['user'], $_POST['newPass'], $_POST['confirmPass']);
 }
 
 if (isset($_POST['setImageUser'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceUser::setImageUser($_GET['user']);
 }
 
 if (isset($_POST['setImageUserProfile'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceUser::setImageUserProfile();
 }
 
@@ -89,6 +113,9 @@ if (isset($_GET['user'])) {
 }
 
 if (isset($_POST['deleteUser'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceUser::deleteUser($_GET['user']);
 }
 
@@ -113,4 +140,8 @@ if (basename($_SERVER['PHP_SELF']) == 'points.php') {
 
 if (basename($_SERVER['PHP_SELF']) == 'community.php') {
     $optionUserWithoutCommunity = ServiceUser::getOptionUserWithoutCommunity();
+}
+
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // Generar token
 }

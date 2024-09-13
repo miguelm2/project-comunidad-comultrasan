@@ -103,23 +103,23 @@
                   <div class="modal-body">
                      <div class="row g-3">
                         <div class="col-md-12 form-group">
-                           <label for="nombre">Nombre</label>
+                           <label for="nombre">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre" maxlength="255" required>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                         <div class="col-md-12 form-group">
                            <label for="puntos">Corazones</label>
                            <input type="number" class="form-control border p-1" name="puntos" placeholder="Corazones" required>
                         </div>
                         <div class="col-md-12 form-group">
-                           <label for="descripcion">Descripción</label>
+                           <label for="descripcion">Descripción <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <textarea name="descripcion" id="descripcion" rows="4" required class="form-control border p-1" maxlength="255" placeholder="Agrege una descripción"></textarea>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                         <div class="col-md-12 form-group">
-                           <label for="mensaje">Mensaje</label>
+                           <label for="mensaje">Mensaje <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <textarea name="mensaje" id="mensaje" rows="4" required class="form-control border p-1" maxlength="255" placeholder="Coloque un mensaje motivacional"></textarea>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
+                        </div>
+                        <div>
+                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                         </div>
                      </div>
                   </div>

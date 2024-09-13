@@ -54,30 +54,26 @@
                            <div class="row">
                               <div class="col-6">
                                  <div class="form-group">
-                                    <label class="form-label">Nombre</label>
+                                    <label class="form-label">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="text" class="form-control border p-1" name="nombre" value="<?= $information->getNombre() ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
-                                    <label class="form-label">NIT</label>
+                                    <label class="form-label">NIT <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="text" class="form-control border p-1" name="nit" value="<?= $information->getNit() ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
-                                    <label class="form-label">Dirección</label>
+                                    <label class="form-label">Dirección <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="text" class="form-control border p-1" name="direccion" value="<?= $information->getDireccion() ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
-                                    <label class="form-label">Correo</label>
+                                    <label class="form-label">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="email" class="form-control border p-1" name="correo" value="<?= $information->getCorreo() ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
@@ -98,31 +94,30 @@
                            <div class="row">
                               <div class="col-6">
                                  <div class="form-group">
-                                    <label class="form-label">Ciudad</label>
+                                    <label class="form-label">Ciudad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="text" class="form-control border p-1" name="ciudad" value="<?= $information->getCiudad() ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
-                                    <label class="form-label">Departamento</label>
+                                    <label class="form-label">Departamento <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="text" class="form-control border p-1" name="departamento" value="<?= $information->getDepartamento() ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
-                                    <label class="form-label">Facebook</label>
+                                    <label class="form-label">Facebook <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="url" class="form-control border p-1" name="facebook" value="<?= $information->getFb() ?>" maxlength="255">
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
-                                    <label class="form-label">Instagram</label>
+                                    <label class="form-label">Instagram <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="url" class="form-control border p-1" name="instagram" value="<?= $information->getInstagram() ?>" maxlength="255">
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
+                              </div>
+                              <div>
+                                 <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                               </div>
                            </div>
                         </div>
@@ -158,6 +153,9 @@
                      <div class="form-group">
                         <label class="form-label" for="logo">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                         <input type="file" class="form-control border p-1" name="logo" accept="image/*" required>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                   </div>
                   <div class="modal-footer">

@@ -59,9 +59,8 @@
                   <div class="row">
                      <div class="col-12">
                         <div class="form-group">
-                           <label class="form-label" for="nombre">Nombre</label>
+                           <label class="form-label" for="nombre">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="nombre" value="<?= $survey->getNombre() ?>" maxlength="255" required>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-6">
@@ -82,17 +81,18 @@
                      </div>
                      <div class="col-md-12">
                         <div class="form-group">
-                           <label for="descripcion">Descripción</label>
+                           <label for="descripcion">Descripción <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <textarea name="descripcion" id="descripcion" class="form-control border p-1" rows="4" maxlength="255" required><?= $survey->getDescripcion() ?></textarea>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-md-12">
                         <div class="form-group">
-                           <label for="mensaje">Mensaje</label>
+                           <label for="mensaje">Mensaje <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <textarea name="mensaje" id="mensaje" class="form-control border p-1" rows="4" maxlength="255" required><?= $survey->getMensaje() ?></textarea>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-6 d-grid mt-4">
@@ -171,6 +171,9 @@
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea eliminar el registro?</label>
                   </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                  </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="deleteSurvey" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Encuesta</button>
@@ -192,9 +195,8 @@
                   <div class="modal-body">
                      <div class="row g-3">
                         <div class="col-md-12 form-group">
-                           <label for="pregunta">Pregunta</label>
+                           <label for="pregunta">Pregunta <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="pregunta" placeholder="Pregunta" maxlength="255" required>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                         <div class="col-md-12 form-group">
                            <label for="tipo_pregunta">Tipo de pregunta</label>
@@ -204,6 +206,9 @@
                               <option value="2">Respuesta Abierta</option>
                               <option value="3">Múltiples Respuestas</option>
                            </select>
+                        </div>
+                        <div>
+                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                         </div>
                      </div>
                   </div>

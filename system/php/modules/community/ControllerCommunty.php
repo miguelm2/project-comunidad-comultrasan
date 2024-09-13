@@ -3,14 +3,23 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/community/ServiceC
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userCommunity/ServiceUserCommunity.php';
 
 if (isset($_POST['newCommunity'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceCommunity::newCommunity($_POST['nombre'], $_POST['cedula'], $_POST['nombre_user'], $_POST['correo'], $_POST['celular']);
 }
 
 if (isset($_POST['editCommunity'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     $response = ServiceCommunity::setCommunity($_GET['community'], $_POST['nombre'], $_POST['estado']);
 }
 
 if (isset($_POST['deleteCommunity'])) {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("CSRF token inválido.");
+    }
     ServiceCommunity::deleteCommunity($_GET['community']);
 }
 

@@ -38,7 +38,7 @@
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success">
-                        Editar Tipo de Comunidad
+                        Editar Grupo de Interés
                      </h5>
                   </div>
                   <div class="col-md-2 mt-0">
@@ -58,15 +58,16 @@
                      </div>
                      <div class="col-12 mt-3">
                         <div class="form-group">
-                           <label class="form-label" for="nombre">Nombre</label>
+                           <label class="form-label" for="nombre">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="nombre" value="<?= $sectionTypeComunity->getNombre() ?>" maxlength="255" required>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                     </div>
                      <div class="col-md-12 mt-3">
-                        <label for="descripcion">Descripción</label>
+                        <label for="descripcion">Descripción <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <textarea name="descripcion" id="texto" class="form-control border p-1" maxlength="255" rows="5" required><?= html_entity_decode($sectionTypeComunity->getDescripcion()) ?></textarea>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-4 d-grid mt-4">
@@ -100,6 +101,9 @@
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea eliminar el registros?</label>
                   </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                  </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="deleteSectionTypeCommunity" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Sección</button>
@@ -122,6 +126,9 @@
                      <div class="form-group">
                         <label class="form-label" for="imageSectionTypeCommunity">Imagen</label>
                         <input type="file" class="form-control border p-1" name="imageSectionTypeCommunity" accept="image/*" required>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                   </div>
                   <div class="modal-footer">

@@ -61,29 +61,27 @@
                         <div class="row">
                            <div class="col-12">
                               <div class="form-group">
-                                 <label class="form-label">Nombre</label>
+                                 <label class="form-label">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" class="form-control border p-1" value="<?= $manager->getNombre() ?>" name="nombre" maxlength="255" required>
-                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
                            <div class="col-6">
                               <div class="form-group">
                                  <label class="form-label">Cédula</label>
-                                 <input type="number" class="form-control border p-1" value="<?= $manager->getCedula() ?>" name="cedula" maxlength="255" required>
+                                 <input type="text" class="form-control border p-1" value="<?= $manager->getCedula() ?>" name="cedula" maxlength="30" required>
                                  <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
                            <div class="col-6">
                               <div class="form-group">
                                  <label class="form-label">Celular</label>
-                                 <input type="tel" class="form-control border p-1" value="<?= $manager->getTelefono() ?>" name="telefono" maxlength="30" required>
+                                 <input type="text" class="form-control border p-1" value="<?= $manager->getTelefono() ?>" name="telefono" maxlength="30" required>
                               </div>
                            </div>
                            <div class="col-6">
                               <div class="form-group">
-                                 <label class="form-label">Correo</label>
+                                 <label class="form-label">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="email" class="form-control border p-1" value="<?= $manager->getCorreo() ?>" name="correo" maxlength="255" required>
-                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                               </div>
                            </div>
                            <div class="col-6">
@@ -95,6 +93,9 @@
                                     <option value="1">Activo</option>
                                  </select>
                               </div>
+                           </div>
+                           <div>
+                              <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                            </div>
                         </div>
                      </div>
@@ -139,6 +140,9 @@
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea eliminar el registro?</label>
                   </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                  </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="deleteManager" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Gestor</button>
@@ -161,6 +165,9 @@
                      <div class="form-group">
                         <label class="form-label" for="imageManager">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                         <input type="file" class="form-control border p-1" name="imageManager" accept="image/*" required>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                   </div>
                   <div class="modal-footer">
@@ -191,6 +198,9 @@
                         <div class="col-md-12 form-group">
                            <label for="confirmPass">Confirmar contraseña</label>
                            <input type="password" id="confirmPass" name="confirmPass" class="form-control border p-1" maxlength="30" required>
+                        </div>
+                        <div>
+                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                         </div>
                      </div>
                      <div class="col-md-8 col-lg-9">

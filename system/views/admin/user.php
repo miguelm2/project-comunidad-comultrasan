@@ -61,7 +61,7 @@
                         <div class="row">
                            <div class="col-12">
                               <div class="form-group">
-                                 <label class="form-label">Nombre</label>
+                                 <label class="form-label">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" class="form-control border p-1" value="<?= $user->getNombre() ?>" name="nombre" maxlength="255" required>
                               </div>
                            </div>
@@ -97,25 +97,25 @@
                            </div>
                            <div class="col-6">
                               <div class="form-group">
-                                 <label class="form-label">Correo</label>
+                                 <label class="form-label">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="email" class="form-control border p-1" value="<?= $user->getCorreo() ?>" name="correo" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-6">
                               <div class="form-group">
-                                 <label class="form-label">Departamento</label>
+                                 <label class="form-label">Departamento <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" class="form-control border p-1" value="<?= $user->getDepartamento() ?>" name="departamento" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-6">
                               <div class="form-group">
-                                 <label class="form-label">Ciudad</label>
+                                 <label class="form-label">Ciudad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" class="form-control border p-1" value="<?= $user->getCiudad() ?>" name="ciudad" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-6">
                               <div class="form-group">
-                                 <label class="form-label">Dirección</label>
+                                 <label class="form-label">Dirección <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" class="form-control border p-1" value="<?= $user->getDireccion() ?>" name="direccion" maxlength="255" required>
                               </div>
                            </div>
@@ -129,6 +129,9 @@
                                     <option value="2">En proceso</option>
                                  </select>
                               </div>
+                           </div>
+                           <div>
+                              <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                            </div>
                         </div>
                      </div>
@@ -167,8 +170,8 @@
                         Comunidad
                      </h5>
                   </div>
-               <?= $infoCommunityAdmin ?>
-            </div>
+                  <?= $infoCommunityAdmin ?>
+               </div>
             </div>
          </div>
          <div class="card mt-3">
@@ -266,6 +269,9 @@
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea eliminar el registro?</label>
                   </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                  </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="deleteUser" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Asociado</button>
@@ -288,6 +294,9 @@
                      <div class="form-group">
                         <label class="form-label" for="imageUser">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                         <input type="file" class="form-control border p-1" name="imageUser" accept="image/*" required>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                   </div>
                   <div class="modal-footer">
@@ -328,6 +337,9 @@
                            </label>
                         </div>
                      </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                     </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
@@ -354,6 +366,9 @@
                            <option value="">Seleccione un beneficio</option>
                            <?= $optionBenefit ?>
                         </select>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                   </div>
                   <div class="modal-footer">
@@ -382,7 +397,7 @@
                               <input type="number" name="puntos" id="puntos" class="form-control border p-1" placeholder="Cantidad de Corazones" required>
                            </div>
                            <div class="col-md-12">
-                              <label for="descripcion">Descripción</label>
+                              <label for="descripcion">Descripción <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <textarea name="descripcion" id="descripcion" class="form-control border p-1" placeholder="Descripción de los puntos" rows="4" maxlength="255" required></textarea>
                            </div>
                         </div>
@@ -409,6 +424,9 @@
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea remover este beneficio?</label>
                      <input type="hidden" id="usuarioBeneficio" name="usuarioBeneficio">
+                  </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>

@@ -63,6 +63,9 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                               <?= $cardQuestionUser ?>
                            </div>
                         </div>
+                        <div>
+                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                        </div>
                         <div class="col-md-12 mt-3 text-center justify-content-center">
                            <button type="submit" class="btn btn-success btn-lg" name="sendAnswerSurvey">
                               <i class="material-icons me-2">send</i>Enviar Respuestas

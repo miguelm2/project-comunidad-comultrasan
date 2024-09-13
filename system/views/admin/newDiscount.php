@@ -55,19 +55,17 @@
                   <div class="row">
                      <div class="col-12">
                         <div class="form-group">
-                           <label class="form-label" for="titulo">Título</label>
+                           <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-md-12 form-group">
-                        <label for="descuento">Descuento</label>
+                        <label for="descuento">Descuento <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <input type="text" class="form-control border p-1" name="descuento" placeholder="Descuento" maxlength="255" required>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="col-md-12 form-group">
-                        <label for="vigencia">Vigencia</label>
+                        <label for="vigencia">Vigencia <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <input type="text" class="form-control border p-1" name="vigencia" placeholder="Vigencia" maxlength="255" required>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="col-md-6 form-group">
                         <label for="imageDiscount">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
@@ -78,9 +76,11 @@
                         <input type="file" class="form-control border p-1" name="logoDiscount" accept="image/*" required>
                      </div>
                      <div class="col-md-12 form-group">
-                        <label for="acceso">Acceso</label>
+                        <label for="acceso">Acceso <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <textarea name="acceso" id="acceso" class="form-control border p-1" rows="5" maxlength="255" placeholder="Escribe una descripción aqui" required></textarea>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-12 d-grid mt-4">

@@ -48,16 +48,16 @@
          </div>
          <div class="row p-2">
             <div class="col-md-4">
-               <label for="codigo">Código de la comunidad</label>
-               <input type="number" name="codigo" id="codigo" class="form-control border p-1" placeholder="Código de la comunidad">
+               <label for="codigo">Código de la comunidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+               <input type="number" name="codigo" id="codigo" class="form-control border p-1" maxlength="255" placeholder="Código de la comunidad">
             </div>
             <div class="col-md-4">
-               <label for="nombre">Nombre de la comunidad</label>
-               <input type="text" name="nombre" id="nombre" class="form-control border p-1" placeholder="Nombre de la comunidad">
+               <label for="nombre">Nombre de la comunidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+               <input type="text" name="nombre" id="nombre" class="form-control border p-1" maxlength="255" placeholder="Nombre de la comunidad">
             </div>
             <div class="col-md-4">
-               <label for="nombre_lider">Nombre del Líder</label>
-               <input type="text" name="nombre_lider" id="nombre_lider" class="form-control border p-1" placeholder="Nombre del líder">
+               <label for="nombre_lider">Nombre del Líder <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+               <input type="text" name="nombre_lider" id="nombre_lider" class="form-control border p-1" maxlength="255" placeholder="Nombre del líder">
             </div>
          </div>
          <div class="table-responsive">

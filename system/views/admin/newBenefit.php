@@ -55,9 +55,8 @@
                   <div class="row">
                      <div class="col-12">
                         <div class="form-group">
-                           <label class="form-label" for="titulo">Título</label>
+                           <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="titulo" maxlength="255" placeholder="Título" required>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-12">
@@ -71,14 +70,15 @@
                         <input type="file" class="form-control border p-1" name="imageBenefit" accept="image/*" required>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="definicion">Definición</label>
+                        <label for="definicion">Definición <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <textarea name="definicion" id="definicion" class="form-control border p-1" rows="5" required placeholder="Escribe una definición del beneficio" maxlength="255"></textarea>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="condiciones">Condiciones</label>
+                        <label for="condiciones">Condiciones <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <textarea name="condiciones" id="condiciones" class="form-control border p-1" rows="5" required placeholder="Escribe las condiciones que debe cumplir el beneficio" maxlength="255"></textarea>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-12 d-grid mt-4">

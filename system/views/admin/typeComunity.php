@@ -59,29 +59,31 @@
                      <div class="col-md-8">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="titulo">Título</label>
+                              <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="titulo" value="<?= $typeComunity->getTitulo() ?>" maxlength="255" required>
-                              <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="icono">Icono</label>
+                              <label class="form-label" for="icono">Icono <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="icono" value="<?= $typeComunity->getIcono() ?>" maxlength="255" required>
                               <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="subtitulo">Subtítulo</label>
+                              <label class="form-label" for="subtitulo">Subtítulo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="subtitulo" value="<?= $typeComunity->getSubtitulo() ?>" maxlength="255" required>
                               <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="contendio">Contenido</label>
-                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" required><?= html_entity_decode($typeComunity->getContenido()) ?></textarea>
+                        <label for="contendio">Contenido <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" maxlength="500" required><?= html_entity_decode($typeComunity->getContenido()) ?></textarea>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-4 d-grid mt-4">
@@ -189,6 +191,9 @@
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea eliminar el registros?</label>
                   </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                  </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="deleteTypeComunity" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar tipo de comunidad</button>
@@ -212,6 +217,9 @@
                         <label class="form-label" for="imageTypeComunity">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                         <input type="file" class="form-control border p-1" name="imageTypeComunity" accept="image/*" required>
                      </div>
+                  </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>

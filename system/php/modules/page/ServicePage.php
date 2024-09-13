@@ -6,22 +6,10 @@ class ServicePage extends System
 {
     static function Login($cedula, $pass)
     {
-
         $cedula = parent::limpiarString($cedula);
         $pass = parent::limpiarString($pass);
         $pass_hash = parent::hash($pass);
-        if (!parent::login($cedula, $pass_hash)) {
-            return '
-            <script>
-                Swal.fire({
-                    icon: "warning",
-                    showConfirmButton: true,
-                    showCancelButton: false,
-                    confirmButtonText: "Aceptar",
-                    html: `<h1>' . Constants::$PAGE_LOGIN . '</h1>`,
-                });
-                </script>';
-        }
+        return parent::login($cedula, $pass_hash);
     }
 
     static function Recovery($cedula)

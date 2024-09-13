@@ -58,16 +58,14 @@
                            <div class="row">
                               <div class="col-12">
                                  <div class="form-group">
-                                    <label class="form-label">Nombre</label>
+                                    <label class="form-label">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="text" class="form-control border p-1" name="nombre" value="<?= $_SESSION['nombre'] ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
                                  <div class="form-group">
-                                    <label class="form-label">Correo</label>
+                                    <label class="form-label">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="email" class="form-control border p-1" name="correo" value="<?= $_SESSION['correo'] ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-6">
@@ -94,6 +92,9 @@
                                     </select>
                                  </div>
                               </div>
+                              <div>
+                                 <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                              </div>
                               <div class="col-md-6">
                                  <div class="form-group">
                                     <label for="cedula" class="form-label">Documento de identidad</label><br>
@@ -102,23 +103,20 @@
                               </div>
                               <div class="col-md-6">
                                  <div class="form-group">
-                                    <label for="departamento" class="form-label">Departamento</label><br>
+                                    <label for="departamento" class="form-label">Departamento <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;">(Máximo de caracteres: 255)</small></label><br>
                                     <input type="text" class="form-control border p-1" name="departamento" value="<?= $_SESSION['departamento'] ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-md-6">
                                  <div class="form-group">
-                                    <label for="ciudad" class="form-label">Ciudad</label><br>
+                                    <label for="ciudad" class="form-label">Ciudad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;">(Máximo de caracteres: 255)</small></label><br>
                                     <input type="text" class="form-control border p-1" name="ciudad" value="<?= $_SESSION['ciudad'] ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                               <div class="col-md-6">
                                  <div class="form-group">
-                                    <label for="direccion" class="form-label">Dirección</label><br>
+                                    <label for="direccion" class="form-label">Dirección <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;">(Máximo de caracteres: 255)</small></label><br>
                                     <input type="text" class="form-control border p-1" name="direccion" value="<?= $_SESSION['direccion'] ?>" maxlength="255" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                                  </div>
                               </div>
                            </div>
@@ -158,6 +156,9 @@
                         <label class="form-label" for="imageUser">Imagen<small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
                         <input type="file" class="form-control border p-1" name="imageUser" accept="image/*" required>
                      </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                     </div>
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -195,6 +196,9 @@
                         <div class="col-md-12 form-group">
                            <label for="confirmPass">Confirmar contraseña</label>
                            <input type="password" id="confirmPass" name="confirmPass" class="form-control border p-1" maxlength="30" required>
+                        </div>
+                        <div>
+                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                         </div>
                      </div>
                      <div class="col-md-8 col-lg-9">

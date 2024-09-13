@@ -54,9 +54,8 @@
                   <div class="row">
                      <div class="col-md-12">
                         <div class="form-group">
-                           <label class="form-label" for="pregunta">Pregunta</label>
+                           <label class="form-label" for="pregunta">Pregunta <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="pregunta" value="<?= $surveyQuestion->getPregunta() ?>" maxlength="255" required>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-md-6">
@@ -77,6 +76,9 @@
                            <option value="2">Respuesta Abierta</option>
                            <option value="3">Múltiples Respuestas</option>
                         </select>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-6 d-grid mt-4">
@@ -155,6 +157,9 @@
                   <div class="modal-body">
                      <label class="form-label">¿Esta seguro que desea eliminar el registro?</label>
                   </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                  </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="deleteSurveyQuestion" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar Pregunta</button>
@@ -176,9 +181,8 @@
                   <div class="modal-body">
                      <div class="row g-3">
                         <div class="col-md-12 form-group">
-                           <label for="respuesta">Respuesta</label>
+                           <label for="respuesta">Respuesta <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="respuesta" placeholder="Respuesta" maxlength="255" required>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                         <div class="col-md-12 form-group">
                            <label for="veracidad">Veracidad</label>
@@ -186,6 +190,9 @@
                               <option value="0">Falso</option>
                               <option value="1">Verdadero</option>
                            </select>
+                        </div>
+                        <div>
+                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                         </div>
                      </div>
                   </div>

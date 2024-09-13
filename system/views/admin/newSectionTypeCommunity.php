@@ -56,9 +56,8 @@
                <div class="row">
                   <div class="col-12">
                      <div class="form-group">
-                        <label class="form-label" for="nombre">Nombre</label>
+                        <label class="form-label" for="nombre">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 500)</small></label>
                         <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre" maxlength="500" required>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">500</span></small>
                      </div>
                   </div>
                   <div class="col-md-12 form-group">
@@ -66,9 +65,11 @@
                      <input type="file" class="form-control border p-1" name="imageSectionTypeCommunity" accept="image/*" required>
                   </div>
                   <div class="col-md-12 mt-3">
-                     <label for="contendio">Descripción</label>
+                     <label for="contendio">Descripción <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 500)</small></label>
                      <textarea name="descripcion" id="texto" class="form-control border p-1" rows="5" maxlength="500">Descripción</textarea>
-                     <small>Maximo de caracteres: <span id="contadorPublicacion">500</span></small>
+                  </div>
+                  <div>
+                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                   </div>
                   <div class="dark horizontal my-0 border-1 mt-3"></div>
                   <div class="col-md-12 d-grid mt-4">

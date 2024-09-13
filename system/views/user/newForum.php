@@ -66,6 +66,9 @@
                         <textarea name="contenido" id="texto_foro" class="form-control border p-1" rows="4" maxlength="1500">Escriba contenido para el foro</textarea>
                         <small>Caracteres restantes: <span id="contadorPublicacion">1500</span></small>
                      </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                     </div>
                      <div class="col-md-12">
                         <button type="submit" name="newForum" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Foro</button>
                      </div>

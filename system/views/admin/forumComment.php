@@ -54,9 +54,11 @@
                <form method="post">
                   <div class="row">
                      <div class="col-md-12 mt-3">
-                        <label for="comentario">Comentario</label>
-                        <textarea name="comentario"  class="form-control border p-1" rows="5" maxlength="500" required><?= $forumComment->getComentario() ?></textarea>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">500</span></small>
+                        <label for="comentario">Comentario <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                        <textarea name="comentario" class="form-control border p-1" rows="5" maxlength="500" required><?= $forumComment->getComentario() ?></textarea>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-6 d-grid mt-4">
@@ -84,6 +86,9 @@
                      </div>
                      <div class="modal-body">
                         <label class="form-label">¿Esta seguro que desea eliminar el registros?</label>
+                        <div>
+                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                        </div>
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>

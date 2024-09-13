@@ -432,6 +432,9 @@
                               <input type="number" class="form-control border p-1" name="celular" maxlength="255" required>
                            </div>
                         </div>
+                        <div>
+                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                        </div>
                      </div>
                   </div>
                   <div class="modal-footer">

@@ -196,7 +196,9 @@ class ServicePoint extends System
                 if ($fileExtension !== $allowedExtension) {
                     return Elements::crearMensajeAlerta("Por favor, sube solo archivos con el formato CSV", "error");
                 }
-
+                if ($fileSize > 8000000) {
+                    return Elements::crearMensajeAlerta("El archivo debe pesar menos de 8MB", "error");
+                }
 
                 if ($fileSize > 100 && $filename != '') {
                     if (!is_dir($dir_csv)) mkdir($dir_csv, 0777, true);

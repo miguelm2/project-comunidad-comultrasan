@@ -430,6 +430,7 @@ class Elements
     {
         return '<div class="col-md-2">
                     <form method="post">
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"]; ?>">
                         <input type="hidden" name="comment" value="' . $id . '">
                         <button type="submit" class="btn btn-danger" name="deleteForumComment"><i class="material-icons me-2">delete</i>Eliminar</button>
                     </form>

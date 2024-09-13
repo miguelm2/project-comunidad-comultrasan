@@ -55,15 +55,16 @@
                   <div class="row">
                      <div class="col-12">
                         <div class="form-group">
-                           <label class="form-label" for="titulo">Título</label>
+                           <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="titulo" value="<?= $foroDTO->getTitulo() ?>" maxlength="255" required>
-                           <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="contendio">Contenido</label>
+                        <label for="contendio">Contenido <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 1500)</small></label>
                         <textarea name="contenido" id="texto_foro" class="form-control border p-1" rows="5" required maxlength="1500"><?= html_entity_decode($foroDTO->getContenido()) ?></textarea>
-                        <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="col-md-6 d-grid mt-4">
@@ -124,7 +125,10 @@
                         <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                      </div>
                      <div class="modal-body">
-                        <label class="form-label">¿Esta seguro que desea eliminar el registros?</label>
+                        <label class="form-label">¿Esta seguro que desea eliminar el foro?</label>
+                        <div>
+                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                        </div>
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
@@ -151,7 +155,7 @@
    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
-   
+
    <!-- Ck Editor -->
    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/ckeditor.js"></script>
    <script src="https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format"></script>

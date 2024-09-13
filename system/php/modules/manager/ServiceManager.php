@@ -52,6 +52,9 @@ class ServiceManager extends System
                 if (!in_array($fileType, $allowedTypes)) {
                     return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
                 }
+                if ($fileSize > 4000000) {
+                    return Elements::crearMensajeAlerta("El archivo debe pesar menos de 4MB", "error");
+                }
 
                 if ($fileSize > 100 && $filename != '') {
                     $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_MANAGER;

@@ -45,9 +45,10 @@ class ServiceEventCalendar extends System
                 $fileType = $_FILES['imageEventCalendar']['type'];
 
                 if (!in_array($fileType, $allowedTypes)) {
-                    // Obtener los formatos permitidos de manera dinámica
-                    $allowedFormats = implode(', ', ['JPG', 'JPEG', 'PNG', 'GIF']);
                     return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
+                }
+                if ($fileSize > 4000000) {
+                    return Elements::crearMensajeAlerta("El archivo debe pesar menos de 4MB", "error");
                 }
 
                 if ($fileSize > 100 && $filename != '') {
