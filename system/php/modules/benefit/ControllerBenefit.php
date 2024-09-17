@@ -47,6 +47,6 @@ if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
     $cardBenefitUser = ServiceBenefit::getCardBenefitUserByUser();
 }
 
-if (basename($_SERVER['PHP_SELF']) == 'user.php') {
+if (basename($_SERVER['PHP_SELF']) == 'user.php' || basename($_SERVER['PHP_SELF']) == 'community.php') {
     $optionBenefit = ServiceBenefit::getOptionBenefit();
 }

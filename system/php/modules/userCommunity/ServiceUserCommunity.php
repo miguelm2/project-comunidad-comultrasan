@@ -4,13 +4,24 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/UsuarioComunidad.php
 
 class ServiceUserCommunity extends System
 {
-    public static function newUserCommunity($id_usuario, $id_comunidad)
+    public static function newUserCommunity($nombre, $cedula, $correo, $celular, $id_comunidad, $nombre_comunidad)
     {
         try {
-            $id_usuario         = parent::limpiarString($id_usuario);
+            $nombre             = parent::limpiarString($nombre);
+            $cedula             = parent::limpiarString($cedula);
+            $correo             = parent::limpiarString($correo);
+            $celular            = parent::limpiarString($celular);
             $id_comunidad       = parent::limpiarString($id_comunidad);
             $estado             = parent::limpiarString(1);
             $fecha_registro = date('Y-m-d H:i:s');
+
+            $usuarioDTO = Usuario::getUserByCedula($cedula);
+
+            if (!$usuarioDTO) {
+                Referido::newReferred($nombre, $cedula, 1, '', '', $correo, $celular, $_SESSION['nombre'], $_SESSION['tipo_documento'], $_SESSION['cedula'], 1, $_SESSION['id'], $fecha_registro);
+                self::enviarInvitacionCorreo($nombre, $nombre_comunidad, $correo);
+            }
+            $id_usuario = $usuarioDTO->getId_usuario();
 
             $comunidadDTO = Comunidad::getCommunity($id_comunidad);
 
@@ -33,8 +44,8 @@ class ServiceUserCommunity extends System
                     $mensaje = "Estimado/a, <br><br>
                             Has sido invitado/a a unirte a una nueva comunidad en nuestra plataforma. 
                             Para aceptar o rechazar esta oferta, por favor, haz clic en el siguiente enlace:<a href='" . self::getURL() .
-                        '/acceptUser?acceptUser=' . $lastRegister->getId_usuario_comunidad() . "'>" . self::getURL() .
-                        '/acceptUser?acceptUser=' . $lastRegister->getId_usuario_comunidad() . "</a><br>br>
+                        '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "'>" . self::getURL() .
+                        '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "</a><br>br>
                             Gracias por ser parte de nuestra comunidad. <br><br>
                             Saludos cordiales,<br>
                             El equipo de Financiera Comultrasan";
@@ -50,6 +61,60 @@ class ServiceUserCommunity extends System
                             Saludos cordiales, <br>
                             El equipo de Financiera Comultrasan";
                 }
+                Mail::sendEmail($asunto, $mensaje, $correo);
+                return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "success");
+            }
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    private static function enviarInvitacionCorreo($nombre_user, $nombre_comunidad, $correo)
+    {
+        $mensaje = "Estimado(a) $nombre_user,
+                Nos complace informarle que ha sido invitado(a) a unirse a nuestra aplicación, 
+                como parte de la comunidad $nombre_comunidad, creada por " . $_SESSION['nombre'] . ".<br><br>
+                Para aceptar la invitación y disfrutar de los beneficios que ofrece nuestra plataforma, 
+                le invitamos a registrarse en el siguiente enlace: " . self::getURL() . "/singup .<br><br>
+                Agradecemos su interés y esperamos contar con su valiosa participación.<br><br>
+                Atentamente,<br> Financiera Comultrasan";
+
+        $asunto = "Invitación a unirse a nuestra plataforma y comunidad";
+        Mail::sendEmail($asunto, $mensaje, $correo);
+    }
+    public static function newUserCommunityAdmin($id_usuario, $id_comunidad)
+    {
+        try {
+            $id_usuario         = parent::limpiarString($id_usuario);
+            $id_comunidad       = parent::limpiarString($id_comunidad);
+            $estado             = parent::limpiarString(1);
+            $fecha_registro = date('Y-m-d H:i:s');
+
+            $comunidadDTO = Comunidad::getCommunity($id_comunidad);
+
+            if (!$comunidadDTO) {
+                return Elements::crearMensajeAlerta(Constants::$COMMUNITY_NOT, "error");
+            }
+
+            $usuarioComunidad = UsuarioComunidad::getValideUserCommunityByUser($id_usuario);
+            if ($comunidadDTO->getUsuarioDTO() == $id_usuario || $usuarioComunidad) {
+                return Elements::crearMensajeAlerta(Constants::$USER_READY_COMMUNITY, "error");
+            }
+
+            $result = UsuarioComunidad::newUserCommunity($id_usuario, $id_comunidad, $estado, $fecha_registro);
+
+            if ($result && $comunidadDTO) {
+                $lastRegister = UsuarioComunidad::getUserCommunityByUserInactive($id_usuario);
+                $correo = $lastRegister->getUsuarioDTO()->getCorreo();
+                $asunto = "Solicitud de unión a comunidad";
+                $mensaje = "Estimado/a, <br><br>
+                            Has sido invitado/a a unirte a una nueva comunidad en nuestra plataforma. 
+                            Para aceptar o rechazar esta oferta, por favor, haz clic en el siguiente enlace:<a href='" . self::getURL() .
+                            '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "'>" . self::getURL() .
+                            '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "</a><br>br>
+                            Gracias por ser parte de nuestra comunidad. <br><br>
+                            Saludos cordiales,<br>
+                            El equipo de Financiera Comultrasan";
+
                 Mail::sendEmail($asunto, $mensaje, $correo);
                 return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "success");
             }

@@ -74,7 +74,7 @@ class TipoComunidad extends System
         $stmt->bindParam(':id_usuario', $id_usuario);
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'TipoComunidadDTO');
         $stmt->execute();
-        return $stmt->fetch();
+        return $stmt->fetchAll();
     }
     public static function getUserGroupInterestByUser($id_usuario)
     {

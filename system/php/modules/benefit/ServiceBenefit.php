@@ -45,7 +45,7 @@ class ServiceBenefit extends System
                 if (!in_array($fileType, $allowedTypes)) {
                     return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
                 }
-                
+
                 if ($fileSize > 4000000) {
                     return Elements::crearMensajeAlerta("El archivo debe pesar menos de 4MB", "error");
                 }
@@ -245,7 +245,7 @@ class ServiceBenefit extends System
 
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
-                    $html .= Elements::getCardsBenefitUser($valor->getTitulo());
+                    $html .= Elements::getCardsBenefitUser($valor->getTitulo(), $valor->getCondiciones());
                 }
             } else {
                 return '<div>No tienes beneficios en este momento</div>';
@@ -269,6 +269,7 @@ class ServiceBenefit extends System
                 foreach ($usuariosComunidadDTO as $usuarioComunidad) {
                     $tableHtml .= self::generateBenefitTable($usuarioComunidad->getUsuarioDTO()->getId_usuario());
                 }
+                $tableHtml .= self::generateBenefitTableByCommunity($comunidadDTO->getId_comunidad());
             }
             return $tableHtml;
         } catch (\Exception $e) {
@@ -291,6 +292,23 @@ class ServiceBenefit extends System
                 if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
                     $tableHtml .= '<td class="text-center">' . Elements::getButtonDeleteModalJs('takeOutBenefit', 'Remover', $usuarioBeneficio->getId_usuario_beneficio())  . '</td>';
                 }
+                $tableHtml .= '</tr>';
+            }
+        }
+        return $tableHtml;
+    }
+    private static function generateBenefitTableByCommunity($id_comunidad)
+    {
+        $tableHtml = '';
+        $modelResponse = Beneficio::listBenefitByCommunity($id_comunidad);
+        if ($modelResponse) {
+            foreach ($modelResponse as $valor) {
+                $tableHtml .= '<tr>';
+                $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
+                $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
+                $tableHtml .= '<td>Comunidad</td>';
+                $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
+                $tableHtml .= '<td></td>';
                 $tableHtml .= '</tr>';
             }
         }

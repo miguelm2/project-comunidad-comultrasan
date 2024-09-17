@@ -2,7 +2,8 @@
 class UsuarioBeneficioDTO
 {
     protected $id_usuario_beneficio;
-    protected $usuarioDTO;
+    protected $identificador;
+    protected $tipo;
     protected $beneficioDTO;
     protected $fecha_registro;
 
@@ -25,27 +26,6 @@ class UsuarioBeneficioDTO
 
         return $this;
     }
-
-    /**
-     * Get the value of usuarioDTO
-     */
-    public function getUsuarioDTO()
-    {
-        return $this->usuarioDTO;
-    }
-
-    /**
-     * Set the value of usuarioDTO
-     *
-     * @return  self
-     */
-    public function setUsuarioDTO($usuarioDTO)
-    {
-        $this->usuarioDTO = $usuarioDTO;
-
-        return $this;
-    }
-
     /**
      * Get the value of beneficioDTO
      */
@@ -82,6 +62,46 @@ class UsuarioBeneficioDTO
     public function setFecha_registro($fecha_registro)
     {
         $this->fecha_registro = $fecha_registro;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of identificador
+     */
+    public function getIdentificador()
+    {
+        return $this->identificador;
+    }
+
+    /**
+     * Set the value of identificador
+     *
+     * @return  self
+     */
+    public function setIdentificador($identificador)
+    {
+        $this->identificador = $identificador;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of tipo
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+
+    /**
+     * Set the value of tipo
+     *
+     * @return  self
+     */
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
 
         return $this;
     }

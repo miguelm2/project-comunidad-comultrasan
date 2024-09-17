@@ -490,7 +490,7 @@ class ServiceCommunity extends System
         $beneficioDTO = Beneficio::listBenefitByUser($id_usuario);
 
         foreach ($beneficioDTO as $beneficio) {
-            $html .= Elements::getCardsBenefitUser($beneficio->getTitulo());
+            $html .= Elements::getCardsBenefitUser($beneficio->getTitulo(), $beneficio->getCondiciones());
         }
 
         return $html;
@@ -511,13 +511,14 @@ class ServiceCommunity extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function getTableCommunityFilter($id_comunidad, $nombre_comunidad, $nombre_lider)
+    public static function getTableCommunityFilter($id_comunidad, $nombre_comunidad, $nombre_lider, $fecha_inicio, $fecha_fin)
     {
         try {
-            // Limpiar las entradas
-            $id_comunidad = parent::limpiarString($id_comunidad);
-            $nombre_comunidad = parent::limpiarString($nombre_comunidad);
-            $nombre_lider = parent::limpiarString($nombre_lider);
+            $id_comunidad       = parent::limpiarString($id_comunidad);
+            $nombre_comunidad   = parent::limpiarString($nombre_comunidad);
+            $nombre_lider       = parent::limpiarString($nombre_lider);
+            $fecha_inicio       = parent::limpiarString($fecha_inicio);
+            $fecha_fin          = parent::limpiarString($fecha_fin);
             $tableHtml = [];
 
             $sql = '';
@@ -531,6 +532,14 @@ class ServiceCommunity extends System
 
             if ($nombre_lider != '') {
                 $sql .= sprintf(" AND id_usuario IN (SELECT id_usuario FROM Usuario WHERE nombre LIKE '%%%s%%')", $nombre_lider);
+            }
+
+            if($fecha_inicio != ''){
+                $sql .= sprintf(" AND fecha_registro >= '%s%'", $fecha_inicio);
+            }
+
+            if($fecha_fin != ''){
+                $sql .= sprintf(" AND fecha_registro <= '%s%'", $fecha_fin);
             }
             $comunidadDTO = Comunidad::getCommunityByFilter($sql);
             foreach ($comunidadDTO as $valor) {

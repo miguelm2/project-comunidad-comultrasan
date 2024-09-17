@@ -7,7 +7,7 @@ class ServiceAnswerUser extends System
 {
     public static function newAnswerUser($id_encuesta,  $listRespuestas, $listRespuestasAbiertas,)
     {
-        try {
+        try{
             $id_encuesta = parent::limpiarString($id_encuesta);
             $id_usuario = $_SESSION['id'];
             $fecha_registro = date('Y-m-d H:i:s');
@@ -15,14 +15,26 @@ class ServiceAnswerUser extends System
             if (!is_array($listRespuestas)) {
                 $listRespuestas = [];
             }
-
             if (!is_array($listRespuestasAbiertas)) {
                 $listRespuestasAbiertas = [];
             }
+
+                
+
             if (count($listRespuestas) > 0) {
                 foreach ($listRespuestas as $value) {
                     $listTotal = explode("-", $value);
-                    $responseMultiple = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $listTotal[0], $listTotal[1],  $fecha_registro);
+                    $valide = RespuestaPregunta::valideAnswerQuestionByQuestion($listTotal[0]);
+                    if($valide){
+                        $responseMultiple = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $listTotal[0], $listTotal[1],  $fecha_registro);
+                    }
+                    $valide_answer = RespuestaPregunta::valideAnswerQuestionByQuestionAndAnswer($listTotal[0], $listTotal[1]);
+                    if(!$valide_answer){
+                        RespuestaUsuario::deleteAnswerUserByUserBySurvey($id_usuario, $id_encuesta);
+                        return Elements::crearMensajeAlerta("Tienes un nuevo intento, responde correctamente todas las respuestas","warning");
+                    }
+                        $responseMultiple = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $listTotal[0], $listTotal[1],  $fecha_registro);
+                    
                 }
             }
 

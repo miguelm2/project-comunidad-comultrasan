@@ -39,7 +39,7 @@ if (isset($_GET['community'])) {
 }
 
 if (isset($_POST['getTableCommunityFilter'])) {
-    $response = ServiceCommunity::getTableCommunityFilter($_POST['codigo'], $_POST['nombre'], $_POST['lider']);
+    $response = ServiceCommunity::getTableCommunityFilter($_POST['codigo'], $_POST['nombre'], $_POST['lider'], $_POST['fecha_inicio'], $_POST['fecha_fin']);
     echo $response;
 }
 

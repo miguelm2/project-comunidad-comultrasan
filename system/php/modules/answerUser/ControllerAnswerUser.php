@@ -10,5 +10,5 @@ if (isset($_POST['sendAnswerSurvey'])) {
     ServicePoint::newPoint($encuestaDTO->getPuntos(), $_SESSION['id'], 1, "Resolvió la encuesta: " . $encuestaDTO->getNombre());
     $listRespuestas = (isset($_POST['listRespuestas'])) ? $_POST['listRespuestas'] : '';
     $listRespuestasAbiertas = (isset($_POST['listRespuestasAbiertas'])) ? $_POST['listRespuestasAbiertas'] : '';
-    ServiceAnswerUser::newAnswerUser($_GET['survey'], $listRespuestas, $listRespuestasAbiertas);
+    $response = ServiceAnswerUser::newAnswerUser($_GET['survey'], $listRespuestas, $listRespuestasAbiertas);
 }

@@ -96,4 +96,14 @@ class RespuestaUsuario extends System
         }
         return $list;
     }
+    public static function deleteAnswerUserByUserBySurvey($id_usuario, $id_encuesta)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("DELETE FROM RespuestaUsuario 
+                                    WHERE id_usuario = :id_usuario
+                                    AND id_encuesta = :id_encuesta");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->bindParam(':id_encuesta', $id_encuesta);
+        return $stmt->execute();
+    }
 }

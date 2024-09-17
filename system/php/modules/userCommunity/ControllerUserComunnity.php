@@ -4,11 +4,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/community/ServiceC
 
 if (isset($_POST['newUserCommunity'])) {
     $comunidadDTO = ServiceCommunity::getCommunityByUser($_SESSION['id']);
-    $response = ServiceUserCommunity::newUserCommunity($_POST['usuario'], $comunidadDTO->getId_comunidad());
+    $response = ServiceUserCommunity::newUserCommunity(
+        $_POST['nombre'],
+        $_POST['cedula'],
+        $_POST['correo'],
+        $_POST['celular'],
+        $comunidadDTO->getId_comunidad(),
+        $comunidadDTO->getNombre()
+    );
 }
 
 if (isset($_POST['newUserCommunityAdmin'])) {
-    $response = ServiceUserCommunity::newUserCommunity($_POST['usuario'], $_GET['community']);
+    $response = ServiceUserCommunity::newUserCommunityAdmin($_POST['usuario'], $_GET['community']);
 }
 
 if (isset($_POST['newUserCommunityJoin'])) {
@@ -52,7 +59,7 @@ if (isset($_GET['moveUser'])) {
     $moveUserCommunity = ServiceUserCommunity::getUserCommunity($_GET['moveUser']);
 }
 
-if(isset($_POST['realiceMoveUser'])){
+if (isset($_POST['realiceMoveUser'])) {
     $response = ServiceUserCommunity::moveUser($_GET['moveUser'], $_POST['comunidad']);
 }
 

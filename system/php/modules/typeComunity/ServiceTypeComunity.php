@@ -215,11 +215,19 @@ class ServiceTypeComunity extends System
         try {
             $id_grupo = parent::limpiarString($id_grupo);
             $tipoComunidadDTO = TipoComunidad::getTypeComunityByUser($_SESSION['id']);
-            if (!$tipoComunidadDTO) {
-                return Elements::getFormJoinGroupInterest();
-            } else {
-                return '';
+            $perteneceComunidad = false;
+
+            foreach ($tipoComunidadDTO as $valor) {
+                if ($valor->getId_tipo_comunidad() == $id_grupo) {
+                    $perteneceComunidad = true;
+                    break;
+                }
             }
+
+            if (!$perteneceComunidad) {
+                return Elements::getFormJoinGroupInterest();
+            }
+            return '';
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -228,20 +236,14 @@ class ServiceTypeComunity extends System
     {
         try {
             $id_grupo = parent::limpiarString($id_grupo);
-            $comunidadDTO = Comunidad::getCommunityByUser($_SESSION['id']);
 
-            if (!$comunidadDTO) {
-                $comunidadUsuario = UsuarioComunidad::getUserCommunityByUser($_SESSION['id']);
-                $comunidadDTO = $comunidadUsuario ? $comunidadUsuario->getComunidadDTO() : null;
-            }
+            $tipoComunidadDTO = TipoComunidad::getTypeComunityByUser($_SESSION['id']);
 
-            if ($comunidadDTO) {
-                $tipoComunidadDTO = TipoComunidad::getTypeComunityByUser($_SESSION['id']);
-
-                if ($tipoComunidadDTO && $tipoComunidadDTO->getId_tipo_comunidad() == $id_grupo) {
+            foreach ($tipoComunidadDTO as $valor) {
+                if ($valor->getId_tipo_comunidad() == $id_grupo) {
                     return '<a href="newForum?comunnityForum=' . $id_grupo . '" class="btn btn-success">
-                                <i class="material-icons me-2">edit</i> Añadir nuevo tema
-                            </a>';
+                                    <i class="material-icons me-2">edit</i> Añadir nuevo tema
+                                </a>';
                 }
             }
 
@@ -253,19 +255,14 @@ class ServiceTypeComunity extends System
     public static function getDisabledComment($id_foro)
     {
         try {
-            $comunidadDTO = Comunidad::getCommunityByUser($_SESSION['id']);
             $foroDTO = Foro::getForum($id_foro);
 
-            if (!$comunidadDTO) {
-                $comunidadUsuario = UsuarioComunidad::getUserCommunityByUser($_SESSION['id']);
-                $comunidadDTO = $comunidadUsuario ? $comunidadUsuario->getComunidadDTO() : null;
-            }
-
-            if ($comunidadDTO && $foroDTO) {
+            if ($foroDTO) {
                 $tipoComunidadDTO = TipoComunidad::getTypeComunityByUser($_SESSION['id']);
-
-                if ($tipoComunidadDTO && $tipoComunidadDTO->getId_tipo_comunidad() == $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad()) {
-                    return '';
+                foreach ($tipoComunidadDTO as $valor) {
+                    if ($valor->getId_tipo_comunidad() == $foroDTO->getTipoComunidadDTO()->getId_tipo_comunidad()) {
+                        return '';
+                    }
                 }
             }
 
