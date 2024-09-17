@@ -325,6 +325,10 @@
                      <h4 class="text-success">
                         Beneficios en la comunidad
                      </h4>
+                  </div><div class="col-md-3">
+                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#userBenefitsCommunity">
+                        <i class="material-icons me-2">add</i> Agregar Beneficio
+                     </button>
                   </div>
                </div>
             </div>
@@ -409,6 +413,36 @@
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="newUserCommunityAdmin" class="btn btn-success"><i class="material-icons me-2">add</i> Nuevo Miembro</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
+      <!--Final Basic Modal-->
+      <!-- ======= Basic Modal ======= -->
+      <form method="post">
+         <div class="modal fade" id="userBenefitsCommunity" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Agregar Beneficio</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <div class="form-group">
+                        <label class="form-label" for="userBenefit">Beneficio</label>
+                        <select class="form-select border p-1" name="userBenefit" required>
+                           <option value="">Seleccione un beneficio</option>
+                           <?= $optionBenefit ?>
+                        </select>
+                     </div>
+                     <div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="newUserBenefitsCommunity" class="btn btn-info"><i class="material-icons me-2">add</i> Guardar Beneficio</button>
                   </div>
                </div>
             </div>

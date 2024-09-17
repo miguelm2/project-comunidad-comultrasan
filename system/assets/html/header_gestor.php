@@ -17,7 +17,7 @@
                   <a href="communities" class="text-white ms-5" style="font-size: 18px;font-weight: 600;">Comunidad</a>
                </li>
                <li class="nav-item d-flex align-items-center p-1 ms-3">
-                  <a href="users" class="text-white" style="font-size: 18px;font-weight: 600;">Asociados</a>
+                  <a href="users" class="text-white" style="font-size: 18px;font-weight: 600;">Información personal</a>
                </li>
                <li class="nav-item d-flex align-items-center p-1 ms-3">
                   <a href="referralds" class="text-white" style="font-size: 18px;font-weight: 600;">Referidos</a>

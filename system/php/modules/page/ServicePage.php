@@ -76,10 +76,9 @@ class ServicePage extends System
 
     public static function getURL()
     {
-        if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+        if (basename($_SERVER['PHP_SELF']) == 'index.php' || basename($_SERVER['PHP_SELF']) == 'benefits_page.php') {
             $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
             $host = $_SERVER['HTTP_HOST'];
-            $script = $_SERVER['REQUEST_URI'];
             $url = $protocol . "://" . $host;
             return $url;
         }
@@ -107,19 +106,36 @@ class ServicePage extends System
                                 </div>
                             </div>
                         </div>
-                    </form>',
-                'boton' =>
-                '<li class="nav-item">
-                        <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#basicModal" role="button">
-                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons opacity-10">logout</i>
-                        </div>
-                        <span class="nav-link-text ms-1">Salir</span>
-                        </a>
-                    </li>'
+                    </form>'
             ];
         } else {
-            return ['modal' => '', 'boton' => ''];
+            return ['modal' => ''];
+        }
+    }
+    public static function getLocationBySession()
+    {
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+        $host = $_SERVER['HTTP_HOST'];
+        $currentUrl = $protocol . "://" . $host . $_SERVER['REQUEST_URI'];
+
+        $baseUrl = $protocol . "://" . $host . "/"; 
+        $adminUrl = $protocol . "://" . $host . "/system/views/admin";
+        $userUrl = $protocol . "://" . $host . "/system/views/user";
+        $managerUrl = $protocol . "://" . $host . "/system/views/manager";
+
+        if (($currentUrl === $baseUrl || $currentUrl === rtrim($baseUrl, '/')) && isset($_SESSION['id']) && isset($_SESSION['tipo'])) {
+            switch ($_SESSION['tipo']) {
+                case 0:
+                case 5:
+                    header("Location: " . $adminUrl);
+                    exit;
+                case 1:
+                    header("Location: " . $userUrl);
+                    exit;
+                case 2:
+                    header("Location: " . $managerUrl);
+                    exit;
+            }
         }
     }
     public static function getHtmlLogin()

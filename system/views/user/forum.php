@@ -119,7 +119,7 @@
                   </div>
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newForumComment" class="btn btn-info"><i class="material-icons me-2">chat</i> Comentar</button>
+                     <button type="submit" name="newForumComment" class="btn btn-info"><i class="material-icons me-2">chat</i> Enviar</button>
                   </div>
                </div>
             </div>

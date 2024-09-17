@@ -459,11 +459,26 @@
                      <div class="row g-3">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label">Miembros</label>
-                              <select name="usuario" id="usuario" class="form-select border p-1">
-                                 <option value="">Seleccione un miembro</option>
-                                 <?= $optionUserWithoutCommunity ?>
-                              </select>
+                              <label for="nombre">Nombre del miembro</label>
+                              <input type="text" name="nombre" id="nombre" maxlength="255" placeholder="Nombre del miembro">
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="form-group">
+                              <label for="cedula">Documento de identidad</label>
+                              <input type="number" name="cedula" id="cedula" maxlength="20" placeholder="Documento de identidad">
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="form-group">
+                              <label for="celular">Celular</label>
+                              <input type="number" name="celular" id="celular" placeholder="Celular">
+                           </div>
+                        </div>
+                        <div class="col-12">
+                           <div class="form-group">
+                              <label for="cedula">Correo</label>
+                              <input type="text" name="cedula" id="cedula" maxlength="30" placeholder="Correo">
                            </div>
                         </div>
                      </div>

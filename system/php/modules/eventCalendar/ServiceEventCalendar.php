@@ -198,7 +198,7 @@ class ServiceEventCalendar extends System
                     $html .= Elements::getCardsEventsByGroup(
                         $fecha,
                         $valor->getTitulo(),
-                        $valor->getPersona_cargo(),
+                        $valor->getHora(),
                         $valor->getLugar()
                     );
                 }

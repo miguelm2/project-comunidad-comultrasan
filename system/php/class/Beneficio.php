@@ -61,18 +61,6 @@ class Beneficio extends System
         $stmt->bindParam(':id_beneficio', $id_beneficio);
         return  $stmt->execute();
     }
-    public static function getCountBenefitByDate($fecha_inicio, $fecha_fin)
-    {
-        $dbh = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT COUNT(*) AS contador 
-                                FROM Beneficio 
-                                WHERE fecha_registro BETWEEN :fecha_inicio AND :fecha_fin");
-        $stmt->bindParam(':fecha_inicio', $fecha_inicio);
-        $stmt->bindParam(':fecha_fin', $fecha_fin);
-        $stmt->execute();
-        $result = $stmt->fetch();
-        return $result['contador'];
-    }
     public static function listBenefitByUser($id_usuario)
     {
         $dbh  = parent::Conexion();
@@ -80,10 +68,27 @@ class Beneficio extends System
                                 FROM Beneficio as bf,
                                     UsuarioBeneficio as ub,
                                     Usuario as us
-                                WHERE us.id_usuario = ub.id_usuario
+                                WHERE us.id_usuario = ub.identificador
                                 AND us.id_usuario = :id_usuario
-                                AND bf.id_beneficio = ub.id_beneficio");
+                                AND bf.id_beneficio = ub.id_beneficio
+                                AND ub.tipo = 1");
         $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'BeneficioDTO');
+        $stmt->execute();
+        return  $stmt->fetchAll();
+    }
+    public static function listBenefitByCommunity($id_comunidad)
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT bf.* 
+                                FROM Beneficio as bf,
+                                    UsuarioBeneficio as ub,
+                                    Comunidad as c
+                                WHERE c.id_comunidad = ub.identificador
+                                AND c.id_comunidad = :id_usuario
+                                AND bf.id_beneficio = ub.id_beneficio
+                                AND ub.tipo = 2");
+        $stmt->bindParam(':id_usuario', $id_comunidad);
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'BeneficioDTO');
         $stmt->execute();
         return  $stmt->fetchAll();

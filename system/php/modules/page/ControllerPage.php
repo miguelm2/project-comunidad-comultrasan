@@ -39,6 +39,7 @@ if (!isset($_SESSION['id'])) {
 } else {
     $btnLogin = '';
     $btnLogout = ServicePage::getHtmlLogout();
+    ServicePage::getLocationBySession();
 }
 
 if (isset($_GET)) {

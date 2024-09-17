@@ -55,7 +55,7 @@
                   <input type="number" name="codigo" id="codigo_user" class="form-control border p-1" placeholder="Código de la comunidad">
                </div>
                <div class="col-md-4">
-                  <label for="nombre">Nombre Completo</label>
+                  <label for="nombre">Nombre Miembro</label>
                   <input type="text" name="nombre" id="nombre_user" class="form-control border p-1" placeholder="Nombre completo">
                </div>
                <div class="col-md-4">

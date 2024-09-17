@@ -95,7 +95,6 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <script src="/system/js/selectRepeat.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    <?= $response ?>
 </body>
 

@@ -55,7 +55,7 @@ class RespuestaPregunta extends System
         $modelResponse = $stmt->fetchAll();
         $list = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $RespuestaPreguntaDTO = new RespuestaPreguntaDTO();
 
             $RespuestaPreguntaDTO->setid_respuesta($result['id_respuesta']);
@@ -79,7 +79,7 @@ class RespuestaPregunta extends System
         $modelResponse = $stmt->fetchAll();
         $list = array();
         $con = 0;
-        foreach($modelResponse as $result){
+        foreach ($modelResponse as $result) {
             $RespuestaPreguntaDTO = new RespuestaPreguntaDTO();
 
             $RespuestaPreguntaDTO->setid_respuesta($result['id_respuesta']);
@@ -93,6 +93,42 @@ class RespuestaPregunta extends System
             $con++;
         }
         return $list;
+    }
+    public static function valideAnswerQuestionByQuestion($id_pregunta)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT 
+                                    (SELECT COUNT(*) 
+                                    FROM RespuestaPregunta 
+                                    WHERE id_pregunta = :id_pregunta AND veracidad = 0) AS respuestas_cero,
+                                    (SELECT COUNT(*) 
+                                    FROM RespuestaPregunta 
+                                    WHERE id_pregunta = :id_pregunta1) AS total_respuestas");
+        $stmt->bindParam(':id_pregunta', $id_pregunta);
+        $stmt->bindParam(':id_pregunta1', $id_pregunta);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if($result['respuestas_cero'] == $result['total_respuestas']){
+            return true;
+        }
+        return false;
+    }
+    public static function valideAnswerQuestionByQuestionAndAnswer($id_pregunta, $id_respuesta)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT COUNT(id_respuesta) as valor
+                                    FROM RespuestaPregunta 
+                                    WHERE id_pregunta = :id_pregunta 
+                                    AND veracidad = 1
+                                    AND id_respuesta = :id_respuesta");
+        $stmt->bindParam(':id_pregunta', $id_pregunta);
+        $stmt->bindParam(':id_respuesta', $id_respuesta);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if($result['valor'] == 1){
+            return true;
+        }
+        return false;
     }
     public static function deleteAnswerQuestion($id_respuesta)
     {

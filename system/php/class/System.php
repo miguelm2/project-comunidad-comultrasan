@@ -223,6 +223,7 @@ abstract  class System
                 $_SESSION['nombre']             =   $usuario->getNombre();
                 $_SESSION['correo']             =   $usuario->getCorreo();
                 $_SESSION['cedula']             =   $usuario->getCedula();
+                $_SESSION['tipo_documento']     =   $usuario->getTipo_documento();
                 $_SESSION['telefono']           =   $usuario->getTelefono();
                 $_SESSION['imagen']             =   $usuario->getImagen();
                 $_SESSION['tipo']               =   $usuario->getTipo();

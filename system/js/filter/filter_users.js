@@ -27,10 +27,10 @@ function renderDataTable(data) {
         destroy: true,
         data: data,
         columns: [
-            { data: 'Codigo' },
-            { data: 'Comunidad' },
             { data: 'Nombre' },
             { data: 'Cedula' },
+            { data: 'Comunidad' },
+            { data: 'Codigo' },
             { data: 'Celular' },
             { data: 'Direccion' },
             { data: 'Correo' },
@@ -42,9 +42,9 @@ function renderDataTable(data) {
             { data: 'Fecha_creacion' },
             { data: 'Fecha_comunidad' },
             { data: 'Grupo_interes' },
-            { data: 'Beneficios' },
             { data: 'Ultimo_punto' },
             { data: 'Total_puntos' },
+            { data: 'Beneficios' },
             { data: 'Estado' },
             { data: 'Opciones' }
         ]

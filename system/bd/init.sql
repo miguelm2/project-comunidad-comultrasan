@@ -282,10 +282,15 @@ ADD
 
 CREATE TABLE UsuarioBeneficio (
   id_usuario_beneficio INT IDENTITY(1, 1) PRIMARY KEY,
-  id_usuario INT NOT NULL,
+  identificador INT NOT NULL,
   id_beneficio INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
+
+ALTER TABLE
+  UsuarioBeneficio
+ADD
+  tipo INT  NULL;
 
 ALTER TABLE
   Foro
