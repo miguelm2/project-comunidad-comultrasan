@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/UsuarioComunidad.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/HistorialTraslado.php';
 
 class ServiceUserCommunity extends System
 {
@@ -447,7 +448,7 @@ class ServiceUserCommunity extends System
             $id_comunidad = parent::limpiarString($id_comunidad);
             $usuarioComunidadDTO = UsuarioComunidad::getUserCommunity($id_usuario_comunidad);
             $comunidadDTO = $usuarioComunidadDTO->getComunidadDTO();
-            $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad);
+            $count = Usuario::countUsersInCommunity($comunidadDTO->getId_comunidad());
 
             $fecha_registro = date('Y-m-d H:i:s');
             HistorialTraslado::newHistoryTransfer(

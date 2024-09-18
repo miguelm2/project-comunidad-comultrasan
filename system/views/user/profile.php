@@ -72,7 +72,6 @@
                                  <div class="form-group">
                                     <label class="form-label">Celular</label>
                                     <input type="text" class="form-control border p-1" name="telefono" value="<?= $_SESSION['telefono'] ?>" maxlength="30" required>
-                                    <small>Maximo de caracteres: <span id="contadorPublicacion">30</span></small>
                                  </div>
                               </div>
                               <div class="col-md-6 mt-2">
