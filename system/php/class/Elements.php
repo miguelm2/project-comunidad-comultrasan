@@ -638,7 +638,7 @@ class Elements
                             <div class="col-md-12">
                                 <h6 class="mt-2 ms-3"><i class="material-icons">check_circle</i> ' . $beneficio . '</h6>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 pb-2">
                                 <small class="ms-2">
                                     Condiciones:
                                     ' . $condiciones . '

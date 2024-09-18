@@ -67,10 +67,10 @@
                <table class="table table-bordered table-hover align-items-center mb-0" id="tableUser">
                   <thead class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">Código de la Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">Nombre</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Documento de Identidad</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Código de la Comunidad</th>
                         <th class="text-uppercase font-weight-bolder">Teléfono</th>
                         <th class="text-uppercase font-weight-bolder">Dirección</th>
                         <th class="text-uppercase font-weight-bolder">Correo</th>
@@ -82,19 +82,19 @@
                         <th class="text-uppercase font-weight-bolder">Fecha de creación de la comunidad</th>
                         <th class="text-uppercase font-weight-bolder">Fecha ingreso</th>
                         <th class="text-uppercase font-weight-bolder">Grupo Interés</th>
-                        <th class="text-uppercase font-weight-bolder">Beneficios</th>
                         <th class="text-uppercase font-weight-bolder">Fecha último &#10084;</th>
                         <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                        <th class="text-uppercase font-weight-bolder">Beneficios</th>
                         <th class="text-uppercase font-weight-bolder">Estado</th>
                         <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">Código de la Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
-                        <th class="text-uppercase font-weight-bolder">Nombre</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Documento de Identidad</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
+                        <th class="text-uppercase font-weight-bolder">Código de la Comunidad</th>
                         <th class="text-uppercase font-weight-bolder">Teléfono</th>
                         <th class="text-uppercase font-weight-bolder">Dirección</th>
                         <th class="text-uppercase font-weight-bolder">Correo</th>
@@ -106,9 +106,9 @@
                         <th class="text-uppercase font-weight-bolder">Fecha de creación de la comunidad</th>
                         <th class="text-uppercase font-weight-bolder">Fecha ingreso</th>
                         <th class="text-uppercase font-weight-bolder">Grupo Interés</th>
-                        <th class="text-uppercase font-weight-bolder">Beneficios</th>
                         <th class="text-uppercase font-weight-bolder">Fecha último &#10084;</th>
                         <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                        <th class="text-uppercase font-weight-bolder">Beneficios</th>
                         <th class="text-uppercase font-weight-bolder">Estado</th>
                         <th class="text-uppercase font-weight-bolder">Opciones</th>
                      </tr>
