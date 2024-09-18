@@ -146,6 +146,36 @@
                   </div>
                </div>
             </div>
+            <div class="col-lg-6 col-md-6 mt-4 mb-4">
+               <div class="card z-index-2  ">
+                  <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                     <div class="bg-gradient-primary shadow-success border-radius-lg py-3 pe-1">
+                        <div class="chart">
+                           <canvas id="chart-user" class="chart-canvas" height="220"></canvas>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card-body">
+                     <h6 class="mb-0 "><i class="material-icons">person</i> Miembros</h6>
+                     <p class="text-sm ">Miembros nuevos por mes</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6 mt-4 mb-4">
+               <div class="card z-index-2">
+                  <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+                     <div class="bg-gradient-warning shadow-success border-radius-lg py-3 pe-1">
+                        <div class="chart">
+                           <canvas id="chart_community" class="chart-canvas" style="height: 220px !important;"></canvas>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="card-body">
+                     <h6 class="mb-0 "><i class="material-icons">person</i> Puntos por comunidad</h6>
+                     <p class="text-sm ">Puntos totales de la comunidad en este mes</p>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
       <!-- Start Footer -->

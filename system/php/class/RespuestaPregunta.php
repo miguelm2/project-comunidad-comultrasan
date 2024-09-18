@@ -108,7 +108,7 @@ class RespuestaPregunta extends System
         $stmt->bindParam(':id_pregunta1', $id_pregunta);
         $stmt->execute();
         $result = $stmt->fetch();
-        if($result['respuestas_cero'] == $result['total_respuestas']){
+        if ($result['respuestas_cero'] == $result['total_respuestas']) {
             return true;
         }
         return false;
@@ -116,16 +116,15 @@ class RespuestaPregunta extends System
     public static function valideAnswerQuestionByQuestionAndAnswer($id_pregunta, $id_respuesta)
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT COUNT(id_respuesta) as valor
+        $stmt = $dbh->prepare("SELECT veracidad
                                     FROM RespuestaPregunta 
                                     WHERE id_pregunta = :id_pregunta 
-                                    AND veracidad = 1
                                     AND id_respuesta = :id_respuesta");
         $stmt->bindParam(':id_pregunta', $id_pregunta);
         $stmt->bindParam(':id_respuesta', $id_respuesta);
         $stmt->execute();
         $result = $stmt->fetch();
-        if($result['valor'] == 1){
+        if ($result && isset($result['veracidad']) && $result['veracidad'] == 1) {
             return true;
         }
         return false;

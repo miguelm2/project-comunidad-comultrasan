@@ -290,7 +290,7 @@ CREATE TABLE UsuarioBeneficio (
 ALTER TABLE
   UsuarioBeneficio
 ADD
-  tipo INT  NULL;
+  tipo INT NULL;
 
 ALTER TABLE
   Foro
@@ -446,5 +446,14 @@ CREATE TABLE HistorialTraslado (
   id_administrador INT NOT NULL,
   id_comunidad_antigua INT NOT NULL,
   id_comunidad_nueva INT NOT NULL,
+  fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE CodigoOTP (
+  id_codigo INT PRIMARY KEY IDENTITY(1, 1),
+  id_usuario INT NOT NULL,
+  codigo VARCHAR(10) NOT NULL,
+  tiempo INT NOT NULL,
+  estado INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );

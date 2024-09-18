@@ -236,6 +236,16 @@ class Usuario extends System
         $result = $stmt->fetch();
         return $result['total'];
     }
+    public static function countUsersByDate($fecha_inicio, $fecha_fin)
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT COUNT(*) as total FROM Usuario WHERE fecha_registro BETWEEN :fecha_inicio AND :fecha_fin");
+        $stmt->bindParam(':fecha_inicio', $fecha_inicio);
+        $stmt->bindParam(':fecha_fin', $fecha_fin);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $result['total'];
+    }
     public static function getUsersWithoutCommunity()
     {
         $dbh             = parent::Conexion();
