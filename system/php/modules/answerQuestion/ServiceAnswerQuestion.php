@@ -118,7 +118,7 @@ class ServiceAnswerQuestion extends System
                         case 1:
                             foreach ($respuestaDTO as $valor) {
                                 $html .= '<div class="form-check row">
-                                                <input type="radio" name="listRespuestas[' . $contador_1 .  ']" value="' . $value->getId_pregunta() .  '-' . $value->getId_pregunta() . '" class="form-check-input col-1">
+                                                <input type="radio" name="listRespuestas[' . $contador_1 .  ']" value="' . $value->getId_pregunta() .  '-' . $valor->getId_respuesta() . '" class="form-check-input col-1">
                                                 <label for="' . $value->getId_pregunta() . '" class="form-check-label col-11" style="color:black; font-size:16px;">' . $valor->getRespuesta() . '</label>
                                             </div>';
                             }
@@ -135,10 +135,10 @@ class ServiceAnswerQuestion extends System
                             break;
 
                         case 3:
-                            foreach ($respuestaDTO as $valor) {
+                            foreach ($respuestaDTO as $res) {
                                 $html .= '<div class="form-check row">
-                                                <input type="checkbox" name="listRespuestas[' . $contador_2 . ']" value="' . $value->getId_pregunta() .  '-' . $value->getId_pregunta() . '" class="form-check-input col-1">
-                                                <label for="' . $value->getId_pregunta() . '" class="form-check-label col-11" style="color:black; font-size:16px;">' . $valor->getRespuesta() . '</label>
+                                                <input type="checkbox" name="listRespuestas[' . $contador_2 . ']" value="' . $value->getId_pregunta() .  '-' . $res->getId_respuesta() . '" class="form-check-input col-1">
+                                                <label for="' . $value->getId_pregunta() . '" class="form-check-label col-11" style="color:black; font-size:16px;">' . $res->getRespuesta() . '</label>
                                             </div>';
                             }
                             $contador_2++;

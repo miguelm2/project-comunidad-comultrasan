@@ -98,7 +98,7 @@ class Punto extends System
     public static function listPointByUserFilter($id_usuario, $filtro)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM Punto WHERE id_usuario = :id_usuario ". $filtro);
+        $stmt = $dbh->prepare("SELECT * FROM Punto WHERE id_usuario = :id_usuario " . $filtro);
         $stmt->bindParam(':id_usuario', $id_usuario);
         $stmt->execute();
         $modelResponse = $stmt->fetchAll();
@@ -188,5 +188,37 @@ class Punto extends System
             return $puntoDTO;
         }
         return null;
+    }
+    public static function getTop10CommunitiesByPoints($mes_inicio, $mes_final)
+    {
+        $dbh = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT TOP 10 cm.nombre, SUM(p.puntos) AS total_puntos
+                            FROM UsuarioComunidad uc,
+                                Usuario us ,
+                                Comunidad cm,
+                                Punto p 
+                            WHERE p.fecha_registro BETWEEN :mes_inicio AND :mes_final
+                            AND uc.id_usuario = us.id_usuario
+                            AND uc.id_comunidad = cm.id_comunidad
+                            AND us.id_usuario = p.id_usuario
+                            GROUP BY cm.nombre
+                            ORDER BY total_puntos DESC");
+        $stmt->bindParam(':mes_inicio', $mes_inicio);
+        $stmt->bindParam(':mes_final', $mes_final);
+        $stmt->execute();
+        $modal = $stmt->fetchAll();
+        $listNombre = array();
+        $listSuma = array();
+        $listReponse = array();
+        $con = 0;
+        foreach ($modal as $result) {
+            $listNombre[$con] = $result['nombre'];
+            $listSuma[$con] = round($result['total_puntos']);
+            $con++;
+        }
+        $listReponse[0] = $listNombre;
+        $listReponse[1] = $listSuma;
+
+        return $listReponse;
     }
 }

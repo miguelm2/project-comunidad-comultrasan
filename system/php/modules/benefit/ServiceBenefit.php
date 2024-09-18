@@ -269,7 +269,7 @@ class ServiceBenefit extends System
                 foreach ($usuariosComunidadDTO as $usuarioComunidad) {
                     $tableHtml .= self::generateBenefitTable($usuarioComunidad->getUsuarioDTO()->getId_usuario());
                 }
-                $tableHtml .= self::generateBenefitTableByCommunity($comunidadDTO->getId_comunidad());
+                $tableHtml .= self::generateBenefitTableByCommunity($comunidadDTO->getId_comunidad(), $comunidadDTO->getNombre());
             }
             return $tableHtml;
         } catch (\Exception $e) {
@@ -297,7 +297,7 @@ class ServiceBenefit extends System
         }
         return $tableHtml;
     }
-    private static function generateBenefitTableByCommunity($id_comunidad)
+    private static function generateBenefitTableByCommunity($id_comunidad, $nombre)
     {
         $tableHtml = '';
         $modelResponse = Beneficio::listBenefitByCommunity($id_comunidad);
@@ -306,7 +306,7 @@ class ServiceBenefit extends System
                 $tableHtml .= '<tr>';
                 $tableHtml .= '<td>' . $valor->getTitulo() . '</td>';
                 $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
-                $tableHtml .= '<td>Comunidad</td>';
+                $tableHtml .= '<td>Comunidad: ' . $nombre . '</td>';
                 $tableHtml .= '<td>' . $valor->getFecha_registro() . '</td>';
                 $tableHtml .= '<td></td>';
                 $tableHtml .= '</tr>';

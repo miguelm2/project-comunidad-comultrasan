@@ -502,7 +502,7 @@ class ServiceUser extends System
     }
     private static function getGroupInterestByUser($id_usuario)
     {
-        
+
         $tipoComunidadDTO = TipoComunidad::getTypeComunityByUser($id_usuario);
         $groups = [];
 
@@ -701,5 +701,50 @@ class ServiceUser extends System
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+
+    public static function valideOTP($otp)
+    {
+        if ($otp == $_SESSION['otp']) {
+            if (time() < $_SESSION['otp_expiry']) {
+                $_SESSION['show_modal'] = true;
+                $_SESSION['show_modalOTP'] = false;
+                CodigoOTP::setCodeOTPEstate($_SESSION['id_codigo'], 2);
+                unset($_SESSION['otp']);
+                unset($_SESSION['otp_expiry']);
+            } else {
+                return Elements::crearMensajeAlerta("El código que digitó ya expiró, genere un nuevo código", "error");
+            }
+        } else {
+            return Elements::crearMensajeAlerta("El código que digitó es invalido, vuelva a digitarlo", "error");
+        }
+    }
+    public static function getScriptModalOTP()
+    {
+        try {
+            return '<script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const otpModal = new bootstrap.Modal(document.getElementById("otpModal"), {
+                                backdrop: "static",
+                                keyboard: false
+                            });
+                            otpModal.show();
+                        });
+                    </script>';
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function setCodeOTP(){
+        $length = 5;
+        $otp = '';
+        for ($i = 0; $i < $length; $i++) {
+            $otp .= rand(0, 9);
+        }
+        $_SESSION['otp'] = $otp;
+        $time = time() + 3600;
+        $_SESSION['otp_expiry'] = $time;
+        CodigoOTP::setCodeOTPCodeNew($_SESSION['id_codigo'], $otp, $time);
+        parent::sendMailOTP($_SESSION['nombre'], $otp, $_SESSION['correo']);
     }
 }

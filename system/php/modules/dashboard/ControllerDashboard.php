@@ -15,3 +15,13 @@ if (isset($_POST['getChartPoints'])) {
     echo $response;
 }
 
+if(isset($_POST['getChartUsers'])){
+    $response = ServiceDashboard::getCountUser();
+    echo $response;
+}
+
+if(isset($_POST['getChartTop10Community'])){
+    $response = ServiceDashboard::getTop10CommunitiesByPoints();
+    echo $response;
+}
+

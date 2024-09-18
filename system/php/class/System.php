@@ -7,14 +7,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Usuario.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Elements.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/NumeroVistas.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Log.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/CodigoOTP.php';
 
 
 abstract  class System
 {
-
-
-
-
     public static function Conexion()
     {
         try {
@@ -239,6 +236,19 @@ abstract  class System
                 $text = "INICIO SESION ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
                 Log::setLog($text);
 
+                $codigoOTP = CodigoOTP::getCodeByUser($usuario->getId_usuario());
+                if(!$codigoOTP){
+                    self::generateOTP($usuario->getId_usuario(), $usuario->getCorreo(), $usuario->getNombre());
+                    $_SESSION['show_modal']     = false;
+                    $_SESSION['show_modalOTP']  = true;
+                }elseif($codigoOTP && $codigoOTP->getEstado() == 1){
+                    $_SESSION['otp']            = $codigoOTP->getCodigo();
+                    $_SESSION['otp_expiry']     = $codigoOTP->getTiempo();
+                    $_SESSION['id_codigo']      = $codigoOTP->getId_codigo();
+                    $_SESSION['show_modal']     = false;
+                    $_SESSION['show_modalOTP']  = true;
+                }
+
                 header("Location:/system/views/user/index");
                 exit();
             }
@@ -274,6 +284,42 @@ abstract  class System
         } catch (\Throwable $th) {
             throw $th;
         }
+    }
+    public static function generateOTP($id_usuario, $correo, $nombre)
+    {
+        $length = 5;
+        $otp = '';
+        for ($i = 0; $i < $length; $i++) {
+            $otp .= rand(0, 9);
+        }
+        $_SESSION['otp'] = $otp;
+        $time = time() + 3600;
+        $_SESSION['otp_expiry'] = $time;
+        $estado = 1;
+        $fecha_registro = date('Y-m-d H:i:s');
+
+        CodigoOTP::newCodeOTP($id_usuario, $otp, $time, $estado, $fecha_registro);
+        $codigo = CodigoOTP::getCodeByUser($id_usuario);
+        $_SESSION['id_codigo'] = $codigo->getId_codigo();
+        self::sendMailOTP($nombre, $otp, $correo);
+        return $otp;
+    }
+    public static function sendMailOTP($nombre, $otp, $correo)
+    {
+        $asunto = "Validación de correo electrónico";
+        $mensaje = 'Estimado/a ' . $nombre . ',<br><br>
+        Gracias por registrarte en nuestra plataforma. Para completar el proceso de verificación de tu cuenta, 
+        es necesario que confirmes tu dirección de correo electrónico.<br><br>
+        Hemos enviado un código OTP (One-Time Password) a este correo. Por favor, ingresa el siguiente 
+        código en la plataforma para verificar tu cuenta:<br><br>
+        Código OTP: ' . $otp . '<br><br>
+        Este código tiene una validez de 1 hora. Si no verificas tu correo dentro de este período, 
+        podrás generar un nuevo código directamente desde la plataforma.<br><br>
+        Si tienes alguna duda o necesitas asistencia, no dudes en contactarnos.<br><br>
+        Atentamente,<br>
+        Financiera Comultrasan<br>
+        Soporte al Cliente';
+        Mail::sendEmail($asunto, $mensaje, $correo);
     }
 
     public static function recovery($cedula)

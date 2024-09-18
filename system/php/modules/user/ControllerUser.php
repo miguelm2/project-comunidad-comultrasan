@@ -145,3 +145,14 @@ if (basename($_SERVER['PHP_SELF']) == 'community.php') {
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // Generar token
 }
+
+if (isset($_SESSION['show_modalOTP']) && $_SESSION['show_modalOTP']) {
+    $response = ServiceUser::getScriptModalOTP();
+}
+if(isset($_POST['generarOTP'])){
+    ServiceUser::setCodeOTP();
+}
+
+if(isset($_POST['validateOtpBtn'])){
+    ServiceUser::valideOTP($_POST['otp']);
+}

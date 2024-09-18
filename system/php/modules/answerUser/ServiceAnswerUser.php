@@ -2,12 +2,13 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/RespuestaUsuario.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Punto.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/surveyQuestion/ServiceSurveyQuestion.php';
 
 class ServiceAnswerUser extends System
 {
     public static function newAnswerUser($id_encuesta,  $listRespuestas, $listRespuestasAbiertas,)
     {
-        try{
+        try {
             $id_encuesta = parent::limpiarString($id_encuesta);
             $id_usuario = $_SESSION['id'];
             $fecha_registro = date('Y-m-d H:i:s');
@@ -19,22 +20,21 @@ class ServiceAnswerUser extends System
                 $listRespuestasAbiertas = [];
             }
 
-                
+
 
             if (count($listRespuestas) > 0) {
                 foreach ($listRespuestas as $value) {
                     $listTotal = explode("-", $value);
                     $valide = RespuestaPregunta::valideAnswerQuestionByQuestion($listTotal[0]);
-                    if($valide){
+                    if ($valide) {
                         $responseMultiple = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $listTotal[0], $listTotal[1],  $fecha_registro);
                     }
                     $valide_answer = RespuestaPregunta::valideAnswerQuestionByQuestionAndAnswer($listTotal[0], $listTotal[1]);
-                    if(!$valide_answer){
+                    if ($valide_answer == false) {
                         RespuestaUsuario::deleteAnswerUserByUserBySurvey($id_usuario, $id_encuesta);
-                        return Elements::crearMensajeAlerta("Tienes un nuevo intento, responde correctamente todas las respuestas","warning");
+                        return Elements::crearMensajeAlerta("Algunas respuestas no son correctas. Por favor, revisa y vuelve a intentar la encuesta.", "warning");
                     }
-                        $responseMultiple = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $listTotal[0], $listTotal[1],  $fecha_registro);
-                    
+                    $responseMultiple = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $listTotal[0], $listTotal[1],  $fecha_registro);
                 }
             }
 
@@ -57,11 +57,12 @@ class ServiceAnswerUser extends System
                     Punto::newPoint(5, $_SESSION['id'], 1, 'Completo todas las encuestas', $fecha_registro);
                 }
 
-                if($id_encuesta == 5){
+                if ($id_encuesta == 5) {
                     ActividadUsuario::newActivityUser($_SESSION['id'], 3, $fecha_registro);
                 }
 
                 $encuestaDTO = Encuesta::getSurvey($id_encuesta);
+                ServicePoint::newPoint($encuestaDTO->getPuntos(), $_SESSION['id'], 1, "Resolvió la encuesta: " . $encuestaDTO->getNombre());
                 header('Location:surveys?win=' . $encuestaDTO->getPuntos());
             }
         } catch (\Exception $e) {

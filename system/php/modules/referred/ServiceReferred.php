@@ -46,49 +46,16 @@ class ServiceReferred extends System
                 $fecha_registro
             );
             if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
-            }
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
-    public static function newReferred(
-        $nombre_referido,
-        $cedula_referido,
-        $tipo_documento_referido,
-        $departamento,
-        $ciudad,
-        $correo,
-        $celular
-    ) {
-        try {
-            $nombre_referido            = parent::limpiarString($nombre_referido);
-            $cedula_referido            = parent::limpiarString($cedula_referido);
-            $tipo_documento_referido    = parent::limpiarString($tipo_documento_referido);
-            $departamento               = parent::limpiarString($departamento);
-            $ciudad                     = parent::limpiarString($ciudad);
-            $correo                     = parent::limpiarString($correo);
-            $celular                    = parent::limpiarString($celular);
-            $estado                     = parent::limpiarString(1);
-            $fecha_registro             = date('Y-m-d H:i:s');
-            $id_usuario                 = $_SESSION['id'];
-
-            $result = Referido::newReferred(
-                $nombre_referido,
-                $cedula_referido,
-                $tipo_documento_referido,
-                $departamento,
-                $ciudad,
-                $correo,
-                $celular,
-                '',
-                '',
-                '',
-                $estado,
-                $id_usuario,
-                $fecha_registro
-            );
-            if ($result) {
+                $asunto = "Información sobre su Referencia a nuestra Comunidad Financiera";
+                $mensaje = 'Estimado/a ' . $nombre_referido . ':<br><br>
+                Nos complace informarle que ha sido referida en nuestro sistema como parte de nuestra comunidad financiera. 
+                Para poder brindarle toda la información necesaria y atender sus consultas, le solicitamos que se comunique 
+                directamente con nuestra financiera.<br><br>
+                Nuestro equipo estará encantado de asistirle y ofrecerle el apoyo que requiera.<br><br>
+                Agradecemos su interés y quedamos a su disposición para cualquier pregunta adicional.
+                Atentamente,<br>
+                Financiera Comultrasan';
+                Mail::sendEmail($asunto, $mensaje, $correo);
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
             }
         } catch (\Exception $e) {

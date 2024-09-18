@@ -168,6 +168,25 @@
             </div>
          </div>
       </div>
+      <form method="post">
+         <div class="modal fade" id="otpModal" tabindex="-1" aria-labelledby="otpModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="otpModalLabel">Validación de OTP</h5>
+                  </div>
+                  <div class="modal-body">
+                     <p>Por favor, ingresa el código OTP que te enviamos:</p>
+                     <input type="text" name="otp" class="form-control border p-1" placeholder="Código OTP">
+                  </div>
+                  <div class="modal-footer">
+                     <button type="submit" name="generarOTP" class="btn btn-info">Generar OTP</button>
+                     <button type="submit" name="validateOtpBtn" class="btn btn-success">Validar OTP</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </form>
       <!-- End Basic Modal-->
       <!-- Start Footer -->
       <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/html/footer.php'; ?>
@@ -182,6 +201,7 @@
    <script src="/system/assets/js/plugins/smooth-scrollbar.min.js"></script>
    <script src="/system/assets/js/plugins/chartjs.min.js"></script>
    <script src="/system/assets/js/material-dashboard.min.js?v=3.1.0"></script>
+
    <?= $response ?>
 </body>
 
