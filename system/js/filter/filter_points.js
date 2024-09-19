@@ -33,6 +33,7 @@ function renderDataTable(data) {
         data: data,
         columns: [
             { data: 'Comunidad' },
+            { data: 'Documento' },
             { data: 'Asociado' },
             { data: 'Actividad' },
             { data: 'AsignacionVencimiento' },

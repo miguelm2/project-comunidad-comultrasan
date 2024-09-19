@@ -48,7 +48,7 @@ class ServiceUser extends System
 
                 $imagen = self::newImagen();
 
-                self::getUserByAPI($cedula);
+                //self::getUserByAPI($cedula); Se comenta porque genera error cuando se va a crear un nuevo usuario, deja asi para cuando se vaya a hacer la instalacion del sistema
 
                 $result = Usuario::newUser(
                     $nombre,

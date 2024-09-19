@@ -58,6 +58,7 @@ class Constants
     static $REGISTER_DELETE_NOT = "No se ha eliminado el registro, tiene elementos asociados";
     static $ANSWER_REPEAT       = "La pregunta ya tiene una respuesta correcta";
     static $DELETE_USER_COM     = "Has salido de la comunidad, puedes unirte a otra comunidad";
+    static $DELETE_USER_LEAD    = "Has eliminado al líder de esta comunidad";
     static $DELETE_USER_COM_NOT = "No te has podido desvincular de la comunidad";
     static $DELETE_USER_BY_LEAD = "Has eliminado el usuario de la comunidad";
     static $DELETE_USER_BY_LEAD_NOT = "No se ha eliminado el usuario de la comunidad";

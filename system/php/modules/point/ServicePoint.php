@@ -83,7 +83,7 @@ class ServicePoint extends System
                 if ($result) {
                     $text = "DELETE - PUNTOS - " . $id_punto . " - " . $puntoDTO->getDescripcion() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
                     Log::setLog($text);
-                    header('Location:Points?delete');
+                    header('Location:points?delete');
                 }
             }
         } catch (\Exception $e) {
@@ -190,7 +190,7 @@ class ServicePoint extends System
                 $dir_csv   = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_EXCEL;
 
                 $allowedExtension = 'csv';
-                $fileName = $_FILES['file']['name'];
+                $fileName = $_FILES['csvPoint']['name'];
                 $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
 
                 if ($fileExtension !== $allowedExtension) {
@@ -324,7 +324,7 @@ class ServicePoint extends System
             if ($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 5) {
                 $tableRows[] = [
                     'Comunidad' => $nombre,
-                    'Documenro' => $valor->getUsuarioDTO()->getCedula(),
+                    'Documento' => $valor->getUsuarioDTO()->getCedula(),
                     'Asociado' => $valor->getUsuarioDTO()->getNombre(),
                     'Actividad' => $valor->getDescripcion(),
                     'AsignacionVencimiento' => self::getDateInWords($valor->getFecha_registro()),
@@ -335,7 +335,7 @@ class ServicePoint extends System
             } else {
                 $tableRows[] = [
                     'Comunidad' => $nombre,
-                    'Documenro' => $valor->getUsuarioDTO()->getCedula(),
+                    'Documento' => $valor->getUsuarioDTO()->getCedula(),
                     'Asociado' => $valor->getUsuarioDTO()->getNombre(),
                     'Actividad' => $valor->getDescripcion(),
                     'AsignacionVencimiento' => self::getDateInWords($valor->getFecha_registro()),

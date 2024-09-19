@@ -1,7 +1,4 @@
 <?php
-
-require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/libs/PhpSpreadsheet/vendor/autoload.php';
-
 class Excel
 {
     public static function readCSVIncomes($rutaArchivo, $fecha_registro)
@@ -10,7 +7,6 @@ class Excel
             $file = fopen($rutaArchivo, 'r');
             $contador = 0;
 
-            // Omitir la primera fila (cabecera)
             fgetcsv($file);
 
             // Leer cada fila del archivo CSV

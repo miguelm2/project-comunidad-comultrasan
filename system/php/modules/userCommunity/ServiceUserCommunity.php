@@ -217,11 +217,11 @@ class ServiceUserCommunity extends System
             if ($count <= 2) {
                 if (Comunidad::setCommunityEstate($id_comunidad, 0, $comunidadDTO->getUsuarioDTO()->getId_comunidad())) {
                     UsuarioComunidad::deleteUserCommunityByUser($id_usuario);
-                    return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
+                    return Elements::crearMensajeAlerta(Constants::$DELETE_USER_BY_LEAD, "success");
                 }
             } else {
                 UsuarioComunidad::deleteUserCommunityByUser($id_usuario);
-                return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
+                return Elements::crearMensajeAlerta(Constants::$DELETE_USER_BY_LEAD, "success");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
