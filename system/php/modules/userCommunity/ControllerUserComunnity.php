@@ -19,7 +19,7 @@ if (isset($_POST['newUserCommunityAdmin'])) {
 }
 
 if (isset($_POST['newUserCommunityJoin'])) {
-    ServiceUserCommunity::newUserCommunityJoin($_SESSION['id'], $_POST['comunidad']);
+    $response = ServiceUserCommunity::newUserCommunityJoin($_SESSION['id'], $_POST['comunidad']);
 }
 
 if (isset($_POST['leaveCommunity'])) {

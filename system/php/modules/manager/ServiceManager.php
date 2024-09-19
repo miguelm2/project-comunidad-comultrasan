@@ -25,7 +25,7 @@ class ServiceManager extends System
                 if ($result) {
                     $lastManager = Gestor::lastManager();
 
-                    $text = "CREATE - GESTOR - " . $lastManager->getId_usuario() . " - " . $lastManager->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    $text = "CREATE - GESTOR - " . $lastManager->getId_gestor() . " - " . $lastManager->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
                     Log::setLog($text);
 
                     header('Location:manager?manager=' . $lastManager->getId_gestor() . '&new');

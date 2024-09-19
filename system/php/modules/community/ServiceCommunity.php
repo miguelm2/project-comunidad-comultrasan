@@ -29,7 +29,7 @@ class ServiceCommunity extends System
             }
 
             // Si ya pertenece a una comunidad
-            if (UsuarioComunidad::getUserCommunityByUser($usuario->getId_usuario()) || Comunidad::getCommunityByUser($usuario->getId_usuario())) {
+            if (UsuarioComunidad::getValideUserCommunityByUser($usuario->getId_usuario()) || Comunidad::getCommunityByUser($usuario->getId_usuario())) {
                 return Elements::crearMensajeAlerta(Constants::$USER_READY_COMMUNITY, "error");
             }
 
@@ -350,7 +350,7 @@ class ServiceCommunity extends System
             $result = Comunidad::setCommunity($id_comunidad, $nombre, $estado);
 
             if ($result) {
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
+                return Elements::crearMensajeAlerta(Constants::$REGISTER_UPDATE, "success");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -414,7 +414,7 @@ class ServiceCommunity extends System
                     // Transferir el liderazgo si es posible
                     if (Comunidad::setLeaderCommunity($id_comunidad, $usuarioComunidadDTO->getUsuarioDTO()->getId_usuario())) {
                         if (UsuarioComunidad::deleteUserCommunity($usuarioComunidadDTO->getId_usuario_comunidad())) {
-                            return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
+                            return Elements::crearMensajeAlerta(Constants::$DELETE_USER_LEAD, "success");
                         }
                     }
                 }
@@ -422,7 +422,7 @@ class ServiceCommunity extends System
                 // Transferir el liderazgo a otro usuario
                 if (Comunidad::setLeaderCommunity($id_comunidad, $usuarioComunidadDTO->getUsuarioDTO()->getId_usuario())) {
                     if (UsuarioComunidad::deleteUserCommunity($usuarioComunidadDTO->getId_usuario_comunidad())) {
-                        return Elements::crearMensajeAlerta(Constants::$DELETE_USER_COM, "success");
+                        return Elements::crearMensajeAlerta(Constants::$DELETE_USER_LEAD, "success");
                     }
                 }
             }

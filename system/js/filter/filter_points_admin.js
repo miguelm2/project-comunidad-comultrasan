@@ -29,9 +29,11 @@ function getTableFilter() {
 
 function renderDataTable(data) {
     $('#tablePoints').DataTable({
+        destroy: true,
         data: data,
         columns: [
             { data: 'Comunidad' },
+            { data: 'Documento' },
             { data: 'Asociado' },
             { data: 'Actividad' },
             { data: 'AsignacionVencimiento' },
