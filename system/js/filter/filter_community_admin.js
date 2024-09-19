@@ -34,6 +34,7 @@ function renderDataTable(data) {
             { data: 'Codigo' },
             { data: 'Nombre' },
             { data: 'Lider' },
+            { data: 'Cantidad' },
             { data: 'Estado' },
             { data: 'Fecha' },
             { data: 'Opciones' }
