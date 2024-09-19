@@ -243,7 +243,7 @@ class Comunidad extends System
                                     Punto P
                                 WHERE C.id_comunidad = UC.id_comunidad
                                 AND UC.id_usuario = P.id_usuario
-                                AND UC.estado = 2
+                                AND ((P.id_usuario = UC.id_usuario AND UC.estado = 2) OR P.id_usuario = C.id_usuario)
                                 GROUP BY C.id_comunidad)
                                 SELECT 
                                     R.posicion,
