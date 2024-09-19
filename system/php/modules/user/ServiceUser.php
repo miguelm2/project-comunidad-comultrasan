@@ -80,11 +80,11 @@ class ServiceUser extends System
 
                 if ($result && isset($_SESSION['id'])) {
                     $lastUsuario = Usuario::lastUsuario();
-                    $text = "CREATE - USUARIO - " . $lastUsuario->getId_usuario() . " - " . $usuarioDTO->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    $text = "CREATE - USUARIO - " . $lastUsuario->getId_usuario() . " - " . $lastUsuario->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
                     Log::setLog($text);
                 } elseif ($result) {
                     $lastUsuario = Usuario::lastUsuario();
-                    $text = "CREATE - USUARIO - " . $lastUsuario->getId_usuario() . " - " . $usuarioDTO->getNombre() . " ----> Creado desde uneté";
+                    $text = "CREATE - USUARIO - " . $lastUsuario->getId_usuario() . " - " . $lastUsuario->getNombre() . " ----> Creado desde uneté";
                     Log::setLog($text);
                 }
 
