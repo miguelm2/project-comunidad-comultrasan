@@ -48,23 +48,26 @@
          </div>
          <div class="row p-2">
             <div class="col-md-2">
-               <label for="codigo">Código de la comunidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+               <label for="codigo" class="p-0 m-0">Código de la comunidad</label><br>
+               <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small>
                <input type="number" name="codigo" id="codigo" class="form-control border p-1" maxlength="255" placeholder="Código de la comunidad">
             </div>
             <div class="col-md-3">
-               <label for="nombre">Nombre de la comunidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+               <label for="nombre" class="p-0 m-0">Nombre de la comunidad</label><br>
+               <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small>
                <input type="text" name="nombre" id="nombre" class="form-control border p-1" maxlength="255" placeholder="Nombre de la comunidad">
             </div>
             <div class="col-md-3">
-               <label for="nombre_lider">Nombre del Líder <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+               <label for="nombre_lider" class="p-0 m-0">Nombre del Líder</label><br>
+               <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small>
                <input type="text" name="nombre_lider" id="nombre_lider" class="form-control border p-1" maxlength="255" placeholder="Nombre del líder">
             </div>
             <div class="col-md-2">
-               <label for="fecha_inicio">Fecha inicio</label>
+               <label for="fecha_inicio" class="pb-3">Fecha inicio</label>
                <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control border p-1">
             </div>
             <div class="col-md-2">
-               <label for="fecha_fin">Fecha fin</label>
+               <label for="fecha_fin" class="pb-3">Fecha fin</label>
                <input type="date" name="fecha_inicio" id="fecha_fin" class="form-control border p-1">
             </div>
          </div>

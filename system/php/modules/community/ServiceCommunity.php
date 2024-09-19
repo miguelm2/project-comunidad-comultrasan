@@ -545,12 +545,15 @@ class ServiceCommunity extends System
                 $sql .= sprintf(" AND fecha_registro <= '%s%'", $fecha_fin);
             }
             $comunidadDTO = Comunidad::getCommunityByFilter($sql);
+            
             foreach ($comunidadDTO as $valor) {
+                $count = Usuario::countUsersInCommunity($valor->getId_comunidad());
                 $style = self::getColorByEstate($valor->getEstado()[0]);
                 $tableHtml[] = [
                     'Codigo' => $valor->getId_comunidad(),
                     'Nombre' => $valor->getNombre(),
                     'Lider' =>  $valor->getUsuarioDTO()->getNombre(),
+                    'Cantidad' => $count,
                     'Estado' => '<small class="alert alert-' . $style . ' p-1">' . $valor->getEstado()[1] . '</small>',
                     'Fecha' => $valor->getFecha_registro(),
                     'Opciones' => Elements::crearBotonVer("community", $valor->getId_comunidad())
