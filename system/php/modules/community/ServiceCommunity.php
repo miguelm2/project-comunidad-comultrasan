@@ -1,6 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/System.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Comunidad.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/Punto.php';
 
 class ServiceCommunity extends System
 {
@@ -501,9 +502,11 @@ class ServiceCommunity extends System
             $id_comunidad = parent::limpiarString($id_comunidad);
             $count = Usuario::countUsersInCommunity($id_comunidad);
             $ranking = Comunidad::getRankingByCommunity($id_comunidad);
+            $comunidadDTO = Comunidad::getCommunity($id_comunidad);
+            $puntos = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
             return (object)[
                 'nro_usuarios' => $count,
-                'total_puntos' => $ranking['total_puntos'],
+                'total_puntos' => $ranking['total_puntos'] + $puntos,
                 'ranking' => $ranking['posicion'],
                 'total_comunidades' => $ranking['total_comunidades']
             ];
