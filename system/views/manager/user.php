@@ -96,12 +96,14 @@
          </div>
          <div class="card mt-3">
             <div class="card-head mt-4">
-               <h5 class="text-success">
-                  Comunidad
-               </h5>
-            </div>
-            <div class="card-body">
-               <?= $infoCommunityAdmin ?>
+               <div class="row">
+                  <div class="col-md-9">
+                     <h5 class="text-success">
+                        Comunidad
+                     </h5>
+                  </div>
+                  <?= $infoCommunityAdmin ?>
+               </div>
             </div>
          </div>
          <div class="card mt-3">

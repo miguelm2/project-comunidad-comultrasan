@@ -52,86 +52,84 @@
             <div class="card-body mt-0">
                <div class="row">
                   <div class="col-md-12">
-                     <form method="post">
-                        <div class="row text-start">
-                           <div class="col-md-12">
-                              <h5 class="text-black">
-                                 Datos de quien refiere
-                              </h5>
-                           </div>
-                           <div class="col-md-3 mt-2">
-                              <div class="form-group">
-                                 <h6>Nombre y Apellidos</h6>
-                                 <p><?= $referred->getNombre_refiere() ?></p>
-                              </div>
-                           </div>
-                           <div class="col-md-3 mt-2">
-                              <div class="form-group">
-                                 <h6>Tipo de Documento</h6>
-                                 <p><?= $referred->getTipo_documento_refiere()[1] ?></p>
-                              </div>
-                           </div>
-                           <div class="col-md-3 mt-2">
-                              <div class="form-group">
-                                 <h6>Nro de documento</h6>
-                                 <p><?= $referred->getCedula_refiere() ?></p>
-                              </div>
-                           </div>
-                           <div class="col-md-3 mt-2">
-                              <div class="form-group">
-                                 <h6>Inscripción </h6>
-                                 <p><?= $infoExtra ?></p>
-                              </div>
-                           </div>
-                           <div class="col-md-12 mt-3 pb-2">
-                              <div class="dark horizontal my-0 border-1"></div>
-                           </div>
-                           <div class="col-md-12">
-                              <h5 class="text-black">
-                                 Datos Referidos
-                              </h5>
-                           </div>
-
-                           <div class="col-md-4 mt-2">
+                     <div class="row text-start">
+                        <div class="col-md-12">
+                           <h5 class="text-black">
+                              Datos de quien refiere
+                           </h5>
+                        </div>
+                        <div class="col-md-3 mt-2">
+                           <div class="form-group">
                               <h6>Nombre y Apellidos</h6>
-                              <p><?= $referred->getNombre_referido() ?></p>
-                           </div>
-
-                           <div class="col-md-4 mt-2">
-                              <h6>Tipo de Documento</h6>
-                              <p><?= $referred->getTipo_documento_referido()[1] ?></p>
-                           </div>
-
-                           <div class="col-md-4 mt-2">
-                              <h6>Nro de documento</h6>
-                              <p><?= $referred->getCedula_referido() ?></p>
-                           </div>
-
-                           <div class="col-md-4 mt-2">
-                              <h6>Departamento</h6>
-                              <p><?= $referred->getDepartamento() ?></p>
-                           </div>
-
-                           <div class="col-md-4 mt-2">
-                              <h6>Ciudad</h6>
-                              <p><?= $referred->getCiudad() ?></p>
-                           </div>
-
-                           <div class="col-md-4 mt-2">
-                              <h6>Correo</h6>
-                              <p><?= $referred->getCorreo() ?></p>
-                           </div>
-
-                           <div class="col-md-4 mt-2">
-                              <h6>Celular</h6>
-                              <p><?= $referred->getCelular() ?></p>
-                           </div>
-                           <div class="col-md-4 mt-2">
-                              <h6>Estado</h6>
-                              <p><?= $referred->getEstado()[1] ?></p>
+                              <p><?= $referred->getNombre_refiere() ?></p>
                            </div>
                         </div>
-                     </form>
+                        <div class="col-md-3 mt-2">
+                           <div class="form-group">
+                              <h6>Tipo de Documento</h6>
+                              <p><?= $referred->getTipo_documento_refiere()[1] ?></p>
+                           </div>
+                        </div>
+                        <div class="col-md-3 mt-2">
+                           <div class="form-group">
+                              <h6>Nro de documento</h6>
+                              <p><?= $referred->getCedula_refiere() ?></p>
+                           </div>
+                        </div>
+                        <div class="col-md-3 mt-2">
+                           <div class="form-group">
+                              <h6>Inscripción </h6>
+                              <p><?= $infoExtra ?></p>
+                           </div>
+                        </div>
+                        <div class="col-md-12 mt-3 pb-2">
+                           <div class="dark horizontal my-0 border-1"></div>
+                        </div>
+                        <div class="col-md-12">
+                           <h5 class="text-black">
+                              Datos Referidos
+                           </h5>
+                        </div>
+
+                        <div class="col-md-4 mt-2">
+                           <h6>Nombre y Apellidos</h6>
+                           <p><?= $referred->getNombre_referido() ?></p>
+                        </div>
+
+                        <div class="col-md-4 mt-2">
+                           <h6>Tipo de Documento</h6>
+                           <p><?= $referred->getTipo_documento_referido()[1] ?></p>
+                        </div>
+
+                        <div class="col-md-4 mt-2">
+                           <h6>Nro de documento</h6>
+                           <p><?= $referred->getCedula_referido() ?></p>
+                        </div>
+
+                        <div class="col-md-4 mt-2">
+                           <h6>Departamento</h6>
+                           <p><?= $referred->getDepartamento() ?></p>
+                        </div>
+
+                        <div class="col-md-4 mt-2">
+                           <h6>Ciudad</h6>
+                           <p><?= $referred->getCiudad() ?></p>
+                        </div>
+
+                        <div class="col-md-4 mt-2">
+                           <h6>Correo</h6>
+                           <p><?= $referred->getCorreo() ?></p>
+                        </div>
+
+                        <div class="col-md-4 mt-2">
+                           <h6>Celular</h6>
+                           <p><?= $referred->getCelular() ?></p>
+                        </div>
+                        <div class="col-md-4 mt-2">
+                           <h6>Estado</h6>
+                           <p><?= $referred->getEstado()[1] ?></p>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>

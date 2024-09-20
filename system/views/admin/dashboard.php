@@ -165,8 +165,8 @@
                <div class="card z-index-2">
                   <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
                      <div class="bg-gradient-warning shadow-success border-radius-lg py-3 pe-1">
-                        <div class="chart">
-                           <canvas id="chart_community" class="chart-canvas" style="height: 220px !important;"></canvas>
+                        <div class="chart text-center align-content-center justify-content-center" style="height: 220px !important;">
+                           <canvas id="chart_community" class="chart-canvas text-center" style="height: 220px !important;"></canvas>
                         </div>
                      </div>
                   </div>
