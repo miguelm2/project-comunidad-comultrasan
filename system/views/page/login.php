@@ -56,8 +56,8 @@
                         <div class="row p-1 text-black">
                            <div class="col-md-12">
                               <div class="form-group mb-3">
-                                 <label class="label" for="cedula">Cédula</label>
-                                 <input type="text" class="form-control" placeholder="Cédula" name="cedula" maxlength="255" required>
+                                 <label class="label" for="cedula">Documento de identidad</label>
+                                 <input type="text" class="form-control" placeholder="Documento de identidad" name="cedula" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-md-12">

@@ -220,7 +220,7 @@ abstract  class System
                 $_SESSION['nombre']             =   $usuario->getNombre();
                 $_SESSION['correo']             =   $usuario->getCorreo();
                 $_SESSION['cedula']             =   $usuario->getCedula();
-                $_SESSION['tipo_documento']     =   $usuario->getTipo_documento();
+                $_SESSION['tipo_documento']     =   $usuario->getTipo_documento()[0];
                 $_SESSION['telefono']           =   $usuario->getTelefono();
                 $_SESSION['imagen']             =   $usuario->getImagen();
                 $_SESSION['tipo']               =   $usuario->getTipo();
@@ -237,11 +237,11 @@ abstract  class System
                 Log::setLog($text);
 
                 $codigoOTP = CodigoOTP::getCodeByUser($usuario->getId_usuario());
-                if(!$codigoOTP){
+                if (!$codigoOTP) {
                     self::generateOTP($usuario->getId_usuario(), $usuario->getCorreo(), $usuario->getNombre());
                     $_SESSION['show_modal']     = false;
                     $_SESSION['show_modalOTP']  = true;
-                }elseif($codigoOTP && $codigoOTP->getEstado() == 1){
+                } elseif ($codigoOTP && $codigoOTP->getEstado() == 1) {
                     $_SESSION['otp']            = $codigoOTP->getCodigo();
                     $_SESSION['otp_expiry']     = $codigoOTP->getTiempo();
                     $_SESSION['id_codigo']      = $codigoOTP->getId_codigo();
@@ -328,7 +328,7 @@ abstract  class System
             $administrador  = Administrador::getAdministradorByCedula($cedula);
             $usuario = Usuario::getUserByCedula($cedula);
             $gestor = Gestor::getManagerByCedula($cedula);
-            $asunto = "Recuperar cuenta Aplicacion Web Kondory";
+            $asunto = "Recuperación contraseña";
 
             $new_pass = self::randomPassword();
             if ($administrador != null) {
@@ -340,8 +340,14 @@ abstract  class System
                 }
             } else if ($usuario != null) {
                 if (Usuario::setUserPass($usuario->getId_usuario(), self::hash($new_pass))) {
-                    $mensaje = "Hola " . $usuario->getNombre();
-                    $mensaje .= " <br> " . "Su nueva contraseña para ingresar al sistema  es: " . $new_pass;
+                    $mensaje = 'Estimado/a ' . $usuario->getNombre() . ',<br><br>
+                    Hemos recibido una solicitud para la recuperación de su contraseña. 
+                    A continuación, le proporcionamos su nueva contraseña para acceder a su cuenta:<br><br>
+                    <strong>Nueva contraseña:</strong> ' . $new_pass . '<br><br>
+                    Le recomendamos que inicie sesión lo antes posible y cambie esta contraseña por una de su preferencia 
+                    para mayor seguridad. Si usted no solicitó esta recuperación, por favor contáctenos de inmediato.<br<br>
+                    Atentamente,<br>
+                    Financiera Comultrasan';
                     Mail::sendEmail($asunto, $mensaje, $usuario->getCorreo());
                     return true;
                 }

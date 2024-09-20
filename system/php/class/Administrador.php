@@ -53,13 +53,13 @@ class Administrador extends System
     }
     public static function setImageAdministrator($id_administrador, $imagen)
     {
-            $dbh             = parent::Conexion();
-            $stmt = $dbh->prepare("UPDATE Administrador 
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("UPDATE Administrador 
                                     SET imagen = :imagen 
                                     WHERE id_administrador = :id_administrador ");
-            $stmt->bindParam(':id_administrador', $id_administrador);
-            $stmt->bindParam(':imagen', $imagen);
-            return  $stmt->execute();
+        $stmt->bindParam(':id_administrador', $id_administrador);
+        $stmt->bindParam(':imagen', $imagen);
+        return  $stmt->execute();
     }
     public static function getAdministrador($cedula, $pass_hash)
     {
@@ -80,8 +80,14 @@ class Administrador extends System
         $stmt->execute();
         return  $stmt->fetchAll();
     }
-
-
+    public static function listAllAdministrador()
+    {
+        $dbh             = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT * FROM Administrador");
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'AdministradorDTO');
+        $stmt->execute();
+        return  $stmt->fetchAll();
+    }
     public static function getAdministradorByCedula($cedula)
     {
         $dbh             = parent::Conexion();
@@ -91,7 +97,6 @@ class Administrador extends System
         $stmt->execute();
         return  $stmt->fetch();
     }
-
     public static function getAdministradorById($id_administrador)
     {
         $dbh             = parent::Conexion();

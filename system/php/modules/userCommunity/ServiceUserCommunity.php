@@ -21,6 +21,8 @@ class ServiceUserCommunity extends System
             if (!$usuarioDTO) {
                 Referido::newReferred($nombre, $cedula, 1, '', '', $correo, $celular, $_SESSION['nombre'], $_SESSION['tipo_documento'], $_SESSION['cedula'], 1, $_SESSION['id'], $fecha_registro);
                 self::enviarInvitacionCorreo($nombre, $nombre_comunidad, $correo);
+                Invitacion::newInvitation($_SESSION['id'], $nombre, $correo, $celular, $cedula, $fecha_registro);
+                return Elements::crearMensajeAlerta("El usuario ha sido referido, ya que no existe en la plataforma", "success");
             }
             $id_usuario = $usuarioDTO->getId_usuario();
 
@@ -110,8 +112,8 @@ class ServiceUserCommunity extends System
                 $mensaje = "Estimado/a, <br><br>
                             Has sido invitado/a a unirte a una nueva comunidad en nuestra plataforma. 
                             Para aceptar o rechazar esta oferta, por favor, haz clic en el siguiente enlace:<a href='" . self::getURL() .
-                            '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "'>" . self::getURL() .
-                            '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "</a><br>br>
+                    '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "'>" . self::getURL() .
+                    '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "</a><br>br>
                             Gracias por ser parte de nuestra comunidad. <br><br>
                             Saludos cordiales,<br>
                             El equipo de Financiera Comultrasan";

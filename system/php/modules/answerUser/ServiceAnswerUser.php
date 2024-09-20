@@ -12,6 +12,7 @@ class ServiceAnswerUser extends System
             $id_encuesta = parent::limpiarString($id_encuesta);
             $id_usuario = $_SESSION['id'];
             $fecha_registro = date('Y-m-d H:i:s');
+            $respuestas = '';
             // Asegurarse de que las variables sean arrays
             if (!is_array($listRespuestas)) {
                 $listRespuestas = [];
@@ -26,8 +27,13 @@ class ServiceAnswerUser extends System
                 foreach ($listRespuestas as $value) {
                     $listTotal = explode("-", $value);
                     $valide = RespuestaPregunta::valideAnswerQuestionByQuestion($listTotal[0]);
+                    $respuestaDTO = RespuestaPregunta::getAnswerQuestion($listTotal[1]);
+                    $respuestas .= '<li>
+                                    <strong>Pregunta:</strong> ' . $respuestaDTO->getPreguntaDTO()->getPregunta() . '; <strong>Repuesta:</strong> ' . $respuestaDTO->getRespuesta() . '
+                                </li>';
                     if ($valide) {
                         $responseMultiple = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $listTotal[0], $listTotal[1],  $fecha_registro);
+                        continue;
                     }
                     $valide_answer = RespuestaPregunta::valideAnswerQuestionByQuestionAndAnswer($listTotal[0], $listTotal[1]);
                     if ($valide_answer == false) {
@@ -43,6 +49,10 @@ class ServiceAnswerUser extends System
                     $id_pregunta = $listRespuestasAbiertas[$i];
                     $i++;
                     $respuesta = $listRespuestasAbiertas[$i];
+                    $preguntaDTO = PreguntaEncuesta::getSurveyQuestion($id_pregunta);
+                    $respuestas .= '<li>
+                                    <strong>Pregunta:</strong> ' . $preguntaDTO->getPregunta() . '; <strong>Repuesta:</strong> ' . $respuesta . '
+                                </li>';
                     $responseAbierta = RespuestaUsuario::newAnswerOpenUser($id_usuario, $id_encuesta, $id_pregunta, $respuesta, $fecha_registro);
                 }
             }
@@ -62,11 +72,27 @@ class ServiceAnswerUser extends System
                 }
 
                 $encuestaDTO = Encuesta::getSurvey($id_encuesta);
+                $listAdministradores = Administrador::listAllAdministrador();
+                foreach ($listAdministradores as $admin) {
+                    self::sendAnswerUserByMail($_SESSION['nombre'], $admin->getNombre(), $respuestas, $encuestaDTO->getNombre(), $admin->getCorreo());
+                }
                 ServicePoint::newPoint($encuestaDTO->getPuntos(), $_SESSION['id'], 1, "Resolvió la encuesta: " . $encuestaDTO->getNombre());
                 header('Location:surveys?win=' . $encuestaDTO->getPuntos());
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+    public static function sendAnswerUserByMail($usuario, $administrador, $respuestas, $encuesta, $correo)
+    {
+        $asunto = 'Respuestas del Usuario ' . $usuario . ' Recibidas';
+        $mensaje = 'Estimado/a ' . $administrador . ',<br>
+                Este correo ha sido generado automáticamente para informarle que el usuario ' . $usuario . ' ha completado el formulario. <br>
+                A continuación, se incluyen las respuestas proporcionadas de la encuesta <strong>' . $encuesta . '</strong>:<br>
+                ' . $respuestas . '<br>
+                Este mensaje es solo informativo. No se requiere ninguna acción adicional.<br><br>
+                Atentamente,<br>
+                Comunidad Financiera Comultrasan';
+        Mail::sendEmail($asunto, $mensaje, $correo);
     }
 }

@@ -648,6 +648,25 @@ class Elements
                     </div>
                 </div>';
     }
+    public static function getCardsBenefitUserCommunity($beneficio, $condiciones)
+    {
+        return '
+                <div class="col-md-12 mt-2 m-2">
+                    <div class="card border-2">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6 class="mt-2 ms-3"><i class="material-icons">check_circle</i> ' . $beneficio . '</h6>
+                            </div>
+                            <div class="col-md-12 pb-2">
+                                <small class="ms-2">
+                                    Condiciones:
+                                    ' . $condiciones . '
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>';
+    }
     public static function getCardMiniSection($imagen, $nombre)
     {
         return '
