@@ -404,32 +404,32 @@
                      <div class="row g-3">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label">Nombre de la comunidad</label>
+                              <label class="form-label">Nombre de la comunidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="nombre" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <label class="form-label">Nombre del otro miembro</label>
+                              <label class="form-label">Nombre del otro miembro <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="nombre_user" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
                               <label class="form-label">Documento de identidad del otro miembro</label>
-                              <input type="text" class="form-control border p-1" name="cedula" maxlength="255" required>
+                              <input type="text" class="form-control border p-1" name="cedula" maxlength="30" required>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <label class="form-label">Correo del otro miembro</label>
+                              <label class="form-label">Correo del otro miembro <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="mail" class="form-control border p-1" name="correo" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
                               <label class="form-label">Celular del otro miembro</label>
-                              <input type="number" class="form-control border p-1" name="celular" maxlength="255" required>
+                              <input type="number" class="form-control border p-1" name="celular" maxlength="30" required>
                            </div>
                         </div>
                         <div>
@@ -459,26 +459,26 @@
                      <div class="row g-3">
                         <div class="col-12">
                            <div class="form-group">
-                              <label for="nombre">Nombre del miembro</label>
-                              <input type="text" name="nombre" id="nombre" maxlength="255" placeholder="Nombre del miembro">
+                              <label for="nombre">Nombre del miembro <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <input type="text" name="nombre" class="form-control border p-1" id="nombre" maxlength="255" placeholder="Nombre del miembro">
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
                               <label for="cedula">Documento de identidad</label>
-                              <input type="number" name="cedula" id="cedula" maxlength="20" placeholder="Documento de identidad">
+                              <input type="number" name="cedula" class="form-control border p-1" id="cedula" maxlength="20" placeholder="Documento de identidad">
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
                               <label for="celular">Celular</label>
-                              <input type="number" name="celular" id="celular" placeholder="Celular">
+                              <input type="number" name="celular" class="form-control border p-1" id="celular" placeholder="Celular">
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <label for="cedula">Correo</label>
-                              <input type="text" name="cedula" id="cedula" maxlength="30" placeholder="Correo">
+                              <label for="correo">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <input type="mail" name="correo" class="form-control border p-1" id="correo" maxlength="255" placeholder="Correo">
                            </div>
                         </div>
                      </div>

@@ -7,7 +7,7 @@ class Invitacion extends system
     {
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("INSERT INTO Invitacion (id_usuario, nombre, correo, celular, cedula, fecha_registro) 
-                                VALUES (:id_usuario, :nombre, :correo, :celular, cedula, :fecha_registro)");
+                                VALUES (:id_usuario, :nombre, :correo, :celular, :cedula, :fecha_registro)");
         $stmt->bindParam(':id_usuario', $id_usuario);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':correo', $correo);

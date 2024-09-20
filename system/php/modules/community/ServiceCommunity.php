@@ -174,6 +174,7 @@ class ServiceCommunity extends System
             $fecha = self::getDateInWords($comunidadDTO->getFecha_registro());
             $ranking = Comunidad::getRankingByCommunity($comunidadDTO->getId_comunidad());
             $btnEditar = $isLeader ? Elements::getButtonEditModalJs('editName', 'Editar', $comunidadDTO->getId_comunidad(), $comunidadDTO->getNombre()) : '';
+            $puntos = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
 
             $html .= Elements::getUnitedCommunityReady(
                 $comunidadDTO->getNombre(),
@@ -181,11 +182,12 @@ class ServiceCommunity extends System
                 $count,
                 $fecha,
                 $comunidadDTO->getId_comunidad(),
-                $ranking['total_puntos'],
+                $ranking['total_puntos'] + $puntos,
                 $btnEditar
             );
 
             $html .= '</div><div class="col-md-5">';
+            $html .= Elements::getCardUserInCommunity($comunidadDTO->getUsuarioDTO()->getNombre(), '', '<i class="material-icons me-2">favorite</i>Total: ' . $puntos);
             $html .= self::getCommunityMembers($comunidadDTO->getId_comunidad(), $isLeader);
             $html .= self::getBenefitByComunity();
 
@@ -219,9 +221,11 @@ class ServiceCommunity extends System
             $isLeader = $comunidadDTO->getUsuarioDTO()->getId_usuario() == $id_usuario;
             $html = '';
             $ranking = Comunidad::getRankingByCommunity($comunidadDTO->getId_comunidad());
-            $html .= Elements::getHtmlCards($ranking['total_puntos'], $ranking['posicion'], $ranking['total_comunidades']);
+            $puntos = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
+            $html .= Elements::getHtmlCards($ranking['total_puntos'] + $puntos, $ranking['posicion'], $ranking['total_comunidades']);
 
-            $html .= self::getCommunityRanking($comunidadDTO->getId_comunidad(), $isLeader);
+            $html .= Elements::getCardUserInCommunityRanking($comunidadDTO->getUsuarioDTO()->getNombre(), $comunidadDTO->getUsuarioDTO()->getImagen(), $puntos, 0);
+            $html .= self::getCommunityRanking($comunidadDTO->getId_comunidad());
 
             $html .= '</div></div></div>';
             return $html;
@@ -270,13 +274,13 @@ class ServiceCommunity extends System
 
         foreach ($modelResponse as $valor) {
             $btnEliminar = $isLeader ? Elements::getButtonDeleteModalJs('takeOut', 'Remover', $valor->getId_usuario()) : '';
-            $points = $isLeader ? '<i class="material-icons me-2">favorite</i>Total: ' . Punto::getSumPointsByUser($valor->getId_usuario()) : '';
+            $points = '<i class="material-icons me-2">favorite</i>Total: ' . Punto::getSumPointsByUser($valor->getId_usuario());
             $html .= Elements::getCardUserInCommunity($valor->getNombre(), $btnEliminar, $points);
         }
 
         return $html;
     }
-    private static function getCommunityRanking($id_comunidad, $isLeader)
+    private static function getCommunityRanking($id_comunidad)
     {
         $html = '';
         $modelResponse = Usuario::getUsersInCommunity($id_comunidad);
@@ -491,7 +495,7 @@ class ServiceCommunity extends System
         $beneficioDTO = Beneficio::listBenefitByUser($id_usuario);
 
         foreach ($beneficioDTO as $beneficio) {
-            $html .= Elements::getCardsBenefitUser($beneficio->getTitulo(), $beneficio->getCondiciones());
+            $html .= Elements::getCardsBenefitUserCommunity($beneficio->getTitulo(), $beneficio->getCondiciones());
         }
 
         return $html;
@@ -537,15 +541,15 @@ class ServiceCommunity extends System
                 $sql .= sprintf(" AND id_usuario IN (SELECT id_usuario FROM Usuario WHERE nombre LIKE '%%%s%%')", $nombre_lider);
             }
 
-            if($fecha_inicio != ''){
+            if ($fecha_inicio != '') {
                 $sql .= sprintf(" AND fecha_registro >= '%s%'", $fecha_inicio);
             }
 
-            if($fecha_fin != ''){
+            if ($fecha_fin != '') {
                 $sql .= sprintf(" AND fecha_registro <= '%s%'", $fecha_fin);
             }
             $comunidadDTO = Comunidad::getCommunityByFilter($sql);
-            
+
             foreach ($comunidadDTO as $valor) {
                 $count = Usuario::countUsersInCommunity($valor->getId_comunidad());
                 $style = self::getColorByEstate($valor->getEstado()[0]);
