@@ -5,17 +5,12 @@ class UsuarioDTO
     protected $id_usuario;
     protected $nombre;
     protected $correo;
-    protected $telefono;
     protected $cedula;
     protected $pass;
     protected $estado;
     protected $tipo;
     protected $imagen;
     protected $tipo_documento;
-    protected $fecha_nacimiento;
-    protected $departamento;
-    protected $ciudad;
-    protected $direccion;
     protected $fecha_registro;
 
     public function __construct() {}
@@ -70,24 +65,6 @@ class UsuarioDTO
     public function setCorreo($correo)
     {
         $this->correo = $correo;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of telefono
-     */
-    public function getTelefono()
-    {
-        return $this->telefono;
-    }
-
-    /**
-     * Set the value of telefono
-     */
-    public function setTelefono($telefono)
-    {
-        $this->telefono = $telefono;
 
         return $this;
     }
@@ -223,86 +200,6 @@ class UsuarioDTO
     public function setTipo_documento($tipo_documento)
     {
         $this->tipo_documento = $tipo_documento;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of fecha_nacimiento
-     */
-    public function getFecha_nacimiento()
-    {
-        return $this->fecha_nacimiento;
-    }
-
-    /**
-     * Set the value of fecha_nacimiento
-     *
-     * @return  self
-     */
-    public function setFecha_nacimiento($fecha_nacimiento)
-    {
-        $this->fecha_nacimiento = $fecha_nacimiento;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of departamento
-     */ 
-    public function getDepartamento()
-    {
-        return $this->departamento;
-    }
-
-    /**
-     * Set the value of departamento
-     *
-     * @return  self
-     */ 
-    public function setDepartamento($departamento)
-    {
-        $this->departamento = $departamento;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of ciudad
-     */ 
-    public function getCiudad()
-    {
-        return $this->ciudad;
-    }
-
-    /**
-     * Set the value of ciudad
-     *
-     * @return  self
-     */ 
-    public function setCiudad($ciudad)
-    {
-        $this->ciudad = $ciudad;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of direccion
-     */ 
-    public function getDireccion()
-    {
-        return $this->direccion;
-    }
-
-    /**
-     * Set the value of direccion
-     *
-     * @return  self
-     */ 
-    public function setDireccion($direccion)
-    {
-        $this->direccion = $direccion;
 
         return $this;
     }

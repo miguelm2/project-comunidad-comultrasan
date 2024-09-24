@@ -81,14 +81,8 @@
 
                         <div class="col-md-12 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="nombre">Nombre y Apellidos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="label text-black" for="nombre">Nombre(s) y Apellidos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control" name="nombre" placeholder="Nombres completos" maxlength="255" required>
-                           </div>
-                        </div>
-                        <div class="col-md-6 mt-2">
-                           <div class="form-group">
-                              <label class="label text-black" for="telefono">Celular</label>
-                              <input type="number" class="form-control" name="telefono" placeholder="Celular" required>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">
@@ -99,38 +93,8 @@
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="fecha_nacimiento">Fecha de nacimiento</label>
-                              <input type="date" class="form-control" name="fecha_nacimiento" required>
-                           </div>
-                        </div>
-                        <div class="col-md-6 mt-2">
-                           <div class="form-group">
-                              <label class="label text-black" for="departamento">Departamento <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" class="form-control" name="departamento" maxlength="255" placeholder="Departamento" required>
-                           </div>
-                        </div>
-                        <div class="col-md-6 mt-2">
-                           <div class="form-group">
-                              <label class="label text-black" for="ciudad">Ciudad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" class="form-control" name="ciudad" maxlength="255" placeholder="Ciudad" required>
-                           </div>
-                        </div>
-                        <div class="col-md-6 mt-2">
-                           <div class="form-group">
-                              <label class="label text-black" for="direccion">Dirección <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" class="form-control" name="direccion" maxlength="255" placeholder="Dirección" required>
-                           </div>
-                        </div>
-                        <div class="col-md-6 mt-2">
-                           <div class="form-group">
                               <label class="label text-black" for="pass">Contraseña</label>
                               <input type="password" class="form-control" name="pass" placeholder="Contraseña" maxlength="30" required>
-                           </div>
-                        </div>
-                        <div class="col-md-6 mt-2">
-                           <div class="form-group">
-                              <label class="label text-black" for="imageUser">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
-                              <input type="file" accept="image/*" name="imageUser" class="form-control">
                            </div>
                         </div>
                         <div>
@@ -139,9 +103,20 @@
                         <div class="col-md-12 mt-2">
                            <div class="form-check">
                               <label for="tratamiento" class="text-black">
-                                 <input type="checkbox" name="tratamiento" id="tratamineto">
-                                 Autorización para el tratamiento de datos personales, conmsulta y reporte
-                                 de información crediticia
+                                 <input type="checkbox" name="tratamiento" id="tratamiento">
+                                 <a href="https://www.financieracomultrasan.com.co/es/seguridad-financiera/proteccion-de-datos-personales">
+                                    Autorización para el tratamiento de datos personales, consulta y reporte
+                                    de información crediticia</a>
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                           <div class="form-check">
+                              <label for="terminos" class="text-black">
+                                 <input type="checkbox" name="terminos" id="terminos">
+                                 <a href="https://www.financieracomultrasan.com.co/es/seguridad-financiera/proteccion-de-datos-personales">
+                                    Confirmo que he leído los terminos y condiciones
+                                 </a>
                               </label>
                            </div>
                         </div>
