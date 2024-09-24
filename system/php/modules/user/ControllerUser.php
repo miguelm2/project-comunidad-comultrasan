@@ -11,13 +11,8 @@ if (isset($_POST['setProfileUser'])) {
     $response = ServiceUser::setProfile(
         $_POST['nombre'],
         $_POST['correo'],
-        $_POST['telefono'],
         $_POST['cedula'],
-        $_POST['tipo_documento'],
-        $_POST['fecha_nacimiento'],
-        $_POST['departamento'],
-        $_POST['ciudad'],
-        $_POST['direccion']
+        $_POST['tipo_documento']
     );
 }
 
@@ -35,15 +30,10 @@ if (isset($_POST['newUser'])) {
     $response = ServiceUser::newUser(
         $_POST['nombre'],
         $_POST['correo'],
-        $_POST['telefono'],
         $_POST['cedula'],
         $_POST['pass'],
         $_POST['tipo_documento'],
-        $_POST['fecha_nacimiento'],
         1,
-        $_POST['departamento'],
-        $_POST['ciudad'],
-        $_POST['direccion']
     );
 }
 
@@ -54,15 +44,10 @@ if (isset($_POST['newUserUnete'])) {
     $response = ServiceUser::newUser(
         $_POST['nombre'],
         $_POST['correo'],
-        $_POST['telefono'],
         $_POST['cedula'],
         $_POST['pass'],
         $_POST['tipo_documento'],
-        $_POST['fecha_nacimiento'],
         2,
-        $_POST['departamento'],
-        $_POST['ciudad'],
-        $_POST['direccion']
     );
 }
 
@@ -74,14 +59,9 @@ if (isset($_POST['setUser'])) {
         $_GET['user'],
         $_POST['nombre'],
         $_POST['correo'],
-        $_POST['telefono'],
         $_POST['cedula'],
         $_POST['estado'],
         $_POST['tipo_documento'],
-        $_POST['fecha_nacimiento'],
-        $_POST['departamento'],
-        $_POST['ciudad'],
-        $_POST['direccion']
     );
 }
 

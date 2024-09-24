@@ -19,30 +19,20 @@ class ServiceUser extends System
     public static function newUser(
         $nombre,
         $correo,
-        $telefono,
         $cedula,
         $pass,
         $tipo_documento,
-        $fecha_nacimiento,
         $estado,
-        $departamento,
-        $ciudad,
-        $direccion
     ) {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'users.php' || basename($_SERVER['PHP_SELF']) == 'singup.php') {
                 $nombre             = parent::limpiarString($nombre);
                 $correo             = parent::limpiarString($correo);
-                $telefono           = parent::limpiarString($telefono);
                 $cedula             = parent::limpiarString($cedula);
                 $pass               = parent::limpiarString($pass);
                 $pass_hash          = parent::hash($pass);
                 $tipo_documento     = parent::limpiarString($tipo_documento);
-                $fecha_nacimiento   = parent::limpiarString($fecha_nacimiento);
-                $departamento       = parent::limpiarString($departamento);
-                $ciudad             = parent::limpiarString($ciudad);
                 $estado             = parent::limpiarString($estado);
-                $direccion          = parent::limpiarString($direccion);
                 $tipo               = 1;
                 $fecha_registro     = date('Y-m-d H:i:s');
 
@@ -53,17 +43,12 @@ class ServiceUser extends System
                 $result = Usuario::newUser(
                     $nombre,
                     $correo,
-                    $telefono,
                     $cedula,
                     $pass_hash,
                     $estado,
                     $tipo,
                     $imagen,
                     $tipo_documento,
-                    $fecha_nacimiento,
-                    $departamento,
-                    $ciudad,
-                    $direccion,
                     $fecha_registro
                 );
 
@@ -177,51 +162,31 @@ class ServiceUser extends System
     public static function setProfile(
         $nombre,
         $correo,
-        $telefono,
         $cedula,
         $tipo_documento,
-        $fecha_nacimiento,
-        $departamento,
-        $ciudad,
-        $direccion
     ) {
         try {
 
             if (basename($_SERVER['PHP_SELF']) == 'profile.php') {
                 $nombre             = parent::limpiarString($nombre);
                 $correo             = parent::limpiarString($correo);
-                $telefono           = parent::limpiarString($telefono);
                 $cedula             = parent::limpiarString($cedula);
                 $tipo_documento     = parent::limpiarString($tipo_documento);
-                $fecha_nacimiento   = parent::limpiarString($fecha_nacimiento);
-                $departamento       = parent::limpiarString($departamento);
-                $ciudad             = parent::limpiarString($ciudad);
-                $direccion          = parent::limpiarString($direccion);
                 $id_usuario         = $_SESSION['id'];
 
                 if (Usuario::setUserProfile(
                     $id_usuario,
                     $nombre,
                     $correo,
-                    $telefono,
                     $cedula,
-                    $tipo_documento,
-                    $fecha_nacimiento,
-                    $departamento,
-                    $ciudad,
-                    $direccion
+                    $tipo_documento
                 )) {
                     $usuario = Usuario::getUserById($id_usuario);
                     $_SESSION['id']                 =   $usuario->getId_usuario();
                     $_SESSION['nombre']             =   $usuario->getNombre();
                     $_SESSION['correo']             =   $usuario->getCorreo();
                     $_SESSION['cedula']             =   $usuario->getCedula();
-                    $_SESSION['telefono']           =   $usuario->getTelefono();
                     $_SESSION['tipo']               =   $usuario->getTipo();
-                    $_SESSION['fecha_nacimiento']   =   $usuario->getFecha_nacimiento();
-                    $_SESSION['departamento']       =   $usuario->getDepartamento();
-                    $_SESSION['ciudad']             =   $usuario->getCiudad();
-                    $_SESSION['direccion']          =   $usuario->getDireccion();
                     $_SESSION['fecha_registro']     =   $usuario->getFecha_registro();
                     $historialDTO = HistorialInformacion::getHistoryInformationByUser($_SESSION['id']);
                     $fecha_registro = date('Y-m-d H:i:s');
@@ -273,39 +238,23 @@ class ServiceUser extends System
         $id_usuario,
         $nombre,
         $correo,
-        $telefono,
         $cedula,
         $estado,
-        $tipo_documento,
-        $fecha_nacimiento,
-        $departamento,
-        $ciudad,
-        $direccion
+        $tipo_documento
     ) {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'user.php') {
                 $nombre             = parent::limpiarString($nombre);
                 $correo             = parent::limpiarString($correo);
-                $telefono           = parent::limpiarString($telefono);
                 $cedula             = parent::limpiarString($cedula);
                 $tipo_documento     = parent::limpiarString($tipo_documento);
-                $fecha_nacimiento   = parent::limpiarString($fecha_nacimiento);
-                $departamento       = parent::limpiarString($departamento);
-                $ciudad             = parent::limpiarString($ciudad);
-                $direccion          = parent::limpiarString($direccion);
-
                 $result = Usuario::setUser(
                     $id_usuario,
                     $nombre,
                     $correo,
-                    $telefono,
                     $cedula,
                     $estado,
-                    $tipo_documento,
-                    $fecha_nacimiento,
-                    $departamento,
-                    $ciudad,
-                    $direccion
+                    $tipo_documento
                 );
 
                 if ($result) {

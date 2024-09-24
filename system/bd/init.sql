@@ -40,20 +40,15 @@ CREATE TABLE Usuario (
   id_usuario INT IDENTITY(1, 1) PRIMARY KEY,
   nombre VARCHAR(255) NOT NULL,
   correo VARCHAR(255) NOT NULL,
-  telefono VARCHAR(255) NOT NULL,
   cedula VARCHAR(255) NOT NULL,
   pass VARCHAR(255) NOT NULL,
   estado INT NOT NULL,
   tipo INT NOT NULL,
+  tipo_documento INT NOT NULL,
   imagen VARCHAR(255) NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
 
-ALTER TABLE
-  Usuario
-ADD
-  fecha_nacimiento DATE NULL,
-  tipo_documento INT NULL;
 
 CREATE TABLE Gestor (
   id_gestor INT IDENTITY(1, 1) PRIMARY KEY,
@@ -401,13 +396,6 @@ ADD
 
 ALTER TABLE
   Beneficio DROP COLUMN descripcion;
-
-ALTER TABLE
-  Usuario
-ADD
-  departamento VARCHAR(255) NULL,
-  ciudad VARCHAR(255) NULL,
-  direccion VARCHAR(255) NULL;
 
 CREATE TABLE Actividad (
   id_actividad INT IDENTITY(1, 1) PRIMARY KEY,
