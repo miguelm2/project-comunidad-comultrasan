@@ -3,19 +3,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/model/ReferidoDTO.php';
 
 class Referido extends system
 {
-    public static function newReferred($nombre_referido, $cedula_referido, $tipo_documento_referido, $departamento, $ciudad, $correo, $celular, $nombre_refiere, $tipo_documento_refiere, $cedula_refiere, $estado, $id_usuario, $fecha_registro)
+    public static function newReferred($nombre_referido, $cedula_referido, $tipo_documento_referido, $celular, $nombre_refiere, $tipo_documento_refiere, $cedula_refiere, $estado, $id_usuario, $fecha_registro)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("INSERT INTO Referido (nombre_referido, cedula_referido, tipo_documento_referido, departamento, ciudad, correo, 
+        $stmt = $dbh->prepare("INSERT INTO Referido (nombre_referido, cedula_referido, tipo_documento_referido, 
                                                     celular, nombre_refiere, tipo_documento_refiere, cedula_refiere, estado, id_usuario, fecha_registro) 
-                                VALUES (:nombre_referido, :cedula_referido, :tipo_documento_referido, :departamento, :ciudad, :correo, :celular,
+                                VALUES (:nombre_referido, :cedula_referido, :tipo_documento_referido, :celular,
                                         :nombre_refiere, :tipo_documento_refiere, :cedula_refiere, :estado, :id_usuario, :fecha_registro)");
         $stmt->bindParam(':nombre_referido', $nombre_referido);
         $stmt->bindParam(':cedula_referido', $cedula_referido);
         $stmt->bindParam(':tipo_documento_referido', $tipo_documento_referido);
-        $stmt->bindParam(':departamento', $departamento);
-        $stmt->bindParam(':ciudad', $ciudad);
-        $stmt->bindParam(':correo', $correo);
         $stmt->bindParam(':celular', $celular);
         $stmt->bindParam(':nombre_refiere', $nombre_refiere);
         $stmt->bindParam(':tipo_documento_refiere', $tipo_documento_refiere);
@@ -25,14 +22,13 @@ class Referido extends system
         $stmt->bindParam(':fecha_registro', $fecha_registro);
         return  $stmt->execute();
     }
-    public static function setReferred($nombre_referido, $cedula_referido, $tipo_documento_referido, $departamento, $ciudad, $correo, $celular, $nombre_refiere, $tipo_documento_refiere, $cedula_refiere, $estado, $id_referido)
+    public static function setReferred($nombre_referido, $cedula_referido, $tipo_documento_referido, $celular, $nombre_refiere, $tipo_documento_refiere, $cedula_refiere, $estado, $id_referido)
     {
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("UPDATE Referido 
                                 SET nombre_referido = :nombre_referido, cedula_referido = :cedula_referido, 
-                                tipo_documento_referido = :tipo_documento_referido, departamento = :departamento, ciudad = :ciudad,
-                                correo = :correo, celular = :celular, nombre_refiere = :nombre_refiere, tipo_documento_refiere = :tipo_documento_refiere, 
-                                cedula_refiere = :cedula_refiere, estado = :estado
+                                tipo_documento_referido = :tipo_documento_referido, celular = :celular, nombre_refiere = :nombre_refiere, 
+                                tipo_documento_refiere = :tipo_documento_refiere, cedula_refiere = :cedula_refiere, estado = :estado
                                 WHERE id_referido = :id_referido");
         $stmt->bindParam(':nombre_referido', $nombre_referido);
         $stmt->bindParam(':cedula_referido', $cedula_referido);

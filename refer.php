@@ -135,6 +135,25 @@
                         <div>
                            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                         </div>
+
+                        <div class="col-md-12 mt-2">
+                           <div class="form-check">
+                              <label for="tratamiento" class="text-black">
+                                 <input type="checkbox" name="tratamiento" id="tratamiento" required>
+                                 <a href="https://www.financieracomultrasan.com.co/es/seguridad-financiera/proteccion-de-datos-personales">
+                                    Autorizo el tratamiento de datos personales
+                                 </a>
+                              </label>
+                           </div>
+                        </div>
+                        <div class="col-md-12 mt-2">
+                           <div class="form-check">
+                              <label for="terminos" class="text-black">
+                                 <input type="checkbox" name="terminos" id="terminos" required>
+                                 Declaro que cuento con autorización para compartir los datos de mi referido
+                              </label>
+                           </div>
+                        </div>
                      </div>
                      <div class="form-group">
                         <br>

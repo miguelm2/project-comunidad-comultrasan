@@ -85,41 +85,11 @@
                            </div>
                            <div class="col-6">
                               <div class="form-group">
-                                 <label class="form-label">Celular</label>
-                                 <input type="tel" class="form-control border p-1" value="<?= $user->getTelefono() ?>" name="telefono" required>
-                              </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Fecha de nacimiento</label>
-                                 <input type="date" class="form-control border p-1" name="fecha_nacimiento" value="<?= $user->getFecha_nacimiento() ?>" required>
-                              </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
                                  <label class="form-label">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="email" class="form-control border p-1" value="<?= $user->getCorreo() ?>" name="correo" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Departamento <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                                 <input type="text" class="form-control border p-1" value="<?= $user->getDepartamento() ?>" name="departamento" maxlength="255" required>
-                              </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Ciudad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                                 <input type="text" class="form-control border p-1" value="<?= $user->getCiudad() ?>" name="ciudad" maxlength="255" required>
-                              </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="form-group">
-                                 <label class="form-label">Dirección <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                                 <input type="text" class="form-control border p-1" value="<?= $user->getDireccion() ?>" name="direccion" maxlength="255" required>
-                              </div>
-                           </div>
-                           <div class="col-12">
                               <div class="form-group">
                                  <label for="estado">Estado</label>
                                  <select name="estado" id="estado" class="form-select border p-1">
@@ -138,22 +108,17 @@
                   </div>
                   <div class="dark horizontal my-0 border-1 mt-4"></div>
                   <div class="row mt-4">
-                     <div class="col-md-3 d-grid">
-                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">
-                           <i class="material-icons me-2">image</i> Cambiar Imagen
-                        </button>
-                     </div>
-                     <div class="col-md-3 d-grid">
+                     <div class="col-md-4 d-grid">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiarPass">
                            <i class="material-icons me-2">lock</i> Cambiar Contraseña
                         </button>
                      </div>
-                     <div class="col-md-3 d-grid">
+                     <div class="col-md-4 d-grid">
                         <button type="submit" class="btn btn-success" name="setUser">
                            <i class="material-icons me-2">save</i> Guardar Información
                         </button>
                      </div>
-                     <div class="col-md-3 d-grid">
+                     <div class="col-md-4 d-grid">
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#eliminar">
                            <i class="material-icons me-2">delete</i> Eliminar Registro
                         </button>
@@ -195,7 +160,7 @@
                      <thead>
                         <tr>
                            <td class="text-uppercase font-weight-bolder">ID</td>
-                           <td class="text-uppercase font-weight-bolder">Administrador</td>
+                           <td class="text-uppercase font-weight-bolder">Nombre Completo</td>
                            <td class="text-uppercase font-weight-bolder">Corazones</td>
                            <td class="text-uppercase font-weight-bolder">Descripción</td>
                            <td class="text-uppercase font-weight-bolder">Opciones</td>
@@ -281,33 +246,7 @@
          </div>
       </form>
       <!-- End Basic Modal-->
-      <!-- ======= Basic Modal ======= -->
-      <form method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="setImage" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Cambiar Imagen</h5>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <div class="form-group">
-                        <label class="form-label" for="imageUser">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
-                        <input type="file" class="form-control border p-1" name="imageUser" accept="image/*" required>
-                     </div>
-                     <div>
-                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="setImageUser" class="btn btn-info"><i class="material-icons me-2">image</i> Cambiar Imagen</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!-- End Basic Modal-->
+
       <!-- Modal Cambiar Contraseña-->
       <!-- ======= Basic Modal ======= -->
       <form method="post" onsubmit="return validatePassword()">

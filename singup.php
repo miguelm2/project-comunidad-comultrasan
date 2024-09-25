@@ -103,7 +103,7 @@
                         <div class="col-md-12 mt-2">
                            <div class="form-check">
                               <label for="tratamiento" class="text-black">
-                                 <input type="checkbox" name="tratamiento" id="tratamiento">
+                                 <input type="checkbox" name="tratamiento" id="tratamiento" required>
                                  <a href="https://www.financieracomultrasan.com.co/es/seguridad-financiera/proteccion-de-datos-personales">
                                     Autorización para el tratamiento de datos personales, consulta y reporte
                                     de información crediticia</a>
@@ -113,7 +113,7 @@
                         <div class="col-md-12 mt-2">
                            <div class="form-check">
                               <label for="terminos" class="text-black">
-                                 <input type="checkbox" name="terminos" id="terminos">
+                                 <input type="checkbox" name="terminos" id="terminos" required>
                                  <a href="https://www.financieracomultrasan.com.co/es/seguridad-financiera/proteccion-de-datos-personales">
                                     Confirmo que he leído los terminos y condiciones
                                  </a>

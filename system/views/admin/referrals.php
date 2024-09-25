@@ -53,7 +53,6 @@
                      <tr>
                         <th class="text-uppercase font-weight-bolder">Cédula</th>
                         <th class="text-uppercase font-weight-bolder">Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">Correo</th>
                         <th class="text-uppercase font-weight-bolder">Celular</th>
                         <th class="text-uppercase font-weight-bolder">Refiere</th>
                         <th class="text-uppercase font-weight-bolder">Estado</th>
@@ -64,7 +63,6 @@
                      <tr>
                         <th class="text-uppercase font-weight-bolder">Cédula</th>
                         <th class="text-uppercase font-weight-bolder">Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">Correo</th>
                         <th class="text-uppercase font-weight-bolder">Celular</th>
                         <th class="text-uppercase font-weight-bolder">Refiere</th>
                         <th class="text-uppercase font-weight-bolder">Estado</th>

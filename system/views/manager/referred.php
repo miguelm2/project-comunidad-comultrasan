@@ -107,24 +107,10 @@
                         </div>
 
                         <div class="col-md-4 mt-2">
-                           <h6>Departamento</h6>
-                           <p><?= $referred->getDepartamento() ?></p>
-                        </div>
-
-                        <div class="col-md-4 mt-2">
-                           <h6>Ciudad</h6>
-                           <p><?= $referred->getCiudad() ?></p>
-                        </div>
-
-                        <div class="col-md-4 mt-2">
-                           <h6>Correo</h6>
-                           <p><?= $referred->getCorreo() ?></p>
-                        </div>
-
-                        <div class="col-md-4 mt-2">
                            <h6>Celular</h6>
                            <p><?= $referred->getCelular() ?></p>
                         </div>
+
                         <div class="col-md-4 mt-2">
                            <h6>Estado</h6>
                            <p><?= $referred->getEstado()[1] ?></p>
