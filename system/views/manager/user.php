@@ -122,7 +122,7 @@
                      <thead>
                         <tr>
                            <td class="text-uppercase font-weight-bolder">ID</td>
-                           <td class="text-uppercase font-weight-bolder">Administrador</td>
+                           <td class="text-uppercase font-weight-bolder">Nombre Completo</td>
                            <td class="text-uppercase font-weight-bolder">Corazones</td>
                            <td class="text-uppercase font-weight-bolder">Descripción</td>
                         </tr>

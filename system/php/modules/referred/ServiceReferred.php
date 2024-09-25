@@ -8,9 +8,6 @@ class ServiceReferred extends System
         $nombre_referido,
         $cedula_referido,
         $tipo_documento_referido,
-        $departamento,
-        $ciudad,
-        $correo,
         $celular,
         $nombre_refiere,
         $tipo_documento_refiere,
@@ -20,9 +17,6 @@ class ServiceReferred extends System
             $nombre_referido            = parent::limpiarString($nombre_referido);
             $cedula_referido            = parent::limpiarString($cedula_referido);
             $tipo_documento_referido    = parent::limpiarString($tipo_documento_referido);
-            $departamento               = parent::limpiarString($departamento);
-            $ciudad                     = parent::limpiarString($ciudad);
-            $correo                     = parent::limpiarString($correo);
             $celular                    = parent::limpiarString($celular);
             $nombre_refiere             = parent::limpiarString($nombre_refiere);
             $tipo_documento_refiere     = parent::limpiarString($tipo_documento_refiere);
@@ -34,9 +28,6 @@ class ServiceReferred extends System
                 $nombre_referido,
                 $cedula_referido,
                 $tipo_documento_referido,
-                $departamento,
-                $ciudad,
-                $correo,
                 $celular,
                 $nombre_refiere,
                 $tipo_documento_refiere,
@@ -45,19 +36,6 @@ class ServiceReferred extends System
                 NULL,
                 $fecha_registro
             );
-            if ($result) {
-                $asunto = "Información sobre su Referencia a nuestra Comunidad Financiera";
-                $mensaje = 'Estimado/a ' . $nombre_referido . ':<br><br>
-                Nos complace informarle que ha sido referida en nuestro sistema como parte de nuestra comunidad financiera. 
-                Para poder brindarle toda la información necesaria y atender sus consultas, le solicitamos que se comunique 
-                directamente con nuestra financiera.<br><br>
-                Nuestro equipo estará encantado de asistirle y ofrecerle el apoyo que requiera.<br><br>
-                Agradecemos su interés y quedamos a su disposición para cualquier pregunta adicional.
-                Atentamente,<br>
-                Financiera Comultrasan';
-                Mail::sendEmail($asunto, $mensaje, $correo);
-                return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
-            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -66,9 +44,6 @@ class ServiceReferred extends System
         $nombre_referido,
         $cedula_referido,
         $tipo_documento_referido,
-        $departamento,
-        $ciudad,
-        $correo,
         $celular,
         $nombre_refiere,
         $tipo_documento_refiere,
@@ -81,9 +56,6 @@ class ServiceReferred extends System
                 $nombre_referido            = parent::limpiarString($nombre_referido);
                 $cedula_referido            = parent::limpiarString($cedula_referido);
                 $tipo_documento_referido    = parent::limpiarString($tipo_documento_referido);
-                $departamento               = parent::limpiarString($departamento);
-                $ciudad                     = parent::limpiarString($ciudad);
-                $correo                     = parent::limpiarString($correo);
                 $celular                    = parent::limpiarString($celular);
                 $nombre_refiere             = parent::limpiarString($nombre_refiere);
                 $tipo_documento_refiere     = parent::limpiarString($tipo_documento_refiere);
@@ -95,9 +67,6 @@ class ServiceReferred extends System
                     $nombre_referido,
                     $cedula_referido,
                     $tipo_documento_referido,
-                    $departamento,
-                    $ciudad,
-                    $correo,
                     $celular,
                     $nombre_refiere,
                     $tipo_documento_refiere,
@@ -109,32 +78,17 @@ class ServiceReferred extends System
                 if ($estado == 2) {
                     $pass = parent::randomPassword();
                     $fecha_registro = date('Y-m-d H:i:s');
-                    $response = Usuario::newUser(
+                    Usuario::newUser(
                         $nombre_referido,
-                        $correo,
-                        $celular,
+                        '',
                         $cedula_referido,
                         self::hash($pass),
                         1,
                         1,
                         'default.png',
                         $tipo_documento_referido,
-                        '',
-                        $departamento,
-                        $ciudad,
-                        '',
                         $fecha_registro
                     );
-                    if ($response) {
-                        $asunto = "Registro exitoso - Bienvenido/a a nuestra plataforma";
-                        $mensaje = "Hola " . $nombre_referido . ",<br><br>"
-                            . "Tu registro ha sido exitoso. A continuación te proporcionamos tu contraseña de acceso:<br>"
-                            . "Contraseña: " . $pass . "<br><br>"
-                            . "Te recomendamos cambiar tu contraseña una vez inicies sesión.<br><br>"
-                            . "Gracias por unirte a nuestra comunidad.<br><br>"
-                            . "Saludos,<br>El equipo Financiera Comultrasan.";
-                        Mail::sendEmail($asunto, $mensaje, $correo);
-                    }
                 }
                 if ($result) {
                     return  '<script>swal("' . Constants::$REGISTER_UPDATE . '", "", "success");</script>';
@@ -195,7 +149,6 @@ class ServiceReferred extends System
                     $tableHtml .= '<tr>';
                     $tableHtml .= '<td>' . $valor->getCedula_referido() . '</td>';
                     $tableHtml .= '<td>' . $valor->getNombre_referido() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
                     $tableHtml .= '<td>' . $valor->getCelular() . '</td>';
                     $tableHtml .= '<td>' . $valor->getNombre_refiere() . '</td>';
                     $tableHtml .= '<td><small class="alert alert-' . $style . ' p-1 text-white">' . $valor->getEstado()[1] . '</small></td>';

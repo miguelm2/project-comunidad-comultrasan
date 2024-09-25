@@ -117,27 +117,6 @@
                               </div>
                            </div>
 
-                           <div class="col-md-6 mt-2">
-                              <div class="form-group">
-                                 <label class="text-black" for="departamento">Departamento <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                                 <input type="text" name="departamento" class="form-control border p-1" placeholder="Departamento" maxlength="255" required value="<?= $referred->getDepartamento() ?>">
-                              </div>
-                           </div>
-
-                           <div class="col-md-6 mt-2">
-                              <div class="form-group">
-                                 <label class="text-black" for="ciudad">Ciudad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                                 <input type="text" name="ciudad" class="form-control border p-1" placeholder="Ciudad" required maxlength="255" value="<?= $referred->getCiudad() ?>">
-                              </div>
-                           </div>
-
-                           <div class="col-md-4 mt-2">
-                              <div class="form-group">
-                                 <label class="text-black" for="correo">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                                 <input type="email" name="correo" class="form-control border p-1" placeholder="Correo" required maxlength="255" value="<?= $referred->getCorreo() ?>">
-                              </div>
-                           </div>
-
                            <div class="col-md-4 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="celular">Celular</label>

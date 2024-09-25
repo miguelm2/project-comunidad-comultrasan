@@ -6,9 +6,6 @@ class ReferidoDTO
     protected $nombre_referido;
     protected $cedula_referido;
     protected $tipo_documento_referido;
-    protected $departamento;
-    protected $ciudad;
-    protected $correo;
     protected $celular;
     protected $nombre_refiere;
     protected $tipo_documento_refiere;
@@ -97,66 +94,6 @@ class ReferidoDTO
     public function setTipo_documento_referido($tipo_documento_referido)
     {
         $this->tipo_documento_referido = $tipo_documento_referido;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of departamento
-     */
-    public function getDepartamento()
-    {
-        return $this->departamento;
-    }
-
-    /**
-     * Set the value of departamento
-     *
-     * @return  self
-     */
-    public function setDepartamento($departamento)
-    {
-        $this->departamento = $departamento;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of ciudad
-     */
-    public function getCiudad()
-    {
-        return $this->ciudad;
-    }
-
-    /**
-     * Set the value of ciudad
-     *
-     * @return  self
-     */
-    public function setCiudad($ciudad)
-    {
-        $this->ciudad = $ciudad;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of correo
-     */
-    public function getCorreo()
-    {
-        return $this->correo;
-    }
-
-    /**
-     * Set the value of correo
-     *
-     * @return  self
-     */
-    public function setCorreo($correo)
-    {
-        $this->correo = $correo;
 
         return $this;
     }

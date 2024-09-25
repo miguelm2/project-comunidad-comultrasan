@@ -68,18 +68,6 @@
                                     <input type="email" class="form-control border p-1" name="correo" value="<?= $_SESSION['correo'] ?>" maxlength="255" required>
                                  </div>
                               </div>
-                              <div class="col-6">
-                                 <div class="form-group">
-                                    <label class="form-label">Celular</label>
-                                    <input type="text" class="form-control border p-1" name="telefono" value="<?= $_SESSION['telefono'] ?>" maxlength="30" required>
-                                 </div>
-                              </div>
-                              <div class="col-md-6 mt-2">
-                                 <div class="form-group">
-                                    <label class="label text-black" for="fecha_nacimiento">Fecha de nacimiento</label>
-                                    <input type="date" class="form-control border p-1" name="fecha_nacimiento" required value="<?= $_SESSION['fecha_nacimiento'] ?>">
-                                 </div>
-                              </div>
                               <div class="col-md-6 mt-2">
                                  <div class="form-group">
                                     <label class="label text-black" for="tipo_documento">Tipo de Documento</label>
@@ -100,38 +88,16 @@
                                     <input type="text" class="form-control border p-1" name="cedula" value="<?= $_SESSION['cedula'] ?>" maxlength="30" required>
                                  </div>
                               </div>
-                              <div class="col-md-6">
-                                 <div class="form-group">
-                                    <label for="departamento" class="form-label">Departamento <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;">(Máximo de caracteres: 255)</small></label><br>
-                                    <input type="text" class="form-control border p-1" name="departamento" value="<?= $_SESSION['departamento'] ?>" maxlength="255" required>
-                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                 <div class="form-group">
-                                    <label for="ciudad" class="form-label">Ciudad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;">(Máximo de caracteres: 255)</small></label><br>
-                                    <input type="text" class="form-control border p-1" name="ciudad" value="<?= $_SESSION['ciudad'] ?>" maxlength="255" required>
-                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                 <div class="form-group">
-                                    <label for="direccion" class="form-label">Dirección <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;">(Máximo de caracteres: 255)</small></label><br>
-                                    <input type="text" class="form-control border p-1" name="direccion" value="<?= $_SESSION['direccion'] ?>" maxlength="255" required>
-                                 </div>
-                              </div>
                            </div>
                         </div>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>
                      <div class="row mt-4">
-                        <div class="col-md-4 d-grid">
-                           <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#setImage">
-                              <i class="material-icons me-2">image</i> Cambiar Imagen</button>
-                        </div>
-                        <div class="col-md-4 d-grid">
+                        <div class="col-md-6 d-grid">
                            <button type="submit" class="btn btn-success" name="setProfileUser">
                               <i class="material-icons me-2">edit</i> Guardar Información</button>
                         </div>
-                        <div class="col-md-4 d-grid">
+                        <div class="col-md-6 d-grid">
                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cambiarPass">
                               <i class="material-icons me-2">lock</i> Cambiar Contraseña</button>
                         </div>
@@ -141,36 +107,6 @@
             </div>
          </div>
       </div>
-      <!-- ======= Basic Modal ======= -->
-      <form method="post" enctype="multipart/form-data">
-         <div class="modal fade" id="setImage" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title">Cambiar Imagen</h5>
-                     <button type="button" class="btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <div class="form-group">
-                        <label class="form-label" for="imageUser">Imagen<small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
-                        <input type="file" class="form-control border p-1" name="imageUser" accept="image/*" required>
-                     </div>
-                     <div>
-                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
-                     </div>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="setImageUserProfile" class="btn btn-info">
-                        <i class="material-icons me-2">image</i> Cambiar Imagen
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </form>
-      <!-- End Basic Modal-->
 
       <!-- Modal Cambiar Contraseña-->
       <!-- ======= Basic Modal ======= -->

@@ -407,13 +407,8 @@ class ServiceUser extends System
                     $tableHtml .= '<td>' . $valor->getCedula() . '</td>';
                     $tableHtml .= '<td>' . $comunidadDTO->nombre . '</td>';
                     $tableHtml .= '<td>' . $comunidadDTO->id_comunidad . '</td>';
-                    $tableHtml .= '<td>' . $valor->getTelefono() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getDireccion() . '</td>';
                     $tableHtml .= '<td>' . $valor->getCorreo() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getFecha_nacimiento() . '</td>';
                     $tableHtml .= '<td>' . $referido . '</td>';
-                    $tableHtml .= '<td>' . $valor->getDepartamento() . '</td>';
-                    $tableHtml .= '<td>' . $valor->getCiudad() . '</td>';
                     $tableHtml .= '<td>' . $comunidadDTO->tipo . '</td>';
                     $tableHtml .= '<td>' . $comunidadDTO->creacion . '</td>';
                     $tableHtml .= '<td>' . $comunidadDTO->fecha . '</td>';
@@ -558,13 +553,8 @@ class ServiceUser extends System
                         'Cedula' => $valor->getCedula(),
                         'Comunidad' => $comunidadDTO->nombre,
                         'Codigo' => $comunidadDTO->id_comunidad,
-                        'Celular' => $valor->getTelefono(),
-                        'Direccion' => $valor->getDireccion(),
                         'Correo' => $valor->getCorreo(),
-                        'Fecha_nacimiento' => $valor->getFecha_nacimiento(),
                         'Referido' => $referido,
-                        'Departamento' => $valor->getDepartamento(),
-                        'Ciudad' => $valor->getCiudad(),
                         'Tipo' => $comunidadDTO->tipo,
                         'Fecha_creacion' => $comunidadDTO->creacion,
                         'Fecha_comunidad' => $comunidadDTO->fecha,

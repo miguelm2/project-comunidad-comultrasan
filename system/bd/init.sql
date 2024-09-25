@@ -49,7 +49,6 @@ CREATE TABLE Usuario (
   fecha_registro DATETIME NOT NULL
 );
 
-
 CREATE TABLE Gestor (
   id_gestor INT IDENTITY(1, 1) PRIMARY KEY,
   nombre VARCHAR(255) NOT NULL,
@@ -189,13 +188,6 @@ CREATE TABLE Beneficio (
   fecha_registro DATETIME NOT NULL
 );
 
-CREATE TABLE Recompensa (
-  id_recompenza INT IDENTITY(1, 1) PRIMARY KEY,
-  actividad VARCHAR(255) NOT NULL,
-  puntos INT NOT NULL,
-  fecha_registro DATETIME NOT NULL
-);
-
 CREATE TABLE Encuesta (
   id_encuesta INT IDENTITY(1, 1) PRIMARY KEY,
   nombre VARCHAR(255) NOT NULL,
@@ -230,62 +222,40 @@ CREATE TABLE RespuestaPregunta (
 CREATE TABLE RespuestaUsuario (
   id_respuesta_usuario INT IDENTITY(1, 1) PRIMARY KEY,
   id_usuario INT NOT NULL,
-  id_encuesta INT NOT NULL,
+  id_respuesta INT NULL,
+  respuesta_abierta TEXT NULL id_encuesta INT NOT NULL,
   id_pregunta INT NOT NULL,
   id_respuesta INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
 
-ALTER TABLE
-  RespuestaUsuario
-ALTER COLUMN
-  id_respuesta INT NULL;
-
-ALTER TABLE
-  RespuestaUsuario
-ADD
-  respuesta_abierta TEXT NULL;
-
--- Agrega la nueva columna 'respuesta_abierta'
 CREATE TABLE CalendarioEvento (
   id_evento INT IDENTITY(1, 1) PRIMARY KEY,
+  id_grupo INT NULL,
   titulo VARCHAR(255) NOT NULL,
   fecha DATE NOT NULL,
   lugar VARCHAR(255) NOT NULL,
   hora TIME(0) NOT NULL,
   imagen VARCHAR(255) NOT NULL,
+  persona_cargo VARCHAR(255) NULL,
   fecha_registro DATETIME NOT NULL
 );
 
 CREATE TABLE Comunidad (
   id_comunidad INT IDENTITY(1, 1) PRIMARY KEY,
-  id_usuario INT NOT NULL,
+  id_usuario INT NULL,
+  estado INT DEFAULT 1,
+  nombre VARCHAR(255) NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
-
--- Permitir valores NULL en id_usuario
-ALTER TABLE
-  Comunidad
-ALTER COLUMN
-  id_usuario INT NULL;
-
--- Agregar columna estado con valor por defecto 1
-ALTER TABLE
-  Comunidad
-ADD
-  estado INT DEFAULT 1;
 
 CREATE TABLE UsuarioBeneficio (
   id_usuario_beneficio INT IDENTITY(1, 1) PRIMARY KEY,
   identificador INT NOT NULL,
   id_beneficio INT NOT NULL,
+  tipo INT NULL,
   fecha_registro DATETIME NOT NULL
 );
-
-ALTER TABLE
-  UsuarioBeneficio
-ADD
-  tipo INT NULL;
 
 ALTER TABLE
   Foro
@@ -304,28 +274,9 @@ CREATE TABLE UsuarioComunidad (
   id_usuario_comunidad INT IDENTITY(1, 1) PRIMARY KEY,
   id_usuario INT NOT NULL,
   id_comunidad INT NOT NULL,
+  estado INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
-
-ALTER TABLE
-  Comunidad
-ADD
-  nombre VARCHAR(255) NOT NULL;
-
-ALTER TABLE
-  UsuarioComunidad
-ADD
-  estado INT NOT NULL;
-
-ALTER TABLE
-  CalendarioEvento
-ADD
-  id_grupo INT NULL;
-
-ALTER TABLE
-  CalendarioEvento
-ADD
-  persona_cargo VARCHAR(255) NULL;
 
 CREATE TABLE MeGusta (
   id_megusta INT IDENTITY(1, 1) PRIMARY KEY,
@@ -358,9 +309,6 @@ CREATE TABLE Referido (
   nombre_referido VARCHAR(255) NOT NULL,
   cedula_referido VARCHAR(255) NOT NULL,
   tipo_documento_referido VARCHAR(255) NOT NULL,
-  departamento VARCHAR(255) NOT NULL,
-  ciudad VARCHAR(255) NOT NULL,
-  correo VARCHAR(255) NOT NULL,
   celular VARCHAR(255) NOT NULL,
   nombre_refiere VARCHAR(255) NULL,
   cedula_refiere VARCHAR(255) NULL,
