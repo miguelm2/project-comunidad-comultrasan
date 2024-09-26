@@ -56,14 +56,14 @@
                            <div class="row">
                               <div class="col-12">
                                  <div class="form-group">
-                                    <label class="form-label">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                                    <label class="form-label">Nombre <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="text" class="form-control border p-1" name="nombre" maxlength="255" value="<?= $_SESSION['nombre'] ?>" required>
 
                                  </div>
                               </div>
                               <div class="col-12">
                                  <div class="form-group">
-                                    <label class="form-label">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                                    <label class="form-label">Correo <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="email" class="form-control border p-1" name="correo" maxlength="255" value="<?= $_SESSION['correo'] ?>" required>
                                  </div>
                               </div>

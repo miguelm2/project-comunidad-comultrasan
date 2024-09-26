@@ -58,7 +58,7 @@
                      </div>
                      <div class="col-12 mt-3">
                         <div class="form-group">
-                           <label class="form-label" for="nombre">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                           <label class="form-label" for="nombre">Nombre <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="nombre" value="<?= $sectionTypeComunity->getNombre() ?>" maxlength="255" required>
                         </div>
                      </div>
@@ -66,7 +66,7 @@
                         <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="descripcion">Descripción <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                        <label for="descripcion">Descripción <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <textarea name="descripcion" id="texto" class="form-control border p-1" maxlength="255" rows="5" required><?= html_entity_decode($sectionTypeComunity->getDescripcion()) ?></textarea>
                      </div>
                      <div class="dark horizontal my-0 border-1 mt-4"></div>

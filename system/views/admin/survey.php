@@ -59,7 +59,7 @@
                   <div class="row">
                      <div class="col-12">
                         <div class="form-group">
-                           <label class="form-label" for="nombre">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                           <label class="form-label" for="nombre">Nombre <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="nombre" value="<?= $survey->getNombre() ?>" maxlength="255" required>
                         </div>
                      </div>
@@ -81,13 +81,13 @@
                      </div>
                      <div class="col-md-12">
                         <div class="form-group">
-                           <label for="descripcion">Descripción <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                           <label for="descripcion">Descripción <small class="p-0 m-0 text-successs" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <textarea name="descripcion" id="descripcion" class="form-control border p-1" rows="4" maxlength="255" required><?= $survey->getDescripcion() ?></textarea>
                         </div>
                      </div>
                      <div class="col-md-12">
                         <div class="form-group">
-                           <label for="mensaje">Mensaje <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                           <label for="mensaje">Mensaje <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <textarea name="mensaje" id="mensaje" class="form-control border p-1" rows="4" maxlength="255" required><?= $survey->getMensaje() ?></textarea>
                         </div>
                      </div>
@@ -195,7 +195,7 @@
                   <div class="modal-body">
                      <div class="row g-3">
                         <div class="col-md-12 form-group">
-                           <label for="pregunta">Pregunta <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                           <label for="pregunta">Pregunta <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="pregunta" placeholder="Pregunta" maxlength="255" required>
                         </div>
                         <div class="col-md-12 form-group">

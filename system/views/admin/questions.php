@@ -99,11 +99,11 @@
                   <div class="modal-body">
                      <div class="row g-3">
                         <div class="col-md-12 form-group">
-                           <label for="excelIncome">Pregunta <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                           <label for="excelIncome">Pregunta <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="pregunta" placeholder="Pregunta" maxlength="255" required>
                         </div>
                         <div class="col-md-12 form-group">
-                           <label for="excelIncome">Respuesta <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
+                           <label for="excelIncome">Respuesta <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
                            <textarea name="respuesta" id="respuesta" class="form-control border p-1" placeholder="Respuesta" maxlength="800" rows="4" required></textarea>
                         </div>
                         <div>

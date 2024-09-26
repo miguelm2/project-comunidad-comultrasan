@@ -61,12 +61,12 @@
                            <div class="col-md-7">
                               <div class="row">
                                  <div class="col-md-12">
-                                    <label for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                                    <label for="titulo">Título <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                     <input type="text" class="form-control border p-1" name="titulo" value="<?= $eventCalendar->getTitulo() ?>" maxlength="255" required>
                                  </div>
                                  <div class="col-12 ">
                                     <div class="form-group">
-                                       <label class="form-label" for="lugar">Lugar <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                                       <label class="form-label" for="lugar">Lugar <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                        <input type="text" class="form-control border p-1" name="lugar" value="<?= $eventCalendar->getLugar() ?>" maxlength="255" required>
                                     </div>
                                  </div>

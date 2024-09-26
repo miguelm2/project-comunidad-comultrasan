@@ -62,7 +62,7 @@
 
                         <div class="col-md-12 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="nombre">Nombre(s) y Apellidos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="label text-black" for="nombre">Nombre(s) y Apellidos <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control" name="nombre" placeholder="Nombres completos" maxlength="255" required>
                            </div>
                         </div>
@@ -81,20 +81,26 @@
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="cedula">Documento de identidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small><</label>
+                              <label class="label text-black" for="cedula">Documento de identidad <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small><</label>
                               <input type="text" class="form-control" name="cedula" placeholder="Documento de identidad" maxlength="20" required>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="correo">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="email" class="form-control" name="correo" placeholder="Correo" maxlength="255" required>
+                              <label class="label text-black" for="correo">Correo <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <input type="email" class="form-control" name="correo" id="correo" placeholder="Correo" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="pass">Contraseña <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small><</label>
+                              <label class="label text-black" for="valideCorreo">Valide Correo <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <input type="email" class="form-control" name="valideCorreo" id="valideCorreo" placeholder="Valide Correo" maxlength="255" required>
+                           </div>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                           <div class="form-group">
+                              <label class="label text-black" for="pass">Contraseña <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small><</label>
                               <input type="password" class="form-control" name="pass" placeholder="Contraseña" maxlength="20" required>
                            </div>
                         </div>
@@ -106,7 +112,7 @@
                               <label for="tratamiento" class="text-black">
                                  <input type="checkbox" name="tratamiento" id="tratamiento" required>
                                  <a href="https://www.financieracomultrasan.com.co/es/seguridad-financiera/proteccion-de-datos-personales">
-                                    Autorización para el tratamiento de datos personales, consulta y reporte
+                                    Autorizo el tratamiento de datos personales, consulta y reporte
                                     de información crediticia</a>
                               </label>
                            </div>

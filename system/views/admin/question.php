@@ -56,13 +56,13 @@
                         <div class="row">
                            <div class="col-12">
                               <div class="form-group">
-                                 <label class="form-label">Pregunta <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                                 <label class="form-label">Pregunta <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" class="form-control border p-1" name="pregunta" value="<?= $question->getPregunta() ?>" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-12">
                               <div class="form-group">
-                                 <label class="form-label">Respuesta <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
+                                 <label class="form-label">Respuesta <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
                                  <textarea name="respuesta" id="respuesta" class="form-control border p-1" rows="4" maxlength="800" required><?= $question->getRespuesta() ?></textarea>
                               </div>
                            </div>
