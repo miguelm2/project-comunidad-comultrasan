@@ -69,11 +69,11 @@
                            </div>
                            <div class="col-md-12">
                               <div class="form-group">
-                                 <div class="g-recaptcha" data-sitekey="6LfUxk8qAAAAAGUC5Ghd6oJ3VHLh64dDPdtbY1NO"></div>
+                                 <div class="g-recaptcha" data-sitekey="6LfUxk8qAAAAAGUC5Ghd6oJ3VHLh64dDPdtbY1NO" data-callback="captchaCompletado"></div>
                               </div>
                            </div>
                            <div class="col-md-12 col-sm-12 d-flex justify-content-end">
-                              <button type="submit" class="btn btn-verde btn1 rounded mt-3" name="login">
+                              <button type="submit" class="btn btn-verde btn1 rounded mt-3" name="login" id="login">
                                  <i class="bi bi-box-arrow-in-right"></i> Ingresar
                               </button>
                            </div>
@@ -121,5 +121,7 @@
       async defer>
    </script>
    <script src="https://www.google.com/recaptcha/enterprise.js?hl=fr"></script>
+   <script src="/system/js/valideCaptcha.js"></script>
+
    <?= $response ?>
 </body>
