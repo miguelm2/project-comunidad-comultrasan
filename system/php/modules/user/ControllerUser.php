@@ -12,7 +12,8 @@ if (isset($_POST['setProfileUser'])) {
         $_POST['nombre'],
         $_POST['correo'],
         $_POST['cedula'],
-        $_POST['tipo_documento']
+        $_POST['tipo_documento'],
+        $_POST['tipo_imagen']
     );
 }
 
@@ -72,20 +73,6 @@ if (isset($_POST['setPassUser'])) {
     $response = ServiceUser::setPassUser($_GET['user'], $_POST['newPass'], $_POST['confirmPass']);
 }
 
-if (isset($_POST['setImageUser'])) {
-    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-        die("CSRF token inválido.");
-    }
-    $response = ServiceUser::setImageUser($_GET['user']);
-}
-
-if (isset($_POST['setImageUserProfile'])) {
-    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-        die("CSRF token inválido.");
-    }
-    $response = ServiceUser::setImageUserProfile();
-}
-
 if (isset($_GET['user'])) {
     $user = ServiceUser::getUsuario($_GET['user']);
     $tablePointsUser = ServicePoint::getTablePointByUser($_GET['user']);
@@ -129,6 +116,7 @@ if (empty($_SESSION['csrf_token'])) {
 if (isset($_SESSION['show_modalOTP']) && $_SESSION['show_modalOTP']) {
     $response = ServiceUser::getScriptModalOTP();
 }
+
 if(isset($_POST['generarOTP'])){
     ServiceUser::setCodeOTP();
 }

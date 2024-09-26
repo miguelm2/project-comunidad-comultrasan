@@ -51,10 +51,10 @@
 
                   <form method="post">
                      <div class="row">
-                        <div class="col-md-4 text-center mx-auto text-center mb-3">
-                           <img src="<?= Path::$DIR_IMAGE_USER . $_SESSION['imagen'] ?>" alt="" class="img-fluid" style="max-height: 70%;">
+                        <div class="col-md-3 text-center mx-auto text-center mb-3">
+                           <img src="<?= Path::$DIR_IMAGE_USER . $_SESSION['imagen'] ?>" alt="" class="img-fluid">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-9">
                            <div class="row">
                               <div class="col-12">
                                  <div class="form-group">
@@ -68,7 +68,7 @@
                                     <input type="email" class="form-control border p-1" name="correo" value="<?= $_SESSION['correo'] ?>" maxlength="255" required>
                                  </div>
                               </div>
-                              <div class="col-md-6 mt-2">
+                              <div class="col-md-6">
                                  <div class="form-group">
                                     <label class="label text-black" for="tipo_documento">Tipo de Documento</label>
                                     <select name="tipo_documento" id="tipo_documento" class="form-select  border p-1">
@@ -86,6 +86,20 @@
                                  <div class="form-group">
                                     <label for="cedula" class="form-label">Documento de identidad</label><br>
                                     <input type="text" class="form-control border p-1" name="cedula" value="<?= $_SESSION['cedula'] ?>" maxlength="30" required>
+                                 </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label class="label text-black" for="tipo_imagen">Imagen</label>
+                                    <select name="tipo_imagen" id="tipo_imagen" class="form-select  border p-1">
+                                       <option value="">Seleccione su opción</option>
+                                       <option value="1">
+                                          Avatar Hombre
+                                       </option>
+                                       <option value="2">
+                                          Avatar Mujer
+                                       </option>
+                                    </select>
                                  </div>
                               </div>
                            </div>

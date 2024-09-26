@@ -122,14 +122,14 @@
             <div class="modal-dialog modal-lg">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title">Nuevo Asociado</h5>
+                     <h5 class="modal-title">Nuevo Miembro</h5>
                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
                      <div class="row g-3">
                         <div class="col-6">
                            <div class="form-group">
-                              <label class="form-label">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="form-label">Nombre Completo<small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre" maxlength="255" required>
                            </div>
                         </div>
@@ -165,40 +165,8 @@
                         </div>
                         <div class="col-6">
                            <div class="form-group">
-                              <label class="form-label">Fecha de nacimiento</label>
-                              <input type="date" class="form-control border p-1" name="fecha_nacimiento" required>
-                           </div>
-                        </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Departamento <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" class="form-control border p-1" name="departamento" maxlength="255" placeholder="Departamento" required>
-                           </div>
-                        </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Ciudad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" class="form-control border p-1" name="ciudad" maxlength="255" placeholder="Ciudad" required>
-                           </div>
-                        </div>
-                        <div class="col-6">
-                           <div class="form-group">
-                              <label class="form-label">Dirección <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" class="form-control border p-1" name="direccion" maxlength="255" placeholder="Dirección" required>
-                           </div>
-                        </div>
-                        <div class="col-6">
-                           <div class="form-group">
                               <label class="form-label">Contraseña</label>
                               <input type="password" class="form-control border p-1" name="pass" placeholder="Contraseña" maxlength="30" required>
-                           </div>
-                        </div>
-                        <div class="col-12">
-                           <div class="mb-3">
-                              <div class="form-group">
-                                 <label>Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
-                                 <input type="file" class="form-control border p-1" name="imageUser" accept="image/*">
-                              </div>
                            </div>
                         </div>
                      </div>

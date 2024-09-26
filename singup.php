@@ -60,6 +60,13 @@
                   <form method="post" class="signin-form">
                      <div class="row text-start">
 
+                        <div class="col-md-12 mt-2">
+                           <div class="form-group">
+                              <label class="label text-black" for="nombre">Nombre(s) y Apellidos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <input type="text" class="form-control" name="nombre" placeholder="Nombres completos" maxlength="255" required>
+                           </div>
+                        </div>
+
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="tipo_documento">Tipo de Documento</label>
@@ -74,17 +81,11 @@
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="cedula">Documento de identidad</label>
-                              <input type="text" class="form-control" name="cedula" placeholder="Documento de identidad" maxlength="30" required>
+                              <label class="label text-black" for="cedula">Documento de identidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small><</label>
+                              <input type="text" class="form-control" name="cedula" placeholder="Documento de identidad" maxlength="20" required>
                            </div>
                         </div>
 
-                        <div class="col-md-12 mt-2">
-                           <div class="form-group">
-                              <label class="label text-black" for="nombre">Nombre(s) y Apellidos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" class="form-control" name="nombre" placeholder="Nombres completos" maxlength="255" required>
-                           </div>
-                        </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
                               <label class="label text-black" for="correo">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
@@ -93,8 +94,8 @@
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="pass">Contraseña</label>
-                              <input type="password" class="form-control" name="pass" placeholder="Contraseña" maxlength="30" required>
+                              <label class="label text-black" for="pass">Contraseña <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small><</label>
+                              <input type="password" class="form-control" name="pass" placeholder="Contraseña" maxlength="20" required>
                            </div>
                         </div>
                         <div>

@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-md-12 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="nombre_referir">Nombre y Apellidos</label>
+                              <label class="label text-black" for="nombre_referir">Nombre y Apellidos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" name="nombre_referir" class="form-control" placeholder="Nombres completos" maxlength="255" required>
                            </div>
                         </div>
@@ -68,8 +68,8 @@
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="cedula_referir">Nro de documento</label>
-                              <input type="text" name="cedula_referir" class="form-control" placeholder="Nro de documento" maxlength="255" required>
+                              <label class="label text-black" for="cedula_referir">Documento de identidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small></label>
+                              <input type="text" name="cedula_referir" class="form-control" placeholder="Documento de identidad" maxlength="20" required>
                            </div>
                         </div>
                         <div class="col-md-12">
@@ -80,7 +80,7 @@
 
                         <div class="col-md-12 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="nombre_referido">Nombre y Apellidos</label>
+                              <label class="label text-black" for="nombre_referido">Nombre y Apellidos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" name="nombre_referido" class="form-control" placeholder="Nombres completos" maxlength="255" required>
                            </div>
                         </div>
@@ -99,36 +99,22 @@
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="cedula_referir">Nro de documento</label>
-                              <input type="text" name="cedula_referido" class="form-control" placeholder="Nro de documento" maxlength="255" required>
+                              <label class="label text-black" for="cedula_referir">Documento de identidad  <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small></label>
+                              <input type="text" name="cedula_referido" class="form-control" placeholder="Documento de identidad" maxlength="20" required>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="departamento">Departamento</label>
-                              <input type="text" name="departamento" class="form-control" placeholder="Departamento" maxlength="255" required>
-                           </div>
-                        </div>
-
-                        <div class="col-md-6 mt-2">
-                           <div class="form-group">
-                              <label class="label text-black" for="ciudad">Ciudad</label>
-                              <input type="text" name="ciudad" class="form-control" placeholder="Ciudad" maxlength="255" required>
-                           </div>
-                        </div>
-
-                        <div class="col-md-6 mt-2">
-                           <div class="form-group">
-                              <label class="label text-black" for="correo">Correo</label>
+                              <label class="label text-black" for="correo">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="email" name="correo" class="form-control" placeholder="Correo" maxlength="255" required>
                            </div>
                         </div>
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="celular">Celular</label>
-                              <input type="number" name="celular" class="form-control" placeholder="Celular" required>
+                              <label class="label text-black" for="celular">Celular <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small></label>
+                              <input type="number" name="celular" class="form-control" placeholder="Celular" maxlength="20" required>
                            </div>
                         </div>
 

@@ -36,6 +36,9 @@ class ServiceReferred extends System
                 NULL,
                 $fecha_registro
             );
+            if ($result) {
+                return  '<script>swal("' . Constants::$REGISTER_NEW . '", "", "success");</script>';
+            }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }

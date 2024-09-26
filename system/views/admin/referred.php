@@ -79,8 +79,8 @@
                            </div>
                            <div class="col-md-6 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="cedula_referir">Nro de documento</label>
-                                 <input type="text" name="cedula_referir" class="form-control border p-1" placeholder="Nro de documento" maxlength="30" required value="<?= $referred->getCedula_refiere() ?>">
+                                 <label class="text-black" for="cedula_referir">Documento de identidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small></label>
+                                 <input type="text" name="cedula_referir" class="form-control border p-1" placeholder="Documento de identidad" maxlength="20" required value="<?= $referred->getCedula_refiere() ?>">
                               </div>
                            </div>
                            <div class="col-md-12">
@@ -111,9 +111,8 @@
 
                            <div class="col-md-6 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="cedula_referir">Documento de identidad</label>
-                                 <input type="text" name="cedula_referido" class="form-control border p-1" placeholder="Documento de identidad" maxlength="255" required value="<?= $referred->getCedula_referido() ?>">
-                                 <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
+                                 <label class="text-black" for="cedula_referir">Documento de identidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small></label>
+                                 <input type="text" name="cedula_referido" class="form-control border p-1" placeholder="Documento de identidad" maxlength="20" required value="<?= $referred->getCedula_referido() ?>">
                               </div>
                            </div>
 

@@ -28,6 +28,23 @@
    <!-- Template Main CSS File -->
    <link href="/../../../assets/css/main.css" rel="stylesheet">
 
+   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   <script type="text/javascript">
+      var verifyCallback = function(response) {
+         alert(response);
+      };
+      var widgetId1;
+      var widgetId2;
+      var onloadCallback = function() {
+         widgetId1 = grecaptcha.render('cedula', {
+            'sitekey': '6Lc2z08qAAAAAMmWoHIlXSZ2rl6bewlTn9Gj8Gu9'
+         });
+         widgetId2 = grecaptcha.render(document.getElementById('pass'), {
+            'sitekey': '6Lc2z08qAAAAAMmWoHIlXSZ2rl6bewlTn9Gj8Gu9',
+            'callback': verifyCallback,
+         });
+      };
+   </script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -57,14 +74,17 @@
                            <div class="col-md-12">
                               <div class="form-group mb-3">
                                  <label class="label" for="cedula">Documento de identidad</label>
-                                 <input type="text" class="form-control" placeholder="Documento de identidad" name="cedula" maxlength="255" required>
+                                 <input type="text" class="form-control" placeholder="Documento de identidad" name="cedula" id="cedula" maxlength="255" required>
                               </div>
                            </div>
                            <div class="col-md-12">
                               <div class="form-group">
                                  <label class="label" for="password">Contraseña</label>
-                                 <input type="password" class="form-control" placeholder="Contraseña" name="pass" maxlength="30" required>
+                                 <input type="password" class="form-control" placeholder="Contraseña" name="pass" id="pass" maxlength="30" required>
                               </div>
+                           </div>
+                           <div class="col-md-12">
+                              <div class="g-recaptcha" data-sitekey="your_site_key"></div>
                            </div>
                            <div class="col-md-12 col-sm-12 d-flex justify-content-end">
                               <button type="submit" class="btn btn-verde btn1 rounded mt-3" name="login">
@@ -112,5 +132,7 @@
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <script src="/assets/js/main.js"></script>
    <?= $response ?>
-
+   <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+      async defer>
+   </script>
 </body>
