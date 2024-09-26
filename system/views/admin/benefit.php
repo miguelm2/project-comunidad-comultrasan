@@ -59,7 +59,7 @@
                      <div class="col-md-8">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="titulo" value="<?= $benefit->getTitulo() ?>" maxlength="255" required>
                            </div>
                         </div>
@@ -71,12 +71,12 @@
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="definicion">Deficion <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
+                        <label for="definicion">Deficion <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
                         <textarea name="definicion" id="definicion" class="form-control border p-1" rows="5" maxlength="800" required><?= $benefit->getDefinicion() ?></textarea>
                         <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="condiciones">Condiciones <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
+                        <label for="condiciones">Condiciones <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
                         <textarea name="condiciones" id="condiciones" class="form-control border p-1" rows="5" maxlength="800" required><?= $benefit->getCondiciones() ?></textarea>
                      </div>
                      <div>

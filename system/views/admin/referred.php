@@ -61,7 +61,7 @@
                            </div>
                            <div class="col-md-12 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="nombre_referir">Nombre y Apellidos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                                 <label class="text-black" for="nombre_referir">Nombre y Apellidos <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" name="nombre_referir" class="form-control border p-1" placeholder="Nombres completos" maxlength="255" required value="<?= $referred->getNombre_refiere() ?>">
                               </div>
                            </div>
@@ -79,7 +79,7 @@
                            </div>
                            <div class="col-md-6 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="cedula_referir">Documento de identidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small></label>
+                                 <label class="text-black" for="cedula_referir">Documento de identidad <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small></label>
                                  <input type="text" name="cedula_referir" class="form-control border p-1" placeholder="Documento de identidad" maxlength="20" required value="<?= $referred->getCedula_refiere() ?>">
                               </div>
                            </div>
@@ -91,7 +91,7 @@
 
                            <div class="col-md-12 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="nombre_referido">Nombre y Apellidos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                                 <label class="text-black" for="nombre_referido">Nombre y Apellidos <small class="p-0 m-0 text-successs" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" name="nombre_referido" class="form-control border p-1" placeholder="Nombres completos" maxlength="255" required value="<?= $referred->getNombre_referido() ?>">
                               </div>
                            </div>
@@ -111,7 +111,7 @@
 
                            <div class="col-md-6 mt-2">
                               <div class="form-group">
-                                 <label class="text-black" for="cedula_referir">Documento de identidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small></label>
+                                 <label class="text-black" for="cedula_referir">Documento de identidad <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small></label>
                                  <input type="text" name="cedula_referido" class="form-control border p-1" placeholder="Documento de identidad" maxlength="20" required value="<?= $referred->getCedula_referido() ?>">
                               </div>
                            </div>

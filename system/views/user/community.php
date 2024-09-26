@@ -404,13 +404,13 @@
                      <div class="row g-3">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label">Nombre de la comunidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="form-label">Nombre de la comunidad <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="nombre" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <label class="form-label">Nombre del otro miembro <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="form-label">Nombre del otro miembro <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="nombre_user" maxlength="255" required>
                            </div>
                         </div>
@@ -422,7 +422,7 @@
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <label class="form-label">Correo del otro miembro <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="form-label">Correo del otro miembro <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="mail" class="form-control border p-1" name="correo" maxlength="255" required>
                            </div>
                         </div>
@@ -459,7 +459,7 @@
                      <div class="row g-3">
                         <div class="col-12">
                            <div class="form-group">
-                              <label for="nombre">Nombre del miembro <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label for="nombre">Nombre del miembro <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" name="nombre" class="form-control border p-1" id="nombre" maxlength="255" placeholder="Nombre del miembro">
                            </div>
                         </div>
@@ -477,7 +477,7 @@
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <label for="correo">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label for="correo">Correo <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="mail" name="correo" class="form-control border p-1" id="correo" maxlength="255" placeholder="Correo">
                            </div>
                         </div>

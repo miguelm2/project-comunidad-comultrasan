@@ -65,24 +65,24 @@
                      </div>
                      <div class="col-md-12">
                         <div class="col-md-12 form-group">
-                           <label for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                           <label for="titulo">Título <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="titulo" value="<?= $discount->getTitulo() ?>" maxlength="255" required>
                         </div>
                         <div class="col-12 mt-3">
                            <div class="form-group">
-                              <label class="form-label" for="descuento">Descuento <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="form-label" for="descuento">Descuento <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="descuento" value="<?= $discount->getDescuento() ?>" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="vigencia">Vigencia <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="form-label" for="vigencia">Vigencia <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="vigencia" value="<?= $discount->getVigencia() ?>" maxlength="255" required>
                            </div>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="acceso">Acceso <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                        <label for="acceso">Acceso <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <textarea name="acceso" id="acceso" class="form-control border p-1" rows="5" maxlength="255" required><?= $discount->getAcceso() ?></textarea>
                      </div>
                      <div>

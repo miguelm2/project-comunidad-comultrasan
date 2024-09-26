@@ -54,7 +54,7 @@
                   <div class="row">
                      <div class="col-md-12">
                         <div class="form-group">
-                           <label class="form-label" for="pregunta">Pregunta <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                           <label class="form-label" for="pregunta">Pregunta <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="pregunta" value="<?= $surveyQuestion->getPregunta() ?>" maxlength="255" required>
                         </div>
                      </div>
@@ -181,7 +181,7 @@
                   <div class="modal-body">
                      <div class="row g-3">
                         <div class="col-md-12 form-group">
-                           <label for="respuesta">Respuesta <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                           <label for="respuesta">Respuesta <small class="p-0 m-0 text-successs" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="respuesta" placeholder="Respuesta" maxlength="255" required>
                         </div>
                         <div class="col-md-12 form-group">

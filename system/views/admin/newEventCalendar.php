@@ -55,16 +55,16 @@
                   <div class="row">
                      <div class="col-12">
                         <div class="form-group">
-                           <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                           <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                            <input type="text" class="form-control border p-1" name="titulo" placeholder="Título" maxlength="255" required>
                         </div>
                      </div>
                      <div class="col-md-6 form-group">
-                        <label for="lugar">Lugar <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                        <label for="lugar">Lugar <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <input type="text" class="form-control border p-1" name="lugar" placeholder="Lugar" maxlength="255" required>
                      </div>
                      <div class="col-md-6 form-group">
-                        <label for="persona_cargo">Persona a cargo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                        <label for="persona_cargo">Persona a cargo <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                         <input type="text" class="form-control border p-1" name="persona_cargo" placeholder="Persona a cargo" maxlength="255" required>
                      </div>
                      <div class="col-md-6 form-group">

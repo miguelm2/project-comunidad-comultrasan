@@ -60,14 +60,14 @@
                <table class="table table-bordered table-hover align-items-center mb-0">
                   <thead class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">Administrador</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Corazones</th>
                         <th class="text-uppercase font-weight-bolder">Descripción</th>
                      </tr>
                   </thead>
                   <tfoot class="text-center">
                      <tr>
-                        <th class="text-uppercase font-weight-bolder">Administrador</th>
+                        <th class="text-uppercase font-weight-bolder">Nombre Completo</th>
                         <th class="text-uppercase font-weight-bolder">Corazones</th>
                         <th class="text-uppercase font-weight-bolder">Descripción</th>
                      </tr>

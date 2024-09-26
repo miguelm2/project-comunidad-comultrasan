@@ -59,23 +59,23 @@
                      <div class="col-md-8">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="titulo" value="<?= $benefitPage->getTitulo() ?>" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="subtitulo">Subtítulo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="form-label" for="subtitulo">Subtítulo <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="subtitulo" value="<?= $benefitPage->getSubtitulo() ?>" maxlength="255" required>
                            </div>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="contenido">Contenido <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
+                        <label for="contenido">Contenido <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
                         <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" maxlength="800" required><?= html_entity_decode($benefitPage->getContenido()) ?></textarea>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="requisitos">Requisitos <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
+                        <label for="requisitos">Requisitos <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 800)</small></label>
                         <textarea name="requisitos" id="texto_1" class="form-control border p-1" rows="5" maxlength="800" required><?= html_entity_decode($benefitPage->getRequisitos()) ?></textarea>
                      </div>
                      <div>

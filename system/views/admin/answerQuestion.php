@@ -58,7 +58,7 @@
                         <div class="row">
                            <div class="col-md-12">
                               <div class="form-group">
-                                 <label class="form-label" for="respuesta">Respuesta <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                                 <label class="form-label" for="respuesta">Respuesta <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" class="form-control border p-1" name="respuesta" value="<?= $answerQuestion->getRespuesta() ?>" maxlength="255" required>
                               </div>
                            </div>

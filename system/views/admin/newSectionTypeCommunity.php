@@ -56,7 +56,7 @@
                <div class="row">
                   <div class="col-12">
                      <div class="form-group">
-                        <label class="form-label" for="nombre">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 500)</small></label>
+                        <label class="form-label" for="nombre">Nombre <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 500)</small></label>
                         <input type="text" class="form-control border p-1" name="nombre" placeholder="Nombre" maxlength="500" required>
                      </div>
                   </div>
@@ -65,7 +65,7 @@
                      <input type="file" class="form-control border p-1" name="imageSectionTypeCommunity" accept="image/*" required>
                   </div>
                   <div class="col-md-12 mt-3">
-                     <label for="contendio">Descripción <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 500)</small></label>
+                     <label for="contendio">Descripción <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 500)</small></label>
                      <textarea name="descripcion" id="texto" class="form-control border p-1" rows="5" maxlength="500">Descripción</textarea>
                   </div>
                   <div>

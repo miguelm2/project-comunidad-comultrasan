@@ -61,7 +61,7 @@
                         <div class="row">
                            <div class="col-12">
                               <div class="form-group">
-                                 <label class="form-label">Nombre <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                                 <label class="form-label">Nombre <small class="p-0 m-0 text-successs" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="text" class="form-control border p-1" value="<?= $user->getNombre() ?>" name="nombre" maxlength="255" required>
                               </div>
                            </div>
@@ -85,7 +85,7 @@
                            </div>
                            <div class="col-6">
                               <div class="form-group">
-                                 <label class="form-label">Correo <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                                 <label class="form-label">Correo <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                                  <input type="email" class="form-control border p-1" value="<?= $user->getCorreo() ?>" name="correo" maxlength="255" required>
                               </div>
                            </div>
@@ -336,7 +336,7 @@
                               <input type="number" name="puntos" id="puntos" class="form-control border p-1" placeholder="Cantidad de Corazones" required>
                            </div>
                            <div class="col-md-12">
-                              <label for="descripcion">Descripción <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label for="descripcion">Descripción <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <textarea name="descripcion" id="descripcion" class="form-control border p-1" placeholder="Descripción de los puntos" rows="4" maxlength="255" required></textarea>
                            </div>
                         </div>

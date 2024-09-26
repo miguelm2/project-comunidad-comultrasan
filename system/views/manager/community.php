@@ -181,11 +181,11 @@
             <div class="tab-pane fade profile-overview" id="pointsReclamend">
                <div class="row p-2">
                   <div class="col-md-3">
-                     <label for="cedula">Documento de identidad <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                     <label for="cedula">Documento de identidad <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                      <input type="text" name="cedula" id="cedula" class="form-control border p-1" maxlength="255" placeholder="Documento de identidad">
                   </div>
                   <div class="col-md-3">
-                     <label for="nombre">Nombre Miembro <small class="p-0 m-0 text-danger" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                     <label for="nombre">Nombre Miembro <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                      <input type="text" name="nombre" id="nombre" class="form-control border p-1" maxlength="255" placeholder="Nombre Miembro">
                   </div>
                   <div class="col-md-3">
