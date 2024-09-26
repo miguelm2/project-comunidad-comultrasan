@@ -116,13 +116,13 @@
                               </div>
                            </div>
 
-                           <div class="col-md-4 mt-2">
+                           <div class="col-md-6 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="celular">Celular</label>
                                  <input type="number" name="celular" class="form-control border p-1" placeholder="Celular" required maxlength="30" value="<?= $referred->getCelular() ?>">
                               </div>
                            </div>
-                           <div class="col-md-4 mt-2">
+                           <div class="col-md-6 mt-2">
                               <div class="form-group">
                                  <label class="text-black" for="tipo_documento_referido">Tipo de Documento</label>
                                  <select name="estado" id="estado" class="form-select border p-1">

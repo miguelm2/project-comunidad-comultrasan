@@ -96,7 +96,6 @@
                         <th class="text-uppercase font-weight-bolder">Nombre de la Comunidad</th>
                         <th class="text-uppercase font-weight-bolder">Código de la Comunidad</th>
                         <th class="text-uppercase font-weight-bolder">Correo</th>
-                        <th class="text-uppercase font-weight-bolder">Fecha nacimiento</th>
                         <th class="text-uppercase font-weight-bolder">Referido por</th>
                         <th class="text-uppercase font-weight-bolder">Tipo</th>
                         <th class="text-uppercase font-weight-bolder">Fecha de creación de la comunidad</th>
@@ -205,7 +204,7 @@
    <script src="/system/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
    <script src="/system/js/demo/datatables-demo.js"></script>
    <script src="/system/js/valideImage.js"></script>
-   <script src="/system/js/filter/filter_users.js"></script>
+   <script src="/system/js/filter/filter_users_admin.js"></script>
    <?= $response ?>
 </body>
 
