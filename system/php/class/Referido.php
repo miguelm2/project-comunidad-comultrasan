@@ -33,9 +33,6 @@ class Referido extends system
         $stmt->bindParam(':nombre_referido', $nombre_referido);
         $stmt->bindParam(':cedula_referido', $cedula_referido);
         $stmt->bindParam(':tipo_documento_referido', $tipo_documento_referido);
-        $stmt->bindParam(':departamento', $departamento);
-        $stmt->bindParam(':ciudad', $ciudad);
-        $stmt->bindParam(':correo', $correo);
         $stmt->bindParam(':celular', $celular);
         $stmt->bindParam(':nombre_refiere', $nombre_refiere);
         $stmt->bindParam(':tipo_documento_refiere', $tipo_documento_refiere);

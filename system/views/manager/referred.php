@@ -72,7 +72,7 @@
                         </div>
                         <div class="col-md-3 mt-2">
                            <div class="form-group">
-                              <h6>Nro de documento</h6>
+                              <h6>Documento de identidad</h6>
                               <p><?= $referred->getCedula_refiere() ?></p>
                            </div>
                         </div>
@@ -102,7 +102,7 @@
                         </div>
 
                         <div class="col-md-4 mt-2">
-                           <h6>Nro de documento</h6>
+                           <h6>Documento de identidad</h6>
                            <p><?= $referred->getCedula_referido() ?></p>
                         </div>
 

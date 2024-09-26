@@ -62,7 +62,6 @@
                         <h6 class="text-success">Datos del Miembro</h6>
                         <p><strong>Nombre Completo: </strong><?= $moveUserCommunity->getUsuarioDTO()->getNombre() ?></p>
                         <p><strong>Correo: </strong><?= $moveUserCommunity->getUsuarioDTO()->getCorreo() ?></p>
-                        <p><strong>Celular: </strong><?= $moveUserCommunity->getUsuarioDTO()->getTelefono() ?></p>
                      </div>
                      <div class="col-md-12">
                         <select name="comunidad" id="comunidad" class="form-control border p-1 selectCommunity">
