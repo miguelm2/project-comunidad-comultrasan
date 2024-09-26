@@ -106,13 +106,6 @@
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="correo">Correo <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="email" name="correo" class="form-control" placeholder="Correo" maxlength="255" required>
-                           </div>
-                        </div>
-
-                        <div class="col-md-6 mt-2">
-                           <div class="form-group">
                               <label class="label text-black" for="celular">Celular <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small></label>
                               <input type="number" name="celular" class="form-control" placeholder="Celular" maxlength="20" required>
                            </div>
