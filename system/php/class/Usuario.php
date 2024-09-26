@@ -134,7 +134,8 @@ class Usuario extends System
         $nombre,
         $correo,
         $cedula,
-        $tipo_documento
+        $tipo_documento,
+        $imagen
     ) {
         $validarUser = self::validateUser($cedula, $correo, $id_usuario);
         $validarAdmin = Administrador::validateAdministrator($cedula, $correo, null);
@@ -144,13 +145,14 @@ class Usuario extends System
             $dbh             = parent::Conexion();
             $stmt = $dbh->prepare("UPDATE Usuario 
                             SET nombre = :nombre, correo = :correo, cedula = :cedula,
-                                tipo_documento = :tipo_documento
+                                tipo_documento = :tipo_documento, imagen = :imagen
                             WHERE id_usuario = :id_usuario ");
             $stmt->bindParam(':id_usuario', $id_usuario);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':correo', $correo);
             $stmt->bindParam(':cedula', $cedula);
             $stmt->bindParam(':tipo_documento', $tipo_documento);
+            $stmt->bindParam(':imagen', $imagen);
             return  $stmt->execute();
         } else {
             return false;

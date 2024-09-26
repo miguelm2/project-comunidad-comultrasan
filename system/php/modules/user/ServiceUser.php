@@ -36,7 +36,7 @@ class ServiceUser extends System
                 $tipo               = 1;
                 $fecha_registro     = date('Y-m-d H:i:s');
 
-                $imagen = self::newImagen();
+                $imagen = "default.png";
 
                 //self::getUserByAPI($cedula); Se comenta porque genera error cuando se va a crear un nuevo usuario, deja asi para cuando se vaya a hacer la instalacion del sistema
 
@@ -119,51 +119,12 @@ class ServiceUser extends System
         $url = $protocol . "://" . $host . $script;
         return $url;
     }
-    private static function newImagen()
-    {
-        try {
-            if (isset($_FILES['imageUser']) && $_FILES['imageUser']['error'] === UPLOAD_ERR_OK) {
-                $source     = $_FILES['imageUser']['tmp_name'];
-                $filename   = $_FILES['imageUser']['name'];
-                $fileSize   = $_FILES['imageUser']['size'];
-                $imagen     = '';
-
-                $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
-                $fileType = $_FILES['imageUser']['type'];
-
-                if (!in_array($fileType, $allowedTypes)) {
-                    return Elements::crearMensajeAlerta("Por favor, sube solo archivos de imagen (JPEG, PNG, GIF, JPG)", "error");
-                }
-                if ($fileSize > 4000000) {
-                    return Elements::crearMensajeAlerta("El archivo debe pesar menos de 4MB", "error");
-                }
-
-                if ($fileSize > 100 && $filename != '') {
-                    $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_USER;
-
-                    if (!file_exists($dirImagen)) mkdir($dirImagen, 0777, true);
-
-                    $dir         = opendir($dirImagen);
-                    $trozo1      = explode(".", $filename);
-                    $imagen      = 'usuario_' . date('Y-m-d') . '_' . rand() . '.' . end($trozo1);
-                    $target_path = $dirImagen . $imagen;
-                    move_uploaded_file($source, $target_path);
-                    closedir($dir);
-                }
-
-                return $imagen;
-            } else {
-                return "default.png";
-            }
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
     public static function setProfile(
         $nombre,
         $correo,
         $cedula,
         $tipo_documento,
+        $tipo_imagen
     ) {
         try {
 
@@ -172,20 +133,37 @@ class ServiceUser extends System
                 $correo             = parent::limpiarString($correo);
                 $cedula             = parent::limpiarString($cedula);
                 $tipo_documento     = parent::limpiarString($tipo_documento);
+                $tipo_imagen        = parent::limpiarString($tipo_imagen);
                 $id_usuario         = $_SESSION['id'];
+
+                switch ($tipo_imagen) {
+                    case 1: {
+                            $imagen = 'avatar_hombre.jpeg';
+                            break;
+                        }
+                    case 2: {
+                            $imagen = 'avatar_mujer.jpeg';
+                            break;
+                        }
+                    default: {
+                            $imagen = $_SESSION['imagen'];
+                        }
+                }
 
                 if (Usuario::setUserProfile(
                     $id_usuario,
                     $nombre,
                     $correo,
                     $cedula,
-                    $tipo_documento
+                    $tipo_documento,
+                    $imagen
                 )) {
                     $usuario = Usuario::getUserById($id_usuario);
                     $_SESSION['id']                 =   $usuario->getId_usuario();
                     $_SESSION['nombre']             =   $usuario->getNombre();
                     $_SESSION['correo']             =   $usuario->getCorreo();
                     $_SESSION['cedula']             =   $usuario->getCedula();
+                    $_SESSION['imagen']             =   $usuario->getImagen();
                     $_SESSION['tipo']               =   $usuario->getTipo();
                     $_SESSION['fecha_registro']     =   $usuario->getFecha_registro();
                     $historialDTO = HistorialInformacion::getHistoryInformationByUser($_SESSION['id']);
@@ -195,6 +173,9 @@ class ServiceUser extends System
                         ActividadUsuario::newActivityUser($_SESSION['id'], 2, $fecha_registro);
                         Punto::newPoint(5, $_SESSION['id'], 1, "Actualización de información", $fecha_registro);
                     }
+
+                    $text = "UPDATE - USUARIO - " . $_SESSION['id'] . " - " . $_SESSION['nombre'] . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                    Log::setLog($text);
                     return  '<script>swal("' . Constants::$INFORMATION_NEW . '", "", "success");</script>';
                 } else {
                     return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
@@ -261,55 +242,6 @@ class ServiceUser extends System
                     return  '<script>swal("' . Constants::$USER_UPDATE . '", "", "success");</script>';
                 } else {
                     return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
-                }
-            }
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
-    public static function setImageUser($id_usuario)
-    {
-        try {
-            if (basename($_SERVER['PHP_SELF']) == 'user.php') {
-                $id_usuario  = parent::limpiarString($id_usuario);
-                $userDTO     = self::getUsuario($id_usuario);
-
-                $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_USER . $userDTO->getImagen();
-
-                if (file_exists($dirImagen) && !empty($userDTO->getImagen()) && $userDTO->getImagen() != "default.png") {
-                    unlink($dirImagen);
-                }
-
-                $imagen = self::newImagen();
-
-                $result = Usuario::setImageUser($id_usuario, $imagen);
-                if ($result) {
-                    return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
-                }
-            }
-        } catch (\Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
-    public static function setImageUserProfile()
-    {
-        try {
-            if (basename($_SERVER['PHP_SELF']) == 'profile.php') {
-                $id_usuario  = $_SESSION['id'];
-                $userDTO     = self::getUsuario($id_usuario);
-
-                $dirImagen = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_IMAGE_USER . $userDTO->getImagen();
-
-                if (file_exists($dirImagen) && !empty($userDTO->getImagen()) && $userDTO->getImagen() != "default.png") {
-                    unlink($dirImagen);
-                }
-
-                $imagen = self::newImagen();
-
-                $result = Usuario::setImageUser($id_usuario, $imagen);
-                if ($result) {
-                    $_SESSION['imagen'] = $imagen;
-                    return Elements::crearMensajeAlerta(Constants::$IMAGE_UPDATE, "success");
                 }
             }
         } catch (\Exception $e) {
@@ -674,7 +606,8 @@ class ServiceUser extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function setCodeOTP(){
+    public static function setCodeOTP()
+    {
         $length = 5;
         $otp = '';
         for ($i = 0; $i < $length; $i++) {
