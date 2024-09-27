@@ -38,7 +38,7 @@ class PreguntaEncuesta extends System
             $preguntaEncuestaDTO = new PreguntaEncuestaDTO();
 
             $preguntaEncuestaDTO->setId_pregunta($result['id_pregunta']);
-            $preguntaEncuestaDTO->setEncuestaDTO($result['id_encuesta']);
+            $preguntaEncuestaDTO->setEncuestaDTO(Encuesta::getSurvey($result['id_encuesta']));
             $preguntaEncuestaDTO->setPregunta($result['pregunta']);
             $preguntaEncuestaDTO->setEstado($result['estado']);
             $preguntaEncuestaDTO->setTipo_pregunta($result['tipo_pregunta']);

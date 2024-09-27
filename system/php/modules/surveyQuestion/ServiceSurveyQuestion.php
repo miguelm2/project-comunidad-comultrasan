@@ -60,17 +60,15 @@ class ServiceSurveyQuestion extends System
     public static function deleteSurveyQuestion($id_pregunta)
     {
         try {
-            if (basename($_SERVER['PHP_SELF']) == 'TypeComunity.php') {
-                $id_pregunta = parent::limpiarString($id_pregunta);
-                $preguntaDTO = PreguntaEncuesta::getSurveyQuestion($id_pregunta);
-                $result = PreguntaEncuesta::deleteSurveyQuestion($id_pregunta);
-                if ($result) {
-                    $text = "DELETE - PREGUNTA ENCUESTA - " . $id_pregunta . " - " . $preguntaDTO->getPregunta() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
-                    Log::setLog($text);
-                    header('Location:survey?survey=' . $preguntaDTO->getEncuestaDTO()->getId_encuesta() . '&delete');
-                } else {
-                    return Elements::crearMensajeAlerta(Constants::$REGISTER_DELETE_NOT, "error");
-                }
+            $id_pregunta = parent::limpiarString($id_pregunta);
+            $preguntaDTO = PreguntaEncuesta::getSurveyQuestion($id_pregunta);
+            $result = PreguntaEncuesta::deleteSurveyQuestion($id_pregunta);
+            if ($result) {
+                $text = "DELETE - PREGUNTA ENCUESTA - " . $id_pregunta . " - " . $preguntaDTO->getPregunta() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
+                Log::setLog($text);
+                header('Location:survey?survey=' . $preguntaDTO->getEncuestaDTO()->getId_encuesta() . '&delete');
+            } else {
+                return Elements::crearMensajeAlerta(Constants::$REGISTER_DELETE_NOT, "error");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
