@@ -76,6 +76,7 @@ CREATE TABLE Foro (
   id_foro INT IDENTITY(1, 1) PRIMARY KEY,
   id_tipo_comunidad INT NOT NULL,
   id_usuario INT NOT NULL,
+  titulo VARCHAR(255) NULL,
   contenido TEXT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
@@ -182,8 +183,9 @@ CREATE TABLE Punto (
 CREATE TABLE Beneficio (
   id_beneficio INT IDENTITY(1, 1) PRIMARY KEY,
   titulo VARCHAR(255) NOT NULL,
-  descripcion TEXT NOT NULL,
   puntos INT NOT NULL,
+  definicion VARCHAR(255) NULL,
+  condiciones VARCHAR(255) NULL,
   imagen VARCHAR(255) NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
@@ -194,6 +196,7 @@ CREATE TABLE Encuesta (
   descripcion TEXT NOT NULL,
   estado INT NOT NULL,
   puntos INT NOT NULL,
+  mensaje VARCHAR(255) NULL,
   fecha_registro DATETIME NOT NULL
 );
 
@@ -202,13 +205,9 @@ CREATE TABLE PreguntaEncuesta (
   id_encuesta INT NOT NULL,
   pregunta VARCHAR(255) NOT NULL,
   estado INT NOT NULL,
+  tipo_pregunta INT NULL,
   fecha_registro DATETIME NOT NULL
 );
-
-ALTER TABLE
-  PreguntaEncuesta
-ADD
-  tipo_pregunta INT NULL;
 
 CREATE TABLE RespuestaPregunta (
   id_respuesta INT IDENTITY(1, 1) PRIMARY KEY,
@@ -222,10 +221,10 @@ CREATE TABLE RespuestaPregunta (
 CREATE TABLE RespuestaUsuario (
   id_respuesta_usuario INT IDENTITY(1, 1) PRIMARY KEY,
   id_usuario INT NOT NULL,
-  id_respuesta INT NULL,
-  respuesta_abierta TEXT NULL id_encuesta INT NOT NULL,
-  id_pregunta INT NOT NULL,
+  id_encuesta INT NULL,
+  id_pregunta INT NULL,
   id_respuesta INT NOT NULL,
+  respuesta_abierta TEXT NULL id_encuesta INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
 
@@ -256,11 +255,6 @@ CREATE TABLE UsuarioBeneficio (
   tipo INT NULL,
   fecha_registro DATETIME NOT NULL
 );
-
-ALTER TABLE
-  Foro
-ADD
-  titulo VARCHAR(255) NULL;
 
 CREATE TABLE ComentarioForo (
   id_comentario INT IDENTITY(1, 1) PRIMARY KEY,
@@ -330,20 +324,6 @@ CREATE TABLE UsuarioGrupoInteres (
   id_grupo INT NOT NULL,
   fecha_registro DATETIME NOT NULL
 );
-
-ALTER TABLE
-  Encuesta
-ADD
-  mensaje VARCHAR(255) NULL;
-
-ALTER TABLE
-  Beneficio
-ADD
-  definicion VARCHAR(255) NULL,
-  condiciones VARCHAR(255) NULL;
-
-ALTER TABLE
-  Beneficio DROP COLUMN descripcion;
 
 CREATE TABLE Actividad (
   id_actividad INT IDENTITY(1, 1) PRIMARY KEY,
