@@ -77,8 +77,11 @@ class RestCall
         return $this->result[$key] ?? null;
     }
 
-    public function run(string $token): ?string
+    public function run()
     {
+        self::setHost("https://fcappshlab.comultrasan.com.co:8080/validador");
+        self::setEndpoint("consulta_asociado_knd");
+        self::setKey("8TfxinxvlVTlhs7wgR8CZ/haijQzsZay/4hrnU6uo0UGU43PyZINMH5N9/zG+MiJ8pnhDEpbV1h8ZpDtXUdxzQ==");
         $key_bytes = base64_decode($this->key);
         $enc = 'UTF-8';
         $hmac = hash_hmac('sha512', '', $key_bytes, true);
@@ -123,6 +126,6 @@ class RestCall
         }
 
         curl_close($request);
-        return null;
+        return $request;
     }
 }
