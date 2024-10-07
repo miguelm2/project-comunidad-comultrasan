@@ -33,8 +33,7 @@ if (isset($_POST['newUser'])) {
         $_POST['correo'],
         $_POST['cedula'],
         $_POST['pass'],
-        $_POST['tipo_documento'],
-        1,
+        $_POST['tipo_documento']
     );
 }
 
@@ -47,8 +46,7 @@ if (isset($_POST['newUserUnete'])) {
         $_POST['correo'],
         $_POST['cedula'],
         $_POST['pass'],
-        $_POST['tipo_documento'],
-        2,
+        $_POST['tipo_documento']
     );
 }
 

@@ -81,8 +81,9 @@
 
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="cedula">Documento de identidad <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small><</label>
-                              <input type="text" class="form-control" name="cedula" placeholder="Documento de identidad" maxlength="20" required>
+                              <label class="label text-black" for="cedula">Documento de identidad <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small>
+                                 </label>
+                                    <input type="text" class="form-control" name="cedula" placeholder="Documento de identidad" maxlength="20" required>
                            </div>
                         </div>
 
@@ -100,8 +101,9 @@
                         </div>
                         <div class="col-md-6 mt-2">
                            <div class="form-group">
-                              <label class="label text-black" for="pass">Contraseña <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small><</label>
-                              <input type="password" class="form-control" name="pass" placeholder="Contraseña" maxlength="20" required>
+                              <label class="label text-black" for="pass">Contraseña <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 20)</small>
+                                 </label>
+                                    <input type="password" class="form-control" name="pass" placeholder="Contraseña" maxlength="20" required>
                            </div>
                         </div>
                         <div>
@@ -111,7 +113,7 @@
                            <div class="form-check">
                               <label for="tratamiento" class="text-black">
                                  <input type="checkbox" name="tratamiento" id="tratamiento" required>
-                                 <a href="https://www.financieracomultrasan.com.co/es/seguridad-financiera/proteccion-de-datos-personales">
+                                 <a class="btn-link" data-bs-toggle="modal" data-bs-target="#terminosCondiciones">
                                     Autorizo el tratamiento de datos personales, consulta y reporte
                                     de información crediticia</a>
                               </label>
@@ -121,9 +123,7 @@
                            <div class="form-check">
                               <label for="terminos" class="text-black">
                                  <input type="checkbox" name="terminos" id="terminos" required>
-                                 <a href="https://www.financieracomultrasan.com.co/es/seguridad-financiera/proteccion-de-datos-personales">
-                                    Confirmo que he leído los terminos y condiciones
-                                 </a>
+                                 <a class="btn-link" data-bs-toggle="modal" data-bs-target="#terminosCondiciones">Confirmo que he leído los terminos y condiciones</a>
                               </label>
                            </div>
                         </div>
@@ -146,6 +146,90 @@
          </div>
       </div>
    </section>
+   <div class="modal fade" id="terminosCondiciones" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title text-pri"><i>AUTORIZACIÓN PARA EL TRATAMIENTO DE DATOS PERSONALES</i></h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               <p>
+                  <i>
+                     Autorizo a la COOPERATIVA DE AHORRO Y CREDITO DE SANTANDER LIMITADA (en adelante FINANCIERA COMULTRASAN),
+                     identificada con NIT número 804.009.752-8, en calidad de responsable del tratamiento y, en tal virtud, podrá recolectar,
+                     almacenar, procesar, actualizar, modificar, usar, trasferir, transmitir y/o eliminar los datos personales suministrados
+                     de conformidad con las siguientes finalidades: <br>
+                     <ol type="1">
+                        <li>
+                           Efectuar las gestiones pertinentes para el correcto funcionamiento de la Plataforma Comunidad Comultrasan y del cumplimiento
+                           del objeto social de la entidad.
+                        </li>
+                        <li>
+                           Realizar invitaciones a eventos, actividades, cursos, programas, campañas y beneficios a través de la Plataforma Comunidad Comultrasan.
+                           Gestionar trámites: solicitudes, quejas, reclamos y/o felicitaciones referentes a la Plataforma Comunidad Comultrasan.
+                        </li>
+                        <li>
+                           Realizar invitaciones a eventos, actividades, cursos, programas, campañas y beneficios a través de la Plataforma Comunidad Comultrasan.
+                        </li>
+                        <li>
+                           Gestionar trámites: solicitudes, quejas, reclamos y/o felicitaciones referentes a la Plataforma Comunidad Comultrasan.
+                        </li>
+                        <li>
+                           Efectuar encuestas referentes al funcionamiento, beneficios y/o sugerencias referentes a la Plataforma Comunidad Comultrasan.
+                        </li>
+                        <li>
+                           Conocer sus preferencias e intereses en la Plataforma Comunidad Comultrasan para ofrecer nuevos productos o servicios
+                        </li>
+                        <li>
+                           Contactar al Titular a través de medios telefónicos, electrónicos (SMS, chat, correo electrónico) para él envió de información
+                           y/o noticias relacionadas con la Plataforma Comunidad Comultrasan.
+                        </li>
+                        <li>
+                           Transferir datos personales a terceros con los cuales la cooperativa tenga un vínculo contractual y/o comercial que sean
+                           necesarias para el funcionamiento de la Plataforma Comunidad Comultrasan.
+                        </li>
+                     </ol><br>
+                     De conformidad con la Constitución política de Colombia y especialmente la Ley 1581 de 2012, tengo conocimiento que tengo derecho a:<br>
+                     <ol type="a">
+                        <li>
+                           Acceder en forma gratuita a los datos proporcionados que hayan sido objeto de tratamiento.
+                        </li>
+                        <li>
+                           Solicitar la actualización y rectificación de su información frente a datos parciales, inexactos, incompletos, fraccionados, que
+                           induzcan a error, o a aquellos cuyo tratamiento esté prohibido o no haya sido autorizado.
+                        </li>
+                        <li>
+                           Solicitar prueba de la autorización otorgada.
+                        </li>
+                        <li>
+                           Presentar ante la Superintendencia de Industria y Comercio (SIC) quejas por infracciones a lo dispuesto en la normatividad vigente.
+                        </li>
+                        <li>
+                           Revocar la autorización y/o solicitar la supresión del dato, a menos que exista un deber legal o contractual que haga imperativo
+                           conservar la información.
+                        </li>
+                        <li>
+                           Abstenerse de responder las preguntas sobre datos sensibles.
+                        </li>
+                     </ol><br>
+                     Estos derechos los podré ejercer a través de los canales o medios dispuestos por la cooperativa para la atención al público a 
+                     través de la radicación de consultas y/o reclamos relacionados con el tratamiento de mis datos personales en la línea de atención 
+                     nacional 01 8000 938 088, el correo electrónico: servicioalcliente@comultrasan.com.co y las oficinas de atención al cliente a nivel 
+                     nacional, cuya información puedo consultar en: https://www.financieracomultrasan.com.co/es<br><br>
+                     Por todo lo anterior, he otorgado mi consentimiento la cooperativa trate mi información personal de acuerdo con la Política de 
+                     Tratamiento de Datos Personales dispuesta en: https://www.financieracomultrasan.com.co/es/seguridad-financiera/proteccion-de-datos-personales 
+                     y que me dio a conocer antes de recolectar mis datos personales. Manifiesto que la presente autorización me fue solicitada y puesta de presente 
+                     antes de entregar mis datos y que la suscribo de forma libre y voluntaria una vez leída en su totalidad.
+                  </i>
+               </p>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Cerrar</button>
+            </div>
+         </div>
+      </div>
+   </div>
    <div id="preloader">
       <img src="/assets/image/favicon_0.ico" alt="Cargando...">
    </div>
@@ -154,6 +238,7 @@
    <!-- End Footer -->
 
    <!-- Vendor JS Files -->
+   <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
    <script src="assets/vendor/aos/aos.js"></script>
    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>

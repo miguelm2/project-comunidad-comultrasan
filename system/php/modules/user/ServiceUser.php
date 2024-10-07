@@ -21,8 +21,7 @@ class ServiceUser extends System
         $correo,
         $cedula,
         $pass,
-        $tipo_documento,
-        $estado,
+        $tipo_documento
     ) {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'users.php' || basename($_SERVER['PHP_SELF']) == 'singup.php') {
@@ -32,13 +31,12 @@ class ServiceUser extends System
                 $pass               = parent::limpiarString($pass);
                 $pass_hash          = parent::hash($pass);
                 $tipo_documento     = parent::limpiarString($tipo_documento);
-                $estado             = parent::limpiarString($estado);
                 $tipo               = 1;
                 $fecha_registro     = date('Y-m-d H:i:s');
 
                 $imagen = "default.png";
 
-                //self::getUserByAPI($cedula); Se comenta porque genera error cuando se va a crear un nuevo usuario, deja asi para cuando se vaya a hacer la instalacion del sistema
+                $estado = self::getUserByAPI($cedula);
 
                 $result = Usuario::newUser(
                     $nombre,
@@ -86,17 +84,25 @@ class ServiceUser extends System
     {
         $restCall = new RestCall();
 
-        $restCall->setHost('https://fcappshlab.comultrasan.com.co:8087/validadorcialcerti');
-        $restCall->setEndpoint('/shareppy/tx_validator.Proxy/executeProxy/09e564d0-8556-46df-9e74-057f6014da60');
-        $restCall->setKey('hb56jT1vS/Ulr+tEZwyX5hzfP/Rtlfy5DtopBu3H4mkBUDyvwMpgWM26OKt0W1hb364mXPUDkeN8BxgFELtfVA==');
-        $restCall->setUser('shareppy');
+        $restCall->setHost("https://fcappshlab.comultrasan.com.co:8080/validador");
+        $restCall->setEndpoint("consulta_asociado_knd");
+        $restCall->setKey("8TfxinxvlVTlhs7wgR8CZ/haijQzsZay/4hrnU6uo0UGU43PyZINMH5N9/zG+MiJ8pnhDEpbV1h8ZpDtXUdxzQ==");
+        $restCall->setUser('KONDORY_LAB');
 
         $restCall->add('NRONIT', $cedula);
 
-        $result = $restCall->run('mi_token');
-
-        $valor = $restCall->get('RETMSG0');
-        return $valor;
+        $result = $restCall->run();
+        $valor = $restCall->get('8TfxinxvlVTlhs7wgR8CZ/haijQzsZay/4hrnU6uo0UGU43PyZINMH5N9/zG+MiJ8pnhDEpbV1h8ZpDtXUdxzQ==');
+        $texto = "SELECT - USUARIO - " . $cedula . " ----> API de comultrasan";
+        Log::setLog($texto);
+        if (!empty($result->RETCOD)) {
+            return 1;
+        }
+        if ($result->CODEST != 1) {
+            return 1;
+        } else {
+            return 2;
+        }
     }
     private static function enviarCorreoUnionComunidad($usuarioDTO, $correo)
     {
