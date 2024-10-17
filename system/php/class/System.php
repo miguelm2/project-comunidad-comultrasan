@@ -23,13 +23,21 @@ abstract  class System
             $dbh = new PDO(
                 "sqlsrv:Server={$ipBD},{$puerto};Database={$dbname};TrustServerCertificate=true",
                 Constants::$USUARIO_BD,
-                Constants::$PASS_BD
+                Constants::$PASS_BD,
+                [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION // Asegura que se lancen excepciones en caso de errores
+                ]
             );
+            
+            echo "Conexión exitosa a SQL Server."; // Mensaje opcional para confirmar la conexión
             return $dbh;
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            // Manejo de errores
+            echo "Error en la conexión a SQL Server: " . $e->getMessage();
+            return null; // Retorna null si hay un error
         }
     }
+    
 
     function hyphenize($string)
     {
