@@ -16,8 +16,15 @@ abstract  class System
     {
         try {
             $dbname = Constants::$NOMBRE_BD;
-            $dbh = new PDO("sqlsrv:Server={" . Constants::$IP_BD . "};Database={" .
-                Constants::$NOMBRE_BD . "};Encrypt=false", Constants::$USUARIO_BD, Constants::$PASS_BD);
+            $ipBD = Constants::$IP_BD;
+            $puerto = "1433"; 
+    
+            // Cadena de conexión con el puerto y TrustServerCertificate
+            $dbh = new PDO(
+                "sqlsrv:Server={$ipBD},{$puerto};Database={$dbname};TrustServerCertificate=true",
+                Constants::$USUARIO_BD,
+                Constants::$PASS_BD
+            );
             return $dbh;
         } catch (PDOException $e) {
             echo $e->getMessage();

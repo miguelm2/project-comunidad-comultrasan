@@ -9,11 +9,10 @@ class Constants
 
 
     // Configuracion bd
-    static $USUARIO_BD = "admin";
-    static $PASS_BD    = "Kondory641#";
-    static $NOMBRE_BD  = "comultrasan_bd";
-    static $IP_BD      = "sql-server-2022.cnck0s8oe32n.us-east-1.rds.amazonaws.com";
-
+    static $USUARIO_BD = "sa";
+    static $PASS_BD    = "K6B74qfibP4Sj3LgZ4";
+    static $NOMBRE_BD  = "COMUNIDAD_COMULTRASAN";
+    static $IP_BD      = "192.168.32.11";
 
     //Mensajes Pagina
     static $PAGE_MENSAJE_ENVIADO = "Mensaje enviado exitosamente";
