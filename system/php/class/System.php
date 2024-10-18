@@ -29,7 +29,7 @@ abstract  class System
                 ]
             );
             
-            echo "Conexión exitosa a SQL Server."; // Mensaje opcional para confirmar la conexión
+            
             return $dbh;
         } catch (PDOException $e) {
             // Manejo de errores
