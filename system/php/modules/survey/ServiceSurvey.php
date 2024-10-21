@@ -9,14 +9,14 @@ class ServiceSurvey extends System
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'surveys.php') {
-                $nombre         = parent::limpiarString($nombre);
-                $descripcion    = parent::limpiarString($descripcion);
-                $estado         = parent::limpiarString(1);
-                $puntos         = parent::limpiarString($puntos);
-                $mensaje        = parent::limpiarString($mensaje);
+                $nombre = parent::limpiarString($nombre);
+                $descripcion = parent::limpiarString($descripcion);
+                $estado = parent::limpiarString(1);
+                $puntos = parent::limpiarString($puntos);
+                $mensaje = parent::limpiarString($mensaje);
                 $fecha_registro = date('Y-m-d H:i:s');
 
-                $result = Encuesta::newSurvey($nombre, $descripcion, $estado,  $puntos, $mensaje, $fecha_registro);
+                $result = Encuesta::newSurvey($nombre, $descripcion, $estado, $puntos, $mensaje, $fecha_registro);
 
                 if ($result) {
                     $encuestaDTO = Encuesta::getLastSurvey();
@@ -33,12 +33,12 @@ class ServiceSurvey extends System
     {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'survey.php') {
-                $id_encuesta  = parent::limpiarString($id_encuesta);
-                $descripcion  = parent::limpiarString($descripcion);
-                $nombre       = parent::limpiarString($nombre);
-                $estado       = parent::limpiarString($estado);
-                $puntos       = parent::limpiarString($puntos);
-                $mensaje      = parent::limpiarString($mensaje);
+                $id_encuesta = parent::limpiarString($id_encuesta);
+                $descripcion = parent::limpiarString($descripcion);
+                $nombre = parent::limpiarString($nombre);
+                $estado = parent::limpiarString($estado);
+                $puntos = parent::limpiarString($puntos);
+                $mensaje = parent::limpiarString($mensaje);
 
                 $result = Encuesta::setSurvey($id_encuesta, $descripcion, $nombre, $estado, $puntos, $mensaje);
 
@@ -109,18 +109,20 @@ class ServiceSurvey extends System
         try {
             $html = '';
             $id_usuario = $_SESSION['id'];
-            $modelResponse = Encuesta::listSurveyByEstateAndNotResolved($id_usuario);
+            if ($_SESSION['usuario'] == "Usuario") {
+                $modelResponse = Encuesta::listSurveyByEstateAndNotResolved($id_usuario);
 
-            if ($modelResponse) {
-                foreach ($modelResponse as $valor) {
-                    $btnRealizar =  Elements::crearBotonRealizar("survey", $valor->getId_encuesta());
-                    $html .= Elements::getCardSurveyUserNotResolved($valor->getNombre(), $valor->getPuntos(), $valor->getEstado()[1], $btnRealizar);
+                if ($modelResponse) {
+                    foreach ($modelResponse as $valor) {
+                        $btnRealizar = Elements::crearBotonRealizar("survey", $valor->getId_encuesta());
+                        $html .= Elements::getCardSurveyUserNotResolved($valor->getNombre(), $valor->getPuntos(), $valor->getEstado()[1], $btnRealizar);
+                    }
                 }
-            }
-            $response = Encuesta::listSurveyByEstateAndResolved($id_usuario);
-            if ($response) {
-                foreach ($response as $value) {
-                    $html .= Elements::getCardSurveyUserResolved($value->getNombre(), $value->getPuntos(), $value->getEstado()[1]);
+                $response = Encuesta::listSurveyByEstateAndResolved($id_usuario);
+                if ($response) {
+                    foreach ($response as $value) {
+                        $html .= Elements::getCardSurveyUserResolved($value->getNombre(), $value->getPuntos(), $value->getEstado()[1]);
+                    }
                 }
             }
 
@@ -139,7 +141,7 @@ class ServiceSurvey extends System
                     'id_encuesta' => $encuestaDTO->getId_encuesta(),
                     'mensaje' => $encuestaDTO->getMensaje()
                 ];
-            }else{
+            } else {
                 return (object) [
                     'id_encuesta' => 0,
                     'mensaje' => 'Ya solucionaste todas las encuestas'
@@ -186,14 +188,14 @@ class ServiceSurvey extends System
         try {
             switch ($estado) {
                 case 0: {
-                        return 'danger';
-                    }
+                    return 'danger';
+                }
                 case 1: {
-                        return 'success';
-                    }
+                    return 'success';
+                }
                 case 2: {
-                        return 'warning';
-                    }
+                    return 'warning';
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
