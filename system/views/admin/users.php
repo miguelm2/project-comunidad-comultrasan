@@ -170,6 +170,7 @@
                         </div>
                      </div>
                   </div>
+                  <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                   <div class="modal-footer">
                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="newUser" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Asociado</button>
