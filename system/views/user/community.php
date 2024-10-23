@@ -175,7 +175,7 @@
                   </a>
                </div>
                <div class="col-md-3">
-                  <a href="survey?survey=5">
+                  <a href="survey?survey=9">
                      <div class="card border-2 h-100">
                         <img src="/assets/img/comunidad/gustos.png" alt="Gustos" class="img-fluid rounded-2">
                         <div class="card-body">
@@ -188,7 +188,7 @@
                   </a>
                </div>
                <div class="col-md-3">
-                  <a href="survey?survey=1">
+                  <a href="survey?survey=5">
                      <div class="card border-2 h-100">
                         <img src="/assets/img/comunidad/reto.png" alt="Reto" class="img-fluid rounded-2">
                         <div class="card-body">
@@ -227,7 +227,7 @@
                   </a>
                </div>
                <div class="col-md-3 mt-2">
-                  <a href="surveys">
+                  <a href="">
                      <div class="card border-2">
                         <img src="/assets/img/comunidad/programa_referidos.png" alt="Refereidos" class="img-fluid rounded-2">
                         <div class="card-body">
