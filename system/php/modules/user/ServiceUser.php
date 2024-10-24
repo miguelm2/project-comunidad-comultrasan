@@ -25,19 +25,21 @@ class ServiceUser extends System
     ) {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'users.php' || basename($_SERVER['PHP_SELF']) == 'singup.php') {
-                $nombre             = parent::limpiarString($nombre);
-                $correo             = parent::limpiarString($correo);
-                $cedula             = parent::limpiarString($cedula);
-                $pass               = parent::limpiarString($pass);
-                $pass_hash          = parent::hash($pass);
-                $tipo_documento     = parent::limpiarString($tipo_documento);
-                $tipo               = 1;
-                $fecha_registro     = date('Y-m-d H:i:s');
+                $nombre = parent::limpiarString($nombre);
+                $correo = parent::limpiarString($correo);
+                $cedula = parent::limpiarString($cedula);
+                $pass = parent::limpiarString($pass);
+                $pass_hash = parent::hash($pass);
+                $tipo_documento = parent::limpiarString($tipo_documento);
+                $tipo = 1;
+                $fecha_registro = date('Y-m-d H:i:s');
 
                 $imagen = "default.png";
-
-                $estado = self::getUserByAPI($cedula);
-
+                if ($_SESSION['usuario'] != "Administrador") {
+                    $estado = self::getUserByAPI($cedula);
+                } else {
+                    $estado = 1;
+                }
                 $result = Usuario::newUser(
                     $nombre,
                     $correo,
@@ -135,43 +137,45 @@ class ServiceUser extends System
         try {
 
             if (basename($_SERVER['PHP_SELF']) == 'profile.php') {
-                $nombre             = parent::limpiarString($nombre);
-                $correo             = parent::limpiarString($correo);
-                $cedula             = parent::limpiarString($cedula);
-                $tipo_documento     = parent::limpiarString($tipo_documento);
-                $tipo_imagen        = parent::limpiarString($tipo_imagen);
-                $id_usuario         = $_SESSION['id'];
+                $nombre = parent::limpiarString($nombre);
+                $correo = parent::limpiarString($correo);
+                $cedula = parent::limpiarString($cedula);
+                $tipo_documento = parent::limpiarString($tipo_documento);
+                $tipo_imagen = parent::limpiarString($tipo_imagen);
+                $id_usuario = $_SESSION['id'];
 
                 switch ($tipo_imagen) {
                     case 1: {
-                            $imagen = 'avatar_hombre.jpeg';
-                            break;
-                        }
+                        $imagen = 'avatar_hombre.jpeg';
+                        break;
+                    }
                     case 2: {
-                            $imagen = 'avatar_mujer.jpeg';
-                            break;
-                        }
+                        $imagen = 'avatar_mujer.jpeg';
+                        break;
+                    }
                     default: {
-                            $imagen = $_SESSION['imagen'];
-                        }
+                        $imagen = $_SESSION['imagen'];
+                    }
                 }
 
-                if (Usuario::setUserProfile(
-                    $id_usuario,
-                    $nombre,
-                    $correo,
-                    $cedula,
-                    $tipo_documento,
-                    $imagen
-                )) {
+                if (
+                    Usuario::setUserProfile(
+                        $id_usuario,
+                        $nombre,
+                        $correo,
+                        $cedula,
+                        $tipo_documento,
+                        $imagen
+                    )
+                ) {
                     $usuario = Usuario::getUserById($id_usuario);
-                    $_SESSION['id']                 =   $usuario->getId_usuario();
-                    $_SESSION['nombre']             =   $usuario->getNombre();
-                    $_SESSION['correo']             =   $usuario->getCorreo();
-                    $_SESSION['cedula']             =   $usuario->getCedula();
-                    $_SESSION['imagen']             =   $usuario->getImagen();
-                    $_SESSION['tipo']               =   $usuario->getTipo();
-                    $_SESSION['fecha_registro']     =   $usuario->getFecha_registro();
+                    $_SESSION['id'] = $usuario->getId_usuario();
+                    $_SESSION['nombre'] = $usuario->getNombre();
+                    $_SESSION['correo'] = $usuario->getCorreo();
+                    $_SESSION['cedula'] = $usuario->getCedula();
+                    $_SESSION['imagen'] = $usuario->getImagen();
+                    $_SESSION['tipo'] = $usuario->getTipo();
+                    $_SESSION['fecha_registro'] = $usuario->getFecha_registro();
                     $historialDTO = HistorialInformacion::getHistoryInformationByUser($_SESSION['id']);
                     $fecha_registro = date('Y-m-d H:i:s');
                     if (!$historialDTO) {
@@ -182,9 +186,9 @@ class ServiceUser extends System
 
                     $text = "UPDATE - USUARIO - " . $_SESSION['id'] . " - " . $_SESSION['nombre'] . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
                     Log::setLog($text);
-                    return  '<script>swal("' . Constants::$INFORMATION_NEW . '", "", "success");</script>';
+                    return '<script>swal("' . Constants::$INFORMATION_NEW . '", "", "success");</script>';
                 } else {
-                    return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
+                    return '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
                 }
             }
         } catch (\Exception $e) {
@@ -204,7 +208,7 @@ class ServiceUser extends System
                 $result = Usuario::getUser($cedula, $pass_hash);
 
                 if (!$result) {
-                    return  '<script>swal("' . Constants::$CURRENT_PASS . '", "", "error");</script>';
+                    return '<script>swal("' . Constants::$CURRENT_PASS . '", "", "error");</script>';
                 }
                 if ($newPass !== $confirmPass) {
                     return Elements::crearMensajeAlerta("Las contraseñas no coinciden, intente de nuevo", "warning");
@@ -215,7 +219,8 @@ class ServiceUser extends System
                 $id_usuario = $_SESSION['id'];
                 $pass_hash = parent::hash($newPass);
                 $result = Usuario::setUserPass($id_usuario, $pass_hash);
-                if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
+                if ($result)
+                    return '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
@@ -231,10 +236,10 @@ class ServiceUser extends System
     ) {
         try {
             if (basename($_SERVER['PHP_SELF']) == 'user.php') {
-                $nombre             = parent::limpiarString($nombre);
-                $correo             = parent::limpiarString($correo);
-                $cedula             = parent::limpiarString($cedula);
-                $tipo_documento     = parent::limpiarString($tipo_documento);
+                $nombre = parent::limpiarString($nombre);
+                $correo = parent::limpiarString($correo);
+                $cedula = parent::limpiarString($cedula);
+                $tipo_documento = parent::limpiarString($tipo_documento);
                 $result = Usuario::setUser(
                     $id_usuario,
                     $nombre,
@@ -245,9 +250,9 @@ class ServiceUser extends System
                 );
 
                 if ($result) {
-                    return  '<script>swal("' . Constants::$USER_UPDATE . '", "", "success");</script>';
+                    return '<script>swal("' . Constants::$USER_UPDATE . '", "", "success");</script>';
                 } else {
-                    return  '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
+                    return '<script>swal("' . Constants::$ADMIN_REPEAT . '", "", "error");</script>';
                 }
             }
         } catch (\Exception $e) {
@@ -267,7 +272,8 @@ class ServiceUser extends System
                     }
                     $pass_hash = parent::hash($pass);
                     $result = Usuario::setUserPass($id_usuario, $pass_hash);
-                    if ($result) return  '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
+                    if ($result)
+                        return '<script>swal("' . Constants::$UPDATE_PASS . '", "", "success");</script>';
                 } else {
                     return Elements::crearMensajeAlerta("Las contraseñas no coinciden, intente de nuevo", "warning");
                 }
@@ -292,8 +298,8 @@ class ServiceUser extends System
                 $id_usuario = parent::limpiarString($id_usuario);
 
                 $usuarioDTO = Usuario::getUserById($id_usuario);
-                $listBenefit  = Beneficio::listBenefitByUser($id_usuario);
-                $comunidad    = Comunidad::getCommunityByUser($id_usuario);
+                $listBenefit = Beneficio::listBenefitByUser($id_usuario);
+                $comunidad = Comunidad::getCommunityByUser($id_usuario);
                 $grupoInteres = TipoComunidad::getTypeComunityByUser($id_usuario);
 
                 if (!$listBenefit && !$comunidad && !$grupoInteres) {
@@ -428,14 +434,14 @@ class ServiceUser extends System
         try {
             switch ($estado) {
                 case 0: {
-                        return 'danger';
-                    }
+                    return 'danger';
+                }
                 case 1: {
-                        return 'success';
-                    }
+                    return 'success';
+                }
                 case 2: {
-                        return 'warning';
-                    }
+                    return 'warning';
+                }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

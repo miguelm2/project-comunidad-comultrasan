@@ -11,8 +11,7 @@ CREATE TABLE Administrador (
   fecha_registro DATETIME NOT NULL
 );
 
-INSERT INTO
-  Administrador (
+INSERT INTO Administrador (
     nombre,
     correo,
     telefono,
@@ -22,9 +21,8 @@ INSERT INTO
     tipo,
     imagen,
     fecha_registro
-  )
-VALUES
-  (
+)
+VALUES (
     'Kondory Tecnologia',
     'contacto@kondori.co',
     '789',
@@ -33,8 +31,8 @@ VALUES
     1,
     0,
     'default.png',
-    '2022-07-26 19:01:56'
-  );
+    '20220726 19:01:56'
+);
 
 CREATE TABLE Usuario (
   id_usuario INT IDENTITY(1, 1) PRIMARY KEY,
@@ -101,7 +99,7 @@ SET
   IDENTITY_INSERT comultrasan_bd.dbo.Perfil ON;
 
 INSERT INTO
-  comultrasan_bd.dbo.Perfil (
+  Perfil (
     id_perfil,
     nombre,
     nit,
@@ -224,7 +222,7 @@ CREATE TABLE RespuestaUsuario (
   id_encuesta INT NULL,
   id_pregunta INT NULL,
   id_respuesta INT NOT NULL,
-  respuesta_abierta TEXT NULL id_encuesta INT NOT NULL,
+  respuesta_abierta TEXT NULL,
   fecha_registro DATETIME NOT NULL
 );
 
