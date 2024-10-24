@@ -6,7 +6,8 @@
    <meta charset="utf-8" />
    <title>Comunidad Comultrasan</title>
    <!--     Fonts and icons     -->
-   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+   <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
    <link rel="icon" type="image/png" href="/assets/image/favicon_0.ico">
@@ -27,7 +28,8 @@
    <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_admin.php'; ?>
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius">
-      <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
+      <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0"
+         id="navbarBlur" data-scroll="true">
          <!-- Start header -->
          <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_admin.php'; ?>
          <!-- End header -->
@@ -54,33 +56,42 @@
                <form method="post">
                   <div class="row">
                      <div class="col-md-4">
-                        <img src="<?= Path::$DIR_IMAGE_TYPE_COM . $typeComunity->getImagen() ?>" alt="Imagen" class="img-fluid">
+                        <img src="<?= Path::$DIR_IMAGE_TYPE_COM . $typeComunity->getImagen() ?>" alt="Imagen"
+                           class="img-fluid">
                      </div>
                      <div class="col-md-8">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" class="form-control border p-1" name="titulo" value="<?= $typeComunity->getTitulo() ?>" maxlength="255" required>
+                              <label class="form-label" for="titulo">Título <small class="p-0 m-0 text-success"
+                                    style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <input type="text" class="form-control border p-1" name="titulo"
+                                 value="<?= $typeComunity->getTitulo() ?>" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="icono">Icono <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" class="form-control border p-1" name="icono" value="<?= $typeComunity->getIcono() ?>" maxlength="255" required>
+                              <label class="form-label" for="icono">Icono <small class="p-0 m-0 text-success"
+                                    style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <input type="text" class="form-control border p-1" name="icono"
+                                 value="<?= $typeComunity->getIcono() ?>" maxlength="255" required>
                               <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label" for="subtitulo">Subtítulo <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" class="form-control border p-1" name="subtitulo" value="<?= $typeComunity->getSubtitulo() ?>" maxlength="255" required>
+                              <label class="form-label" for="subtitulo">Subtítulo <small class="p-0 m-0 text-success"
+                                    style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <input type="text" class="form-control border p-1" name="subtitulo"
+                                 value="<?= $typeComunity->getSubtitulo() ?>" maxlength="255" required>
                               <small>Maximo de caracteres: <span id="contadorPublicacion">255</span></small>
                            </div>
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="contendio">Contenido <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" maxlength="500" required><?= html_entity_decode($typeComunity->getContenido()) ?></textarea>
+                        <label for="contendio">Contenido <small class="p-0 m-0 text-success" style="font-size: 0.6rem;">
+                              (Máximo de caracteres: 255)</small></label>
+                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" maxlength="500"
+                           required><?= html_entity_decode($typeComunity->getContenido()) ?></textarea>
                      </div>
                      <div>
                         <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
@@ -146,7 +157,8 @@
                </div>
                <div class="col-md-3 mt-3">
                   <div class="card-head text-right">
-                     <a class="btn btn-success" href="newSectionTypeCommunity?typeComunity=<?= $_GET['typeComunity'] ?>">
+                     <a class="btn btn-success"
+                        href="newSectionTypeCommunity?typeComunity=<?= $_GET['typeComunity'] ?>">
                         <i class="material-icons me-2">add</i>Agregar Sección</a>
                   </div>
                </div>
@@ -195,8 +207,10 @@
                      <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="deleteTypeComunity" class="btn btn-danger"><i class="material-icons me-2">delete</i> Eliminar tipo de comunidad</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                           class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="deleteTypeComunity" class="btn btn-danger"><i
+                           class="material-icons me-2">delete</i> Eliminar tipo de comunidad</button>
                   </div>
                </div>
             </div>
@@ -214,16 +228,20 @@
                   </div>
                   <div class="modal-body">
                      <div class="form-group">
-                        <label class="form-label" for="imageTypeComunity">Imagen <small class="text-secondary">(png, jpeg, jpg, gif)</small></label>
-                        <input type="file" class="form-control border p-1" name="imageTypeComunity" accept="image/*" required>
+                        <label class="form-label" for="imageTypeComunity">Imagen <small class="text-secondary">(png,
+                              jpeg, jpg, gif)</small></label>
+                        <input type="file" class="form-control border p-1" name="imageTypeComunity" accept="image/*"
+                           required>
                      </div>
                   </div>
                   <div>
                      <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="setImageTypeComunity" class="btn btn-info"><i class="material-icons me-2">image</i> Cambiar Imagen</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                           class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="setImageTypeComunity" class="btn btn-info"><i
+                           class="material-icons me-2">image</i> Cambiar Imagen</button>
                   </div>
                </div>
             </div>
@@ -248,16 +266,23 @@
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <!-- Ck Editor -->
    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/ckeditor.js"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format"></script>
+   <script
+      src="https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format"></script>
    <script src="https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-size-feature"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features"></script>
+   <script
+      src="https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration"></script>
+   <script
+      src="https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature"></script>
+   <script
+      src="https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-size-feature"></script>
+   <script
+      src="https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features"></script>
    <script src="https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators"></script>
+   <script
+      src="https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators"></script>
    <script src="https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration"></script>
-   <script src="https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html"></script>
+   <script
+      src="https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html"></script>
    <script src=" https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html"></script>
 
 
@@ -265,6 +290,17 @@
    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/translations/es.js"></script>
    <script src="/system/js/CkEditor/confCkeditor.js"></script>
    <script src="/system/js/valideImage.js"></script>
+   <script>
+      // Inicializar CKEditor para el textarea con ID 'texto'
+      CKEDITOR.replace('texto');
+
+      const form = document.querySelector('form');
+      form.addEventListener('submit', (e) => {
+         // Sincroniza el contenido del editor con el textarea
+         CKEDITOR.instances['texto'].updateElement();
+      });
+
+   </script>
    <?= $response ?>
 </body>
 
