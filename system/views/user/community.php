@@ -29,7 +29,8 @@
    <!-- End Slider -->
    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg container">
       <!-- Navbar -->
-      <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0" id="navbarBlur" data-scroll="true">
+      <nav class="navbar navbar-main navbar-expand-lg  mx-4 shadow-none border-radius-xl bg-success pt-0 mb-0 mt-2 ms-0"
+         id="navbarBlur" data-scroll="true">
          <!-- Start header -->
          <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/header_user.php'; ?>
          <!-- End header -->
@@ -38,7 +39,8 @@
          <div class="nav-wrapper position-relative end-0">
             <ul class="nav nav-pills nav-fill p-1" role="tablist">
                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 active text-success" data-bs-toggle="tab" href="#community" role="tab" aria-controls="profile" aria-selected="true">
+                  <a class="nav-link mb-0 px-0 py-1 active text-success" data-bs-toggle="tab" href="#community"
+                     role="tab" aria-controls="profile" aria-selected="true">
                      Mi comunidad
                   </a>
                </li>
@@ -61,7 +63,7 @@
                </div>
                <?= $unitedCommunity ?>
             </div>
-            <div class="tab-pane fade profile-overview"<?= $optionRequest['style'] ?> id="information">
+            <div class="tab-pane fade profile-overview" <?= $optionRequest['style'] ?> id="information">
                <div class="row m-0">
                   <div class="col-md-6 mt-4 ms-4">
                      <h4 class="text-success">Solicitudes </h4>
@@ -151,7 +153,8 @@
                <div class="col-md-3">
                   <a href="">
                      <div class="card border-2 h-100">
-                        <img src="/assets/img/comunidad/comunida_creada.png" alt="Comunidad" class="img-fluid rounded-2">
+                        <img src="/assets/img/comunidad/comunida_creada.png" alt="Comunidad"
+                           class="img-fluid rounded-2">
                         <div class="card-body">
                            <h6 class="text-success text-center">Crea tu comunidad</h6>
                            <p class=" ms-2">
@@ -227,9 +230,10 @@
                   </a>
                </div>
                <div class="col-md-3 mt-2">
-                  <a href="">
+                  <a href="survey?survey=10">
                      <div class="card border-2">
-                        <img src="/assets/img/comunidad/programa_referidos.png" alt="Refereidos" class="img-fluid rounded-2">
+                        <img src="/assets/img/comunidad/programa_referidos.png" alt="Refereidos"
+                           class="img-fluid rounded-2">
                         <div class="card-body">
                            <h6 class="text-success text-center">Trivia de programa de referidos</h6>
                            <p class=" ms-2">
@@ -252,7 +256,8 @@
                   <div class="card-flip">
                      <div class="card border-2 h-100">
                         <div class="card-front">
-                           <img src="/assets/img/comunidad/nuevo_miembro.png" alt="NuevoMiembros" class="img-fluid rounded-2">
+                           <img src="/assets/img/comunidad/nuevo_miembro.png" alt="NuevoMiembros"
+                              class="img-fluid rounded-2">
                            <h6 class="text-success text-center">Nuevos miembros en la Comunidad</h6>
                            <p class="ms-2">
                               Invita a otros a que disfruten de los beneficios de la comunidad.
@@ -349,7 +354,8 @@
                   <div class="card-flip">
                      <div class="card border-2 h-100">
                         <div class="card-front">
-                           <img src="/assets/img/comunidad/referidos_efectivos.png" alt="Referidos_efecrivos" class="img-fluid rounded-2">
+                           <img src="/assets/img/comunidad/referidos_efectivos.png" alt="Referidos_efecrivos"
+                              class="img-fluid rounded-2">
                            <h6 class="text-success text-center">Referidos efectivos</h6>
                            <p class=" ms-2">
                               Cuéntale a otros lo feliz que te sientes de estar aquí
@@ -404,14 +410,17 @@
                      <div class="row g-3">
                         <div class="col-12">
                            <div class="form-group">
-                              <label class="form-label">Nombre de la comunidad <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="form-label">Nombre de la comunidad <small class="p-0 m-0 text-success"
+                                    style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="text" class="form-control border p-1" name="nombre" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <label class="form-label">Nombre del otro miembro <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" class="form-control border p-1" name="nombre_user" maxlength="255" required>
+                              <label class="form-label">Nombre del otro miembro <small class="p-0 m-0 text-success"
+                                    style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <input type="text" class="form-control border p-1" name="nombre_user" maxlength="255"
+                                 required>
                            </div>
                         </div>
                         <div class="col-md-6">
@@ -422,14 +431,16 @@
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
-                              <label class="form-label">Correo del otro miembro <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <label class="form-label">Correo del otro miembro <small class="p-0 m-0 text-success"
+                                    style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
                               <input type="mail" class="form-control border p-1" name="correo" maxlength="255" required>
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
                               <label class="form-label">Celular del otro miembro</label>
-                              <input type="number" class="form-control border p-1" name="celular" maxlength="30" required>
+                              <input type="number" class="form-control border p-1" name="celular" maxlength="30"
+                                 required>
                            </div>
                         </div>
                         <div>
@@ -438,8 +449,10 @@
                      </div>
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newCommunity" class="btn btn-success"><i class="material-icons me-2">add</i> Nueva Comunidad</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                           class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="newCommunity" class="btn btn-success"><i
+                           class="material-icons me-2">add</i> Nueva Comunidad</button>
                   </div>
                </div>
             </div>
@@ -459,33 +472,41 @@
                      <div class="row g-3">
                         <div class="col-12">
                            <div class="form-group">
-                              <label for="nombre">Nombre del miembro <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="text" name="nombre" class="form-control border p-1" id="nombre" maxlength="255" placeholder="Nombre del miembro">
+                              <label for="nombre">Nombre del miembro <small class="p-0 m-0 text-success"
+                                    style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
+                              <input type="text" name="nombre" class="form-control border p-1" id="nombre"
+                                 maxlength="255" placeholder="Nombre del miembro">
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
                               <label for="cedula">Documento de identidad</label>
-                              <input type="number" name="cedula" class="form-control border p-1" id="cedula" maxlength="20" placeholder="Documento de identidad">
+                              <input type="number" name="cedula" class="form-control border p-1" id="cedula"
+                                 maxlength="20" placeholder="Documento de identidad">
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
                               <label for="celular">Celular</label>
-                              <input type="number" name="celular" class="form-control border p-1" id="celular" placeholder="Celular">
+                              <input type="number" name="celular" class="form-control border p-1" id="celular"
+                                 placeholder="Celular">
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <label for="correo">Correo <small class="p-0 m-0 text-success" style="font-size: 0.6rem;"> (Máximo de caracteres: 255)</small></label>
-                              <input type="mail" name="correo" class="form-control border p-1" id="correo" maxlength="255" placeholder="Correo">
+                              <label for="correo">Correo <small class="p-0 m-0 text-success" style="font-size: 0.6rem;">
+                                    (Máximo de caracteres: 255)</small></label>
+                              <input type="mail" name="correo" class="form-control border p-1" id="correo"
+                                 maxlength="255" placeholder="Correo">
                            </div>
                         </div>
                      </div>
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newUserCommunity" class="btn btn-success"><i class="material-icons me-2">add</i> Guardar Miembro</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                           class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="newUserCommunity" class="btn btn-success"><i
+                           class="material-icons me-2">add</i> Guardar Miembro</button>
                   </div>
                </div>
             </div>
@@ -505,8 +526,10 @@
                      <label class="form-label">¿Esta seguro que desea salir de la comunidad?</label>
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="leaveCommunity" class="btn btn-danger"><i class="material-icons me-2">logout</i> Salir Ahora</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                           class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="leaveCommunity" class="btn btn-danger"><i
+                           class="material-icons me-2">logout</i> Salir Ahora</button>
                   </div>
                </div>
             </div>
@@ -527,7 +550,8 @@
                      <input type="hidden" id="usuario" name="usuario">
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                           class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="deleteUserCommunity" class="btn btn-danger">
                         <i class="material-icons me-2">person_remove</i> Remover miembro
                      </button>
@@ -552,7 +576,8 @@
                      <input type="hidden" id="comunidad" name="comunidad">
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                           class="material-icons me-2">close</i> Cerrar</button>
                      <button type="submit" name="editCommunity" class="btn btn-info">
                         <i class="material-icons me-2">save</i> Guardar Información
                      </button>
@@ -575,8 +600,10 @@
                      <label class="form-label">¿Esta seguro que desea salir de la comunidad?</label>
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="leaveLeaderCommunity" class="btn btn-danger"><i class="material-icons me-2">logout</i> Salir Ahora</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                           class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="leaveLeaderCommunity" class="btn btn-danger"><i
+                           class="material-icons me-2">logout</i> Salir Ahora</button>
                   </div>
                </div>
             </div>
@@ -598,14 +625,17 @@
                         <div class="col-12">
                            <div class="form-group">
                               <label class="form-label">Código de comunidad</label>
-                              <input type="number" name="comunidad" id="comunidad" class="form-control border p-1" placeholder="Digite código de comunidad" required>
+                              <input type="number" name="comunidad" id="comunidad" class="form-control border p-1"
+                                 placeholder="Digite código de comunidad" required>
                            </div>
                         </div>
                      </div>
                   </div>
                   <div class="modal-footer">
-                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="material-icons me-2">close</i> Cerrar</button>
-                     <button type="submit" name="newUserCommunityJoin" class="btn btn-success"><i class="material-icons me-2">add</i> Enviar Solicitud</button>
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                           class="material-icons me-2">close</i> Cerrar</button>
+                     <button type="submit" name="newUserCommunityJoin" class="btn btn-success"><i
+                           class="material-icons me-2">add</i> Enviar Solicitud</button>
                   </div>
                </div>
             </div>
