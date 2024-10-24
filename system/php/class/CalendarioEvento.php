@@ -53,7 +53,7 @@ class CalendarioEvento extends System
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("SELECT * 
                             FROM CalendarioEvento 
-                            WHERE id_grupo is 0 
+                            WHERE id_grupo = 0 
                             AND fecha >= GETDATE()
                             ORDER BY fecha");
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'CalendarioEventoDTO');
