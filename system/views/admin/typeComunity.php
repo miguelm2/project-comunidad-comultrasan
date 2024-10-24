@@ -90,7 +90,7 @@
                      <div class="col-md-12 mt-3">
                         <label for="texto">Contenido <small class="p-0 m-0 text-success" style="font-size: 0.6rem;">
                               (Máximo de caracteres: 255)</small></label>
-                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" maxlength="500"
+                        <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" maxlength="800"
                            ><?= html_entity_decode($typeComunity->getContenido()) ?></textarea>
                      </div>
                      <div>
