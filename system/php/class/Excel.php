@@ -10,7 +10,7 @@ class Excel
             fgetcsv($file);
 
             // Leer cada fila del archivo CSV
-            while (($data = fgetcsv($file, 1000, ",")) !== FALSE) {
+            while (($data = fgetcsv($file, 1000, ";")) !== FALSE) {
                 $tipo_doc    = $data[0];
                 $cedula      = $data[1];
                 $puntos      = $data[2];
