@@ -6,7 +6,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/surveyQuestion/Ser
 
 class ServiceAnswerUser extends System
 {
-    public static function newAnswerUser($id_encuesta,  $listRespuestas, $listRespuestasAbiertas,)
+    public static function newAnswerUser($id_encuesta, $listRespuestas, $listRespuestasAbiertas, )
     {
         try {
             $id_encuesta = parent::limpiarString($id_encuesta);
@@ -32,7 +32,7 @@ class ServiceAnswerUser extends System
                                     <strong>Pregunta:</strong> ' . $respuestaDTO->getPreguntaDTO()->getPregunta() . '; <strong>Repuesta:</strong> ' . $respuestaDTO->getRespuesta() . '
                                 </li>';
                     if ($valide) {
-                        $responseMultiple = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $listTotal[0], $listTotal[1],  $fecha_registro);
+                        $responseMultiple = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $listTotal[0], $listTotal[1], $fecha_registro);
                         continue;
                     }
                     $valide_answer = RespuestaPregunta::valideAnswerQuestionByQuestionAndAnswer($listTotal[0], $listTotal[1]);
@@ -40,7 +40,7 @@ class ServiceAnswerUser extends System
                         RespuestaUsuario::deleteAnswerUserByUserBySurvey($id_usuario, $id_encuesta);
                         return Elements::crearMensajeAlerta("Algunas respuestas no son correctas. Por favor, revisa y vuelve a intentar la encuesta.", "warning");
                     }
-                    $responseMultiple = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $listTotal[0], $listTotal[1],  $fecha_registro);
+                    $responseMultiple = RespuestaUsuario::newAnswerUser($id_usuario, $id_encuesta, $listTotal[0], $listTotal[1], $fecha_registro);
                 }
             }
 
@@ -85,14 +85,16 @@ class ServiceAnswerUser extends System
     }
     public static function sendAnswerUserByMail($usuario, $administrador, $respuestas, $encuesta, $correo)
     {
-        $asunto = 'Respuestas del Usuario ' . $usuario . ' Recibidas';
-        $mensaje = 'Estimado/a ' . $administrador . ',<br>
+        if ($correo != '' && $correo != NULL) {
+            $asunto = 'Respuestas del Usuario ' . $usuario . ' Recibidas';
+            $mensaje = 'Estimado/a ' . $administrador . ',<br>
                 Este correo ha sido generado automáticamente para informarle que el usuario ' . $usuario . ' ha completado el formulario. <br>
                 A continuación, se incluyen las respuestas proporcionadas de la encuesta <strong>' . $encuesta . '</strong>:<br>
                 ' . $respuestas . '<br>
                 Este mensaje es solo informativo. No se requiere ninguna acción adicional.<br><br>
                 Atentamente,<br>
                 Comunidad Financiera Comultrasan';
-        Mail::sendEmail($asunto, $mensaje, $correo);
+            Mail::sendEmail($asunto, $mensaje, $correo);
+        }
     }
 }
