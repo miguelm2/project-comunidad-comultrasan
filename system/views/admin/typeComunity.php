@@ -88,7 +88,7 @@
                         </div>
                      </div>
                      <div class="col-md-12 mt-3">
-                        <label for="contendio">Contenido <small class="p-0 m-0 text-success" style="font-size: 0.6rem;">
+                        <label for="texto">Contenido <small class="p-0 m-0 text-success" style="font-size: 0.6rem;">
                               (Máximo de caracteres: 255)</small></label>
                         <textarea name="contenido" id="texto" class="form-control border p-1" rows="5" maxlength="500"
                            required><?= html_entity_decode($typeComunity->getContenido()) ?></textarea>
@@ -291,13 +291,18 @@
    <script src="/system/js/CkEditor/confCkeditor.js"></script>
    <script src="/system/js/valideImage.js"></script>
    <script>
-      // Inicializar CKEditor para el textarea con ID 'texto'
-      CKEDITOR.replace('texto');
-
+      // Seleccionar el formulario
       const form = document.querySelector('form');
+
+      // Añadir un evento para sincronizar el contenido del editor antes de enviar
       form.addEventListener('submit', (e) => {
-         // Sincroniza el contenido del editor con el textarea
-         CKEDITOR.instances['texto'].updateElement();
+         // Obtener la instancia del editor para el campo con ID 'texto'
+         const editor = CKEDITOR.instances['texto'];
+
+         // Sincronizar el contenido del editor con el textarea
+         if (editor) {
+            editor.updateElement();
+         }
       });
 
    </script>
