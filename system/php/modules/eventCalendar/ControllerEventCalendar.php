@@ -37,6 +37,5 @@ if (basename($_SERVER['PHP_SELF']) == 'eventsCalendar.php') {
     $tableEventCalendar = ServiceEventCalendar::getTableEventCalendar();
 }
 
-if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-    $cardEventCalendar = ServiceEventCalendar::getCardEventCalendar();
-}
+$cardEventCalendar = ServiceEventCalendar::getCardEventCalendar();
+
