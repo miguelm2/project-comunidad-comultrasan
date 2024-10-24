@@ -85,7 +85,7 @@ class ServiceAnswerUser extends System
     }
     public static function sendAnswerUserByMail($usuario, $administrador, $respuestas, $encuesta, $correo)
     {
-        if ($correo != '' && $correo != NULL) {
+        if ($correo != '' && $correo != NULL & filter_var($correo, FILTER_VALIDATE_EMAIL)) {
             $asunto = 'Respuestas del Usuario ' . $usuario . ' Recibidas';
             $mensaje = 'Estimado/a ' . $administrador . ',<br>
                 Este correo ha sido generado automáticamente para informarle que el usuario ' . $usuario . ' ha completado el formulario. <br>
