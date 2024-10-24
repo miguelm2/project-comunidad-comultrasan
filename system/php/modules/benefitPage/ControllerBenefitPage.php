@@ -40,6 +40,6 @@ if (isset($_GET['benefit_page'])) {
 if (basename($_SERVER['PHP_SELF']) == 'benefitsPage.php') {
     $tableBenfitPage  = ServiceBenefitPage::getTableBenefitPage();
 }
-if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
+if (basename($_SERVER['PHP_SELF']) == 'benefits.php' || basename($_SERVER['PHP_SELF']) == 'benefitsPublicPage.php') {
     $benefitPageIndex = ServiceBenefitPage::getCardBenefitsPage();
 }

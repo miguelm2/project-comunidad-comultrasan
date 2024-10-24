@@ -17,7 +17,7 @@
                   <a href="community" class="text-white ms-5" style="font-size: 18px;font-weight: 600;">Mi comunidad</a>
                </li>
                <li class="nav-item d-flex align-items-center p-1 ms-3">
-                  <a href="benefits" class="text-white" style="font-size: 18px;font-weight: 600;">Beneficios y recompensas</a>
+                  <a href="benefitsPublicPage" class="text-white" style="font-size: 18px;font-weight: 600;">Beneficios y recompensas</a>
                </li>
             </ul>
          </div>
