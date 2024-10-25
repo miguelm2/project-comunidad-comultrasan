@@ -30,6 +30,5 @@ if (basename($_SERVER['PHP_SELF']) == 'questions.php') {
     $tableQuestion = ServiceQuestion::getTableQuestion();
 }
 
-if (basename($_SERVER['PHP_SELF']) == 'index.php') {
-    $questionIndex = ServiceQuestion::getQuestionIndex();
-}
+$questionIndex = ServiceQuestion::getQuestionIndex();
+
