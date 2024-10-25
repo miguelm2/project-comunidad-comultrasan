@@ -106,10 +106,7 @@ class ServiceUser extends System
         Log::setLog($texto);
 
         // Verificar los resultados de la API y retornar según la lógica de negocio
-        if (!empty($result['RETCOD'])) {
-            return 1;
-        }
-        if ($result['CODEST'] != 1) {
+        if ($result['CODEST0'] == 1) {
             return 1;
         } else {
             return 2;
