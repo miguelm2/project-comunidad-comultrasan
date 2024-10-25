@@ -78,7 +78,7 @@ class ServiceUserCommunity extends System
                 Nos complace informarle que ha sido invitado(a) a unirse a nuestra aplicación, 
                 como parte de la comunidad $nombre_comunidad, creada por " . $_SESSION['nombre'] . ".<br><br>
                 Para aceptar la invitación y disfrutar de los beneficios que ofrece nuestra plataforma, 
-                le invitamos a registrarse en el siguiente enlace: " . self::getURL() . "/singup .<br><br>
+                le invitamos a registrarse en el siguiente enlace: " . self::getURLCorreoReferido() . "/singup .<br><br>
                 Agradecemos su interés y esperamos contar con su valiosa participación.<br><br>
                 Atentamente,<br> Financiera Comultrasan";
 
@@ -132,6 +132,14 @@ class ServiceUserCommunity extends System
         $host = $_SERVER['HTTP_HOST'];
         $script = $_SERVER['REQUEST_URI'];
         $url = $protocol . "://" . $host . $script;
+        return $url;
+    }
+
+    private static function getURLCorreoReferido()
+    {
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+        $host = $_SERVER['HTTP_HOST'];
+        $url = $protocol . "://" . $host;
         return $url;
     }
     public static function newUserCommunityJoin($id_usuario, $id_comunidad)
