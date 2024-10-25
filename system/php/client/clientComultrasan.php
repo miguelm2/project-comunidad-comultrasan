@@ -138,6 +138,6 @@ class RestCall
         }
 
         curl_close($request);
-        return $request;
+        return $data;
     }
 }
