@@ -19,7 +19,7 @@ class ServiceUserCommunity extends System
             $usuarioDTO = Usuario::getUserByCedula($cedula);
 
             if (!$usuarioDTO) {
-                Referido::newReferred($nombre, $cedula, 1, '', '', $correo, $celular, $_SESSION['nombre'], $_SESSION['tipo_documento'], $_SESSION['cedula'], 1, $_SESSION['id'], $fecha_registro);
+                Referido::newReferred($nombre, $cedula, 1, $celular, $_SESSION['nombre'], $_SESSION['tipo_documento'], $_SESSION['cedula'], 1, $_SESSION['id'], $fecha_registro);
                 self::enviarInvitacionCorreo($nombre, $nombre_comunidad, $correo);
                 Invitacion::newInvitation($_SESSION['id'], $nombre, $correo, $celular, $cedula, $fecha_registro);
                 return Elements::crearMensajeAlerta("El usuario ha sido referido, ya que no existe en la plataforma", "success");
