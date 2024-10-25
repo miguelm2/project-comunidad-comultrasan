@@ -58,7 +58,6 @@
                         <h5 class="text-success">Datos del Miembro</h5>
                         <p><strong>Nombre completo: </strong><?= $usuarioComunidadDTO->getUsuarioDTO()->getNombre() ?></p>
                         <p><strong>Correo: </strong><?= $usuarioComunidadDTO->getUsuarioDTO()->getCorreo() ?></p>
-                        <p><strong>Celular: </strong><?= $usuarioComunidadDTO->getUsuarioDTO()->getTelefono() ?></p>
                      </div>
                      <div class="col-md-6 d-grid">
                         <button type="submit" class="btn btn-success" name="acceptUser">
