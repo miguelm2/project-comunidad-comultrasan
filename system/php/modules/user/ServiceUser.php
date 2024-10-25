@@ -86,31 +86,42 @@ class ServiceUser extends System
         }
     }
 
-    private static function getUserByAPI($cedula)
-    {
-        $restCall = new RestCall();
+   private static function getUserByAPI($cedula)
+{
+    $restCall = new RestCall();
 
-         
-        $restCall->setHost("https://fcappshlab.comultrasan.com.co:8080/validador");
-        $restCall->setEndpoint("/shareppy/tx_validator.Proxy/executeProxy/923e6b7g-4048-5e8d-b818-8695c27e1ee3");
+    // Configurar los valores necesarios para la llamada a la API
+    $restCall->setHost("https://fcappshlab.comultrasan.com.co:8080/validador");
+    $restCall->setEndpoint("/shareppy/tx_validator.Proxy/executeProxy/923e6b7g-4048-5e8d-b818-8695c27e1ee3");
+    $restCall->setKey("8TfxinxvlVTlhs7wgR8CZ/haijQzsZay/4hrnU6uo0UGU43PyZINMH5N9/zG+MiJ8pnhDEpbV1h8ZpDtXUdxzQ==");
+    $restCall->setUser('KONDORY_LAB');
+    $restCall->add('CEDULA', $cedula);
 
-        $restCall->setKey("8TfxinxvlVTlhs7wgR8CZ/haijQzsZay/4hrnU6uo0UGU43PyZINMH5N9/zG+MiJ8pnhDEpbV1h8ZpDtXUdxzQ==");
-        $restCall->setUser('KONDORY_LAB');
-
-        $restCall->add('CEDULA', $cedula);
-
+    try {
+        // Ejecutar la llamada a la API y obtener el resultado
         $result = $restCall->run($cedula);
+
+        // Registrar la operación en el log
         $texto = "SELECT - USUARIO - " . $cedula . " ----> API de comultrasan";
         Log::setLog($texto);
-        if (!empty($result->RETCOD)) {
+
+        // Verificar los resultados de la API y retornar según la lógica de negocio
+        if (!empty($result['RETCOD'])) {
             return 1;
         }
-        if ($result->CODEST != 1) {
+        if ($result['CODEST'] != 1) {
             return 1;
         } else {
             return 2;
         }
+    } catch (RuntimeException $e) {
+        // Manejar errores de ejecución de la API y registrar en el log
+        $errorTexto = "Error al consultar usuario " . $cedula . ": " . $e->getMessage();
+        Log::setLog($errorTexto);
+        return 2; // Retornar un valor predeterminado en caso de error
     }
+}
+
     private static function enviarCorreoUnionComunidad($usuarioDTO, $correo)
     {
         $lastRegister = UsuarioComunidad::getUserCommunityByUserInactive($usuarioDTO->getId_usuario());
