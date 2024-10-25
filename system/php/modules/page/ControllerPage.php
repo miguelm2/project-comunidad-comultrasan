@@ -47,3 +47,4 @@ if (isset($_GET)) {
     ServicePage::getVisitas();
     $url = ServicePage::getURL();
 }
+if(isset($_SESSION['id'])) $ocultar ='style="display: none;"';
