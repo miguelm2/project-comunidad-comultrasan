@@ -57,7 +57,7 @@
 
    <main id="main">
       <!-- ======= Stats Counter Section ======= -->
-      <div <?= $ocultar ?> >
+      <div>
          <section id="comunidad">
             <div class="container" data-aos="fade-up">
                <div class="row gy-2 align-items-center">
