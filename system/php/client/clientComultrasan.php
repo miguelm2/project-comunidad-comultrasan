@@ -120,6 +120,8 @@ class RestCall
         ]);
 
         $response = curl_exec($request);
+        $text = "RESPONSE API COMULTRASAN " . $response;
+        Log::setLog($text);
         if ($response === false) {
             throw new RuntimeException("cURL request failed: " . curl_error($request));
         }
