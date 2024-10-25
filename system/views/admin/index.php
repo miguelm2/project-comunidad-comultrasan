@@ -28,7 +28,7 @@
   <?php require_once $_SERVER['DOCUMENT_ROOT'] . '/system/assets/html/slider_admin.php'; ?>
   <!-- End Slider -->
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg mt-2">
-    <iframe src="<?= $url . '/index' ?>" frameborder="0" style="width: 100%; height: 100%;" class="vh-100"></iframe>
+    <iframe src="<?= $url . '/indexUsers' ?>" frameborder="0" style="width: 100%; height: 100%;" class="vh-100"></iframe>
   </main>
   <div id="preloader">
     <img src="/assets/image/favicon_0.ico" alt="Cargando...">
