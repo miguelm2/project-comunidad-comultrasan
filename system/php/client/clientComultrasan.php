@@ -130,8 +130,6 @@ class RestCall
 
         if ($http_code === 200) {
             $data = json_decode($response, true);
-            $texto = "RESPONSE API: " . $data . " ----> API de comultrasan";
-            Log::setLog($texto);
             $this->result = $data;
         } else {
             throw new RuntimeException("Error occurred: HTTP Code $http_code");
