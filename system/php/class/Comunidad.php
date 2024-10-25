@@ -126,21 +126,15 @@ class Comunidad extends System
     public static function getCommunityByUser($id_usuario)
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT com.* 
-                                FROM Comunidad com
-                                WHERE com.id_usuario = :id_usuario
-                                UNION 
-                                SELECT com.*
+        $stmt = $dbh->prepare("SELECT com.*
                                 FROM Comunidad com,
                                     UsuarioComunidad uc,
                                     Usuario us
                                 WHERE us.id_usuario = com.id_usuario
-                                AND uc.id_usuario = :id_usuario1
+                                AND uc.id_usuario = :id_usuario
                                	AND com.id_comunidad = uc.id_comunidad
                                 AND uc.estado = 2");
         $stmt->bindParam(':id_usuario', $id_usuario);
-        $stmt->bindParam(':id_usuario1', $id_usuario);
-        $stmt->bindParam(':id_usuario2', $id_usuario);
         $stmt->execute();
         $result = $stmt->fetch();
         if ($result) {
