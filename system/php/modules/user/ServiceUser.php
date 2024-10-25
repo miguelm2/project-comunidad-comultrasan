@@ -35,9 +35,11 @@ class ServiceUser extends System
                 $fecha_registro = date('Y-m-d H:i:s');
 
                 $imagen = "default.png";
-                
-                    $estado = self::getUserByAPI($cedula);
-               
+                $text = "REGISTRO: " . $nombre. " - " . $correo . " ----> " . $cedula . " - " . $tipo_documento;
+                Log::setLog($text);
+                $estado = self::getUserByAPI($cedula);
+                $text = "REGISTRO API: " . $estado;
+
                 $result = Usuario::newUser(
                     $nombre,
                     $correo,
@@ -49,9 +51,13 @@ class ServiceUser extends System
                     $tipo_documento,
                     $fecha_registro
                 );
+                $text = "REGISTRO BD: " . $result;
+
 
                 // Si existe una invitación, gestionar unión a la comunidad
                 if ($invitacionDTO = Invitacion::getInvitationByCedula($cedula)) {
+                    $text = "REGISTRO INVITACION: " . $invitacionDTO;
+
                     $usuarioDTO = Usuario::getUserByCedula($cedula);
                     $referidoDTO = Referido::getReferredByCedula($cedula);
                     $comunidadDTO = Comunidad::getCommunityByUser($referidoDTO->getId_usuario());
