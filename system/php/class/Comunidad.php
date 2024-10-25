@@ -136,7 +136,7 @@ class Comunidad extends System
                                     Usuario us
                                 WHERE us.id_usuario = com.id_usuario
                                 AND uc.id_usuario = :id_usuario1
-                                AND com.id_usuario != :id_usuario2
+                               	AND com.id_comunidad = uc.id_comunidad
                                 AND uc.estado = 2");
         $stmt->bindParam(':id_usuario', $id_usuario);
         $stmt->bindParam(':id_usuario1', $id_usuario);
