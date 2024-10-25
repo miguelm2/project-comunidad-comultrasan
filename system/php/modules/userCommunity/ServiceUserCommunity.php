@@ -23,9 +23,8 @@ class ServiceUserCommunity extends System
                 self::enviarInvitacionCorreo($nombre, $nombre_comunidad, $correo);
                 Invitacion::newInvitation($_SESSION['id'], $nombre, $correo, $celular, $cedula, $fecha_registro);
                 return Elements::crearMensajeAlerta("El usuario ha sido referido, ya que no existe en la plataforma", "success");
-            }
+            }else{
             $id_usuario = $usuarioDTO->getId_usuario();
-
             $comunidadDTO = Comunidad::getCommunity($id_comunidad);
 
             if (!$comunidadDTO) {
@@ -67,6 +66,8 @@ class ServiceUserCommunity extends System
                 Mail::sendEmail($asunto, $mensaje, $correo);
                 return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "success");
             }
+            }
+            
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
