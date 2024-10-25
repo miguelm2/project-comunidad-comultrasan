@@ -86,15 +86,16 @@ class ServiceUser extends System
     {
         $restCall = new RestCall();
 
+         
         $restCall->setHost("https://fcappshlab.comultrasan.com.co:8080/validador");
-        $restCall->setEndpoint("consulta_asociado_knd");
+        $restCall->setEndpoint("/shareppy/tx_validator.Proxy/executeProxy/923e6b7g-4048-5e8d-b818-8695c27e1ee3");
+
         $restCall->setKey("8TfxinxvlVTlhs7wgR8CZ/haijQzsZay/4hrnU6uo0UGU43PyZINMH5N9/zG+MiJ8pnhDEpbV1h8ZpDtXUdxzQ==");
         $restCall->setUser('KONDORY_LAB');
 
-        $restCall->add('NRONIT', $cedula);
+        $restCall->add('CEDULA', $cedula);
 
-        $result = $restCall->run();
-        $valor = $restCall->get('8TfxinxvlVTlhs7wgR8CZ/haijQzsZay/4hrnU6uo0UGU43PyZINMH5N9/zG+MiJ8pnhDEpbV1h8ZpDtXUdxzQ==');
+        $result = $restCall->run($cedula);
         $texto = "SELECT - USUARIO - " . $cedula . " ----> API de comultrasan";
         Log::setLog($texto);
         if (!empty($result->RETCOD)) {

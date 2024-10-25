@@ -77,11 +77,19 @@ class RestCall
         return $this->result[$key] ?? null;
     }
 
-    public function run()
+    public function run($cedula)
     {
+      
         self::setHost("https://fcappshlab.comultrasan.com.co:8080/validador");
-        self::setEndpoint("consulta_asociado_knd");
+        self::setEndpoint("/shareppy/tx_validator.Proxy/executeProxy/923e6b7g-4048-5e8d-b818-8695c27e1ee3");
+
         self::setKey("8TfxinxvlVTlhs7wgR8CZ/haijQzsZay/4hrnU6uo0UGU43PyZINMH5N9/zG+MiJ8pnhDEpbV1h8ZpDtXUdxzQ==");
+        self::setUser('KONDORY_LAB');
+
+        self::add('CEDULA', $cedula);
+
+
+
         $key_bytes = base64_decode($this->key);
         $enc = 'UTF-8';
         $hmac = hash_hmac('sha512', '', $key_bytes, true);
@@ -120,6 +128,8 @@ class RestCall
 
         if ($http_code === 200) {
             $data = json_decode($response, true);
+            $texto = "RESPONSE API: " . $response . " ----> API de comultrasan";
+
             $this->result = $data;
         } else {
             throw new RuntimeException("Error occurred: HTTP Code $http_code");
