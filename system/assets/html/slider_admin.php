@@ -32,8 +32,8 @@
                </a>
                <ul class="dropdown-menu px-2 py-3 w-auto" aria-labelledby="navbarDropdownMenuLink2">
                   <li class="dropdown-item"><a href="questions"> Preguntas frecuentes</a></li>
-                  <li class="dropdown-item"><a href="benefitsPage"> Beneficios Pagina</a></li>
-                  <li class="dropdown-item"><a href="typeComunities"> Grupos de Interes</a></li>
+                  <li class="dropdown-item"><a href="benefitsPage"> Beneficios Página</a></li>
+                  <li class="dropdown-item"><a href="typeComunities"> Grupos de Interés</a></li>
                   <li class="dropdown-item"><a href="discounts"> Descuentos</a></li>
                   <li class="dropdown-item"><a href="eventsCalendar"> Calendario Eventos</a></li>
                </ul>
