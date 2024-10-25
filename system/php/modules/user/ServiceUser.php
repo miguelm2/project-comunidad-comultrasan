@@ -35,7 +35,7 @@ class ServiceUser extends System
                 $fecha_registro = date('Y-m-d H:i:s');
 
                 $imagen = "default.png";
-                if (isset($_SESSION['usuario']) && $_SESSION['usuario'] != "Administrador") {
+                if (!isset($_SESSION['usuario']) && $_SESSION['usuario'] != "Administrador") {
                     $estado = self::getUserByAPI($cedula);
                 } else {
                     $estado = 1;
