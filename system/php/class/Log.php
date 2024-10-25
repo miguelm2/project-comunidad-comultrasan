@@ -33,7 +33,13 @@ class Log
                 case 2:
                     $file = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_LOG_MANAGER;
                     break;
+                default:
+                 $file = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_LOG_USER;
+                break;
+
             }
+        }else{
+            $file = $_SERVER['DOCUMENT_ROOT'] . Path::$DIR_LOG_USER;
         }
 
 
