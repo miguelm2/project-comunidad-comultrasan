@@ -41,31 +41,7 @@
 
    <main id="main">
       <!-- ======= Stats Counter Section ======= -->
-      <div>
-         <section id="comunidad">
-            <div class="container" data-aos="fade-up">
-               <div class="row gy-2 align-items-center">
-                  <div class="col-lg-3">
-                     <img src="assets/image/joven.png" alt="" class="img-fluid rounded-4 img-young">
-                  </div>
-                  <div class="col-lg-9">
-                     <div class="position-relative">
-                        <h2 class="text-pri text-start"><strong>¡Imagina un lugar donde tus pasiones se recompensan y tus intereses te conectan con otros!</strong></h2>
-                        <p class="text-black text-start" style="font-size: 20px;">
-                           La Comunidad Comultrasan es un espacio lleno de oportunidades para aprender y crecer
-                           junto a personas que comparten tus mismos gustos, donde cada interacción te acerca a
-                           recompensas exclusivas y descuentos tentadores, haciendo que cada logro sea una celebración compartida.
-                           <br><br>
-                           Aquí Financiera Comultrasan te ofrece una experiencia enriquecedora con beneficios
-                           diseñandos para mejorar tu calidad de vida y la de las personas que más amas. <br>
-                           ¡Es un mundo de posibilidades esperando ser descubiertos por ti!
-                        </p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </section>
-      </div>
+      
       <!-- ======= Our Services Section ======= -->
       <section class="services sections-bg bg-light">
          <div class="container mt-2 p-2">
