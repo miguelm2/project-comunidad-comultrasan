@@ -679,7 +679,6 @@
    <script src="/system/assets/vendor/jquery/jquery.min.js"></script>
    <script src="/system/js/modalEliminar.js"></script>
    <?= $response ?>
-   </script>
 </body>
 
 </html>
