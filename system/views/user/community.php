@@ -99,8 +99,8 @@
          <div class="card-head mt-2 ms-4">
             <h5 class="text-success">Reconocemos tus logros y los de tu comunidad</h5>
          </div>
-         <div class="row">
-            <div class="col-md-7">
+         <div class="row m-0">
+            <div class="col-md-12">
                <p class="ms-3 text-black">
                   En la Comunidad Comultrasan, premiamos tu lealtad y compromiso con beneficios
                   exclusivos. Valoramos tu participación y queremos ofrecerte una experiencia
@@ -139,109 +139,6 @@
                         </div>
                      </a>
                   </div>
-               </div>
-            </div>
-            <?= $cardRest ?>
-         </div>
-      </div>
-      <div class="card mt-2 border-2" id="exploraYaprende">
-         <div class="card-head">
-            <h5 class="text-success ms-3 mt-2">Explora y Aprende</h5>
-         </div>
-         <div class="card-body">
-            <div class="row justify-content-center align-content-center">
-               <div class="col-md-3">
-                  <a href="">
-                     <div class="card border-2 h-100">
-                        <img src="/assets/img/comunidad/comunida_creada.png" alt="Comunidad"
-                           class="img-fluid rounded-2">
-                        <div class="card-body">
-                           <h6 class="text-success text-center">Crea tu comunidad</h6>
-                           <p class=" ms-2">
-                              Crea tu comunidad y comparte tus retos y recompensas con tus personas más especiales
-                           </p>
-                        </div>
-                     </div>
-                  </a>
-               </div>
-               <div class="col-md-3">
-                  <a href="profile">
-                     <div class="card border-2 h-100">
-                        <img src="/assets/img/comunidad/completar_perfil.png" alt="Perfil" class="img-fluid rounded-2">
-                        <div class="card-body">
-                           <h6 class="text-success text-center">Completar tu perfil</h6>
-                           <p class=" ms-2">
-                              Completa tu perfil y empieza a acumular corazones.
-                           </p>
-                        </div>
-                     </div>
-                  </a>
-               </div>
-               <div class="col-md-3">
-                  <a href="survey?survey=9">
-                     <div class="card border-2 h-100">
-                        <img src="/assets/img/comunidad/gustos.png" alt="Gustos" class="img-fluid rounded-2">
-                        <div class="card-body">
-                           <h6 class="text-success text-center">Cuéntanos tus gustos e intereses</h6>
-                           <p class=" ms-2">
-                              Permítenos conocerte mejor para diseñar experiencias para ti y tu comunidad.
-                           </p>
-                        </div>
-                     </div>
-                  </a>
-               </div>
-               <div class="col-md-3">
-                  <a href="survey?survey=5">
-                     <div class="card border-2 h-100">
-                        <img src="/assets/img/comunidad/reto.png" alt="Reto" class="img-fluid rounded-2">
-                        <div class="card-body">
-                           <h6 class="text-success text-center">Reto Educación Financiera</h6>
-                           <p class=" ms-2">
-                              Fortalece tus conocimientos y gana más &#10084;
-                           </p>
-                        </div>
-                     </div>
-                  </a>
-               </div>
-               <div class="col-md-3 mt-2">
-                  <a href="survey?survey=2">
-                     <div class="card border-2 h-100">
-                        <img src="/assets/img/comunidad/trivia.png" alt="Trivia" class="img-fluid rounded-2">
-                        <div class="card-body">
-                           <h6 class="text-success text-center">Trivia de economía solidaria</h6>
-                           <p class=" ms-2">
-                              Conoce el fascinante mundo solidario y sigue ganando recompensas.
-                           </p>
-                        </div>
-                     </div>
-                  </a>
-               </div>
-               <div class="col-md-3 mt-2">
-                  <a href="survey?survey=3">
-                     <div class="card border-2">
-                        <img src="/assets/img/comunidad/recompensas.png" alt="Recompensas" class="img-fluid rounded-2">
-                        <div class="card-body">
-                           <h6 class="text-success text-center">Trivia de programa de recompensas</h6>
-                           <p class=" ms-2">
-                              Conoce el fascinante mundo solidario y sigue ganando recompensas.
-                           </p>
-                        </div>
-                     </div>
-                  </a>
-               </div>
-               <div class="col-md-3 mt-2">
-                  <a href="survey?survey=10">
-                     <div class="card border-2">
-                        <img src="/assets/img/comunidad/programa_referidos.png" alt="Refereidos"
-                           class="img-fluid rounded-2">
-                        <div class="card-body">
-                           <h6 class="text-success text-center">Trivia de programa de referidos</h6>
-                           <p class=" ms-2">
-                              Conoce el fascinante mundo solidario y sigue ganando recompensas.
-                           </p>
-                        </div>
-                     </div>
-                  </a>
                </div>
             </div>
          </div>

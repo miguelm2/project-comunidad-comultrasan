@@ -706,7 +706,7 @@ class Elements
     }
     public static function getHtmlCards($total_points, $posicion, $comunidades)
     {
-        return  '<div class="col-md-5">
+        return  '<div class="col-md-5 m-auto">
                     <div class="card border-2" style="background: #58B9AB">
                         <div class="card-head mt-2">
                             <h5 class="text-white text-center">Tabla de recompensas</h5>

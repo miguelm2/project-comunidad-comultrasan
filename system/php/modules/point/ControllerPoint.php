@@ -43,6 +43,8 @@ if (basename($_SERVER['PHP_SELF']) == 'points.php') {
 }
 
 if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
+    $cardRest = ServiceCommunity::getRestHmtl();
+    $tablePointsByUserLider = ServicePoint::listTablePointsUserByUserLider();
     $tablePointsByUser = ServicePoint::listTablePointsUserByUser();
 }
 
