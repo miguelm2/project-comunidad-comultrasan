@@ -443,9 +443,17 @@
                                  required>
                            </div>
                         </div>
-                        <div>
-                           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+                        <div class="col-md-12">
+                           <div class="checkbox-container">
+                              <input type="checkbox" name="tratamiento" id="tratamiento" required
+                                 oninvalid="this.setCustomValidity('Por favor declara que cuentas con autorización de tu referido para suministrar sus datos personales')"
+                                 oninput="this.setCustomValidity('')">
+                              <label for="tratamiento" class="text-black">
+                                 Declaro que cuento con autorización por parte de mi referido para suministrar sus datos personales
+                              </label>
+                           </div>
                         </div>
+                        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>" hidden>
                      </div>
                   </div>
                   <div class="modal-footer">
@@ -498,6 +506,16 @@
                                     (Máximo de caracteres: 255)</small></label>
                               <input type="mail" name="correo" class="form-control border p-1" id="correo"
                                  maxlength="255" placeholder="Correo">
+                           </div>
+                        </div>
+                        <div class="col-md-12">
+                           <div class="checkbox-container">
+                              <input type="checkbox" name="tratamiento" id="tratamiento" required
+                                 oninvalid="this.setCustomValidity('Por favor declara que cuentas con autorización de tu referido para suministrar sus datos personales')"
+                                 oninput="this.setCustomValidity('')">
+                              <label for="tratamiento" class="text-black">
+                                 Declaro que cuento con autorización por parte de mi referido para suministrar sus datos personales
+                              </label>
                            </div>
                         </div>
                      </div>
