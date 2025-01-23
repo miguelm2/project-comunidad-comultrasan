@@ -28,6 +28,7 @@ if (isset($_GET['answerQuestion'])) {
 
 if (isset($_GET['survey'])) {
     $cardQuestionUser = ServiceAnswerQuestion::getCardsQuetionAndAnwer($_GET['survey']);
+    $survey = ServiceSurvey::getSurvey($_GET['survey']);
 }
 
 if (basename($_SERVER['PHP_SELF']) == 'surveyQuestion.php') {

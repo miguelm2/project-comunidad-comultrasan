@@ -95,55 +95,7 @@
             </div>
          </div>
       </div>
-      <div class="card border-2 mt-2 pb-3">
-         <div class="card-head mt-2 ms-4">
-            <h5 class="text-success">Reconocemos tus logros y los de tu comunidad</h5>
-         </div>
-         <div class="row m-0">
-            <div class="col-md-12">
-               <p class="ms-3 text-black">
-                  En la Comunidad Comultrasan, premiamos tu lealtad y compromiso con beneficios
-                  exclusivos. Valoramos tu participación y queremos ofrecerte una experiencia
-                  enriquecedora y memorable. Tú y tu comunidad pueden crecer, aprender y obtener
-                  recompensas alcanzando los retos que nuestra comunidad propone en estos dos pilares.
-               </p>
-               <div class="row">
-                  <div class="col-md-6">
-                     <a href="#exploraYaprende">
-                        <div class="card border-2 ms-2 h-100">
-                           <div class="card-head">
-                              <h5 class="text-success ms-3 mt-2">Explora y aprende</h5>
-                           </div>
-                           <div class="card-body">
-                              <p>
-                                 Acumula corazones al completar actividades educativas en nuestra
-                                 plataforma. Mejora tu educación financiera y canjea corazones
-                                 por beneficios.
-                              </p>
-                           </div>
-                        </div>
-                     </a>
-                  </div>
-                  <div class="col-md-6">
-                     <a href="#invitaYgana">
-                        <div class="card border-2 h-100">
-                           <div class="card-head">
-                              <h5 class="text-success ms-3 mt-2">Invita y gana</h5>
-                           </div>
-                           <div class="card-body">
-                              <p>
-                                 Gana corazones haciendo crecer la comunidad e incrementando tus saldos.
-                                 Valorizamos y recompensamos tu esfuerzo.
-                              </p>
-                           </div>
-                        </div>
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="card mt-2 border-2 tamano_card" id="invitaYgana">
+      <div class="card mt-2 border-2 tamano_card" id="invitaYgana" hidden>
          <div class="card-head">
             <h5 class="text-success ms-3 mt-2">Invita y Gana</h5>
          </div>

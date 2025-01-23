@@ -331,10 +331,10 @@ class ServiceCommunity extends System
 
             $buttonHtml = '
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4" hidden>
                         <h4 class="text-success">Miembros</h4>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-7 ms-auto text-end">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUserComm">
                             <i class="material-icons me-2">add</i> Agregar Miembro
                         </button>

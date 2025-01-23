@@ -71,10 +71,50 @@ class Punto extends System
         }
         return $listResponse;
     }
-    public static function listPointByUser($id_usuario)
+    public static function listPointByUserLider($id_usuario, $query = "")
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM Punto WHERE id_usuario = :id_usuario");
+        $stmt = $dbh->prepare("SELECT pun.* 
+                                FROM 
+                                    Punto pun,
+                                    Comunidad com,
+                                    UsuarioComunidad UCom,
+                                    Usuario us
+                                WHERE com.id_usuario = :id_usuario
+                                AND UCom.id_usuario = com.id_comunidad
+                                AND UCom.id_usuario = pun.id_usuario
+                                AND us.id_usuario = pun.id_usuario".
+                                $query);
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        $modelResponse = $stmt->fetchAll();
+
+        $listResponse = array();
+        $con = 0;
+        foreach ($modelResponse as $result) {
+            $puntoDTO = new PuntoDTO();
+
+            $puntoDTO->setId_punto($result['id_punto']);
+            $puntoDTO->setPuntos($result['puntos']);
+            $puntoDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $puntoDTO->setAdministradorDTO(Administrador::getAdministradorById($result['id_administrador']));
+            $puntoDTO->setDescripcion($result['descripcion']);
+            $puntoDTO->setFecha_registro($result['fecha_registro']);
+            $listResponse[$con] = $puntoDTO;
+            $con++;
+        }
+        return $listResponse;
+    }
+    public static function listPointByUser($id_usuario, $query = '')
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT pun.* 
+                                FROM 
+                                    Punto pun,
+                                    Usuario us
+                                WHERE pun.id_usuario = :id_usuario
+                                AND us.id_usuario = pun.id_usuario
+                                ". $query);
         $stmt->bindParam(':id_usuario', $id_usuario);
         $stmt->execute();
         $modelResponse = $stmt->fetchAll();

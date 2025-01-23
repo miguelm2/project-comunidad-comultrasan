@@ -155,38 +155,51 @@ class ServicePoint extends System
             throw new Exception($e->getMessage());
         }
     }
-    public static function listTablePointsUserByUserLider()
+    public static function listTablePointsUserByUserLider($nombre = '', $fecha = '')
     {
         try {
             $tableHtml = "";
-            $id_usuario = $_SESSION['id'];
-            $modelResponse = Punto::listPointByUser($id_usuario);
+            $id_usuario_session = $_SESSION['id'];
+            $comunidad = Comunidad::getCommunityByUserLider($id_usuario_session);
+            $id_usuario = $comunidad ? $comunidad->getUsuarioDTO()->getId_usuario(): null;
+            $nombre = parent::limpiarString($nombre);
+            $fecha = parent::limpiarString($fecha);
+            $query = ''; //filtros
+            if(!empty($nombre)) $query .= " AND us.nombre LIKE '%". $nombre . "%'";
+            if(!empty($fecha)) $query .= " AND pun.fecha_registro >= '". $fecha . "'";
+            $modelResponse = Punto::listPointByUserLider($id_usuario, $query);
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
                     $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
                     $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
                     $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
                     $tableHtml .= '</tr>';
                 }
             } else {
-                return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+                // return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+                return empty($query) ? null : '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
             }
             return $tableHtml;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
-    public static function listTablePointsUserByUser()
+    public static function listTablePointsUserByUser($nombre = '', $fecha = '')
     {
         try {
             $tableHtml = "";
             $id_usuario = $_SESSION['id'];
-            $modelResponse = Punto::listPointByUser($id_usuario);
+            $nombre = parent::limpiarString($nombre);
+            $fecha = parent::limpiarString($fecha);
+            $query = ''; //filtros
+            if(!empty($nombre)) $query .= " AND us.nombre LIKE '%". $nombre . "%'";
+            if(!empty($fecha)) $query .= " AND pun.fecha_registro >= '". $fecha . "'";
+            $modelResponse = Punto::listPointByUser($id_usuario, $query);
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
                     $tableHtml .= '<tr>';
-                    $tableHtml .= '<td>' . $valor->getAdministradorDTO()->getNombre() . '</td>';
+                    $tableHtml .= '<td>' . $valor->getUsuarioDTO()->getNombre() . '</td>';
                     $tableHtml .= '<td>' . $valor->getPuntos() . '</td>';
                     $tableHtml .= '<td class="text-wrap">' . $valor->getDescripcion() . '</td>';
                     $tableHtml .= '</tr>';

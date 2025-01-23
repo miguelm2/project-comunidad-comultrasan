@@ -75,28 +75,32 @@
                         </div>
                      </div>
                   </div>
-                  <div class="col-md-7 mt-3">
+                  <div class="col-md-12 mt-3">
                      <div class="card border-3">
-                        <div class="card-body pt-0 mt-2">
-                           <img src="<?= Path::$DIR_IMAGE_TYPE_COM . $groupInterest->getImagen() ?>" alt="Imagen_grupo" class="img-fluid">
-                           <p class="card-text text-black">
-                              <?= $groupInterest->getContenido() ?>
-                           </p>
+                        <div class="card-body pt-0 mt-2 row">
+                           <div class="col-md-5 m-auto">
+                              <img src="<?= Path::$DIR_IMAGE_TYPE_COM . $groupInterest->getImagen() ?>" alt="Imagen_grupo" class="img-fluid rounded">
+                           </div>
+                           <div class="col-md-7">
+                              <p class="card-text text-black">
+                                 <?= $groupInterest->getContenido() ?>
+                              </p>
+                           </div>
                         </div>
                      </div>
                   </div>
-                  <div class="col-md-5 mt-3">
+                  <!-- <div class="col-md-5 mt-3"  id="card-1">
                      <div class="card border-3">
                         <div class="card-head">
                            <h5 class="text-success mt-2 ms-2">
                               Eventos del grupo de interes
                            </h5>
                            <div class="card-body">
-                              <?= $cardEventCalendarGroup ?>
+                              Cargando...
                            </div>
                         </div>
                      </div>
-                  </div>
+                  </div> -->
                   <div class="col-md-12">
                      <?= $cardSection ?>
                   </div>
@@ -123,6 +127,15 @@
    <script src="/system/assets/vendor/swal/sweetalert.min.js"></script>
    <script src="/system/js/selectRepeat.js"></script>
    <?= $response ?>
+
+   <script>
+      $(document).ready(function() {
+         $('#referentByID-1').append(`<?= $cardEventCalendarGroup ?>`);
+         setTimeout(() => {
+            $('#referentByID-1').html(`<?= $cardEventCalendarGroup ?>`);
+         }, 3000);
+      });
+   </script>
 </body>
 
 </html>
