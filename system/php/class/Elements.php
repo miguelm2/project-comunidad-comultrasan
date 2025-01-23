@@ -609,6 +609,7 @@ class Elements
     public static function getCardsEventsByGroup($fecha, $titulo, $hora, $lugar)
     {
         return '
+        
             <div class="card pt-1 border-2 mt-2">
                 <div class="row">
                     <div class="col-md-4 justify-content-center align-content-center">
@@ -684,30 +685,35 @@ class Elements
         </div>
         ';
     }
-    public static function getCardSection($nombre, $descripcion, $imagen)
+    public static function getCardSection($nombre, $descripcion, $imagen, $id = 2)
     {
+        $colClass = ($id > 1) ? "12" : "6";
+        $rowClass = ($id > 1) ? "" : "flex-md-column-reverse";
         return '
-            <div class="card mt-3 border-2" id="' . $nombre . '">
-                <div class="card-head">
-                    <h5 class="text-success ms-3 mt-2">
-                        ' . $nombre . '
-                    </h5>
+            <div class="card d-flex flex-md-row  mt-3 border-2" id="' . $nombre . '">
+                <div class="col-md-'. $colClass .'">
+                    <div class="card-head">
+                        <h5 class="text-success ms-3 mt-2">
+                            ' . $nombre . '
+                        </h5>
+                    </div>
+                    <div class="row '. $rowClass .'">
+                        <div class="ms-3 col-md-'. (($id > 1) ? "7" : "12") .'">
+                            ' . $descripcion . '
+                        </div>
+                        <div class=" mb-2 col-md-'. (($id > 1) ? "4" : "8") .' mx-auto">
+                            <img src="' . Path::$DIR_IMAGE_SECTION . $imagen . '" alt="img-section" class="img-fluid rounded">
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-7 ms-3">
-                        ' . $descripcion . '
-                    </div>
-                    <div class="col-md-4 mb-2">
-                        <img src="' . Path::$DIR_IMAGE_SECTION . $imagen . '" alt="" class="img-fluid" alt="img-section">
-                    </div>
+                <div id="referentByID-'. $id . '" class="col-md-'. $colClass .' px-5">
                 </div>
             </div>
         ';
     }
     public static function getHtmlCards($total_points, $posicion, $comunidades)
     {
-        return  '<div class="col-md-5">
-                    <div class="card border-2" style="background: #58B9AB">
+        return  '<div class="card border-2" style="background: #58B9AB">
                         <div class="card-head mt-2">
                             <h5 class="text-white text-center">Tabla de recompensas</h5>
                         </div>

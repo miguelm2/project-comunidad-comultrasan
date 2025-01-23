@@ -42,7 +42,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
                <div class="row">
                   <div class="col-md-10">
                      <h5 class="text-success">
-                        Realizar Encuesta
+                        Encuesta: <?php echo !empty($survey->getNombre()) ? $survey->getNombre() : ""?>
                      </h5>
                   </div>
                   <div class="col-md-2 mt-0">

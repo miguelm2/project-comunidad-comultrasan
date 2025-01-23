@@ -150,6 +150,31 @@ class Comunidad extends System
         }
         return null;
     }
+    public static function getCommunityByUserLider($id_usuario)
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT com.*
+                                FROM Comunidad com,
+                                    UsuarioComunidad uc,
+                                    Usuario us
+                                WHERE us.id_usuario = com.id_usuario
+                                AND com.id_usuario = :id_usuario");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if ($result) {
+            $comunidadDTO = new ComunidadDTO();
+
+            $comunidadDTO->setId_comunidad($result['id_comunidad']);
+            $comunidadDTO->setNombre($result['nombre']);
+            $comunidadDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $comunidadDTO->setEstado($result['estado']);
+            $comunidadDTO->setFecha_registro($result['fecha_registro']);
+
+            return $comunidadDTO;
+        }
+        return null;
+    }
     public static function getCommunityByUserType($id_usuario)
     {
         $dbh  = parent::Conexion();

@@ -170,7 +170,7 @@ class ServiceSectionTypeCommunity extends System
             $modelResponse = SeccionTipoComunidad::listSectionTypeCommunityByTypeCommunity($id_grupo);
             $html = '';
             foreach ($modelResponse as $valor) {
-                $html .= Elements::getCardSection($valor->getNombre(), $valor->getDescripcion(), $valor->getImagen());
+                $html .= Elements::getCardSection($valor->getNombre(), $valor->getDescripcion(), $valor->getImagen(), $valor->getId_seccion());
             }
             return $html;
         } catch (\Exception $e) {

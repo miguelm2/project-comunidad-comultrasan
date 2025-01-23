@@ -43,7 +43,18 @@ if (basename($_SERVER['PHP_SELF']) == 'points.php') {
 }
 
 if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
+    $cardRest = ServiceCommunity::getRestHmtl();
+    $tablePointsByUserLider = ServicePoint::listTablePointsUserByUserLider();
     $tablePointsByUser = ServicePoint::listTablePointsUserByUser();
+}
+
+if (isset($_POST['getTableHistorialCorazonesLider'])) {
+    $tablePointsByUserLider = ServicePoint::listTablePointsUserByUserLider($_POST['nombre'], $_POST['fecha_inicio']);
+    echo $tablePointsByUserLider;
+}
+if (isset($_POST['getTableHistorialCorazonesuser'])) {
+    $tablePointsByUserLider = ServicePoint::listTablePointsUserByUser($_POST['nombre'], $_POST['fecha_inicio']);
+    echo $tablePointsByUserLider;
 }
 
 if (basename($_SERVER['PHP_SELF']) == 'index.php') {

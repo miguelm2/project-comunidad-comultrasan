@@ -20,7 +20,7 @@
                   <a href="users" class="text-white" style="font-size: 18px;font-weight: 600;">Información personal</a>
                </li>
                <li class="nav-item d-flex align-items-center p-1 ms-3">
-                  <a href="referralds" class="text-white" style="font-size: 18px;font-weight: 600;">Referidos</a>
+                  <a href="referrals" class="text-white" style="font-size: 18px;font-weight: 600;">Referidos</a>
                </li>
             </ul>
          </div>

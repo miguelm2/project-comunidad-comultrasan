@@ -191,7 +191,11 @@ class ServiceEventCalendar extends System
         try {
             $id_grupo = parent::limpiarString($id_grupo);
             $modelResponse = CalendarioEvento::listEventCalendarByGroupInterest($id_grupo);
-            $html = '';
+            $html = '<div class="card-head">
+                           <h5 class="text-success mt-2 ms-2">
+                              Eventos del grupo de interes
+                           </h5>
+                           <div class="card-body">';
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
                     $fecha = self::getDateInWords($valor->getFecha());
@@ -205,6 +209,10 @@ class ServiceEventCalendar extends System
             } else {
                 $html .= '<div>No hay eventos disponibles en este momento</div>';
             }
+            $html .= '
+                    </div>
+                </div>
+            ';
             return $html;
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());

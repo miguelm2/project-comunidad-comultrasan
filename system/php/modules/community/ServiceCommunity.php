@@ -158,7 +158,12 @@ class ServiceCommunity extends System
     {
         try {
             $id_usuario = $_SESSION['id'];
-            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+            $comunidadDTO = Comunidad::getCommunityByUserLider($id_usuario); //consulta usuario lider de tabla Comunidad
+            $tipo_user = 0; //identificar al usuario lider con 1
+            if(!$comunidadDTO) {
+                $comunidadDTO = Comunidad::getCommunityByUser($id_usuario); //consulta usuario miembro de tabla UsuarioComunidad
+                $tipo_user = 1; //identificar al usuario miembro con 0
+            }
 
             if (!$comunidadDTO) {
                 return Elements::getUnitedCommunity();
@@ -179,13 +184,13 @@ class ServiceCommunity extends System
                 $count,
                 $fecha,
                 $comunidadDTO->getId_comunidad(),
-                $ranking['total_puntos'] + $puntos,
+                ($ranking['total_puntos'] ?? 0) + $puntos,
                 $btnEditar
             );
 
             $html .= '</div><div class="col-md-5">';
-            $html .= Elements::getCardUserInCommunity($comunidadDTO->getUsuarioDTO()->getNombre(), '', '<i class="material-icons me-2">favorite</i>Total: ' . $puntos);
-            $html .= self::getCommunityMembers($comunidadDTO->getId_comunidad(), $isLeader);
+            $html .= $tipo_user != 0 ? '' : Elements::getCardUserInCommunity($comunidadDTO->getUsuarioDTO()->getNombre(), '', '<i class="material-icons me-2">favorite</i>Total: ' . $puntos);
+            $html .= $tipo_user != 0 ? '' : self::getCommunityMembers($comunidadDTO->getId_comunidad(), $isLeader);
             $html .= self::getBenefitByComunity();
 
             $btnSalir = $isLeader ?
@@ -209,7 +214,7 @@ class ServiceCommunity extends System
     {
         try {
             $id_usuario = $_SESSION['id'];
-            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+            $comunidadDTO = Comunidad::getCommunityByUserLider($id_usuario) ?? Comunidad::getCommunityByUser($id_usuario);
 
             if (!$comunidadDTO) {
                 return '<div class="col-md-5"><h5 class="text-black">Debes unirte a una Comunidad</h5></div>';
@@ -219,7 +224,7 @@ class ServiceCommunity extends System
             $html = '';
             $ranking = Comunidad::getRankingByCommunity($comunidadDTO->getId_comunidad());
             $puntos = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
-            $html .= Elements::getHtmlCards($ranking['total_puntos'] + $puntos, $ranking['posicion'], $ranking['total_comunidades']);
+            $html .= Elements::getHtmlCards(($ranking['total_puntos'] ?? 0) + $puntos, ($ranking['posicion'] ?? 0), ($ranking['total_comunidades'] ?? 0));
 
             $html .= Elements::getCardUserInCommunityRanking($comunidadDTO->getUsuarioDTO()->getNombre(), $comunidadDTO->getUsuarioDTO()->getImagen(), $puntos, 0);
             $html .= self::getCommunityRanking($comunidadDTO->getId_comunidad());
@@ -234,7 +239,7 @@ class ServiceCommunity extends System
     {
         try {
             $id_usuario = $_SESSION['id'];
-            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+            $comunidadDTO = Comunidad::getCommunityByUserLider($id_usuario) ?? Comunidad::getCommunityByUser($id_usuario);
 
             if (!$comunidadDTO) {
                 return [
@@ -318,7 +323,7 @@ class ServiceCommunity extends System
     {
         try {
             $id_usuario = $_SESSION['id'];
-            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+            $comunidadDTO = Comunidad::getCommunityByUserLider($id_usuario) ?? Comunidad::getCommunityByUser($id_usuario);
 
             if (!$comunidadDTO) {
                 return '';
@@ -326,10 +331,10 @@ class ServiceCommunity extends System
 
             $buttonHtml = '
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4" hidden>
                         <h4 class="text-success">Miembros</h4>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-7 ms-auto text-end">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newUserComm">
                             <i class="material-icons me-2">add</i> Agregar Miembro
                         </button>
