@@ -21725,6 +21725,10 @@ fieldset:disabled .btn {
   background-image: none !important;
 }
 
+.sidenav {
+  z-index: 10;
+}
+
 .dark-version .sidenav {
   background: #1f283e !important;
 }
