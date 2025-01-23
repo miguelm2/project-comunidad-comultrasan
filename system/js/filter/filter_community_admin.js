@@ -20,7 +20,6 @@ function getTableFilter() {
     }).done(function (data) {
 
         let response = JSON.parse(data);
-        console.log(response);
 
         renderDataTable(response);
     });
