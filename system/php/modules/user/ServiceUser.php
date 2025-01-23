@@ -488,7 +488,7 @@ class ServiceUser extends System
             }
 
             if ($cedula != '') {
-                $sql .= sprintf(" AND cedula LIKE %%%s%%", $cedula);
+                $sql .= sprintf(" AND cedula LIKE '%%%s%%'", $cedula);
             }
             $tableHtml = [];
             $modelResponse = Usuario::listUserByFilter($sql);
