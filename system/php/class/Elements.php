@@ -706,7 +706,7 @@ class Elements
                         </div>
                     </div>
                 </div>
-                <div id="referentByID-'. $id . '" class="col-md-'. $colClass .' px-5">
+                <div id="referentByID-'. $id . '" class="col-md-'. $colClass .' p-4">
                 </div>
             </div>
         ';

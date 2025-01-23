@@ -191,11 +191,12 @@ class ServiceEventCalendar extends System
         try {
             $id_grupo = parent::limpiarString($id_grupo);
             $modelResponse = CalendarioEvento::listEventCalendarByGroupInterest($id_grupo);
-            $html = '<div class="card-head">
+            $centrar_body = empty($modelResponse) ? 'd-flex justify-content-center align-items-center flex-column' : '';
+            $html = '<div class="card h-100">
                            <h5 class="text-success mt-2 ms-2">
                               Eventos del grupo de interes
                            </h5>
-                           <div class="card-body">';
+                           <div class="card-body '.  $centrar_body .'">';
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
                     $fecha = self::getDateInWords($valor->getFecha());
