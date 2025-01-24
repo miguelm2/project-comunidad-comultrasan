@@ -7,9 +7,7 @@ $('#ingresarjs').on('click', function() {
         "cedula": username,
         "pass": password
     }).done(function(data){
-        console.log(data);
         let response = JSON.parse(data)
-        console.log(response);
         window.location.replace(response);
     });
 });

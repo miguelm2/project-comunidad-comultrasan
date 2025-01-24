@@ -414,10 +414,6 @@
                         <h4 class="text-success">Historial de Corazones</h4>
                         <div class="row px-1">
                            <div class="col-md-2 mb-1">
-                              <label for="nombre">Nombre</label>
-                              <input type="text" name="nombre_user" id="nombre_user" class="form-control border p-1" placeholder="Nombre">
-                           </div>
-                           <div class="col-md-2 mb-1">
                               <label for="fecha_inicio">Fecha inicio</label>
                               <input type="date" name="fecha_inicio_user" id="fecha_inicio_user" class="form-control border p-1">
                            </div>

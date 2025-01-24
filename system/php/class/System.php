@@ -439,4 +439,14 @@ abstract  class System
             throw $th;
         }
     }
+
+    public static function getBaseUrl() {
+        // Determine the protocol (http or https)
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+        $host = $_SERVER['HTTP_HOST'];
+
+        // Get the directory path of the current script
+        $dir = dirname($_SERVER['SCRIPT_NAME']);
+        return rtrim("{$protocol}://{$host}{$dir}", '/');
+    }
 }
