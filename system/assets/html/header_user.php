@@ -1,4 +1,4 @@
-<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 border-radius-xl shadow-none container" id="navbarBlur" data-scroll="true">
+<nav class="navbar navbar-main navbar-user navbar-expand-lg px-0 mx-4 border-radius-xl shadow-none container" id="navbarBlur" data-scroll="true">
    <div class="container-fluid d-flex justify-content-between">
       <!-- Logo (alineado a la izquierda) -->
       <a href="index" class="nav-link text-body p-1">
@@ -25,7 +25,10 @@
             <li class="nav-item d-flex align-items-center justify-content-end">
                <div class="dropdown-activate">
                   <a class="nav-link dropdown-toggle text-white p-1 ms-2" href="#" data-bs-toggle="dropdown" id="navbarDropdownMenuLink2" style="font-size: 16px;font-weight: 600;">
-                     <span class="text-white"><i class="material-icons" style="font-size: 18px !important; color:white">account_circle</i> <?= $_SESSION['nombre'] ?></span>
+                     <span class="text-white">
+                        <i class="material-icons" style="font-size: 18px !important; color:white">account_circle</i> 
+                        <?= $_SESSION['nombre'] ?>
+                     </span>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end border-2 shadow" aria-labelledby="navbarDropdownMenuLink2">
                      <li class="dropdown-item"><a href="profile" class="text-black">Mi perfil</a></li>
@@ -39,10 +42,10 @@
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center justify-content-end">
                <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                  <div class="sidenav-toggler-inner">
-                     <i class="sidenav-toggler-line"></i>
-                     <i class="sidenav-toggler-line"></i>
-                     <i class="sidenav-toggler-line"></i>
+                  <div class="sidenav-toggler-inner text-black">
+                     <i class="sidenav-toggler-line custom-icon-color"></i>
+                     <i class="sidenav-toggler-line custom-icon-color"></i>
+                     <i class="sidenav-toggler-line custom-icon-color"></i>
                   </div>
                </a>
             </li>

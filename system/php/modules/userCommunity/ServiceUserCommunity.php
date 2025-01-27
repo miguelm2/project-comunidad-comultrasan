@@ -39,31 +39,23 @@ class ServiceUserCommunity extends System
                 $result = UsuarioComunidad::newUserCommunity($id_usuario, $id_comunidad, $estado, $fecha_registro);
 
                 if ($result && $comunidadDTO) {
+                    $asunto = "Solicitud de unión a comunidad";
+                    $url = self::getBaseUrl() . '/acceptCommunity?com_us=' . $id_usuario;
                     $lastRegister = UsuarioComunidad::getUserCommunityByUserInactive($id_usuario);
-                    if ($comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id']) {
-                        $correo = $lastRegister->getUsuarioDTO()->getCorreo();
-                        $asunto = "Solicitud de unión a comunidad";
-                        $mensaje = "Estimado/a, <br><br>
-                            Has sido invitado/a a unirte a una nueva comunidad en nuestra plataforma. 
-                            Para aceptar o rechazar esta oferta, por favor, haz clic en el siguiente enlace:<a href='" . self::getURL() .
-                            '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "'>" . self::getURL() .
-                            '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "</a><br>br>
-                            Gracias por ser parte de nuestra comunidad. <br><br>
-                            Saludos cordiales,<br>
-                            El equipo de Financiera Comultrasan";
+                    if ($comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id']) { // notificar a los involugrados
+
+                        $correolider = $lastRegister->getUsuarioDTO()->getCorreo(); // notificar por correo del usuario
+                        $mensaje_user = Elements::getEmailSolicitud(1, $lastRegister, $url);
+                        Mail::sendEmail($asunto, $mensaje_user, $correolider);
+
+                        $correo_user = $comunidadDTO->getUsuarioDTO()->getCorreo(); // notifica por correo del líder
+                        $mensaje_user = Elements::getEmailSolicitud(2, $lastRegister, $url);
+                        Mail::sendEmail($asunto, $mensaje_user, $correo_user);
                     } else {
-                        $correo = $comunidadDTO->getUsuarioDTO()->getCorreo();
-                        $asunto = "Solicitud de unión a comunidad";
-                        $mensaje = "Estimado/a líder de la comunidad, <br><br>
-                            El usuario " . $lastRegister->getUsuarioDTO()->getNombre() . " ha solicitado unirse a tu comunidad. 
-                            Para revisar y aceptar o rechazar esta solicitud, por favor, haz clic en el siguiente enlace: <a href='" . self::getURL() .
-                            '/acceptUser?acceptUser=' . $lastRegister->getId_usuario_comunidad() . "'>" . self::getURL() .
-                            '/acceptUser?acceptUser=' . $lastRegister->getId_usuario_comunidad() . "</a><br><br>
-                            Gracias por tu liderazgo y dedicación. <br><br>
-                            Saludos cordiales, <br>
-                            El equipo de Financiera Comultrasan";
+                        $correo_user = $comunidadDTO->getUsuarioDTO()->getCorreo(); // notificar por correo del líder
+                        $mensaje_usuer = Elements::getEmailSolicitud(2, $lastRegister, $url);
+                        Mail::sendEmail($asunto, $mensaje_usuer, $correo_user);
                     }
-                    Mail::sendEmail($asunto, $mensaje, $correo);
                     return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "success");
                 }
             }

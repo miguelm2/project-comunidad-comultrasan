@@ -45,6 +45,8 @@ if (basename($_SERVER['PHP_SELF']) == 'benefits.php') {
     $tableBenefits = ServiceBenefit::getTableBenefit();
     $tableBenefitsUser = ServiceBenefit::getTableBenefitUserByUser();
     $cardBenefitUser = ServiceBenefit::getCardBenefitUserByUser();
+    // print_r('alex');
+    // die;
 }
 
 if (basename($_SERVER['PHP_SELF']) == 'user.php' || basename($_SERVER['PHP_SELF']) == 'community.php') {
