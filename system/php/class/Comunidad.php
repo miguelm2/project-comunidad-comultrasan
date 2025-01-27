@@ -155,10 +155,9 @@ class Comunidad extends System
         $dbh  = parent::Conexion();
         $stmt = $dbh->prepare("SELECT com.*
                                 FROM Comunidad com,
-                                    UsuarioComunidad uc,
                                     Usuario us
                                 WHERE us.id_usuario = com.id_usuario
-                                AND com.id_usuario = :id_usuario");
+                                AND us.id_usuario = :id_usuario");
         $stmt->bindParam(':id_usuario', $id_usuario);
         $stmt->execute();
         $result = $stmt->fetch();

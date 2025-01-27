@@ -88,67 +88,68 @@
             <div class="row">
                <div class="section-header pb-0">
                   <h2 class="text-pri">Novedades de nuestra comunidad</h2>
+                  <p class="card-text text-center text-pri">¡Hola! Queremos compartir contigo algunas de las actividades más destacadas que hemos vivido recientemente en nuestra comunidad</p>
                </div>
             </div>
             <div id="novedadesCarousel" class="carousel slide" data-bs-ride="carousel">
                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                     <div class="row">
-                        <div class="col-md-4 mt-2">
-                           <div class="card">
-                              <img src="assets/image/imagen1.jpg" class="card-img-top img-fluid" alt="Celebración día de la familia">
+                  <div class="carousel-item active mr-0">
+                     <div class="row" style="margin-right: 0">
+                        <div class="col-md-4 my-2">
+                           <div class="card h-100">
+                              <img src="/assets/image/imagen1.jpg" class="card-img-top img-fluid" alt="Celebración día de la familia">
                               <div class="card-body">
                                  <h5 class="card-title">Celebración día de la familia</h5>
-                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                                 <p class="card-text text-start">El pasado 16 de noviembre, mas de cuatro mil miembros de nuestra comunidad se reunieron para celebrar la primera edición del Dia de la Familia. Fue un espacio lleno de integración y alegría creado para decirle a todos nuestros miembros ¡Gracias por ser parte de nuestra comunidad</p>
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-4 mt-2">
-                           <div class="card">
-                              <img src="assets/image/imagen2.jpg" class="card-img-top  img-fluid" alt="Beneficios para tus mascotas">
+                        <div class="col-md-4 my-2">
+                           <div class="card h-100">
+                              <img src="/assets/image/imagen2.jpg" class="card-img-top  img-fluid" alt="Beneficios para tus mascotas">
                               <div class="card-body">
-                                 <h5 class="card-title">Beneficios para tus mascotas</h5>
-                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                                 <h5 class="card-title">Feria de mascotas</h5>
+                                 <p class="card-text text-start">Los integrantes de "Patitas Traviesas" participaron como expositores en la feria "BGAPets", distrutando de este beneficio por ser parte de nuestra comunidad. Aqui piedes revivir alguno de los momentos más emocionantes de nuestras mascotas</p>
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-4 mt-2">
-                           <div class="card">
-                              <img src="assets/image/imagen3.jpg" class="card-img-top img-fluid" alt="Apoyos educativos">
+                        <div class="col-md-4 my-2">
+                           <div class="card h-100">
+                              <img src="/assets/image/imagen3.jpg" class="card-img-top img-fluid" alt="Apoyos educativos">
                               <div class="card-body">
-                                 <h5 class="card-title">Apoyos educativos</h5>
-                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                                 <h5 class="card-title">Auxilios Economicos</h5>
+                                 <p class="card-text text-start">Conscientes de la importancia de la educación para el desarrollo del país, nuestra coperativa apoya a los asociados y a sus hijos en su educación formal y no formal a través del beneficio de Auxilios Educativos. Te invitamos a revisar los requisitos e inscribirte aqui</p>
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
                   <div class="carousel-item">
-                     <div class="row">
-                        <div class="col-md-4 mt-2">
-                           <div class="card">
-                              <img src="assets/image/imagen1.jpg" class="card-img-top img-fluid" alt="Celebración día de la familia">
+                     <div class="row" style="margin-right: 0">
+                        <div class="col-md-4 my-2">
+                           <div class="card h-100">
+                              <img src="/assets/image/imagen1.jpg" class="card-img-top img-fluid" alt="Celebración día de la familia">
                               <div class="card-body">
                                  <h5 class="card-title">Celebración día de la familia</h5>
-                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                                 <p class="card-text text-start">El pasado 16 de noviembre, mas de cuatro mil miembros de nuestra comunidad se reunieron para celebrar la primera edición del Dia de la Familia. Fue un espacio lleno de integración y alegría creado para decirle a todos nuestros miembros ¡Gracias por ser parte de nuestra comunidad</p>
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-4 mt-2">
-                           <div class="card">
-                              <img src="assets/image/imagen2.jpg" class="card-img-top" alt="Beneficios para tus mascotas">
+                        <div class="col-md-4 my-2">
+                           <div class="card h-100">
+                              <img src="/assets/image/imagen2.jpg" class="card-img-top  img-fluid" alt="Beneficios para tus mascotas">
                               <div class="card-body">
-                                 <h5 class="card-title">Beneficios para tus mascotas</h5>
-                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                                 <h5 class="card-title">Feria de mascotas</h5>
+                                 <p class="card-text text-start">Los integrantes de "Patitas Traviesas" participaron como expositores en la feria "BGAPets", distrutando de este beneficio por ser parte de nuestra comunidad. Aqui piedes revivir alguno de los momentos más emocionantes de nuestras mascotas</p>
                               </div>
                            </div>
                         </div>
-                        <div class="col-md-4 mt-2">
-                           <div class="card">
-                              <img src="assets/image/imagen3.jpg" class="card-img-top" alt="Apoyos educativos">
+                        <div class="col-md-4 my-2">
+                           <div class="card h-100">
+                              <img src="/assets/image/imagen3.jpg" class="card-img-top img-fluid" alt="Apoyos educativos">
                               <div class="card-body">
-                                 <h5 class="card-title">Apoyos educativos</h5>
-                                 <p class="card-text text-start">Te invitamos a ser parte de un programa único diseñado especialmente para ti, tu familia y tus seres queridos. Al registrarte, podrás disfrutar de sistemas de recompensas, descuentos exclusivos...</p>
+                                 <h5 class="card-title">Auxilios Economicos</h5>
+                                 <p class="card-text text-start">Conscientes de la importancia de la educación para el desarrollo del país, nuestra coperativa apoya a los asociados y a sus hijos en su educación formal y no formal a través del beneficio de Auxilios Educativos. Te invitamos a revisar los requisitos e inscribirte aqui</p>
                               </div>
                            </div>
                         </div>

@@ -691,22 +691,22 @@ class Elements
         $rowClass = ($id > 1) ? "" : "flex-md-column-reverse";
         return '
             <div class="card d-flex flex-md-row  mt-3 border-2" id="' . $nombre . '">
-                <div class="col-md-'. $colClass .'">
+                <div class="col-md-' . $colClass . '">
                     <div class="card-head">
                         <h5 class="text-success ms-3 mt-2">
                             ' . $nombre . '
                         </h5>
                     </div>
-                    <div class="row '. $rowClass .'">
-                        <div class="ms-3 col-md-'. (($id > 1) ? "7" : "12") .'">
+                    <div class="row ' . $rowClass . '">
+                        <div class="ms-3 col-md-' . (($id > 1) ? "7" : "12") . '">
                             ' . $descripcion . '
                         </div>
-                        <div class=" mb-2 col-md-'. (($id > 1) ? "4" : "8") .' mx-auto">
+                        <div class=" mb-2 col-md-' . (($id > 1) ? "4" : "8") . ' mx-auto">
                             <img src="' . Path::$DIR_IMAGE_SECTION . $imagen . '" alt="img-section" class="img-fluid rounded">
                         </div>
                     </div>
                 </div>
-                <div id="referentByID-'. $id . '" class="col-md-'. $colClass .' p-4">
+                <div id="referentByID-' . $id . '" class="col-md-' . $colClass . ' p-4">
                 </div>
             </div>
         ';
@@ -725,5 +725,41 @@ class Elements
                                 <h6> Ranking ' . $posicion . ' de ' . $comunidades . '</h6>
                             </div>
                 ';
+    }
+
+    public static function getEmailSolicitud($tipo, $data, $url)
+    {
+        if ($tipo == 1) {//si es de tipo uno es correo para el usuario y si es de tipo dos es para el lider
+            $mensaje = "
+            <html>
+            <body>
+                <div>
+                    Estimado/a " . $data->getUsuarioDTO()->getNombre() . ", <br><br>
+                    Tu solicitud para unirte a la comunidad " . $data->getComunidadDTO()->getNombre() . " ha sido enviada con éxito. 
+                    Por favor, espera a que el líder de la comunidad acepte tu solicitud. <br><br>
+                    Gracias por tu interés en ser parte de nuestra comunidad. <br><br>
+                    Saludos cordiales, <br>
+                    El equipo de Financiera Comultrasan
+                </div>
+            </body>
+            </html>";
+        } else {
+            $mensaje = "
+            <html>
+            <body>
+                <div>
+                    Estimado/a líder de la comunidad, <br><br>
+                    El usuario " . $data->getUsuarioDTO()->getNombre() . " ha solicitado unirse a tu comunidad. 
+                    Para revisar y aceptar o rechazar esta solicitud, por favor, 
+                    <a href='" . $url . "' 
+                    style='color: #007bff; text-decoration: underline;'>haz clic aquí</a><br><br>
+                    Gracias por tu liderazgo y dedicación. <br><br>
+                    Saludos cordiales, <br>
+                    El equipo de Financiera Comultrasan
+                </div>
+            </body>
+            </html>";
+        }
+        return $mensaje;
     }
 }
