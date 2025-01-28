@@ -3,7 +3,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/userCommunity/Serv
 include_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/modules/community/ServiceCommunity.php';
 
 if (isset($_POST['newUserCommunity'])) {
-    $comunidadDTO = ServiceCommunity::getCommunityByUser($_SESSION['id']);
+    $comunidadDTO = ServiceCommunity::getCommunityByUserLider($_SESSION['id']) ?? ServiceCommunity::getCommunityByUser($_SESSION['id']);
     $response = ServiceUserCommunity::newUserCommunity(
         $_POST['nombre'],
         $_POST['cedula'],

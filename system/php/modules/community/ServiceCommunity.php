@@ -301,6 +301,17 @@ class ServiceCommunity extends System
         try {
             $id_usuario = parent::limpiarString($id_usuario);
 
+            $result = Comunidad::getCommunityByUser($id_usuario);
+            return $result;
+        } catch (\Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+    public static function getCommunityByUserLider($id_usuario)
+    {
+        try {
+            $id_usuario = parent::limpiarString($id_usuario);
+
             $result = Comunidad::getCommunityByUserLider($id_usuario);
             return $result;
         } catch (\Exception $e) {

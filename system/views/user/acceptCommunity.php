@@ -35,17 +35,32 @@
       </nav>
       <div class="card mt-2">
          <div class="row m-0">
-            <div class="col-md-5 mt-4 ms-4">
-               <h4 class="text-success">Aceptar Comunidad</h4>
+            <div class="col-md-5 mt-4">
+               <h4 class="text-success ms-3">Aceptar Comunidad</h4>
+            </div>
+            <div class="col-md-6 mt-4 d-flex justify-content-md-end my-auto">
+               <p class="ms-3"><strong>Fecha solicitud:</strong> <?= $usuarioComunidadDTO->getFecha_registro() ?></p>
             </div>
             <div class="card-body">
                <form method="post">
                   <div class="row">
-                     <div class="col-md-12">
-                        <p><strong>Comunidad:</strong> <?= $usuarioComunidadDTO->getComunidadDTO()->getNombre() ?></p>
-                        <p><strong>Líder: </strong><?= $usuarioComunidadDTO->getComunidadDTO()->getUsuarioDTO()->getNombre() ?></p>
-                        <p><strong>Fecha de creación: </strong><?= $usuarioComunidadDTO->getComunidadDTO()->getFecha_registro() ?></p>
+                     <div class="col-md-6 mb-3">
+                        <div class="card p-4 h-100">
+                           <h5>Detalles del Usuario Solicitante</h5>
+                           <p><strong>Nombre:</strong> <?= $usuarioComunidadDTO->getUsuarioDTO()->getNombre() ?></p>
+                           <p><strong>Email:</strong> <?= $usuarioComunidadDTO->getUsuarioDTO()->getCorreo() ?></p>
+                        </div>
                      </div>
+                     <div class="col-md-6 mb-3">
+                        <div class="card p-4 h-100">
+                           <h5>Detalles de la Comunidad Solicitada</h5>
+                           <p><strong>Nombre de la Comunidad:</strong> <?= $usuarioComunidadDTO->getComunidadDTO()->getNombre() ?></p>
+                           <p><strong>Nombre del Líder:</strong> <?= $usuarioComunidadDTO->getComunidadDTO()->getUsuarioDTO()->getNombre() ?></p>
+                           <p hidden><strong>Fecha de Creación:</strong> <?= $usuarioComunidadDTO->getComunidadDTO()->getFecha_registro() ?></p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row mt-4">
                      <div class="col-md-6 d-grid">
                         <button type="submit" class="btn btn-success" name="acceptCommunity">
                            <i class="material-icons me-2">check</i>Aceptar

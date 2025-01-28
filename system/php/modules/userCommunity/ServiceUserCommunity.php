@@ -40,9 +40,9 @@ class ServiceUserCommunity extends System
 
                 if ($result && $comunidadDTO) {
                     $asunto = "Solicitud de unión a comunidad";
-                    $url = self::getBaseUrl() . '/acceptCommunity?com_us=' . $id_usuario;
                     $lastRegister = UsuarioComunidad::getUserCommunityByUserInactive($id_usuario);
-                    if ($comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id']) { // notificar a los involugrados
+                    $url = self::getBaseUrl() . '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad();
+                    if ($comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id']) { // notificar a los involucrados
 
                         $correolider = $lastRegister->getUsuarioDTO()->getCorreo(); // notificar por correo del usuario
                         $mensaje_user = Elements::getEmailSolicitud(1, $lastRegister, $url);

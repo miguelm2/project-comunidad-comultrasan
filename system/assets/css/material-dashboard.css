@@ -4884,6 +4884,13 @@ fieldset:disabled .btn {
   color: #050505 !important;
 }
 
+.navbar-admin .nav-item span,
+.navbar-admin .nav-item a,
+.navbar-admin .nav-item div i,
+.sidenav-header a span{
+  color: #050505 !important;
+}
+
 .navbar-text {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -23892,7 +23899,7 @@ hr.horizontal.gray-light {
 
 .navbar .sidenav-toggler-inner .sidenav-toggler-line {
   transition: all 0.15s ease;
-  background: #fff;
+  background: #000000;
   border-radius: 0.1rem;
   position: relative;
   display: block;
