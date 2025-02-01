@@ -81,7 +81,6 @@ class Punto extends System
                                     UsuarioComunidad UCom,
                                     Usuario us
                                 WHERE com.id_usuario = :id_usuario
-                                AND UCom.id_usuario = com.id_comunidad
                                 AND UCom.id_usuario = pun.id_usuario
                                 AND us.id_usuario = pun.id_usuario".
                                 $query);
