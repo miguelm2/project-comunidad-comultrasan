@@ -3,7 +3,7 @@
         <div class="text-bg-success card text-white p-2 shadow-success">
             <div class="row align-items-center justify-content-lg-center">
                 <div class="col-lg-7 mb-lg-0 mb-4">
-                    <div class="copyright text-center">
+                    <div class="copyright text-center" style="color: black;">
                     &copy; Copyright Derechos Reservados;
                         © <script>
                             document.write(new Date().getFullYear())
