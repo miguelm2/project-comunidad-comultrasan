@@ -729,36 +729,51 @@ class Elements
 
     public static function getEmailSolicitud($tipo, $data, $url)
     {
-        if ($tipo == 1) {//si es de tipo uno es correo para el usuario y si es de tipo dos es para el lider
+        if ($tipo == 1) { // Email para usuario invitado
             $mensaje = "
-            <html>
-            <body>
-                <div>
-                    Estimado/a " . $data->getUsuarioDTO()->getNombre() . ", <br><br>
-                    Tu solicitud para unirte a la comunidad " . $data->getComunidadDTO()->getNombre() . " ha sido enviada con éxito. 
-                    Por favor, espera a que el líder de la comunidad acepte tu solicitud. <br><br>
-                    Gracias por tu interés en ser parte de nuestra comunidad. <br><br>
-                    Saludos cordiales, <br>
-                    El equipo de Financiera Comultrasan
-                </div>
-            </body>
-            </html>";
-        } else {
+            <html><body><div>
+                Estimado/a " . $data->getUsuarioDTO()->getNombre() . ", <br><br>
+                Has recibido una invitación para unirte a la comunidad '" . $data->getComunidadDTO()->getNombre() . "'.<br><br>
+                Tu solicitud será revisada por el líder. Te notificaremos cuando sea aprobada.<br><br>
+                Saludos cordiales,<br>
+                El equipo de Financiera Comultrasan
+            </div></body></html>";
+        } else { // Email para líder sobre invitación
             $mensaje = "
-            <html>
-            <body>
-                <div>
-                    Estimado/a líder de la comunidad, <br><br>
-                    El usuario " . $data->getUsuarioDTO()->getNombre() . " ha solicitado unirse a tu comunidad. 
-                    Para revisar y aceptar o rechazar esta solicitud, por favor, 
-                    <a href='" . $url . "' 
-                    style='color: #007bff; text-decoration: underline;'>haz clic aquí</a><br><br>
-                    Gracias por tu liderazgo y dedicación. <br><br>
-                    Saludos cordiales, <br>
-                    El equipo de Financiera Comultrasan
-                </div>
-            </body>
-            </html>";
+            <html><body><div>
+                Estimado/a líder, <br><br>
+                Tienes una nueva solicitud de ingreso a tu comunidad.<br><br>
+                <strong>Solicitante:</strong><br>
+                Nombre: " . $data->getUsuarioDTO()->getNombre() . "<br>
+                Correo: " . $data->getUsuarioDTO()->getCorreo() . "<br><br>
+                <a href='" . $url . "' style='color: #007bff; text-decoration: underline;'>Revisar solicitud</a><br><br>
+                Saludos cordiales,<br>
+                El equipo de Financiera Comultrasan
+            </div></body></html>";
+        }
+        return $mensaje;
+    }
+
+    public static function getEmailAprobacion($tipo, $data, $url)
+    {
+        if ($tipo == 1) { // Email para usuario registrado por link
+            $mensaje = "
+            <html><body><div>
+                Estimado/a " . $data->getUsuarioDTO()->getNombre() . ", <br><br>
+                Tu registro en la comunidad '" . $data->getComunidadDTO()->getNombre() . "' se ha completado.<br><br>
+                El líder revisará tu solicitud pronto. Te notificaremos su decisión.<br><br>
+                Saludos cordiales,<br>
+                El equipo de Financiera Comultrasan
+            </div></body></html>";
+        } else { // Email para líder sobre registro por link
+            $mensaje = "
+            <html><body><div>
+                Estimado/a líder, <br><br>
+                " . $data->getNombre(). " se ha registrado mediante invitación y solicita unirse.<br><br>
+                <a href='" . $url . "' style='color: #007bff; text-decoration: underline;'>Revisar solicitud</a><br><br>
+                Saludos cordiales,<br>
+                El equipo de Financiera Comultrasan
+            </div></body></html>";
         }
         return $mensaje;
     }

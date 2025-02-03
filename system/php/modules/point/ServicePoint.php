@@ -178,7 +178,7 @@ class ServicePoint extends System
                 }
             } else {
                 // return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
-                return empty($query) ? null : '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+                return (empty($query) && $id_usuario != $id_usuario_session)? null : '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
             }
             return $tableHtml;
         } catch (\Exception $e) {

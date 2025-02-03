@@ -35,7 +35,7 @@ class ServiceUser extends System
                 $fecha_registro = date('Y-m-d H:i:s');
 
                 $imagen = "default.png";
-                $text = "REGISTRO: " . $nombre. " - " . $correo . " ----> " . $cedula . " - " . $tipo_documento;
+                $text = "REGISTRO: " . $nombre . " - " . $correo . " ----> " . $cedula . " - " . $tipo_documento;
                 Log::setLog($text);
                 $estado = self::getUserByAPI($cedula);
                 $text = "REGISTRO API: " . $estado;
@@ -51,20 +51,21 @@ class ServiceUser extends System
                     $tipo_documento,
                     $fecha_registro
                 );
-                $text = "REGISTRO BD: " . $result;
+                $text = "REGISTRO BD: " . json_encode($result);
 
 
                 // Si existe una invitación, gestionar unión a la comunidad
                 if ($invitacionDTO = Invitacion::getInvitationByCedula($cedula)) {
-                    $text = "REGISTRO INVITACION: " . $invitacionDTO;
+                    $text = "REGISTRO INVITACION: " . json_encode($invitacionDTO);
 
                     $usuarioDTO = Usuario::getUserByCedula($cedula);
                     $referidoDTO = Referido::getReferredByCedula($cedula);
-                    $comunidadDTO = Comunidad::getCommunityByUser($referidoDTO->getId_usuario());
+                    $comunidadDTO = Comunidad::getCommunityByUser($referidoDTO->getId_usuario()) ?? Comunidad::getCommunityByUserLider($referidoDTO->getId_usuario());
                     ActividadUsuario::newActivityUser($referidoDTO->getId_usuario(), 5, $fecha_registro);
 
                     $result = UsuarioComunidad::newUserCommunity($usuarioDTO->getId_usuario(), $comunidadDTO->getId_comunidad(), 1, $fecha_registro);
-                    self::enviarCorreoUnionComunidad($usuarioDTO, $correo);
+                    $correo_lider = $comunidadDTO->getUsuarioDTO()->getCorreo();
+                    self::enviarCorreoUnionComunidad($usuarioDTO, $correo, $correo_lider);
                 }
 
                 if ($result && isset($_SESSION['id'])) {
@@ -86,59 +87,60 @@ class ServiceUser extends System
         }
     }
 
-   private static function getUserByAPI($cedula)
-{
-    $restCall = new RestCall();
+    private static function getUserByAPI($cedula)
+    {
+        $restCall = new RestCall();
 
-    // Configurar los valores necesarios para la llamada a la API
-    $restCall->setHost("https://fcappshlab.comultrasan.com.co:8080/validador");
-    $restCall->setEndpoint("/shareppy/tx_validator.Proxy/executeProxy/923e6b7g-4048-5e8d-b818-8695c27e1ee3");
-    $restCall->setKey("8TfxinxvlVTlhs7wgR8CZ/haijQzsZay/4hrnU6uo0UGU43PyZINMH5N9/zG+MiJ8pnhDEpbV1h8ZpDtXUdxzQ==");
-    $restCall->setUser('KONDORY_LAB');
-    $restCall->add('CEDULA', $cedula);
+        // Configurar los valores necesarios para la llamada a la API
+        $restCall->setHost("https://fcappshlab.comultrasan.com.co:8080/validador");
+        $restCall->setEndpoint("/shareppy/tx_validator.Proxy/executeProxy/923e6b7g-4048-5e8d-b818-8695c27e1ee3");
+        $restCall->setKey("8TfxinxvlVTlhs7wgR8CZ/haijQzsZay/4hrnU6uo0UGU43PyZINMH5N9/zG+MiJ8pnhDEpbV1h8ZpDtXUdxzQ==");
+        $restCall->setUser('KONDORY_LAB');
+        $restCall->add('CEDULA', $cedula);
 
-    try {
-        // Ejecutar la llamada a la API y obtener el resultado
-        $result = $restCall->run($cedula);
+        try {
+            // Ejecutar la llamada a la API y obtener el resultado
+            $result = $restCall->run($cedula);
 
-        // Registrar la operación en el log
-        $texto = "SELECT - USUARIO - " . $cedula . " ----> API de comultrasan";
-        Log::setLog($texto);
+            // Registrar la operación en el log
+            $texto = "SELECT - USUARIO - " . $cedula . " ----> API de comultrasan";
+            Log::setLog($texto);
 
-        // Verificar los resultados de la API y retornar según la lógica de negocio
-        if ($result['CODEST0'] == 1) {
-            return 1;
-        } else {
-            return 2;
+            // Verificar los resultados de la API y retornar según la lógica de negocio
+            if ($result['CODEST0'] == 1) {
+                return 1;
+            } else {
+                return 2;
+            }
+        } catch (RuntimeException $e) {
+            // Manejar errores de ejecución de la API y registrar en el log
+            $errorTexto = "Error al consultar usuario " . $cedula . ": " . $e->getMessage();
+            Log::setLog($errorTexto);
+            return 2; // Retornar un valor predeterminado en caso de error
         }
-    } catch (RuntimeException $e) {
-        // Manejar errores de ejecución de la API y registrar en el log
-        $errorTexto = "Error al consultar usuario " . $cedula . ": " . $e->getMessage();
-        Log::setLog($errorTexto);
-        return 2; // Retornar un valor predeterminado en caso de error
     }
-}
 
-    private static function enviarCorreoUnionComunidad($usuarioDTO, $correo)
+    private static function enviarCorreoUnionComunidad($usuarioDTO, $correo_user, $correo_lider)
     {
         $lastRegister = UsuarioComunidad::getUserCommunityByUserInactive($usuarioDTO->getId_usuario());
         $asunto = "Solicitud de unión a comunidad";
-        $mensaje = "Estimado/a líder de la comunidad, <br><br>
-                El usuario " . $lastRegister->getUsuarioDTO()->getNombre() . " ha solicitado unirse a tu comunidad. 
-                Para revisar y aceptar o rechazar esta solicitud, por favor, haz clic en el siguiente enlace: " . self::getURL() .
-            '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad() . "<br><br>
-                Gracias por tu liderazgo y dedicación. <br><br>
-                Saludos cordiales, <br> El equipo de Financiera Comultrasan";
 
-        Mail::sendEmail($asunto, $mensaje, $correo);
+        $url = self::getURL() . '/system/views/user/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad();
+        $mensaje_user = Elements::getEmailAprobacion(1, $lastRegister, $url);// notificar por correo del usuario
+        Mail::sendEmail($asunto, $mensaje_user, $correo_user);
+        
+        $mensaje_lider = Elements::getEmailAprobacion(2, $usuarioDTO, $url);// notificar por correo del lider
+        Mail::sendEmail($asunto, $mensaje_lider, $correo_lider);
     }
     private static function getURL()
     {
-        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+        // Determine the protocol (http or https)
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
         $host = $_SERVER['HTTP_HOST'];
-        $script = $_SERVER['REQUEST_URI'];
-        $url = $protocol . "://" . $host . $script;
-        return $url;
+
+        // Get the directory path of the current script
+        $dir = dirname($_SERVER['SCRIPT_NAME']);
+        return rtrim("{$protocol}://{$host}", '/');
     }
     public static function setProfile(
         $nombre,
@@ -159,16 +161,16 @@ class ServiceUser extends System
 
                 switch ($tipo_imagen) {
                     case 1: {
-                        $imagen = 'avatar_hombre.jpeg';
-                        break;
-                    }
+                            $imagen = 'avatar_hombre.jpeg';
+                            break;
+                        }
                     case 2: {
-                        $imagen = 'avatar_mujer.jpeg';
-                        break;
-                    }
+                            $imagen = 'avatar_mujer.jpeg';
+                            break;
+                        }
                     default: {
-                        $imagen = $_SESSION['imagen'];
-                    }
+                            $imagen = $_SESSION['imagen'];
+                        }
                 }
 
                 if (
@@ -447,14 +449,14 @@ class ServiceUser extends System
         try {
             switch ($estado) {
                 case 0: {
-                    return 'danger';
-                }
+                        return 'danger';
+                    }
                 case 1: {
-                    return 'success';
-                }
+                        return 'success';
+                    }
                 case 2: {
-                    return 'warning';
-                }
+                        return 'warning';
+                    }
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
