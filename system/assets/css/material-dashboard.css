@@ -4891,6 +4891,15 @@ fieldset:disabled .btn {
   color: #050505 !important;
 }
 
+
+.nav-item .nav-link{
+  color:#535353 !important;
+}
+.nav-item .active{
+  color:#000000 !important;
+}
+
+
 .navbar-text {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;

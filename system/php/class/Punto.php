@@ -74,16 +74,13 @@ class Punto extends System
     public static function listPointByUserLider($id_usuario, $query = "")
     {
         $dbh  = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT pun.* 
-                                FROM 
-                                    Punto pun,
-                                    Comunidad com,
-                                    UsuarioComunidad UCom,
-                                    Usuario us
-                                WHERE com.id_usuario = :id_usuario
-                                AND UCom.id_usuario = pun.id_usuario
-                                AND us.id_usuario = pun.id_usuario".
-                                $query);
+        $stmt = $dbh->prepare(" SELECT DISTINCT pun.* 
+                                FROM Punto pun
+                                INNER JOIN UsuarioComunidad UCom ON UCom.id_usuario = pun.id_usuario
+                                INNER JOIN Comunidad com ON com.id_comunidad = UCom.id_comunidad
+                                INNER JOIN Usuario us ON us.id_usuario = pun.id_usuario
+                                WHERE com.id_usuario = :id_usuario " . $query);
+
         $stmt->bindParam(':id_usuario', $id_usuario);
         $stmt->execute();
         $modelResponse = $stmt->fetchAll();
