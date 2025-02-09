@@ -232,7 +232,7 @@ class Usuario extends System
         $stmt->execute();
         return  $stmt->fetchAll();
     }
-    public static function getUsersInCommunity($id_comunidad)
+    public static function getUsersInCommunity($id_comunidad, $id_usuario = null)
     {
         $dbh             = parent::Conexion();
         $stmt = $dbh->prepare("SELECT us.*, 

@@ -224,10 +224,12 @@ class ServiceCommunity extends System
             $html = '';
             $ranking = Comunidad::getRankingByCommunity($comunidadDTO->getId_comunidad());
             $puntos = Punto::getSumPointsByUser($comunidadDTO->getUsuarioDTO()->getId_usuario());
-            $html .= Elements::getHtmlCards(($ranking['total_puntos'] ?? 0) + $puntos, ($ranking['posicion'] ?? 0), ($ranking['total_comunidades'] ?? 0));
+            $html .= Elements::getHtmlCards(($ranking['total_puntos'] ?? 0) + $puntos, ($ranking['posicion'] ?? 0), ($ranking['total_comunidades'] ?? 0), $isLeader);
 
-            $html .= Elements::getCardUserInCommunityRanking($comunidadDTO->getUsuarioDTO()->getNombre(), $comunidadDTO->getUsuarioDTO()->getImagen(), $puntos, 0);
-            $html .= self::getCommunityRanking($comunidadDTO->getId_comunidad());
+            $html .= Elements::getCardUserInCommunityRanking($comunidadDTO->getUsuarioDTO()->getNombre(), $comunidadDTO->getUsuarioDTO()->getImagen(), $puntos, 0, $isLeader);
+            if($isLeader){
+                $html .= self::getCommunityRanking($comunidadDTO->getId_comunidad());
+            }
 
             $html .= '</div></div></div>';
             return $html;
