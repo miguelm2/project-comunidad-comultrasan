@@ -496,7 +496,7 @@ class Elements
                     </div>
                 </div>';
     }
-    public static function getCardUserInCommunityRanking($nombre, $imagen, $points, $contador)
+    public static function getCardUserInCommunityRanking($nombre, $imagen, $points, $contador, $isLeader= true)
     {
         return '<div class="card mt-2 border-2 pb-2">
                     <div class="row">
@@ -510,7 +510,7 @@ class Elements
                                         ' . $contador . '. ' . $nombre . '
                                     </div>
                                     <div class="col-md-3 col-sm-3">
-                                        ' . $points . ' &#10084;
+                                        ' . ($isLeader ? $points .' &#10084;' : ''). '
                                     </div>
                                 </div>
                             </h6>
@@ -711,19 +711,22 @@ class Elements
             </div>
         ';
     }
-    public static function getHtmlCards($total_points, $posicion, $comunidades)
+    public static function getHtmlCards($total_points, $posicion, $comunidades, $isLeader = true)
     {
+        $ranking = ($isLeader) ? 
+                            '<div class="card border-2 text-black text-center mt-2">
+                                <h6> Ranking ' . $posicion . ' de ' . $comunidades . '</h6>
+                            </div>':
+                            '';
         return  '<div class="card border-2" style="background: #58B9AB">
                         <div class="card-head mt-2">
                             <h5 class="text-white text-center">Tabla de recompensas</h5>
                         </div>
                         <div class="card-body pt-0">
                             <div class="card border-2 text-black text-center">
-                                <h6> Mi comunidad ' . $total_points . ' &#10084;</h6>
+                                <h6> Mi comunidad ' . ($isLeader ? $total_points . '&#10084;' : ''). '</h6>
                             </div>
-                            <div class="card border-2 text-black text-center mt-2">
-                                <h6> Ranking ' . $posicion . ' de ' . $comunidades . '</h6>
-                            </div>
+                        '. $ranking .'
                 ';
     }
 

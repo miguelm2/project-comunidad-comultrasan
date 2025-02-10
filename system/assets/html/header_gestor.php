@@ -1,4 +1,4 @@
-<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 border-radius-xl shadow-none container" id="navbarBlur" data-scroll="true">
+<nav class="navbar navbar-main navbar-gestor navbar-expand-lg px-0 mx-4 border-radius-xl shadow-none container" id="navbarBlur" data-scroll="true">
    <div class="container-fluid d-flex justify-content-between">
       <!-- Logo (alineado a la izquierda) -->
       <a href="communities" class="nav-link text-body p-1">

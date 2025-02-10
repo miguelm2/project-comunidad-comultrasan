@@ -42,21 +42,25 @@ class ServiceUserCommunity extends System
                     $asunto = "Solicitud de unión a comunidad";
                     $lastRegister = UsuarioComunidad::getUserCommunityByUserInactive($id_usuario);
                     $url = self::getBaseUrl() . '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad();
-                    if ($comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id']) { // notificar a los involucrados
-
-                        $correolider = $lastRegister->getUsuarioDTO()->getCorreo(); // notificar por correo del usuario
-                        $mensaje_user = Elements::getEmailSolicitud(1, $lastRegister, $url);
-                        Mail::sendEmail($asunto, $mensaje_user, $correolider);
-
-                        $correo_user = $comunidadDTO->getUsuarioDTO()->getCorreo(); // notifica por correo del líder
-                        $mensaje_user = Elements::getEmailSolicitud(2, $lastRegister, $url);
-                        Mail::sendEmail($asunto, $mensaje_user, $correo_user);
-                    } else {
-                        $correo_user = $comunidadDTO->getUsuarioDTO()->getCorreo(); // notificar por correo del líder
-                        $mensaje_usuer = Elements::getEmailSolicitud(2, $lastRegister, $url);
-                        Mail::sendEmail($asunto, $mensaje_usuer, $correo_user);
+                    try {
+                        if ($comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id']) { // notificar a los involucrados
+    
+                            $correolider = $lastRegister->getUsuarioDTO()->getCorreo(); // notificar por correo del usuario
+                            $mensaje_user = Elements::getEmailSolicitud(1, $lastRegister, $url);
+                            Mail::sendEmail($asunto, $mensaje_user, $correolider);
+    
+                            $correo_user = $comunidadDTO->getUsuarioDTO()->getCorreo(); // notifica por correo del líder
+                            $mensaje_user = Elements::getEmailSolicitud(2, $lastRegister, $url);
+                            Mail::sendEmail($asunto, $mensaje_user, $correo_user);
+                        } else {
+                            $correo_user = $comunidadDTO->getUsuarioDTO()->getCorreo(); // notificar por correo del líder
+                            $mensaje_usuer = Elements::getEmailSolicitud(2, $lastRegister, $url);
+                            Mail::sendEmail($asunto, $mensaje_usuer, $correo_user);
+                        }
+                        return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "success");
+                    } catch (\Throwable $th) {
+                        return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "error");
                     }
-                    return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "success");
                 }
             }
         } catch (\Exception $e) {
