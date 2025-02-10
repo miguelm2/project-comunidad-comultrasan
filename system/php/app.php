@@ -72,4 +72,5 @@ class Constants
     static $REQUEST_SEND            = "Solicitud para unirse a la comunidad enviada con éxito";
     static $FORM_POINTS             = "La plantilla no está disponible.";
     static $EXISTS_COMMUNITY        = "No se encontró ninguna comunidad registrada donde figure como líder.";
+    static $ERROR_NOTIFICACION_CORREO   = "Error en el envio de correos de notificacion.";
 }

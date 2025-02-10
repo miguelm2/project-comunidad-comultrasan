@@ -4733,6 +4733,12 @@ fieldset:disabled .btn {
   color: #000000 !important;
 }
 
+.slidenav-gestor .nav-item .nav-link,
+.slidenav-gestor .nav-item .nav-link span,
+.slidenav-gestor .nav-item .nav-link div {
+  color: #000000 !important;
+}
+
 .nav-tabs .dropdown-menu {
   margin-top: calc(-1 * var(--bs-nav-tabs-border-width));
   border-top-left-radius: 0;
@@ -4887,6 +4893,12 @@ fieldset:disabled .btn {
 .navbar-admin .nav-item span,
 .navbar-admin .nav-item a,
 .navbar-admin .nav-item div i,
+.sidenav-header a span{
+  color: #050505 !important;
+}
+.navbar-gestor .nav-item span,
+.navbar-gestor .nav-item a,
+.navbar-gestor .nav-item div i,
 .sidenav-header a span{
   color: #050505 !important;
 }
