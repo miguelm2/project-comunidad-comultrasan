@@ -60,7 +60,7 @@ class Comunidad extends System
     public static function getCommunityFilter($id_comunidad, $filtro)
     {
         $dbh             = parent::Conexion();
-        $stmt = $dbh->prepare("SELECT * FROM Comunidad WHERE id_comunidad = :id_comunidad ". $filtro);
+        $stmt = $dbh->prepare("SELECT * FROM Comunidad WHERE id_comunidad = :id_comunidad " . $filtro);
         $stmt->bindParam(':id_comunidad', $id_comunidad);
         $stmt->execute();
         $result = $stmt->fetch();
@@ -135,6 +135,36 @@ class Comunidad extends System
                                	AND com.id_comunidad = uc.id_comunidad
                                 AND uc.estado = 2");
         $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        if ($result) {
+            $comunidadDTO = new ComunidadDTO();
+
+            $comunidadDTO->setId_comunidad($result['id_comunidad']);
+            $comunidadDTO->setNombre($result['nombre']);
+            $comunidadDTO->setUsuarioDTO(Usuario::getUserById($result['id_usuario']));
+            $comunidadDTO->setEstado($result['estado']);
+            $comunidadDTO->setFecha_registro($result['fecha_registro']);
+
+            return $comunidadDTO;
+        }
+        return null;
+    }
+
+    
+    public static function getUsersCommunityByLider($id_usuario, $status = 1)
+    {
+        $dbh  = parent::Conexion();
+        $stmt = $dbh->prepare("SELECT com.id_comunidad, com.nombre, uc.id_usuario, uc.fecha_registro, com.estado
+                                FROM Comunidad com,
+                                        UsuarioComunidad uc,
+                                        Usuario us
+                                WHERE us.id_usuario = com.id_usuario
+                                AND com.id_usuario = :id_usuario
+                                AND com.id_comunidad = uc.id_comunidad
+                                AND uc.estado = :estado");
+        $stmt->bindParam(':id_usuario', $id_usuario);
+        $stmt->bindParam(':estado', $status);
         $stmt->execute();
         $result = $stmt->fetch();
         if ($result) {

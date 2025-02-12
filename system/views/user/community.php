@@ -73,7 +73,7 @@
                   <thead class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                        <th class="text-uppercase font-weight-bolder">Correo</th>
                         <th class="text-uppercase font-weight-bolder">Estado</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Solicitud</th>
                         <th class="text-uppercase font-weight-bolder">Opciones</th>
@@ -82,7 +82,7 @@
                   <tfoot class="text-center">
                      <tr>
                         <th class="text-uppercase font-weight-bolder">Nombre</th>
-                        <th class="text-uppercase font-weight-bolder">&#10084; Acumulados</th>
+                        <th class="text-uppercase font-weight-bolder">Correo</th>
                         <th class="text-uppercase font-weight-bolder">Estado</th>
                         <th class="text-uppercase font-weight-bolder">Fecha Solicitud</th>
                         <th class="text-uppercase font-weight-bolder">Opciones</th>
