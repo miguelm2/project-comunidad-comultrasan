@@ -44,11 +44,11 @@ class ServiceUserCommunity extends System
                     $url = self::getBaseUrl() . '/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad();
                     try {
                         if ($comunidadDTO->getUsuarioDTO()->getId_usuario() == $_SESSION['id']) { // notificar a los involucrados
-    
+
                             $correolider = $lastRegister->getUsuarioDTO()->getCorreo(); // notificar por correo del usuario
                             $mensaje_user = Elements::getEmailSolicitud(1, $lastRegister, $url);
                             Mail::sendEmail($asunto, $mensaje_user, $correolider);
-    
+
                             $correo_user = $comunidadDTO->getUsuarioDTO()->getCorreo(); // notifica por correo del líder
                             $mensaje_user = Elements::getEmailSolicitud(2, $lastRegister, $url);
                             Mail::sendEmail($asunto, $mensaje_user, $correo_user);
@@ -386,7 +386,7 @@ class ServiceUserCommunity extends System
         try {
 
             $id_usuario = $_SESSION['id'];
-            $comunidadDTO = Comunidad::getCommunityByUser($id_usuario);
+            $comunidadDTO = Comunidad::getUsersCommunityByLider($id_usuario);
 
             if (!$comunidadDTO) {
                 return '<tr><th colspan="5">No hay datos que mostrar</th></tr>';
@@ -394,26 +394,24 @@ class ServiceUserCommunity extends System
 
             $tableHtml = '';
 
-            if ($comunidadDTO->getUsuarioDTO()->getId_usuario() == $id_usuario) {
-                $usuarios = Usuario::getUsersInCommunityRequest($comunidadDTO->getId_comunidad());
-                if ($usuarios) {
-                    foreach ($usuarios as $value) {
-                        $usuarioComunidad = UsuarioComunidad::getUserCommunityByUserInactive($value->getId_usuario());
+            $usuarios = Usuario::getUsersInCommunityRequest($comunidadDTO->getId_comunidad());
+            if ($usuarios) {
+                foreach ($usuarios as $value) {
+                    $usuarioComunidad = UsuarioComunidad::getUserCommunityByUserInactive($value->getId_usuario());
 
-                        $style = self::getColorByEstate($value->getEstado()[0]);
-                        $count_points = Punto::getSumPointsByUser($value->getId_usuario());
-                        $tableHtml .= '<tr>';
-                        $tableHtml .= '<td>' . $value->getNombre() . '</td>';
-                        $tableHtml .= '<td class="text-center">' . $count_points . '</td>';
-                        $tableHtml .= '<td class="text-center"><small class="alert alert-' . $style . ' p-1">' . $value->getEstado()[1] . '</small></td>';
-                        $tableHtml .= '<td>' . self::getDateInWords($usuarioComunidad->getFecha_registro()) . '</td>';
-                        $tableHtml .= '<td>' . Elements::crearBotonVer2("acceptUser", $usuarioComunidad->getId_usuario_comunidad()) . '</td>';
+                    $style = self::getColorByEstate($value->getEstado()[0]);
+                    $count_points = Punto::getSumPointsByUser($value->getId_usuario());
+                    $tableHtml .= '<tr>';
+                    $tableHtml .= '<td>' . $value->getNombre() . '</td>';
+                    $tableHtml .= '<td class="text-center">' . $value->getCorreo() . '</td>';
+                    $tableHtml .= '<td class="text-center"><small class="alert alert-' . $style . ' p-1">' . $value->getEstado()[1] . '</small></td>';
+                    $tableHtml .= '<td>' . self::getDateInWords($usuarioComunidad->getFecha_registro()) . '</td>';
+                    $tableHtml .= '<td>' . Elements::crearBotonVer2("acceptUser", $usuarioComunidad->getId_usuario_comunidad()) . '</td>';
 
-                        $tableHtml .= '</tr>';
-                    }
-                } else {
-                    return '<tr><th colspan="5">No hay datos que mostrar</th></tr>';
+                    $tableHtml .= '</tr>';
                 }
+            } else {
+                return '<tr><th colspan="5">No hay datos que mostrar</th></tr>';
             }
             return $tableHtml;
         } catch (\Exception $e) {

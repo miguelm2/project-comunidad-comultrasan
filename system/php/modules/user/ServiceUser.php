@@ -53,6 +53,10 @@ class ServiceUser extends System
                 );
                 $text = "REGISTRO BD: " . json_encode($result);
 
+                if(!$result) {
+                    return Elements::crearMensajeAlerta(Constants::$ADMIN_REPEAT, "error");
+                }
+
 
                 // Si existe una invitación, gestionar unión a la comunidad
                 if ($invitacionDTO = Invitacion::getInvitationByCedula($cedula)) {
@@ -78,9 +82,7 @@ class ServiceUser extends System
                     Log::setLog($text);
                 }
 
-                return $result
-                    ? Elements::crearMensajeAlerta(Constants::$USER_NEW, "success")
-                    : Elements::crearMensajeAlerta(Constants::$ADMIN_REPEAT, "error");
+                return Elements::crearMensajeAlerta(Constants::$USER_NEW, "success");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
