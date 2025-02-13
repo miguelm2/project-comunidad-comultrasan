@@ -75,7 +75,11 @@ class ServiceCommunity extends System
                 Atentamente,<br> Financiera Comultrasan";
 
         $asunto = "Invitación a unirse a nuestra plataforma y comunidad";
-        Mail::sendEmail($asunto, $mensaje, $correo);
+        try {
+            Mail::sendEmail($asunto, $mensaje, $correo);
+        } catch (\Throwable $th) {
+            return Elements::crearMensajeAlerta(Constants::$ERROR_NOTIFICACION_CORREO, "error");
+        }
     }
     private static function getURLCorreoReferido()
     {
@@ -167,7 +171,7 @@ class ServiceCommunity extends System
             $id_usuario = $_SESSION['id'];
             $comunidadDTO = Comunidad::getCommunityByUserLider($id_usuario); //consulta usuario lider de tabla Comunidad
             $tipo_user = 0; //identificar al usuario lider con 1
-            if(!$comunidadDTO) {
+            if (!$comunidadDTO) {
                 $comunidadDTO = Comunidad::getCommunityByUser($id_usuario); //consulta usuario miembro de tabla UsuarioComunidad
                 $tipo_user = 1; //identificar al usuario miembro con 0
             }
@@ -234,7 +238,7 @@ class ServiceCommunity extends System
             $html .= Elements::getHtmlCards(($ranking['total_puntos'] ?? 0) + $puntos, ($ranking['posicion'] ?? 0), ($ranking['total_comunidades'] ?? 0), $isLeader);
 
             $html .= Elements::getCardUserInCommunityRanking($comunidadDTO->getUsuarioDTO()->getNombre(), $comunidadDTO->getUsuarioDTO()->getImagen(), $puntos, 0, $isLeader);
-            if($isLeader){
+            if ($isLeader) {
                 $html .= self::getCommunityRanking($comunidadDTO->getId_comunidad());
             }
 

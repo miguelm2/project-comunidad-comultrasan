@@ -59,7 +59,7 @@ class ServiceUserCommunity extends System
                         }
                         return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "success");
                     } catch (\Throwable $th) {
-                        return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "error");
+                        return Elements::crearMensajeAlerta(Constants::$ERROR_NOTIFICACION_CORREO, "error");
                     }
                 }
             }
@@ -78,7 +78,11 @@ class ServiceUserCommunity extends System
                 Atentamente,<br> Financiera Comultrasan";
 
         $asunto = "Invitación a unirse a nuestra plataforma y comunidad";
-        Mail::sendEmail($asunto, $mensaje, $correo);
+        try {
+            Mail::sendEmail($asunto, $mensaje, $correo);
+        } catch (\Throwable $th) {
+            return Elements::crearMensajeAlerta(Constants::$ERROR_NOTIFICACION_CORREO, "error");
+        }
     }
     public static function newUserCommunityAdmin($id_usuario, $id_comunidad)
     {
@@ -114,7 +118,12 @@ class ServiceUserCommunity extends System
                             Saludos cordiales,<br>
                             El equipo de Financiera Comultrasan";
 
-                Mail::sendEmail($asunto, $mensaje, $correo);
+                try {
+                    Mail::sendEmail($asunto, $mensaje, $correo);
+                } catch (\Throwable $th) {
+                    return Elements::crearMensajeAlerta(Constants::$ERROR_NOTIFICACION_CORREO, "error");
+                }
+
                 return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "success");
             }
         } catch (\Exception $e) {
@@ -197,7 +206,11 @@ class ServiceUserCommunity extends System
                     </body>
                     </html>";
                 }
-                Mail::sendEmail($asunto, $mensaje, $correo);
+                try {
+                    Mail::sendEmail($asunto, $mensaje, $correo);
+                } catch (\Throwable $th) {
+                    return Elements::crearMensajeAlerta(Constants::$ERROR_NOTIFICACION_CORREO, "error");
+                }
                 return Elements::crearMensajeAlerta(Constants::$REQUEST_SEND, "success");
             }
         } catch (\Exception $e) {
@@ -364,7 +377,11 @@ class ServiceUserCommunity extends System
                 Atentamente,<br><br>
                 Financiera Comultrasan";
                 $asunto = "Notificación sobre invitación pendiente a su comunidad";
-                Mail::sendEmail($asunto, $mensaje, $mail_leader);
+                try {
+                    Mail::sendEmail($asunto, $mensaje, $mail_leader);
+                } catch (\Throwable $th) {
+                    return Elements::crearMensajeAlerta(Constants::$ERROR_NOTIFICACION_CORREO, "error");
+                }
                 header('Location:community?delete');
             }
         } catch (\Exception $e) {

@@ -53,7 +53,7 @@ class ServiceUser extends System
                 );
                 $text = "REGISTRO BD: " . json_encode($result);
 
-                if(!$result) {
+                if (!$result) {
                     return Elements::crearMensajeAlerta(Constants::$ADMIN_REPEAT, "error");
                 }
 
@@ -127,12 +127,16 @@ class ServiceUser extends System
         $lastRegister = UsuarioComunidad::getUserCommunityByUserInactive($usuarioDTO->getId_usuario());
         $asunto = "Solicitud de unión a comunidad";
 
-        $url = self::getURL() . '/system/views/user/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad();
-        $mensaje_user = Elements::getEmailAprobacion(1, $lastRegister, $url);// notificar por correo del usuario
-        Mail::sendEmail($asunto, $mensaje_user, $correo_user);
-        
-        $mensaje_lider = Elements::getEmailAprobacion(2, $usuarioDTO, $url);// notificar por correo del lider
-        Mail::sendEmail($asunto, $mensaje_lider, $correo_lider);
+        try {
+            $url = self::getURL() . '/system/views/user/acceptCommunity?com_us=' . $lastRegister->getId_usuario_comunidad();
+            $mensaje_user = Elements::getEmailAprobacion(1, $lastRegister, $url); // notificar por correo del usuario
+            Mail::sendEmail($asunto, $mensaje_user, $correo_user);
+
+            $mensaje_lider = Elements::getEmailAprobacion(2, $usuarioDTO, $url); // notificar por correo del lider
+            Mail::sendEmail($asunto, $mensaje_lider, $correo_lider);
+        } catch (\Throwable $th) {
+            return Elements::crearMensajeAlerta(Constants::$ERROR_NOTIFICACION_CORREO, "error");
+        }
     }
     private static function getURL()
     {
