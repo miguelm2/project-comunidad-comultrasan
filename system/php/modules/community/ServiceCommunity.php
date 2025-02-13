@@ -23,7 +23,7 @@ class ServiceCommunity extends System
             $usuario = Usuario::getUserByCedula($cedula);
             if (!$usuario) {
                 self::registrarNuevoReferido($nombre_user, $cedula, $correo, $celular, $fecha_registro);
-                self::enviarInvitacionCorreo($nombre_user, $nombre, $correo, $celular, $cedula);
+                self::enviarInvitacionCorreo($nombre_user, $nombre, $correo);
 
                 return Elements::crearMensajeAlerta(Constants::$USER_NOT_EXIST, "error");
             }
@@ -64,18 +64,25 @@ class ServiceCommunity extends System
     }
 
     // Enviar invitación por correo
-    private static function enviarInvitacionCorreo($nombre_user, $nombre_comunidad, $correo, $celular, $cedula)
+    private static function enviarInvitacionCorreo($nombre_user, $nombre_comunidad, $correo)
     {
         $mensaje = "Estimado(a) $nombre_user,
                 Nos complace informarle que ha sido invitado(a) a unirse a nuestra aplicación, 
                 como parte de la comunidad $nombre_comunidad, creada por " . $_SESSION['nombre'] . ".<br><br>
                 Para aceptar la invitación y disfrutar de los beneficios que ofrece nuestra plataforma, 
-                le invitamos a registrarse en el siguiente enlace: " . self::getURL() . "/singup .<br><br>
+                le invitamos a registrarse en el siguiente enlace: " . self::getURLCorreoReferido() . "/singup .<br><br>
                 Agradecemos su interés y esperamos contar con su valiosa participación.<br><br>
                 Atentamente,<br> Financiera Comultrasan";
 
         $asunto = "Invitación a unirse a nuestra plataforma y comunidad";
         Mail::sendEmail($asunto, $mensaje, $correo);
+    }
+    private static function getURLCorreoReferido()
+    {
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+        $host = $_SERVER['HTTP_HOST'];
+        $url = $protocol . "://" . $host;
+        return $url;
     }
     public static function getCommunity($id_comunidad)
     {
