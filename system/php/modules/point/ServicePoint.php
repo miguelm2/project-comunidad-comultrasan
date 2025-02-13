@@ -34,7 +34,11 @@ class ServicePoint extends System
                             Te invitamos a seguir participando para acumular más puntos y disfrutar de los beneficios que ofrecemos.<br><br>
                             Si tienes alguna consulta o necesitas más información, no dudes en contactarnos.<br><br>
                             Atentamente, Financiera Comultrasan';
-                Mail::sendEmail($asunto, $mensaje, $correo);
+                try {
+                    Mail::sendEmail($asunto, $mensaje, $correo);
+                } catch (\Throwable $th) {
+                    return Elements::crearMensajeAlerta(Constants::$ERROR_NOTIFICACION_CORREO, "error");
+                }
                 return Elements::crearMensajeAlerta(Constants::$REGISTER_NEW, "success");
             }
         } catch (\Exception $e) {
@@ -161,12 +165,12 @@ class ServicePoint extends System
             $tableHtml = "";
             $id_usuario_session = $_SESSION['id'];
             $comunidad = Comunidad::getCommunityByUserLider($id_usuario_session);
-            $id_usuario = $comunidad ? $comunidad->getUsuarioDTO()->getId_usuario(): null;
+            $id_usuario = $comunidad ? $comunidad->getUsuarioDTO()->getId_usuario() : null;
             $nombre = parent::limpiarString($nombre);
             $fecha = parent::limpiarString($fecha);
             $query = ''; //filtros
-            if(!empty($nombre)) $query .= " AND us.nombre LIKE '%". $nombre . "%'";
-            if(!empty($fecha)) $query .= " AND pun.fecha_registro >= '". $fecha . "'";
+            if (!empty($nombre)) $query .= " AND us.nombre LIKE '%" . $nombre . "%'";
+            if (!empty($fecha)) $query .= " AND pun.fecha_registro >= '" . $fecha . "'";
             $modelResponse = Punto::listPointByUserLider($id_usuario, $query);
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {
@@ -178,7 +182,7 @@ class ServicePoint extends System
                 }
             } else {
                 // return '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
-                return (empty($query) && $id_usuario != $id_usuario_session)? null : '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
+                return (empty($query) && $id_usuario != $id_usuario_session) ? null : '<tr><td colspan="4">No hay registros para mostrar</td></tr>';
             }
             return $tableHtml;
         } catch (\Exception $e) {
@@ -193,8 +197,8 @@ class ServicePoint extends System
             $nombre = parent::limpiarString($nombre);
             $fecha = parent::limpiarString($fecha);
             $query = ''; //filtros
-            if(!empty($nombre)) $query .= " AND us.nombre LIKE '%". $nombre . "%'";
-            if(!empty($fecha)) $query .= " AND pun.fecha_registro >= '". $fecha . "'";
+            if (!empty($nombre)) $query .= " AND us.nombre LIKE '%" . $nombre . "%'";
+            if (!empty($fecha)) $query .= " AND pun.fecha_registro >= '" . $fecha . "'";
             $modelResponse = Punto::listPointByUser($id_usuario, $query);
             if ($modelResponse) {
                 foreach ($modelResponse as $valor) {

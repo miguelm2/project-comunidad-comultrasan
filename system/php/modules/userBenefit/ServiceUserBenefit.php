@@ -44,7 +44,11 @@ class ServiceUserBenefit extends System
                             Agradecemos tu participación y esperamos que disfrutes de este nuevo recurso.<br><br>
                             Atentamente, Financiera Comultrasan';
 
-        Mail::sendEmail($asunto, $mensaje, $correo);
+        try {
+            Mail::sendEmail($asunto, $mensaje, $correo);
+        } catch (\Throwable $th) {
+            return Elements::crearMensajeAlerta(Constants::$ERROR_NOTIFICACION_CORREO, "error");
+        }
     }
     public static function deleteUserBenefit($id_usuario_beneficio)
     {
