@@ -756,8 +756,7 @@ class Elements
         }
         return $mensaje;
     }
-
-    public static function getEmailAprobacion($tipo, $data, $url)
+    public static function getEmailAprobacion($tipo, $data, $url = '')
     {
         if ($tipo == 1) { // Email para usuario registrado por link
             $mensaje = "
@@ -768,12 +767,22 @@ class Elements
                 Saludos cordiales,<br>
                 El equipo de Financiera Comultrasan
             </div></body></html>";
-        } else { // Email para líder sobre registro por link
+        } else if ($tipo == 2) { // Email para líder sobre registro por link
             $mensaje = "
             <html><body><div>
                 Estimado/a líder, <br><br>
-                " . $data->getNombre(). " se ha registrado mediante invitación y solicita unirse.<br><br>
+                " . $data->getNombre() . " se ha registrado mediante invitación y solicita unirse.<br><br>
                 <a href='" . $url . "' style='color: #007bff; text-decoration: underline;'>Revisar solicitud</a><br><br>
+                Saludos cordiales,<br>
+                El equipo de Financiera Comultrasan
+            </div></body></html>";
+        } else if ($tipo == 3) { // Email de confirmación de registro
+            $mensaje = "
+            <html><body><div>
+                Estimado/a " . $data->getNombre() . ", <br><br>
+                Tu registro ha sido completado exitosamente.<br><br>
+                Ya puedes comenzar a explorar las comunidades disponibles.<br><br>
+                <a href='" . $url . "' style='color: #007bff; text-decoration: underline;'>Ir a pagina</a><br><br>
                 Saludos cordiales,<br>
                 El equipo de Financiera Comultrasan
             </div></body></html>";

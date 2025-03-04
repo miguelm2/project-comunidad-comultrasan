@@ -72,22 +72,23 @@ class ServiceUser extends System
                     self::enviarCorreoUnionComunidad($usuarioDTO, $correo, $correo_lider);
                 }
 
+                $lastUsuario = Usuario::lastUsuario();
                 if ($result && isset($_SESSION['id'])) {
-                    $lastUsuario = Usuario::lastUsuario();
                     $text = "CREATE - USUARIO - " . $lastUsuario->getId_usuario() . " - " . $lastUsuario->getNombre() . " ----> " . $_SESSION['id'] . " - " . $_SESSION['nombre'];
                     Log::setLog($text);
                 } elseif ($result) {
-                    $lastUsuario = Usuario::lastUsuario();
                     $text = "CREATE - USUARIO - " . $lastUsuario->getId_usuario() . " - " . $lastUsuario->getNombre() . " ----> Creado desde uneté";
                     Log::setLog($text);
                 }
-
+                self::enviarCorreoRegisterUser($lastUsuario, $correo, $correo_lider);
                 return Elements::crearMensajeAlerta(Constants::$USER_NEW, "success");
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
+
+    
 
     private static function getUserByAPI($cedula)
     {
@@ -138,6 +139,18 @@ class ServiceUser extends System
             return Elements::crearMensajeAlerta(Constants::$ERROR_NOTIFICACION_CORREO, "error");
         }
     }
+    private static function enviarCorreoRegisterUser($usuarioDTO, $correo_user)
+    {
+        $asunto = "Solicitud de unión a comunidad";
+        try {
+            $url = self::getURL();
+            $mensaje_registro = Elements::getEmailAprobacion(3, $usuarioDTO, $url); // notificar por correo del usuario registrado
+            Mail::sendEmail($asunto, $mensaje_registro, $correo_user);
+        } catch (\Throwable $th) {
+            return Elements::crearMensajeAlerta(Constants::$ERROR_NOTIFICACION_CORREO, "error");
+        }
+    }
+
     private static function getURL()
     {
         // Determine the protocol (http or https)

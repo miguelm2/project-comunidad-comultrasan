@@ -12,7 +12,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/system/php/class/CodigoOTP.php';
 
 abstract  class System
 {
+    private static $instance = null;
     public static function Conexion()
+    {
+        if (self::$instance === null) {
+            self::$instance = self::getConexion();
+        }
+        return self::$instance;
+    }
+
+    public static function getConexion()
     {
         try {
             $dbname = Constants::$NOMBRE_BD;
